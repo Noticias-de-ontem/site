@@ -66,7 +66,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Cache Arquivo.pt responses
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: arquivo_cache.db
           key: arquivo-cache-${{ runner.os }}-${{ inputs.start_date }}-${{ inputs.end_date }}-${{ inputs.source_mode }}
