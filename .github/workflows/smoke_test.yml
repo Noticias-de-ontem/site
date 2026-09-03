@@ -1,0 +1,86 @@
+name: Smoke Test - Publish One Real Post
+
+on:
+  workflow_dispatch:
+
+jobs:
+  smoke_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.14.6'
+
+      - run: python -m pip install "Pillow==12.3.0" "requests==2.34.2"
+
+      - name: Run smoke test
+        env:
+          IG_ACCESS_TOKEN_PT: ${{ secrets.IG_ACCESS_TOKEN_PT }}
+          IG_USER_ID_PT: ${{ secrets.IG_USER_ID_PT }}
+          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
+        run: |
+          python - << 'EOF'
+          import os, requests
+          from PIL import Image, ImageDraw, ImageFont
+
+          def make_test_image(text, path):
+              img = Image.new('RGB', (1080, 1080), color=(20, 20, 80))
+              draw = ImageDraw.Draw(img)
+              try:
+                  font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 60)
+                  small = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 36)
+              except:
+                  font = small = ImageFont.load_default()
+              draw.text((80, 400), "🧪 SMOKE TEST", fill=(255,200,0), font=font)
+              draw.text((80, 500), text, fill=(255,255,255), font=small)
+              draw.text((80, 560), "Este post é um teste.\nPode apagar.", fill=(200,200,200), font=small)
+              img.save(path)
+
+          def upload_imgbb(path, key):
+              with open(path, 'rb') as f:
+                  r = requests.post('https://api.imgbb.com/1/upload',
+                      data={'key': key}, files={'image': f})
+              d = r.json()
+              if d.get('success'):
+                  return d['data']['url']
+              print("IMGBB error:", d)
+              return None
+
+          def publish(image_url, caption, token, user_id, lang):
+              r1 = requests.post(
+                  f"https://graph.facebook.com/v25.0/{user_id}/media",
+                  data={'image_url': image_url, 'caption': caption, 'access_token': token}
+              )
+              d1 = r1.json()
+              if 'id' not in d1:
+                  print(f"[{lang}] Container error:", d1)
+                  return
+              r2 = requests.post(
+                  f"https://graph.facebook.com/v25.0/{user_id}/media_publish",
+                  data={'creation_id': d1['id'], 'access_token': token}
+              )
+              d2 = r2.json()
+              if 'id' in d2:
+                  print(f"[{lang}] ✅ Published! Post ID: {d2['id']}")
+              else:
+                  print(f"[{lang}] ❌ Publish error:", d2)
+
+          imgbb_key = os.environ.get('IMGBB_API_KEY')
+          token = os.environ.get('IG_ACCESS_TOKEN_PT')
+          user_id = os.environ.get('IG_USER_ID_PT')
+          lang = 'pt'
+
+          if not token or not user_id:
+              print(f"[{lang}] Skipping - credentials not set")
+          else:
+              path = f"smoke_{lang}.jpg"
+              make_test_image(f"Lang: {lang.upper()}", path)
+              url = upload_imgbb(path, imgbb_key)
+              if not url:
+                  print(f"[{lang}] IMGBB failed")
+              else:
+                  caption = f"🧪 Smoke test - {lang.upper()}\nEste post foi gerado automaticamente para testar o pipeline.\n\n#teste #smoketest"
+                  publish(url, caption, token, user_id, lang)
+          EOF

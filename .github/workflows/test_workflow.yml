@@ -1,0 +1,50 @@
+name: Test Daily Instagram Publisher
+
+on:
+  # Permite correr apenas manualmente
+  workflow_dispatch:
+
+jobs:
+  test_publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.14.6'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Test Publisher Script
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN_PT: ${{ secrets.IG_ACCESS_TOKEN_PT }}
+          IG_USER_ID_PT: ${{ secrets.IG_USER_ID_PT }}
+          IG_ACCESS_TOKEN_EN: ${{ secrets.IG_ACCESS_TOKEN_EN }}
+          IG_USER_ID_EN: ${{ secrets.IG_USER_ID_EN }}
+          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GOOGLE_CSE_API_KEY: ${{ secrets.GOOGLE_CSE_API_KEY }}
+          GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
+        run: python test_publisher.py
+
+      - name: Commit and Push test output
+        if: always()
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add test_output/
+
+          # Apenas commita se existirem alterações nos ficheiros
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: test output [skip ci]" && git push)

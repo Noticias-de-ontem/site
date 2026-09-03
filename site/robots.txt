@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /*?id=
+Sitemap: https://luisflmaximo.github.io/Noticias-de-ontem-pt/sitemap.xml

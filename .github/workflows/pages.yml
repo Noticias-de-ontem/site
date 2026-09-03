@@ -1,0 +1,62 @@
+name: Deploy Website
+
+on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - "site/**"
+      - "build_site.py"
+      - "pending_posts.json"
+      - "imgbb_uploads.json"
+      - "arquivo_cdxj_state.json"
+      - "social_metrics.json"
+      - "build_arquivo_cdxj_index.py"
+      - "scraper.py"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.14.6"
+
+      - name: Install site dependencies
+        run: python -m pip install "Pillow==12.3.0" "requests==2.34.2"
+
+      - name: Build static site data
+        run: python -u build_site.py
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

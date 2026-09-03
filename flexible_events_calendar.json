@@ -1,0 +1,42 @@
+[
+  {
+    "id": "mundial_2026_final",
+    "event_type": "world_cup_final",
+    "date": "2026-07-19",
+    "name": "Final do Mundial de Futebol 2026",
+    "search_keywords": ["mundial", "campeonato do mundo", "vencedor do mundial", "campeão mundial"],
+    "prompt_instructions": "Hoje joga-se a grande final do Mundial de Futebol de 2026. Cria um post de efeméride que faça a ponte com edições passadas do Mundial (como o pentacampeonato do Brasil em 2002 ou outras edições marcantes), relembrando um feito histórico e mencionando o entusiasmo do dia de hoje.",
+    "slots": ["afternoon"],
+    "langs": ["pt", "en"]
+  },
+  {
+    "id": "champions_league_2026_final",
+    "event_type": "champions_league",
+    "date": "2026-05-30",
+    "name": "Final da Champions League 2026",
+    "search_keywords": ["champions league", "liga dos campeões", "campeão europeu", "taça dos clubes campeões"],
+    "prompt_instructions": "Hoje joga-se a final da Liga dos Campeões de 2026. Cria um post focado numa final histórica do passado da Champions League (como vitórias marcantes de equipas portuguesas ou finais épicas), fazendo a ponte com a final que decorre hoje.",
+    "slots": ["afternoon"],
+    "langs": ["pt", "en"]
+  },
+  {
+    "id": "rock_in_rio_2026_day1",
+    "event_type": "festival",
+    "date": "2026-06-20",
+    "name": "Rock in Rio Lisboa 2026 - Dia 1",
+    "search_keywords": ["rock in rio", "festival rock in rio", "concerto rock in rio"],
+    "prompt_instructions": "Hoje começa o Rock in Rio Lisboa 2026. Cria um post nostálgico que recorde concertos lendários de edições anteriores do festival em Portugal ou no Brasil (como a atuação de grandes artistas como Stevie Wonder, Amy Winehouse, Bruce Springsteen, etc.).",
+    "slots": ["morning"],
+    "langs": ["pt"]
+  },
+  {
+    "id": "glastonbury_2026_day1",
+    "event_type": "festival",
+    "date": "2026-06-24",
+    "name": "Glastonbury Festival 2026",
+    "search_keywords": ["glastonbury festival", "glastonbury concert", "worthy farm"],
+    "prompt_instructions": "Today marks the beginning of Glastonbury 2026. Create a nostalgic post recalling legendary performances from past editions of Glastonbury (such as Bowie, Beyoncé, Radiohead, etc.), linking it to today's launch.",
+    "slots": ["morning"],
+    "langs": ["en"]
+  }
+]

@@ -1,0 +1,129 @@
+name: Pregenerate PT Interval Review Queue
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: Data inicial do intervalo (YYYY-MM-DD)
+        required: true
+        type: string
+      end_date:
+        description: Data final do intervalo (YYYY-MM-DD). Se vazio, usa a data inicial.
+        required: false
+        default: ""
+        type: string
+      source_mode:
+        description: Fonte das noticias historicas. arquivo-first usa Arquivo.pt como fonte principal; local e so modo rapido.
+        required: false
+        default: "arquivo-first"
+        type: choice
+        options:
+          - arquivo-first
+          - arquivo-only
+          - local-first
+          - local
+      update_cdxj:
+        description: Atualizar indices CDXJ antes de gerar o site.
+        required: false
+        default: false
+        type: boolean
+      cdxj_collections:
+        description: Colecoes CDXJ remotas separadas por espaco. Vazio nao processa remotas completas.
+        required: false
+        default: ""
+        type: string
+      cdxj_all_remote:
+        description: Processar todas as colecoes CDXJ remotas. Muito lento; usar raramente.
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  pregenerate_interval:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup WARP
+        timeout-minutes: 10
+        uses: fscarmen/warp-on-actions@v1.4
+        with:
+          stack: dual
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.14.6'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Cache Arquivo.pt responses
+        uses: actions/cache@v4
+        with:
+          path: arquivo_cache.db
+          key: arquivo-cache-${{ runner.os }}-${{ inputs.start_date }}-${{ inputs.end_date }}-${{ inputs.source_mode }}
+          restore-keys: |
+            arquivo-cache-${{ runner.os }}-
+
+      - name: Update CDXJ indexes
+        if: ${{ inputs.update_cdxj }}
+        timeout-minutes: 330
+        run: |
+          if [ "${{ inputs.cdxj_all_remote }}" = "true" ]; then
+            python -u build_arquivo_cdxj_index.py --start-year 1996 --end-year 2026 --all-remote
+          elif [ -n "${{ inputs.cdxj_collections }}" ]; then
+            python -u build_arquivo_cdxj_index.py --start-year 1996 --end-year 2026 --collections ${{ inputs.cdxj_collections }}
+          else
+            echo "update_cdxj=true mas nenhuma colecao CDXJ foi indicada; a saltar para evitar uma run gigante."
+          fi
+
+      - name: Run Pregenerator Script (interval)
+        timeout-minutes: 330
+        env:
+          PYTHONUNBUFFERED: "1"
+          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GOOGLE_CSE_API_KEY: ${{ secrets.GOOGLE_CSE_API_KEY }}
+          GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
+          ARQUIVO_TEXTSEARCH_TIMEOUT: "90"
+          ARQUIVO_HOMEPAGE_TIMEOUT: "60"
+          ARQUIVO_CACHE_CURL_TIMEOUT: "90"
+        run: |
+          END_DATE="${{ inputs.end_date }}"
+          if [ -z "$END_DATE" ]; then
+            END_DATE="${{ inputs.start_date }}"
+          fi
+          python -u pregenerator.py --lang pt --start-date "${{ inputs.start_date }}" --end-date "$END_DATE" --source-mode "${{ inputs.source_mode }}"
+
+      - name: Build static site
+        run: python -u build_site.py
+
+      - name: Sync dynamic website
+        env:
+          SITE_API_URL: ${{ secrets.SITE_API_URL }}
+          SITE_SYNC_TOKEN: ${{ secrets.SITE_SYNC_TOKEN }}
+        run: python -u sync_dynamic_site.py
+
+      - name: Commit and Push changes
+        if: always()
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+          for f in pending_posts.json review_pt.html imgbb_uploads.json; do
+            [ -f "$f" ] && git add "$f" || true
+          done
+          [ -d images/review ] && git add images/review || true
+          [ -d site ] && git add site || true
+          [ -f arquivo_cdxj_state.json ] && git add arquivo_cdxj_state.json || true
+
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: regenerate interval posts [skip ci]" && git push)

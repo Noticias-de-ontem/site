@@ -1,0 +1,41 @@
+__pycache__/
+*.py[cod]
+*$py.class
+temp_pregen/
+instaloader.session
+login_instagram_session.cmd
+
+# Local files & active key status
+*.local.txt
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment files
+.env
+.env.local
+.env.*
+current_api_status.json
+
+# Large local/archive search data lives in private S3/R2 storage.
+arquivo_cdxj/
+topic_index_state.json
+noticias_ontem.db
+*.part
+
+# Internal planning notes are local and are not part of the public repository.
+PLANO_*.md
+
+# Local deployment notes stay out of the repository as well, except the public dynamic deployment guide.
+*deployment*.md
+!DYNAMIC_DEPLOYMENT.md
+!HF_DEPLOYMENT.md
+
+# Retired static calendar cache. Calendar entries are served by the dynamic API.
+calendar_recommendations_cache.json
+
+# Ficheiros de revisão gerados localmente pelo pregenerator.
+review_*.html

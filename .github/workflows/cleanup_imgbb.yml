@@ -1,0 +1,68 @@
+name: Cleanup Used ImgBB Images
+
+on:
+  schedule:
+    # Every four months, at 07:30 UTC on the first day of the month.
+    - cron: '30 7 1 */4 *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Simular sem apagar imagens
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+      selected_only:
+        description: Apagar apenas a opcao selecionada dos posts publicados
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+jobs:
+  cleanup_imgbb:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.14.6'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Cleanup used ImgBB images
+        run: |
+          ARGS=""
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.dry_run }}" = "false" ]; then
+            ARGS="$ARGS --apply"
+          fi
+          if [ "${{ inputs.selected_only }}" = "true" ]; then
+            ARGS="$ARGS --selected-only"
+          fi
+          python cleanup_imgbb_used.py $ARGS
+
+      - name: Commit and Push cleanup state
+        if: always()
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+          for f in pending_posts.json imgbb_uploads.json; do
+            [ -f "$f" ] && git add "$f" || true
+          done
+
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: cleanup used imgbb images [skip ci]" && git push)

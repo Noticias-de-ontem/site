@@ -1,0 +1,14 @@
+{
+  "networks": {
+    "instagram": {
+      "followers": 0,
+      "profile_url": "",
+      "updated_at": ""
+    }
+  },
+  "publications": {
+    "count": 0,
+    "post_ids": [],
+    "updated_at": ""
+  }
+}
