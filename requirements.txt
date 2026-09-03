@@ -1,4 +1,4 @@
-instaloader==4.15.2
+instaloader==4.15.3
 Pillow==12.3.0
 numpy==2.5.1
 requests==2.34.2
