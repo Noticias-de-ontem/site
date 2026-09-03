@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-03T01:52:07+00:00",
+  "generated_at": "2026-08-17T15:15:43+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/",
@@ -17,12 +17,12 @@
     "original_year": "2025",
     "image": "assets/posts/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon.jpg",
     "banner_image": "assets/banners/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon-banner.jpg",
-    "source_url": "https://arquivo.pt/wayback/20250630211405/https://bolanarede.pt/especial-bola-na-rede/atualidade/historia-nuno-borges-conquista-a-primeira-vitoria-no-wimbledon-frente-ao-no18-do-ranking/",
+    "source_url": "",
     "source_profile": "",
     "instagram_url": "",
     "instagram_id": "",
     "archive_credit": "Arquivo.pt",
-    "page_id": "noticia-e6037396764562651126c777",
+    "page_id": "noticia-cd22c7a7579a2cdeaa3cc8ca",
     "detail_image": "assets/posts/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon.jpg"
   },
   "carousel": [
@@ -40,12 +40,12 @@
       "original_year": "2025",
       "image": "assets/posts/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon.jpg",
       "banner_image": "assets/banners/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon-banner.jpg",
-      "source_url": "https://arquivo.pt/wayback/20250630211405/https://bolanarede.pt/especial-bola-na-rede/atualidade/historia-nuno-borges-conquista-a-primeira-vitoria-no-wimbledon-frente-ao-no18-do-ranking/",
+      "source_url": "",
       "source_profile": "",
       "instagram_url": "",
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
-      "page_id": "noticia-e6037396764562651126c777",
+      "page_id": "noticia-cd22c7a7579a2cdeaa3cc8ca",
       "detail_image": "assets/posts/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon.jpg"
     },
     {
@@ -108,12 +108,12 @@
       "original_year": "2025",
       "image": "assets/posts/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon.jpg",
       "banner_image": "assets/banners/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon-banner.jpg",
-      "source_url": "https://arquivo.pt/wayback/20250630211405/https://bolanarede.pt/especial-bola-na-rede/atualidade/historia-nuno-borges-conquista-a-primeira-vitoria-no-wimbledon-frente-ao-no18-do-ranking/",
+      "source_url": "",
       "source_profile": "",
       "instagram_url": "",
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
-      "page_id": "noticia-e6037396764562651126c777",
+      "page_id": "noticia-cd22c7a7579a2cdeaa3cc8ca",
       "detail_image": "assets/posts/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon.jpg"
     },
     {
@@ -198,12 +198,12 @@
       "original_year": "2025",
       "image": "assets/posts/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon.jpg",
       "banner_image": "assets/banners/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon-banner.jpg",
-      "source_url": "https://arquivo.pt/wayback/20250630211405/https://bolanarede.pt/especial-bola-na-rede/atualidade/historia-nuno-borges-conquista-a-primeira-vitoria-no-wimbledon-frente-ao-no18-do-ranking/",
+      "source_url": "",
       "source_profile": "",
       "instagram_url": "",
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
-      "page_id": "noticia-e6037396764562651126c777",
+      "page_id": "noticia-cd22c7a7579a2cdeaa3cc8ca",
       "detail_image": "assets/posts/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon.jpg"
     },
     {
@@ -260,7 +260,7 @@
       2026
     ],
     "recommendations_by_day": {},
-    "recommendations_mode": "dynamic_api",
+    "recommendations_mode": "static_posts_only",
     "target_total_per_day": 25,
     "top_instagram_posts": 4
   },
@@ -667,7 +667,7 @@
     "coverage_precise": true
   },
   "api_base_url": "",
-  "runtime_mode": "dynamic_fallback",
+  "runtime_mode": "static",
   "github_url": "https://github.com/luisflmaximo/Noticias-de-ontem-pt",
   "has_published_posts": false
 }

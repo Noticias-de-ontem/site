@@ -403,7 +403,9 @@ function monthName(monthIndex) {
 }
 
 function itemMeta(item) {
-  return item.category ? [item.category] : [];
+  const bits = [];
+  if (item.category) bits.push(`${item.category} ·`);
+  return bits;
 }
 
 function titleWithYear(item) {
@@ -544,8 +546,6 @@ function renderHero() {
     setText("#hero-summary", t("emptySummary"));
     setLink(instagram, "", t("openInstagram"), t("unavailableInstagram"));
     setLink(source, "", t("openArquivo"), t("unavailableSource"));
-    if (instagram) instagram.hidden = true;
-    if (source) source.hidden = true;
     return;
   }
 
@@ -560,9 +560,6 @@ function renderHero() {
   setText("#hero-summary", localized(item, "summary"));
   setLink(instagram, item.instagram_url, t("openInstagram"), t("unavailableInstagram"));
   setLink(source, item.source_url, t("openArquivo"), t("unavailableSource"));
-  // Um botão sem destino sai do hero em vez de aparecer desativado.
-  if (instagram) instagram.hidden = !item.instagram_url;
-  if (source) source.hidden = !item.source_url;
 }
 
 function cardImage(item, linked = false) {
@@ -914,7 +911,7 @@ function normalizedTopicText(value) {
     .trim();
 }
 
-const TOPIC_DEFAULT_COLORS = ["#0d9ba8", "#33526b", "#c85d4b", "#9b6b2f"];
+const TOPIC_DEFAULT_COLORS = ["#0b567c", "#c85d4b", "#39745f", "#9b6b2f"];
 const TOPIC_MAX_ANALYSES = 4;
 
 function validTopicColor(value, fallback = TOPIC_DEFAULT_COLORS[0]) {

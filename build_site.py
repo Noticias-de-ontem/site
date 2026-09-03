@@ -29,15 +29,11 @@ CDXJ_BUILDER_FILE = ROOT / "build_arquivo_cdxj_index.py"
 INSTAGRAM_SCRAPER_FILE = ROOT / "scraper.py"
 ICON_SOURCE = ROOT / "images" / "noticias_de_ontem_icon.png"
 ICON_ASSET = "icon.png"
-SITE_ASSET_VERSION = "20260903a"
-SITE_FONTS = [
-    "Montserrat-Regular.ttf",
-    "Montserrat-Medium.ttf",
-    "Montserrat-SemiBold.ttf",
-    "Montserrat-Bold.ttf",
-    "Montserrat-ExtraBold.ttf",
-]
 DEFAULT_PUBLIC_URL = "https://luisflmaximo.github.io/Noticias-de-ontem-pt"
+ARQUIVO_BLUE = (0, 84, 139)
+ARQUIVO_BLUE_DARK = (0, 62, 103)
+ARQUIVO_BLUE_LIGHT = (38, 126, 190)
+WHITE = (255, 255, 255)
 SOURCE_CREATED_YEARS = {
     "publico.pt": 1990,
     "expresso.pt": 1973,
@@ -120,7 +116,7 @@ def seo_block(
             f'    <meta name="description" content="{description_html}">',
             f'    <meta name="robots" content="{robots}">',
             '    <meta name="author" content="Notícias de Ontem">',
-            '    <meta name="theme-color" content="#ffffff">',
+            '    <meta name="theme-color" content="#0b567c">',
             f'    <link rel="canonical" href="{canonical_html}">',
             '    <meta property="og:site_name" content="Notícias de Ontem">',
             f'    <meta property="og:type" content="{html.escape(og_type, quote=True)}">',
@@ -471,15 +467,6 @@ def ensure_dirs():
     POST_ASSETS_DIR.mkdir(parents=True, exist_ok=True)
     BANNER_ASSETS_DIR.mkdir(parents=True, exist_ok=True)
     ASSETS_DIR.mkdir(parents=True, exist_ok=True)
-    fonts_dir = ASSETS_DIR / "fonts"
-    fonts_dir.mkdir(parents=True, exist_ok=True)
-    for font_name in SITE_FONTS:
-        source_font = ROOT / "images" / "montserrat" / font_name
-        if source_font.exists():
-            shutil.copyfile(source_font, fonts_dir / font_name)
-    ofl_license = ROOT / "images" / "montserrat" / "OFL.txt"
-    if ofl_license.exists():
-        shutil.copyfile(ofl_license, fonts_dir / "OFL.txt")
 
 
 def copy_site_image(source_path, fallback_name):
@@ -560,13 +547,11 @@ def create_banner_image(source_path, fallback_name, title, category, year):
     canvas_w, canvas_h = 1600, 700
     try:
         source_image = Image.open(source)
-        # Zona superior/média da capa: área fotográfica, longe do bloco de
-        # título que ficaria ilegível e duplicado depois do desfoque.
-        image_area = cover_image(source_image, (canvas_w, canvas_h), focus_y=0.3)
+        image_area = cover_image(source_image, (canvas_w, canvas_h), focus_y=0.7)
     except Exception:
         return ""
 
-    softened = image_area.filter(ImageFilter.GaussianBlur(radius=22))
+    softened = image_area.filter(ImageFilter.GaussianBlur(radius=7.5))
     overlay = Image.new("RGBA", (canvas_w, canvas_h), (0, 65, 106, 54))
     canvas = Image.alpha_composite(softened.convert("RGBA"), overlay).convert("RGB")
     canvas.save(target, quality=88, optimize=True)
@@ -845,8 +830,8 @@ def write_route_pages(payload):
         source_html
         .replace(f'href="assets/{ICON_ASSET}"', f'href="../assets/{ICON_ASSET}"')
         .replace(f'src="assets/{ICON_ASSET}"', f'src="../assets/{ICON_ASSET}"')
-        .replace(f'href="styles.css?v={SITE_ASSET_VERSION}"', f'href="../styles.css?v={SITE_ASSET_VERSION}"')
-        .replace(f'src="app.js?v={SITE_ASSET_VERSION}"', f'src="../app.js?v={SITE_ASSET_VERSION}"')
+        .replace('href="styles.css?v=20260718i"', 'href="../styles.css?v=20260718i"')
+        .replace('src="app.js?v=20260718i"', 'src="../app.js?v=20260718i"')
         .replace('href="inicio/"', 'href="../inicio/"')
         .replace('href="calendário/"', 'href="../calendario/"')
         .replace('href="temas/"', 'href="../temas/"')
@@ -922,8 +907,8 @@ def write_route_pages(payload):
         source_html
         .replace(f'href="assets/{ICON_ASSET}"', f'href="../../assets/{ICON_ASSET}"')
         .replace(f'src="assets/{ICON_ASSET}"', f'src="../../assets/{ICON_ASSET}"')
-        .replace(f'href="styles.css?v={SITE_ASSET_VERSION}"', f'href="../../styles.css?v={SITE_ASSET_VERSION}"')
-        .replace(f'src="app.js?v={SITE_ASSET_VERSION}"', f'src="../../app.js?v={SITE_ASSET_VERSION}"')
+        .replace('href="styles.css?v=20260718i"', 'href="../../styles.css?v=20260718i"')
+        .replace('src="app.js?v=20260718i"', 'src="../../app.js?v=20260718i"')
         .replace('href="inicio/"', 'href="../../inicio/"')
         .replace('href="calendário/"', 'href="../../calendario/"')
         .replace('href="temas/"', 'href="../../temas/"')

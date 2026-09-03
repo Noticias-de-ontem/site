@@ -3,7 +3,7 @@ import re
 import unicodedata
 from functools import lru_cache
 from io import BytesIO
-from urllib.parse import quote, unquote, urlparse
+from urllib.parse import unquote, urlparse
 
 import numpy as np
 import requests
@@ -450,138 +450,9 @@ def _looks_like_overlay_text_or_watermark(image):
 
 
 def _download_image_from_url(image_url, headers=None):
-    response = requests.get(image_url, headers=headers or {}, timeout=25)
+    response = requests.get(image_url, headers=headers or {}, timeout=10)
     response.raise_for_status()
     return Image.open(BytesIO(response.content)).convert("RGBA")
-
-
-_UA_HEADERS = {
-    "User-Agent": (
-        "NoticiasDeOntem/1.0 (https://github.com/luisflmaximo/Noticias-de-ontem-pt; background image lookup)"
-    )
-}
-
-
-def _usable_background_image(image, target_size):
-    if image.width < MIN_BACKGROUND_WIDTH or image.height < MIN_BACKGROUND_HEIGHT:
-        return None
-    if _looks_like_overlay_text_or_watermark(image):
-        return None
-    return fit_and_crop(image, target_size)
-
-
-_TITLE_STOPWORDS = {
-    "a", "o", "e", "as", "os", "um", "uma", "de", "do", "da", "dos", "das", "em", "no", "na",
-    "nos", "nas", "para", "com", "que", "ao", "aos", "por", "pelo", "pela", "sem", "sob",
-    "sobre", "entre", "the", "of", "in", "on", "at", "and", "for", "with", "from", "by",
-}
-
-
-def _page_title_relevant(query, title):
-    """Exige partilha de palavras reais entre a consulta e o título do artigo."""
-    query_tokens = {
-        token
-        for token in (_normalize_for_match(part) for part in str(query or "").split())
-        if len(token) >= 3 and token not in _TITLE_STOPWORDS and not token.isdigit()
-    }
-    if not query_tokens:
-        return True
-    title_tokens = {
-        token
-        for token in (_normalize_for_match(part) for part in str(title or "").split())
-        if token
-    }
-    return bool(query_tokens & title_tokens)
-
-
-def _fetch_wikipedia_lead_image(query, lang, target_size, exclude_urls=None):
-    """Fotografia principal do artigo da Wikipédia sobre o tema."""
-    excluded = {url for url in (exclude_urls or []) if url}
-    wiki_langs = [lang] + (["en"] if lang != "en" else [])
-    for wiki_lang in wiki_langs:
-        try:
-            res = requests.get(
-                f"https://{wiki_lang}.wikipedia.org/w/api.php",
-                params={
-                    "action": "query",
-                    "format": "json",
-                    "generator": "search",
-                    "gsrsearch": " ".join(str(query or "").split()),
-                    "gsrlimit": 3,
-                    "prop": "pageimages",
-                    "piprop": "thumbnail",
-                    "pithumbsize": 1600,
-                },
-                headers=_UA_HEADERS,
-                timeout=12,
-            )
-            if res.status_code != 200:
-                continue
-            pages = (res.json().get("query", {}) or {}).get("pages", {}) or {}
-            for page in sorted(pages.values(), key=lambda item: item.get("index", 99)):
-                page_title = str(page.get("title", ""))
-                if not _page_title_relevant(query, page_title):
-                    continue
-                thumb_url = (page.get("thumbnail") or {}).get("source", "")
-                if not thumb_url or thumb_url in excluded:
-                    continue
-                metadata_text = f"{page_title} wikipedia {wiki_lang}"
-                if _is_blocked_image_candidate(thumb_url, metadata_text=metadata_text):
-                    continue
-                try:
-                    image = _download_image_from_url(thumb_url, headers=_UA_HEADERS)
-                except Exception:
-                    continue
-                fitted = _usable_background_image(image, target_size)
-                if fitted:
-                    return fitted, f"https://{wiki_lang}.wikipedia.org/wiki/{quote(page_title.replace(' ', '_'))}"
-        except Exception as exc:
-            print(f"[{lang}] Erro Wikipédia: {exc}")
-    return None, ""
-
-
-def _fetch_openverse_image(query, lang, target_size, exclude_urls=None):
-    """Pesquisa imagens licenciadas em toda a internet via Openverse."""
-    try:
-        headers = {**_UA_HEADERS, "Accept": "application/json"}
-        openverse_key = os.environ.get("OPENVERSE_API_KEY")
-        if openverse_key:
-            headers["Authorization"] = f"Token {openverse_key}"
-        res = requests.get(
-            "https://api.openverse.org/v1/images/",
-            params={
-                "q": " ".join(str(query or "").split()),
-                "page_size": 10,
-                "mature": "false",
-            },
-            headers=headers,
-            timeout=15,
-        )
-        if res.status_code != 200:
-            print(f"[{lang}] Openverse indisponível ({res.status_code}).")
-            return None, ""
-        excluded = {url for url in (exclude_urls or []) if url}
-        for item in res.json().get("results", []):
-            image_url = item.get("url", "")
-            if not image_url or image_url in excluded:
-                continue
-            if is_volatile_image_url(image_url):
-                continue
-            metadata_text = " ".join(
-                str(item.get(key) or "") for key in ("title", "creator", "foreign_landing_url")
-            )
-            if _is_blocked_image_candidate(image_url, metadata_text=metadata_text):
-                continue
-            try:
-                image = _download_image_from_url(image_url, headers=_UA_HEADERS)
-            except Exception:
-                continue
-            fitted = _usable_background_image(image, target_size)
-            if fitted:
-                return fitted, item.get("foreign_landing_url") or image_url
-    except Exception as exc:
-        print(f"[{lang}] Erro Openverse: {exc}")
-    return None, ""
 
 
 def fetch_background_image(query, lang, google_cse_api_key=None, google_cse_id=None, target_size=TARGET_SIZE, manual_url="", exclude_urls=None):
@@ -705,7 +576,7 @@ def fetch_background_image(query, lang, google_cse_api_key=None, google_cse_id=N
                     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
                 )
             }
-            res = requests.get("https://arquivo.pt/imagesearch", params={"q": query, "format": "json", "limit": 10}, timeout=20)
+            res = requests.get("https://arquivo.pt/imagesearch", params={"q": query, "format": "json", "limit": 10}, timeout=8)
             if res.status_code == 200:
                 data = res.json()
                 items = data.get("responseItems", [])
@@ -731,16 +602,6 @@ def fetch_background_image(query, lang, google_cse_api_key=None, google_cse_id=N
                         continue
         except Exception as exc:
             print(f"[{lang}] Erro ao buscar imagem no Arquivo.pt: {exc}")
-
-    # Wikipédia costuma ter a fotografia principal de pessoas, equipas e
-    # lugares; o Openverse pesquisa imagens licenciadas por toda a internet.
-    if query:
-        image, source_url = _fetch_wikipedia_lead_image(query, lang, target_size, exclude_urls)
-        if image:
-            return image, source_url
-        image, source_url = _fetch_openverse_image(query, lang, target_size, exclude_urls)
-        if image:
-            return image, source_url
 
     return None, ""
 
@@ -1799,27 +1660,15 @@ def create_image_with_text(
 
     if background_image is None:
         query = _build_background_search_query(title_to_draw, background_query, category_to_draw)
-        # A consulta completa pode ser demasiado longa para as pesquisas de
-        # imagem; repetir pelo tema e pelo título evita ficar sem fundo
-        # fotográfico quando a primeira variante não devolve nada utilizável.
-        theme_query = _normalize_text_value(background_query)
-        title_query = _normalize_text_value(title_to_draw)
-        query_candidates = []
-        for candidate in (query, theme_query, title_query):
-            if candidate and candidate not in query_candidates:
-                query_candidates.append(candidate)
-        for candidate in query_candidates:
-            background_image, background_source_url = fetch_background_image(
-                candidate,
-                lang,
-                google_cse_api_key=google_cse_api_key,
-                google_cse_id=google_cse_id,
-                target_size=TARGET_SIZE,
-                manual_url=manual_background_url,
-                exclude_urls=exclude_background_urls,
-            )
-            if background_image is not None:
-                break
+        background_image, background_source_url = fetch_background_image(
+            query,
+            lang,
+            google_cse_api_key=google_cse_api_key,
+            google_cse_id=google_cse_id,
+            target_size=TARGET_SIZE,
+            manual_url=manual_background_url,
+            exclude_urls=exclude_background_urls,
+        )
 
     resolved_layout = resolve_layout_name(
         layout_name=layout_name,
