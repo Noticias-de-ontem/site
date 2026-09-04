@@ -215,7 +215,6 @@ Secrets and variables used by the workflows, depending on the enabled functional
 
 - `NVIDIA_API_KEY` and `NVIDIA_MODEL`;
 - `GEMINI_API_KEY`;
-- `GOOGLE_CSE_API_KEY` and `GOOGLE_CSE_ID`;
 - `IMGBB_API_KEY`;
 - `IG_ACCESS_TOKEN_PT` and `IG_USER_ID_PT`.
 - `SITE_API_URL` and `SITE_SYNC_TOKEN` for dynamic synchronization;

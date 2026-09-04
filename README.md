@@ -215,7 +215,6 @@ Segredos e variáveis usados pelos fluxos, conforme a funcionalidade ativa:
 
 - `NVIDIA_API_KEY` e `NVIDIA_MODEL`;
 - `GEMINI_API_KEY`;
-- `GOOGLE_CSE_API_KEY` e `GOOGLE_CSE_ID`;
 - `IMGBB_API_KEY`;
 - `IG_ACCESS_TOKEN_PT` e `IG_USER_ID_PT`.
 - `SITE_API_URL` e `SITE_SYNC_TOKEN` para sincronização dinâmica;

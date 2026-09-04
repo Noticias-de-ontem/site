@@ -8,8 +8,6 @@ from urllib.parse import unquote, urlparse
 import numpy as np
 import requests
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageStat
-from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
 
 
 TARGET_SIZE = (1080, 1350)
@@ -156,7 +154,6 @@ VOLATILE_IMAGE_HOST_TERMS = {
 }
 MIN_BACKGROUND_WIDTH = 1000
 MIN_BACKGROUND_HEIGHT = 1000
-_GOOGLE_CSE_DISABLED = False
 
 
 def _normalize_text_value(text, uppercase=False):
@@ -455,9 +452,14 @@ def _download_image_from_url(image_url, headers=None):
     return Image.open(BytesIO(response.content)).convert("RGBA")
 
 
-def fetch_background_image(query, lang, google_cse_api_key=None, google_cse_id=None, target_size=TARGET_SIZE, manual_url="", exclude_urls=None):
-    global _GOOGLE_CSE_DISABLED
-
+def fetch_background_image(
+    query,
+    lang,
+    target_size=TARGET_SIZE,
+    manual_url="",
+    exclude_urls=None,
+    **kwargs,
+):
     if manual_url:
         if is_volatile_image_url(manual_url):
             print(f"[{lang}] Imagem manual ignorada: URL temporario do Instagram/Facebook CDN.")
@@ -470,54 +472,7 @@ def fetch_background_image(query, lang, google_cse_api_key=None, google_cse_id=N
                 print(f"[{lang}] Erro imagem manual: {exc}")
                 print(f"[{lang}] Vou tentar pesquisa automatica de imagem como fallback...")
 
-    if not _GOOGLE_CSE_DISABLED and google_cse_api_key and google_cse_id and query:
-        try:
-            excluded = {url for url in (exclude_urls or []) if url}
-            headers = {
-                "User-Agent": (
-                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
-                )
-            }
-            service = build("customsearch", "v1", developerKey=google_cse_api_key)
-            result = service.cse().list(
-                q=_build_search_query(query),
-                cx=google_cse_id,
-                searchType="image",
-                imgSize="LARGE",
-                imgType="photo",
-                num=8,
-                safe="active",
-            ).execute()
-
-            if "items" in result and result["items"]:
-                for item in result["items"]:
-                    image_url = item.get("link", "")
-                    if not image_url or image_url in excluded:
-                        continue
-                    if is_volatile_image_url(image_url):
-                        continue
-                    if _is_blocked_image_candidate(image_url, metadata_text=_candidate_metadata_text(item)):
-                        continue
-                    if _metadata_is_blocked(item):
-                        continue
-
-                    try:
-                        image = _download_image_from_url(image_url, headers=headers)
-                        if image.width >= MIN_BACKGROUND_WIDTH and image.height >= MIN_BACKGROUND_HEIGHT:
-                            if not _looks_like_overlay_text_or_watermark(image):
-                                return fit_and_crop(image, target_size), image_url
-                    except Exception:
-                        continue
-        except HttpError as exc:
-            status = getattr(getattr(exc, "resp", None), "status", None)
-            if status in (401, 403):
-                _GOOGLE_CSE_DISABLED = True
-                print(f"[{lang}] Google CSE indisponível para este projeto ({status}). Vou usar o Arquivo.pt...")
-            else:
-                print(f"[{lang}] Erro Google CSE: {exc}")
-        except Exception as exc:
-            print(f"[{lang}] Erro Google CSE: {exc}")
+    # 1. Wikimedia Commons fallback
 
     if query:
         try:
@@ -1638,6 +1593,7 @@ def create_image_with_text(
     exclude_background_urls=None,
     return_details=False,
     year=None,
+    **kwargs,
 ):
     del overlay_path
 
@@ -1663,8 +1619,6 @@ def create_image_with_text(
         background_image, background_source_url = fetch_background_image(
             query,
             lang,
-            google_cse_api_key=google_cse_api_key,
-            google_cse_id=google_cse_id,
             target_size=TARGET_SIZE,
             manual_url=manual_background_url,
             exclude_urls=exclude_background_urls,

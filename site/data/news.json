@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T15:15:43+00:00",
+  "generated_at": "2026-09-04T20:30:06+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/",
@@ -260,7 +260,7 @@
       2026
     ],
     "recommendations_by_day": {},
-    "recommendations_mode": "static_posts_only",
+    "recommendations_mode": "dynamic_api",
     "target_total_per_day": 25,
     "top_instagram_posts": 4
   },
@@ -272,7 +272,7 @@
     "instagram_sources": 14,
     "unique_sources": 34,
     "published_posts": 0,
-    "social_followers": 0,
+    "social_followers": 240,
     "social_networks": 1,
     "news_source_domains": [
       "abola.pt",
@@ -667,7 +667,7 @@
     "coverage_precise": true
   },
   "api_base_url": "",
-  "runtime_mode": "static",
+  "runtime_mode": "dynamic_fallback",
   "github_url": "https://github.com/luisflmaximo/Noticias-de-ontem-pt",
   "has_published_posts": false
 }

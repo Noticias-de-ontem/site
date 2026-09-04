@@ -41,8 +41,6 @@ save_key_status_to_file()
 def rotate_nvidia_client():
     return nvidia_pool.rotate()
 
-GOOGLE_CSE_API_KEY = os.environ.get("GOOGLE_CSE_API_KEY")
-GOOGLE_CSE_ID = os.environ.get("GOOGLE_CSE_ID")
 IMGBB_API_KEY = os.environ.get("IMGBB_API_KEY")
 PREGENERATOR_SOURCE_MODE = os.environ.get("PREGENERATOR_SOURCE_MODE", "arquivo-first")
 MAX_NVIDIA_INPUT_ITEMS = int(os.environ.get("PREGENERATOR_NVIDIA_MAX_INPUT_ITEMS", "80"))
@@ -421,8 +419,6 @@ def create_image_with_text(
         layout_preference=layout_preference,
         breaking_candidate=breaking_candidate,
         background_query=background_query,
-        google_cse_api_key=GOOGLE_CSE_API_KEY,
-        google_cse_id=GOOGLE_CSE_ID,
         manual_background_url=manual_background_url,
         exclude_background_urls=exclude_background_urls,
         return_details=return_details,

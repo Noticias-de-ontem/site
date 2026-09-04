@@ -65,12 +65,29 @@ SOURCE_CREATED_YEARS = {
 }
 
 
+def load_env_defaults():
+    env_path = ROOT / ".env"
+    if env_path.is_file():
+        for raw_line in env_path.read_text(encoding="utf-8").splitlines():
+            line = raw_line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, val = line.split("=", 1)
+            key = key.strip()
+            val = val.strip().strip("'\"")
+            if key not in os.environ or os.environ[key] in ("utilizador/nome-do-space", "utilizador/noticias-de-ontem"):
+                os.environ[key] = val
+
+
+load_env_defaults()
+
+
 def public_site_url():
     configured = clean_text(os.environ.get("SITE_PUBLIC_URL"))
     if configured:
         return configured
     space_id = clean_text(os.environ.get("HF_SPACE_ID"))
-    if "/" in space_id:
+    if "/" in space_id and "utilizador" not in space_id:
         return f"https://{space_id.replace('/', '-')}.hf.space"
     return DEFAULT_PUBLIC_URL
 

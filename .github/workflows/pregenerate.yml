@@ -41,8 +41,6 @@ jobs:
           IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GOOGLE_CSE_API_KEY: ${{ secrets.GOOGLE_CSE_API_KEY }}
-          GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
           ARQUIVO_TEXTSEARCH_TIMEOUT: "90"
           ARQUIVO_HOMEPAGE_TIMEOUT: "60"
           ARQUIVO_CACHE_CURL_TIMEOUT: "90"

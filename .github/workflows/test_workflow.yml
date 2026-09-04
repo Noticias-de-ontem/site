@@ -35,8 +35,6 @@ jobs:
           IG_USER_ID_EN: ${{ secrets.IG_USER_ID_EN }}
           IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GOOGLE_CSE_API_KEY: ${{ secrets.GOOGLE_CSE_API_KEY }}
-          GOOGLE_CSE_ID: ${{ secrets.GOOGLE_CSE_ID }}
         run: python test_publisher.py
 
       - name: Commit and Push test output

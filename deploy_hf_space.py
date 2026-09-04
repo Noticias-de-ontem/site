@@ -10,7 +10,23 @@ from huggingface_hub import HfApi
 ROOT = Path(__file__).resolve().parent
 
 
+def load_env_defaults():
+    env_path = ROOT / ".env"
+    if env_path.is_file():
+        for raw_line in env_path.read_text(encoding="utf-8").splitlines():
+            line = raw_line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, val = line.split("=", 1)
+            key = key.strip()
+            val = val.strip().strip("'\"")
+            # If not set, or if set to the generic placeholder from documentation
+            if key not in os.environ or os.environ[key] in ("utilizador/nome-do-space", "utilizador/noticias-de-ontem"):
+                os.environ[key] = val
+
+
 def main():
+    load_env_defaults()
     parser = argparse.ArgumentParser(
         description="Envia a pasta site/ para um Hugging Face Static Space."
     )

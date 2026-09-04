@@ -72,8 +72,6 @@ def copy_image_reference_to_path(image_url, output_path, timeout=10):
         return True
     return False
 
-GOOGLE_CSE_API_KEY = os.environ.get("GOOGLE_CSE_API_KEY")
-GOOGLE_CSE_ID = os.environ.get("GOOGLE_CSE_ID")
 MAX_NVIDIA_INPUT_ITEMS = int(os.environ.get("PUBLISHER_NVIDIA_MAX_INPUT_ITEMS", "8"))
 ARQUIVO_AI_MAX_CANDIDATES = int(os.environ.get("ARQUIVO_AI_MAX_CANDIDATES", "300"))
 ARQUIVO_TEXTSEARCH_TIMEOUT = int(os.environ.get("ARQUIVO_TEXTSEARCH_TIMEOUT", "90"))
@@ -1324,8 +1322,6 @@ def create_image_with_text(
         layout_preference=layout_preference,
         breaking_candidate=breaking_candidate,
         background_query=background_query,
-        google_cse_api_key=GOOGLE_CSE_API_KEY,
-        google_cse_id=GOOGLE_CSE_ID,
         manual_background_url=manual_background_url,
     )
     print(f"[{lang}] Imagem guardada: {output_path}")
