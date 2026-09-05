@@ -7,4 +7,4 @@ requests==2.34.2
 
 # Security floors for transitive dependencies reported by dependency scanning.
 h11==0.16.0
-idna==3.18
+idna==3.19

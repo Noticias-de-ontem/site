@@ -5,4 +5,4 @@ sqlalchemy==2.0.51
 psycopg[binary]==3.3.4
 
 # Security floor for the requests dependency tree.
-idna==3.18
+idna==3.19
