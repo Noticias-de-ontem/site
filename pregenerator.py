@@ -120,7 +120,16 @@ STRONG_TOPIC_KEYWORDS = [
     "madonna", "lady gaga", "tecnologia", "iphone", "apple", "google", "spacex", "tesla",
     "internet", "viral", "meme", "curioso", "insólito", "insolito", "bizarro", "recorde",
     "estreia", "primeiro", "histórico", "historico", "vitória", "vitoria", "campeão",
-    "campeao", "oscar", "televisão", "televisao"
+    "campeao", "oscar", "televisão", "televisao",
+    # Notícia forte nacional/internacional — deve competir com desporto/famosos.
+    "eleições", "eleicoes", "presidenciais", "legislativas", "autárquicas", "autarquicas",
+    "governo", "primeiro-ministro", "primeiro ministro", "presidente", "parlamento",
+    "assembleia da república", "assembleia da republica", "cimeira", "referendo",
+    "constituição", "constituicao", "acordo", "tratado", "brexit", "corrupção", "corrupcao",
+    "julgamento", "tribunal", "terramoto", "furacão", "furacao", "cheias", "incêndio",
+    "incendio", "pandemia", "vacina", "banco central", "economia", "desemprego",
+    "atentado", "acidente", "resgatado", "desaparecido", "emergência", "emergencia",
+    "ue", "união europeia", "uniao europeia", "nato", "onu", "nações unidas", "nacoes unidas"
 ]
 WEAK_TOPIC_KEYWORDS = [
     "segundo a ap", "durante a reunião", "reunião pública", "executivo municipal",
@@ -294,6 +303,7 @@ def build_fallback_options(news_items, lang, limit=5):
         caption = compact_text(cleaned_text or title, limit=600)
         options.append(
             {
+                "article_url": normalize_text(item.get("source_url") or item.get("url") or ""),
                 "year": normalize_text(item.get("date", "")[:4]),
                 "category": infer_category_from_text(cleaned_text or title, lang),
                 "title": title,
@@ -566,6 +576,13 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
             else:
                 options = payload if isinstance(payload, list) else []
             if isinstance(options, list):
+                candidates_by_year = {}
+                for item in filtered_items:
+                    candidates_by_year.setdefault(str(item.get("date", ""))[:4], []).append(item)
+
+                def _option_tokens(text):
+                    return set(re.findall(r"[a-záâãéêíóôõúç]{4,}", normalize_text(text).lower()))
+
                 for option in options:
                     if not isinstance(option, dict):
                         continue
@@ -577,6 +594,18 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
                     option["image_theme"] = normalize_text(option.get("image_theme", ""))
                     option["caption"] = normalize_text(option.get("caption", ""))
                     option["summary"] = normalize_text(option.get("summary", ""))
+                    # Ligar a opção à notícia candidata correspondente (ano +
+                    # palavras partilhadas) para o snapshot apontar à página certa.
+                    option["article_url"] = ""
+                    pool = candidates_by_year.get(option["year"][:4], [])
+                    opt_tokens = _option_tokens(f"{option.get('title', '')} {option.get('summary', '')}")
+                    best, best_score = None, 0
+                    for candidate in pool:
+                        score = len(opt_tokens & _option_tokens(build_editorial_context(candidate)))
+                        if score > best_score:
+                            best, best_score = candidate, score
+                    if best and best_score >= 2:
+                        option["article_url"] = normalize_text(best.get("source_url") or best.get("url") or "")
             return options if isinstance(options, list) and options else []
         except Exception as e:
             err_msg = str(e).lower()
@@ -947,14 +976,18 @@ def prepare_options_for_review(
             option["image_delete_url"] = imgbb_upload.get("delete_url", "")
             option["local_image_path"] = local_review_url
             background_src = ""
+            background_local = ""
             if isinstance(render_details, dict):
                 background_src = render_details.get("background_source_url", "")
+                background_local = render_details.get("background_local_path", "")
             option["background_source_url"] = normalize_text(background_src)
+            option["local_background_path"] = normalize_text(background_local)
         else:
             option["image_url"] = ""
             option["image_delete_url"] = ""
             option["local_image_path"] = ""
             option["background_source_url"] = ""
+            option["local_background_path"] = ""
 
         option["image_theme"] = normalize_text(option.get("image_theme", ""))
         option["layout_preference"] = str(option.get("layout_preference", "template_1")).strip().lower().replace("-", "_")
@@ -1796,8 +1829,10 @@ def generate_pending_posts_for_interval(pending_posts, lang, start_date, end_dat
 
         external_suggestions = generate_external_day_suggestions(current_date, lang, options_list)
         slot1_base_options = options_list[:5]
-        slot2_base_options = options_list[5:10] if len(options_list) > 5 else options_list
-        slots_to_create = [1, 2] if len(options_list) >= 2 else [1]
+        slot2_base_options = options_list[5:10]
+        # O segundo slot só existe quando a IA devolveu opções distintas dele;
+        # com poucas opções, duplicar o slot 1 não acrescenta nada ao site.
+        slots_to_create = [1, 2] if len(slot2_base_options) >= 2 else [1]
 
         for slot in slots_to_create:
             post_id = f"{lang}_{date_str}_{slot}"

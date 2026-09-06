@@ -3,7 +3,7 @@ import re
 import unicodedata
 from functools import lru_cache
 from io import BytesIO
-from urllib.parse import unquote, urlparse
+from urllib.parse import quote, unquote, urlparse
 
 import numpy as np
 import requests
@@ -247,22 +247,40 @@ def get_font(key, size):
     return ImageFont.load_default()
 
 
+def _face_focus_offsets(image):
+    """Ponto focal (x, y) normalizado com base nos rostos detetados."""
+    try:
+        boxes = _detect_face_boxes(image)
+    except Exception:
+        return 0.5, 0.5
+    if not boxes:
+        return 0.5, 0.5
+    total_weight = sum(_box_area(box) for box in boxes) or 1
+    center_x = sum((box[0] + box[2]) / 2 * _box_area(box) for box in boxes) / total_weight / max(image.width, 1)
+    center_y = sum((box[1] + box[3]) / 2 * _box_area(box) for box in boxes) / total_weight / max(image.height, 1)
+    # Os rostos ficam melhor no terço superior do enquadramento final.
+    return min(max(center_x, 0.0), 1.0), min(max(center_y - 0.12, 0.0), 1.0)
+
+
 def fit_and_crop(image, target_size):
     image = image.convert("RGBA")
     source_ratio = image.width / image.height
     target_ratio = target_size[0] / target_size[1]
+    focus_x, focus_y = _face_focus_offsets(image)
 
     if source_ratio > target_ratio:
         resized_height = target_size[1]
         resized_width = int(resized_height * source_ratio)
         image = image.resize((resized_width, resized_height), Image.Resampling.LANCZOS)
-        left = (resized_width - target_size[0]) // 2
+        max_left = max(resized_width - target_size[0], 0)
+        left = int(max_left * focus_x)
         image = image.crop((left, 0, left + target_size[0], target_size[1]))
     else:
         resized_width = target_size[0]
         resized_height = int(resized_width / source_ratio)
         image = image.resize((resized_width, resized_height), Image.Resampling.LANCZOS)
-        top = (resized_height - target_size[1]) // 2
+        max_top = max(resized_height - target_size[1], 0)
+        top = int(max_top * focus_y)
         image = image.crop((0, top, target_size[0], top + target_size[1]))
 
     return image
@@ -447,9 +465,138 @@ def _looks_like_overlay_text_or_watermark(image):
 
 
 def _download_image_from_url(image_url, headers=None):
-    response = requests.get(image_url, headers=headers or {}, timeout=10)
+    response = requests.get(image_url, headers=headers or {}, timeout=25)
     response.raise_for_status()
     return Image.open(BytesIO(response.content)).convert("RGBA")
+
+
+_UA_HEADERS = {
+    "User-Agent": (
+        "NoticiasDeOntem/1.0 (https://github.com/Noticias-de-ontem/site; background image lookup)"
+    )
+}
+
+
+def _usable_background_image(image, target_size):
+    if image.width < MIN_BACKGROUND_WIDTH or image.height < MIN_BACKGROUND_HEIGHT:
+        return None
+    if _looks_like_overlay_text_or_watermark(image):
+        return None
+    return fit_and_crop(image, target_size)
+
+
+_TITLE_STOPWORDS = {
+    "a", "o", "e", "as", "os", "um", "uma", "de", "do", "da", "dos", "das", "em", "no", "na",
+    "nos", "nas", "para", "com", "que", "ao", "aos", "por", "pelo", "pela", "sem", "sob",
+    "sobre", "entre", "the", "of", "in", "on", "at", "and", "for", "with", "from", "by",
+}
+
+
+def _page_title_relevant(query, title):
+    """Exige partilha de palavras reais entre a consulta e o título do artigo."""
+    query_tokens = {
+        token
+        for token in (_normalize_for_match(part) for part in str(query or "").split())
+        if len(token) >= 3 and token not in _TITLE_STOPWORDS and not token.isdigit()
+    }
+    if not query_tokens:
+        return True
+    title_tokens = {
+        token
+        for token in (_normalize_for_match(part) for part in str(title or "").split())
+        if token
+    }
+    return bool(query_tokens & title_tokens)
+
+
+def _fetch_wikipedia_lead_image(query, lang, target_size, exclude_urls=None):
+    """Fotografia principal do artigo da Wikipédia sobre o tema."""
+    excluded = {url for url in (exclude_urls or []) if url}
+    wiki_langs = [lang] + (["en"] if lang != "en" else [])
+    for wiki_lang in wiki_langs:
+        try:
+            res = requests.get(
+                f"https://{wiki_lang}.wikipedia.org/w/api.php",
+                params={
+                    "action": "query",
+                    "format": "json",
+                    "generator": "search",
+                    "gsrsearch": " ".join(str(query or "").split()),
+                    "gsrlimit": 3,
+                    "prop": "pageimages",
+                    "piprop": "thumbnail",
+                    "pithumbsize": 1600,
+                },
+                headers=_UA_HEADERS,
+                timeout=12,
+            )
+            if res.status_code != 200:
+                continue
+            pages = (res.json().get("query", {}) or {}).get("pages", {}) or {}
+            for page in sorted(pages.values(), key=lambda item: item.get("index", 99)):
+                page_title = str(page.get("title", ""))
+                if not _page_title_relevant(query, page_title):
+                    continue
+                thumb_url = (page.get("thumbnail") or {}).get("source", "")
+                if not thumb_url or thumb_url in excluded:
+                    continue
+                metadata_text = f"{page_title} wikipedia {wiki_lang}"
+                if _is_blocked_image_candidate(thumb_url, metadata_text=metadata_text):
+                    continue
+                try:
+                    image = _download_image_from_url(thumb_url, headers=_UA_HEADERS)
+                except Exception:
+                    continue
+                fitted = _usable_background_image(image, target_size)
+                if fitted:
+                    return fitted, f"https://{wiki_lang}.wikipedia.org/wiki/{quote(page_title.replace(' ', '_'))}"
+        except Exception as exc:
+            print(f"[{lang}] Erro Wikipédia: {exc}")
+    return None, ""
+
+
+def _fetch_openverse_image(query, lang, target_size, exclude_urls=None):
+    """Pesquisa imagens licenciadas em toda a internet via Openverse."""
+    try:
+        headers = {**_UA_HEADERS, "Accept": "application/json"}
+        openverse_key = os.environ.get("OPENVERSE_API_KEY")
+        if openverse_key:
+            headers["Authorization"] = f"Token {openverse_key}"
+        res = requests.get(
+            "https://api.openverse.org/v1/images/",
+            params={
+                "q": " ".join(str(query or "").split()),
+                "page_size": 10,
+                "mature": "false",
+            },
+            headers=headers,
+            timeout=25,
+        )
+        if res.status_code != 200:
+            print(f"[{lang}] Openverse indisponível ({res.status_code}).")
+            return None, ""
+        excluded = {url for url in (exclude_urls or []) if url}
+        for item in res.json().get("results", []):
+            image_url = item.get("url", "")
+            if not image_url or image_url in excluded:
+                continue
+            if is_volatile_image_url(image_url):
+                continue
+            metadata_text = " ".join(
+                str(item.get(key) or "") for key in ("title", "creator", "foreign_landing_url")
+            )
+            if _is_blocked_image_candidate(image_url, metadata_text=metadata_text):
+                continue
+            try:
+                image = _download_image_from_url(image_url, headers=_UA_HEADERS)
+            except Exception:
+                continue
+            fitted = _usable_background_image(image, target_size)
+            if fitted:
+                return fitted, item.get("foreign_landing_url") or image_url
+    except Exception as exc:
+        print(f"[{lang}] Erro Openverse: {exc}")
+    return None, ""
 
 
 def fetch_background_image(
@@ -531,7 +678,7 @@ def fetch_background_image(
                     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
                 )
             }
-            res = requests.get("https://arquivo.pt/imagesearch", params={"q": query, "format": "json", "limit": 10}, timeout=8)
+            res = requests.get("https://arquivo.pt/imagesearch", params={"q": query, "format": "json", "limit": 10}, timeout=20)
             if res.status_code == 200:
                 data = res.json()
                 items = data.get("responseItems", [])
@@ -557,6 +704,16 @@ def fetch_background_image(
                         continue
         except Exception as exc:
             print(f"[{lang}] Erro ao buscar imagem no Arquivo.pt: {exc}")
+
+    # Wikipédia costuma ter a fotografia principal de pessoas, equipas e
+    # lugares; o Openverse pesquisa imagens licenciadas por toda a internet.
+    if query:
+        image, source_url = _fetch_wikipedia_lead_image(query, lang, target_size, exclude_urls)
+        if image:
+            return image, source_url
+        image, source_url = _fetch_openverse_image(query, lang, target_size, exclude_urls)
+        if image:
+            return image, source_url
 
     return None, ""
 
@@ -605,7 +762,9 @@ def _build_top_fade(size, end_ratio, end_alpha, color=(255, 255, 255)):
 
 
 def _default_background(size):
-    return _build_gradient(size, (92, 92, 92, 255), (20, 20, 20, 255)).filter(ImageFilter.GaussianBlur(2))
+    # Fundo escuro da marca (estilo "última hora"): sem foto, o essencial é
+    # o texto branco sobre um preto profundo, não um cinza lavado.
+    return _build_gradient(size, (30, 33, 39, 255), (10, 13, 16, 255)).filter(ImageFilter.GaussianBlur(2))
 
 
 def _load_fallback_background(template_path, size):
@@ -622,54 +781,32 @@ def _prepare_dark_background(background_image, template_path, size):
     if background_image is None:
         background_image = _load_fallback_background(template_path, size)
     else:
+        # Foto em full-bleed com as cores naturais: o escuro fica apenas no
+        # degradé local atrás do texto, aplicado por cada template.
         background_image = fit_and_crop(background_image, size)
+        background_image = ImageEnhance.Contrast(background_image).enhance(1.04)
+        background_image = background_image.filter(ImageFilter.GaussianBlur(0.6))
 
-    background_image = ImageEnhance.Color(background_image).enhance(0.58)
-    background_image = ImageEnhance.Brightness(background_image).enhance(0.60)
-    background_image = ImageEnhance.Contrast(background_image).enhance(0.94)
-    background_image = background_image.filter(ImageFilter.GaussianBlur(1.2))
-    background_image = Image.alpha_composite(
-        background_image,
-        _build_gradient(size, (66, 66, 66, 110), (0, 0, 0, 96)),
-    )
     return background_image
 
 
 def _prepare_template_1_background(background_image, template_path, size):
     background = _prepare_dark_background(background_image, template_path, size)
-    background = Image.alpha_composite(background, _build_vertical_fade(size, 0.50, 228))
+    background = Image.alpha_composite(background, _build_vertical_fade(size, 0.42, 235))
     return background
 
 
 def _prepare_template_2_background(background_image, template_path, size):
-    if background_image is None:
-        background_image = _load_fallback_background(template_path, size)
-    else:
-        background_image = fit_and_crop(background_image, size)
-
-    background_image = ImageEnhance.Color(background_image).enhance(0.78)
-    background_image = ImageEnhance.Brightness(background_image).enhance(0.92)
-    background_image = ImageEnhance.Contrast(background_image).enhance(0.98)
-    background_image = background_image.filter(ImageFilter.GaussianBlur(0.9))
-    background_image = Image.alpha_composite(
-        background_image,
-        _build_top_fade(size, 0.70, 232),
-    )
-    background_image = Image.alpha_composite(
-        background_image,
-        _build_gradient(size, (255, 255, 255, 24), (0, 0, 0, 18)),
-    )
-    return background_image
+    background = _prepare_dark_background(background_image, template_path, size)
+    # O texto do template 2 vive na metade superior: faixa escura no topo,
+    # foto a mostrar-se na parte inferior.
+    background = Image.alpha_composite(background, _build_top_fade(size, 0.58, 215, color=(0, 0, 0)))
+    return background
 
 
 def _prepare_template_3_background(background_image, template_path, size):
     background = _prepare_dark_background(background_image, template_path, size)
-    background = ImageEnhance.Brightness(background).enhance(0.82)
-    background = Image.alpha_composite(
-        background,
-        _build_gradient(size, (0, 0, 0, 86), (0, 0, 0, 46)),
-    )
-    background = Image.alpha_composite(background, _build_vertical_fade(size, 0.44, 205))
+    background = Image.alpha_composite(background, _build_vertical_fade(size, 0.40, 225))
     return background
 
 
@@ -1616,13 +1753,25 @@ def create_image_with_text(
 
     if background_image is None:
         query = _build_background_search_query(title_to_draw, background_query, category_to_draw)
-        background_image, background_source_url = fetch_background_image(
-            query,
-            lang,
-            target_size=TARGET_SIZE,
-            manual_url=manual_background_url,
-            exclude_urls=exclude_background_urls,
-        )
+        # A consulta completa pode ser demasiado longa para as pesquisas de
+        # imagem; repetir pelo tema e pelo título evita ficar sem fundo
+        # fotográfico quando a primeira variante não devolve nada utilizável.
+        theme_query = _normalize_text_value(background_query)
+        title_query = _normalize_text_value(title_to_draw)
+        query_candidates = []
+        for candidate in (query, theme_query, title_query):
+            if candidate and candidate not in query_candidates:
+                query_candidates.append(candidate)
+        for candidate in query_candidates:
+            background_image, background_source_url = fetch_background_image(
+                candidate,
+                lang,
+                target_size=TARGET_SIZE,
+                manual_url=manual_background_url,
+                exclude_urls=exclude_background_urls,
+            )
+            if background_image is not None:
+                break
 
     resolved_layout = resolve_layout_name(
         layout_name=layout_name,
@@ -1630,6 +1779,23 @@ def create_image_with_text(
         background_image=background_image,
         breaking_candidate=breaking_candidate,
     )
+
+    # Guardar a fotografia de fundo original (sem texto) para o site gerar o
+    # banner do carrossel e as imagens dos cartões a partir dela.
+    background_local_path = ""
+    if background_image is not None and output_path:
+        try:
+            review_dir = os.path.dirname(os.path.abspath(output_path))
+            backgrounds_dir = os.path.join(os.path.dirname(os.path.dirname(review_dir)), "backgrounds")
+            os.makedirs(backgrounds_dir, exist_ok=True)
+            background_local_path = os.path.join(
+                backgrounds_dir,
+                f"{os.path.splitext(os.path.basename(output_path))[0]}-fundo.jpg",
+            ).replace(os.sep, "/")
+            background_image.convert("RGB").save(background_local_path, quality=92)
+        except Exception as exc:
+            print(f"[{lang}] Nao foi possivel guardar a foto de fundo: {exc}")
+            background_local_path = ""
 
     if resolved_layout == "template_4":
         resolved_layout = "template_1"
@@ -1690,6 +1856,7 @@ def create_image_with_text(
             "background_source_url": background_source_url,
             "background_query": background_query,
             "resolved_layout": resolved_layout,
+            "background_local_path": background_local_path,
         }
 
     return output_path

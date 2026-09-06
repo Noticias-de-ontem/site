@@ -668,7 +668,11 @@ def get_today_news_from_arquivo(lang, month, day):
     else:
         sources = []
 
-    years = list(range(1996, 2026))
+    # Intervalo de anos configurável (ARQUIVO_SEARCH_YEAR_START/END) para
+    # acelerar runs locais e permitir foco em épocas com índice pesquisável.
+    year_start = int(os.environ.get("ARQUIVO_SEARCH_YEAR_START", "1996"))
+    year_end = int(os.environ.get("ARQUIVO_SEARCH_YEAR_END", "2026"))
+    years = list(range(year_start, year_end))
     candidate_articles = []
     search_terms = [
         term.strip()

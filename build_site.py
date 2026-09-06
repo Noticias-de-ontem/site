@@ -11,6 +11,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 import requests
+import numpy as np
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 
@@ -29,10 +30,15 @@ CDXJ_BUILDER_FILE = ROOT / "build_arquivo_cdxj_index.py"
 INSTAGRAM_SCRAPER_FILE = ROOT / "scraper.py"
 ICON_SOURCE = ROOT / "images" / "noticias_de_ontem_icon.png"
 ICON_ASSET = "icon.png"
-DEFAULT_PUBLIC_URL = "https://luisflmaximo.github.io/Noticias-de-ontem-pt"
-ARQUIVO_BLUE = (0, 84, 139)
-ARQUIVO_BLUE_DARK = (0, 62, 103)
-ARQUIVO_BLUE_LIGHT = (38, 126, 190)
+SITE_ASSET_VERSION = "20260905g"
+SITE_FONTS = [
+    "Montserrat-Regular.ttf",
+    "Montserrat-Medium.ttf",
+    "Montserrat-SemiBold.ttf",
+    "Montserrat-Bold.ttf",
+    "Montserrat-ExtraBold.ttf",
+]
+DEFAULT_PUBLIC_URL = "https://noticias-de-ontem.github.io/site"
 WHITE = (255, 255, 255)
 SOURCE_CREATED_YEARS = {
     "publico.pt": 1990,
@@ -133,7 +139,7 @@ def seo_block(
             f'    <meta name="description" content="{description_html}">',
             f'    <meta name="robots" content="{robots}">',
             '    <meta name="author" content="Notícias de Ontem">',
-            '    <meta name="theme-color" content="#0b567c">',
+            '    <meta name="theme-color" content="#ffffff">',
             f'    <link rel="canonical" href="{canonical_html}">',
             '    <meta property="og:site_name" content="Notícias de Ontem">',
             f'    <meta property="og:type" content="{html.escape(og_type, quote=True)}">',
@@ -457,9 +463,11 @@ def news_page_id(item):
 
 def arquivo_screenshot_url(source_url):
     source_url = clean_text(source_url)
-    if not source_url or "arquivo.pt/" not in source_url:
+    # A API de screenshots recebe apenas URLs preservados (wayback) — nunca
+    # páginas de pesquisa ou outras do próprio arquivo.
+    if not source_url or "arquivo.pt/wayback/" not in source_url:
         return ""
-    return f"https://arquivo.pt/screenshot/?url={quote(source_url, safe='')}"
+    return f"https://arquivo.pt/screenshot?url={quote(source_url, safe='')}"
 
 
 def has_enduring_editorial_value(item):
@@ -483,7 +491,17 @@ def ensure_dirs():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     POST_ASSETS_DIR.mkdir(parents=True, exist_ok=True)
     BANNER_ASSETS_DIR.mkdir(parents=True, exist_ok=True)
+    (ASSETS_DIR / "snapshots").mkdir(parents=True, exist_ok=True)
     ASSETS_DIR.mkdir(parents=True, exist_ok=True)
+    fonts_dir = ASSETS_DIR / "fonts"
+    fonts_dir.mkdir(parents=True, exist_ok=True)
+    for font_name in SITE_FONTS:
+        source_font = ROOT / "images" / "montserrat" / font_name
+        if source_font.exists():
+            shutil.copyfile(source_font, fonts_dir / font_name)
+    ofl_license = ROOT / "images" / "montserrat" / "OFL.txt"
+    if ofl_license.exists():
+        shutil.copyfile(ofl_license, fonts_dir / "OFL.txt")
 
 
 def copy_site_image(source_path, fallback_name):
@@ -516,15 +534,35 @@ def load_font(weight="regular", size=48):
         return ImageFont.load_default()
 
 
-def cover_image(image, size, focus_y=0.5):
+def smart_image_focus(image):
+    """Ponto focal (x, y) por deteção de rostos; centro-superior como fallback."""
+    try:
+        import cv2  # noqa: F401
+
+        gray = cv2.cvtColor(np.array(image.convert("RGB")), cv2.COLOR_RGB2GRAY)
+        gray = cv2.equalizeHist(gray)
+        detector = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+        faces = detector.detectMultiScale(gray, scaleFactor=1.08, minNeighbors=4, minSize=(56, 56))
+        if len(faces) == 0:
+            return 0.5, 0.3
+        weights = [w * h for (x, y, w, h) in faces]
+        total = sum(weights) or 1
+        center_x = sum((x + w / 2) * weight for (x, y, w, h), weight in zip(faces, weights)) / total / image.width
+        center_y = sum((y + h / 2) * weight for (x, y, w, h), weight in zip(faces, weights)) / total / image.height
+        return min(max(center_x, 0.0), 1.0), min(max(center_y - 0.12, 0.0), 1.0)
+    except Exception:
+        return 0.5, 0.3
+
+
+def cover_image(image, size, focus_y=0.5, focus_x=0.5):
     image = image.convert("RGB")
     target_w, target_h = size
     src_w, src_h = image.size
     scale = max(target_w / src_w, target_h / src_h)
     resized = image.resize((int(src_w * scale), int(src_h * scale)), Image.LANCZOS)
-    left = max((resized.width - target_w) // 2, 0)
+    left = int(max(resized.width - target_w, 0) * min(max(focus_x, 0.0), 1.0))
     max_top = max(resized.height - target_h, 0)
-    top = int(max_top * min(max(float(focus_y), 0.0), 1.0))
+    top = int(max_top * min(max(focus_y, 0.0), 1.0))
     return resized.crop((left, top, left + target_w, top + target_h))
 
 
@@ -554,7 +592,7 @@ def draw_wrapped_text(draw, xy, text, font, fill, max_width, line_gap=8, max_lin
     return y
 
 
-def create_banner_image(source_path, fallback_name, title, category, year):
+def create_banner_image(source_path, fallback_name, title, category, year, sharp=False):
     del title, category, year
     source = source_path if source_path and source_path.exists() else ICON_SOURCE
     if not source.exists():
@@ -564,13 +602,20 @@ def create_banner_image(source_path, fallback_name, title, category, year):
     canvas_w, canvas_h = 1600, 700
     try:
         source_image = Image.open(source)
-        image_area = cover_image(source_image, (canvas_w, canvas_h), focus_y=0.7)
+        # Banner do carrossel/hero: fotografia limpa, sem texto, com o
+        # enquadramento escolhido por deteção de rostos. Sem foto de fundo,
+        # cai-se para a capa desfocada como textura.
+        focus_x, focus_y = smart_image_focus(source_image) if sharp else (0.5, 0.3)
+        image_area = cover_image(source_image, (canvas_w, canvas_h), focus_y=focus_y, focus_x=focus_x)
     except Exception:
         return ""
 
-    softened = image_area.filter(ImageFilter.GaussianBlur(radius=7.5))
-    overlay = Image.new("RGBA", (canvas_w, canvas_h), (0, 65, 106, 54))
-    canvas = Image.alpha_composite(softened.convert("RGBA"), overlay).convert("RGB")
+    if sharp:
+        canvas = image_area.convert("RGB")
+    else:
+        softened = image_area.filter(ImageFilter.GaussianBlur(radius=22))
+        overlay = Image.new("RGBA", (canvas_w, canvas_h), (0, 65, 106, 54))
+        canvas = Image.alpha_composite(softened.convert("RGBA"), overlay).convert("RGB")
     canvas.save(target, quality=88, optimize=True)
     return f"assets/banners/{target.name}"
 
@@ -608,10 +653,22 @@ def post_to_site_item(post, registry_by_post_id):
     if not title:
         return None
 
-    summary = strip_hashtags(option.get("summary") or option.get("caption") or option.get("overlay_description"))
+    # O resumo público é a frase em português desenhada para a capa; o
+    # "summary" interno da IA é apenas para revisão (pode vir em inglês).
+    summary = strip_hashtags(
+        option.get("overlay_description")
+        or option.get("caption")
+        or option.get("summary")
+    )
     image_path = clean_text(option.get("local_image_path"))
     source_local_image = local_source_path(image_path)
-    image = copy_site_image(image_path, f"{post.get('date', '')}-{post.get('slot', '')}-{title}")
+    # A foto de fundo original (sem texto) alimenta os cartões e a página da
+    # notícia, como nos sites de notícias; a capa com texto é só para o Instagram.
+    background_local = local_source_path(option.get("local_background_path"))
+    card_source = background_local or source_local_image
+    image = copy_site_image(card_source, f"{post.get('date', '')}-{post.get('slot', '')}-{title}") if card_source else ""
+    if not image:
+        image = copy_site_image(image_path, f"{post.get('date', '')}-{post.get('slot', '')}-{title}")
     if not image:
         image = clean_text(option.get("image_url") or registry_record.get("image_url"))
 
@@ -620,17 +677,29 @@ def post_to_site_item(post, registry_by_post_id):
     publish_date = clean_text(post.get("date"))
     category = clean_text(option.get("category") or "Atualidade")
     banner_image = create_banner_image(
-        source_local_image,
+        background_local or source_local_image,
         f"{publish_date}-{post.get('slot', '')}-{title}",
         title,
         category,
         original_year,
+        sharp=bool(background_local),
     )
-    source_url = clean_text(
+    # Ligação da notícia preservada: a URL do artigo tem prioridade. A origem
+    # da foto de fundo só serve se for do mesmo ano da notícia; caso contrário
+    # cai para a pesquisa do título no índice preservado.
+    photo_source = clean_text(
         option.get("background_source_url")
         or option.get("source_url")
         or post.get("source_url")
     )
+    source_url = clean_text(option.get("article_url") or "")
+    if not source_url:
+        capture_year = re.search(r"wayback/(\d{4})", photo_source)
+        if capture_year and capture_year.group(1) == clean_text(original_year):
+            source_url = photo_source
+    if not source_url:
+        search_title = re.sub(r"\s+", " ", title).strip()
+        source_url = f"https://arquivo.pt/textsearch?q={quote(search_title, safe='')}"
     instagram_url = clean_text(
         post.get("instagram_url")
         or option.get("instagram_url")
@@ -638,6 +707,11 @@ def post_to_site_item(post, registry_by_post_id):
         or registry_record.get("permalink")
     )
     instagram_id = clean_text(post.get("instagram_id") or registry_record.get("instagram_id"))
+    # Texto adicional para a página da notícia (sem repetir o resumo).
+    body = strip_hashtags(option.get("overlay_description") or option.get("description") or "")
+    if body and body == clean_text(option.get("summary") or ""):
+        body = ""
+    caption = strip_hashtags(option.get("caption") or "")
     item = {
         "id": post_id,
         "lang": clean_text(post.get("lang") or "pt"),
@@ -652,6 +726,8 @@ def post_to_site_item(post, registry_by_post_id):
         "original_year": original_year,
         "image": image,
         "banner_image": banner_image,
+        "body": body,
+        "caption": caption,
         "source_url": source_url,
         "source_profile": clean_text(post.get("source_profile") or option.get("source_profile")),
         "instagram_url": instagram_url,
@@ -659,7 +735,17 @@ def post_to_site_item(post, registry_by_post_id):
         "archive_credit": "Arquivo.pt",
     }
     item["page_id"] = news_page_id(item)
-    item["detail_image"] = image or arquivo_screenshot_url(source_url)
+    # A página da notícia usa o banner já enquadrado (1600×700, sem texto);
+    # a capa 4:5 com texto fica reservada ao Instagram.
+    item["detail_image"] = banner_image or image or arquivo_screenshot_url(source_url)
+    # Snapshot da página preservada da própria notícia (a ligação já garante
+    # o contexto certo; sem origem utilizável não há snapshot).
+    snapshot_local = ASSETS_DIR / "snapshots" / f"{item['page_id']}.jpg"
+    item["snapshot_url"] = (
+        f"assets/snapshots/{snapshot_local.name}"
+        if snapshot_local.exists()
+        else arquivo_screenshot_url(source_url)
+    )
     return item
 
 
@@ -674,6 +760,41 @@ def build_calendar_payload(items):
         "target_total_per_day": 25,
         "top_instagram_posts": 4,
     }
+
+
+def select_carousel_items(items, limit=10):
+    """Rotação do carrossel: começa pelo destaque mais recente e prioriza a
+    diversidade — no máximo um post por combinação fonte + ano na primeira
+    passada; as restantes vagas são preenchidas por ordem de prioridade."""
+    if len(items) <= limit:
+        return list(items)
+    chosen = []
+    chosen_ids = set()
+
+    def diversity_key(item):
+        return (
+            clean_text(item.get("source_profile") or item.get("domain") or ""),
+            clean_text(item.get("original_year")),
+        )
+
+    used_keys = set()
+    for item in items:
+        if len(chosen) >= limit:
+            break
+        key = diversity_key(item)
+        if key in used_keys:
+            continue
+        chosen.append(item)
+        chosen_ids.add(id(item))
+        used_keys.add(key)
+    for item in items:
+        if len(chosen) >= limit:
+            break
+        if id(item) in chosen_ids:
+            continue
+        chosen.append(item)
+        chosen_ids.add(id(item))
+    return chosen
 
 
 def build_payload():
@@ -756,7 +877,7 @@ def build_payload():
         "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
         "instagram_profile_url": os.environ.get("INSTAGRAM_PROFILE_URL", "https://www.instagram.com/"),
         "featured": featured,
-        "carousel": public_items[:8],
+        "carousel": select_carousel_items(public_items, 10),
         "latest": published[:12] if published else public_items[:12],
         "all": items,
         "calendar": build_calendar_payload(items),
@@ -774,7 +895,7 @@ def build_payload():
         },
         "api_base_url": "" if static_site_only() else clean_text(os.environ.get("SITE_API_BASE_URL")),
         "runtime_mode": "static" if static_site_only() else "dynamic_fallback",
-        "github_url": "https://github.com/luisflmaximo/Noticias-de-ontem-pt",
+        "github_url": "https://github.com/Noticias-de-ontem/site",
         "has_published_posts": bool(published),
     }
 
@@ -845,14 +966,14 @@ def write_route_pages(payload):
     source_html = index_path.read_text(encoding="utf-8")
     route_shell = (
         source_html
-        .replace(f'href="assets/{ICON_ASSET}"', f'href="../assets/{ICON_ASSET}"')
-        .replace(f'src="assets/{ICON_ASSET}"', f'src="../assets/{ICON_ASSET}"')
-        .replace('href="styles.css?v=20260718i"', 'href="../styles.css?v=20260718i"')
-        .replace('src="app.js?v=20260718i"', 'src="../app.js?v=20260718i"')
+        .replace(f'href="assets/{ICON_ASSET}', f'href="../assets/{ICON_ASSET}')
+        .replace(f'src="assets/{ICON_ASSET}', f'src="../assets/{ICON_ASSET}')
+        .replace(f'href="styles.css?v={SITE_ASSET_VERSION}"', f'href="../styles.css?v={SITE_ASSET_VERSION}"')
+        .replace(f'src="app.js?v={SITE_ASSET_VERSION}"', f'src="../app.js?v={SITE_ASSET_VERSION}"')
         .replace('href="inicio/"', 'href="../inicio/"')
-        .replace('href="calendário/"', 'href="../calendario/"')
+        .replace('href="calendario/"', 'href="../calendario/"')
         .replace('href="temas/"', 'href="../temas/"')
-        .replace('href="documentação/"', 'href="../documentacao/"')
+        .replace('href="documentacao/"', 'href="../documentacao/"')
     )
     route_metadata = {
         "inicio": (
@@ -922,14 +1043,14 @@ def write_route_pages(payload):
     indexed_story_urls = []
     nested_shell = (
         source_html
-        .replace(f'href="assets/{ICON_ASSET}"', f'href="../../assets/{ICON_ASSET}"')
-        .replace(f'src="assets/{ICON_ASSET}"', f'src="../../assets/{ICON_ASSET}"')
-        .replace('href="styles.css?v=20260718i"', 'href="../../styles.css?v=20260718i"')
-        .replace('src="app.js?v=20260718i"', 'src="../../app.js?v=20260718i"')
+        .replace(f'href="assets/{ICON_ASSET}', f'href="../../assets/{ICON_ASSET}')
+        .replace(f'src="assets/{ICON_ASSET}', f'src="../../assets/{ICON_ASSET}')
+        .replace(f'href="styles.css?v={SITE_ASSET_VERSION}"', f'href="../../styles.css?v={SITE_ASSET_VERSION}"')
+        .replace(f'src="app.js?v={SITE_ASSET_VERSION}"', f'src="../../app.js?v={SITE_ASSET_VERSION}"')
         .replace('href="inicio/"', 'href="../../inicio/"')
-        .replace('href="calendário/"', 'href="../../calendario/"')
+        .replace('href="calendario/"', 'href="../../calendario/"')
         .replace('href="temas/"', 'href="../../temas/"')
-        .replace('href="documentação/"', 'href="../../documentacao/"')
+        .replace('href="documentacao/"', 'href="../../documentacao/"')
     )
     for item in payload.get("all", []):
         page_id = clean_text(item.get("page_id"))

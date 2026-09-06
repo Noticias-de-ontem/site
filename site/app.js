@@ -71,6 +71,16 @@ const i18n = {
     heroEyebrow: "Notícia principal",
     carouselEyebrow: "Seleção editorial",
     carouselTitle: "Histórias em destaque",
+    heroPreviousSlide: "Destaque anterior",
+    heroNextSlide: "Destaque seguinte",
+    exploreTitle: "Explorar o projeto",
+    exploreCalendarTitle: "Explorar por data",
+    exploreCalendarBody: "Notícias do mesmo dia em vários anos, preservadas pelo Arquivo.pt.",
+    exploreTopicsTitle: "Evolução de temas",
+    exploreTopicsBody: "Compara a presença de um assunto no índice preservado, ano a ano.",
+    exploreDocsTitle: "Como funciona",
+    exploreDocsBody: "O método, as fontes e a cobertura do projeto, em números.",
+    footerInstagram: "Instagram",
     latestEyebrow: "Arquivo social",
     latestTitle: "Últimas notícias publicadas",
     latestPreviewNote: "Ainda sem posts marcados como publicados; mostramos a fila preparada para revisão.",
@@ -97,6 +107,7 @@ const i18n = {
     calendarLoadError: "Não foi possível carregar as recomendações deste dia.",
     calendarNoResults: "Não foram encontradas notícias para esta data e fonte.",
     dayRecommendationsTitle: "Notícias importantes deste dia:",
+    monthRecommendationsTitle: "Notícias importantes de",
     openDay: "Abrir dia",
     topicsEyebrow: "Pesquisa histórica",
     topicsTitle: "Evolução de um tema",
@@ -111,7 +122,7 @@ const i18n = {
     topicFromLabel: "De",
     topicToLabel: "Até",
     topicSubmit: "Analisar",
-    topicAllSources: "Todas as fontes",
+    topicAllSources: "Todas as fontes disponíveis",
     topicApiCredit: "Contagem verificada nos resultados indexados pelo Arquivo.pt.",
     topicLoadingNote: "Pode demorar devido ao grande volume de conteúdos analisados. Para pesquisas muito amplas, escolhe uma fonte ou reduz o intervalo.",
     topicCoverageUneven: "A cobertura da pesquisa varia conforme o ano e a fonte; zero significa que o índice não devolveu resultados nesse período.",
@@ -129,6 +140,12 @@ const i18n = {
     newsNotFound: "Notícia não encontrada",
     newsNotFoundBody: "Este endereço já não corresponde a uma notícia disponível.",
     newsBack: "Voltar ao calendário",
+    publishedOn: "Publicado a",
+    originalYearLabel: "Notícia original de",
+    snapshotCaption: "Página original preservada no Arquivo.pt",
+    snapshotSectionTitle: "A página preservada",
+    snapshotCaptured: "Captura de",
+    viewOriginal: "Ver página original",
     docsEyebrow: "Documentação",
     docsTitle: "Como funciona o projeto",
     docsLead: "Notícias de Ontem devolve ao presente histórias preservadas na web e ajuda a percorrer a memória noticiosa por data e por tema.",
@@ -173,6 +190,16 @@ const i18n = {
     heroEyebrow: "Lead story",
     carouselEyebrow: "Editorial selection",
     carouselTitle: "Featured stories",
+    heroPreviousSlide: "Previous highlight",
+    heroNextSlide: "Next highlight",
+    exploreTitle: "Explore the project",
+    exploreCalendarTitle: "Explore by date",
+    exploreCalendarBody: "News from the same day across the years, preserved by Arquivo.pt.",
+    exploreTopicsTitle: "Topic evolution",
+    exploreTopicsBody: "Compare how a subject appears in the preserved index, year by year.",
+    exploreDocsTitle: "How it works",
+    exploreDocsBody: "The method, the sources and the project's coverage, in numbers.",
+    footerInstagram: "Instagram",
     latestEyebrow: "Social archive",
     latestTitle: "Latest published stories",
     latestPreviewNote: "No posts are marked as published yet; showing the prepared review queue.",
@@ -199,6 +226,7 @@ const i18n = {
     calendarLoadError: "The recommendations for this day could not be loaded.",
     calendarNoResults: "No stories were found for this date and source.",
     dayRecommendationsTitle: "Important stories from this day:",
+    monthRecommendationsTitle: "Important stories from",
     openDay: "Open day",
     topicsEyebrow: "Historical search",
     topicsTitle: "How a topic evolved",
@@ -213,7 +241,7 @@ const i18n = {
     topicFromLabel: "From",
     topicToLabel: "To",
     topicSubmit: "Analyse",
-    topicAllSources: "All sources",
+    topicAllSources: "All available sources",
     topicApiCredit: "Count verified against results indexed by Arquivo.pt.",
     topicLoadingNote: "This may take a while because of the large volume being analysed. For very broad searches, choose a source or shorten the range.",
     topicCoverageUneven: "Search coverage varies by year and source; zero means the index returned no results for that period.",
@@ -231,6 +259,12 @@ const i18n = {
     newsNotFound: "Story not found",
     newsNotFoundBody: "This address no longer matches an available story.",
     newsBack: "Back to the calendar",
+    publishedOn: "Published on",
+    originalYearLabel: "Original story from",
+    snapshotCaption: "Original page preserved by Arquivo.pt",
+    snapshotSectionTitle: "The preserved page",
+    snapshotCaptured: "Captured on",
+    viewOriginal: "View original page",
     docsEyebrow: "Documentation",
     docsTitle: "How the project works",
     docsLead: "Notícias de Ontem brings preserved web stories back into view and lets people explore news memory by date and topic.",
@@ -394,7 +428,8 @@ function ensureCalendarDate() {
   state.selectedDate = fromUrl || todayIsoDate();
   state.calendarYear = dateYear(state.selectedDate);
   state.calendarMonth = Number(state.selectedDate.slice(5, 7));
-  if (state.calendarPickerVisible === null) state.calendarPickerVisible = !fromUrl;
+  // A grelha do mês fica sempre visível: é a forma mais simples de navegar.
+  state.calendarPickerVisible = true;
 }
 
 function monthName(monthIndex) {
@@ -403,9 +438,7 @@ function monthName(monthIndex) {
 }
 
 function itemMeta(item) {
-  const bits = [];
-  if (item.category) bits.push(`${item.category} ·`);
-  return bits;
+  return item.category ? [item.category] : [];
 }
 
 function titleWithYear(item) {
@@ -531,6 +564,14 @@ function updateDocumentMetadata() {
   if (structuredData) structuredData.textContent = JSON.stringify(structured);
 }
 
+function renderHeroDots(heroItems) {
+  const dots = document.getElementById("hero-dots");
+  if (!dots) return;
+  dots.innerHTML = heroItems.map((item, index) => `
+    <button type="button" class="hero-dot${index === state.slide ? " active" : ""}" data-hero-dot="${index}" aria-label="${escapeHtml(`${index + 1} — ${titleWithYear(item)}`)}"><span class="hero-dot-fill"></span></button>
+  `).join("");
+}
+
 function renderHero() {
   const heroItems = state.data?.carousel?.length ? state.data.carousel : [state.data?.featured].filter(Boolean);
   const item = heroItems.length ? heroItems[state.slide % heroItems.length] : null;
@@ -538,6 +579,7 @@ function renderHero() {
   const instagram = document.getElementById("hero-instagram");
   const source = document.getElementById("hero-source");
   const detail = document.getElementById("hero-detail");
+  renderHeroDots(heroItems);
   if (!item) {
     hero.style.backgroundImage = `url('${assetPath("assets/icon.png")}')`;
     setText("#hero-detail", t("emptyTitle"));
@@ -546,6 +588,8 @@ function renderHero() {
     setText("#hero-summary", t("emptySummary"));
     setLink(instagram, "", t("openInstagram"), t("unavailableInstagram"));
     setLink(source, "", t("openArquivo"), t("unavailableSource"));
+    if (instagram) instagram.hidden = true;
+    if (source) source.hidden = true;
     return;
   }
 
@@ -560,6 +604,9 @@ function renderHero() {
   setText("#hero-summary", localized(item, "summary"));
   setLink(instagram, item.instagram_url, t("openInstagram"), t("unavailableInstagram"));
   setLink(source, item.source_url, t("openArquivo"), t("unavailableSource"));
+  // Um botão sem destino sai do hero em vez de aparecer desativado.
+  if (instagram) instagram.hidden = !item.instagram_url;
+  if (source) source.hidden = !item.source_url;
 }
 
 function cardImage(item, linked = false) {
@@ -626,6 +673,14 @@ function calendarPostsForDate(dateValue) {
     .slice(0, state.data?.calendar?.top_instagram_posts || 4);
 }
 
+function calendarPostsForMonth(year, month) {
+  const monthStr = String(month).padStart(2, "0");
+  return (state.data?.all || [])
+    .filter((item) => dateYear(item.date) === year && String(item.date || "").slice(5, 7) === monthStr)
+    .sort((a, b) => `${b.date}-${b.slot || 0}`.localeCompare(`${a.date}-${a.slot || 0}`))
+    .slice(0, state.data?.calendar?.top_instagram_posts || 4);
+}
+
 function calendarRecommendationsForDate(dateValue, usedItems) {
   const targetMonthDay = monthDay(dateValue);
   const selectedYear = dateYear(dateValue);
@@ -667,11 +722,12 @@ function calendarSourcesForDate(dateValue) {
 }
 
 function renderCalendarNavigation() {
-  const picker = document.getElementById("calendar-date-picker");
   const source = document.getElementById("calendar-source");
   const largePicker = document.getElementById("calendar-picker-panel");
-  if (picker) picker.value = state.selectedDate;
   if (largePicker) largePicker.hidden = !state.calendarPickerVisible;
+  setText("#calendar-month-label", monthName(state.calendarMonth - 1));
+  setText("#calendar-year-label", String(state.calendarYear));
+  setText("#calendar-date-label", formatDate(state.selectedDate));
   if (!source) return;
   const sources = calendarSourcesForDate(state.selectedDate);
   if (state.calendarSource && !sources.includes(state.calendarSource)) state.calendarSource = "";
@@ -701,22 +757,9 @@ function storyCard(item, options = {}) {
   `;
 }
 
-function renderCalendarMonthOptions() {
-  const select = document.getElementById("calendar-month");
-  if (!select) return;
-  select.innerHTML = Array.from({ length: 12 }, (_, index) => {
-    const value = index + 1;
-    return `<option value="${value}" ${value === state.calendarMonth ? "selected" : ""}>${escapeHtml(monthName(index))}</option>`;
-  }).join("");
-}
-
 function renderCalendarGrid() {
   const grid = document.getElementById("calendar-grid");
-  const yearInput = document.getElementById("calendar-year");
-  if (!grid || !yearInput) return;
-
-  renderCalendarMonthOptions();
-  yearInput.value = state.calendarYear;
+  if (!grid) return;
 
   const firstDay = new Date(state.calendarYear, state.calendarMonth - 1, 1);
   const daysInMonth = new Date(state.calendarYear, state.calendarMonth, 0).getDate();
@@ -749,10 +792,24 @@ function renderCalendarGrid() {
 function renderDayPanel() {
   const panel = document.getElementById("day-panel");
   if (!panel) return;
-  const posts = state.calendarSource ? [] : calendarPostsForDate(state.selectedDate);
+  // A navegar por um mês diferente do dia selecionado, o painel mostra as
+  // notícias importantes desse mês (mesmo limite e comportamento do dia).
+  const viewingMonth = dateYear(state.selectedDate) !== state.calendarYear
+    || Number(state.selectedDate.slice(5, 7)) !== state.calendarMonth;
+  const posts = state.calendarSource
+    ? []
+    : (viewingMonth
+        ? calendarPostsForMonth(state.calendarYear, state.calendarMonth)
+        : calendarPostsForDate(state.selectedDate));
   const targetTotal = state.data?.calendar?.target_total_per_day || 25;
   const recommendationLimit = Math.max(targetTotal - posts.length, 0);
   const recommendations = calendarRecommendationsForDate(state.selectedDate, posts).slice(0, recommendationLimit);
+  const headingDate = viewingMonth
+    ? `${monthName(state.calendarMonth - 1)} ${state.calendarYear}`
+    : formatDate(state.selectedDate);
+  const headingTitle = viewingMonth
+    ? `${t("monthRecommendationsTitle")} ${headingDate}:`
+    : t("dayRecommendationsTitle");
   const stateMessage = state.calendarLoading
     ? `<p class="calendar-status">${escapeHtml(t("calendarLoading"))}</p>`
     : state.calendarError
@@ -764,8 +821,8 @@ function renderDayPanel() {
   panel.innerHTML = `
     <div class="day-panel-heading">
       <div>
-        <p class="eyebrow">${escapeHtml(formatDate(state.selectedDate))}</p>
-        <h2>${escapeHtml(t("dayRecommendationsTitle"))}</h2>
+        <p class="eyebrow">${escapeHtml(headingDate)}</p>
+        <h2>${escapeHtml(headingTitle)}</h2>
       </div>
     </div>
     ${stateMessage}
@@ -856,6 +913,31 @@ async function loadDynamicNewsItem(pageId) {
   }
 }
 
+function articleParagraphs(item) {
+  const seen = new Set();
+  const paragraphs = [];
+  [localized(item, "summary"), item.body, item.caption].forEach((text) => {
+    const value = String(text || "").trim();
+    if (!value || seen.has(value)) return;
+    seen.add(value);
+    paragraphs.push(value);
+  });
+  return paragraphs;
+}
+
+function snapshotCaptureDate(item) {
+  const match = String(item?.source_url || "").match(/wayback\/(\d{14})/);
+  if (!match) return "";
+  const value = match[1];
+  const date = new Date(`${value.slice(0, 4)}-${value.slice(4, 6)}-${value.slice(6, 8)}T12:00:00`);
+  if (Number.isNaN(date.getTime())) return "";
+  return new Intl.DateTimeFormat(state.lang === "pt" ? "pt-PT" : "en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(date);
+}
+
 function renderNewsDetail() {
   const container = document.getElementById("news-detail");
   if (!container) return;
@@ -867,7 +949,7 @@ function renderNewsDetail() {
         <p class="eyebrow">${escapeHtml(t("newsEyebrow"))}</p>
         <h1 id="news-detail-title">${escapeHtml(t("newsNotFound"))}</h1>
         <p>${escapeHtml(t("newsNotFoundBody"))}</p>
-        <a class="button primary" href="${escapeHtml(routeUrl("calendário"))}" data-route-link="calendar">${escapeHtml(t("newsBack"))}</a>
+        <a class="button primary" href="${escapeHtml(routeUrl("calendario"))}" data-route-link="calendar">${escapeHtml(t("newsBack"))}</a>
       </div>
     `;
     updateDocumentMetadata();
@@ -875,23 +957,51 @@ function renderNewsDetail() {
   }
 
   const title = titleWithYear(item);
-  const sourceName = item.domain || item.source_profile || "Arquivo.pt";
   const image = assetPath(item.detail_image || item.image || item.banner_image || "assets/icon.png");
-  const meta = [item.category, sourceName].filter(Boolean).join(" · ");
+  const category = item.category || "";
+  // Categoria + Arquivo.pt são o cabeçalho principal; as datas ficam por baixo.
+  const meta = [category, "Arquivo.pt"].filter(Boolean).join(" · ");
+  const dateLine = [
+    item.date ? `${t("publishedOn")} ${formatDate(item.date)}` : "",
+    item.original_year ? `${t("originalYearLabel")} ${item.original_year}` : "",
+  ].filter(Boolean).join(" · ");
+  const paragraphs = articleParagraphs(item);
+  const snapshotUrl = item.snapshot_url ? assetPath(item.snapshot_url) : "";
+  const capturedOn = snapshotCaptureDate(item);
   container.innerHTML = `
-    <div class="news-detail-copy">
-      <p class="eyebrow">${escapeHtml(t("newsEyebrow"))}</p>
-      <p class="news-detail-meta">${escapeHtml(meta)}</p>
-      <h1 id="news-detail-title">${escapeHtml(title)}</h1>
-      <p class="news-detail-summary">${escapeHtml(localized(item, "summary"))}</p>
-      <div class="news-detail-actions">
-        ${item.instagram_url ? `<a class="button primary" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenInstagram"))}</a>` : ""}
-        ${item.source_url ? `<a class="button secondary" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenArquivo"))}</a>` : ""}
+    <article class="news-article">
+      <header class="news-article-head">
+        <p class="news-article-meta">
+          ${category ? `<span class="meta-pill">${escapeHtml(category)}</span>` : ""}
+          <span class="meta-source">Arquivo.pt</span>
+        </p>
+        <h1 id="news-detail-title">${escapeHtml(title)}</h1>
+        ${dateLine ? `<p class="news-article-dates">${escapeHtml(dateLine)}</p>` : ""}
+      </header>
+      ${image ? `<figure class="news-article-figure"><img id="news-detail-image" src="${escapeHtml(image)}" alt="${escapeHtml(title)}"></figure>` : ""}
+      <div class="news-article-body">
+        ${paragraphs.map((paragraph, index) => `<p${index === 0 ? ' class="news-article-lead"' : ""}>${escapeHtml(paragraph)}</p>`).join("")}
+        ${snapshotUrl ? `
+        <section class="news-article-snapshot">
+          <h2 class="news-article-sub">${escapeHtml(t("snapshotSectionTitle"))}</h2>
+          <figure class="news-article-snapshot-frame">
+          <div class="news-article-snapshot-head">
+            <strong>arquivo.pt</strong>
+            ${capturedOn ? `<span>${escapeHtml(`${t("snapshotCaptured")} ${capturedOn}`)}</span>` : ""}
+          </div>
+          <img src="${escapeHtml(snapshotUrl)}" alt="${escapeHtml(t("snapshotCaption"))}" loading="lazy">
+          <figcaption>
+            <span>${escapeHtml(t("snapshotCaption"))}</span>
+            ${item.source_url ? `<a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("viewOriginal"))} →</a>` : ""}
+          </figcaption>
+          </figure>
+        </section>` : ""}
+        <div class="news-article-actions">
+          ${item.instagram_url ? `<a class="button primary" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenInstagram"))}</a>` : ""}
+          ${item.source_url ? `<a class="button secondary" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenArquivo"))}</a>` : ""}
+        </div>
       </div>
-    </div>
-    <figure class="news-detail-figure">
-      <img id="news-detail-image" src="${escapeHtml(image)}" alt="${escapeHtml(title)}">
-    </figure>
+    </article>
   `;
   const detailImage = document.getElementById("news-detail-image");
   detailImage?.addEventListener("error", () => {
@@ -911,7 +1021,7 @@ function normalizedTopicText(value) {
     .trim();
 }
 
-const TOPIC_DEFAULT_COLORS = ["#0b567c", "#c85d4b", "#39745f", "#9b6b2f"];
+const TOPIC_DEFAULT_COLORS = ["#0d9ba8", "#33526b", "#c85d4b", "#9b6b2f"];
 const TOPIC_MAX_ANALYSES = 4;
 
 function validTopicColor(value, fallback = TOPIC_DEFAULT_COLORS[0]) {
@@ -1031,7 +1141,7 @@ async function fetchTopicProbe(query, source, fromTimestamp, toTimestamp, offset
     const controller = new AbortController();
     const abortRequest = () => controller.abort();
     parentSignal?.addEventListener("abort", abortRequest, { once: true });
-    const timeout = window.setTimeout(() => controller.abort(), 45000);
+    const timeout = window.setTimeout(() => controller.abort(), 35000);
     try {
       await waitForTopicRequestSlot(parentSignal);
       const response = await fetch(topicSearchUrl(query, source, fromTimestamp, toTimestamp, { offset }), {
@@ -1056,7 +1166,7 @@ async function fetchTopicProbe(query, source, fromTimestamp, toTimestamp, offset
   throw lastError || new Error("Arquivo.pt unavailable");
 }
 
-function updateTopicProgress(done, total) {
+function updateTopicProgress(done, total, currentYear = "") {
   const progress = document.getElementById("topic-progress");
   const bar = document.getElementById("topic-progress-bar");
   const text = document.getElementById("topic-progress-text");
@@ -1065,7 +1175,8 @@ function updateTopicProgress(done, total) {
   progress.hidden = false;
   bar.max = 100;
   bar.value = percent;
-  text.textContent = state.lang === "pt" ? `A carregar ${percent}%` : `Loading ${percent}%`;
+  const yearLabel = currentYear ? (state.lang === "pt" ? ` · a verificar ${currentYear}` : ` · verifying ${currentYear}`) : "";
+  text.textContent = state.lang === "pt" ? `A carregar ${percent}%${yearLabel}` : `Loading ${percent}%${yearLabel}`;
 }
 
 function normalizedApiBaseUrl(value) {
@@ -1175,7 +1286,7 @@ async function fetchTopicSeriesFromBackend(analyses, fromDate, toDate, showValue
 
 const TOPIC_EXACT_SLICE_LIMIT = 1800;
 const TOPIC_MAX_PROBES_PER_SEARCH = 360;
-const TOPIC_MIN_REQUEST_INTERVAL_MS = 310;
+const TOPIC_MIN_REQUEST_INTERVAL_MS = 200;
 const topicProbeBudgets = new WeakMap();
 let nextTopicRequestAt = 0;
 let topicRequestQueue = Promise.resolve();
@@ -1325,6 +1436,7 @@ async function fetchTopicSeries(query, source, fromDate, toDate, signal, onProgr
       const index = cursor;
       cursor += 1;
       const slice = slices[index];
+      if (onProgress) onProgress(completed, slices.length, slice.year, "start");
       try {
         const fromTimestamp = topicApiBoundary(slice.fromDate, false);
         const toTimestamp = topicApiBoundary(slice.toDate, true);
@@ -1349,11 +1461,11 @@ async function fetchTopicSeries(query, source, fromDate, toDate, signal, onProgr
         failed += 1;
       }
       completed += 1;
-      if (onProgress) onProgress(completed, slices.length);
+      if (onProgress) onProgress(completed, slices.length, slice.year, "done");
     }
   };
 
-  await Promise.all(Array.from({ length: Math.min(4, slices.length) }, () => worker()));
+  await Promise.all(Array.from({ length: Math.min(10, slices.length) }, () => worker()));
   if (failed === slices.length) throw new Error("Arquivo.pt unavailable");
   return {
     series: results,
@@ -1613,10 +1725,10 @@ function renderTopicGraph() {
       if (labelY > top + plotHeight - 2) labelY = y - 13 - (resultIndex * 9);
       const labelX = x + (resultIndex % 2 ? 4 : -4);
       const valueLabel = state.topicShowValues
-        ? `<text class="chart-value-label" x="${labelX}" y="${labelY}" text-anchor="middle" style="fill:${color}">${escapeHtml(formatMetricNumber(item.count))}</text>`
+        ? `<text class="chart-value-label" x="${labelX}" y="${labelY}" text-anchor="middle" style="fill:${color};--i:${index}">${escapeHtml(formatMetricNumber(item.count))}</text>`
         : "";
       return `
-        <circle class="chart-point" cx="${x}" cy="${y}" r="4" style="stroke:${color}">
+        <circle class="chart-point" cx="${x}" cy="${y}" r="4" style="stroke:${color};--i:${index}">
           <title>${escapeHtml(result.query)} · ${item.year}: ${formatMetricNumber(item.count)} ${t("topicMentions")}</title>
         </circle>
         ${valueLabel}
@@ -1631,7 +1743,7 @@ function renderTopicGraph() {
       const y = Math.max(top + 8, yForCount(result.series[index].count) - 15 - ((postIndex % 3) * 11));
       return `<a href="${escapeHtml(newsPageUrl(post))}" data-news-id="${escapeHtml(post.page_id)}"><circle class="chart-post-point" cx="${xForIndex(index)}" cy="${y}" r="5" style="fill:${color}"><title>${escapeHtml(titleWithYear(post))}</title></circle></a>`;
     }).join("");
-    return `<path class="chart-line" d="${linePath}" style="stroke:${color}"></path>${points}${postPoints}`;
+    return `<path class="chart-line" d="${linePath}" pathLength="1" style="stroke:${color};animation-delay:${resultIndex * 180}ms"></path>${points}${postPoints}`;
   }).join("");
 
   const legend = resultSets.map((result, index) => {
@@ -1789,12 +1901,13 @@ function exportableTopicSvg(svg) {
   const style = document.createElementNS("http://www.w3.org/2000/svg", "style");
   style.textContent = `
     .chart-grid-line{stroke:#dbe4ea;stroke-width:1}
-    .chart-axis-value,.chart-year{fill:#5c6b78;font-family:Arial,sans-serif;font-size:12px}
-    .chart-line{fill:none;stroke:#005a8d;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
-    .chart-point{fill:#fff;stroke:#005a8d;stroke-width:3}
-    .chart-post-point{fill:#c44f3b;stroke:#fff;stroke-width:2}
-    .chart-value-label{stroke:#fff;stroke-width:4;paint-order:stroke;font-family:Arial,sans-serif;font-size:11px;font-weight:700}
-    .export-legend-label{fill:#243746;font-family:Arial,sans-serif;font-size:13px;font-weight:700}
+    .chart-axis-value,.chart-year{fill:#5a6a71;font-family:Montserrat,Arial,sans-serif;font-size:12px}
+    .chart-line{fill:none;stroke:#0d9ba8;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .chart-point{fill:#fff;stroke:#0d9ba8;stroke-width:3}
+    .chart-post-point{fill:#c85d4b;stroke:#fff;stroke-width:2}
+    .chart-value-label{stroke:#fff;stroke-width:4;paint-order:stroke;font-family:Montserrat,Arial,sans-serif;font-size:11px;font-weight:700}
+    .export-legend-label{fill:#15181d;font-family:Montserrat,Arial,sans-serif;font-size:13px;font-weight:700}
+    .export-title{fill:#15181d;font-family:Montserrat,Arial,sans-serif;font-size:18px;font-weight:800}
   `;
   clone.insertBefore(style, clone.firstChild);
   const background = document.createElementNS("http://www.w3.org/2000/svg", "rect");
@@ -1803,14 +1916,19 @@ function exportableTopicSvg(svg) {
   background.setAttribute("fill", "#ffffff");
   clone.insertBefore(background, style.nextSibling);
 
+  const exportTitle = state.lang === "pt"
+    ? (resultSets.length === 1
+        ? `Evolução de "${resultSets[0].query}" no índice preservado do Arquivo.pt entre ${formatTopicDate(state.topicFromDate)} e ${formatTopicDate(state.topicToDate)}`
+        : `Comparação de temas no índice preservado do Arquivo.pt entre ${formatTopicDate(state.topicFromDate)} e ${formatTopicDate(state.topicToDate)}`)
+    : (resultSets.length === 1
+        ? `Evolution of "${resultSets[0].query}" in the Arquivo.pt preserved index between ${formatTopicDate(state.topicFromDate)} and ${formatTopicDate(state.topicToDate)}`
+        : `Topic comparison in the Arquivo.pt preserved index between ${formatTopicDate(state.topicFromDate)} and ${formatTopicDate(state.topicToDate)}`);
   const title = document.createElementNS("http://www.w3.org/2000/svg", "text");
-  title.setAttribute("x", "62");
-  title.setAttribute("y", "402");
-  title.setAttribute("fill", "#004b7a");
-  title.setAttribute("font-family", "Arial, sans-serif");
-  title.setAttribute("font-size", "16");
-  title.setAttribute("font-weight", "700");
-  title.textContent = `${(state.topicResultSets || []).map((result) => result.query).join(" vs ")} | ${state.topicFromDate} - ${state.topicToDate}`;
+  title.setAttribute("x", String(width / 2));
+  title.setAttribute("y", "34");
+  title.setAttribute("text-anchor", "middle");
+  title.setAttribute("class", "export-title");
+  title.textContent = exportTitle;
   clone.appendChild(title);
 
   const legend = document.createElementNS("http://www.w3.org/2000/svg", "g");
@@ -1830,7 +1948,7 @@ function exportableTopicSvg(svg) {
     label.setAttribute("x", "94");
     label.setAttribute("y", String(y));
     label.setAttribute("class", "export-legend-label");
-    label.textContent = `${index + 1}. ${result.query} | ${topicSourceLabel(result.source)} | ${formatMetricNumber(result.total)} ${t("topicMentions")}`;
+    label.textContent = `${result.query} | ${topicSourceLabel(result.source)} | ${formatMetricNumber(result.total)} ${t("topicMentions")}`;
     legend.appendChild(label);
   });
   clone.appendChild(legend);
@@ -1839,12 +1957,11 @@ function exportableTopicSvg(svg) {
   credit.setAttribute("x", "62");
   credit.setAttribute("y", String(444 + (resultSets.length * 24)));
   credit.setAttribute("fill", "#5c6b78");
-  credit.setAttribute("font-family", "Arial, sans-serif");
+  credit.setAttribute("font-family", "Montserrat, Arial, sans-serif");
   credit.setAttribute("font-size", "12");
-  const fastExport = methods.includes("opensearch_fulltext_arquivo_pt");
   credit.textContent = state.lang === "pt"
-    ? `Fonte: Arquivo.pt | ${fastExport ? "Indice de texto integral verificado" : "Contagem verificada por paginacao"} | Valores nos pontos: ${state.topicShowValues ? "sim" : "nao"}`
-    : `Source: Arquivo.pt | ${fastExport ? "Verified full-text index" : "Count verified by pagination"} | Point values: ${state.topicShowValues ? "yes" : "no"}`;
+    ? "Fonte: Arquivo.pt"
+    : "Source: Arquivo.pt";
   clone.appendChild(credit);
   return clone;
 }
@@ -1887,6 +2004,15 @@ async function downloadTopicGraph(format = "png") {
   }
 }
 
+function topicResultsMatchLocation() {
+  try {
+    const saved = JSON.parse(sessionStorage.getItem("ndo-topic-results") || "null");
+    return Boolean(saved && saved.search === window.location.search && Array.isArray(saved.sets) && saved.sets.length);
+  } catch {
+    return false;
+  }
+}
+
 function loadTopicStateFromLocation() {
   const params = new URLSearchParams(window.location.search);
   const analyses = [];
@@ -1909,6 +2035,18 @@ function loadTopicStateFromLocation() {
   state.topicTotal = 0;
   state.topicSeries = [];
   state.topicResultSets = [];
+  // Resultados da mesma configuração nesta sessão: evita refazer pesquisas
+  // longas ao recarregar a página.
+  try {
+    const saved = JSON.parse(sessionStorage.getItem("ndo-topic-results") || "null");
+    if (topicResultsMatchLocation() && saved) {
+      state.topicResultSets = saved.sets;
+      state.topicSeries = saved.sets[0]?.series || [];
+      state.topicTotal = saved.sets.reduce((sum, result) => sum + (Number(result.total) || 0), 0);
+    }
+  } catch {
+    // sessionStorage indisponível; a pesquisa corre normalmente.
+  }
 }
 
 async function runTopicSearch(updateHistory = true) {
@@ -1992,7 +2130,12 @@ async function runTopicSearch(updateHistory = true) {
                 fromDate,
                 toDate,
                 searchAbort.signal,
-                () => {
+                (done, total, year, phase) => {
+                  if (phase === "start") {
+                    // Mostra o ano em curso sem avançar o contador.
+                    updateTopicProgress(completedPeriods, totalPeriods, year);
+                    return;
+                  }
                   completedPeriods += 1;
                   updateTopicProgress(completedPeriods, totalPeriods);
                 },
@@ -2025,6 +2168,14 @@ async function runTopicSearch(updateHistory = true) {
     state.topicSeries = results[0]?.series || [];
     state.topicTotal = results.reduce((sum, result) => sum + (Number(result.total) || 0), 0);
     renderTopicGraph();
+    try {
+      sessionStorage.setItem("ndo-topic-results", JSON.stringify({
+        search: window.location.search,
+        sets: state.topicResultSets,
+      }));
+    } catch {
+      // Sem sessionStorage; os resultados vivem apenas nesta vista.
+    }
   } catch (error) {
     if (!searchAbort.signal.aborted && status) status.textContent = t("topicError");
   } finally {
@@ -2165,10 +2316,15 @@ function animateMetricCounters() {
     return;
   }
 
+  // Duplo rAF: garante que o estado inicial dos dígitos é pintado antes de
+  // arrancar a transição — sem isto, a animação falha ao chegar por navegação.
   state.counterFrame = window.requestAnimationFrame(() => {
     if (run !== state.counterRun || state.route !== "docs") return;
-    counters.forEach((element) => element.classList.add("odometer-running"));
-    state.counterFrame = null;
+    state.counterFrame = window.requestAnimationFrame(() => {
+      if (run !== state.counterRun || state.route !== "docs") return;
+      counters.forEach((element) => element.classList.add("odometer-running"));
+      state.counterFrame = null;
+    });
   });
 }
 
@@ -2185,7 +2341,7 @@ function renderDocs() {
     </article>
   `).join("");
   const githubLink = document.getElementById("docs-github");
-  if (githubLink) githubLink.href = state.data?.github_url || "https://github.com/luisflmaximo/Noticias-de-ontem-pt";
+  if (githubLink) githubLink.href = state.data?.github_url || "https://github.com/Noticias-de-ontem/site";
 }
 
 function renderStaticText() {
@@ -2253,18 +2409,55 @@ function routeFromLocation() {
   return "home";
 }
 
+const HERO_SLIDE_MS = 5200;
+
 function startCarousel() {
+  const dots = document.getElementById("hero-dots");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let slideStartedAt = performance.now();
+  let timerFrame = null;
+
+  const tick = (now) => {
+    const progress = Math.min(1, (now - slideStartedAt) / HERO_SLIDE_MS);
+    // O ponto do destaque ativo enche-se de cinzento no sentido dos ponteiros.
+    dots?.querySelector(".hero-dot.active")?.style.setProperty("--p", String(progress));
+    timerFrame = window.requestAnimationFrame(tick);
+  };
+  if (!reduceMotion) {
+    timerFrame = window.requestAnimationFrame(tick);
+  } else {
+    dots?.querySelector(".hero-dot.active")?.style.setProperty("--p", "0");
+  }
+
   const moveTo = (index) => {
     const items = state.data?.carousel || [];
     if (!items.length) return;
     state.slide = (index + items.length) % items.length;
+    slideStartedAt = performance.now();
     renderHero();
   };
   const next = () => moveTo(state.slide + 1);
+  const restartTimer = () => {
+    clearInterval(state.timer);
+    state.timer = setInterval(next, HERO_SLIDE_MS);
+    slideStartedAt = performance.now();
+  };
   clearInterval(state.timer);
-  state.timer = setInterval(next, 5200);
-  document.getElementById("hero-next-slide")?.addEventListener("click", next);
-  document.getElementById("hero-prev-slide")?.addEventListener("click", () => moveTo(state.slide - 1));
+  state.timer = setInterval(next, HERO_SLIDE_MS);
+  document.getElementById("hero-next-slide")?.addEventListener("click", () => {
+    next();
+    restartTimer();
+  });
+  document.getElementById("hero-prev-slide")?.addEventListener("click", () => {
+    moveTo(state.slide - 1);
+    restartTimer();
+  });
+  dots?.addEventListener("click", (event) => {
+    const dot = event.target.closest("[data-hero-dot]");
+    if (!dot) return;
+    moveTo(Number(dot.dataset.heroDot));
+    restartTimer();
+  });
 }
 
 function escapeHtml(value) {
@@ -2323,10 +2516,25 @@ function wireNavigation() {
   window.addEventListener("popstate", () => {
     state.selectedDate = selectedDateFromLocation() || state.selectedDate;
     const route = routeFromLocation();
-    if (route === "calendar") state.calendarPickerVisible = !selectedDateFromLocation();
+    if (route === "calendar") state.calendarPickerVisible = true;
     if (route === "topics") loadTopicStateFromLocation();
     setRoute(route);
-    if (route === "topics" && state.topicQuery) runTopicSearch(false);
+    if (route === "topics" && state.topicQuery && !state.topicResultSets.length) runTopicSearch(false);
+  });
+
+  // Ligações de navegação fora do menu principal (rodapé, botões internos).
+  const routePaths = { home: "inicio", calendar: "calendario", topics: "temas", docs: "documentacao" };
+  document.querySelectorAll("[data-route-link]").forEach((element) => {
+    element.addEventListener("click", (event) => {
+      if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+      const route = element.dataset.routeLink;
+      const path = routePaths[route];
+      if (!path) return;
+      event.preventDefault();
+      history.pushState({}, "", routeUrl(path));
+      setRoute(route);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   });
 }
 
@@ -2394,23 +2602,19 @@ function wireTopics() {
   });
 }
 
-function wireCalendar() {
-  const selectCalendarDate = (dateValue) => {
-    if (!isValidIsoDate(dateValue)) return;
-    state.selectedDate = dateValue;
-    state.calendarYear = dateYear(dateValue);
-    state.calendarMonth = Number(dateValue.slice(5, 7));
-    state.calendarSource = "";
-    state.calendarPickerVisible = false;
-    history.pushState({}, "", routeUrl("calendario", { data: dateValue }));
-    setRoute("calendar");
-  };
+function applyCalendarDate(dateValue) {
+  if (!isValidIsoDate(dateValue)) return;
+  state.selectedDate = dateValue;
+  state.calendarYear = dateYear(dateValue);
+  state.calendarMonth = Number(dateValue.slice(5, 7));
+  state.calendarSource = "";
+  state.calendarPickerVisible = true;
+  history.pushState({}, "", routeUrl("calendario", { data: dateValue }));
+  setRoute("calendar");
+}
 
-  const shiftDay = (delta) => {
-    const [year, month, day] = state.selectedDate.split("-").map(Number);
-    const date = new Date(year, month - 1, day + delta);
-    selectCalendarDate(isoDate(date.getFullYear(), date.getMonth() + 1, date.getDate()));
-  };
+function wireCalendar() {
+  const selectCalendarDate = applyCalendarDate;
 
   document.getElementById("calendar-grid")?.addEventListener("click", (event) => {
     const button = event.target.closest("[data-date]");
@@ -2418,39 +2622,168 @@ function wireCalendar() {
     selectCalendarDate(button.dataset.date);
   });
 
-  document.getElementById("calendar-year")?.addEventListener("change", (event) => {
-    const year = Number(event.target.value);
-    if (!Number.isFinite(year)) return;
-    state.calendarYear = Math.min(Math.max(Math.trunc(year), 1996), 2050);
-    renderCalendarGrid();
-  });
-
-  document.getElementById("calendar-month")?.addEventListener("change", (event) => {
-    const month = Number(event.target.value);
-    if (!Number.isFinite(month)) return;
-    state.calendarMonth = Math.min(Math.max(Math.trunc(month), 1), 12);
-    renderCalendarGrid();
-  });
-
   const shiftMonth = (delta) => {
     const date = new Date(state.calendarYear, state.calendarMonth - 1 + delta, 1);
     state.calendarYear = date.getFullYear();
     state.calendarMonth = date.getMonth() + 1;
+    renderCalendarNavigation();
     renderCalendarGrid();
+    renderDayPanel();
   };
   document.getElementById("calendar-prev-month")?.addEventListener("click", () => shiftMonth(-1));
   document.getElementById("calendar-next-month")?.addEventListener("click", () => shiftMonth(1));
-  document.getElementById("calendar-prev-day")?.addEventListener("click", () => shiftDay(-1));
-  document.getElementById("calendar-next-day")?.addEventListener("click", () => shiftDay(1));
-  document.getElementById("calendar-date-picker")?.addEventListener("change", (event) => {
-    selectCalendarDate(event.target.value);
+  document.getElementById("calendar-month-button")?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleMonthPopover(document.getElementById("calendar-month-button"));
   });
-  document.getElementById("calendar-source")?.addEventListener("change", (event) => {
-    state.calendarSource = event.target.value;
-    renderDayPanel();
-    loadCalendarRecommendations();
+  document.getElementById("calendar-date-button")?.addEventListener("click", (event) => {
+    event.stopPropagation();
+    toggleDatePopover(document.getElementById("calendar-date-button"));
   });
 }
+
+let activeCalendarPopover = null;
+
+function closeCalendarPopovers() {
+  activeCalendarPopover?.remove();
+  activeCalendarPopover = null;
+  document.getElementById("calendar-month-button")?.setAttribute("aria-expanded", "false");
+  document.getElementById("calendar-date-button")?.setAttribute("aria-expanded", "false");
+}
+
+function openCalendarPopover(anchor, content, onSelect) {
+  closeCalendarPopovers();
+  const popover = document.createElement("div");
+  popover.className = "calendar-popover";
+  popover.innerHTML = content;
+  document.body.appendChild(popover);
+  activeCalendarPopover = popover;
+  anchor.setAttribute("aria-expanded", "true");
+  const width = Math.min(320, window.innerWidth - 24);
+  if (window.innerWidth <= 768) {
+    // Em ecrãs estreitos o popover fica centrado e junto ao topo do painel.
+    const panel = document.getElementById("calendar-picker-panel");
+    const panelRect = panel?.getBoundingClientRect();
+    popover.style.left = `${(window.innerWidth - width) / 2}px`;
+    popover.style.top = panelRect
+      ? `${Math.max(12, panelRect.top + 70)}px`
+      : `${(window.innerHeight - 380) / 2}px`;
+  } else {
+    const rect = anchor.getBoundingClientRect();
+    const left = Math.min(Math.max(rect.left, 12), window.innerWidth - width - 12);
+    popover.style.left = `${left}px`;
+    popover.style.top = `${Math.max(12, Math.min(rect.bottom + 8, window.innerHeight - 380))}px`;
+  }
+  popover.addEventListener("click", (event) => {
+    const target = event.target.closest("[data-value]");
+    if (!target) return;
+    const value = target.dataset.value;
+    closeCalendarPopovers();
+    onSelect(value);
+  });
+}
+
+function toggleMonthPopover(anchor) {
+  if (activeCalendarPopover) {
+    closeCalendarPopovers();
+    return;
+  }
+  const cells = Array.from({ length: 12 }, (_, index) => `
+    <button type="button" data-value="${index + 1}" class="${index + 1 === state.calendarMonth ? "selected" : ""}">${escapeHtml(monthName(index))}</button>
+  `).join("");
+  const content = `
+    <div class="calendar-popover-year">
+      <button type="button" data-year-step="-1" aria-label="Ano anterior">‹</button>
+      <strong>${state.calendarYear}</strong>
+      <button type="button" data-year-step="1" aria-label="Ano seguinte">›</button>
+    </div>
+    <div class="calendar-popover-grid">${cells}</div>
+  `;
+  openCalendarPopover(anchor, content, (value) => {
+    state.calendarMonth = Math.min(Math.max(Number(value), 1), 12);
+    renderCalendarNavigation();
+    renderCalendarGrid();
+    renderDayPanel();
+  });
+  activeCalendarPopover.querySelectorAll("[data-year-step]").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      state.calendarYear += Number(button.dataset.yearStep);
+      closeCalendarPopovers();
+      renderCalendarNavigation();
+      renderCalendarGrid();
+      renderDayPanel();
+      toggleMonthPopover(anchor);
+    });
+  });
+}
+
+function toggleDatePopover(anchor) {
+  if (activeCalendarPopover) {
+    closeCalendarPopovers();
+    return;
+  }
+  let viewYear = state.calendarYear;
+  let viewMonth = state.calendarMonth;
+
+  const render = () => {
+    const firstDay = new Date(viewYear, viewMonth - 1, 1);
+    const daysInMonth = new Date(viewYear, viewMonth, 0).getDate();
+    const offset = (firstDay.getDay() + 6) % 7;
+    const postDates = new Set(state.data?.calendar?.post_dates || []);
+    const recommendationDays = state.data?.calendar?.recommendations_by_day || {};
+    const weekdayLabels = state.lang === "pt"
+      ? ["S", "T", "Q", "Q", "S", "S", "D"]
+      : ["M", "T", "W", "T", "F", "S", "S"];
+    let cells = weekdayLabels.map((label) => `<span class="popover-weekday">${escapeHtml(label)}</span>`).join("");
+    for (let i = 0; i < offset; i += 1) cells += "<span></span>";
+    for (let day = 1; day <= daysInMonth; day += 1) {
+      const dateValue = isoDate(viewYear, viewMonth, day);
+      const hasPosts = postDates.has(dateValue) || postDates.has(isoDate(viewYear - 1, viewMonth, day));
+      const hasRecommendations = Boolean(recommendationDays[monthDay(dateValue)]?.length);
+      cells += `<button type="button" data-value="${dateValue}" class="${dateValue === state.selectedDate ? "selected" : ""}${hasPosts || hasRecommendations ? " has-posts" : ""}">${day}</button>`;
+    }
+    popoverBody.innerHTML = `
+      <div class="calendar-popover-year">
+        <button type="button" data-month-step="-1" aria-label="Mês anterior">‹</button>
+        <strong>${escapeHtml(monthName(viewMonth - 1))} ${viewYear}</strong>
+        <button type="button" data-month-step="1" aria-label="Mês seguinte">›</button>
+      </div>
+      <div class="calendar-popover-days">${cells}</div>
+    `;
+  };
+
+  openCalendarPopover(anchor, '<div class="calendar-popover-body"></div>', (value) => {
+    applyCalendarDate(value);
+  });
+  const popoverBody = activeCalendarPopover.querySelector(".calendar-popover-body");
+  render();
+  popoverBody.querySelectorAll("[data-value]").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      closeCalendarPopovers();
+      applyCalendarDate(button.dataset.value);
+    });
+  });
+  popoverBody.querySelectorAll("[data-month-step]").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.stopPropagation();
+      const date = new Date(viewYear, viewMonth - 1 + Number(button.dataset.monthStep), 1);
+      viewYear = date.getFullYear();
+      viewMonth = date.getMonth() + 1;
+      render();
+    });
+  });
+}
+
+document.addEventListener("pointerdown", (event) => {
+  if (!activeCalendarPopover) return;
+  if (event.target.closest(".calendar-popover")) return;
+  if (event.target.closest("#calendar-month-button, #calendar-date-button")) return;
+  closeCalendarPopovers();
+});
+// Deslizar a página também fecha os popovers.
+document.addEventListener("scroll", () => closeCalendarPopovers(), { passive: true, capture: true });
 
 async function init() {
   wireNavigation();
@@ -2469,8 +2802,16 @@ async function init() {
   if (initialRoute === "topics") loadTopicStateFromLocation();
   render();
   setRoute(initialRoute);
-  if (initialRoute === "topics" && state.topicQuery) runTopicSearch(false);
+  if (initialRoute === "topics" && state.topicQuery && !state.topicResultSets.length) runTopicSearch(false);
   startCarousel();
+  const footerInstagram = document.getElementById("footer-instagram");
+  const profileUrl = cleanProfileUrl(state.data?.instagram_profile_url);
+  if (footerInstagram && profileUrl) footerInstagram.href = profileUrl;
+}
+
+function cleanProfileUrl(value) {
+  const url = String(value || "").trim();
+  return url && /^https:\/\//.test(url) ? url : "";
 }
 
 init();

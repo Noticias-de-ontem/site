@@ -10,12 +10,12 @@
       "source_signature": {
         "type": "remote",
         "url": "https://arquivo.pt/datasets/cdxj/AWP1.cdxj",
-        "etag": "\"49269a0ee-5f3cb492ab6c0\"",
+        "etag": "\"49269a0ee-5f3cb4937015e\"",
         "last_modified": "Fri, 03 Feb 2023 13:01:55 GMT",
         "modified_at": "2023-02-03T13:01:55+00:00",
         "content_length": "19636265198"
       },
-      "signature_recorded_at": "2026-08-11T19:12:30+00:00",
+      "signature_recorded_at": "2026-09-05T10:08:27+00:00",
       "source_progress": {
         "status": "complete",
         "mode": "append_only",
@@ -45,12 +45,12 @@
       "source_signature": {
         "type": "remote",
         "url": "https://arquivo.pt/datasets/cdxj/AWP10.cdxj",
-        "etag": "\"897a90de4-5f3cbc5fa9e40\"",
+        "etag": "\"897a90de4-5f3cbc604aed6\"",
         "last_modified": "Fri, 03 Feb 2023 13:36:49 GMT",
         "modified_at": "2023-02-03T13:36:49+00:00",
         "content_length": "36904177124"
       },
-      "signature_recorded_at": "2026-08-13T15:36:15+00:00",
+      "signature_recorded_at": "2026-09-05T10:08:27+00:00",
       "domain_coverage": {
         "abola.pt": {
           "first_date": "2011-05-19",
@@ -162,12 +162,12 @@
       "source_signature": {
         "type": "remote",
         "url": "https://arquivo.pt/datasets/cdxj/AWP11.cdxj",
-        "etag": "\"7ecc1f43a-5f3cbac4a1480\"",
+        "etag": "\"7ecc1f43a-5f3cbac52f822\"",
         "last_modified": "Fri, 03 Feb 2023 13:29:38 GMT",
         "modified_at": "2023-02-03T13:29:38+00:00",
         "content_length": "34036905018"
       },
-      "signature_recorded_at": "2026-08-11T19:12:31+00:00",
+      "signature_recorded_at": "2026-09-05T10:08:28+00:00",
       "domain_coverage": {
         "abola.pt": {
           "first_date": "2011-06-30",
@@ -279,12 +279,12 @@
       "source_signature": {
         "type": "remote",
         "url": "https://arquivo.pt/datasets/cdxj/AWP12.cdxj",
-        "etag": "\"b295c7fb2-5f3cc19b93780\"",
+        "etag": "\"b295c7fb2-5f3cc19c24faa\"",
         "last_modified": "Fri, 03 Feb 2023 14:00:14 GMT",
         "modified_at": "2023-02-03T14:00:14+00:00",
         "content_length": "47938568114"
       },
-      "signature_recorded_at": "2026-08-15T09:29:15+00:00",
+      "signature_recorded_at": "2026-09-05T10:08:29+00:00",
       "domain_coverage": {
         "abola.pt": {
           "first_date": "2012-01-20",
@@ -406,12 +406,12 @@
       "source_signature": {
         "type": "remote",
         "url": "https://arquivo.pt/datasets/cdxj/AWP15.cdxj",
-        "etag": "\"104904b452-5f3cca237d800\"",
+        "etag": "\"104904b452-5f3cca239e1b4\"",
         "last_modified": "Fri, 03 Feb 2023 14:38:24 GMT",
         "modified_at": "2023-02-03T14:38:24+00:00",
         "content_length": "69944521810"
       },
-      "signature_recorded_at": "2026-08-11T19:12:32+00:00",
+      "signature_recorded_at": "2026-09-05T10:08:30+00:00",
       "domain_coverage": {
         "noticiasaominuto.com": {
           "first_date": "2013-11-05",
@@ -15709,7 +15709,8 @@
         "url": "https://arquivo.pt/datasets/cdxj/EAWP52.cdxj",
         "etag": "\"0-65528c4f74845\"",
         "last_modified": "Fri, 26 Jun 2026 14:17:31 GMT",
-        "modified_at": "2026-06-26T14:17:31+00:00"
+        "modified_at": "2026-06-26T14:17:31+00:00",
+        "content_length": "0"
       },
       "source_progress": {
         "status": "complete",
@@ -15721,7 +15722,7 @@
         "reason": "empty_source",
         "anchor_status": "not_needed"
       },
-      "signature_recorded_at": "2026-08-17T10:10:34+00:00"
+      "signature_recorded_at": "2026-09-05T10:08:25+00:00"
     },
     "https://arquivo.pt/datasets/cdxj/FAWP49.cdxj": {
       "name": "FAWP49.cdxj",

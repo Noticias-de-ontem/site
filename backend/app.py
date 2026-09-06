@@ -255,7 +255,7 @@ def render_story_page(item):
             f'    <meta name="description" content="{escaped_description}">',
             f'    <meta name="robots" content="{robots}">',
             '    <meta name="author" content="Notícias de Ontem">',
-            '    <meta name="theme-color" content="#0b567c">',
+            '    <meta name="theme-color" content="#ffffff">',
             f'    <link rel="canonical" href="{escaped_canonical}">',
             '    <meta property="og:site_name" content="Notícias de Ontem">',
             '    <meta property="og:type" content="article">',
@@ -285,12 +285,12 @@ def render_story_page(item):
         page
         .replace('href="assets/', 'href="../../assets/')
         .replace('src="assets/', 'src="../../assets/')
-        .replace('href="styles.css?v=20260718i"', 'href="../../styles.css?v=20260718i"')
-        .replace('src="app.js?v=20260718i"', 'src="../../app.js?v=20260718i"')
+        .replace('href="styles.css?v=20260905g"', 'href="../../styles.css?v=20260905g"')
+        .replace('src="app.js?v=20260905g"', 'src="../../app.js?v=20260905g"')
         .replace('href="inicio/"', 'href="../../inicio/"')
-        .replace('href="calendário/"', 'href="../../calendario/"')
+        .replace('href="calendario/"', 'href="../../calendario/"')
         .replace('href="temas/"', 'href="../../temas/"')
-        .replace('href="documentação/"', 'href="../../documentacao/"')
+        .replace('href="documentacao/"', 'href="../../documentacao/"')
     )
 
 

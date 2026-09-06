@@ -8,7 +8,7 @@
     <meta name="description" content="Explore notícias preservadas pelo Arquivo.pt, compare diferentes anos e descubra a memória da imprensa portuguesa em cada dia.">
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
     <meta name="author" content="Notícias de Ontem">
-    <meta name="theme-color" content="#0b567c">
+    <meta name="theme-color" content="#ffffff">
     <link rel="canonical" href="https://MaNmAxImO-noticias-de-ontem.hf.space/inicio/">
     <meta property="og:site_name" content="Notícias de Ontem">
     <meta property="og:type" content="website">
@@ -24,21 +24,21 @@
     <meta name="twitter:image" content="https://MaNmAxImO-noticias-de-ontem.hf.space/assets/icon.png">
     <script type="application/ld+json" id="structured-data">{"@context":"https://schema.org","@type":"WebSite","name":"Notícias de Ontem | Memória da imprensa portuguesa","description":"Explore notícias preservadas pelo Arquivo.pt, compare diferentes anos e descubra a memória da imprensa portuguesa em cada dia.","url":"https://MaNmAxImO-noticias-de-ontem.hf.space/inicio/","inLanguage":"pt-PT","isPartOf":{"@type":"WebSite","name":"Notícias de Ontem","url":"https://MaNmAxImO-noticias-de-ontem.hf.space/"},"isBasedOn":"https://arquivo.pt/"}</script>
     <!-- SEO:END -->
-    <link rel="icon" href="assets/icon.png">
-    <link rel="stylesheet" href="styles.css?v=20260718i">
+    <link rel="icon" href="assets/icon.png?v=20260905g">
+    <link rel="stylesheet" href="styles.css?v=20260905g">
   </head>
   <body>
     <a class="skip-link" href="#main">Saltar para o conteúdo</a>
     <header class="site-header">
       <a class="brand" href="inicio/" data-home-link aria-label="Notícias de Ontem">
-        <img src="assets/icon.png" alt="">
-        <span>Notícias de Ontem</span>
+        <img src="assets/icon.png?v=20260905g" alt="">
+        <span><b>Notícias</b> de Ontem</span>
       </a>
       <nav class="main-nav" aria-label="Navegação principal">
         <a href="inicio/" data-route="home" data-path="inicio" data-i18n="navHome">Início</a>
-        <a href="calendário/" data-route="calendar" data-path="calendário" data-i18n="navCalendar">Calendário</a>
+        <a href="calendario/" data-route="calendar" data-path="calendario" data-i18n="navCalendar">Calendário</a>
         <a href="temas/" data-route="topics" data-path="temas" data-i18n="navTopics">Temas</a>
-        <a href="documentação/" data-route="docs" data-path="documentação" data-i18n="navDocs">Documentação</a>
+        <a href="documentacao/" data-route="docs" data-path="documentacao" data-i18n="navDocs">Documentação</a>
       </nav>
       <div class="language-switch" aria-label="Idioma">
         <button type="button" data-lang="pt" aria-pressed="true">PT</button>
@@ -60,12 +60,51 @@
               <a class="button secondary" id="hero-source" target="_blank" rel="noreferrer" data-i18n="openArquivo">Abrir no Arquivo.pt</a>
             </div>
           </div>
-          <div class="hero-carousel-controls">
-            <button type="button" id="hero-prev-slide" aria-label="Anterior">←</button>
-            <button type="button" id="hero-next-slide" aria-label="Seguinte">→</button>
-          </div>
+          <button type="button" class="hero-edge prev" id="hero-prev-slide" data-i18n-aria-label="heroPreviousSlide" aria-label="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.6 5.4 8 12l6.6 6.6"/></svg>
+          </button>
+          <button type="button" class="hero-edge next" id="hero-next-slide" data-i18n-aria-label="heroNextSlide" aria-label="Seguinte">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.4 5.4 16 12l-6.6 6.6"/></svg>
+          </button>
+          <div class="hero-dots" id="hero-dots" aria-label="Destaques em rotação"></div>
           <a class="watermark" href="https://arquivo.pt/" target="_blank" rel="noreferrer" data-i18n="watermark">Dados recolhidos via Arquivo.pt</a>
         </article>
+
+        <section class="section-shell explore-section" aria-labelledby="explore-title">
+          <h2 class="visually-hidden" id="explore-title" data-i18n="exploreTitle">Explorar o projeto</h2>
+          <div class="explore-grid">
+            <a class="explore-tile" href="calendario/">
+              <span class="explore-glyph" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3.2" y="4.6" width="17.6" height="16" rx="2.6"/><path d="M3.2 9.6h17.6M8 2.8v3.6M16 2.8v3.6"/><path d="M7.6 13.4h3M7.6 17h6.4"/></svg>
+              </span>
+              <span class="explore-copy">
+                <strong data-i18n="exploreCalendarTitle">Explorar por data</strong>
+                <span data-i18n="exploreCalendarBody">Notícias do mesmo dia em vários anos, preservadas pelo Arquivo.pt.</span>
+              </span>
+              <span class="explore-arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="explore-tile" href="temas/">
+              <span class="explore-glyph" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 20.4V13M9.2 20.4V8.2M15 20.4v-9M20.8 20.4V4.4"/><circle cx="15" cy="7.6" r="1.7"/><circle cx="9.2" cy="12" r="1.7"/></svg>
+              </span>
+              <span class="explore-copy">
+                <strong data-i18n="exploreTopicsTitle">Evolução de temas</strong>
+                <span data-i18n="exploreTopicsBody">Compara a presença de um assunto no índice preservado, ano a ano.</span>
+              </span>
+              <span class="explore-arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="explore-tile" href="documentacao/">
+              <span class="explore-glyph" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 3.4h8.2l4.4 4.4v12.8a1.6 1.6 0 0 1-1.6 1.6H6.2a1.6 1.6 0 0 1-1.6-1.6V5a1.6 1.6 0 0 1 1.6-1.6Z"/><path d="M14 3.6V8h4.6M8 12.4h8M8 16h5.4"/></svg>
+              </span>
+              <span class="explore-copy">
+                <strong data-i18n="exploreDocsTitle">Como funciona</strong>
+                <span data-i18n="exploreDocsBody">O método, as fontes e a cobertura do projeto, em números.</span>
+              </span>
+              <span class="explore-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        </section>
 
         <section class="section-shell latest-section" aria-labelledby="latest-title">
           <div class="section-heading">
@@ -85,30 +124,24 @@
           <h1 id="calendar-title" data-i18n="calendarTitle">Explorar por data</h1>
           <p data-i18n="calendarLead">Cada dia cruza posts publicados com recomendações preservadas pelo Arquivo.pt.</p>
         </div>
-        <div class="day-navigation" aria-label="Navegação entre dias">
-          <button type="button" id="calendar-prev-day" data-i18n-aria-label="calendarPreviousDay" aria-label="Dia anterior">←</button>
-          <label class="calendar-date-field">
-            <span data-i18n="calendarDateLabel">Escolher data</span>
-            <input id="calendar-date-picker" type="date" min="1996-01-01" max="2050-12-31">
-          </label>
-          <button type="button" id="calendar-next-day" data-i18n-aria-label="calendarNextDay" aria-label="Dia seguinte">→</button>
-          <label class="calendar-source-field">
-            <span data-i18n="calendarSourceLabel">Recomendações de</span>
-            <select id="calendar-source"></select>
-          </label>
-        </div>
-        <div class="calendar-picker-panel" id="calendar-picker-panel">
+        <div class="calendar-panel" id="calendar-picker-panel">
           <div class="calendar-toolbar">
-            <button type="button" id="calendar-prev-month" aria-label="Mês anterior">‹</button>
-            <label>
-              <span data-i18n="calendarMonthLabel">Mês</span>
-              <select id="calendar-month"></select>
+            <div class="calendar-month-nav" role="group" aria-label="Navegação entre meses">
+              <button type="button" id="calendar-prev-month" aria-label="Mês anterior">‹</button>
+              <button type="button" class="calendar-month-button" id="calendar-month-button" aria-haspopup="true" aria-expanded="false">
+                <strong id="calendar-month-label">—</strong>
+                <span id="calendar-year-label"></span>
+              </button>
+              <button type="button" id="calendar-next-month" aria-label="Mês seguinte">›</button>
+            </div>
+            <button type="button" class="calendar-date-button" id="calendar-date-button" aria-haspopup="true" aria-expanded="false">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="3.2" y="4.6" width="17.6" height="16" rx="2.6"/><path d="M3.2 9.6h17.6M8 2.8v3.6M16 2.8v3.6"/></svg>
+              <span id="calendar-date-label">—</span>
+            </button>
+            <label class="calendar-source-field">
+              <span data-i18n="calendarSourceLabel">Recomendações de</span>
+              <select id="calendar-source"></select>
             </label>
-            <label>
-              <span data-i18n="calendarYearLabel">Ano</span>
-              <input id="calendar-year" type="number" inputmode="numeric" min="1996" max="2050">
-            </label>
-            <button type="button" id="calendar-next-month" aria-label="Mês seguinte">›</button>
           </div>
           <div class="calendar-grid" id="calendar-grid" aria-label="Calendário"></div>
         </div>
@@ -160,7 +193,7 @@
         </div>
         <section class="metrics-overview" id="metrics-overview" aria-labelledby="metrics-title"></section>
         <div class="doc-grid" id="doc-grid"></div>
-        <a class="docs-github" id="docs-github" href="https://github.com/luisflmaximo/Noticias-de-ontem-pt" target="_blank" rel="noreferrer">
+        <a class="docs-github" id="docs-github" href="https://github.com/Noticias-de-ontem/site" target="_blank" rel="noreferrer">
           <strong data-i18n="docsGithubTitle">Código e documentação técnica</strong>
           <span data-i18n="docsGithubBody">Consulta no GitHub a metodologia completa, os dados e as instruções para executar o projeto.</span>
         </a>
@@ -172,10 +205,23 @@
     </main>
 
     <footer class="site-footer">
-      <p>Notícias de Ontem</p>
-      <p data-i18n="footerCredit">Dados recolhidos e contextualizados a partir do Arquivo.pt.</p>
+      <div class="footer-brand">
+        <p>Notícias de Ontem</p>
+        <p data-i18n="footerCredit">Dados recolhidos e contextualizados a partir do Arquivo.pt.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Navegação do rodapé">
+        <a href="inicio/" data-i18n="navHome">Início</a>
+        <a href="calendario/" data-i18n="navCalendar">Calendário</a>
+        <a href="temas/" data-i18n="navTopics">Temas</a>
+        <a href="documentacao/" data-i18n="navDocs">Documentação</a>
+      </nav>
+      <div class="footer-links">
+        <a id="footer-instagram" href="https://www.instagram.com/" target="_blank" rel="noreferrer" data-i18n="footerInstagram">Instagram</a>
+        <a href="https://github.com/Noticias-de-ontem/site" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://arquivo.pt/" target="_blank" rel="noreferrer">Arquivo.pt</a>
+      </div>
     </footer>
 
-    <script src="app.js?v=20260718i"></script>
+    <script src="app.js?v=20260905g"></script>
   </body>
 </html>

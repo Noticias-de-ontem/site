@@ -1,6 +1,31 @@
 import os
 import re
+import json
 import requests
+
+
+def _repair_model_json(content):
+    """Repara JSON quase válido devolvido por modelos de linguagem."""
+    text = content.strip()
+    if text.startswith("```"):
+        text = re.sub(r"^```[a-zA-Z]*\s*", "", text)
+        text = re.sub(r"\s*```$", "", text).strip()
+    # Vírgulas pendentes antes de fechar objetos/arrays.
+    text = re.sub(r",\s*([}\]])", r"\1", text)
+    # Aspas tipográficas que partem o JSON.
+    text = text.replace("\u201c", '"').replace("\u201d", '"')
+    text = text.replace("\u2018", "'").replace("\u2019", "'")
+    try:
+        json.loads(text)
+        return text
+    except Exception:
+        pass
+    try:
+        import ast
+        value = ast.literal_eval(text)
+        return json.dumps(value, ensure_ascii=False)
+    except Exception:
+        return text
 
 
 class NvidiaQuotaExceeded(Exception):
@@ -11,7 +36,7 @@ class NvidiaModelError(Exception):
     pass
 
 
-DEFAULT_NVIDIA_MODEL = "meta/llama-3.1-8b-instruct"
+DEFAULT_NVIDIA_MODEL = "nvidia/nemotron-3-super-120b-a12b"
 NVIDIA_API_URL = "https://integrate.api.nvidia.com/v1/chat/completions"
 NVIDIA_KEY_FILE = "nvidia_api_key.local.txt"
 
@@ -43,9 +68,8 @@ class NvidiaKeyPool:
         self.exhausted = [False] * len(self.api_keys)
         self.current_index = 0
         default_models = [
-            "meta/llama-3.1-8b-instruct",
-            "meta/llama-3.3-70b-instruct",
-            "google/gemma-2-2b-it"
+            "nvidia/nemotron-3-super-120b-a12b",
+            "openai/gpt-oss-20b"
         ]
         if starting_model and starting_model in default_models:
             idx = default_models.index(starting_model)
@@ -101,7 +125,7 @@ class NvidiaKeyPool:
         print(f"Rotacao de API NVIDIA: {self.get_current_key_info()}")
         return True
 
-    def chat_json(self, prompt, model=None, timeout=25):
+    def chat_json(self, prompt, model=None, timeout=120):
         if not self.api_keys:
             return ""
 
@@ -137,7 +161,7 @@ class NvidiaKeyPool:
                                 ],
                                 "temperature": 0.35,
                                 "response_format": {"type": "json_object"},
-                                "max_tokens": 2048,
+                                "max_tokens": 6000,
                             },
                             timeout=timeout,
                         )
@@ -190,7 +214,21 @@ class NvidiaKeyPool:
                         raise RuntimeError(f"NVIDIA API {response.status_code}: {response.text[:500]}")
 
                     data = response.json()
-                    return data["choices"][0]["message"]["content"]
+                    message = data["choices"][0].get("message") or {}
+                    content = message.get("content") or ""
+                    if not content.strip():
+                        content = message.get("reasoning_content") or ""
+                    # Modelos de raciocínio (p. ex. nemotron-3) podem embrulhar
+                    # a resposta em blocos <think>; o JSON vive fora deles.
+                    content = re.sub(r"<think>.*?</think>", "", content, flags=re.DOTALL).strip()
+                    if not content:
+                        raise NvidiaModelError("Resposta vazia do modelo")
+                    if not content.lstrip().startswith(("{", "[")):
+                        start = content.find("{")
+                        end = content.rfind("}")
+                        if start != -1 and end > start:
+                            content = content[start:end + 1]
+                    return _repair_model_json(content)
                     
                 raise RuntimeError("NVIDIA API 429: Excedido o número de tentativas sob limite de rate limit (429).")
 
