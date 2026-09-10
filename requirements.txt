@@ -4,7 +4,7 @@ numpy==2.5.1
 requests==2.34.2
 tzdata==2026.3; sys_platform == 'win32'
 opencv-python-headless==5.0.0.93
-boto3==1.43.86
+boto3==1.43.89
 beautifulsoup4==4.15.0
 
 # Security floors for transitive dependencies reported by dependency scanning.
