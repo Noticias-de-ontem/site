@@ -9,4 +9,4 @@ beautifulsoup4==4.15.0
 
 # Security floors for transitive dependencies reported by dependency scanning.
 idna==3.18
-protobuf==7.35.1
+protobuf==7.36.1
