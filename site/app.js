@@ -24,6 +24,7 @@ const state = {
   topicAnalyses: [],
   topicResultSets: [],
   topicShowValues: true,
+  topicGranularity: "year",
   topicFromDate: "",
   topicToDate: "",
   topicTotal: 0,
@@ -95,6 +96,38 @@ const RELEVANCE_ICONS = {
   5: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 0 1 5.9 12.1l4.3 4.3-1.4 1.4-4.3-4.3A7.5 7.5 0 1 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z"/></svg>',
 };
 
+// Redes sociais: ícones, etiquetas e URL padrão enquanto não existem
+// publicações reais (os links ativos chegam via network_posts do publisher).
+const SOCIAL_NETWORKS = {
+  instagram: {
+    label: "Instagram",
+    url: "https://www.instagram.com/",
+    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.9a6.9 6.9 0 1 0 0 13.8 6.9 6.9 0 0 0 0-13.8zm0 11.4a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm7.2-11.7a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0z"/></svg>',
+  },
+  facebook: {
+    label: "Facebook",
+    url: "https://www.facebook.com/",
+    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.8h2.6l.4-3h-3V8.3c0-.9.2-1.5 1.5-1.5h1.6V4.1c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1z"/></svg>',
+  },
+  x: {
+    label: "X",
+    url: "https://x.com/",
+    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 3h3l-6.6 7.6L22 21h-6.1l-4.8-6.3L5.6 21h-3l7.1-8.1L2 3h6.3l4.3 5.7L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg>',
+  },
+};
+
+// Badge da rede com link para a publicação (ou URL padrão em testes).
+function networkBadgesHtml(item) {
+  const networks = Array.isArray(item?.networks) ? item.networks : [];
+  if (!networks.length) return "";
+  return networks.map((network) => {
+    const meta = SOCIAL_NETWORKS[network];
+    if (!meta) return "";
+    const href = item?.network_posts?.[network] || meta.url;
+    return `<a class="network-badge network-${network}" href="${escapeHtml(href)}" target="_blank" rel="noreferrer" title="${escapeHtml(meta.label)}">${meta.icon}<span>${escapeHtml(meta.label)}</span></a>`;
+  }).join("");
+}
+
 const SOURCE_TYPE_KEY = {
   newspaper: "sourceTypeNewspaper",
   internet_profile: "sourceTypeProfile",
@@ -136,6 +169,9 @@ const i18n = {
     navTopics: "Temas",
     navDocs: "Documentação",
     heroEyebrow: "Notícia principal",
+    heroEyebrowWeek: "Notícia da semana",
+    heroEyebrowDay: "Notícia do dia",
+    heroEyebrowFeatured: "Notícia em destaque",
     carouselEyebrow: "Seleção editorial",
     carouselTitle: "Histórias em destaque",
     heroPreviousSlide: "Destaque anterior",
@@ -237,6 +273,8 @@ const i18n = {
     footerExploreTitle: "Explorar",
     footerAboutTitle: "Sobre o projeto",
     footerBackTop: "Voltar ao topo",
+    minuteFeedTitle: "Arquivo ao minuto",
+    minuteFeedLead: "As últimas publicações do nosso perfil.",
     topicsEyebrow: "Pesquisa histórica",
     topicsTitle: "Evolução de um tema",
     topicsLead: "Compara a presença de um tema no índice preservado ao longo dos anos e filtra por fonte.",
@@ -260,6 +298,15 @@ const i18n = {
     topicInstagramLegend: "Publicação no Instagram",
     topicDownload: "Descarregar gráfico",
     topicDownloadFormat: "Formato de descarga",
+    topicGranularityLabel: "Períodos",
+    topicGranularityYear: "Por ano",
+    topicGranularityMonth: "Por mês",
+    topicGranularityDay: "Por dia",
+    topicGranularityMonthTip: "A verificação por mês só está disponível para períodos de 2 anos ou menos: cada mês é verificado ponto a ponto e períodos longos tornariam a pesquisa excessiva.",
+    topicGranularityDayTip: "A verificação por dia está disponível para um mês completo (ou janelas equivalentes, como de 17 de agosto a 17 de setembro): cada dia é verificado individualmente.",
+    topicGranularityLocked: "Escolhe um período mais curto para desbloquear.",
+    topicFailedPoint: "Não verificado (falha na consulta)",
+    topicMonthDivider: "mudança de mês",
     topicEmpty: "Não foram encontrados resultados neste intervalo.",
     topicError: "Não foi possível concluir a pesquisa no Arquivo.pt. Tenta novamente dentro de momentos.",
     newsEyebrow: "Notícia preservada",
@@ -316,6 +363,9 @@ const i18n = {
     navTopics: "Topics",
     navDocs: "Documentation",
     heroEyebrow: "Lead story",
+    heroEyebrowWeek: "Story of the week",
+    heroEyebrowDay: "Today’s story",
+    heroEyebrowFeatured: "Featured story",
     carouselEyebrow: "Editorial selection",
     carouselTitle: "Featured stories",
     heroPreviousSlide: "Previous highlight",
@@ -417,6 +467,8 @@ const i18n = {
     footerExploreTitle: "Explore",
     footerAboutTitle: "About the project",
     footerBackTop: "Back to top",
+    minuteFeedTitle: "Archive live feed",
+    minuteFeedLead: "The latest posts from our profile.",
     topicsEyebrow: "Historical search",
     topicsTitle: "How a topic evolved",
     topicsLead: "Compare a topic's presence in the preserved index over time and filter by source.",
@@ -440,6 +492,15 @@ const i18n = {
     topicInstagramLegend: "Instagram post",
     topicDownload: "Download chart",
     topicDownloadFormat: "Download format",
+    topicGranularityLabel: "Periods",
+    topicGranularityYear: "Yearly",
+    topicGranularityMonth: "Monthly",
+    topicGranularityDay: "Daily",
+    topicGranularityMonthTip: "Monthly verification is only available for periods of 2 years or less: each month is verified point by point, and longer periods would make the search excessive.",
+    topicGranularityDayTip: "Daily verification is available for a full month (or equivalent windows, such as August 17 to September 17): each day is verified individually.",
+    topicGranularityLocked: "Choose a shorter period to unlock.",
+    topicFailedPoint: "Not verified (query failed)",
+    topicMonthDivider: "month change",
     topicEmpty: "No results were found in this time range.",
     topicError: "The Arquivo.pt search could not be completed. Please try again shortly.",
     newsEyebrow: "Preserved story",
@@ -659,12 +720,16 @@ function cleanTitle(item) {
   return title.replace(pattern, "").replace(/[,\s]+$/, "").trim() || title;
 }
 
-// "Título, em 2021" — vírgula sempre antes do ano, em PT e EN.
+// Títulos nunca terminam em vírgula nem levam o ano embutido — o ano
+// aparece à parte (pílula pequena no hero, linha de datas nas páginas).
 function titleWithYear(item) {
-  const title = cleanTitle(item);
-  const year = String(item?.original_year || "").trim();
-  if (!title || !year || new RegExp(`\\b${year}\\b`).test(title)) return title;
-  return `${title}, ${t("yearOnly")} ${year}`;
+  return cleanTitle(item);
+}
+
+// Título para o banner/hero: sem pontos de interrogação (mais texto cabe
+// reduzindo o tamanho da letra, nunca cortando a frase com "?").
+function bannerTitle(item) {
+  return cleanTitle(item).replace(/\s*\?+\s*/g, " ").replace(/\s{2,}/g, " ").trim();
 }
 
 function newsPageUrl(item) {
@@ -811,6 +876,10 @@ function renderHero() {
   const source = document.getElementById("hero-source");
   const detail = document.getElementById("hero-detail");
   renderHeroDots(heroItems);
+  // O título da secção varia com o destaque: principal, da semana, do dia…
+  const eyebrowKeys = ["heroEyebrow", "heroEyebrowWeek", "heroEyebrowDay", "heroEyebrowFeatured"];
+  const heroEyebrow = document.querySelector(".hero-content .eyebrow");
+  if (heroEyebrow) heroEyebrow.textContent = t(eyebrowKeys[(state.slide || 0) % eyebrowKeys.length]);
   if (!item) {
     hero.style.backgroundImage = `url('${assetPath("assets/icon.png")}')`;
     setText("#hero-detail", t("emptyTitle"));
@@ -825,11 +894,11 @@ function renderHero() {
   }
 
   hero.style.backgroundImage = `url('${assetPath(item.banner_image || item.image || "assets/icon.png")}')`;
-  // Título com ano inline ("Título, em 2021") — sem pílula de ano separada.
-  setText("#hero-detail", titleWithYear(item));
-  setText("#hero-year", "");
+  // Título limpo (sem "?") + ano de volta na pílula pequena.
+  setText("#hero-detail", bannerTitle(item));
+  setText("#hero-year", item.original_year ? `${t("yearOnly")} ${item.original_year}` : "");
   const heroBadges = document.getElementById("hero-badges");
-  if (heroBadges) heroBadges.innerHTML = `${sourceTypeChip(item)}${relevanceBadge(item)}`;
+  if (heroBadges) heroBadges.innerHTML = `${sourceTypeChip(item)}${relevanceBadge(item)}${networkBadgesHtml(item)}`;
   if (detail && item.page_id) {
     detail.href = newsPageUrl(item);
     detail.dataset.newsId = item.page_id;
@@ -854,6 +923,7 @@ function cardMetaHtml(item) {
     ...itemMeta(item).map(escapeHtml),
     sourceTypeChip(item),
     relevanceBadge(item, { compact: true }),
+    networkBadgesHtml(item),
   ].filter(Boolean);
   return parts.join("");
 }
@@ -1452,6 +1522,28 @@ function renderNewsDetail() {
   const snapshotUrl = item.snapshot_url ? assetPath(item.snapshot_url) : "";
   const capturedOn = snapshotCaptureDate(item);
   const [lead, ...restParagraphs] = paragraphs;
+  // Capa e snapshot duplicadas: no desktop ficam FIXAS na coluna direita
+  // (vista global, sem deslizar); em ecrãs menores a capa surge depois do
+  // título e a snapshot no fim do texto, antes de "No mesmo dia".
+  const coverHtml = image ? `
+    <figure class="news-cover">
+      <img id="news-detail-image" src="${escapeHtml(image)}" alt="${escapeHtml(title)}">
+    </figure>` : "";
+  const snapshotHtml = snapshotUrl ? `
+    <section class="news-snapshot">
+      <h2 class="news-article-sub">${escapeHtml(t("snapshotSectionTitle"))}</h2>
+      <figure class="news-article-snapshot-frame">
+        <div class="news-article-snapshot-head">
+          <strong>arquivo.pt</strong>
+          ${capturedOn ? `<span>${escapeHtml(`${t("snapshotCaptured")} ${capturedOn}`)}</span>` : ""}
+        </div>
+        <img src="${escapeHtml(snapshotUrl)}" alt="${escapeHtml(t("snapshotCaption"))}" loading="lazy">
+        <figcaption>
+          <span>${escapeHtml(t("snapshotCaption"))}</span>
+          ${item.source_url ? `<a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("viewOriginal"))} →</a>` : ""}
+        </figcaption>
+      </figure>
+    </section>` : "";
   container.innerHTML = `
     <nav class="news-breadcrumb" aria-label="Breadcrumb">
       <a href="${escapeHtml(routeUrl("inicio"))}" data-route-link="home">${escapeHtml(t("breadcrumbHome"))}</a>
@@ -1461,42 +1553,29 @@ function renderNewsDetail() {
       <span class="current">${escapeHtml(title)}</span>
     </nav>
     <article class="news-article">
-      <header class="news-article-head">
-        <p class="news-article-meta">
-          ${category ? `<span class="meta-pill">${escapeHtml(category)}</span>` : ""}
-          ${sourceTypeChip(item)}
-          ${relevanceBadge(item)}
-        </p>
-        <h1 id="news-detail-title">${escapeHtml(title)}</h1>
-        ${dateLine ? `<p class="news-article-dates">${escapeHtml(dateLine)}</p>` : ""}
-      </header>
-      ${image ? `<figure class="news-article-figure"><img id="news-detail-image" src="${escapeHtml(image)}" alt="${escapeHtml(title)}"></figure>` : ""}
-      <div class="news-article-body">
-        ${lead ? `<p class="news-article-lead">${escapeHtml(lead)}</p>` : ""}
-        ${relevanceScoresHtml(item)}
-        ${restParagraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
-        ${snapshotUrl ? `
-        <section class="news-article-snapshot">
-          <h2 class="news-article-sub">${escapeHtml(t("snapshotSectionTitle"))}</h2>
-          <figure class="news-article-snapshot-frame">
-          <div class="news-article-snapshot-head">
-            <strong>arquivo.pt</strong>
-            ${capturedOn ? `<span>${escapeHtml(`${t("snapshotCaptured")} ${capturedOn}`)}</span>` : ""}
+      <div class="news-layout">
+        <header class="news-head">
+          <p class="news-article-meta">
+            ${category ? `<span class="meta-pill">${escapeHtml(category)}</span>` : ""}
+            ${sourceTypeChip(item)}
+            ${relevanceBadge(item)}
+          </p>
+          <h1 id="news-detail-title">${escapeHtml(title)}</h1>
+          ${dateLine ? `<p class="news-article-dates">${escapeHtml(dateLine)}</p>` : ""}
+        </header>
+        ${coverHtml}
+        <div class="news-text">
+          ${lead ? `<p class="news-article-lead">${escapeHtml(lead)}</p>` : ""}
+          ${restParagraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
+          <div class="news-article-actions">
+            ${item.instagram_url ? `<a class="button primary" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenInstagram"))}</a>` : ""}
+            ${item.source_url ? `<a class="button secondary" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenArquivo"))}</a>` : ""}
           </div>
-          <img src="${escapeHtml(snapshotUrl)}" alt="${escapeHtml(t("snapshotCaption"))}" loading="lazy">
-          <figcaption>
-            <span>${escapeHtml(t("snapshotCaption"))}</span>
-            ${item.source_url ? `<a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("viewOriginal"))} →</a>` : ""}
-          </figcaption>
-          </figure>
-        </section>` : ""}
-        <div class="news-article-actions">
-          ${item.instagram_url ? `<a class="button primary" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenInstagram"))}</a>` : ""}
-          ${item.source_url ? `<a class="button secondary" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenArquivo"))}</a>` : ""}
         </div>
-        ${sameDayHtml(item)}
-        ${adjacentNewsHtml(item)}
+        ${snapshotHtml}
       </div>
+      ${sameDayHtml(item)}
+      ${adjacentNewsHtml(item)}
     </article>
   `;
   const detailImage = document.getElementById("news-detail-image");
@@ -1570,7 +1649,7 @@ function matchingInstagramPosts(query, source, fromDate, toDate) {
 }
 
 function topicCacheKey(query, source, fromDate, toDate) {
-  return `ndo-topic-v3-verified:${normalizedTopicText(query)}:${source}:${fromDate}:${toDate}`;
+  return `ndo-topic-v4-verified:${normalizedTopicText(query)}:${source}:${fromDate}:${toDate}`;
 }
 
 function readTopicCache(key) {
@@ -1613,12 +1692,14 @@ function topicApiBoundary(value, endOfDay = false) {
 function topicSearchUrl(query, source, fromValue, toValue, options = {}) {
   const params = new URLSearchParams({
     q: query,
-    from: topicApiBoundary(fromValue, false),
-    to: topicApiBoundary(toValue, true),
     maxItems: String(options.maxItems ?? 1),
     offset: String(options.offset ?? 0),
     dedupValue: "0",
   });
+  // Datas vazias são omitidas: sondas de presença vão sem filtro temporal
+  // (o filtro from do Arquivo.pt falha para conteúdo de meados de 2021 em diante).
+  if (fromValue) params.set("from", topicApiBoundary(fromValue, false));
+  if (toValue) params.set("to", topicApiBoundary(toValue, true));
   topicSearchHosts(source).forEach((host) => params.append("siteSearch", host));
   return `https://arquivo.pt/textsearch?${params.toString()}`;
 }
@@ -1653,7 +1734,14 @@ async function fetchTopicProbe(query, source, fromTimestamp, toTimestamp, offset
     } catch (error) {
       if (parentSignal?.aborted) throw error;
       lastError = error;
-      if (attempt < 2) await new Promise((resolve) => window.setTimeout(resolve, 450 * (attempt + 1)));
+      // 429/503: limite por minuto ou indisponibilidade — esperar mais antes
+      // de repetir evita converter falhas temporárias em "não verificado".
+      const message = String(error?.message || "");
+      if (message.includes("429") || message.includes("503")) {
+        if (attempt < 2) await new Promise((resolve) => window.setTimeout(resolve, 2200 * (attempt + 1)));
+      } else if (attempt < 2) {
+        await new Promise((resolve) => window.setTimeout(resolve, 400 * (attempt + 1)));
+      }
     } finally {
       window.clearTimeout(timeout);
       parentSignal?.removeEventListener("abort", abortRequest);
@@ -1781,8 +1869,12 @@ async function fetchTopicSeriesFromBackend(analyses, fromDate, toDate, showValue
 }
 
 const TOPIC_EXACT_SLICE_LIMIT = 1800;
-const TOPIC_MAX_PROBES_PER_SEARCH = 360;
+const TOPIC_MAX_PROBES_PER_SEARCH = 500;
 const TOPIC_MIN_REQUEST_INTERVAL_MS = 200;
+// O filtro `from` do Arquivo.pt devolve 0 resultados para conteúdo a partir
+// de meados de 2021 (confirmado a 2026-09): a partir daqui, um 0 só é aceito
+// se uma sonda SEM datas também não tiver resultados.
+const TOPIC_DATE_FILTER_BREAK = "2021-07-01";
 const topicProbeBudgets = new WeakMap();
 let nextTopicRequestAt = 0;
 let topicRequestQueue = Promise.resolve();
@@ -1920,8 +2012,83 @@ function topicYearSlices(fromDate, toDate) {
   });
 }
 
-async function fetchTopicSeries(query, source, fromDate, toDate, signal, onProgress = null, onSeriesUpdate = null) {
-  const slices = topicYearSlices(fromDate, toDate);
+// Dias entre duas datas (para os limites de granularidade).
+function topicDaysBetween(fromDate, toDate) {
+  const from = new Date(`${fromDate}T00:00:00Z`);
+  const to = new Date(`${toDate}T00:00:00Z`);
+  return Math.round((to - from) / 86400000);
+}
+
+// Último dia de um mês (trata anos bissextos: 29 de fevereiro).
+function topicLastDayOfMonth(year, month) {
+  return new Date(Date.UTC(year, month, 0)).getUTCDate();
+}
+
+// Fatias por granularidade: ano (default), mês ou dia. Cada fatia tem um
+// `label` estável (YYYY | YYYY-MM | YYYY-MM-DD) e as datas exatas de borda.
+function topicPeriodSlices(fromDate, toDate, granularity = "year") {
+  if (granularity === "month" || granularity === "day") {
+    const slices = [];
+    let [year, month, day] = fromDate.split("-").map(Number);
+    const [endYear, endMonth, endDay] = toDate.split("-").map(Number);
+    let guard = 0;
+    while (guard < 800) {
+      guard += 1;
+      const lastDay = topicLastDayOfMonth(year, month);
+      const sliceEndDay = Math.min(lastDay, granularity === "day" ? lastDay : lastDay);
+      const sliceFrom = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+      const sliceToDate = granularity === "day" ? sliceFrom : `${year}-${String(month).padStart(2, "0")}-${String(sliceEndDay).padStart(2, "0")}`;
+      const clippedTo = sliceToDate > toDate ? toDate : sliceToDate;
+      const label = granularity === "day" ? sliceFrom : `${year}-${String(month).padStart(2, "0")}`;
+      slices.push({
+        label,
+        year,
+        month,
+        fromDate: sliceFrom,
+        toDate: clippedTo,
+      });
+      if (granularity === "day") {
+        day += 1;
+        if (day > lastDay) {
+          day = 1;
+          month += 1;
+          if (month > 12) {
+            month = 1;
+            year += 1;
+          }
+        }
+      } else {
+        month += 1;
+        day = 1;
+        if (month > 12) {
+          month = 1;
+          year += 1;
+        }
+      }
+      if (`${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}` > toDate) break;
+      if (year > endYear || (year === endYear && month > endMonth)) break;
+    }
+    return slices;
+  }
+  return topicYearSlices(fromDate, toDate);
+}
+
+// Limites de desbloqueio: mês exige ≤ 2 anos; dia exige ≈ 1 mês corrido.
+function topicGranularityUnlocked(fromDate, toDate, granularity) {
+  if (granularity === "month") {
+    const [fy, fm] = fromDate.split("-").map(Number);
+    const [ty, tm] = toDate.split("-").map(Number);
+    return ((ty - fy) * 12 + (tm - fm)) <= 25;
+  }
+  if (granularity === "day") {
+    const span = topicDaysBetween(fromDate, toDate);
+    return span >= 1 && span <= 32;
+  }
+  return true;
+}
+
+async function fetchTopicSeries(query, source, fromDate, toDate, signal, onProgress = null, onSeriesUpdate = null, granularity = "year") {
+  const slices = topicPeriodSlices(fromDate, toDate, granularity);
   const results = new Array(slices.length);
   let cursor = 0;
   let completed = 0;
@@ -1932,13 +2099,31 @@ async function fetchTopicSeries(query, source, fromDate, toDate, signal, onProgr
       const index = cursor;
       cursor += 1;
       const slice = slices[index];
-      if (onProgress) onProgress(completed, slices.length, slice.year, "start");
+      if (onProgress) onProgress(completed, slices.length, slice.label, "start");
       try {
         const fromTimestamp = topicApiBoundary(slice.fromDate, false);
         const toTimestamp = topicApiBoundary(slice.toDate, true);
-        const count = await countTopicIntervalExactly(query, source, fromTimestamp, toTimestamp, signal);
+        let count = await countTopicIntervalExactly(query, source, fromTimestamp, toTimestamp, signal);
+        // Detecção de falso zero: se o filtro de datas do arquivo falhar para
+        // este período mas o tema tem capturas sem filtro temporal, o período
+        // fica NÃO verificado em vez de zero.
+        if (count === 0 && slice.toDate >= TOPIC_DATE_FILTER_BREAK) {
+          let presence;
+          try {
+            presence = await fetchTopicProbe(query, source, "", "", 0, signal);
+          } catch (presenceError) {
+            // Sem conseguir provar presença, o zero continua inconclusivo:
+            // marca como falha do filtro de datas em vez de zero.
+            presenceError.code = presenceError.code || "date_filter_unavailable";
+            throw presenceError;
+          }
+          if (presence.hasResult) {
+            throw Object.assign(new Error("Arquivo.pt date filter unavailable"), { code: "date_filter_unavailable" });
+          }
+        }
         results[index] = {
           year: slice.year,
+          label: slice.label,
           from_date: slice.fromDate,
           to_date: slice.toDate,
           count,
@@ -1948,6 +2133,7 @@ async function fetchTopicSeries(query, source, fromDate, toDate, signal, onProgr
         if (signal.aborted) throw error;
         results[index] = {
           year: slice.year,
+          label: slice.label,
           from_date: slice.fromDate,
           to_date: slice.toDate,
           count: null,
@@ -1957,8 +2143,8 @@ async function fetchTopicSeries(query, source, fromDate, toDate, signal, onProgr
         failed += 1;
       }
       completed += 1;
-      if (onProgress) onProgress(completed, slices.length, slice.year, "done");
-      if (onSeriesUpdate) onSeriesUpdate(slice.year, results[index]);
+      if (onProgress) onProgress(completed, slices.length, slice.label, "done");
+      if (onSeriesUpdate) onSeriesUpdate(slice.label, results[index]);
     }
   };
 
@@ -2074,6 +2260,7 @@ function applyTopicDateLimits() {
   state.topicFromDate = fromDate;
   state.topicToDate = toDate;
   renderTopicSourceNote();
+  renderTopicGranularity();
 }
 
 function topicSourceOptions(selectedSource = "") {
@@ -2144,11 +2331,44 @@ function renderTopicControls() {
   }
   if (!state.topicFromDate) state.topicFromDate = validTopicDate(params.get("de")) ? params.get("de") : minimum;
   if (!state.topicToDate) state.topicToDate = validTopicDate(params.get("ate")) ? params.get("ate") : maximum;
+  const granularityParam = params.get("granularidade");
+  if (["year", "month", "day"].includes(granularityParam)) state.topicGranularity = granularityParam;
   renderTopicAnalysisRows();
   fromInput.value = state.topicFromDate;
   toInput.value = state.topicToDate;
   showValues.checked = state.topicShowValues;
   applyTopicDateLimits();
+}
+
+// Controlo de granularidade: Por ano sempre ativo; Mês exige ≤2 anos e
+// Dia ≈1 mês. Bloqueados mostram a razão ao passar o rato ou clicar.
+function renderTopicGranularity() {
+  const container = document.getElementById("topic-granularity");
+  if (!container) return;
+  const fromInput = document.getElementById("topic-from-date");
+  const toInput = document.getElementById("topic-to-date");
+  const hint = document.getElementById("topic-granularity-hint");
+  const fromDate = fromInput?.value || state.topicFromDate;
+  const toDate = toInput?.value || state.topicToDate;
+  let unlockedText = "";
+  for (const button of container.querySelectorAll("[data-topic-granularity]")) {
+    const granularity = button.dataset.topicGranularity;
+    const unlocked = topicGranularityUnlocked(fromDate, toDate, granularity);
+    button.classList.toggle("locked", !unlocked);
+    button.classList.toggle("active", state.topicGranularity === granularity);
+    button.setAttribute("aria-pressed", String(state.topicGranularity === granularity));
+    button.dataset.locked = unlocked ? "0" : "1";
+    if (!unlocked) {
+      unlockedText = t(granularity === "month" ? "topicGranularityMonthTip" : "topicGranularityDayTip");
+      button.setAttribute("data-tip", unlockedText);
+    } else {
+      button.removeAttribute("data-tip");
+    }
+  }
+  if (hint) {
+    hint.hidden = !unlockedText || state.topicGranularity === "year";
+    hint.textContent = state.topicGranularity === "year" ? "" : (state.topicGranularity === "month" || state.topicGranularity === "day") && !topicGranularityUnlocked(fromDate, toDate, state.topicGranularity) ? unlockedText : "";
+  }
 }
 
 function renderTopicGraph() {
@@ -2175,10 +2395,16 @@ function renderTopicGraph() {
   const plotWidth = width - left - right;
   const plotHeight = height - top - bottom;
   const verifiedSeries = resultSets.flatMap((result) => result.series).filter((item) => Number.isFinite(item.count));
+  const granularity = state.topicGranularity === "month" || state.topicGranularity === "day" ? state.topicGranularity : "year";
+  // Sem dados (ou valores residuais), a escala mostra o padrão 0–10 mil:
+  // nunca os eixos degenerados "1,1,1,0,0".
+  const hasVerifiedData = verifiedSeries.length > 0;
   const positiveCounts = verifiedSeries.map((item) => item.count).filter((count) => count > 0);
-  const maxCount = Math.max(...verifiedSeries.map((item) => item.count), 1);
+  const dataMax = hasVerifiedData ? Math.max(...verifiedSeries.map((item) => item.count), 1) : 0;
+  const defaultScale = !hasVerifiedData || dataMax < 10;
+  const maxCount = defaultScale ? 10000 : dataMax;
   const minPositive = positiveCounts.length ? Math.min(...positiveCounts) : 0;
-  const useLogScale = minPositive > 0 && maxCount / minPositive >= 100;
+  const useLogScale = !defaultScale && minPositive > 0 && maxCount / minPositive >= 100;
   const xForIndex = (index) => left + (baseSeries.length === 1 ? plotWidth / 2 : (index / (baseSeries.length - 1)) * plotWidth);
   const scaledCount = (count) => useLogScale
     ? Math.log1p(Math.max(0, count)) / Math.log1p(maxCount)
@@ -2195,9 +2421,51 @@ function renderTopicGraph() {
       : maxCount * scaledValue);
     return `<line x1="${left}" y1="${y}" x2="${width - right}" y2="${y}" class="chart-grid-line"></line><text x="${left - 10}" y="${y + 4}" class="chart-axis-value" text-anchor="end">${escapeHtml(formatMetricNumber(value))}</text>`;
   }).join("");
-  const yearLabels = baseSeries.map((item, index) => {
-    if (index % labelStep !== 0 && index !== baseSeries.length - 1) return "";
-    return `<text x="${xForIndex(index)}" y="${height - 20}" class="chart-year" text-anchor="middle">${item.year}</text>`;
+
+  // Eixo X por granularidade + divisores leves de mês nas vistas de dia.
+  let yearLabels = "";
+  let monthDividers = "";
+  if (granularity === "year") {
+    yearLabels = baseSeries.map((item, index) => {
+      if (index % labelStep !== 0 && index !== baseSeries.length - 1) return "";
+      return `<text x="${xForIndex(index)}" y="${height - 20}" class="chart-year" text-anchor="middle">${item.year}</text>`;
+    }).join("");
+  } else {
+    const locale = state.lang === "pt" ? "pt-PT" : "en-US";
+    const monthName = (label) => new Intl.DateTimeFormat(locale, { month: "short", timeZone: "UTC" })
+      .format(new Date(`${label}-15T00:00:00Z`));
+    if (granularity === "month") {
+      yearLabels = baseSeries.map((item, index) => {
+        if (index % labelStep !== 0 && index !== baseSeries.length - 1) return "";
+        return `<text x="${xForIndex(index)}" y="${height - 20}" class="chart-year" text-anchor="middle">${monthName(item.label)} ${item.label.slice(0, 4)}</text>`;
+      }).join("");
+    } else {
+      // Dia: número do dia; linha fina + nome do mês quando o mês muda.
+      let previousMonth = "";
+      const dividers = [];
+      yearLabels = baseSeries.map((item, index) => {
+        const month = item.label.slice(0, 7);
+        if (previousMonth && month !== previousMonth) {
+          const boundary = (xForIndex(index) + xForIndex(index - 1)) / 2;
+          dividers.push(`<line x1="${boundary}" y1="${top}" x2="${boundary}" y2="${top + plotHeight}" class="chart-month-divider"></line>`);
+          dividers.push(`<text x="${boundary - 4}" y="${height - 20}" class="chart-year chart-month-name" text-anchor="middle">${monthName(previousMonth)}</text>`);
+        }
+        previousMonth = month;
+        if (index % labelStep !== 0 && index !== baseSeries.length - 1) return "";
+        return `<text x="${xForIndex(index)}" y="${height - 6}" class="chart-year" text-anchor="middle">${Number(item.label.slice(8, 10))}</text>`;
+      }).join("");
+      monthDividers = dividers.join("");
+    }
+  }
+
+  // Períodos falhos: marcador oco na base — visivelmente NÃO zero.
+  const failedMarkers = resultSets.map((result, resultIndex) => {
+    const color = validTopicColor(result.color, TOPIC_DEFAULT_COLORS[resultIndex]);
+    return result.series.map((item, index) => {
+      if (item.count !== null || !item.failed) return "";
+      const x = xForIndex(index);
+      return `<circle class="chart-failed-point" cx="${x}" cy="${top + plotHeight - 4}" r="4" style="stroke:${color}"><title>${escapeHtml(`${result.query} · ${item.label}: ${t("topicFailedPoint")}`)}</title></circle>`;
+    }).join("");
   }).join("");
   const valueOffsets = [-13, 18, -29, 34];
   let postCount = 0;
@@ -2226,7 +2494,7 @@ function renderTopicGraph() {
         : "";
       return `
         <circle class="chart-point" cx="${x}" cy="${y}" r="4" style="stroke:${color};--i:${index}">
-          <title>${escapeHtml(result.query)} · ${item.year}: ${formatMetricNumber(item.count)} ${t("topicMentions")}</title>
+          <title>${escapeHtml(result.query)} · ${item.label}: ${formatMetricNumber(item.count)} ${t("topicMentions")}</title>
         </circle>
         ${valueLabel}
       `;
@@ -2235,7 +2503,12 @@ function renderTopicGraph() {
     const posts = matchingInstagramPosts(result.query, result.source, state.topicFromDate, state.topicToDate);
     postCount += posts.length;
     const postPoints = posts.map((post, postIndex) => {
-      const index = result.series.findIndex((item) => item.year === Number(post.original_year));
+      const monthDayOfPost = monthDay(post.date);
+      const index = result.series.findIndex((item) => {
+        if (granularity === "month") return item.label === `${post.original_year}-${monthDayOfPost.slice(0, 2)}`;
+        if (granularity === "day") return item.label === `${post.original_year}-${monthDayOfPost}`;
+        return item.year === Number(post.original_year);
+      });
       if (index < 0 || !Number.isFinite(result.series[index].count)) return "";
       const y = Math.max(top + 8, yForCount(result.series[index].count) - 15 - ((postIndex % 3) * 11));
       return `<a href="${escapeHtml(newsPageUrl(post))}" data-news-id="${escapeHtml(post.page_id)}"><circle class="chart-post-point" cx="${xForIndex(index)}" cy="${y}" r="5" style="fill:${color}"><title>${escapeHtml(titleWithYear(post))}</title></circle></a>`;
@@ -2266,7 +2539,9 @@ function renderTopicGraph() {
     <div class="topic-chart-shell">
       <svg class="topic-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(`${chartTitle}: ${formatMetricNumber(verifiedTotal)} ${t("topicMentions")}`)}">
         ${horizontalGrid}
+        ${monthDividers}
         ${chartSeries}
+        ${failedMarkers}
         ${yearLabels}
       </svg>
     </div>
@@ -2294,8 +2569,15 @@ function renderTopicGraph() {
     const allPeriods = resultSets.flatMap((result) => result.series);
     const failures = allPeriods.filter((item) => item.failed).length;
     const limited = allPeriods.filter((item) => item.error_code === "verification_limit").length;
+    // Falhas em períodos recentes = janela em que o filtro de datas do
+    // Arquivo.pt falha (independente do código de erro: throttle ou datas).
+    const dateFilter = allPeriods.filter((item) => item.failed && String(item.to_date || "") >= TOPIC_DATE_FILTER_BREAK).length;
     if (failures) {
-      if (limited) {
+      if (dateFilter) {
+        status.textContent = state.lang === "pt"
+          ? `${dateFilter} períodos não puderam ser verificados: o filtro de datas do Arquivo.pt está a devolver resultados vazios para conteúdo recente (falha do lado do arquivo, a partir de meados de 2021). Ficam marcados como não verificados — nunca como zero.`
+          : `${dateFilter} periods could not be verified: the Arquivo.pt date filter is returning empty results for recent content (an archive-side issue, from mid-2021 on). They are marked as not verified — never as zero.`;
+      } else if (limited) {
         status.textContent = state.lang === "pt"
           ? `${failures} períodos não puderam ser verificados sem tornar a pesquisa excessiva. Escolhe uma fonte ou reduz as datas; estes períodos não foram tratados como zero.`
           : `${failures} periods could not be verified without making the search excessive. Choose a source or shorten the dates; these periods were not treated as zero.`;
@@ -2312,6 +2594,7 @@ function renderTopicGraph() {
 
 function renderTopics() {
   renderTopicControls();
+  renderTopicGranularity();
   renderTopicGraph();
 }
 
@@ -2324,7 +2607,8 @@ function topicDownloadName(extension) {
     .map((analysis) => safeDownloadPart(analysis.query))
     .filter(Boolean)
     .join("-vs-") || "temas";
-  return `noticias-de-ontem-${comparison}-${state.topicFromDate}-${state.topicToDate}.${extension}`;
+  const suffix = state.topicGranularity === "month" ? "-mensal" : state.topicGranularity === "day" ? "-diario" : "";
+  return `noticias-de-ontem-${comparison}-${state.topicFromDate}-${state.topicToDate}${suffix}.${extension}`;
 }
 
 function triggerBlobDownload(blob, extension) {
@@ -2347,8 +2631,8 @@ function downloadTopicCsv() {
   const portuguese = state.lang === "pt";
   const rows = [
     portuguese
-      ? ["analise", "tema", "fonte", "cor", "total_serie", "mostrar_valores", "intervalo_inicio", "intervalo_fim", "ano", "resultados_verificados", "estado", "motivo", "metodo", "url_consulta_arquivo_pt", "consultado_em"]
-      : ["analysis", "topic", "source", "colour", "series_total", "show_values", "range_start", "range_end", "year", "verified_results", "status", "reason", "method", "arquivo_pt_query_url", "collected_at"],
+      ? ["analise", "tema", "fonte", "cor", "total_serie", "mostrar_valores", "intervalo_inicio", "intervalo_fim", "periodo", "resultados_verificados", "estado", "motivo", "metodo", "url_consulta_arquivo_pt", "consultado_em"]
+      : ["analysis", "topic", "source", "colour", "series_total", "show_values", "range_start", "range_end", "period", "verified_results", "status", "reason", "method", "arquivo_pt_query_url", "collected_at"],
     ...(state.topicResultSets || []).flatMap((result, resultIndex) => result.series.map((item) => [
       resultIndex + 1,
       result.query,
@@ -2358,7 +2642,7 @@ function downloadTopicCsv() {
       state.topicShowValues ? (portuguese ? "sim" : "yes") : (portuguese ? "nao" : "no"),
       item.from_date,
       item.to_date,
-      item.year,
+      item.label || item.year,
       Number.isFinite(item.count) ? item.count : "",
       item.failed ? (portuguese ? "nao_verificado" : "not_verified") : (portuguese ? "verificado" : "verified"),
       item.error_code || "",
@@ -2415,13 +2699,16 @@ function exportableTopicSvg(svg) {
   background.setAttribute("fill", "#ffffff");
   clone.insertBefore(background, style.nextSibling);
 
+  const periodWording = state.lang === "pt"
+    ? (state.topicGranularity === "month" ? " com verificação mensal" : state.topicGranularity === "day" ? " com verificação diária" : " com verificação anual")
+    : (state.topicGranularity === "month" ? " with monthly verification" : state.topicGranularity === "day" ? " with daily verification" : " with yearly verification");
   const exportTitle = state.lang === "pt"
     ? (resultSets.length === 1
-        ? `Evolução de "${resultSets[0].query}" no índice preservado do Arquivo.pt entre ${formatTopicDate(state.topicFromDate)} e ${formatTopicDate(state.topicToDate)}`
-        : `Comparação de temas no índice preservado do Arquivo.pt entre ${formatTopicDate(state.topicFromDate)} e ${formatTopicDate(state.topicToDate)}`)
+        ? `Evolução de "${resultSets[0].query}" no índice preservado do Arquivo.pt entre ${formatTopicDate(state.topicFromDate)} e ${formatTopicDate(state.topicToDate)}${periodWording}`
+        : `Comparação de temas no índice preservado do Arquivo.pt entre ${formatTopicDate(state.topicFromDate)} e ${formatTopicDate(state.topicToDate)}${periodWording}`)
     : (resultSets.length === 1
-        ? `Evolution of "${resultSets[0].query}" in the Arquivo.pt preserved index between ${formatTopicDate(state.topicFromDate)} and ${formatTopicDate(state.topicToDate)}`
-        : `Topic comparison in the Arquivo.pt preserved index between ${formatTopicDate(state.topicFromDate)} and ${formatTopicDate(state.topicToDate)}`);
+        ? `Evolution of "${resultSets[0].query}" in the Arquivo.pt preserved index between ${formatTopicDate(state.topicFromDate)} and ${formatTopicDate(state.topicToDate)}${periodWording}`
+        : `Topic comparison in the Arquivo.pt preserved index between ${formatTopicDate(state.topicFromDate)} and ${formatTopicDate(state.topicToDate)}${periodWording}`);
   const title = document.createElementNS("http://www.w3.org/2000/svg", "text");
   title.setAttribute("x", String(width / 2));
   title.setAttribute("y", "34");
@@ -2586,11 +2873,13 @@ async function runTopicSearch(updateHistory = true) {
       de: fromDate,
       ate: toDate,
       valores: state.topicShowValues ? "1" : "0",
+      ...(state.topicGranularity !== "year" ? { granularidade: state.topicGranularity } : {}),
     }));
   }
 
-  const yearsPerAnalysis = topicYearSlices(fromDate, toDate).length;
-  const totalPeriods = yearsPerAnalysis * analyses.length;
+  const granularity = topicGranularityUnlocked(fromDate, toDate, state.topicGranularity) ? state.topicGranularity : "year";
+  const periodsPerAnalysis = topicPeriodSlices(fromDate, toDate, granularity).length;
+  const totalPeriods = periodsPerAnalysis * analyses.length;
   let completedPeriods = 0;
   updateTopicProgress(0, totalPeriods);
   try {
@@ -2608,12 +2897,13 @@ async function runTopicSearch(updateHistory = true) {
         ...analysis,
       }));
     } else {
-        // Esqueleto com todos os anos a null: o gráfico nasce vazio e cresce
-        // ano a ano à medida que cada contagem é verificada.
+        // Esqueleto com todos os períodos a null: o gráfico nasce vazio e
+        // cresce à medida que cada contagem é verificada.
         results = analyses.map((analysis) => ({
           ...analysis,
-          series: topicYearSlices(fromDate, toDate).map((slice) => ({
+          series: topicPeriodSlices(fromDate, toDate, granularity).map((slice) => ({
             year: slice.year,
+            label: slice.label,
             from_date: slice.fromDate,
             to_date: slice.toDate,
             count: null,
@@ -2629,7 +2919,7 @@ async function runTopicSearch(updateHistory = true) {
           const index = cursor;
           cursor += 1;
           const analysis = analyses[index];
-          const cacheKey = topicCacheKey(analysis.query, analysis.source, fromDate, toDate);
+          const cacheKey = topicCacheKey(analysis.query, analysis.source, fromDate, toDate) + `:${granularity}`;
           const cached = readTopicCache(cacheKey);
           let result = cached;
           if (cached) {
@@ -2644,19 +2934,19 @@ async function runTopicSearch(updateHistory = true) {
                 fromDate,
                 toDate,
                 searchAbort.signal,
-                (done, total, year, phase) => {
+                (done, total, label, phase) => {
                   if (phase === "start") {
-                    // Mostra o ano em curso sem avançar o contador.
-                    updateTopicProgress(completedPeriods, totalPeriods, year);
+                    // Mostra o período em curso sem avançar o contador.
+                    updateTopicProgress(completedPeriods, totalPeriods, label);
                     return;
                   }
                   completedPeriods += 1;
-                  updateTopicProgress(completedPeriods, totalPeriods);
+                  updateTopicProgress(completedPeriods, totalPeriods, label);
                 },
-                (year, entry) => {
-                  // Cada ano verificado entra no gráfico imediatamente.
+                (label, entry) => {
+                  // Cada período verificado entra no gráfico imediatamente.
                   const resultSet = state.topicResultSets[seriesIndex];
-                  const point = resultSet?.series?.find((item) => item.year === Number(year));
+                  const point = resultSet?.series?.find((item) => item.label === label);
                   if (point) {
                     point.count = entry.count;
                     point.failed = entry.failed;
@@ -2665,12 +2955,14 @@ async function runTopicSearch(updateHistory = true) {
                     renderTopicGraph();
                   }
                 },
+                granularity,
               );
             } catch (error) {
               if (searchAbort.signal.aborted) throw error;
               result = {
-                series: topicYearSlices(fromDate, toDate).map((slice) => ({
+                series: topicPeriodSlices(fromDate, toDate, granularity).map((slice) => ({
                   year: slice.year,
+                  label: slice.label,
                   from_date: slice.fromDate,
                   to_date: slice.toDate,
                   count: null,
@@ -2680,7 +2972,7 @@ async function runTopicSearch(updateHistory = true) {
                 total: 0,
                 complete: false,
               };
-              completedPeriods += yearsPerAnalysis;
+              completedPeriods += periodsPerAnalysis;
               updateTopicProgress(Math.min(completedPeriods, totalPeriods), totalPeriods);
             }
             if (result.complete) writeTopicCache(cacheKey, result);
@@ -2865,11 +3157,18 @@ function animateMetricCounters() {
 function settleOdometers(counters) {
   const settleReel = (reel) => {
     if (!reel.isConnected) return;
-    const digit = document.createElement("span");
-    digit.className = "odometer-static-digit";
-    digit.setAttribute("aria-hidden", "true");
-    digit.textContent = reel.dataset.targetDigit || "0";
-    reel.replaceWith(digit);
+    // Mantém o wrapper .odometer-digit e troca apenas o conteúdo:
+    // as métricas da caixa são idênticas antes e depois — o texto de baixo
+    // nunca salta.
+    const track = reel.querySelector(".odometer-track");
+    if (track) {
+      track.style.transition = "none";
+      track.style.setProperty("--odometer-shift", "0em");
+      track.innerHTML = "";
+      const digit = document.createElement("span");
+      digit.textContent = reel.dataset.targetDigit || "0";
+      track.appendChild(digit);
+    }
   };
   counters.forEach((element) => {
     element.querySelectorAll(".odometer-digit").forEach((reel) => {
@@ -2887,32 +3186,27 @@ function settleOdometers(counters) {
   });
 }
 
-// Secções da home por nível de relevância (padrão de blocos temáticos dos
-// jornais: kicker por badge, depois as notícias).
+// Home em colunas (estilo jornal): à esquerda (~66%) as "Mais notícias";
+// à direita a lista dos Marcos Históricos (nível 1, mesmo fora do carrossel)
+// e, por baixo, um feed "ao minuto" com as últimas publicações do perfil.
 function renderHomeSections() {
   const all = state.data?.all || [];
-  const sections = [
-    { id: "home-level-1", levels: [1], limit: 3 },
-    { id: "home-level-2", levels: [2], limit: 3 },
-    { id: "home-more", levels: [3, 4, 5], limit: 6 },
-  ];
-  const used = new Set();
-  for (const section of sections) {
-    const container = document.getElementById(section.id);
-    const wrapper = document.getElementById(`${section.id}-section`);
-    if (!container || !wrapper) continue;
-    const items = all
-      .filter((item) => section.levels.includes(Number(item.relevance_level) || 4) && !used.has(item.page_id))
-      .sort((left, right) => (Number(left.relevance_level) || 4) - (Number(right.relevance_level) || 4))
-      .slice(0, section.limit);
-    for (const item of items) used.add(item.page_id);
-    wrapper.hidden = items.length === 0;
-    container.innerHTML = items.map((item) => `
+  const byLevel = (level) => all
+    .filter((item) => (Number(item.relevance_level) || 4) === level)
+    .sort((left, right) => `${right.date || ""}-${right.slot || 0}`.localeCompare(`${left.date || ""}-${left.slot || 0}`));
+
+  // Coluna principal: Mais notícias (níveis 2-5; os marcos ficam na barra).
+  const moreContainer = document.getElementById("home-more");
+  const moreColumn = document.getElementById("home-more-column");
+  if (moreContainer && moreColumn) {
+    const items = byLevel(2).concat(byLevel(3), byLevel(4), byLevel(5)).slice(0, 6);
+    moreColumn.hidden = items.length === 0;
+    moreContainer.innerHTML = items.map((item) => `
       <article class="latest-card">
         ${cardImage(item, true)}
         <div class="content">
           <div class="meta">${cardMetaHtml(item)}</div>
-          <h3><a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">${escapeHtml(titleWithYear(item))}</a></h3>
+          <h3><a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">${escapeHtml(cleanTitle(item))}</a></h3>
           <p>${escapeHtml(localized(item, "summary"))}</p>
           <div class="card-actions">
             ${item.source_url ? `<a class="text-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openArquivo"))}</a>` : ""}
@@ -2921,6 +3215,53 @@ function renderHomeSections() {
       </article>
     `).join("");
   }
+
+  // Barra lateral: lista dos Marcos Históricos (até 6), com badge.
+  const landings = byLevel(1).slice(0, 6);
+  const landmarksBlock = document.getElementById("home-level-1-block");
+  const landmarksList = document.getElementById("home-level-1");
+  if (landmarksBlock && landmarksList) {
+    landmarksBlock.hidden = landings.length === 0;
+    landmarksList.innerHTML = landings.map((item) => `
+      <li>
+        <a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">
+          <span class="feed-year">${escapeHtml(item.original_year || dateYear(item.date))}</span>
+          <strong>${escapeHtml(cleanTitle(item))}</strong>
+          ${relevanceBadge(item, { compact: true })}
+        </a>
+      </li>
+    `).join("");
+  }
+
+  // Feed "ao minuto": últimas publicações (published primeiro), com tempo relativo.
+  const feedBlock = document.getElementById("home-feed-block");
+  const feed = document.getElementById("minute-feed");
+  if (feedBlock && feed) {
+    const published = all.filter((item) => item.instagram_url || (item.network_posts && Object.keys(item.network_posts).length));
+    const items = (published.length ? published : all).slice(0, 5);
+    feedBlock.hidden = items.length === 0;
+    feed.innerHTML = items.map((item) => `
+      <li>
+        <span class="feed-time">${escapeHtml(relativeTime(item.date))}</span>
+        <a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">
+          <strong>${escapeHtml(cleanTitle(item))}</strong>
+        </a>
+        <em>${escapeHtml(localized(item, "summary").slice(0, 110))}${localized(item, "summary").length > 110 ? "…" : ""}</em>
+      </li>
+    `).join("");
+  }
+}
+
+// Tempo relativo para o feed ("hoje", "ontem", "há X dias").
+function relativeTime(dateValue) {
+  if (!dateValue) return "";
+  const then = new Date(`${dateValue}T12:00:00`);
+  const today = new Date();
+  today.setHours(12, 0, 0, 0);
+  const days = Math.round((today - then) / 86400000);
+  if (days <= 0) return state.lang === "en" ? "Today" : "Hoje";
+  if (days === 1) return state.lang === "en" ? "Yesterday" : "Ontem";
+  return state.lang === "en" ? `${days} days ago` : `Há ${days} dias`;
 }
 
 function renderDocs() {
@@ -3264,6 +3605,21 @@ function wireTopics() {
   ["topic-from-date", "topic-to-date"].forEach((id) => {
     document.getElementById(id)?.addEventListener("change", applyTopicDateLimits);
   });
+  // Granularidade: bloqueada mostra a razão; desbloqueada re-corre a análise.
+  const hint = document.getElementById("topic-granularity-hint");
+  for (const button of document.querySelectorAll("[data-topic-granularity]")) {
+    button.addEventListener("click", (event) => {
+      if (button.dataset.locked === "1") {
+        event.preventDefault();
+        hint.textContent = t("topicGranularityLocked");
+        hint.hidden = false;
+        return;
+      }
+      state.topicGranularity = button.dataset.topicGranularity;
+      renderTopicGranularity();
+      runTopicSearch(true);
+    });
+  }
   document.getElementById("topic-show-values")?.addEventListener("change", (event) => {
     state.topicShowValues = event.target.checked;
     renderTopicGraph();
@@ -3537,6 +3893,27 @@ function relevanceTooltipText(level) {
   return html;
 }
 
+function showRelevanceTooltipRaw(badge, rawText) {
+  hideRelevanceTooltip();
+  if (!rawText) return;
+  const tooltip = document.createElement("div");
+  tooltip.id = "relevance-tooltip";
+  tooltip.className = "relevance-tooltip relevance-generic";
+  tooltip.setAttribute("role", "tooltip");
+  tooltip.innerHTML = `<strong>${escapeHtml(t("topicGranularityLabel"))}</strong><span>${escapeHtml(rawText)}</span>`;
+  document.body.appendChild(tooltip);
+  relevanceTooltipElement = tooltip;
+  const badgeRect = badge.getBoundingClientRect();
+  const tooltipRect = tooltip.getBoundingClientRect();
+  let left = badgeRect.left + badgeRect.width / 2 - tooltipRect.width / 2;
+  left = Math.max(10, Math.min(left, window.innerWidth - tooltipRect.width - 10));
+  let top = badgeRect.top - tooltipRect.height - 10;
+  if (top < 10) top = badgeRect.bottom + 10;
+  tooltip.style.left = `${Math.round(left)}px`;
+  tooltip.style.top = `${Math.round(top)}px`;
+  tooltip.classList.add("visible");
+}
+
 function showRelevanceTooltip(badge) {
   hideRelevanceTooltip();
   const level = badge.getAttribute("data-relevance-level");
@@ -3568,27 +3945,36 @@ function hideRelevanceTooltip() {
 }
 
 function wireRelevanceTooltips() {
+  const target = (event) => event.target.closest?.(".relevance-badge, [data-tip]");
+  const tipFor = (element) => (element.dataset.tip ? element.dataset.tip : relevanceTooltipText(element.dataset.relevanceLevel));
+  const show = (element) => {
+    if (element.dataset.tip) {
+      showRelevanceTooltipRaw(element, element.dataset.tip);
+    } else {
+      showRelevanceTooltip(element);
+    }
+  };
   document.addEventListener("pointerenter", (event) => {
-    const badge = event.target.closest?.(".relevance-badge");
-    if (badge) showRelevanceTooltip(badge);
+    const badge = target(event);
+    if (badge) show(badge);
   }, true);
   document.addEventListener("pointerleave", (event) => {
-    if (event.target.closest?.(".relevance-badge")) hideRelevanceTooltip();
+    if (target(event)) hideRelevanceTooltip();
   }, true);
   document.addEventListener("focusin", (event) => {
-    const badge = event.target.closest?.(".relevance-badge");
-    if (badge) showRelevanceTooltip(badge);
+    const badge = target(event);
+    if (badge) show(badge);
   });
   document.addEventListener("focusout", (event) => {
-    if (event.target.closest?.(".relevance-badge")) hideRelevanceTooltip();
+    if (target(event)) hideRelevanceTooltip();
   });
   // Toque em mobile: primeiro toque abre, toque fora fecha.
   document.addEventListener("click", (event) => {
-    const badge = event.target.closest?.(".relevance-badge");
+    const badge = target(event);
     if (badge) {
       event.preventDefault();
       event.stopPropagation();
-      showRelevanceTooltip(badge);
+      show(badge);
     } else {
       hideRelevanceTooltip();
     }

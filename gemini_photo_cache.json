@@ -1180,5 +1180,174 @@
    "reason": "Retrata esculturas subaquáticas artísticas características de museus submarinos como o de Lanzarote."
   },
   "_model": "gemini-3.7-flash"
+ },
+ "2026-01-05_01_2025_fernanda-torres-vence-globo-de-ouro-fundo.jpg:247638": {
+  "_final": {
+   "subject": "Fernanda Torres segura o troféu do Globo de Ouro",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.7,
+     0.17
+    ]
+   ],
+   "banner_focus": [
+    0.55,
+    0.28
+   ],
+   "cover_focus": [
+    0.53,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata Fernanda Torres a celebrar com o Globo de Ouro, correspondendo perfeitamente à notícia."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-05_01_2023_george-santos-e-primeiro-republicano-gay-eleito-ao-congresso-fundo.jpg:220126": {
+  "_final": {
+   "subject": "Retrato oficial do congressista norte-americano Robert Garcia",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.49,
+     0.26
+    ]
+   ],
+   "banner_focus": [
+    0.49,
+    0.28
+   ],
+   "cover_focus": [
+    0.49,
+    0.38
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra o congressista Robert Garcia e não George Santos, tema central da notícia."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-01-12_01_2025_em-termos-nacionais-destaca-se-a-reuniao-do-conselho-de-estado-na-sexta-feira-fundo.jpg:352467": {
+  "_final": {
+   "subject": "Mulher a segurar uma arma de fogo grande num espaço interior",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.59,
+     0.1
+    ]
+   ],
+   "banner_focus": [
+    0.55,
+    0.2
+   ],
+   "cover_focus": [
+    0.52,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra uma mulher a segurar uma arma, sem qualquer relação com a reunião do Conselho de Estado."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-14_01_2024_salvador-sobral-critica-toy-de-netta-fundo.jpg:271884": {
+  "_final": {
+   "subject": "Salvador Sobral e Luísa Sobral no palco da Eurovisão",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.15,
+     0.33
+    ],
+    [
+     0.86,
+     0.3
+    ]
+   ],
+   "banner_focus": [
+    0.65,
+    0.32
+   ],
+   "cover_focus": [
+    0.75,
+    0.4
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra Salvador Sobral, interveniente direto da notícia relativa às suas declarações sobre a Eurovisão."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-14_01_2021_congresso-eua-acusa-amazon-apple-facebook-e-google-fundo.jpg:287225": {
+  "_final": {
+   "subject": "Página de texto impresso sobre o federalismo brasileiro",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "Documento sobre o federalismo brasileiro, sem relação com o Congresso dos EUA ou empresas de tecnologia."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-15_01_2021_fire-saga-chega-ao-netflix-portugal-fundo.jpg:451025": {
+  "_final": {
+   "subject": "Mulher com coroa de flores e vestido azul a cantar",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.27,
+     0.32
+    ]
+   ],
+   "banner_focus": [
+    0.3,
+    0.33
+   ],
+   "cover_focus": [
+    0.32,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fotografia com figurino e estética evocativos do filme Fire Saga e atuações estilo Eurovisão."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-16_01_2024_taylor-swift-lidera-vendas-de-vinil-fundo.jpg:212789": {
+  "_final": {
+   "subject": "disco de vinil de Muddy Waters em exposição",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.42
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra o formato físico de disco de vinil, tema central da notícia sobre vendas de vinil."
+  },
+  "_model": "gemini-3.6-flash"
  }
 }

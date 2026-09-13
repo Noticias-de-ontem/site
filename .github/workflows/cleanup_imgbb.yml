@@ -53,7 +53,7 @@ jobs:
           if [ "${{ inputs.selected_only }}" = "true" ]; then
             ARGS="$ARGS --selected-only"
           fi
-          python cleanup_imgbb_used.py $ARGS
+          python scripts/cleanup_imgbb_used.py $ARGS
 
       - name: Commit and Push cleanup state
         if: always()

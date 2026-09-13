@@ -9,6 +9,7 @@ import shutil
 import textwrap
 from datetime import datetime, timezone
 from pathlib import Path
+from social_networks import networks_for_option
 from urllib.parse import quote
 
 import requests
@@ -31,7 +32,7 @@ CDXJ_BUILDER_FILE = ROOT / "build_arquivo_cdxj_index.py"
 INSTAGRAM_SCRAPER_FILE = ROOT / "scraper.py"
 ICON_SOURCE = ROOT / "images" / "noticias_de_ontem_icon.png"
 ICON_ASSET = "icon.png"
-SITE_ASSET_VERSION = "20260913b"
+SITE_ASSET_VERSION = "20260913h"
 SITE_FONTS = [
     "Montserrat-Regular.ttf",
     "Montserrat-Medium.ttf",
@@ -867,10 +868,13 @@ def post_to_site_item(post, registry_by_post_id):
     title = strip_title_year(title)
     if not title:
         return None
-    # Texto adicional para a página da notícia (sem repetir o resumo).
-    body = strip_hashtags(option.get("overlay_description") or option.get("description") or "")
-    if body and body == clean_text(option.get("summary") or ""):
-        body = ""
+    # Texto da página da notícia: artigo longo gerado por nível (200-800
+    # palavras); sem artigo, cai para a descrição da capa.
+    body = strip_hashtags(option.get("body") or "")
+    if not body:
+        body = strip_hashtags(option.get("overlay_description") or option.get("description") or "")
+        if body and body == clean_text(option.get("summary") or ""):
+            body = ""
     caption = strip_hashtags(option.get("caption") or "")
     relevance = option.get("relevance") if isinstance(option.get("relevance"), dict) else {}
     item = {
@@ -897,6 +901,11 @@ def post_to_site_item(post, registry_by_post_id):
         "archive_credit": "Arquivo.pt",
         # Foto real validada para banner + cartão (usada na rotação do carrossel).
         "banner_ready": banner_ready,
+        # Redes sociais direcionadas (Instagram/Facebook/X) e links publicados.
+        # Sem escolha da IA (posts antigos), aplica a regra por categoria/nível
+        # para os badges ficarem equitativos durante a qualificação visual.
+        "networks": option.get("networks") or networks_for_option(category, relevance.get("level")),
+        "network_posts": post.get("network_posts") or {},
         # Relevância histórica (níveis calculados em historical_relevance.py).
         "relevance_level": relevance.get("level"),
         "relevance_scores": relevance.get("scores") or {},
@@ -1294,6 +1303,11 @@ def build_story_shell(source_html, prefix):
     shell = re.sub(
         r'src="app\.js\?v=[^"]*"',
         f'src="{prefix}app.js?v={SITE_ASSET_VERSION}"',
+        shell,
+    )
+    shell = re.sub(
+        r'href="\.{0,2}/assets/icon\.png\?v=[^"]*"',
+        f'href="{prefix}assets/icon.png?v={SITE_ASSET_VERSION}"',
         shell,
     )
     for route in ("inicio", "calendario", "temas", "documentacao"):

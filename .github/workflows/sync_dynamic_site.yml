@@ -10,7 +10,7 @@ on:
       - "pending_posts.json"
       - "social_metrics.json"
       - "arquivo_cdxj_state.json"
-      - "sync_dynamic_site.py"
+      - "scripts/sync_dynamic_site.py"
       - ".github/workflows/sync_dynamic_site.yml"
   workflow_dispatch:
 
@@ -36,4 +36,4 @@ jobs:
         env:
           SITE_API_URL: ${{ secrets.SITE_API_URL }}
           SITE_SYNC_TOKEN: ${{ secrets.SITE_SYNC_TOKEN }}
-        run: python -u sync_dynamic_site.py
+        run: python -u scripts/sync_dynamic_site.py

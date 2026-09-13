@@ -12,7 +12,7 @@ on:
       - "imgbb_uploads.json"
       - "social_metrics.json"
       - "arquivo_cdxj_state.json"
-      - "deploy_hf_space.py"
+      - "scripts/deploy_hf_space.py"
       - ".github/workflows/huggingface_space.yml"
   workflow_dispatch:
 
@@ -47,4 +47,4 @@ jobs:
         run: python -u build_site.py
 
       - name: Publish Static Space
-        run: python -u deploy_hf_space.py
+        run: python -u scripts/deploy_hf_space.py

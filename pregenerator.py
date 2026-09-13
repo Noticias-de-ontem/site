@@ -10,6 +10,7 @@ import requests
 
 from archive_storage import load_posts_for_date
 from historical_relevance import normalize_relevance, relevance_json_shape, relevance_prompt_rules
+from social_networks import networks_prompt_rules, normalize_networks
 from imgbb_registry import register_imgbb_upload
 from nvidia_client import DEFAULT_NVIDIA_MODEL, NvidiaKeyPool, load_nvidia_api_keys
 from post_templates import create_image_with_text as render_post_image, is_volatile_image_url
@@ -538,6 +539,8 @@ def enrich_options_with_ai(options, lang):
       "idx": 0,
       "title_en": "The headline in natural United States English (not a literal translation)",
       "summary_en": "The overlay/summary in natural United States English",
+      "networks": ["instagram", "facebook" ou "x" — ver regras],
+      "body": "O artigo da página da notícia, em português de Portugal",
       "relevance": {{
         "impacto_historico": 0-100,
         "dimensao_impacto": 0-100,
@@ -553,6 +556,15 @@ def enrich_options_with_ai(options, lang):
 }}
 
 Scoring rules: {relevance_prompt_rules()}
+
+{networks_prompt_rules()}
+
+BODY rules (field "body", in European Portuguese, journalistic tone, factual, based only on the option and the real event):
+- Level 1 (Marco Histórico) or 2 (Grande Relevância): 600-800 words.
+- Level 3 (Relevância Regional): 400-500 words.
+- Level 4 (Interesse Público): 250-350 words.
+- Level 5 (Contexto Histórico): 200-250 words.
+- Write it AFTER scoring, sizing the text by the level the scores produce. Cover context, development and lasting relevance. Never invent specific facts, quotes or numbers that are not in the option.
 
 Options:
 {json.dumps(compact, ensure_ascii=False)}
@@ -575,6 +587,13 @@ Options:
                 option["title_en"] = normalize_text(item.get("title_en"))
             if item.get("summary_en"):
                 option["summary_en"] = normalize_text(item.get("summary_en"))
+            if item.get("body"):
+                option["body"] = normalize_text(item.get("body"))
+            option["networks"] = normalize_networks(
+                item.get("networks"),
+                option.get("category", ""),
+                (option.get("relevance") or {}).get("level"),
+            )
             relevance = normalize_relevance(item.get("relevance"))
             if relevance:
                 option["relevance"] = relevance
@@ -702,7 +721,7 @@ def resolve_wayback_capture(url, year, title=""):
                 if domain:
                     search_params["siteSearch"] = domain
                 search = requests.get("https://arquivo.pt/textsearch", params=search_params, timeout=60)
-                items = (search.json() or {}).get("responseItems", []) if search.status_code == 200 else []
+                items = (search.json() or {}).get("response_items", []) if search.status_code == 200 else []
                 for item in items:
                     archive_link = normalize_text(item.get("linkToArchive"))
                     if "/wayback/" in archive_link:
@@ -712,6 +731,40 @@ def resolve_wayback_capture(url, year, title=""):
                 pass
     _WAYBACK_RESOLUTION_CACHE[cache_key] = result
     return result
+
+
+def resolve_wayback_by_title(title, year):
+    """Procura a captura wayback de uma notícia apenas pelo título e ano.
+
+    Usada no backfill de posts antigos que não têm URL de origem guardada.
+    """
+    title_query = normalize_text(title)
+    try:
+        year_int = int(str(year)[:4] or 0)
+    except ValueError:
+        year_int = 0
+    if not title_query or not year_int:
+        return ""
+    try:
+        search = requests.get(
+            "https://arquivo.pt/textsearch",
+            params={"q": title_query, "maxItems": "8"},
+            timeout=60,
+        )
+        payload = search.json() if search.status_code == 200 else {}
+        items = payload.get("response_items") or payload.get("responseItems") or []
+        for item in items:
+            archive_link = normalize_text(item.get("linkToArchive"))
+            if "/wayback/" not in archive_link:
+                continue
+            capture_year = re.search(r"/wayback/(\d{4})", archive_link)
+            # A captura tem de ser do ano da notícia (±1): resultados de
+            # outros anos seriam páginas diferentes com o mesmo tema.
+            if capture_year and abs(int(capture_year.group(1)) - year_int) <= 1:
+                return archive_link
+    except (requests.RequestException, ValueError):
+        pass
+    return ""
 
 
 def rank_all_stories_for_day(news_items, lang, feedback_note=""):
@@ -1070,6 +1123,12 @@ def normalize_pending_post(post):
         normalized_option["caption"] = normalize_text(normalized_option.get("caption", ""))
         normalized_option["summary"] = normalize_text(normalized_option.get("summary", ""))
         normalized_option["summary_en"] = normalize_text(normalized_option.get("summary_en", ""))
+        normalized_option["body"] = normalize_text(normalized_option.get("body", ""))
+        normalized_option["networks"] = normalize_networks(
+            normalized_option.get("networks"),
+            normalized_option.get("category", ""),
+            (normalized_option.get("relevance") or {}).get("level"),
+        )
         normalized_option["layout_preference"] = str(normalized_option.get("layout_preference", "template_1")).strip().lower().replace("-", "_")
         normalized_option["breaking_candidate"] = bool(normalized_option.get("breaking_candidate", False))
         normalized_option["background_source_url"] = normalize_text(normalized_option.get("background_source_url", ""))

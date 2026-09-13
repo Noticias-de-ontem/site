@@ -5,7 +5,7 @@ from pathlib import Path
 
 import requests
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "site" / "assets" / "logos"
 
 # handle/domínio -> domínio para favicon

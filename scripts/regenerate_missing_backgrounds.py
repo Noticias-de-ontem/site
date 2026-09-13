@@ -22,7 +22,7 @@ from post_templates import (
 )
 from gemini_vision import GeminiUnavailableError, analyze_photo
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 PENDING_FILE = ROOT / "pending_posts.json"
 
 # Consultas curtas de reserva: pesquisas de imagem funcionam melhor com

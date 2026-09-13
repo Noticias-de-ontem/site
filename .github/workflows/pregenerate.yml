@@ -53,7 +53,7 @@ jobs:
         env:
           SITE_API_URL: ${{ secrets.SITE_API_URL }}
           SITE_SYNC_TOKEN: ${{ secrets.SITE_SYNC_TOKEN }}
-        run: python -u sync_dynamic_site.py
+        run: python -u scripts/sync_dynamic_site.py
 
       - name: Commit and Push changes
         if: always()

@@ -112,7 +112,7 @@ Direct alternative to `popular_site`:
 python -u pregenerator.py --lang pt --start-date 2026-07-01 --end-date 2026-07-31 --source-mode arquivo-first
 ```
 
-Background photo analysis can be regenerated per post (`python regenerate_missing_backgrounds.py <post_id> ...`), always validated by Gemini. States in `pending_posts.json`: `pending`, `approved`, `published`, `skip`.
+Background photo analysis can be regenerated per post (`python scripts/regenerate_missing_backgrounds.py <post_id> ...`), always validated by Gemini. States in `pending_posts.json`: `pending`, `approved`, `published`, `skip`.
 
 ## Topic search
 
@@ -120,7 +120,7 @@ The topics page compares up to four queries, each with its own source and color.
 
 ## Dynamic website and fast analysis
 
-`render.yaml` provisions: FastAPI + frontend (Web Service), Celery (worker), CDXJ/OpenSearch updates (a second persistent worker), PostgreSQL, a Valkey/Redis queue, and optional OpenSearch. The initial indexing is heavy (days) and must not run in normal Actions. Full manual: [`DYNAMIC_DEPLOYMENT.md`](DYNAMIC_DEPLOYMENT.md). Static-only option on the Hugging Face: [`HF_DEPLOYMENT.md`](HF_DEPLOYMENT.md).
+`render.yaml` provisions: FastAPI + frontend (Web Service), Celery (worker), CDXJ/OpenSearch updates (a second persistent worker), PostgreSQL, a Valkey/Redis queue, and optional OpenSearch. The initial indexing is heavy (days) and must not run in normal Actions. Full manual: [`DYNAMIC_DEPLOYMENT.md`](docs/DYNAMIC_DEPLOYMENT.md). Static-only option on the Hugging Face: [`HF_DEPLOYMENT.md`](docs/HF_DEPLOYMENT.md).
 
 ## Generating and testing the website
 
@@ -174,15 +174,15 @@ Keys never go into the repository: in GitHub Actions use **Settings > Secrets an
 - `historical_relevance.py` — relevance criteria, weights, and levels;
 - `gemini_vision.py` — visual photo analysis (framing/suitability);
 - `popular_site.py` — population CLI (stories, events, backfill);
-- `collect_snapshots.py` — downloads Arquivo.pt snapshots for stories;
-- `fetch_logos.py` — downloads source logos;
+- `scripts/collect_snapshots.py` — downloads Arquivo.pt snapshots for stories;
+- `scripts/fetch_logos.py` — downloads source logos;
 - `publisher.py` — generates/publishes approved posts;
 - `build_site.py` — site, data, clean URLs, carousel tenure, pages, and metrics;
 - `carrossel_estado.json` — carousel state (tenure/rotation);
 - `data/eventos_por_dia.json` — per-day events index for the calendar;
 - `pending_posts.json` / `social_metrics.json` / `imgbb_uploads.json` — editorial queue, publication history, and image registry;
 - `backend/` — API, database, queue, and fast search;
-- `SITE_AND_POSTS.md` — detailed reference for the site and pipelines.
+- `docs/SITE_AND_POSTS.md` — detailed reference for the site and pipelines.
 
 ## Rights and provenance
 

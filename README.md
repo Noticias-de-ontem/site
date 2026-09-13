@@ -112,7 +112,7 @@ Alternativa direta ao `popular_site`:
 python -u pregenerator.py --lang pt --start-date 2026-07-01 --end-date 2026-07-31 --source-mode arquivo-first
 ```
 
-A análise de fotos de fundo pode ser regenerada individualmente (`python regenerate_missing_backgrounds.py <post_id> ...`), sempre validada pela Gemini. Estados em `pending_posts.json`: `pending`, `approved`, `published`, `skip`.
+A análise de fotos de fundo pode ser regenerada individualmente (`python scripts/regenerate_missing_backgrounds.py <post_id> ...`), sempre validada pela Gemini. Estados em `pending_posts.json`: `pending`, `approved`, `published`, `skip`.
 
 ## Pesquisa por temas
 
@@ -120,7 +120,7 @@ A página de temas compara até quatro pesquisas, com filtro por fonte e cores p
 
 ## Site dinâmico e análise rápida
 
-`render.yaml` prepara: FastAPI + frontend (Web Service), Celery (worker), atualização de CDXJ/OpenSearch (segundo worker persistente), PostgreSQL, fila Valkey/Redis e OpenSearch opcional. O índice inicial é pesado (dias) e não deve correr em Actions. Manual completo: [`DYNAMIC_DEPLOYMENT.md`](DYNAMIC_DEPLOYMENT.md). Versão estática no Hugging Face: [`HF_DEPLOYMENT.md`](HF_DEPLOYMENT.md).
+`render.yaml` prepara: FastAPI + frontend (Web Service), Celery (worker), atualização de CDXJ/OpenSearch (segundo worker persistente), PostgreSQL, fila Valkey/Redis e OpenSearch opcional. O índice inicial é pesado (dias) e não deve correr em Actions. Manual completo: [`DYNAMIC_DEPLOYMENT.md`](docs/DYNAMIC_DEPLOYMENT.md). Versão estática no Hugging Face: [`HF_DEPLOYMENT.md`](docs/HF_DEPLOYMENT.md).
 
 ## Gerar e testar o site
 
@@ -174,15 +174,22 @@ Chaves nunca no repositório: em GitHub Actions, usar **Settings > Secrets and v
 - `historical_relevance.py` — critérios, pesos e níveis de relevância;
 - `gemini_vision.py` — análise visual de fotos (enquadramento/adequação);
 - `popular_site.py` — CLI de população (notícias, eventos, backfill);
-- `collect_snapshots.py` — descarrega snapshots do Arquivo.pt para as notícias;
-- `fetch_logos.py` — descarrega as logos das fontes;
+- `scripts/collect_snapshots.py` — descarrega snapshots do Arquivo.pt para as notícias;
+- `scripts/fetch_logos.py` — descarrega as logos das fontes;
 - `publisher.py` — geração/publicação dos posts aprovados;
 - `build_site.py` — site, dados, URLs limpos, carrossel de permanência, páginas e métricas;
 - `carrossel_estado.json` — estado do carrossel (permanência/rotação);
 - `data/eventos_por_dia.json` — índice de eventos por dia para o calendário;
 - `pending_posts.json` / `social_metrics.json` / `imgbb_uploads.json` — fila editorial, histórico de publicações e registo de imagens;
 - `backend/` — API, base de dados, fila e pesquisa rápida;
-- `SITE_AND_POSTS.md` — referência detalhada do site e dos fluxos.
+- `docs/SITE_AND_POSTS.md` — referência detalhada do site e dos fluxos.
+
+## Estrutura do repositório
+
+- **Raiz**: pipeline principal (`pregenerator`, `publisher`, `build_site`, `scraper`), módulos partilhados (`nvidia_client`, `gemini_vision`, `historical_relevance`, `social_networks`), CLI de população (`popular_site.py`) e os `.cmd` de recolha;
+- **`scripts/`**: utilitários (snapshots, logos, re-backfill de fotos, limpeza de posts, deploys);
+- **`docs/`**: manuais de implantação dinâmica, HF e referência do site;
+- **`backend/`**, **`tests/`**, **`site/`**, **`pt/`**: API dinâmica, testes, site gerado e blocos locais recolhidos.
 
 ## Direitos e proveniência
 

@@ -223,11 +223,19 @@ Legenda: {option.get("caption")}"""
                 except Exception as exc:
                     print(f"[backfill EN] {post.get('id')}: {exc}")
             if not option.get("article_url") and option.get("year"):
-                resolved = pregenerator.resolve_wayback_capture(
-                    option.get("background_source_url") or option.get("source_url") or "",
-                    str(option.get("year")),
-                    title=str(option.get("title") or ""),
-                )
+                source_candidate = option.get("background_source_url") or option.get("source_url") or ""
+                resolved = ""
+                if source_candidate.startswith(("http://", "https://")):
+                    resolved = pregenerator.resolve_wayback_capture(
+                        source_candidate,
+                        str(option.get("year")),
+                        title=str(option.get("title") or ""),
+                    )
+                if not resolved:
+                    resolved = pregenerator.resolve_wayback_by_title(
+                        str(option.get("title") or ""),
+                        str(option.get("year")),
+                    )
                 if resolved:
                     option["article_url"] = resolved
                     option_changed = True

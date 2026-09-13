@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T09:50:35+00:00",
+  "generated_at": "2026-09-13T14:27:24+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/",
@@ -26,6 +26,10 @@
     "instagram_id": "",
     "archive_credit": "Arquivo.pt",
     "banner_ready": true,
+    "networks": [
+      "instagram"
+    ],
+    "network_posts": {},
     "relevance_level": 5,
     "relevance_scores": {
       "impacto_historico": 20.0,
@@ -68,6 +72,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 20.0,
@@ -109,6 +117,11 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 15.0,
@@ -150,6 +163,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 10.0,
@@ -191,6 +208,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 10.0,
@@ -232,6 +253,11 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 10.0,
@@ -273,6 +299,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 10.0,
@@ -314,6 +344,11 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 10.0,
@@ -355,6 +390,11 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 15.0,
@@ -396,6 +436,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 5.0,
@@ -422,9 +466,9 @@
       "status": "pending",
       "category": "POLITICA",
       "title": "Lula disse que não reconheceria a vitória de Nicolás Maduro nas presidenciais",
-      "title_en": "",
+      "title_en": "Lula Says He Won't Recognize Nicolás Maduro's Presidential Win",
       "summary": "Lula disse que não reconheceria a vitória de Nicolás Maduro nas presidenciais",
-      "summary_en": "",
+      "summary_en": "Lula stated he would not recognize Nicolás Maduro's victory in the presidential election.",
       "original_year": "2025",
       "image": "assets/posts/2026-01-02-1-lula-disse-que-no-reconheceria-a-vitria-de-nicols-maduro-nas-presidenciais.jpg",
       "banner_image": "assets/banners/2026-01-02-1-lula-disse-que-no-reconheceria-a-vitria-de-nicols-maduro-nas-presidenciais-banner.jpg",
@@ -437,10 +481,23 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
-      "relevance_level": null,
-      "relevance_scores": {},
-      "relevance_weighted": null,
-      "relevance_justification": "",
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 25.0,
+        "dimensao_impacto": 20.0,
+        "consequencias": 15.0,
+        "relevancia_posterior": 20.0,
+        "dimensao_duracao": 10.0,
+        "relevancia_mediatica": 30.0,
+        "singularidade": 15.0
+      },
+      "relevance_weighted": 20.0,
+      "relevance_justification": "A declaração de Lula sobre não reconhecer a vitória de Maduro gerou repercussão diplomática, mas não alterou significativamente a dinâmica política regional. Seu impacto é limitado e de curta duração, sem consequências duradouras.",
       "source_type": "archive",
       "url_path": "noticia/2026/01/02/lula-disse-que-nao-reconheceria-a-vitoria-de-nicolas-maduro-nas-presidenciais-01a70a70",
       "page_id": "noticia-01a70a707cb964949a8fb27b",
@@ -472,6 +529,11 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 10.0,
@@ -513,6 +575,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 10.0,
@@ -554,6 +620,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 20.0,
@@ -595,6 +665,11 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 10.0,
@@ -612,47 +687,6 @@
       "page_id": "noticia-5cd81db481ce184bd6dee41c",
       "detail_image": "assets/banners/2026-08-28-1-rui-moreira-lidera-sondagem-no-porto-com-59-banner.jpg",
       "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20210108195201%2Fhttps%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPorto"
-    },
-    {
-      "id": "pt_2026-08-27_2",
-      "lang": "pt",
-      "date": "2026-08-27",
-      "slot": 2,
-      "status": "pending",
-      "category": "DESPORTO",
-      "title": "Ronaldo lidera a I Liga",
-      "title_en": "Ronaldo Leads the First League",
-      "summary": "O avançado celebra um golo decisivo em campo",
-      "summary_en": "The forward celebrates a decisive goal on the pitch",
-      "original_year": "2018",
-      "image": "assets/posts/2026-08-27-2-ronaldo-lidera-a-i-liga.jpg",
-      "banner_image": "assets/banners/2026-08-27-2-ronaldo-lidera-a-i-liga-banner.jpg",
-      "body": "O avançado celebra um golo decisivo em campo",
-      "caption": "Na temporada 2017/18, Cristiano Ronaldo voltou a ser o destaque da I Liga portuguesa, marcando golos importantes que ajudaram o seu clube a lutar pelo título.",
-      "source_url": "https://arquivo.pt/textsearch?q=Ronaldo%20lidera%20a%20I%20Liga",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 10.0,
-        "dimensao_impacto": 15.0,
-        "consequencias": 5.0,
-        "relevancia_posterior": 5.0,
-        "dimensao_duracao": 10.0,
-        "relevancia_mediatica": 70.0,
-        "singularidade": 10.0
-      },
-      "relevance_weighted": 12.5,
-      "relevance_justification": "O desempenho de Ronaldo na I Liga em 2018 não teve impacto histórico duradouro, sendo apenas um episódio esportivo de curta relevância. A repercussão mediática foi alta devido à sua fama, mas não gerou consequências significativas.",
-      "source_type": "archive",
-      "url_path": "noticia/2026/08/27/ronaldo-lidera-a-i-liga-6b02fcaa",
-      "page_id": "noticia-6b02fcaa10eb8c6a002fda83",
-      "detail_image": "assets/banners/2026-08-27-2-ronaldo-lidera-a-i-liga-banner.jpg",
-      "snapshot_url": ""
     },
     {
       "id": "pt_2026-08-27_1",
@@ -677,6 +711,11 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 15.0,
@@ -718,6 +757,11 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 15.0,
@@ -759,6 +803,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 10.0,
@@ -800,6 +848,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 10.0,
@@ -841,6 +893,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 5.0,
@@ -860,85 +916,138 @@
       "snapshot_url": ""
     },
     {
-      "id": "pt_2026-01-11_2",
+      "id": "pt_2026-01-16_2",
       "lang": "pt",
-      "date": "2026-01-11",
+      "date": "2026-01-16",
       "slot": 2,
       "status": "pending",
-      "category": "CULTURA",
-      "title": "Primeiro museu submarino da Europa inaugurated em Lanzarote",
-      "title_en": "Europe's first underwater museum opens in Lanzarote",
-      "summary": "Mais de 300 esculturas humanas estão submersas nas águas de Lanzarote.",
-      "summary_en": "More than 300 human sculptures are submerged off Lanzarote, blending contemporary art with marine conservation.",
-      "original_year": "2017",
-      "image": "assets/posts/2026-01-11-2-primeiro-museu-submarino-da-europa-inaugurated-em-lanzarote.jpg",
-      "banner_image": "assets/banners/2026-01-11-2-primeiro-museu-submarino-da-europa-inaugurated-em-lanzarote-banner.jpg",
-      "body": "Mais de 300 esculturas humanas estão submersas nas águas de Lanzarote.",
-      "caption": "O primeiro museu submarino da Europa, em Lanzarote, abriga mais de 300 esculturas humanas fundidas no oceano, criando um espetáculo único de arte e natureza.",
-      "source_url": "https://arquivo.pt/textsearch?q=Primeiro%20museu%20submarino%20da%20Europa%20inaugurated%20em%20Lanzarote",
-      "source_profile": "",
+      "category": "ESTRELA",
+      "title": "Madonna pensa em ter filho com Alex Rodriguez",
+      "title_en": "Madonna considers having a child with Alex Rodriguez",
+      "summary": "Cantora considera ampliar a família com o jogador de beisebol",
+      "summary_en": "Madonna evaluates the possibility of having a child with Alex Rodriguez at age 50.",
+      "original_year": "2009",
+      "image": "assets/posts/2026-01-16-2-madonna-pensa-em-ter-filho-com-alex-rodriguez.jpg",
+      "banner_image": "assets/banners/2026-01-16-2-madonna-pensa-em-ter-filho-com-alex-rodriguez-banner.jpg",
+      "body": "Em 2009, a notícia \"Madonna pensa em ter filho com Alex Rodriguez\" foi divulgada, destacando que a cantora considera ampliar a família com o jogador de beisebol. O resumo indica que Madonna avalia a possibilidade de ter um filho com Alex Rodriguez aos 50 anos. O evento ocorreu no contexto da categoria ESTRELA, refletindo tendências contemporâneas de consumo cultural e celebridade. Embora a história tenha chamado atenção da mídia especializada, suas implicações para o setor são limitadas, pois trata-se de um fato pontual de vida pessoal sem efeitos duradouros na indústria. Não há indicação de que o episódio tenha gerado mudanças estruturais na indústria ou influenciado comportamentos de consumo a longo prazo. A cobertura jornalística enfatizou o aspecto curioso da notícia, mas não aprofundou análises sobre efeitos econômicos ou culturais posteriores. Assim, a relevância do acontecimento permanece principalmente no âmbito do interesse público imediato, servindo como exemplo de como notícias de celebridades podem gerar atenção temporária. O episódio não deixa legado discernível além da menção em relatórios de mídia daquele período.",
+      "caption": "Em 2009, aos 50 anos, Madonna revelou que estava considerando ter outro filho com o então namorado, o jogador de beisebol Alex Rodriguez.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20081021102643/http://aeiou.caras.pt/Famosos/ArtesEspectaculo/Pages/madonnaquersermaedenovo.aspx",
+      "source_profile": "caras.pt",
       "source_platform": "",
       "instagram_url": "",
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
-        "impacto_historico": 35.0,
-        "dimensao_impacto": 30.0,
-        "consequencias": 25.0,
-        "relevancia_posterior": 20.0,
-        "dimensao_duracao": 20.0,
-        "relevancia_mediatica": 25.0,
-        "singularidade": 15.0
+        "impacto_historico": 7.0,
+        "dimensao_impacto": 10.0,
+        "consequencias": 7.0,
+        "relevancia_posterior": 7.0,
+        "dimensao_duracao": 4.0,
+        "relevancia_mediatica": 22.0,
+        "singularidade": 12.0
       },
-      "relevance_weighted": 27.2,
-      "relevance_justification": "Museu submerso atrai turismo e consciência ambiental, contribuição modestamente duradoura para arte e conservação.",
-      "source_type": "archive",
-      "url_path": "noticia/2026/01/11/primeiro-museu-submarino-da-europa-inaugurated-em-lanzarote-c04889bc",
-      "page_id": "noticia-c04889bc05364ef5df0394e1",
-      "detail_image": "assets/banners/2026-01-11-2-primeiro-museu-submarino-da-europa-inaugurated-em-lanzarote-banner.jpg",
+      "relevance_weighted": 8.3,
+      "relevance_justification": "Baixo impacto histórico e consequências limitadas; atenção midiática moderada, mas efeitos duradouros mínimos.",
+      "source_type": "newspaper",
+      "url_path": "noticia/2026/01/16/madonna-pensa-em-ter-filho-com-alex-rodriguez-8e965e43",
+      "page_id": "noticia-8e965e431e72044015fe1b46",
+      "detail_image": "assets/banners/2026-01-16-2-madonna-pensa-em-ter-filho-com-alex-rodriguez-banner.jpg",
       "snapshot_url": ""
     },
     {
-      "id": "pt_2026-01-11_1",
+      "id": "pt_2026-01-16_1",
       "lang": "pt",
-      "date": "2026-01-11",
+      "date": "2026-01-16",
       "slot": 1,
       "status": "pending",
-      "category": "DESPORTO",
-      "title": "Neemias Queta marca os primeiros pontos na NBA",
-      "title_en": "Neemias Queta scores his first points in the NBA",
-      "summary": "O primeiro português a pontuar na liga americana de basquetebol.",
-      "summary_en": "The first Portuguese player to score in the NBA highlights the growth of basketball in Portugal.",
-      "original_year": "2022",
-      "image": "assets/posts/2026-01-11-1-neemias-queta-marca-os-primeiros-pontos-na-nba.jpg",
-      "banner_image": "assets/banners/2026-01-11-1-neemias-queta-marca-os-primeiros-pontos-na-nba-banner.jpg",
-      "body": "O primeiro português a pontuar na liga americana de basquetebol.",
-      "caption": "Neemias Queta fez história ao marcar os primeiros pontos de um português na NBA, mostrando que o talento luso pode brilhar nas maiores ligas do mundo.",
-      "source_url": "https://arquivo.pt/textsearch?q=Neemias%20Queta%20marca%20os%20primeiros%20pontos%20na%20NBA",
-      "source_profile": "",
+      "category": "CULTURA",
+      "title": "Taylor Swift lidera vendas de vinil",
+      "title_en": "Taylor Swift leads vinyl sales in the UK",
+      "summary": "O disco mais vendido em vinil no Reino Unido",
+      "summary_en": "Taylor Swift tops the United Kingdom vinyl market, showing her selling power even in the digital era.",
+      "original_year": "2024",
+      "image": "assets/posts/2026-01-16-1-taylor-swift-lidera-vendas-de-vinil.jpg",
+      "banner_image": "assets/banners/2026-01-16-1-taylor-swift-lidera-vendas-de-vinil-banner.jpg",
+      "body": "Em 2024, a notícia \"Taylor Swift lidera vendas de vinil\" foi divulgada, destacando que o disco mais vendido em vinil no Reino Unido foi de Taylor Swift. O resumo indica que Taylor Swift domina o mercado de vinil, mostrando seu poder de venda mesmo na era digital. O evento ocorreu no contexto da categoria CULTURA, refletindo tendências contemporâneas de consumo cultural. Embora a história tenha chamado atenção da mídia especializada, suas implicações para o setor são limitadas, pois trata-se de um fato pontual de consumo de produtos físicos em meio à predominância do streaming. Não há indicação de que o episódio tenha gerado mudanças estruturais na indústria ou influenciado comportamentos de consumo a longo prazo. A cobertura jornalística enfatizou o aspecto curioso da notícia, mas não aprofundou análises sobre efeitos econômicos ou culturais posteriores. Assim, a relevância do acontecimento permanece principalmente no âmbito do interesse público imediato, servindo como exemplo de como artistas consolidados podem ainda impulsionar nichos de mercado tradicionais. O episódio não deixa legado discernível além da menção em relatórios de vendas daquele período.",
+      "caption": "Em 2023, o álbum '1989 (Taylor's Version)' de Taylor Swift foi o vinil mais vendido no Reino Unido, superando até lendas como os Beatles e os Rolling Stones.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20240116203929/https://mag.sapo.pt/amp/musica/artigos/reino-unido-taylor-swift-e-the-beatles-dominam-top-de-vendas-de-discos-de-vinil-em-2023",
+      "source_profile": "mag.sapo.pt",
       "source_platform": "",
       "instagram_url": "",
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
-        "impacto_historico": 20.0,
+        "impacto_historico": 10.0,
         "dimensao_impacto": 15.0,
         "consequencias": 10.0,
         "relevancia_posterior": 10.0,
         "dimensao_duracao": 5.0,
-        "relevancia_mediatica": 20.0,
-        "singularidade": 15.0
+        "relevancia_mediatica": 30.0,
+        "singularidade": 20.0
       },
-      "relevance_weighted": 14.2,
-      "relevance_justification": "Pontuação simbólica, pouca mudança estrutural no basquetebol português ou internacional.",
-      "source_type": "archive",
-      "url_path": "noticia/2026/01/11/neemias-queta-marca-os-primeiros-pontos-na-nba-d732475f",
-      "page_id": "noticia-d732475fd43cb9a2bf402bc4",
-      "detail_image": "assets/banners/2026-01-11-1-neemias-queta-marca-os-primeiros-pontos-na-nba-banner.jpg",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Baixo impacto histórico e consequências limitadas; atenção midiática moderada, mas efeitos duradouros mínimos.",
+      "source_type": "newspaper",
+      "url_path": "noticia/2026/01/16/taylor-swift-lidera-vendas-de-vinil-5dfff692",
+      "page_id": "noticia-5dfff692b890da437d3857f5",
+      "detail_image": "assets/banners/2026-01-16-1-taylor-swift-lidera-vendas-de-vinil-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-15_1",
+      "lang": "pt",
+      "date": "2026-01-15",
+      "slot": 1,
+      "status": "pending",
+      "category": "CULTURA",
+      "title": "Fire Saga chega ao Netflix Portugal",
+      "title_en": "Netflix Portugal Adds 'Fire Saga' to Its Streaming Library",
+      "summary": "Comédia musical que celebra a Eurovisão",
+      "summary_en": "The musical comedy about Eurovision, 'Fire Saga', is now available on Netflix Portugal, appealing to music lovers and binge‑watchers.",
+      "original_year": "2021",
+      "image": "assets/posts/2026-01-15-1-fire-saga-chega-ao-netflix-portugal.jpg",
+      "banner_image": "assets/banners/2026-01-15-1-fire-saga-chega-ao-netflix-portugal-banner.jpg",
+      "body": "Em 2021, a Netflix Portugal adicionou à sua biblioteca o filme 'Fire Saga', uma comédia musical que celebra a Eurovisão. Dirigido por Christopher Miller, o longa mistura humor, romance e música, seguindo a história de dois aspirantes a cantores que sonham em representar a Dinamarca no concurso mais famoso da Europa. A produção, lançada originalmente em 2019 nos Estados Unidos, conta com um elenco estrelado por Will Ferrell, Rachel McAdams, e o próprio Chris Martin, que interpreta um cantor fictício. A chegada do filme à plataforma portuguesa foi acompanhada por uma campanha de marketing que incluía trailers, entrevistas e posts nas redes sociais, visando captar o público que acompanha a Eurovisão e os fãs de comédias musicais. A receção crítica no país foi mista. Enquanto alguns críticos elogiaram a leveza e o charme da trama, outros apontaram a falta de profundidade nos personagens. No entanto, o filme conseguiu atrair uma audiência considerável, especialmente entre os jovens que buscam entretenimento leve. A Netflix, ao disponibilizar 'Fire Saga', reforçou a sua estratégia de diversificar o catálogo com produções internacionais que têm apelo cultural específico, como a Eurovisão, que mantém uma forte presença na cultura popular portuguesa. Do ponto de vista cultural, o lançamento não teve impacto histórico significativo, mas contribuiu para a visibilidade de produções que celebram eventos europeus. A plataforma continuou a expandir o acesso a conteúdos de nicho, mantendo a relevância do streaming no mercado lusófono.",
+      "caption": "O filme que mostra a jornada de dois cantores islândeses rumo ao palco da Eurovisão está agora disponível para maratonar em Portugal. Entre risos, tropeços e muita música, Fire Saga promete diversão garantida.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20210115181918/https://mag.sapo.pt/cinema/filmes/criticas/festival-eurovisao-da-cancao-a-historia-dos-fire-saga-comedia-da-netflix-adora-o-festival-mas-deixa-muito-por-celebrar",
+      "source_profile": "mag.sapo.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": true,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 10.0,
+        "dimensao_impacto": 5.0,
+        "consequencias": 5.0,
+        "relevancia_posterior": 5.0,
+        "dimensao_duracao": 5.0,
+        "relevancia_mediatica": 20.0,
+        "singularidade": 10.0
+      },
+      "relevance_weighted": 7.5,
+      "relevance_justification": "Evento de streaming com alcance limitado, sem mudanças estruturais. A atenção mediática foi moderada, mas não alterou o panorama cultural.",
+      "source_type": "newspaper",
+      "url_path": "noticia/2026/01/15/fire-saga-chega-ao-netflix-portugal-a21f6119",
+      "page_id": "noticia-a21f6119c30b28dc432969e7",
+      "detail_image": "assets/banners/2026-01-15-1-fire-saga-chega-ao-netflix-portugal-banner.jpg",
       "snapshot_url": ""
     }
   ],
@@ -966,6 +1075,11 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 10.0,
@@ -1007,6 +1121,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 10.0,
@@ -1048,6 +1166,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 20.0,
@@ -1089,6 +1211,11 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 10.0,
@@ -1106,47 +1233,6 @@
       "page_id": "noticia-5cd81db481ce184bd6dee41c",
       "detail_image": "assets/banners/2026-08-28-1-rui-moreira-lidera-sondagem-no-porto-com-59-banner.jpg",
       "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20210108195201%2Fhttps%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPorto"
-    },
-    {
-      "id": "pt_2026-08-27_2",
-      "lang": "pt",
-      "date": "2026-08-27",
-      "slot": 2,
-      "status": "pending",
-      "category": "DESPORTO",
-      "title": "Ronaldo lidera a I Liga",
-      "title_en": "Ronaldo Leads the First League",
-      "summary": "O avançado celebra um golo decisivo em campo",
-      "summary_en": "The forward celebrates a decisive goal on the pitch",
-      "original_year": "2018",
-      "image": "assets/posts/2026-08-27-2-ronaldo-lidera-a-i-liga.jpg",
-      "banner_image": "assets/banners/2026-08-27-2-ronaldo-lidera-a-i-liga-banner.jpg",
-      "body": "O avançado celebra um golo decisivo em campo",
-      "caption": "Na temporada 2017/18, Cristiano Ronaldo voltou a ser o destaque da I Liga portuguesa, marcando golos importantes que ajudaram o seu clube a lutar pelo título.",
-      "source_url": "https://arquivo.pt/textsearch?q=Ronaldo%20lidera%20a%20I%20Liga",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 10.0,
-        "dimensao_impacto": 15.0,
-        "consequencias": 5.0,
-        "relevancia_posterior": 5.0,
-        "dimensao_duracao": 10.0,
-        "relevancia_mediatica": 70.0,
-        "singularidade": 10.0
-      },
-      "relevance_weighted": 12.5,
-      "relevance_justification": "O desempenho de Ronaldo na I Liga em 2018 não teve impacto histórico duradouro, sendo apenas um episódio esportivo de curta relevância. A repercussão mediática foi alta devido à sua fama, mas não gerou consequências significativas.",
-      "source_type": "archive",
-      "url_path": "noticia/2026/08/27/ronaldo-lidera-a-i-liga-6b02fcaa",
-      "page_id": "noticia-6b02fcaa10eb8c6a002fda83",
-      "detail_image": "assets/banners/2026-08-27-2-ronaldo-lidera-a-i-liga-banner.jpg",
-      "snapshot_url": ""
     },
     {
       "id": "pt_2026-08-27_1",
@@ -1171,6 +1257,11 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 15.0,
@@ -1212,6 +1303,11 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 15.0,
@@ -1253,6 +1349,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "facebook"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 20.0,
@@ -1294,6 +1394,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 10.0,
@@ -1335,6 +1439,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 10.0,
@@ -1376,6 +1484,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 5.0,
@@ -1392,6 +1504,278 @@
       "url_path": "noticia/2026/07/01/beyonce-e-interrompida-durante-concerto-289ee258",
       "page_id": "noticia-289ee258c7fc8a8d7f64004d",
       "detail_image": "assets/banners/2026-07-01-1-beyonc-interrompida-durante-concerto-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-16_2",
+      "lang": "pt",
+      "date": "2026-01-16",
+      "slot": 2,
+      "status": "pending",
+      "category": "ESTRELA",
+      "title": "Madonna pensa em ter filho com Alex Rodriguez",
+      "title_en": "Madonna considers having a child with Alex Rodriguez",
+      "summary": "Cantora considera ampliar a família com o jogador de beisebol",
+      "summary_en": "Madonna evaluates the possibility of having a child with Alex Rodriguez at age 50.",
+      "original_year": "2009",
+      "image": "assets/posts/2026-01-16-2-madonna-pensa-em-ter-filho-com-alex-rodriguez.jpg",
+      "banner_image": "assets/banners/2026-01-16-2-madonna-pensa-em-ter-filho-com-alex-rodriguez-banner.jpg",
+      "body": "Em 2009, a notícia \"Madonna pensa em ter filho com Alex Rodriguez\" foi divulgada, destacando que a cantora considera ampliar a família com o jogador de beisebol. O resumo indica que Madonna avalia a possibilidade de ter um filho com Alex Rodriguez aos 50 anos. O evento ocorreu no contexto da categoria ESTRELA, refletindo tendências contemporâneas de consumo cultural e celebridade. Embora a história tenha chamado atenção da mídia especializada, suas implicações para o setor são limitadas, pois trata-se de um fato pontual de vida pessoal sem efeitos duradouros na indústria. Não há indicação de que o episódio tenha gerado mudanças estruturais na indústria ou influenciado comportamentos de consumo a longo prazo. A cobertura jornalística enfatizou o aspecto curioso da notícia, mas não aprofundou análises sobre efeitos econômicos ou culturais posteriores. Assim, a relevância do acontecimento permanece principalmente no âmbito do interesse público imediato, servindo como exemplo de como notícias de celebridades podem gerar atenção temporária. O episódio não deixa legado discernível além da menção em relatórios de mídia daquele período.",
+      "caption": "Em 2009, aos 50 anos, Madonna revelou que estava considerando ter outro filho com o então namorado, o jogador de beisebol Alex Rodriguez.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20081021102643/http://aeiou.caras.pt/Famosos/ArtesEspectaculo/Pages/madonnaquersermaedenovo.aspx",
+      "source_profile": "caras.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 7.0,
+        "dimensao_impacto": 10.0,
+        "consequencias": 7.0,
+        "relevancia_posterior": 7.0,
+        "dimensao_duracao": 4.0,
+        "relevancia_mediatica": 22.0,
+        "singularidade": 12.0
+      },
+      "relevance_weighted": 8.3,
+      "relevance_justification": "Baixo impacto histórico e consequências limitadas; atenção midiática moderada, mas efeitos duradouros mínimos.",
+      "source_type": "newspaper",
+      "url_path": "noticia/2026/01/16/madonna-pensa-em-ter-filho-com-alex-rodriguez-8e965e43",
+      "page_id": "noticia-8e965e431e72044015fe1b46",
+      "detail_image": "assets/banners/2026-01-16-2-madonna-pensa-em-ter-filho-com-alex-rodriguez-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-16_1",
+      "lang": "pt",
+      "date": "2026-01-16",
+      "slot": 1,
+      "status": "pending",
+      "category": "CULTURA",
+      "title": "Taylor Swift lidera vendas de vinil",
+      "title_en": "Taylor Swift leads vinyl sales in the UK",
+      "summary": "O disco mais vendido em vinil no Reino Unido",
+      "summary_en": "Taylor Swift tops the United Kingdom vinyl market, showing her selling power even in the digital era.",
+      "original_year": "2024",
+      "image": "assets/posts/2026-01-16-1-taylor-swift-lidera-vendas-de-vinil.jpg",
+      "banner_image": "assets/banners/2026-01-16-1-taylor-swift-lidera-vendas-de-vinil-banner.jpg",
+      "body": "Em 2024, a notícia \"Taylor Swift lidera vendas de vinil\" foi divulgada, destacando que o disco mais vendido em vinil no Reino Unido foi de Taylor Swift. O resumo indica que Taylor Swift domina o mercado de vinil, mostrando seu poder de venda mesmo na era digital. O evento ocorreu no contexto da categoria CULTURA, refletindo tendências contemporâneas de consumo cultural. Embora a história tenha chamado atenção da mídia especializada, suas implicações para o setor são limitadas, pois trata-se de um fato pontual de consumo de produtos físicos em meio à predominância do streaming. Não há indicação de que o episódio tenha gerado mudanças estruturais na indústria ou influenciado comportamentos de consumo a longo prazo. A cobertura jornalística enfatizou o aspecto curioso da notícia, mas não aprofundou análises sobre efeitos econômicos ou culturais posteriores. Assim, a relevância do acontecimento permanece principalmente no âmbito do interesse público imediato, servindo como exemplo de como artistas consolidados podem ainda impulsionar nichos de mercado tradicionais. O episódio não deixa legado discernível além da menção em relatórios de vendas daquele período.",
+      "caption": "Em 2023, o álbum '1989 (Taylor's Version)' de Taylor Swift foi o vinil mais vendido no Reino Unido, superando até lendas como os Beatles e os Rolling Stones.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20240116203929/https://mag.sapo.pt/amp/musica/artigos/reino-unido-taylor-swift-e-the-beatles-dominam-top-de-vendas-de-discos-de-vinil-em-2023",
+      "source_profile": "mag.sapo.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 10.0,
+        "dimensao_impacto": 15.0,
+        "consequencias": 10.0,
+        "relevancia_posterior": 10.0,
+        "dimensao_duracao": 5.0,
+        "relevancia_mediatica": 30.0,
+        "singularidade": 20.0
+      },
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Baixo impacto histórico e consequências limitadas; atenção midiática moderada, mas efeitos duradouros mínimos.",
+      "source_type": "newspaper",
+      "url_path": "noticia/2026/01/16/taylor-swift-lidera-vendas-de-vinil-5dfff692",
+      "page_id": "noticia-5dfff692b890da437d3857f5",
+      "detail_image": "assets/banners/2026-01-16-1-taylor-swift-lidera-vendas-de-vinil-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-15_1",
+      "lang": "pt",
+      "date": "2026-01-15",
+      "slot": 1,
+      "status": "pending",
+      "category": "CULTURA",
+      "title": "Fire Saga chega ao Netflix Portugal",
+      "title_en": "Netflix Portugal Adds 'Fire Saga' to Its Streaming Library",
+      "summary": "Comédia musical que celebra a Eurovisão",
+      "summary_en": "The musical comedy about Eurovision, 'Fire Saga', is now available on Netflix Portugal, appealing to music lovers and binge‑watchers.",
+      "original_year": "2021",
+      "image": "assets/posts/2026-01-15-1-fire-saga-chega-ao-netflix-portugal.jpg",
+      "banner_image": "assets/banners/2026-01-15-1-fire-saga-chega-ao-netflix-portugal-banner.jpg",
+      "body": "Em 2021, a Netflix Portugal adicionou à sua biblioteca o filme 'Fire Saga', uma comédia musical que celebra a Eurovisão. Dirigido por Christopher Miller, o longa mistura humor, romance e música, seguindo a história de dois aspirantes a cantores que sonham em representar a Dinamarca no concurso mais famoso da Europa. A produção, lançada originalmente em 2019 nos Estados Unidos, conta com um elenco estrelado por Will Ferrell, Rachel McAdams, e o próprio Chris Martin, que interpreta um cantor fictício. A chegada do filme à plataforma portuguesa foi acompanhada por uma campanha de marketing que incluía trailers, entrevistas e posts nas redes sociais, visando captar o público que acompanha a Eurovisão e os fãs de comédias musicais. A receção crítica no país foi mista. Enquanto alguns críticos elogiaram a leveza e o charme da trama, outros apontaram a falta de profundidade nos personagens. No entanto, o filme conseguiu atrair uma audiência considerável, especialmente entre os jovens que buscam entretenimento leve. A Netflix, ao disponibilizar 'Fire Saga', reforçou a sua estratégia de diversificar o catálogo com produções internacionais que têm apelo cultural específico, como a Eurovisão, que mantém uma forte presença na cultura popular portuguesa. Do ponto de vista cultural, o lançamento não teve impacto histórico significativo, mas contribuiu para a visibilidade de produções que celebram eventos europeus. A plataforma continuou a expandir o acesso a conteúdos de nicho, mantendo a relevância do streaming no mercado lusófono.",
+      "caption": "O filme que mostra a jornada de dois cantores islândeses rumo ao palco da Eurovisão está agora disponível para maratonar em Portugal. Entre risos, tropeços e muita música, Fire Saga promete diversão garantida.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20210115181918/https://mag.sapo.pt/cinema/filmes/criticas/festival-eurovisao-da-cancao-a-historia-dos-fire-saga-comedia-da-netflix-adora-o-festival-mas-deixa-muito-por-celebrar",
+      "source_profile": "mag.sapo.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": true,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 10.0,
+        "dimensao_impacto": 5.0,
+        "consequencias": 5.0,
+        "relevancia_posterior": 5.0,
+        "dimensao_duracao": 5.0,
+        "relevancia_mediatica": 20.0,
+        "singularidade": 10.0
+      },
+      "relevance_weighted": 7.5,
+      "relevance_justification": "Evento de streaming com alcance limitado, sem mudanças estruturais. A atenção mediática foi moderada, mas não alterou o panorama cultural.",
+      "source_type": "newspaper",
+      "url_path": "noticia/2026/01/15/fire-saga-chega-ao-netflix-portugal-a21f6119",
+      "page_id": "noticia-a21f6119c30b28dc432969e7",
+      "detail_image": "assets/banners/2026-01-15-1-fire-saga-chega-ao-netflix-portugal-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-14_2",
+      "lang": "pt",
+      "date": "2026-01-14",
+      "slot": 2,
+      "status": "pending",
+      "category": "POLÍTICA",
+      "title": "Congresso EUA acusa Amazon, Apple, Facebook e Google",
+      "title_en": "US Congress Accuses Amazon, Apple, Facebook and Google",
+      "summary": "Novo relatório sobre monopólio digital",
+      "summary_en": "New report on digital monopoly.",
+      "original_year": "2021",
+      "image": "assets/posts/2026-01-14-2-congresso-eua-acusa-amazon-apple-facebook-e-google.jpg",
+      "banner_image": "assets/banners/2026-01-14-2-congresso-eua-acusa-amazon-apple-facebook-e-google-banner.jpg",
+      "body": "Em 2021, o Congresso dos Estados Unidos apresentou um relatório que acusava as gigantes da tecnologia Amazon, Apple, Facebook e Google de práticas monopolistas. O documento, elaborado por um comitê de investigação, apontou que as empresas exercem um controle excessivo sobre os mercados digitais, restringindo a concorrência e prejudicando consumidores e pequenos empreendedores. O relatório levou a uma série de audiências públicas e a uma maior pressão regulatória sobre as empresas, resultando em propostas de legislação para limitar práticas de abuso de poder de mercado. Embora as empresas tenham contestado as acusações, o relatório teve um impacto significativo na percepção pública e na discussão sobre a regulação de tecnologia. A repercussão do documento continuou a influenciar políticas em nível nacional e internacional, contribuindo para o debate sobre a necessidade de uma supervisão mais rigorosa das plataformas digitais. Em última análise, o relatório impulsionou reformas regulatórias, alterando práticas de grandes tech e reforçando direitos dos consumidores, com efeitos que perduram até hoje.",
+      "caption": "O Congresso dos EUA lançou um relatório de 449 páginas acusando as gigantes da tecnologia de práticas monopolistas, marcando um passo importante na regulação digital.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20210114223322/https://www.publico.pt/2020/10/07/tecnologia/noticia/congresso-eua-quer-novas-leis-tirar-google-facebook-amazon-apple-1934363",
+      "source_profile": "publico.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 30.0,
+        "dimensao_impacto": 30.0,
+        "consequencias": 25.0,
+        "relevancia_posterior": 20.0,
+        "dimensao_duracao": 20.0,
+        "relevancia_mediatica": 10.0,
+        "singularidade": 20.0
+      },
+      "relevance_weighted": 25.2,
+      "relevance_justification": "Relatório impulsionou reformas regulatórias, alterando práticas de grandes tech e reforçando direitos dos consumidores.",
+      "source_type": "newspaper",
+      "url_path": "noticia/2026/01/14/congresso-eua-acusa-amazon-apple-facebook-e-google-8d6e2e3b",
+      "page_id": "noticia-8d6e2e3b82d1fe49f5c2aaf4",
+      "detail_image": "assets/banners/2026-01-14-2-congresso-eua-acusa-amazon-apple-facebook-e-google-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-14_1",
+      "lang": "pt",
+      "date": "2026-01-14",
+      "slot": 1,
+      "status": "pending",
+      "category": "CULTURA",
+      "title": "Salvador Sobral critica 'Toy' de Netta",
+      "title_en": "Salvador Sobral Criticizes Netta's 'Toy'",
+      "summary": "Crítica musical que gerou debate",
+      "summary_en": "A musical critique sparks debate among fans and critics.",
+      "original_year": "2024",
+      "image": "assets/posts/2026-01-14-1-salvador-sobral-critica-toy-de-netta.jpg",
+      "banner_image": "assets/banners/2026-01-14-1-salvador-sobral-critica-toy-de-netta-banner.jpg",
+      "body": "Em 2024, o cantor português Salvador Sobral, vencedor do Eurovision em 2017, publicou uma crítica ao single 'Toy' da cantora israelita Netta, que havia sido lançada na mesma época. Sobral, conhecido por abordar temas sociais em suas composições, questionou a profundidade artística e o estilo musical da faixa, alegando que a produção carecia de nuance e originalidade. A declaração foi partilhada nas redes sociais de Sobral e rapidamente atraiu atenção de fãs e críticos de música em todo o mundo. Netta respondeu em poucos dias, defendendo a sua obra e pedindo respeito pela diversidade de expressões musicais. O debate gerou discussões em fóruns online, blogs de música e programas de rádio, mas não resultou em controvérsias de grande escala. A repercussão foi principalmente limitada ao círculo de seguidores de ambos os artistas, sem impacto significativo na indústria musical ou na percepção pública de suas carreiras. Em última análise, o episódio permanece como um episódio de crítica artística de curta duração, sem consequências duradouras para a cena cultural.",
+      "caption": "Salvador Sobral, vencedor do Eurovisão, não escondeu sua opinião sobre a música 'Toy' da cantora israelense Netta, provocando uma onda de comentários nas redes sociais.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20240114175856/https://holofote.pt/televisao/2018-05-10-eurovisao-salvador-sobral-critica-musica-de-israel-e-recebe-resposta/",
+      "source_profile": "holofote.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": true,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 5.0,
+        "dimensao_impacto": 5.0,
+        "consequencias": 5.0,
+        "relevancia_posterior": 5.0,
+        "dimensao_duracao": 5.0,
+        "relevancia_mediatica": 10.0,
+        "singularidade": 5.0
+      },
+      "relevance_weighted": 5.2,
+      "relevance_justification": "Crítica musical de curta duração, sem repercussões históricas significativas.",
+      "source_type": "newspaper",
+      "url_path": "noticia/2026/01/14/salvador-sobral-critica-toy-de-netta-34bf28fa",
+      "page_id": "noticia-34bf28fa2e95c2618d6724e5",
+      "detail_image": "assets/banners/2026-01-14-1-salvador-sobral-critica-toy-de-netta-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-12_1",
+      "lang": "pt",
+      "date": "2026-01-12",
+      "slot": 1,
+      "status": "pending",
+      "category": "POLITICA",
+      "title": "Em termos nacionais, destaca-se a reunião do Conselho de Estado, na sexta-feira",
+      "title_en": "Nationally, the State Council meeting on Friday stands out",
+      "summary": "Em termos nacionais, destaca-se a reunião do Conselho de Estado, na sexta-feira.",
+      "summary_en": "Nationally, the State Council meeting on Friday stands out",
+      "original_year": "2025",
+      "image": "assets/posts/2026-01-12-1-em-termos-nacionais-destaca-se-a-reunio-do-conselho-de-estado-na-sexta-feira.jpg",
+      "banner_image": "assets/banners/2026-01-12-1-em-termos-nacionais-destaca-se-a-reunio-do-conselho-de-estado-na-sexta-feira-banner.jpg",
+      "body": "Em termos nacionais, destaca-se a reunião do Conselho de Estado, na sexta-feira.",
+      "caption": "Em termos nacionais, destaca-se a reunião do Conselho de Estado, na sexta-feira. O presidente da República ouve a opinião dos conselheiros sobre a marcação de novas eleições antecipadas no arquipélago da Madeira. A semana começa com a sessão solene de Abertura do Ano Judicial. À porta do Supremo Tribunal de Justiça vão estar funcionários judiciais, em protesto silencioso, contra a proposta de revisão da carreira. Um dos casos que vai marcar este ano judicial é o julgamento BES/GES. Na quarta-feira, Pedro Passos Coelho é ouvido como testemunha no julgamento do processo principal. O antigo prim...",
+      "source_url": "https://arquivo.pt/textsearch?q=Em%20termos%20nacionais%2C%20destaca-se%20a%20reuni%C3%A3o%20do%20Conselho%20de%20Estado%2C%20na%20sexta-feira.",
+      "source_profile": "",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 10.0,
+        "dimensao_impacto": 15.0,
+        "consequencias": 5.0,
+        "relevancia_posterior": 10.0,
+        "dimensao_duracao": 5.0,
+        "relevancia_mediatica": 20.0,
+        "singularidade": 8.0
+      },
+      "relevance_weighted": 10.2,
+      "relevance_justification": "Evento político de rotina com pouca repercussão histórica; apenas pequenas repercussões locais e de curto prazo, sem consequências duradouras significativas.",
+      "source_type": "archive",
+      "url_path": "noticia/2026/01/12/em-termos-nacionais-destaca-se-a-reuniao-do-conselho-de-estado-na-sexta-feira-353e40f6",
+      "page_id": "noticia-353e40f6120ac4cdf8be777d",
+      "detail_image": "assets/banners/2026-01-12-1-em-termos-nacionais-destaca-se-a-reunio-do-conselho-de-estado-na-sexta-feira-banner.jpg",
       "snapshot_url": ""
     },
     {
@@ -1417,6 +1801,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 35.0,
@@ -1458,6 +1846,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 20.0,
@@ -1499,6 +1891,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 20.0,
@@ -1540,6 +1936,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 30.0,
@@ -1581,6 +1981,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 4,
       "relevance_scores": {
         "impacto_historico": 60.0,
@@ -1622,6 +2026,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 30.0,
@@ -1663,6 +2071,11 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 20.0,
@@ -1704,6 +2117,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 15.0,
@@ -1745,6 +2162,11 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 20.0,
@@ -1786,6 +2208,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 30.0,
@@ -1812,9 +2238,9 @@
       "status": "pending",
       "category": "DESPORTO",
       "title": "Enquanto dormia…⁠ ⁠ 👉️ O Observador antecipava um novo veto presidencial. A",
-      "title_en": "",
+      "title_en": "While I Was Sleeping… 👉️ The Observer Had Anticipated a New Presidential Veto",
       "summary": "Enquanto dormia…⁠ ⁠ 👉️ O Observador antecipava um novo veto presidencial. A",
-      "summary_en": "",
+      "summary_en": "While I Was Sleeping… 👉️ The Observer Had Anticipated a New Presidential Veto",
       "original_year": "2025",
       "image": "assets/posts/2026-01-06-1-enquanto-dormia-o-observador-antecipava-um-novo-veto-presidencial.jpg",
       "banner_image": "assets/banners/2026-01-06-1-enquanto-dormia-o-observador-antecipava-um-novo-veto-presidencial-a-banner.jpg",
@@ -1827,14 +2253,116 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
-      "relevance_level": null,
-      "relevance_scores": {},
-      "relevance_weighted": null,
-      "relevance_justification": "",
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 30.0,
+        "dimensao_impacto": 25.0,
+        "consequencias": 20.0,
+        "relevancia_posterior": 15.0,
+        "dimensao_duracao": 10.0,
+        "relevancia_mediatica": 40.0,
+        "singularidade": 35.0
+      },
+      "relevance_weighted": 24.0,
+      "relevance_justification": "A decisão sobre a criação de 274 novas freguesias pode alterar a organização administrativa local, mas seu impacto histórico e duradouro permanece limitado, sendo mais relevante no contexto político português do que global.",
       "source_type": "archive",
       "url_path": "noticia/2026/01/06/enquanto-dormia-o-observador-antecipava-um-novo-veto-presidencial-a-57b34927",
       "page_id": "noticia-57b34927b4449ac65a273b9c",
       "detail_image": "assets/banners/2026-01-06-1-enquanto-dormia-o-observador-antecipava-um-novo-veto-presidencial-a-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-05_2",
+      "lang": "pt",
+      "date": "2026-01-05",
+      "slot": 2,
+      "status": "pending",
+      "category": "MUNDIAL",
+      "title": "George Santos é primeiro republicano gay eleito ao Congresso",
+      "title_en": "George Santos Becomes First Openly Gay Republican Elected to U.S. Congress",
+      "summary": "Politicano americano quebra barreiras ao assumir cargo como republicano abertamente gay.",
+      "summary_en": "George Santos's election as the first openly gay Republican to Congress breaks barriers, though his tenure later faced controversy.",
+      "original_year": "2023",
+      "image": "assets/posts/2026-01-05-2-george-santos-primeiro-republicano-gay-eleito-ao-congresso.jpg",
+      "banner_image": "assets/banners/2026-01-05-2-george-santos-primeiro-republicano-gay-eleito-ao-congresso-banner.jpg",
+      "body": "Politicano americano quebra barreiras ao assumir cargo como republicano abertamente gay.",
+      "caption": "Em 2023, George Santos tornou-se o primeiro republicano abertamente gay a vencer uma eleição para a Câmara dos Representantes dos EUA.",
+      "source_url": "https://www.instagram.com/p/CnBy8gDosKw/",
+      "source_profile": "observador",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "x"
+      ],
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 40.0,
+        "dimensao_impacto": 45.0,
+        "consequencias": 30.0,
+        "relevancia_posterior": 20.0,
+        "dimensao_duracao": 15.0,
+        "relevancia_mediatica": 70.0,
+        "singularidade": 35.0
+      },
+      "relevance_weighted": 35.2,
+      "relevance_justification": "Eleito como primeiro republicano abertamente gay, mas posteriormente expulso por fraude, limitando seu impacto duradouro.",
+      "source_type": "newspaper",
+      "url_path": "noticia/2026/01/05/george-santos-e-primeiro-republicano-gay-eleito-ao-congresso-03ecaaee",
+      "page_id": "noticia-03ecaaeeddbcdcc42a67d4a2",
+      "detail_image": "assets/banners/2026-01-05-2-george-santos-primeiro-republicano-gay-eleito-ao-congresso-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-05_1",
+      "lang": "pt",
+      "date": "2026-01-05",
+      "slot": 1,
+      "status": "pending",
+      "category": "ESTRELA",
+      "title": "Fernanda Torres vence Globo de Ouro",
+      "title_en": "Brazilian Actress Fernanda Torres Wins Golden Globe",
+      "summary": "Atriz brasileira faz história ao vencer prêmio internacional de cinema.",
+      "summary_en": "Fernanda Torres becomes the first Brazilian actress to win a Golden Globe, highlighting a milestone for Brazilian cinema.",
+      "original_year": "2025",
+      "image": "assets/posts/2026-01-05-1-fernanda-torres-vence-globo-de-ouro.jpg",
+      "banner_image": "assets/banners/2026-01-05-1-fernanda-torres-vence-globo-de-ouro-banner.jpg",
+      "body": "Atriz brasileira faz história ao vencer prêmio internacional de cinema.",
+      "caption": "A atriz Fernanda Torres tornou-se a primeira brasileira a conquistar o Globo de Ouro, pela sua atuação em 'Ainda Estou Aqui'. Um marco para o cinema nacional.",
+      "source_url": "https://pt.wikipedia.org/wiki/01_05",
+      "source_profile": "wikipedia",
+      "source_platform": "wikipedia",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
+      "relevance_level": 4,
+      "relevance_scores": {
+        "impacto_historico": 55.0,
+        "dimensao_impacto": 60.0,
+        "consequencias": 50.0,
+        "relevancia_posterior": 45.0,
+        "dimensao_duracao": 40.0,
+        "relevancia_mediatica": 70.0,
+        "singularidade": 65.0
+      },
+      "relevance_weighted": 53.5,
+      "relevance_justification": "Primeira atriz brasileira a vencer o Globo de Ouro, marcando avanço para o cinema nacional e inspirando futuras gerações.",
+      "source_type": "wikipedia",
+      "url_path": "noticia/2026/01/05/fernanda-torres-vence-globo-de-ouro-a2e15bb8",
+      "page_id": "noticia-a2e15bb81b3e3ab9dfa97230",
+      "detail_image": "assets/banners/2026-01-05-1-fernanda-torres-vence-globo-de-ouro-banner.jpg",
       "snapshot_url": ""
     },
     {
@@ -1845,9 +2373,9 @@
       "status": "pending",
       "category": "ATUALIDADE",
       "title": "A segunda temporada de Squid Game quebrou recordes com uma estreia monumental",
-      "title_en": "",
+      "title_en": "The second season of Squid Game broke records with a monumental premiere",
       "summary": "A segunda temporada de Squid Game quebrou recordes com uma estreia monumental,",
-      "summary_en": "",
+      "summary_en": "The second season of Squid Game broke records with a monumental premiere",
       "original_year": "2025",
       "image": "assets/posts/2026-01-04-1-a-segunda-temporada-de-squid-game-quebrou-recordes-com-uma-estreia-monumental.jpg",
       "banner_image": "assets/banners/2026-01-04-1-a-segunda-temporada-de-squid-game-quebrou-recordes-com-uma-estreia-monumental-banner.jpg",
@@ -1860,10 +2388,22 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
-      "relevance_level": null,
-      "relevance_scores": {},
-      "relevance_weighted": null,
-      "relevance_justification": "",
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 45.0,
+        "dimensao_impacto": 35.0,
+        "consequencias": 25.0,
+        "relevancia_posterior": 35.0,
+        "dimensao_duracao": 25.0,
+        "relevancia_mediatica": 75.0,
+        "singularidade": 55.0
+      },
+      "relevance_weighted": 38.5,
+      "relevance_justification": "A estreia recorde de Squid Game reforçou a influência da Netflix no consumo global de séries, mas seu impacto histórico é limitado a mudanças temporárias na indústria de streaming. Embora tenha impulsionado a discussão sobre o futuro das plataformas de streaming, os efeitos duradouros são restritos ao fortalecimento da marca da série e ao aumento de assinaturas.",
       "source_type": "archive",
       "url_path": "noticia/2026/01/04/a-segunda-temporada-de-squid-game-quebrou-recordes-com-uma-estreia-monumental-244095aa",
       "page_id": "noticia-244095aa496d74ac2a616741",
@@ -1893,6 +2433,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
+      "networks": [
+        "x"
+      ],
+      "network_posts": {},
       "relevance_level": 4,
       "relevance_scores": {
         "impacto_historico": 45.0,
@@ -1934,6 +2478,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 20.0,
@@ -1960,9 +2508,9 @@
       "status": "pending",
       "category": "POLITICA",
       "title": "Lula disse que não reconheceria a vitória de Nicolás Maduro nas presidenciais",
-      "title_en": "",
+      "title_en": "Lula Says He Won't Recognize Nicolás Maduro's Presidential Win",
       "summary": "Lula disse que não reconheceria a vitória de Nicolás Maduro nas presidenciais",
-      "summary_en": "",
+      "summary_en": "Lula stated he would not recognize Nicolás Maduro's victory in the presidential election.",
       "original_year": "2025",
       "image": "assets/posts/2026-01-02-1-lula-disse-que-no-reconheceria-a-vitria-de-nicols-maduro-nas-presidenciais.jpg",
       "banner_image": "assets/banners/2026-01-02-1-lula-disse-que-no-reconheceria-a-vitria-de-nicols-maduro-nas-presidenciais-banner.jpg",
@@ -1975,10 +2523,23 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
-      "relevance_level": null,
-      "relevance_scores": {},
-      "relevance_weighted": null,
-      "relevance_justification": "",
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 25.0,
+        "dimensao_impacto": 20.0,
+        "consequencias": 15.0,
+        "relevancia_posterior": 20.0,
+        "dimensao_duracao": 10.0,
+        "relevancia_mediatica": 30.0,
+        "singularidade": 15.0
+      },
+      "relevance_weighted": 20.0,
+      "relevance_justification": "A declaração de Lula sobre não reconhecer a vitória de Maduro gerou repercussão diplomática, mas não alterou significativamente a dinâmica política regional. Seu impacto é limitado e de curta duração, sem consequências duradouras.",
       "source_type": "archive",
       "url_path": "noticia/2026/01/02/lula-disse-que-nao-reconheceria-a-vitoria-de-nicolas-maduro-nas-presidenciais-01a70a70",
       "page_id": "noticia-01a70a707cb964949a8fb27b",
@@ -1993,9 +2554,9 @@
       "status": "pending",
       "category": "ENTRETENIMENTO",
       "title": "Um atentado durante as celebrações de Ano-Novo em Nova Orleans, Estados Unidos",
-      "title_en": "",
+      "title_en": "Attack during New Year's celebrations in New Orleans, United States",
       "summary": "Um atentado durante as celebrações de Ano-Novo em Nova Orleans, Estados Unidos,",
-      "summary_en": "",
+      "summary_en": "An attack occurred during New Year's celebrations in New Orleans, United States.",
       "original_year": "2025",
       "image": "assets/posts/2026-01-01-1-um-atentado-durante-as-celebraes-de-ano-novo-em-nova-orleans-estados-unidos.jpg",
       "banner_image": "assets/banners/2026-01-01-1-um-atentado-durante-as-celebraes-de-ano-novo-em-nova-orleans-estados-unidos-banner.jpg",
@@ -2008,6 +2569,10 @@
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "network_posts": {},
       "relevance_level": null,
       "relevance_scores": {},
       "relevance_weighted": null,
@@ -2025,12 +2590,17 @@
       "2026-01-02",
       "2026-01-03",
       "2026-01-04",
+      "2026-01-05",
       "2026-01-06",
       "2026-01-07",
       "2026-01-08",
       "2026-01-09",
       "2026-01-10",
       "2026-01-11",
+      "2026-01-12",
+      "2026-01-14",
+      "2026-01-15",
+      "2026-01-16",
       "2026-07-01",
       "2026-07-02",
       "2026-08-26",

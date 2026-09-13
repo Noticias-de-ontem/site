@@ -11,7 +11,7 @@ from pathlib import Path
 
 import requests
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
 SITE_DIR = ROOT / "site"
 NEWS_FILE = SITE_DIR / "data" / "news.json"
 SNAPSHOTS_DIR = SITE_DIR / "assets" / "snapshots"

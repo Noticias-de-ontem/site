@@ -65,13 +65,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Cache Arquivo.pt responses
+      - name: Cache Arquivo.pt responses and CDXJ index
         uses: actions/cache@v6
         with:
-          path: arquivo_cache.db
-          key: arquivo-cache-${{ runner.os }}-${{ inputs.start_date }}-${{ inputs.end_date }}-${{ inputs.source_mode }}
+          # O índice filtrado tem de persistir entre runs: sem isto, um runner
+          # novo recomeçaria do zero. O state (arquivo_cdxj_state.json) fica
+          # commitado e guarda os checkpoints (offset/âncora) por coleção.
+          path: |
+            arquivo_cache.db
+            arquivo_cdxj/
+          key: arquivo-cache-${{ runner.os }}-v2
           restore-keys: |
             arquivo-cache-${{ runner.os }}-
+            arquivo-cache-${{ runner.os }}-v2
 
       - name: Update CDXJ indexes
         if: ${{ inputs.update_cdxj }}
@@ -109,7 +115,7 @@ jobs:
         env:
           SITE_API_URL: ${{ secrets.SITE_API_URL }}
           SITE_SYNC_TOKEN: ${{ secrets.SITE_SYNC_TOKEN }}
-        run: python -u sync_dynamic_site.py
+        run: python -u scripts/sync_dynamic_site.py
 
       - name: Commit and Push changes
         if: always()
