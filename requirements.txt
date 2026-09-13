@@ -1,6 +1,6 @@
 instaloader==4.15.3
 Pillow==12.3.0
-numpy==2.5.1
+numpy==2.5.3
 requests==2.34.2
 tzdata==2026.3; sys_platform == 'win32'
 opencv-python-headless==5.0.0.93
