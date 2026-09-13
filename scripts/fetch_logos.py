@@ -11,6 +11,22 @@ OUT = ROOT / "site" / "assets" / "logos"
 # handle/domínio -> domínio para favicon
 SOURCES = {
     "arquivo.pt": "arquivo.pt",
+    "record.pt": "record.pt",
+    "ojogo.pt": "ojogo.pt",
+    "abola.pt": "abola.pt",
+    "caras.pt": "caras.pt",
+    "flash.pt": "flash.pt",
+    "tv7dias.pt": "tv7dias.pt",
+    "holofote.pt": "holofote.pt",
+    "selfie.iol.pt": "selfie.iol.pt",
+    "lux.iol.pt": "lux.iol.pt",
+    "timeout.pt": "timeout.pt",
+    "blitz.pt": "blitz.pt",
+    "mag.sapo.pt": "mag.sapo.pt",
+    "exameinformatica.pt": "exameinformatica.pt",
+    "activa.pt": "activa.pt",
+    "maxima.pt": "maxima.pt",
+    "sapo24": "24sapo.com",
     "publico.pt": "publico.pt",
     "sicnoticias.pt": "sicnoticias.pt",
     "cnnportugal.pt": "cnnportugal.iol.pt",
@@ -51,8 +67,40 @@ def fetch_touch_icon(domain):
     return b""
 
 
+IG_PROFILES = ["epahsaiu", "hojenomundomilitar", "revista_nit", "revistaoriana"]
+
+
+def fetch_ig_profile_pics():
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124.0 Safari/537.36",
+        "x-ig-app-id": "936619743392459",
+    }
+    for handle in IG_PROFILES:
+        target = OUT / f"ig-{handle}.jpg"
+        if target.exists() and target.stat().st_size > 800:
+            continue
+        try:
+            r = requests.get(
+                f"https://www.instagram.com/api/v1/users/web_profile_info/?username={handle}",
+                headers=headers,
+                timeout=20,
+            )
+            if r.status_code == 200:
+                url = r.json().get("data", {}).get("user", {}).get("profile_pic_url_hd") or r.json().get("data", {}).get("user", {}).get("profile_pic_url")
+                if url:
+                    pic = requests.get(url, timeout=20)
+                    if pic.status_code == 200:
+                        target.write_bytes(pic.content)
+                        print("IG pic ok:", handle)
+                        continue
+        except requests.RequestException as exc:
+            print("IG pic falhou:", handle, str(exc)[:60])
+        print("IG pic sem foto:", handle)
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
+    fetch_ig_profile_pics()
     report = {}
     for name, domain in SOURCES.items():
         target = OUT / f"{name}.png"

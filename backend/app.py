@@ -35,7 +35,7 @@ from backend.topic_service import load_site_data
 ROOT = Path(__file__).resolve().parents[1]
 SITE_DIR = ROOT / "site"
 # Manter em sincronia com build_site.py SITE_ASSET_VERSION.
-SITE_ASSET_VERSION = "20260913h"
+SITE_ASSET_VERSION = "20260913n"
 DEFAULT_PUBLIC_URL = "https://luisflmaximo.github.io/Noticias-de-ontem-pt"
 TOPIC_MAX_ACTIVE_JOBS = positive_int("TOPIC_MAX_ACTIVE_JOBS", 8)
 TOPIC_JOB_SLOT_TTL_SECONDS = positive_int("TOPIC_JOB_SLOT_TTL_SECONDS", 7200)

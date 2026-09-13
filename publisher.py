@@ -1626,3 +1626,54 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+def publish_to_facebook(message, link_url):
+    """Publica no Facebook Page via Graph API. Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN."""
+    page_id = os.environ.get("FB_PAGE_ID", "")
+    page_token = os.environ.get("FB_PAGE_ACCESS_TOKEN", "")
+    if not page_id or not page_token:
+        return None
+    import requests as _r
+    try:
+        res = _r.post(
+            f"https://graph.facebook.com/v25.0/{page_id}/feed",
+            data={"message": message, "link": link_url, "access_token": page_token},
+            timeout=60,
+        )
+        data = res.json()
+        post_id = data.get("id")
+        if post_id:
+            return f"https://www.facebook.com/{post_id}"
+        print("Erro Facebook:", data)
+    except Exception as exc:
+        print("Erro Facebook:", exc)
+    return None
+
+
+def publish_to_x(message):
+    """Publica no X via API v2 (OAuth 1.0a). Requer X_API_KEY + X_API_SECRET + X_ACCESS_TOKEN + X_ACCESS_TOKEN_SECRET."""
+    api_key = os.environ.get("X_API_KEY", "")
+    api_secret = os.environ.get("X_API_SECRET", "")
+    access_token = os.environ.get("X_ACCESS_TOKEN", "")
+    access_secret = os.environ.get("X_ACCESS_TOKEN_SECRET", "")
+    if not all([api_key, api_secret, access_token, access_secret]):
+        return None
+    try:
+        from requests_oauthlib import OAuth1
+        auth = OAuth1(api_key, api_secret, access_token, access_secret)
+        res = requests.post(
+            "https://api.twitter.com/2/tweets",
+            json={"text": message[:280]},
+            auth=auth,
+            timeout=30,
+        )
+        data = res.json()
+        tweet_id = data.get("data", {}).get("id")
+        if tweet_id:
+            return f"https://x.com/i/status/{tweet_id}"
+        print("Erro X:", data)
+    except Exception as exc:
+        print("Erro X:", exc)
+    return None
+

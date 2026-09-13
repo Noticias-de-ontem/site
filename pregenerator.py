@@ -823,7 +823,7 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
         {{
           "year": "YYYY",
           "category": "ONE WORD CATEGORY IN PORTUGUESE (e.g., POLÍTICA, DESPORTO, CULTURA, SOCIEDADE)",
-          "title": "A short, punchy headline summarizing the event",
+          "title": "A short, punchy headline summarizing the event. MAXIMUM 70 CHARACTERS. Never truncate, never use ellipsis",
           "highlight_text": "Either an empty string or 1 to 3 words that appear exactly in the title. Prefer just 1 word.",
           "overlay_description": "A short sentence for the image overlay. NO hashtags, NO call to action, and absolutely NO dates or years.",
           "image_theme": "A short visual search query, ideally 2 to 5 words, for the background image.",

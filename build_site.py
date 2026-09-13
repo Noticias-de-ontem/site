@@ -32,7 +32,7 @@ CDXJ_BUILDER_FILE = ROOT / "build_arquivo_cdxj_index.py"
 INSTAGRAM_SCRAPER_FILE = ROOT / "scraper.py"
 ICON_SOURCE = ROOT / "images" / "noticias_de_ontem_icon.png"
 ICON_ASSET = "icon.png"
-SITE_ASSET_VERSION = "20260913h"
+SITE_ASSET_VERSION = "20260913n"
 SITE_FONTS = [
     "Montserrat-Regular.ttf",
     "Montserrat-Medium.ttf",
@@ -299,7 +299,14 @@ def strip_title_year(title):
     while previous != title:
         previous = title
         title = TRAILING_YEAR_PATTERN.sub("", title).strip()
-    return title.rstrip(",;:.").strip()
+    title = title.rstrip(",;:.").strip()
+    # O banner tem 4 linhas máx — títulos longos demais são truncados com
+    # limitação de palavras (nunca a meio de uma palavra).
+    if len(title) > 160:
+        words = title[:160].split(" ")
+        words.pop()
+        title = " ".join(words)
+    return title
 
 
 def source_type_for_item(item):
@@ -519,7 +526,7 @@ def _fold_to_ascii(value):
     return "".join(char for char in normalized if not unicodedata.combining(char))
 
 
-def news_url_path(item):
+def news_url_path(item, taken_paths=None):
     """URL limpo estilo jornal: /noticia/AAAA/MM/DD/slug-do-título-d8/.
 
     Usa a DATA DE PUBLICAÇÃO (o post parece notícia de hoje — o ano original
@@ -527,13 +534,26 @@ def news_url_path(item):
     determinístico (os 8 primeiros caracteres do digest do page_id) para
     desambiguar títulos repetidos.
     """
-    page_id = clean_text(item.get("page_id")) or news_page_id(item)
-    digest8 = page_id.replace("noticia-", "")[:8]
-    date_match = re.match(r"^(\d{4})-(\d{2})-(\d{2})", clean_text(item.get("date")))
-    year, month, day = date_match.groups() if date_match else ("0000", "00", "00")
+    category_slug = re.sub(
+        r"[^a-z0-9-]+", "-",
+        _fold_to_ascii(item.get("category") or "atualidade"),
+    ).strip("-").lower() or "atualidade"
     title_slug = re.sub(r"[^a-z0-9-]+", "-", _fold_to_ascii(item.get("title") or "")).strip("-")
-    title_slug = re.sub(r"-{2,}", "-", title_slug)[:90].strip("-") or "noticia"
-    return f"noticia/{year}/{month}/{day}/{title_slug}-{digest8}"
+    title_slug = re.sub(r"-{2,}", "-", title_slug).strip("-") or "noticia"
+    words = title_slug.split("-")
+    base = "-".join(words[:6])
+    path = f"noticia/{category_slug}/{base}"
+    if taken_paths is not None:
+        candidate = path
+        word_count = min(6, len(words))
+        while candidate in taken_paths and word_count < len(words):
+            word_count += 1
+            candidate = f"noticia/{category_slug}/{'-'.join(words[:word_count])}"
+        if candidate in taken_paths:
+            candidate = f"{path}-{page_id[:8]}"
+        taken_paths.add(candidate)
+        return candidate
+    return path
 
 
 def arquivo_screenshot_url(source_url):
@@ -905,6 +925,8 @@ def post_to_site_item(post, registry_by_post_id):
         # Sem escolha da IA (posts antigos), aplica a regra por categoria/nível
         # para os badges ficarem equitativos durante a qualificação visual.
         "networks": option.get("networks") or networks_for_option(category, relevance.get("level")),
+        # Ponto focal da capa (análise Gemini) para object-position no site.
+        "cover_focus": (photo_analysis or {}).get("cover_focus"),
         "network_posts": post.get("network_posts") or {},
         # Relevância histórica (níveis calculados em historical_relevance.py).
         "relevance_level": relevance.get("level"),
@@ -932,6 +954,11 @@ def post_to_site_item(post, registry_by_post_id):
 def build_calendar_payload(items):
     dates = sorted({item.get("date") for item in items if item.get("date")})
     event_days = build_event_recommendations()
+    # Índice diário de relevância (CDXJ + IA) sobrepõe-se à Wikipédia.
+    daily_index = build_daily_index_recommendations()
+    for month_day, entries in daily_index.items():
+        if entries:
+            event_days[month_day] = entries
     event_dates = sorted({
         entry["event_date"]
         for entries in event_days.values()
@@ -954,6 +981,7 @@ CAROUSEL_SIZE = 10
 CAROUSEL_TENURE_DAYS = 8
 CAROUSEL_COOLDOWN_DAYS = 30
 EVENTS_INDEX_FILE = ROOT / "data" / "eventos_por_dia.json"
+DAILY_INDEX_DIR = ROOT / "indice_diario"
 
 
 def _parse_iso_datetime(value):
@@ -961,6 +989,48 @@ def _parse_iso_datetime(value):
         return datetime.fromisoformat(str(value).replace("Z", "+00:00"))
     except ValueError:
         return None
+
+
+def build_daily_index_recommendations():
+    """Converte indice_diario/YYYY/MM-DD.json em recomendações por mês-dia.
+
+    O índice diário (candidatos do CDXJ pontuados pela IA) dá conteúdo
+    real do Arquivo.pt para o calendário, com badges de relevância.
+    """
+    if not DAILY_INDEX_DIR.is_dir():
+        return {}
+    by_day = {}
+    for index_file in sorted(DAILY_INDEX_DIR.glob("*.json")):
+        # Ficheiro é MM-DD.json dentro de pasta por ano ou MM-DD.json flat
+        stem = index_file.stem
+        if re.match(r"^\d{2}-\d{2}$", stem):
+            month_day = stem
+        else:
+            continue
+        data = load_json(index_file, {})
+        entries = data.get("entries") if isinstance(data, dict) else data
+        if not isinstance(entries, list):
+            continue
+        normalized = []
+        for entry in entries:
+            if not isinstance(entry, dict) or not clean_text(entry.get("title")):
+                continue
+            page_id = f"diario-{hashlib.sha256(f'{month_day}|{entry.get(chr(116)+chr(105)+chr(116)+chr(108)+chr(101), chr(63))}'.encode('utf-8')).hexdigest()[:24]}"
+            normalized.append({
+                "page_id": page_id,
+                "title": clean_text(entry.get("title")),
+                "original_year": clean_text(entry.get("original_year")) or month_day[:4],
+                "date": clean_text(entry.get("date")) or f"{month_day[:4]}-{month_day}",
+                "event_date": clean_text(entry.get("date")) or f"{month_day[:4]}-{month_day}",
+                "domain": clean_text(entry.get("source_domain")) or "arquivo.pt",
+                "source_type": "archive",
+                "source_url": clean_text(entry.get("source_url")),
+                "relevance_level": int(entry.get("relevance_level") or 4),
+                "summary": clean_text(entry.get("summary")),
+            })
+        if normalized:
+            by_day[month_day] = normalized
+    return by_day
 
 
 def select_carousel_with_tenure(items, limit=CAROUSEL_SIZE, now=None):
@@ -1131,10 +1201,23 @@ def build_payload():
     registry_by_post_id = build_registry_lookup(registry if isinstance(registry, list) else [])
 
     items = []
+    seen_titles_build = {}
     for post in pending_posts if isinstance(pending_posts, list) else []:
         item = post_to_site_item(post, registry_by_post_id)
-        if item:
-            items.append(item)
+        if not item:
+            continue
+        title_key = re.sub(r"[^a-z0-9]", "", _fold_to_ascii(item.get("title") or "").lower())[:80]
+        if title_key and title_key in seen_titles_build:
+            existing = seen_titles_build[title_key]
+            item_anchored = "/wayback/" in str(item.get("source_url") or "")
+            existing_anchored = "/wayback/" in str(existing.get("source_url") or "")
+            if item_anchored and not existing_anchored:
+                items[items.index(existing)] = item
+                seen_titles_build[title_key] = item
+            continue
+        if title_key:
+            seen_titles_build[title_key] = item
+        items.append(item)
 
     items.sort(key=lambda item: (item.get("date", ""), int(item.get("slot") or 0)), reverse=True)
     published = [item for item in items if item.get("status") == "published"]
@@ -1207,7 +1290,7 @@ def build_payload():
             public_items[0] if public_items else None,
         ),
         "carousel": carousel_items,
-        "latest": published[:12] if published else public_items[:12],
+        "latest": [item for item in (published[:12] if published else public_items[:12]) if item not in carousel_items],
         "all": items,
         "calendar": build_calendar_payload(items),
         "metrics": metrics,
@@ -1399,7 +1482,10 @@ def write_route_pages(payload):
     indexed_story_urls = []
 
     alias_shell = build_story_shell(source_html, "../../")
+    taken_urls = set()
     for item in payload.get("all", []):
+        if clean_text(item.get("url_path")):
+            taken_urls.add(clean_text(item.get("url_path")))
         page_id = clean_text(item.get("page_id"))
         if not page_id or not re.fullmatch(r"[a-z0-9-]+", page_id):
             continue

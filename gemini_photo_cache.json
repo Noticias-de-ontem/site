@@ -1349,5 +1349,225 @@
    "reason": "Ilustra o formato físico de disco de vinil, tema central da notícia sobre vendas de vinil."
   },
   "_model": "gemini-3.6-flash"
+ },
+ "2026-01-17_01_2017_free-fire-estreia-no-festival-de-toronto-2017-com-brie-larson-fundo.jpg:337787": {
+  "_final": {
+   "subject": "Retrato em plano aproximado da atriz Brie Larson a sorrir",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.46,
+     0.41
+    ]
+   ],
+   "banner_focus": [
+    0.46,
+    0.4
+   ],
+   "cover_focus": [
+    0.46,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Brie Larson, figura central da notícia, mas plano muito próximo inviabiliza corte em banner horizontal."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-18_01_2024_facebook-google-linkedin-microsoft-reddit-twitter-e-youtube-sao-as-setes-empre-fundo.jpg:234339": {
+  "_final": {
+   "subject": "Mulher com máscara e óculos de sol a caminhar na rua",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.68,
+     0.17
+    ],
+    [
+     0.89,
+     0.11
+    ]
+   ],
+   "banner_focus": [
+    0.68,
+    0.22
+   ],
+   "cover_focus": [
+    0.66,
+    0.42
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra transeuntes na rua e não tem relação com as empresas tecnológicas mencionadas na notícia."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-19_01_2024_de-niro-critica-trump-em-discurso-de-premiacao-fundo.jpg:195294": {
+  "_final": {
+   "subject": "Mulher loira a discursar no palco",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.58,
+     0.25
+    ]
+   ],
+   "banner_focus": [
+    0.58,
+    0.28
+   ],
+   "cover_focus": [
+    0.55,
+    0.38
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra uma mulher a discursar, não tendo ligação com Robert De Niro ou Donald Trump."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-19_01_2024_taylor-swift-lidera-vendas-de-vinil-com-1989-taylor-s-version-fundo.jpg:367191": {
+  "_final": {
+   "subject": "Taylor Swift na capa do álbum 1989 Taylor's Version",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.52,
+     0.44
+    ]
+   ],
+   "banner_focus": [
+    0.52,
+    0.44
+   ],
+   "cover_focus": [
+    0.52,
+    0.48
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Imagem oficial da capa do álbum 1989 (Taylor's Version) diretamente relacionado com a notícia sobre vendas de vinil."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-20_01_2024_britney-spears-e-elton-john-lancam-nova-versao-de-tiny-dancer-fundo.jpg:243334": {
+  "_final": {
+   "subject": "Britney Spears e Elton John juntos em primeiro plano",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.22,
+     0.47
+    ],
+    [
+     0.72,
+     0.5
+    ]
+   ],
+   "banner_focus": [
+    0.47,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fotografia dos dois artistas, Britney Spears e Elton John, diretamente relacionados com o lançamento da canção."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-21_01_2024_madonna-confunde-boston-com-toronto-no-show-fundo.jpg:505651": {
+  "_final": {
+   "subject": "Banda de rock Foreigner em concerto no palco",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.49,
+     0.47
+    ],
+    [
+     0.12,
+     0.41
+    ],
+    [
+     0.88,
+     0.46
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.4
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A foto mostra a banda Foreigner, não tendo relação com a cantora Madonna."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-21_01_2018_messi-supera-ronaldo-na-eleicao-de-melhor-do-mundo-da-marca-fundo.jpg:353856": {
+  "_final": {
+   "subject": "Lionel Messi com a camisola da Argentina a celebrar",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.57,
+     0.37
+    ]
+   ],
+   "banner_focus": [
+    0.52,
+    0.37
+   ],
+   "cover_focus": [
+    0.52,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Lionel Messi, protagonista da notícia sobre ter superado Ronaldo como melhor do mundo."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-22_01_2024_madonna-troca-boston-por-toronto-no-show-fundo.jpg:274206": {
+  "_final": {
+   "subject": "Kylie Minogue e Madonna a cantar em concerto",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.2,
+     0.17
+    ],
+    [
+     0.82,
+     0.17
+    ]
+   ],
+   "banner_focus": [
+    0.82,
+    0.22
+   ],
+   "cover_focus": [
+    0.82,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Contém a cantora Madonna no painel direito, permitindo ilustrar diretamente a notícia sobre o seu concerto."
+  },
+  "_model": "gemini-3.6-flash"
  }
 }

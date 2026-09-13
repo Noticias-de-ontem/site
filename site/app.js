@@ -102,17 +102,17 @@ const SOCIAL_NETWORKS = {
   instagram: {
     label: "Instagram",
     url: "https://www.instagram.com/",
-    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.9a6.9 6.9 0 1 0 0 13.8 6.9 6.9 0 0 0 0-13.8zm0 11.4a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm7.2-11.7a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0z"/></svg>',
+    icon: '<img src="assets/logos/networks/instagram.svg" alt="" loading="lazy">',
   },
   facebook: {
     label: "Facebook",
     url: "https://www.facebook.com/",
-    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-7.8h2.6l.4-3h-3V8.3c0-.9.2-1.5 1.5-1.5h1.6V4.1c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1z"/></svg>',
+    icon: '<img src="assets/logos/networks/facebook.svg" alt="" loading="lazy">',
   },
   x: {
     label: "X",
     url: "https://x.com/",
-    icon: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.8 3h3l-6.6 7.6L22 21h-6.1l-4.8-6.3L5.6 21h-3l7.1-8.1L2 3h6.3l4.3 5.7L17.8 3zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5z"/></svg>',
+    icon: '<img src="assets/logos/networks/x.svg" alt="" loading="lazy">',
   },
 };
 
@@ -124,7 +124,7 @@ function networkBadgesHtml(item) {
     const meta = SOCIAL_NETWORKS[network];
     if (!meta) return "";
     const href = item?.network_posts?.[network] || meta.url;
-    return `<a class="network-badge network-${network}" href="${escapeHtml(href)}" target="_blank" rel="noreferrer" title="${escapeHtml(meta.label)}">${meta.icon}<span>${escapeHtml(meta.label)}</span></a>`;
+    return `<a class="network-badge network-${network}" href="${escapeHtml(href)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(meta.label)}" title="${escapeHtml(meta.label)}">${meta.icon}</a>`;
   }).join("");
 }
 
@@ -307,6 +307,7 @@ const i18n = {
     topicGranularityLocked: "Escolhe um período mais curto para desbloquear.",
     topicFailedPoint: "Não verificado (falha na consulta)",
     topicMonthDivider: "mudança de mês",
+    topicEstimatedNote: "Tendência baseada nas notícias guardadas do projeto (o filtro de datas do Arquivo.pt falha neste período — não é o valor real do índice).",
     topicEmpty: "Não foram encontrados resultados neste intervalo.",
     topicError: "Não foi possível concluir a pesquisa no Arquivo.pt. Tenta novamente dentro de momentos.",
     newsEyebrow: "Notícia preservada",
@@ -501,6 +502,7 @@ const i18n = {
     topicGranularityLocked: "Choose a shorter period to unlock.",
     topicFailedPoint: "Not verified (query failed)",
     topicMonthDivider: "month change",
+    topicEstimatedNote: "Trend based on the project's saved stories (the Arquivo.pt date filter fails in this period — not the real index value).",
     topicEmpty: "No results were found in this time range.",
     topicError: "The Arquivo.pt search could not be completed. Please try again shortly.",
     newsEyebrow: "Preserved story",
@@ -896,6 +898,14 @@ function renderHero() {
   hero.style.backgroundImage = `url('${assetPath(item.banner_image || item.image || "assets/icon.png")}')`;
   // Título limpo (sem "?") + ano de volta na pílula pequena.
   setText("#hero-detail", bannerTitle(item));
+  // Tamanho da letra ajustado ao comprimento: títulos longos encolhem em vez
+  // de cortarem ou tocarem o cabeçalho/eyebrow.
+  const heroTitleElement = document.getElementById("hero-title");
+  if (heroTitleElement) {
+    const length = bannerTitle(item).length;
+    heroTitleElement.classList.remove("hero-title-short", "hero-title-medium", "hero-title-long");
+    heroTitleElement.classList.add(length <= 60 ? "hero-title-short" : length <= 110 ? "hero-title-medium" : "hero-title-long");
+  }
   setText("#hero-year", item.original_year ? `${t("yearOnly")} ${item.original_year}` : "");
   const heroBadges = document.getElementById("hero-badges");
   if (heroBadges) heroBadges.innerHTML = `${sourceTypeChip(item)}${relevanceBadge(item)}${networkBadgesHtml(item)}`;
@@ -1537,10 +1547,9 @@ function renderNewsDetail() {
           <strong>arquivo.pt</strong>
           ${capturedOn ? `<span>${escapeHtml(`${t("snapshotCaptured")} ${capturedOn}`)}</span>` : ""}
         </div>
-        <img src="${escapeHtml(snapshotUrl)}" alt="${escapeHtml(t("snapshotCaption"))}" loading="lazy">
+        <img src="${escapeHtml(snapshotUrl)}" alt="${escapeHtml(t("snapshotCaption"))}" loading="eager" fetchpriority="high" decoding="async">
         <figcaption>
           <span>${escapeHtml(t("snapshotCaption"))}</span>
-          ${item.source_url ? `<a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("viewOriginal"))} →</a>` : ""}
         </figcaption>
       </figure>
     </section>` : "";
@@ -1569,7 +1578,7 @@ function renderNewsDetail() {
           ${restParagraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
           <div class="news-article-actions">
             ${item.instagram_url ? `<a class="button primary" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenInstagram"))}</a>` : ""}
-            ${item.source_url ? `<a class="button secondary" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenArquivo"))}</a>` : ""}
+            ${item.source_url ? `<a class="button secondary" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml((item.source_url || "").includes("arquivo.pt") ? t("newsOpenArquivo") : (state.lang === "pt" ? "Abrir na fonte original" : "Open original source"))}</a>` : ""}
           </div>
         </div>
         ${snapshotHtml}
@@ -1869,8 +1878,33 @@ async function fetchTopicSeriesFromBackend(analyses, fromDate, toDate, showValue
 }
 
 const TOPIC_EXACT_SLICE_LIMIT = 1800;
-const TOPIC_MAX_PROBES_PER_SEARCH = 500;
+const TOPIC_MAX_PROBES_PER_SEARCH = 2000;
 const TOPIC_MIN_REQUEST_INTERVAL_MS = 200;
+// Intervalo entre aparecimentos no gráfico (revelação ordenada).
+const TOPIC_REVEAL_INTERVAL_MS = 5000;
+let topicRevealTimer = null;
+
+// Contagem de fallback: quantas notícias GUARDADAS do projeto batem no tema
+// dentro do período (tendência — não é o valor real do índice do Arquivo.pt).
+function countLocalSavedNews(analysis, slice) {
+  const terms = normalizedTopicText(analysis.query).split(" ").filter(Boolean);
+  if (!terms.length) return null;
+  const source = analysis.source || "";
+  let count = 0;
+  for (const item of state.data?.all || []) {
+    const year = Number(item.original_year);
+    if (!Number.isFinite(year)) continue;
+    const originalDate = `${year}-${monthDay(item.date)}`;
+    if (originalDate < slice.fromDate || originalDate > slice.toDate) continue;
+    if (source) {
+      const itemSource = `${item.domain || ""} ${item.source_profile || ""} ${item.source_url || ""}`.toLowerCase();
+      if (!itemSource.includes(source)) continue;
+    }
+    const haystack = normalizedTopicText(`${localized(item, "title")} ${item.body || ""} ${localized(item, "summary")}`);
+    if (terms.every((term) => haystack.includes(term))) count += 1;
+  }
+  return count;
+}
 // O filtro `from` do Arquivo.pt devolve 0 resultados para conteúdo a partir
 // de meados de 2021 (confirmado a 2026-09): a partir daqui, um 0 só é aceito
 // se uma sonda SEM datas também não tiver resultados.
@@ -1908,20 +1942,22 @@ function waitForTopicRequestSlot(signal) {
   return requestSlot;
 }
 
-async function firstEmptyTopicOffset(query, source, fromTimestamp, toTimestamp, lowPresent, highEmpty, signal) {
+async function firstEmptyTopicOffset(query, source, fromTimestamp, toTimestamp, lowPresent, highEmpty, signal, onProbe = null) {
   let low = lowPresent;
   let high = highEmpty;
   while (high - low > 1) {
     const middle = Math.floor((low + high) / 2);
     const probe = await fetchTopicProbe(query, source, fromTimestamp, toTimestamp, middle, signal);
+    if (onProbe) onProbe();
     if (probe.hasResult) low = middle;
     else high = middle;
   }
   return high;
 }
 
-async function verifiedTopicIntervalCount(query, source, fromTimestamp, toTimestamp, signal) {
+async function verifiedTopicIntervalCount(query, source, fromTimestamp, toTimestamp, signal, onProbe = null) {
   const first = await fetchTopicProbe(query, source, fromTimestamp, toTimestamp, 0, signal);
+  if (onProbe) onProbe();
   if (!first.hasResult) return 0;
 
   const hint = Math.max(0, Number(first.estimate) || 0);
@@ -1931,15 +1967,17 @@ async function verifiedTopicIntervalCount(query, source, fromTimestamp, toTimest
       : fetchTopicProbe(query, source, fromTimestamp, toTimestamp, hint - 1, signal);
     const afterPromise = fetchTopicProbe(query, source, fromTimestamp, toTimestamp, hint, signal);
     const [before, after] = await Promise.all([beforePromise, afterPromise]);
+    if (onProbe) onProbe(2);
     if (before.hasResult && !after.hasResult) return hint;
     if (!before.hasResult) {
-      return firstEmptyTopicOffset(query, source, fromTimestamp, toTimestamp, 0, hint - 1, signal);
+      return firstEmptyTopicOffset(query, source, fromTimestamp, toTimestamp, 0, hint - 1, signal, onProbe);
     }
     const limit = hint === TOPIC_EXACT_SLICE_LIMIT
       ? after
       : await fetchTopicProbe(query, source, fromTimestamp, toTimestamp, TOPIC_EXACT_SLICE_LIMIT, signal);
+    if (onProbe) onProbe();
     if (limit.hasResult) return null;
-    return firstEmptyTopicOffset(query, source, fromTimestamp, toTimestamp, hint, TOPIC_EXACT_SLICE_LIMIT, signal);
+    return firstEmptyTopicOffset(query, source, fromTimestamp, toTimestamp, hint, TOPIC_EXACT_SLICE_LIMIT, signal, onProbe);
   }
 
   const limit = await fetchTopicProbe(
@@ -1950,8 +1988,9 @@ async function verifiedTopicIntervalCount(query, source, fromTimestamp, toTimest
     TOPIC_EXACT_SLICE_LIMIT,
     signal,
   );
+  if (onProbe) onProbe();
   if (limit.hasResult) return null;
-  return firstEmptyTopicOffset(query, source, fromTimestamp, toTimestamp, 0, TOPIC_EXACT_SLICE_LIMIT, signal);
+  return firstEmptyTopicOffset(query, source, fromTimestamp, toTimestamp, 0, TOPIC_EXACT_SLICE_LIMIT, signal, onProbe);
 }
 
 function topicTimestampToSeconds(value) {
@@ -1972,8 +2011,8 @@ function topicSecondsToTimestamp(seconds) {
   return `${date.getUTCFullYear()}${part(date.getUTCMonth() + 1)}${part(date.getUTCDate())}${part(date.getUTCHours())}${part(date.getUTCMinutes())}${part(date.getUTCSeconds())}`;
 }
 
-async function countTopicIntervalExactly(query, source, fromTimestamp, toTimestamp, signal) {
-  const directCount = await verifiedTopicIntervalCount(query, source, fromTimestamp, toTimestamp, signal);
+async function countTopicIntervalExactly(query, source, fromTimestamp, toTimestamp, signal, onProbe = null) {
+  const directCount = await verifiedTopicIntervalCount(query, source, fromTimestamp, toTimestamp, signal, onProbe);
   if (directCount !== null) return directCount;
 
   const fromSeconds = topicTimestampToSeconds(fromTimestamp);
@@ -1981,6 +2020,8 @@ async function countTopicIntervalExactly(query, source, fromTimestamp, toTimesta
   if (!Number.isFinite(fromSeconds) || !Number.isFinite(toSeconds) || fromSeconds >= toSeconds) {
     throw new Error("Arquivo.pt result window could not be divided");
   }
+  // Divisão binária por tempo: convergência log2 — mais eficiente do que
+  // mês a mês (que seria linear ~12 chamadas por ano).
   const middle = Math.floor((fromSeconds + toSeconds) / 2);
   const leftCount = await countTopicIntervalExactly(
     query,
@@ -1988,6 +2029,7 @@ async function countTopicIntervalExactly(query, source, fromTimestamp, toTimesta
     topicSecondsToTimestamp(fromSeconds),
     topicSecondsToTimestamp(middle),
     signal,
+    onProbe,
   );
   const rightCount = await countTopicIntervalExactly(
     query,
@@ -1995,6 +2037,7 @@ async function countTopicIntervalExactly(query, source, fromTimestamp, toTimesta
     topicSecondsToTimestamp(middle + 1),
     topicSecondsToTimestamp(toSeconds),
     signal,
+    onProbe,
   );
   return leftCount + rightCount;
 }
@@ -2006,6 +2049,7 @@ function topicYearSlices(fromDate, toDate) {
     const year = fromYear + index;
     return {
       year,
+      label: String(year),
       fromDate: fromDate > `${year}-01-01` ? fromDate : `${year}-01-01`,
       toDate: toDate < `${year}-12-31` ? toDate : `${year}-12-31`,
     };
@@ -2087,7 +2131,7 @@ function topicGranularityUnlocked(fromDate, toDate, granularity) {
   return true;
 }
 
-async function fetchTopicSeries(query, source, fromDate, toDate, signal, onProgress = null, onSeriesUpdate = null, granularity = "year") {
+async function fetchTopicSeries(query, source, fromDate, toDate, signal, onProgress = null, onSeriesUpdate = null, granularity = "year", localFallback = null) {
   const slices = topicPeriodSlices(fromDate, toDate, granularity);
   const results = new Array(slices.length);
   let cursor = 0;
@@ -2103,22 +2147,36 @@ async function fetchTopicSeries(query, source, fromDate, toDate, signal, onProgr
       try {
         const fromTimestamp = topicApiBoundary(slice.fromDate, false);
         const toTimestamp = topicApiBoundary(slice.toDate, true);
-        let count = await countTopicIntervalExactly(query, source, fromTimestamp, toTimestamp, signal);
+        let probeCount = 0;
+        const onProbe = () => {
+          probeCount += 1;
+          if (onProgress && probeCount % 3 === 0) {
+            onProgress(completed, slices.length, `${slice.label} · ${probeCount} verificações`, "start");
+          }
+        };
+        let count = await countTopicIntervalExactly(query, source, fromTimestamp, toTimestamp, signal, onProbe);
+        let estimated = false;
+        let method = "";
         // Detecção de falso zero: se o filtro de datas do arquivo falhar para
-        // este período mas o tema tem capturas sem filtro temporal, o período
-        // fica NÃO verificado em vez de zero.
+        // este período mas o tema tem capturas sem filtro temporal, conta nas
+        // NOTÍCIAS GUARDADAS do projeto (tendência, não o valor real); sem
+        // fallback disponível, o período fica NÃO verificado em vez de zero.
         if (count === 0 && slice.toDate >= TOPIC_DATE_FILTER_BREAK) {
           let presence;
           try {
             presence = await fetchTopicProbe(query, source, "", "", 0, signal);
           } catch (presenceError) {
-            // Sem conseguir provar presença, o zero continua inconclusivo:
-            // marca como falha do filtro de datas em vez de zero.
             presenceError.code = presenceError.code || "date_filter_unavailable";
             throw presenceError;
           }
           if (presence.hasResult) {
-            throw Object.assign(new Error("Arquivo.pt date filter unavailable"), { code: "date_filter_unavailable" });
+            const localCount = localFallback ? localFallback(slice) : null;
+            if (localCount === null || localCount === undefined) {
+              throw Object.assign(new Error("Arquivo.pt date filter unavailable"), { code: "date_filter_unavailable" });
+            }
+            count = localCount;
+            estimated = true;
+            method = "noticias_guardadas";
           }
         }
         results[index] = {
@@ -2128,6 +2186,8 @@ async function fetchTopicSeries(query, source, fromDate, toDate, signal, onProgr
           to_date: slice.toDate,
           count,
           failed: false,
+          estimated,
+          method,
         };
       } catch (error) {
         if (signal.aborted) throw error;
@@ -2493,8 +2553,8 @@ function renderTopicGraph() {
         ? `<text class="chart-value-label" x="${labelX}" y="${labelY}" text-anchor="middle" style="fill:${color};--i:${index}">${escapeHtml(formatMetricNumber(item.count))}</text>`
         : "";
       return `
-        <circle class="chart-point" cx="${x}" cy="${y}" r="4" style="stroke:${color};--i:${index}">
-          <title>${escapeHtml(result.query)} · ${item.label}: ${formatMetricNumber(item.count)} ${t("topicMentions")}</title>
+        <circle class="chart-point${item.estimated ? " chart-point-estimated" : ""}" cx="${x}" cy="${y}" r="4" style="stroke:${color};--i:${index}">
+          <title>${escapeHtml(result.query)} · ${item.label}: ${formatMetricNumber(item.count)} ${t("topicMentions")}${item.estimated ? ` (${t("topicEstimatedNote")})` : ""}</title>
         </circle>
         ${valueLabel}
       `;
@@ -2552,6 +2612,7 @@ function renderTopicGraph() {
         <span>${escapeHtml(t("topicCaptureNote"))}</span>
         <span>${escapeHtml(t("topicCoverageUneven"))}</span>
         ${useLogScale ? `<span>${escapeHtml(t("topicLogScale"))}</span>` : ""}
+        ${(resultSets || []).some((result) => (result.series || []).some((item) => item.estimated)) ? `<span>${escapeHtml(t("topicEstimatedNote"))}</span>` : ""}
         ${postCount ? `<span class="chart-legend"><i></i>${escapeHtml(t("topicInstagramLegend"))}</span>` : ""}
       </div>
       <div class="chart-download-controls">
@@ -2644,7 +2705,11 @@ function downloadTopicCsv() {
       item.to_date,
       item.label || item.year,
       Number.isFinite(item.count) ? item.count : "",
-      item.failed ? (portuguese ? "nao_verificado" : "not_verified") : (portuguese ? "verificado" : "verified"),
+      item.failed
+        ? (portuguese ? "nao_verificado" : "not_verified")
+        : item.estimated
+          ? (portuguese ? "estimado (noticias_guardadas)" : "estimated (saved_news)")
+          : (portuguese ? "verificado" : "verified"),
       item.error_code || "",
       item.method || result.method || "paginacao_offset_com_divisao_temporal",
       topicSearchUrl(result.query, result.source, item.from_date, item.to_date),
@@ -2852,6 +2917,7 @@ async function runTopicSearch(updateHistory = true) {
   state.topicAbort?.abort();
   state.topicAbort = new AbortController();
   const searchAbort = state.topicAbort;
+  if (state.topicRevealStop) state.topicRevealStop();
   topicProbeBudgets.set(searchAbort.signal, {
     used: 0,
     maximum: TOPIC_MAX_PROBES_PER_SEARCH * analyses.length,
@@ -2913,6 +2979,57 @@ async function runTopicSearch(updateHistory = true) {
         }));
         state.topicResultSets = results;
         renderTopicGraph();
+        // Revelação ORDENADA: embora os períodos sejam verificados em
+        // paralelo, cada um só aparece no gráfico quando o anterior já
+        // apareceu, com 5 segundos de intervalo — nunca buracos no meio.
+        const revealEntries = new Map();
+        let revealCursor = { analysis: 0, period: 0 };
+        const stopReveal = () => {
+          if (topicRevealTimer) window.clearTimeout(topicRevealTimer);
+          topicRevealTimer = null;
+        };
+        state.topicRevealStop = stopReveal;
+        const revealNext = () => {
+          if (searchAbort.signal.aborted) return;
+          try {
+            for (let attempt = 0; attempt < analyses.length; attempt += 1) {
+              const resultSet = state.topicResultSets[revealCursor.analysis];
+              if (!resultSet) {
+                stopReveal();
+                return;
+              }
+              const point = resultSet.series[revealCursor.period];
+              if (!point) {
+                revealCursor.analysis += 1;
+                revealCursor.period = 0;
+                continue;
+              }
+              const label = point.label;
+              if (!revealEntries.has(`${revealCursor.analysis}:${label}`)) {
+                // Ainda a verificar: espera pela próxima passada (sem buracos).
+                topicRevealTimer = window.setTimeout(revealNext, 1500);
+                return;
+              }
+              const entry = revealEntries.get(`${revealCursor.analysis}:${label}`);
+              point.count = entry.count;
+              point.failed = entry.failed;
+              point.error_code = entry.error_code;
+              point.estimated = entry.estimated;
+              point.method = entry.method;
+              if (Number.isFinite(entry.count)) resultSet.total += entry.count;
+              point.revealed = true;
+              renderTopicGraph();
+              revealCursor.period += 1;
+              topicRevealTimer = window.setTimeout(revealNext, TOPIC_REVEAL_INTERVAL_MS);
+              return;
+            }
+            stopReveal();
+          } catch (revealError) {
+            // A fila nunca pode morrer por um erro de renderização.
+            topicRevealTimer = window.setTimeout(revealNext, 1500);
+          }
+        };
+        topicRevealTimer = window.setTimeout(revealNext, 1200);
         let cursor = 0;
         const worker = async () => {
         while (cursor < analyses.length) {
@@ -2925,6 +3042,7 @@ async function runTopicSearch(updateHistory = true) {
           if (cached) {
             completedPeriods += cached.series.length;
             updateTopicProgress(completedPeriods, totalPeriods);
+            cached.series.forEach((entry) => revealEntries.set(`${index}:${entry.label}`, entry));
           } else {
             try {
               const seriesIndex = index;
@@ -2935,27 +3053,25 @@ async function runTopicSearch(updateHistory = true) {
                 toDate,
                 searchAbort.signal,
                 (done, total, label, phase) => {
+                  // O progresso mostra o ano FRONTEIRA (primeiro ainda não
+                  // revelado), não o ano de cada sonda individual.
+                  const series = state.topicResultSets?.[seriesIndex]?.series || [];
+                  const frontier = series.find((i) => !i.revealed);
+                  const frontierLabel = frontier ? frontier.label : label;
                   if (phase === "start") {
-                    // Mostra o período em curso sem avançar o contador.
-                    updateTopicProgress(completedPeriods, totalPeriods, label);
+                    updateTopicProgress(completedPeriods, totalPeriods, frontierLabel);
                     return;
                   }
                   completedPeriods += 1;
-                  updateTopicProgress(completedPeriods, totalPeriods, label);
+                  updateTopicProgress(completedPeriods, totalPeriods, frontierLabel);
                 },
                 (label, entry) => {
-                  // Cada período verificado entra no gráfico imediatamente.
-                  const resultSet = state.topicResultSets[seriesIndex];
-                  const point = resultSet?.series?.find((item) => item.label === label);
-                  if (point) {
-                    point.count = entry.count;
-                    point.failed = entry.failed;
-                    point.error_code = entry.error_code;
-                    if (Number.isFinite(entry.count)) resultSet.total += entry.count;
-                    renderTopicGraph();
-                  }
+                  // Cada período verificado entra na fila de revelação
+                  // ordenada (nunca diretamente no gráfico).
+                  revealEntries.set(`${seriesIndex}:${label}`, entry);
                 },
                 granularity,
+                (slice) => countLocalSavedNews(analysis, slice),
               );
             } catch (error) {
               if (searchAbort.signal.aborted) throw error;
@@ -2975,6 +3091,11 @@ async function runTopicSearch(updateHistory = true) {
               completedPeriods += periodsPerAnalysis;
               updateTopicProgress(Math.min(completedPeriods, totalPeriods), totalPeriods);
             }
+            result.series.forEach((entry) => {
+              if (!revealEntries.has(`${index}:${entry.label}`)) {
+                revealEntries.set(`${index}:${entry.label}`, entry);
+              }
+            });
             if (result.complete) writeTopicCache(cacheKey, result);
           }
           results[index] = { ...analysis, ...result };
@@ -3121,7 +3242,7 @@ function animateMetricCounters() {
 
       const track = document.createElement("span");
       track.className = "odometer-track";
-      track.style.setProperty("--odometer-shift", `${-(visibleSteps * 1.16)}em`);
+      track.style.setProperty("--odometer-shift", `${-visibleSteps}em`);
       track.style.setProperty("--odometer-delay", `${(index * 55) + (digitsToRight * 16)}ms`);
       for (let step = 0; step <= visibleSteps; step += 1) {
         const digit = document.createElement("span");
@@ -3238,9 +3359,20 @@ function renderHomeSections() {
   const feed = document.getElementById("minute-feed");
   if (feedBlock && feed) {
     const published = all.filter((item) => item.instagram_url || (item.network_posts && Object.keys(item.network_posts).length));
-    const items = (published.length ? published : all).slice(0, 5);
-    feedBlock.hidden = items.length === 0;
-    feed.innerHTML = items.map((item) => `
+    const seen = new Set();
+    const items = [];
+    for (const item of published) {
+      if (seen.has(item.page_id)) continue;
+      seen.add(item.page_id);
+      items.push(item);
+    }
+    // Máx 42 itens e apenas os últimos 7 dias.
+    const limited = items.slice(0, 42);
+    const newest = limited[0] ? new Date(`${limited[0].date}T12:00:00`) : null;
+    const cutoffDate = newest && !Number.isNaN(newest.getTime()) ? new Date(newest.getTime() - 6 * 86400000) : null;
+    const finalItems = cutoffDate ? limited.filter((item) => new Date(`${item.date}T12:00:00`) >= cutoffDate) : limited;
+    feedBlock.hidden = finalItems.length === 0;
+    feed.innerHTML = finalItems.map((item) => `
       <li>
         <span class="feed-time">${escapeHtml(relativeTime(item.date))}</span>
         <a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">
@@ -3288,6 +3420,29 @@ function renderRelevanceDocs() {
   if (!container) return;
   const lang = state.lang === "en" ? "en" : "pt";
   const levels = RELEVANCE_LEVELS[lang];
+  const examplesByLevel = {
+    1: {
+      pt: { title: "25 de Abril de 1974: o fim da ditadura e o início da democracia em Portugal", body: "A revolução dos cravos é um acontecimento fundamental na história de Portugal e da Europa, com impacto político, social e cultural duradouro." },
+      en: { title: "April 25, 1974: the end of the dictatorship and the beginning of democracy in Portugal", body: "The Carnation Revolution is a foundational event in Portuguese and European history, with lasting political, social and cultural impact." },
+    },
+    2: {
+      pt: { title: "Portugal entra na moeda única: o euro chega às carteiras em 2002", body: "A adoção do euro teve consequências económicas e sociais profundas para o país e para a Europa, sem ser uma revolução." },
+      en: { title: "Portugal adopts the single currency: the euro reaches wallets in 2002", body: "Adopting the euro had deep economic and social consequences for the country and Europe, though not a revolution." },
+    },
+    3: {
+      pt: { title: "Incêndio na Serra da Estrela atinge vila turística", body: "Um grande incêndio florestal com forte impacto regional, mas sem consequências nacionais duradouras." },
+      en: { title: "Serra da Estrela fire hits tourist village", body: "A major wildfire with strong regional impact, but without lasting national consequences." },
+    },
+    4: {
+      pt: { title: "Meryl Streep imita jornalista deficiente nos Globos de Ouro", body: "Grande atenção mediática na época, com impacto histórico de longo prazo limitado." },
+      en: { title: "Meryl Streep imitates disabled journalist at the Golden Globes", body: "Major media attention at the time, with limited long-term historical impact." },
+    },
+    5: {
+      pt: { title: "Moda anos 2000: o regresso das botas platform", body: "Não foi determinante por si, mas ajuda a compreender a cultura e a estética da época." },
+      en: { title: "2000s fashion: the return of platform boots", body: "Not decisive on its own, but useful for understanding the era's culture and aesthetics." },
+    },
+  };
+  const currentExample = { level: 1 };
   const criteria = lang === "en"
     ? [
         ["Historical impact", "30%", "How much the event influenced the course of history, nationally or internationally."],
@@ -3346,14 +3501,33 @@ function renderRelevanceDocs() {
         <p class="relevance-scores-note">${escapeHtml(t("relevanceDocScoresNote"))}</p>
         <div class="relevance-level-legend">
           ${levels.map((info) => `
-            <span class="relevance-badge relevance-level-${info.level}" tabindex="0" role="button" aria-describedby="relevance-tooltip">
+            <span class="relevance-badge relevance-level-${info.level}${info.level === 1 ? " active" : ""}" data-doc-level="${info.level}" tabindex="0" role="button" aria-describedby="relevance-tooltip">
               ${RELEVANCE_ICONS[info.level]}<span class="relevance-badge-name">${escapeHtml(info.name)}</span>
             </span>
           `).join("")}
         </div>
       </div>
     </div>`;
-}
+    // Tornar os badges da legenda clicáveis para mudar o exemplo
+    container.querySelectorAll("[data-doc-level]").forEach((badge) => {
+      badge.addEventListener("click", () => {
+        const level = Number(badge.dataset.docLevel);
+        const example = examplesByLevel[level];
+        const exampleEl = container.querySelector(".relevance-example");
+        if (!example || !exampleEl) return;
+        const badgeColor = { 1: "#a8203c", 2: "#d66a15", 3: "#c4940c", 4: "#10609b", 5: "#56626a" }[level] || "#56626a";
+        exampleEl.style.borderLeftColor = badgeColor;
+        exampleEl.querySelector(".relevance-badge").outerHTML = relevanceBadge({ relevance_level: level });
+        const heading = exampleEl.querySelector("h4");
+        const body = exampleEl.querySelector("p");
+        if (heading && example && lang === "pt") heading.textContent = example.pt?.title || heading.textContent;
+        if (heading && example && lang === "en") heading.textContent = example.en?.title || heading.textContent;
+        if (body && example && lang === "pt") body.textContent = example.pt?.body || body.textContent;
+        if (body && example && lang === "en") body.textContent = example.en?.body || body.textContent;
+        container.querySelectorAll("[data-doc-level]").forEach((b) => b.classList.toggle("active", Number(b.dataset.docLevel) === level));
+      });
+    });
+  }
 
 function renderStaticText() {
   document.documentElement.lang = state.lang;
@@ -3376,7 +3550,6 @@ function render() {
   renderHero();
   renderCarousel();
   renderHomeSections();
-  renderLatest();
   renderCalendar();
   renderTopics();
   renderDocs();

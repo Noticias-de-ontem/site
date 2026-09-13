@@ -24,8 +24,8 @@
     <meta name="twitter:image" content="https://MaNmAxImO-noticias-de-ontem.hf.space/assets/icon.png">
     <script type="application/ld+json" id="structured-data">{"@context":"https://schema.org","@type":"CollectionPage","name":"Calendário de notícias históricas | Notícias de Ontem","description":"Escolha uma data e descubra notícias de diferentes anos preservadas pelo Arquivo.pt.","url":"https://MaNmAxImO-noticias-de-ontem.hf.space/calendario/","inLanguage":"pt-PT","isPartOf":{"@type":"WebSite","name":"Notícias de Ontem","url":"https://MaNmAxImO-noticias-de-ontem.hf.space/"},"isBasedOn":"https://arquivo.pt/"}</script>
     <!-- SEO:END -->
-    <link rel="icon" href="../assets/icon.png?v=20260913h">
-    <link rel="stylesheet" href="../styles.css?v=20260913h">
+    <link rel="icon" href="../assets/icon.png?v=20260913n">
+    <link rel="stylesheet" href="../styles.css?v=20260913n">
   </head>
   <body>
     <a class="skip-link" href="#main">Saltar para o conteúdo</a>
@@ -125,24 +125,14 @@
                 <ol class="home-important-list" id="home-level-1"></ol>
               </div>
               <div class="home-side-block" id="home-feed-block" hidden>
-                <h2 class="home-side-heading" data-i18n="minuteFeedTitle">Arquivo ao minuto</h2>
+                <h2 class="home-side-heading" data-i18n="latestTitle">Últimas notícias publicadas</h2>
                 <p class="home-side-lead" data-i18n="minuteFeedLead">As últimas publicações do nosso perfil.</p>
-                <ol class="minute-feed" id="minute-feed"></ol>
+                <ol class="minute-feed minute-feed-scroll" id="minute-feed"></ol>
               </div>
             </aside>
           </div>
         </section>
 
-        <section class="section-shell latest-section" aria-labelledby="latest-title">
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow" data-i18n="latestEyebrow">Arquivo social</p>
-              <h2 id="latest-title" data-i18n="latestTitle">Últimas notícias publicadas</h2>
-            </div>
-            <p class="section-note" id="latest-note"></p>
-          </div>
-          <div class="latest-grid" id="latest-grid"></div>
-        </section>
       </section>
 
       <section id="calendar-view" class="view page-view" data-view="calendar" aria-labelledby="calendar-title">
@@ -249,23 +239,42 @@
           <p class="eyebrow" data-i18n="footerSourcesTitle">Fontes acompanhadas</p>
           <h2 id="doc-sources-title">Jornais e origens que alimentam o projeto</h2>
           <div class="doc-sources-grid">
-            <a class="doc-source" href="https://www.publico.pt/" target="_blank" rel="noreferrer"><img src="../assets/logos/publico.pt.png" alt="Público" loading="lazy"><span>Público</span></a>
-            <a class="doc-source" href="https://sicnoticias.pt/" target="_blank" rel="noreferrer"><img src="../assets/logos/sicnoticias.pt.png" alt="SIC Notícias" loading="lazy"><span>SIC Notícias</span></a>
-            <a class="doc-source" href="https://cnnportugal.iol.pt/" target="_blank" rel="noreferrer"><img src="../assets/logos/cnnportugal.pt.png" alt="CNN Portugal" loading="lazy"><span>CNN Portugal</span></a>
-            <a class="doc-source" href="https://www.rtp.pt/noticias" target="_blank" rel="noreferrer"><img src="../assets/logos/rtp.pt.png" alt="RTP" loading="lazy"><span>RTP Notícias</span></a>
-            <a class="doc-source" href="https://www.cmjornal.pt/" target="_blank" rel="noreferrer"><img src="../assets/logos/cmjornal.pt.png" alt="Correio da Manhã" loading="lazy"><span>Correio da Manhã</span></a>
-            <a class="doc-source" href="https://observador.pt/" target="_blank" rel="noreferrer"><img src="../assets/logos/observador.pt.png" alt="Observador" loading="lazy"><span>Observador</span></a>
-            <a class="doc-source" href="https://www.dn.pt/" target="_blank" rel="noreferrer"><img src="../assets/logos/dn.pt.png" alt="Diário de Notícias" loading="lazy"><span>Diário de Notícias</span></a>
-            <a class="doc-source" href="https://www.jn.pt/" target="_blank" rel="noreferrer"><img src="../assets/logos/jn.pt.png" alt="Jornal de Notícias" loading="lazy"><span>Jornal de Notícias</span></a>
-            <a class="doc-source" href="https://expresso.pt/" target="_blank" rel="noreferrer"><img src="../assets/logos/expresso.pt.png" alt="Expresso" loading="lazy"><span>Expresso</span></a>
-            <a class="doc-source" href="https://www.sabado.pt/" target="_blank" rel="noreferrer"><img src="../assets/logos/sabado.pt.png" alt="Sábado" loading="lazy"><span>SÁBADO</span></a>
-            <a class="doc-source" href="https://visao.sapo.pt/" target="_blank" rel="noreferrer"><img src="../assets/logos/visao.pt.png" alt="Visão" loading="lazy"><span>Visão</span></a>
-            <a class="doc-source" href="https://www.noticiasaominuto.com/" target="_blank" rel="noreferrer"><img src="../assets/logos/noticiasaominuto.com.png" alt="Notícias ao Minuto" loading="lazy"><span>Notícias ao Minuto</span></a>
-            <a class="doc-source" href="https://www.tsfdifusao.pt/" target="_blank" rel="noreferrer"><img src="../assets/logos/renascenca.png" alt="Renascença" loading="lazy"><span>Renascença</span></a>
-            <a class="doc-source" href="https://4gnews.pt/" target="_blank" rel="noreferrer"><img src="../assets/logos/4gnewspt.png" alt="4gnews" loading="lazy"><span>4gnews</span></a>
-            <a class="doc-source" href="https://nit.pt/" target="_blank" rel="noreferrer"><img src="../assets/logos/nit.pt.png" alt="NiT" loading="lazy"><span>NiT</span></a>
-            <a class="doc-source" href="https://pt.wikipedia.org/" target="_blank" rel="noreferrer"><img src="../assets/logos/wikipedia.png" alt="Wikipédia" loading="lazy"><span>Wikipédia</span></a>
-            <a class="doc-source" href="https://arquivo.pt/" target="_blank" rel="noreferrer"><img src="../assets/logos/arquivo.pt.png" alt="Arquivo.pt" loading="lazy"><span>Arquivo.pt</span></a>
+          <a class="doc-source" href="https://arquivo.pt/" target="_blank" rel="noreferrer" title="Arquivo.pt"><img src="../assets/logos/arquivo.pt.png" alt="Arquivo.pt" loading="lazy"><span>Arquivo.pt</span></a>
+          <a class="doc-source" href="https://www.publico.pt/" target="_blank" rel="noreferrer" title="Público"><img src="../assets/logos/publico.pt.png" alt="Público" loading="lazy"><span>Público</span></a>
+          <a class="doc-source" href="https://sicnoticias.pt/" target="_blank" rel="noreferrer" title="SIC Notícias"><img src="../assets/logos/sicnoticias.pt.png" alt="SIC Notícias" loading="lazy"><span>SIC Notícias</span></a>
+          <a class="doc-source" href="https://cnnportugal.iol.pt/" target="_blank" rel="noreferrer" title="CNN Portugal"><img src="../assets/logos/cnnportugal.pt.png" alt="CNN Portugal" loading="lazy"><span>CNN Portugal</span></a>
+          <a class="doc-source" href="https://www.rtp.pt/noticias" target="_blank" rel="noreferrer" title="RTP Notícias"><img src="../assets/logos/rtp.pt.png" alt="RTP Notícias" loading="lazy"><span>RTP Notícias</span></a>
+          <a class="doc-source" href="https://www.cmjornal.pt/" target="_blank" rel="noreferrer" title="Correio da Manhã"><img src="../assets/logos/cmjornal.pt.png" alt="Correio da Manhã" loading="lazy"><span>Correio da Manhã</span></a>
+          <a class="doc-source" href="https://observador.pt/" target="_blank" rel="noreferrer" title="Observador"><img src="../assets/logos/observador.pt.png" alt="Observador" loading="lazy"><span>Observador</span></a>
+          <a class="doc-source" href="https://www.dn.pt/" target="_blank" rel="noreferrer" title="Diário de Notícias"><img src="../assets/logos/dn.pt.png" alt="Diário de Notícias" loading="lazy"><span>Diário de Notícias</span></a>
+          <a class="doc-source" href="https://www.jn.pt/" target="_blank" rel="noreferrer" title="Jornal de Notícias"><img src="../assets/logos/jn.pt.png" alt="Jornal de Notícias" loading="lazy"><span>Jornal de Notícias</span></a>
+          <a class="doc-source" href="https://expresso.pt/" target="_blank" rel="noreferrer" title="Expresso"><img src="../assets/logos/expresso.pt.png" alt="Expresso" loading="lazy"><span>Expresso</span></a>
+          <a class="doc-source" href="https://www.sabado.pt/" target="_blank" rel="noreferrer" title="SÁBADO"><img src="../assets/logos/sabado.pt.png" alt="SÁBADO" loading="lazy"><span>SÁBADO</span></a>
+          <a class="doc-source" href="https://visao.sapo.pt/" target="_blank" rel="noreferrer" title="Visão"><img src="../assets/logos/visao.pt.png" alt="Visão" loading="lazy"><span>Visão</span></a>
+          <a class="doc-source" href="https://www.noticiasaominuto.com/" target="_blank" rel="noreferrer" title="Notícias ao Minuto"><img src="../assets/logos/noticiasaominuto.com.png" alt="Notícias ao Minuto" loading="lazy"><span>Notícias ao Minuto</span></a>
+          <a class="doc-source" href="https://www.record.pt/" target="_blank" rel="noreferrer" title="Record"><img src="../assets/logos/record.pt.png" alt="Record" loading="lazy"><span>Record</span></a>
+          <a class="doc-source" href="https://www.ojogo.pt/" target="_blank" rel="noreferrer" title="O Jogo"><img src="../assets/logos/ojogo.pt.png" alt="O Jogo" loading="lazy"><span>O Jogo</span></a>
+          <a class="doc-source" href="https://www.abola.pt/" target="_blank" rel="noreferrer" title="A Bola"><img src="../assets/logos/abola.pt.png" alt="A Bola" loading="lazy"><span>A Bola</span></a>
+          <a class="doc-source" href="https://www.caras.pt/" target="_blank" rel="noreferrer" title="Caras"><img src="../assets/logos/caras.pt.png" alt="Caras" loading="lazy"><span>Caras</span></a>
+          <a class="doc-source" href="https://www.flash.pt/" target="_blank" rel="noreferrer" title="Flash!"><img src="../assets/logos/flash.pt.png" alt="Flash!" loading="lazy"><span>Flash!</span></a>
+          <a class="doc-source" href="https://www.tv7dias.pt/" target="_blank" rel="noreferrer" title="TV 7 Dias"><img src="../assets/logos/tv7dias.pt.png" alt="TV 7 Dias" loading="lazy"><span>TV 7 Dias</span></a>
+          <a class="doc-source" href="https://www.holofote.pt/" target="_blank" rel="noreferrer" title="Holofote"><img src="../assets/logos/holofote.pt.png" alt="Holofote" loading="lazy"><span>Holofote</span></a>
+          <a class="doc-source" href="https://selfie.iol.pt/" target="_blank" rel="noreferrer" title="Selfie"><img src="../assets/logos/selfie.iol.pt.png" alt="Selfie" loading="lazy"><span>Selfie</span></a>
+          <a class="doc-source" href="https://lux.iol.pt/" target="_blank" rel="noreferrer" title="Lux"><img src="../assets/logos/lux.iol.pt.png" alt="Lux" loading="lazy"><span>Lux</span></a>
+          <a class="doc-source" href="https://nit.pt/" target="_blank" rel="noreferrer" title="NiT"><img src="../assets/logos/nit.pt.png" alt="NiT" loading="lazy"><span>NiT</span></a>
+          <a class="doc-source" href="https://www.timeout.pt/" target="_blank" rel="noreferrer" title="Time Out"><img src="../assets/logos/timeout.pt.png" alt="Time Out" loading="lazy"><span>Time Out</span></a>
+          <a class="doc-source" href="https://blitz.pt/" target="_blank" rel="noreferrer" title="Blitz"><img src="../assets/logos/blitz.pt.png" alt="Blitz" loading="lazy"><span>Blitz</span></a>
+          <a class="doc-source" href="https://mag.sapo.pt/" target="_blank" rel="noreferrer" title="SAPO Mag"><img src="../assets/logos/mag.sapo.pt.png" alt="SAPO Mag" loading="lazy"><span>SAPO Mag</span></a>
+          <a class="doc-source" href="https://www.exameinformatica.pt/" target="_blank" rel="noreferrer" title="Exame Informática"><img src="../assets/logos/exameinformatica.pt.png" alt="Exame Informática" loading="lazy"><span>Exame Informática</span></a>
+          <a class="doc-source" href="https://www.activa.pt/" target="_blank" rel="noreferrer" title="Activa"><img src="../assets/logos/activa.pt.png" alt="Activa" loading="lazy"><span>Activa</span></a>
+          <a class="doc-source" href="https://www.maxima.pt/" target="_blank" rel="noreferrer" title="Máxima"><img src="../assets/logos/maxima.pt.png" alt="Máxima" loading="lazy"><span>Máxima</span></a>
+          <a class="doc-source" href="https://www.tsfdifusao.pt/" target="_blank" rel="noreferrer" title="Renascença"><img src="../assets/logos/renascenca.png" alt="Renascença" loading="lazy"><span>Renascença</span></a>
+          <a class="doc-source" href="https://4gnews.pt/" target="_blank" rel="noreferrer" title="4gnews"><img src="../assets/logos/4gnewspt.png" alt="4gnews" loading="lazy"><span>4gnews</span></a>
+          <a class="doc-source" href="https://24sapo.pt/" target="_blank" rel="noreferrer" title="SAPO 24"><img src="../assets/logos/sapo24.png" alt="SAPO 24" loading="lazy"><span>SAPO 24</span></a>
+          <a class="doc-source" href="https://pt.wikipedia.org/" target="_blank" rel="noreferrer" title="Wikipédia"><img src="../assets/logos/wikipedia.png" alt="Wikipédia" loading="lazy"><span>Wikipédia</span></a>
+          <a class="doc-source footer-source-profile" href="https://www.instagram.com/epahsaiu/" target="_blank" rel="noreferrer" title="epahsaiu"><svg class="ig-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.9a6.9 6.9 0 1 0 0 13.8 6.9 6.9 0 0 0 0-13.8zm0 11.4a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm7.2-11.7a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0z"/></svg><span>epahsaiu</span></a>
+          <a class="doc-source footer-source-profile" href="https://www.instagram.com/hojenomundomilitar/" target="_blank" rel="noreferrer" title="hojenomundomilitar"><svg class="ig-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.9a6.9 6.9 0 1 0 0 13.8 6.9 6.9 0 0 0 0-13.8zm0 11.4a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm7.2-11.7a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0z"/></svg><span>hojenomundomilitar</span></a>
+          <a class="doc-source footer-source-profile" href="https://www.instagram.com/revistaoriana/" target="_blank" rel="noreferrer" title="revistaoriana"><svg class="ig-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.9a6.9 6.9 0 1 0 0 13.8 6.9 6.9 0 0 0 0-13.8zm0 11.4a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm7.2-11.7a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0z"/></svg><span>revistaoriana</span></a>
           </div>
         </section>
         <div class="doc-grid" id="doc-grid"></div>
@@ -307,28 +316,43 @@
           <a class="footer-source" href="https://www.publico.pt/" target="_blank" rel="noreferrer" title="Público"><img src="../assets/logos/publico.pt.png" alt="Público" loading="lazy"><span>Público</span></a>
           <a class="footer-source" href="https://sicnoticias.pt/" target="_blank" rel="noreferrer" title="SIC Notícias"><img src="../assets/logos/sicnoticias.pt.png" alt="SIC Notícias" loading="lazy"><span>SIC Notícias</span></a>
           <a class="footer-source" href="https://cnnportugal.iol.pt/" target="_blank" rel="noreferrer" title="CNN Portugal"><img src="../assets/logos/cnnportugal.pt.png" alt="CNN Portugal" loading="lazy"><span>CNN Portugal</span></a>
-          <a class="footer-source" href="https://www.rtp.pt/noticias" target="_blank" rel="noreferrer" title="RTP Notícias"><img src="../assets/logos/rtp.pt.png" alt="RTP" loading="lazy"><span>RTP</span></a>
+          <a class="footer-source" href="https://www.rtp.pt/noticias" target="_blank" rel="noreferrer" title="RTP Notícias"><img src="../assets/logos/rtp.pt.png" alt="RTP Notícias" loading="lazy"><span>RTP Notícias</span></a>
           <a class="footer-source" href="https://www.cmjornal.pt/" target="_blank" rel="noreferrer" title="Correio da Manhã"><img src="../assets/logos/cmjornal.pt.png" alt="Correio da Manhã" loading="lazy"><span>Correio da Manhã</span></a>
           <a class="footer-source" href="https://observador.pt/" target="_blank" rel="noreferrer" title="Observador"><img src="../assets/logos/observador.pt.png" alt="Observador" loading="lazy"><span>Observador</span></a>
           <a class="footer-source" href="https://www.dn.pt/" target="_blank" rel="noreferrer" title="Diário de Notícias"><img src="../assets/logos/dn.pt.png" alt="Diário de Notícias" loading="lazy"><span>Diário de Notícias</span></a>
           <a class="footer-source" href="https://www.jn.pt/" target="_blank" rel="noreferrer" title="Jornal de Notícias"><img src="../assets/logos/jn.pt.png" alt="Jornal de Notícias" loading="lazy"><span>Jornal de Notícias</span></a>
           <a class="footer-source" href="https://expresso.pt/" target="_blank" rel="noreferrer" title="Expresso"><img src="../assets/logos/expresso.pt.png" alt="Expresso" loading="lazy"><span>Expresso</span></a>
-          <a class="footer-source" href="https://www.sabado.pt/" target="_blank" rel="noreferrer" title="SÁBADO"><img src="../assets/logos/sabado.pt.png" alt="Sábado" loading="lazy"><span>SÁBADO</span></a>
+          <a class="footer-source" href="https://www.sabado.pt/" target="_blank" rel="noreferrer" title="SÁBADO"><img src="../assets/logos/sabado.pt.png" alt="SÁBADO" loading="lazy"><span>SÁBADO</span></a>
           <a class="footer-source" href="https://visao.sapo.pt/" target="_blank" rel="noreferrer" title="Visão"><img src="../assets/logos/visao.pt.png" alt="Visão" loading="lazy"><span>Visão</span></a>
           <a class="footer-source" href="https://www.noticiasaominuto.com/" target="_blank" rel="noreferrer" title="Notícias ao Minuto"><img src="../assets/logos/noticiasaominuto.com.png" alt="Notícias ao Minuto" loading="lazy"><span>Notícias ao Minuto</span></a>
-          <a class="footer-source" href="https://www.tsfdifusao.pt/" target="_blank" rel="noreferrer" title="Rádio Renascença"><img src="../assets/logos/renascenca.png" alt="Renascença" loading="lazy"><span>Renascença</span></a>
-          <a class="footer-source" href="https://4gnews.pt/" target="_blank" rel="noreferrer" title="4gnews"><img src="../assets/logos/4gnewspt.png" alt="4gnews" loading="lazy"><span>4gnews</span></a>
+          <a class="footer-source" href="https://www.record.pt/" target="_blank" rel="noreferrer" title="Record"><img src="../assets/logos/record.pt.png" alt="Record" loading="lazy"><span>Record</span></a>
+          <a class="footer-source" href="https://www.ojogo.pt/" target="_blank" rel="noreferrer" title="O Jogo"><img src="../assets/logos/ojogo.pt.png" alt="O Jogo" loading="lazy"><span>O Jogo</span></a>
+          <a class="footer-source" href="https://www.abola.pt/" target="_blank" rel="noreferrer" title="A Bola"><img src="../assets/logos/abola.pt.png" alt="A Bola" loading="lazy"><span>A Bola</span></a>
+          <a class="footer-source" href="https://www.caras.pt/" target="_blank" rel="noreferrer" title="Caras"><img src="../assets/logos/caras.pt.png" alt="Caras" loading="lazy"><span>Caras</span></a>
+          <a class="footer-source" href="https://www.flash.pt/" target="_blank" rel="noreferrer" title="Flash!"><img src="../assets/logos/flash.pt.png" alt="Flash!" loading="lazy"><span>Flash!</span></a>
+          <a class="footer-source" href="https://www.tv7dias.pt/" target="_blank" rel="noreferrer" title="TV 7 Dias"><img src="../assets/logos/tv7dias.pt.png" alt="TV 7 Dias" loading="lazy"><span>TV 7 Dias</span></a>
+          <a class="footer-source" href="https://www.holofote.pt/" target="_blank" rel="noreferrer" title="Holofote"><img src="../assets/logos/holofote.pt.png" alt="Holofote" loading="lazy"><span>Holofote</span></a>
+          <a class="footer-source" href="https://selfie.iol.pt/" target="_blank" rel="noreferrer" title="Selfie"><img src="../assets/logos/selfie.iol.pt.png" alt="Selfie" loading="lazy"><span>Selfie</span></a>
+          <a class="footer-source" href="https://lux.iol.pt/" target="_blank" rel="noreferrer" title="Lux"><img src="../assets/logos/lux.iol.pt.png" alt="Lux" loading="lazy"><span>Lux</span></a>
           <a class="footer-source" href="https://nit.pt/" target="_blank" rel="noreferrer" title="NiT"><img src="../assets/logos/nit.pt.png" alt="NiT" loading="lazy"><span>NiT</span></a>
+          <a class="footer-source" href="https://www.timeout.pt/" target="_blank" rel="noreferrer" title="Time Out"><img src="../assets/logos/timeout.pt.png" alt="Time Out" loading="lazy"><span>Time Out</span></a>
+          <a class="footer-source" href="https://blitz.pt/" target="_blank" rel="noreferrer" title="Blitz"><img src="../assets/logos/blitz.pt.png" alt="Blitz" loading="lazy"><span>Blitz</span></a>
+          <a class="footer-source" href="https://mag.sapo.pt/" target="_blank" rel="noreferrer" title="SAPO Mag"><img src="../assets/logos/mag.sapo.pt.png" alt="SAPO Mag" loading="lazy"><span>SAPO Mag</span></a>
+          <a class="footer-source" href="https://www.exameinformatica.pt/" target="_blank" rel="noreferrer" title="Exame Informática"><img src="../assets/logos/exameinformatica.pt.png" alt="Exame Informática" loading="lazy"><span>Exame Informática</span></a>
+          <a class="footer-source" href="https://www.activa.pt/" target="_blank" rel="noreferrer" title="Activa"><img src="../assets/logos/activa.pt.png" alt="Activa" loading="lazy"><span>Activa</span></a>
+          <a class="footer-source" href="https://www.maxima.pt/" target="_blank" rel="noreferrer" title="Máxima"><img src="../assets/logos/maxima.pt.png" alt="Máxima" loading="lazy"><span>Máxima</span></a>
+          <a class="footer-source" href="https://www.tsfdifusao.pt/" target="_blank" rel="noreferrer" title="Renascença"><img src="../assets/logos/renascenca.png" alt="Renascença" loading="lazy"><span>Renascença</span></a>
+          <a class="footer-source" href="https://4gnews.pt/" target="_blank" rel="noreferrer" title="4gnews"><img src="../assets/logos/4gnewspt.png" alt="4gnews" loading="lazy"><span>4gnews</span></a>
+          <a class="footer-source" href="https://24sapo.pt/" target="_blank" rel="noreferrer" title="SAPO 24"><img src="../assets/logos/sapo24.png" alt="SAPO 24" loading="lazy"><span>SAPO 24</span></a>
           <a class="footer-source" href="https://pt.wikipedia.org/" target="_blank" rel="noreferrer" title="Wikipédia"><img src="../assets/logos/wikipedia.png" alt="Wikipédia" loading="lazy"><span>Wikipédia</span></a>
-          <a class="footer-source footer-source-profile" href="https://www.instagram.com/epahsaiu/" target="_blank" rel="noreferrer" title="Epa hSaiu"><svg class="ig-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.9a6.9 6.9 0 1 0 0 13.8 6.9 6.9 0 0 0 0-13.8zm0 11.4a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm7.2-11.7a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0z"/></svg><span>epahsaiu</span></a>
-          <a class="footer-source footer-source-profile" href="https://www.instagram.com/hojenomundomilitar/" target="_blank" rel="noreferrer" title="Hoje no Mundo Militar"><svg class="ig-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.9a6.9 6.9 0 1 0 0 13.8 6.9 6.9 0 0 0 0-13.8zm0 11.4a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm7.2-11.7a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0z"/></svg><span>hojenomundomilitar</span></a>
-          <a class="footer-source footer-source-profile" href="https://www.instagram.com/revista_nit/" target="_blank" rel="noreferrer" title="NiT (Instagram)"><svg class="ig-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.9a6.9 6.9 0 1 0 0 13.8 6.9 6.9 0 0 0 0-13.8zm0 11.4a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm7.2-11.7a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0z"/></svg><span>revista_nit</span></a>
-          <a class="footer-source footer-source-profile" href="https://www.instagram.com/revistaoriana/" target="_blank" rel="noreferrer" title="Revista Oriana"><svg class="ig-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.9a6.9 6.9 0 1 0 0 13.8 6.9 6.9 0 0 0 0-13.8zm0 11.4a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm7.2-11.7a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0z"/></svg><span>revistaoriana</span></a>
+          <a class="footer-source footer-source-profile" href="https://www.instagram.com/epahsaiu/" target="_blank" rel="noreferrer" title="epahsaiu"><svg class="ig-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.9a6.9 6.9 0 1 0 0 13.8 6.9 6.9 0 0 0 0-13.8zm0 11.4a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm7.2-11.7a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0z"/></svg><span>epahsaiu</span></a>
+          <a class="footer-source footer-source-profile" href="https://www.instagram.com/hojenomundomilitar/" target="_blank" rel="noreferrer" title="hojenomundomilitar"><svg class="ig-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.9a6.9 6.9 0 1 0 0 13.8 6.9 6.9 0 0 0 0-13.8zm0 11.4a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm7.2-11.7a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0z"/></svg><span>hojenomundomilitar</span></a>
+          <a class="footer-source footer-source-profile" href="https://www.instagram.com/revistaoriana/" target="_blank" rel="noreferrer" title="revistaoriana"><svg class="ig-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 2.9a6.9 6.9 0 1 0 0 13.8 6.9 6.9 0 0 0 0-13.8zm0 11.4a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm7.2-11.7a1.6 1.6 0 1 1-3.2 0 1.6 1.6 0 0 1 3.2 0z"/></svg><span>revistaoriana</span></a>
         </div>
       </div>
       <button type="button" class="back-top-floating" id="back-top-floating" data-i18n-aria-label="footerBackTop" aria-label="Voltar ao topo" hidden>↑</button>
     </footer>
 
-    <script src="../app.js?v=20260913h"></script>
+    <script src="../app.js?v=20260913n"></script>
   </body>
 </html>

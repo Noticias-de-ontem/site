@@ -1752,14 +1752,13 @@ select:focus-visible {
 .odometer-static-digit,
 .odometer-separator {
   display: inline-block;
-  height: 1.16em;
+  height: 1em;
   line-height: 1;
 }
 
 .odometer-digit {
-  height: 1.16em;
+  height: 1em;
   overflow: clip;
-  vertical-align: -0.16em;
 }
 
 .odometer-static-digit {
@@ -1780,8 +1779,8 @@ select:focus-visible {
 }
 
 .odometer-track > span {
-  height: 1.16em;
-  flex: 0 0 1.16em;
+  height: 1em;
+  flex: 0 0 1em;
   line-height: 1;
 }
 
@@ -1970,7 +1969,10 @@ select:focus-visible {
 .news-cover img {
   display: block;
   width: 100%;
+  /* 4:3 fixo: melhor para caras do que 16:9, que cortava demasiado */
+  aspect-ratio: 4 / 3;
   height: auto;
+  object-fit: cover;
 }
 
 .news-snapshot img {
@@ -2015,7 +2017,7 @@ select:focus-visible {
   flex-wrap: wrap;
   align-items: center;
   gap: 10px;
-  margin: 0;
+  margin: 22px 0 0;
 }
 
 .meta-pill {
@@ -2129,11 +2131,12 @@ select:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 10px 16px;
-  border-bottom: 2px solid var(--brand);
-  color: white;
-  background: var(--ink-deep);
+  gap: 10px;
+  padding: 8px 12px;
+  background: #ffffff;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  font-size: 0.8rem;
 }
 
 .news-article-snapshot-head strong {
@@ -2994,6 +2997,7 @@ select:focus-visible {
 .calendar-filters-row {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
   gap: 14px 28px;
   padding: 0 22px 16px;
 }
@@ -3670,3 +3674,89 @@ html {
 .story-card .network-facebook { color: #8db8ff; border-color: rgba(141, 184, 255, 0.5); background: rgba(24, 119, 242, 0.18); }
 .hero .network-x,
 .story-card .network-x { color: #e8eff2; border-color: rgba(232, 239, 242, 0.4); background: rgba(21, 24, 29, 0.5); }
+
+/* Ponto estimado (tendência das notícias guardadas) */
+.chart-point-estimated {
+  stroke-dasharray: 4 2.5;
+}
+
+/* Badge de rede só com o logo */
+.network-badge {
+  padding: 6px;
+}
+
+/* Nota de granularidade nos formulários */
+.topic-granularity .filter-caption {
+  letter-spacing: 0.08em;
+}
+
+/* Feed "Últimas notícias publicadas": scroll interno com estilo do site */
+.minute-feed-scroll {
+  max-height: 420px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--brand) #ffffff;
+  padding-right: 6px;
+}
+
+.minute-feed-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.minute-feed-scroll::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.minute-feed-scroll::-webkit-scrollbar-thumb {
+  border: 0;
+  border-radius: 999px;
+  background: var(--brand);
+}
+
+/* Badge de rede: logo oficial sem fundo */
+.network-badge {
+  padding: 0;
+  border: 0;
+  background: transparent !important;
+  box-shadow: none;
+}
+
+.network-badge svg,
+.network-badge img {
+  width: 17px;
+  height: 17px;
+  object-fit: contain;
+}
+
+/* Exemplo clicável na documentação */
+.relevance-legend .relevance-badge {
+  cursor: pointer;
+}
+
+.relevance-legend .relevance-badge.active {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Hero: tamanho de letra adaptado ao comprimento do título */
+.hero-title-short {
+  font-size: clamp(2.4rem, 4.6vw, 4rem) !important;
+}
+
+.hero-title-medium {
+  font-size: clamp(2rem, 3.7vw, 3.3rem) !important;
+}
+
+.hero-title-long {
+  font-size: clamp(1.7rem, 3vw, 2.8rem) !important;
+}
+
+/* Snapshot caption: apenas texto, sem link */
+.news-article-snapshot-frame figcaption a {
+  display: none;
+}
+
+/* Nota de estimado no gráfico */
+.topic-chart-notes span:nth-child(2) {
+  font-style: italic;
+}

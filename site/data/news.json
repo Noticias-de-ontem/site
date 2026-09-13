@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-13T14:27:24+00:00",
+  "generated_at": "2026-09-13T17:08:15+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/",
@@ -29,6 +29,10 @@
     "networks": [
       "instagram"
     ],
+    "cover_focus": [
+      0.47,
+      0.5
+    ],
     "network_posts": {},
     "relevance_level": 5,
     "relevance_scores": {
@@ -43,7 +47,7 @@
     "relevance_weighted": 15.9,
     "relevance_justification": "A inauguração do Passeio da Fama em Lisboa tem relevância cultural local, mas não gera impactos históricos significativos a longo prazo, servindo mais como homenagem ao teatro português do que como evento transformador.",
     "source_type": "archive",
-    "url_path": "noticia/2026/08/28/lisboa-inaugura-passeio-da-fama-no-parque-mayer-a162b800",
+    "url_path": "noticia/cultura/lisboa-inaugura-passeio-da-fama-no",
     "page_id": "noticia-a162b800b4dd331f3dd93530",
     "detail_image": "assets/banners/2026-08-28-2-lisboa-inaugura-passeio-da-fama-no-parque-mayer-banner.jpg",
     "snapshot_url": ""
@@ -75,6 +79,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.47,
+        0.5
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -89,7 +97,7 @@
       "relevance_weighted": 15.9,
       "relevance_justification": "A inauguração do Passeio da Fama em Lisboa tem relevância cultural local, mas não gera impactos históricos significativos a longo prazo, servindo mais como homenagem ao teatro português do que como evento transformador.",
       "source_type": "archive",
-      "url_path": "noticia/2026/08/28/lisboa-inaugura-passeio-da-fama-no-parque-mayer-a162b800",
+      "url_path": "noticia/cultura/lisboa-inaugura-passeio-da-fama-no",
       "page_id": "noticia-a162b800b4dd331f3dd93530",
       "detail_image": "assets/banners/2026-08-28-2-lisboa-inaugura-passeio-da-fama-no-parque-mayer-banner.jpg",
       "snapshot_url": ""
@@ -121,6 +129,10 @@
         "facebook",
         "x"
       ],
+      "cover_focus": [
+        0.47,
+        0.4
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -135,7 +147,7 @@
       "relevance_weighted": 12.1,
       "relevance_justification": "A notícia teve impacto limitado, refletindo tensões políticas pontuais sem consequências duradouras significativas. A repercussão mediática foi moderada, mas não alterou substancialmente o panorama institucional.",
       "source_type": "archive",
-      "url_path": "noticia/2026/08/27/il-acusa-provedoria-de-justica-b59f4673",
+      "url_path": "noticia/politica/il-acusa-provedoria-de-justica",
       "page_id": "noticia-b59f467380b6317a0eccfd58",
       "detail_image": "assets/banners/2026-08-27-1-il-acusa-provedoria-de-justia-banner.jpg",
       "snapshot_url": ""
@@ -166,6 +178,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.52,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -180,7 +196,7 @@
       "relevance_weighted": 12.5,
       "relevance_justification": "O feito de Borges chegar à terceira ronda em Wimbledon é relevante para o cenário português de tênis, mas não altera significativamente a história do esporte mundial. As consequências são limitadas a reconhecimento nacional e motivação para futuros torneios.",
       "source_type": "archive",
-      "url_path": "noticia/2026/07/02/nuno-borges-chega-a-terceira-ronda-em-wimbledon-e6037396",
+      "url_path": "noticia/desporto/nuno-borges-chega-a-terceira-ronda",
       "page_id": "noticia-e6037396764562651126c777",
       "detail_image": "assets/banners/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-e6037396764562651126c777.jpg"
@@ -211,6 +227,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.46,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -225,7 +245,7 @@
       "relevance_weighted": 13.8,
       "relevance_justification": "O evento teve impacto cultural limitado, servindo principalmente como celebração simbólica do legado de Amália. Não gerou mudanças duradouras no cenário musical ou social.",
       "source_type": "archive",
-      "url_path": "noticia/2026/07/01/100-guitarras-a-tocarem-juntas-para-os-100-anos-de-amalia-dbc9582f",
+      "url_path": "noticia/musica/100-guitarras-a-tocarem-juntas-para",
       "page_id": "noticia-dbc9582f872806c78ce6ff64",
       "detail_image": "assets/banners/2026-07-01-2-100-guitarras-a-tocarem-juntas-para-os-100-anos-de-amlia-banner.jpg",
       "snapshot_url": ""
@@ -257,6 +277,10 @@
         "facebook",
         "x"
       ],
+      "cover_focus": [
+        0.5,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -271,7 +295,7 @@
       "relevance_weighted": 11.2,
       "relevance_justification": "A pesquisa de opinião tem impacto limitado, servindo apenas para ilustrar a preferência dos eleitores em 2021, sem consequências duradouras significativas.",
       "source_type": "archive",
-      "url_path": "noticia/2026/08/30/se-as-eleicoes-autarquicas-fossem-em-agosto-rui-moreira-conquistaria-a-camara-d6db5c21",
+      "url_path": "noticia/politica/se-as-eleicoes-autarquicas-fossem-em",
       "page_id": "noticia-d6db5c21cb42e7800f5acb37",
       "detail_image": "assets/banners/2026-08-30-1-se-as-eleies-autrquicas-fossem-em-agosto-rui-moreira-conquistaria-a-cmara-banner.jpg",
       "snapshot_url": ""
@@ -302,6 +326,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.42,
+        0.48
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -316,7 +344,7 @@
       "relevance_weighted": 7.4,
       "relevance_justification": "O evento marcou a retomada da turnê internacional de Caetano Veloso após a pandemia, reforçando sua presença global, mas não alterou de forma significativa a trajetória cultural ou política da época.",
       "source_type": "archive",
-      "url_path": "noticia/2026/08/29/o-primeiro-passo-simbolico-do-aguardado-regresso-esta-marcado-para-este-sabado-0134d98a",
+      "url_path": "noticia/cultura/o-primeiro-passo-simbolico-do-aguardado",
       "page_id": "noticia-0134d98ac5b8c2a5e8ff7326",
       "detail_image": "assets/banners/2026-08-29-1-o-primeiro-passo-simblico-do-aguardado-regresso-est-marcado-para-este-sbado-banner.jpg",
       "snapshot_url": ""
@@ -348,6 +376,10 @@
         "facebook",
         "x"
       ],
+      "cover_focus": [
+        0.45,
+        0.55
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -362,7 +394,7 @@
       "relevance_weighted": 18.8,
       "relevance_justification": "A sondagem destaca a forte posição de Rui Moreira no Porto, mas seu impacto histórico é restrito ao âmbito municipal. As consequências se concentram na consolidação de seu mandato e na pressão sobre os partidos tradicionais, sem repercussões nacionais duradouras.",
       "source_type": "archive",
-      "url_path": "noticia/2026/08/28/rui-moreira-lidera-sondagem-no-porto-com-59-5cd81db4",
+      "url_path": "noticia/politica/rui-moreira-lidera-sondagem-no-porto",
       "page_id": "noticia-5cd81db481ce184bd6dee41c",
       "detail_image": "assets/banners/2026-08-28-1-rui-moreira-lidera-sondagem-no-porto-com-59-banner.jpg",
       "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20210108195201%2Fhttps%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPorto"
@@ -394,6 +426,10 @@
         "facebook",
         "x"
       ],
+      "cover_focus": [
+        0.58,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -408,7 +444,7 @@
       "relevance_weighted": 15.8,
       "relevance_justification": "A crítica da Iniciativa Liberal à Provedoria em 2021 reflete a tensão política sobre medidas de saúde pública, mas não provocou mudanças estruturais duradouras no sistema jurídico brasileiro. Embora tenha gerado debate mediático, não resultou em reformas significativas.",
       "source_type": "archive",
-      "url_path": "noticia/2026/08/26/iniciativa-liberal-critica-provedoria-por-nao-enviar-restricoes-ao-tc-72f3be79",
+      "url_path": "noticia/politica/iniciativa-liberal-critica-provedoria-por-nao",
       "page_id": "noticia-72f3be7927b767ca87a79179",
       "detail_image": "assets/banners/2026-08-26-1-iniciativa-liberal-critica-provedoria-por-no-enviar-restries-ao-tc-banner.jpg",
       "snapshot_url": ""
@@ -439,6 +475,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.52,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -453,7 +493,7 @@
       "relevance_weighted": 5.5,
       "relevance_justification": "A interrupção de um concerto de Beyoncé teve pouca relevância histórica, pois não gerou mudanças significativas ou consequências duradouras além da cobertura midiática momentânea.",
       "source_type": "archive",
-      "url_path": "noticia/2026/07/01/beyonce-e-interrompida-durante-concerto-289ee258",
+      "url_path": "noticia/desporto/beyonce-e-interrompida-durante-concerto",
       "page_id": "noticia-289ee258c7fc8a8d7f64004d",
       "detail_image": "assets/banners/2026-07-01-1-beyonc-interrompida-durante-concerto-banner.jpg",
       "snapshot_url": ""
@@ -485,6 +525,10 @@
         "facebook",
         "x"
       ],
+      "cover_focus": [
+        0.65,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -499,7 +543,7 @@
       "relevance_weighted": 20.0,
       "relevance_justification": "A declaração de Lula sobre não reconhecer a vitória de Maduro gerou repercussão diplomática, mas não alterou significativamente a dinâmica política regional. Seu impacto é limitado e de curta duração, sem consequências duradouras.",
       "source_type": "archive",
-      "url_path": "noticia/2026/01/02/lula-disse-que-nao-reconheceria-a-vitoria-de-nicolas-maduro-nas-presidenciais-01a70a70",
+      "url_path": "noticia/politica/lula-disse-que-nao-reconheceria-a",
       "page_id": "noticia-01a70a707cb964949a8fb27b",
       "detail_image": "assets/banners/2026-01-02-1-lula-disse-que-no-reconheceria-a-vitria-de-nicols-maduro-nas-presidenciais-banner.jpg",
       "snapshot_url": ""
@@ -507,159 +551,23 @@
   ],
   "latest": [
     {
-      "id": "pt_2026-08-30_1",
+      "id": "pt_2026-01-22_2",
       "lang": "pt",
-      "date": "2026-08-30",
-      "slot": 1,
-      "status": "pending",
-      "category": "POLITICA",
-      "title": "Se as eleições autárquicas fossem em Agosto, Rui Moreira conquistaria a Câmara",
-      "title_en": "If the local elections were held in August, Rui Moreira would win the council",
-      "summary": "Se as eleições autárquicas fossem em Agosto, Rui Moreira conquistaria a Câmara",
-      "summary_en": "If the local elections were held in August, Rui Moreira would win the council",
-      "original_year": "2021",
-      "image": "assets/posts/2026-08-30-1-se-as-eleies-autrquicas-fossem-em-agosto-rui-moreira-conquistaria-a-cmara.jpg",
-      "banner_image": "assets/banners/2026-08-30-1-se-as-eleies-autrquicas-fossem-em-agosto-rui-moreira-conquistaria-a-cmara-banner.jpg",
-      "body": "Se as eleições autárquicas fossem em Agosto, Rui Moreira conquistaria a Câmara",
-      "caption": "Se as eleições autárquicas fossem em Agosto, Rui Moreira conquistaria a Câmara do Porto com 59% dos votos e com uma larga vantagem sobre os dois candidatos do PS e do PSD, mesmo que somadas as intenções de voto em Tiago Barbosa Ribeiro e em Vladimiro Feliz, revela a sondagem da Aximage para a TSF/DN/JN, publicada este domingo. De acordo com o inquérito, feito através de 820 entrevistas telefónicas a portuenses entre os dias 12 e 19 de Agosto, o independente Rui Moreira surge em primeiro lugar nas intenções de voto com 59% das intenções de voto, com o socialista Tiago Barbosa Ribeiro e o socia...",
-      "source_url": "https://arquivo.pt/textsearch?q=Se%20as%20elei%C3%A7%C3%B5es%20aut%C3%A1rquicas%20fossem%20em%20Agosto%2C%20Rui%20Moreira%20conquistaria%20a%20C%C3%A2mara",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "facebook",
-        "x"
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 10.0,
-        "dimensao_impacto": 15.0,
-        "consequencias": 5.0,
-        "relevancia_posterior": 10.0,
-        "dimensao_duracao": 5.0,
-        "relevancia_mediatica": 20.0,
-        "singularidade": 30.0
-      },
-      "relevance_weighted": 11.2,
-      "relevance_justification": "A pesquisa de opinião tem impacto limitado, servindo apenas para ilustrar a preferência dos eleitores em 2021, sem consequências duradouras significativas.",
-      "source_type": "archive",
-      "url_path": "noticia/2026/08/30/se-as-eleicoes-autarquicas-fossem-em-agosto-rui-moreira-conquistaria-a-camara-d6db5c21",
-      "page_id": "noticia-d6db5c21cb42e7800f5acb37",
-      "detail_image": "assets/banners/2026-08-30-1-se-as-eleies-autrquicas-fossem-em-agosto-rui-moreira-conquistaria-a-cmara-banner.jpg",
-      "snapshot_url": ""
-    },
-    {
-      "id": "pt_2026-08-29_1",
-      "lang": "pt",
-      "date": "2026-08-29",
-      "slot": 1,
-      "status": "pending",
-      "category": "CULTURA",
-      "title": "O primeiro passo simbólico do aguardado regresso está marcado para este sábado",
-      "title_en": "The symbolic first step of the long‑awaited return is scheduled for this Saturday.",
-      "summary": "O primeiro passo simbólico do aguardado regresso está marcado para este sábado,",
-      "summary_en": "The symbolic first step of the long‑awaited return is scheduled for this Saturday.",
-      "original_year": "2021",
-      "image": "assets/posts/2026-08-29-1-o-primeiro-passo-simblico-do-aguardado-regresso-est-marcado-para-este-sbado.jpg",
-      "banner_image": "assets/banners/2026-08-29-1-o-primeiro-passo-simblico-do-aguardado-regresso-est-marcado-para-este-sbado-banner.jpg",
-      "body": "O primeiro passo simbólico do aguardado regresso está marcado para este sábado,",
-      "caption": "O primeiro passo simbólico do aguardado regresso está marcado para este sábado, dia 28 de agosto, na Filarmónica de Paris, com o brasileiro Caetano Veloso. \"Tivemos de nos antecipar e coordenar, porque não basta que um território possa receber um artista brasileiro, mas que toda sua digressão europeia possa ser realizada\", explicou à AFP o curador do programa de música contemporânea da Filarmónica, Vincent Anglade. \"Temos de reunir recursos em comum. Caso contrário, a economia das digressões desmorona como um castelo de cartas\", acrescentou. Caetano Veloso também vai passar por Hamburgo, Brux...",
-      "source_url": "https://arquivo.pt/textsearch?q=O%20primeiro%20passo%20simb%C3%B3lico%20do%20aguardado%20regresso%20est%C3%A1%20marcado%20para%20este%20s%C3%A1bado%2C",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram"
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 10.0,
-        "dimensao_impacto": 5.0,
-        "consequencias": 3.0,
-        "relevancia_posterior": 5.0,
-        "dimensao_duracao": 4.0,
-        "relevancia_mediatica": 20.0,
-        "singularidade": 15.0
-      },
-      "relevance_weighted": 7.4,
-      "relevance_justification": "O evento marcou a retomada da turnê internacional de Caetano Veloso após a pandemia, reforçando sua presença global, mas não alterou de forma significativa a trajetória cultural ou política da época.",
-      "source_type": "archive",
-      "url_path": "noticia/2026/08/29/o-primeiro-passo-simbolico-do-aguardado-regresso-esta-marcado-para-este-sabado-0134d98a",
-      "page_id": "noticia-0134d98ac5b8c2a5e8ff7326",
-      "detail_image": "assets/banners/2026-08-29-1-o-primeiro-passo-simblico-do-aguardado-regresso-est-marcado-para-este-sbado-banner.jpg",
-      "snapshot_url": ""
-    },
-    {
-      "id": "pt_2026-08-28_2",
-      "lang": "pt",
-      "date": "2026-08-28",
+      "date": "2026-01-22",
       "slot": 2,
       "status": "pending",
-      "category": "CULTURA",
-      "title": "Lisboa inaugura Passeio da Fama no Parque Mayer",
-      "title_en": "Lisbon Unveils Walk of Fame at Parque Mayer",
-      "summary": "Estrelas do teatro português ganham suas nomes na calçada da Praça da Alegria",
-      "summary_en": "Portuguese theater stars are honored with plaques on the steps of Praça da Alegria.",
-      "original_year": "2019",
-      "image": "assets/posts/2026-08-28-2-lisboa-inaugura-passeio-da-fama-no-parque-mayer.jpg",
-      "banner_image": "assets/banners/2026-08-28-2-lisboa-inaugura-passeio-da-fama-no-parque-mayer-banner.jpg",
-      "body": "Estrelas do teatro português ganham suas nomes na calçada da Praça da Alegria",
-      "caption": "Em frente ao Parque Mayer, a cidade revelou um passeio com nomes de artistas como Maria Rueff, José Raposo e Diogo Infante gravados em calçada portuguesa.",
-      "source_url": "https://arquivo.pt/textsearch?q=Lisboa%20inaugura%20Passeio%20da%20Fama%20no%20Parque%20Mayer",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
-      "networks": [
-        "instagram"
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 20.0,
-        "dimensao_impacto": 15.0,
-        "consequencias": 10.0,
-        "relevancia_posterior": 12.0,
-        "dimensao_duracao": 8.0,
-        "relevancia_mediatica": 25.0,
-        "singularidade": 30.0
-      },
-      "relevance_weighted": 15.9,
-      "relevance_justification": "A inauguração do Passeio da Fama em Lisboa tem relevância cultural local, mas não gera impactos históricos significativos a longo prazo, servindo mais como homenagem ao teatro português do que como evento transformador.",
-      "source_type": "archive",
-      "url_path": "noticia/2026/08/28/lisboa-inaugura-passeio-da-fama-no-parque-mayer-a162b800",
-      "page_id": "noticia-a162b800b4dd331f3dd93530",
-      "detail_image": "assets/banners/2026-08-28-2-lisboa-inaugura-passeio-da-fama-no-parque-mayer-banner.jpg",
-      "snapshot_url": ""
-    },
-    {
-      "id": "pt_2026-08-28_1",
-      "lang": "pt",
-      "date": "2026-08-28",
-      "slot": 1,
-      "status": "pending",
       "category": "POLÍTICA",
-      "title": "Rui Moreira lidera sondagem no Porto com 59%",
-      "title_en": "Rui Moreira Leads Porto Poll with 59%",
-      "summary": "O independente dispara nas intenções de voto para a Câmara do Porto",
-      "summary_en": "The independent candidate surges in voter intentions for Porto's City Council.",
+      "title": "Congresso acusa Amazon, Apple, Facebook e Google de monopólio",
+      "title_en": "",
+      "summary": "Tech giants face antitrust accusations",
+      "summary_en": "",
       "original_year": "2021",
-      "image": "assets/posts/2026-08-28-1-rui-moreira-lidera-sondagem-no-porto-com-59.jpg",
-      "banner_image": "assets/banners/2026-08-28-1-rui-moreira-lidera-sondagem-no-porto-com-59-banner.jpg",
-      "body": "O independente dispara nas intenções de voto para a Câmara do Porto",
-      "caption": "Uma sondagem da Aximage mostra Rui Moreira com 59% das intenções de voto nas autárquicas do Porto, longe à frente dos candidatos do PS e PSD.",
-      "source_url": "https://arquivo.pt/wayback/20210108195201/https://en.wikipedia.org/wiki/Porto",
-      "source_profile": "",
+      "image": "assets/posts/2026-01-22-2-congresso-acusa-amazon-apple-facebook-e-google-de-monoplio.jpg",
+      "banner_image": "assets/banners/2026-01-22-2-congresso-acusa-amazon-apple-facebook-e-google-de-monoplio-banner.jpg",
+      "body": "Tech giants face antitrust accusations",
+      "caption": "O Congresso dos EUA apresentou um relatório de 449 páginas acusando as quatro maiores empresas de tecnologia de abuso de poder de mercado, marcando um passo na regulação digital.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20210122223520/https://www.publico.pt/2020/10/07/tecnologia/noticia/congresso-eua-quer-novas-leis-tirar-google-facebook-amazon-apple-1934363",
+      "source_profile": "publico.pt",
       "source_platform": "",
       "instagram_url": "",
       "instagram_id": "",
@@ -669,385 +577,106 @@
         "facebook",
         "x"
       ],
+      "cover_focus": null,
       "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 10.0,
-        "dimensao_impacto": 15.0,
-        "consequencias": 20.0,
-        "relevancia_posterior": 25.0,
-        "dimensao_duracao": 30.0,
-        "relevancia_mediatica": 40.0,
-        "singularidade": 20.0
-      },
-      "relevance_weighted": 18.8,
-      "relevance_justification": "A sondagem destaca a forte posição de Rui Moreira no Porto, mas seu impacto histórico é restrito ao âmbito municipal. As consequências se concentram na consolidação de seu mandato e na pressão sobre os partidos tradicionais, sem repercussões nacionais duradouras.",
-      "source_type": "archive",
-      "url_path": "noticia/2026/08/28/rui-moreira-lidera-sondagem-no-porto-com-59-5cd81db4",
-      "page_id": "noticia-5cd81db481ce184bd6dee41c",
-      "detail_image": "assets/banners/2026-08-28-1-rui-moreira-lidera-sondagem-no-porto-com-59-banner.jpg",
-      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20210108195201%2Fhttps%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPorto"
-    },
-    {
-      "id": "pt_2026-08-27_1",
-      "lang": "pt",
-      "date": "2026-08-27",
-      "slot": 1,
-      "status": "pending",
-      "category": "POLÍTICA",
-      "title": "IL acusa Provedoria de Justiça",
-      "title_en": "IL Accuses Justice Ombudsman",
-      "summary": "Partido denuncia falta de fiscalização das restrições de circulação",
-      "summary_en": "The party alleges insufficient enforcement of movement restrictions.",
-      "original_year": "2021",
-      "image": "assets/posts/2026-08-27-1-il-acusa-provedoria-de-justia.jpg",
-      "banner_image": "assets/banners/2026-08-27-1-il-acusa-provedoria-de-justia-banner.jpg",
-      "body": "Partido denuncia falta de fiscalização das restrições de circulação",
-      "caption": "A Iniciativa Liberal criticou a Provedoria de Justiça por não enviar ao Tribunal Constitucional as limitações à circulação decretadas pelo governo, acusando a entidade de ter abdicado do seu papel de fiscalizador.",
-      "source_url": "https://arquivo.pt/textsearch?q=IL%20acusa%20Provedoria%20de%20Justi%C3%A7a",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
-      "networks": [
-        "facebook",
-        "x"
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 15.0,
-        "dimensao_impacto": 10.0,
-        "consequencias": 5.0,
-        "relevancia_posterior": 8.0,
-        "dimensao_duracao": 12.0,
-        "relevancia_mediatica": 30.0,
-        "singularidade": 20.0
-      },
-      "relevance_weighted": 12.1,
-      "relevance_justification": "A notícia teve impacto limitado, refletindo tensões políticas pontuais sem consequências duradouras significativas. A repercussão mediática foi moderada, mas não alterou substancialmente o panorama institucional.",
-      "source_type": "archive",
-      "url_path": "noticia/2026/08/27/il-acusa-provedoria-de-justica-b59f4673",
-      "page_id": "noticia-b59f467380b6317a0eccfd58",
-      "detail_image": "assets/banners/2026-08-27-1-il-acusa-provedoria-de-justia-banner.jpg",
+      "relevance_level": null,
+      "relevance_scores": {},
+      "relevance_weighted": null,
+      "relevance_justification": "",
+      "source_type": "newspaper",
+      "url_path": "noticia/politica/congresso-acusa-amazon-apple-facebook-e",
+      "page_id": "noticia-d1695da41036e8d37f1a492b",
+      "detail_image": "assets/banners/2026-01-22-2-congresso-acusa-amazon-apple-facebook-e-google-de-monoplio-banner.jpg",
       "snapshot_url": ""
     },
     {
-      "id": "pt_2026-08-26_1",
+      "id": "pt_2026-01-22_1",
       "lang": "pt",
-      "date": "2026-08-26",
+      "date": "2026-01-22",
       "slot": 1,
       "status": "pending",
-      "category": "POLÍTICA",
-      "title": "Iniciativa Liberal critica Provedoria por não enviar restrições ao TC",
-      "title_en": "Liberal Initiative Criticizes Ombudsman for Not Sending Restrictions to the Constitutional Court",
-      "summary": "Partido acusa instituições de abandonarem função de fiscalização",
-      "summary_en": "The party accuses institutions of abandoning their oversight role.",
-      "original_year": "2021",
-      "image": "assets/posts/2026-08-26-1-iniciativa-liberal-critica-provedoria-por-no-enviar-restries-ao-tc.jpg",
-      "banner_image": "assets/banners/2026-08-26-1-iniciativa-liberal-critica-provedoria-por-no-enviar-restries-ao-tc-banner.jpg",
-      "body": "Partido acusa instituições de abandonarem função de fiscalização",
-      "caption": "A Iniciativa Liberal diz estar 'estupefacta' com a decisão da Provedoria de Justiça de não enviar ao Tribunal Constitucional as limitações à circulação decretadas fora do estado de emergência, acusando o Governo e as instituições de renunciarem ao seu papel de controlo.",
-      "source_url": "https://arquivo.pt/textsearch?q=Iniciativa%20Liberal%20critica%20Provedoria%20por%20n%C3%A3o%20enviar%20restri%C3%A7%C3%B5es%20ao%20TC",
-      "source_profile": "",
+      "category": "ESTRELA",
+      "title": "Madonna troca 'Boston' por 'Toronto' no show",
+      "title_en": "",
+      "summary": "Mistake onstage in Toronto",
+      "summary_en": "",
+      "original_year": "2024",
+      "image": "assets/posts/2026-01-22-1-madonna-troca-boston-por-toronto-no-show.jpg",
+      "banner_image": "assets/banners/2026-01-22-1-madonna-troca-boston-por-toronto-no-show-banner.jpg",
+      "body": "Mistake onstage in Toronto",
+      "caption": "Madonna quase cumprimentou Boston em vez de Toronto durante o seu tour. A cantora rapidamente corrigiu e riu do erro, mostrando que até as maiores estrelas cometem lapsos.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20240122210213/https://mag.sapo.pt/amp/musica/artigos/madonna-nao-tenho-nada-contra-a-lady-gaga-adoro-qualquer-pessoa-que-seja-mais-baixa-do-que-eu",
+      "source_profile": "mag.sapo.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "cover_focus": [
+        0.82,
+        0.45
+      ],
+      "network_posts": {},
+      "relevance_level": null,
+      "relevance_scores": {},
+      "relevance_weighted": null,
+      "relevance_justification": "",
+      "source_type": "newspaper",
+      "url_path": "noticia/estrela/madonna-troca-boston-por-toronto-no",
+      "page_id": "noticia-a3bad0ca86a496a3253115ac",
+      "detail_image": "assets/banners/2026-01-22-1-madonna-troca-boston-por-toronto-no-show-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-21_2",
+      "lang": "pt",
+      "date": "2026-01-21",
+      "slot": 2,
+      "status": "pending",
+      "category": "DESPORTO",
+      "title": "Messi supera Ronaldo na eleição de melhor do mundo da Marca",
+      "title_en": "Messi beats Ronaldo in Marca's 2018 world player vote",
+      "summary": "Messi leva 56% dos votos contra 25% de Ronaldo",
+      "summary_en": "Messi leads Ronaldo with 56% to 25% in Marca's 2018 best player poll.",
+      "original_year": "2018",
+      "image": "assets/posts/2026-01-21-2-messi-supera-ronaldo-na-eleio-de-melhor-do-mundo-da-marca.jpg",
+      "banner_image": "assets/banners/2026-01-21-2-messi-supera-ronaldo-na-eleio-de-melhor-do-mundo-da-marca-banner.jpg",
+      "body": "Em 2018, a publicação espanhola Marca realizou uma enquete entre seus leitores para eleger o melhor jogador do mundo daquele ano, colocando Lionel Messi e Cristiano Ronaldo como principais concorrentes. Segundo os resultados divulgados, Messi recebeu 56% dos votos, enquanto Ronaldo obteve 25%, colocando o argentino à frente do português por uma margem significativa. A votação foi amplamente coberta por meios esportivos, que destacaram a preferência dos leitores da publicação por Messi naquele momento. Não há indicação de que o resultado tenha influenciado premiações oficiais, contratos ou decisões de clubes relacionados aos dois jogadores. A enquete refletiu, portanto, uma opinião momentânea de um segmento específico de fãs, sem gerar alterações duradouras na percepção histórica das carreiras de Messi ou Ronaldo.",
+      "caption": "Segundo a revista Marca, Lionel Messi venceu Cristiano Ronaldo na eleição de melhor do mundo, recebendo 56% dos votos dos leitores.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20180121041254/http://www.lux.iol.pt/internacional/famosos/messi-eleito-de-melhor-do-mundo-a-frente-de-cristiano-ronaldo",
+      "source_profile": "lux.iol.pt",
       "source_platform": "",
       "instagram_url": "",
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
       "networks": [
-        "facebook",
-        "x"
+        "instagram"
+      ],
+      "cover_focus": [
+        0.52,
+        0.45
       ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 15.0,
         "dimensao_impacto": 20.0,
-        "consequencias": 10.0,
+        "consequencias": 12.0,
         "relevancia_posterior": 10.0,
-        "dimensao_duracao": 15.0,
-        "relevancia_mediatica": 30.0,
-        "singularidade": 25.0
-      },
-      "relevance_weighted": 15.8,
-      "relevance_justification": "A crítica da Iniciativa Liberal à Provedoria em 2021 reflete a tensão política sobre medidas de saúde pública, mas não provocou mudanças estruturais duradouras no sistema jurídico brasileiro. Embora tenha gerado debate mediático, não resultou em reformas significativas.",
-      "source_type": "archive",
-      "url_path": "noticia/2026/08/26/iniciativa-liberal-critica-provedoria-por-nao-enviar-restricoes-ao-tc-72f3be79",
-      "page_id": "noticia-72f3be7927b767ca87a79179",
-      "detail_image": "assets/banners/2026-08-26-1-iniciativa-liberal-critica-provedoria-por-no-enviar-restries-ao-tc-banner.jpg",
-      "snapshot_url": ""
-    },
-    {
-      "id": "pt_2026-07-02_1",
-      "lang": "pt",
-      "date": "2026-07-02",
-      "slot": 1,
-      "status": "pending",
-      "category": "DESPORTO",
-      "title": "Nuno Borges chega à terceira ronda em Wimbledon",
-      "title_en": "Nuno Borges Reaches Third Round at Wimbledon",
-      "summary": "O português Nuno Borges alcança uma grande vitória em Wimbledon",
-      "summary_en": "The Portuguese Nuno Borges secures a big win at Wimbledon",
-      "original_year": "2025",
-      "image": "assets/posts/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon.jpg",
-      "banner_image": "assets/banners/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon-banner.jpg",
-      "body": "O português Nuno Borges alcança uma grande vitória em Wimbledon",
-      "caption": "O português Nuno Borges alcança uma grande vitória em Wimbledon, chegando à terceira ronda do torneio.",
-      "source_url": "https://arquivo.pt/wayback/20250630211405/https://bolanarede.pt/especial-bola-na-rede/atualidade/historia-nuno-borges-conquista-a-primeira-vitoria-no-wimbledon-frente-ao-no18-do-ranking/",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram"
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 10.0,
-        "dimensao_impacto": 15.0,
-        "consequencias": 5.0,
-        "relevancia_posterior": 20.0,
-        "dimensao_duracao": 10.0,
-        "relevancia_mediatica": 30.0,
-        "singularidade": 5.0
-      },
-      "relevance_weighted": 12.5,
-      "relevance_justification": "O feito de Borges chegar à terceira ronda em Wimbledon é relevante para o cenário português de tênis, mas não altera significativamente a história do esporte mundial. As consequências são limitadas a reconhecimento nacional e motivação para futuros torneios.",
-      "source_type": "archive",
-      "url_path": "noticia/2026/07/02/nuno-borges-chega-a-terceira-ronda-em-wimbledon-e6037396",
-      "page_id": "noticia-e6037396764562651126c777",
-      "detail_image": "assets/banners/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-e6037396764562651126c777.jpg"
-    },
-    {
-      "id": "pt_2026-07-01_2",
-      "lang": "pt",
-      "date": "2026-07-01",
-      "slot": 2,
-      "status": "pending",
-      "category": "MÚSICA",
-      "title": "100 guitarras a tocarem juntas para os 100 anos de Amália",
-      "title_en": "100 guitars playing together for Amália's centennial",
-      "summary": "100 guitarras a tocarem juntas",
-      "summary_en": "100 guitars playing together",
-      "original_year": "2020",
-      "image": "assets/posts/2026-07-01-2-100-guitarras-a-tocarem-juntas-para-os-100-anos-de-amlia.jpg",
-      "banner_image": "assets/banners/2026-07-01-2-100-guitarras-a-tocarem-juntas-para-os-100-anos-de-amlia-banner.jpg",
-      "body": "100 guitarras a tocarem juntas",
-      "caption": "As celebrações do centenário da diva do fado começam com um espectáculo inédito, com 100 guitarras a tocarem juntas.",
-      "source_url": "https://arquivo.pt/textsearch?q=100%20guitarras%20a%20tocarem%20juntas%20para%20os%20100%20anos%20de%20Am%C3%A1lia",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram"
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 10.0,
-        "dimensao_impacto": 15.0,
-        "consequencias": 5.0,
-        "relevancia_posterior": 10.0,
-        "dimensao_duracao": 20.0,
-        "relevancia_mediatica": 30.0,
-        "singularidade": 40.0
-      },
-      "relevance_weighted": 13.8,
-      "relevance_justification": "O evento teve impacto cultural limitado, servindo principalmente como celebração simbólica do legado de Amália. Não gerou mudanças duradouras no cenário musical ou social.",
-      "source_type": "archive",
-      "url_path": "noticia/2026/07/01/100-guitarras-a-tocarem-juntas-para-os-100-anos-de-amalia-dbc9582f",
-      "page_id": "noticia-dbc9582f872806c78ce6ff64",
-      "detail_image": "assets/banners/2026-07-01-2-100-guitarras-a-tocarem-juntas-para-os-100-anos-de-amlia-banner.jpg",
-      "snapshot_url": ""
-    },
-    {
-      "id": "pt_2026-07-01_1",
-      "lang": "pt",
-      "date": "2026-07-01",
-      "slot": 1,
-      "status": "pending",
-      "category": "DESPORTO",
-      "title": "Beyoncé é interrompida durante concerto",
-      "title_en": "Beyoncé Interrupted During Concert",
-      "summary": "Concerto interrompido por problema técnico",
-      "summary_en": "Concert halted due to technical issue",
-      "original_year": "2025",
-      "image": "assets/posts/2026-07-01-1-beyonc-interrompida-durante-concerto.jpg",
-      "banner_image": "assets/banners/2026-07-01-1-beyonc-interrompida-durante-concerto-banner.jpg",
-      "body": "Concerto interrompido por problema técnico",
-      "caption": "Beyoncé foi interrompida durante um concerto em Houston, nos Estados Unidos, quando o veículo suspenso por cabos em que se encontrava perdeu estabilidade e ameaçou cair.",
-      "source_url": "https://arquivo.pt/textsearch?q=Beyonc%C3%A9%20%C3%A9%20interrompida%20durante%20concerto",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram"
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 5.0,
-        "dimensao_impacto": 5.0,
-        "consequencias": 3.0,
-        "relevancia_posterior": 2.0,
-        "dimensao_duracao": 2.0,
-        "relevancia_mediatica": 30.0,
-        "singularidade": 10.0
-      },
-      "relevance_weighted": 5.5,
-      "relevance_justification": "A interrupção de um concerto de Beyoncé teve pouca relevância histórica, pois não gerou mudanças significativas ou consequências duradouras além da cobertura midiática momentânea.",
-      "source_type": "archive",
-      "url_path": "noticia/2026/07/01/beyonce-e-interrompida-durante-concerto-289ee258",
-      "page_id": "noticia-289ee258c7fc8a8d7f64004d",
-      "detail_image": "assets/banners/2026-07-01-1-beyonc-interrompida-durante-concerto-banner.jpg",
-      "snapshot_url": ""
-    },
-    {
-      "id": "pt_2026-01-16_2",
-      "lang": "pt",
-      "date": "2026-01-16",
-      "slot": 2,
-      "status": "pending",
-      "category": "ESTRELA",
-      "title": "Madonna pensa em ter filho com Alex Rodriguez",
-      "title_en": "Madonna considers having a child with Alex Rodriguez",
-      "summary": "Cantora considera ampliar a família com o jogador de beisebol",
-      "summary_en": "Madonna evaluates the possibility of having a child with Alex Rodriguez at age 50.",
-      "original_year": "2009",
-      "image": "assets/posts/2026-01-16-2-madonna-pensa-em-ter-filho-com-alex-rodriguez.jpg",
-      "banner_image": "assets/banners/2026-01-16-2-madonna-pensa-em-ter-filho-com-alex-rodriguez-banner.jpg",
-      "body": "Em 2009, a notícia \"Madonna pensa em ter filho com Alex Rodriguez\" foi divulgada, destacando que a cantora considera ampliar a família com o jogador de beisebol. O resumo indica que Madonna avalia a possibilidade de ter um filho com Alex Rodriguez aos 50 anos. O evento ocorreu no contexto da categoria ESTRELA, refletindo tendências contemporâneas de consumo cultural e celebridade. Embora a história tenha chamado atenção da mídia especializada, suas implicações para o setor são limitadas, pois trata-se de um fato pontual de vida pessoal sem efeitos duradouros na indústria. Não há indicação de que o episódio tenha gerado mudanças estruturais na indústria ou influenciado comportamentos de consumo a longo prazo. A cobertura jornalística enfatizou o aspecto curioso da notícia, mas não aprofundou análises sobre efeitos econômicos ou culturais posteriores. Assim, a relevância do acontecimento permanece principalmente no âmbito do interesse público imediato, servindo como exemplo de como notícias de celebridades podem gerar atenção temporária. O episódio não deixa legado discernível além da menção em relatórios de mídia daquele período.",
-      "caption": "Em 2009, aos 50 anos, Madonna revelou que estava considerando ter outro filho com o então namorado, o jogador de beisebol Alex Rodriguez.",
-      "source_url": "https://arquivo.pt/noFrame/replay/20081021102643/http://aeiou.caras.pt/Famosos/ArtesEspectaculo/Pages/madonnaquersermaedenovo.aspx",
-      "source_profile": "caras.pt",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram"
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 7.0,
-        "dimensao_impacto": 10.0,
-        "consequencias": 7.0,
-        "relevancia_posterior": 7.0,
-        "dimensao_duracao": 4.0,
-        "relevancia_mediatica": 22.0,
+        "dimensao_duracao": 8.0,
+        "relevancia_mediatica": 18.0,
         "singularidade": 12.0
       },
-      "relevance_weighted": 8.3,
-      "relevance_justification": "Baixo impacto histórico e consequências limitadas; atenção midiática moderada, mas efeitos duradouros mínimos.",
+      "relevance_weighted": 14.1,
+      "relevance_justification": "Voto refletiu preferência momentânea dos fãs, sem alterar legacies ou conquistas dos jogadores.",
       "source_type": "newspaper",
-      "url_path": "noticia/2026/01/16/madonna-pensa-em-ter-filho-com-alex-rodriguez-8e965e43",
-      "page_id": "noticia-8e965e431e72044015fe1b46",
-      "detail_image": "assets/banners/2026-01-16-2-madonna-pensa-em-ter-filho-com-alex-rodriguez-banner.jpg",
-      "snapshot_url": ""
-    },
-    {
-      "id": "pt_2026-01-16_1",
-      "lang": "pt",
-      "date": "2026-01-16",
-      "slot": 1,
-      "status": "pending",
-      "category": "CULTURA",
-      "title": "Taylor Swift lidera vendas de vinil",
-      "title_en": "Taylor Swift leads vinyl sales in the UK",
-      "summary": "O disco mais vendido em vinil no Reino Unido",
-      "summary_en": "Taylor Swift tops the United Kingdom vinyl market, showing her selling power even in the digital era.",
-      "original_year": "2024",
-      "image": "assets/posts/2026-01-16-1-taylor-swift-lidera-vendas-de-vinil.jpg",
-      "banner_image": "assets/banners/2026-01-16-1-taylor-swift-lidera-vendas-de-vinil-banner.jpg",
-      "body": "Em 2024, a notícia \"Taylor Swift lidera vendas de vinil\" foi divulgada, destacando que o disco mais vendido em vinil no Reino Unido foi de Taylor Swift. O resumo indica que Taylor Swift domina o mercado de vinil, mostrando seu poder de venda mesmo na era digital. O evento ocorreu no contexto da categoria CULTURA, refletindo tendências contemporâneas de consumo cultural. Embora a história tenha chamado atenção da mídia especializada, suas implicações para o setor são limitadas, pois trata-se de um fato pontual de consumo de produtos físicos em meio à predominância do streaming. Não há indicação de que o episódio tenha gerado mudanças estruturais na indústria ou influenciado comportamentos de consumo a longo prazo. A cobertura jornalística enfatizou o aspecto curioso da notícia, mas não aprofundou análises sobre efeitos econômicos ou culturais posteriores. Assim, a relevância do acontecimento permanece principalmente no âmbito do interesse público imediato, servindo como exemplo de como artistas consolidados podem ainda impulsionar nichos de mercado tradicionais. O episódio não deixa legado discernível além da menção em relatórios de vendas daquele período.",
-      "caption": "Em 2023, o álbum '1989 (Taylor's Version)' de Taylor Swift foi o vinil mais vendido no Reino Unido, superando até lendas como os Beatles e os Rolling Stones.",
-      "source_url": "https://arquivo.pt/noFrame/replay/20240116203929/https://mag.sapo.pt/amp/musica/artigos/reino-unido-taylor-swift-e-the-beatles-dominam-top-de-vendas-de-discos-de-vinil-em-2023",
-      "source_profile": "mag.sapo.pt",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram"
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 10.0,
-        "dimensao_impacto": 15.0,
-        "consequencias": 10.0,
-        "relevancia_posterior": 10.0,
-        "dimensao_duracao": 5.0,
-        "relevancia_mediatica": 30.0,
-        "singularidade": 20.0
-      },
-      "relevance_weighted": 12.0,
-      "relevance_justification": "Baixo impacto histórico e consequências limitadas; atenção midiática moderada, mas efeitos duradouros mínimos.",
-      "source_type": "newspaper",
-      "url_path": "noticia/2026/01/16/taylor-swift-lidera-vendas-de-vinil-5dfff692",
-      "page_id": "noticia-5dfff692b890da437d3857f5",
-      "detail_image": "assets/banners/2026-01-16-1-taylor-swift-lidera-vendas-de-vinil-banner.jpg",
-      "snapshot_url": ""
-    },
-    {
-      "id": "pt_2026-01-15_1",
-      "lang": "pt",
-      "date": "2026-01-15",
-      "slot": 1,
-      "status": "pending",
-      "category": "CULTURA",
-      "title": "Fire Saga chega ao Netflix Portugal",
-      "title_en": "Netflix Portugal Adds 'Fire Saga' to Its Streaming Library",
-      "summary": "Comédia musical que celebra a Eurovisão",
-      "summary_en": "The musical comedy about Eurovision, 'Fire Saga', is now available on Netflix Portugal, appealing to music lovers and binge‑watchers.",
-      "original_year": "2021",
-      "image": "assets/posts/2026-01-15-1-fire-saga-chega-ao-netflix-portugal.jpg",
-      "banner_image": "assets/banners/2026-01-15-1-fire-saga-chega-ao-netflix-portugal-banner.jpg",
-      "body": "Em 2021, a Netflix Portugal adicionou à sua biblioteca o filme 'Fire Saga', uma comédia musical que celebra a Eurovisão. Dirigido por Christopher Miller, o longa mistura humor, romance e música, seguindo a história de dois aspirantes a cantores que sonham em representar a Dinamarca no concurso mais famoso da Europa. A produção, lançada originalmente em 2019 nos Estados Unidos, conta com um elenco estrelado por Will Ferrell, Rachel McAdams, e o próprio Chris Martin, que interpreta um cantor fictício. A chegada do filme à plataforma portuguesa foi acompanhada por uma campanha de marketing que incluía trailers, entrevistas e posts nas redes sociais, visando captar o público que acompanha a Eurovisão e os fãs de comédias musicais. A receção crítica no país foi mista. Enquanto alguns críticos elogiaram a leveza e o charme da trama, outros apontaram a falta de profundidade nos personagens. No entanto, o filme conseguiu atrair uma audiência considerável, especialmente entre os jovens que buscam entretenimento leve. A Netflix, ao disponibilizar 'Fire Saga', reforçou a sua estratégia de diversificar o catálogo com produções internacionais que têm apelo cultural específico, como a Eurovisão, que mantém uma forte presença na cultura popular portuguesa. Do ponto de vista cultural, o lançamento não teve impacto histórico significativo, mas contribuiu para a visibilidade de produções que celebram eventos europeus. A plataforma continuou a expandir o acesso a conteúdos de nicho, mantendo a relevância do streaming no mercado lusófono.",
-      "caption": "O filme que mostra a jornada de dois cantores islândeses rumo ao palco da Eurovisão está agora disponível para maratonar em Portugal. Entre risos, tropeços e muita música, Fire Saga promete diversão garantida.",
-      "source_url": "https://arquivo.pt/noFrame/replay/20210115181918/https://mag.sapo.pt/cinema/filmes/criticas/festival-eurovisao-da-cancao-a-historia-dos-fire-saga-comedia-da-netflix-adora-o-festival-mas-deixa-muito-por-celebrar",
-      "source_profile": "mag.sapo.pt",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
-      "networks": [
-        "instagram"
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 10.0,
-        "dimensao_impacto": 5.0,
-        "consequencias": 5.0,
-        "relevancia_posterior": 5.0,
-        "dimensao_duracao": 5.0,
-        "relevancia_mediatica": 20.0,
-        "singularidade": 10.0
-      },
-      "relevance_weighted": 7.5,
-      "relevance_justification": "Evento de streaming com alcance limitado, sem mudanças estruturais. A atenção mediática foi moderada, mas não alterou o panorama cultural.",
-      "source_type": "newspaper",
-      "url_path": "noticia/2026/01/15/fire-saga-chega-ao-netflix-portugal-a21f6119",
-      "page_id": "noticia-a21f6119c30b28dc432969e7",
-      "detail_image": "assets/banners/2026-01-15-1-fire-saga-chega-ao-netflix-portugal-banner.jpg",
+      "url_path": "noticia/desporto/messi-supera-ronaldo-na-eleicao-de",
+      "page_id": "noticia-b82eaf5fde418010f082bf04",
+      "detail_image": "assets/banners/2026-01-21-2-messi-supera-ronaldo-na-eleio-de-melhor-do-mundo-da-marca-banner.jpg",
       "snapshot_url": ""
     }
   ],
@@ -1079,6 +708,10 @@
         "facebook",
         "x"
       ],
+      "cover_focus": [
+        0.5,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1093,7 +726,7 @@
       "relevance_weighted": 11.2,
       "relevance_justification": "A pesquisa de opinião tem impacto limitado, servindo apenas para ilustrar a preferência dos eleitores em 2021, sem consequências duradouras significativas.",
       "source_type": "archive",
-      "url_path": "noticia/2026/08/30/se-as-eleicoes-autarquicas-fossem-em-agosto-rui-moreira-conquistaria-a-camara-d6db5c21",
+      "url_path": "noticia/politica/se-as-eleicoes-autarquicas-fossem-em",
       "page_id": "noticia-d6db5c21cb42e7800f5acb37",
       "detail_image": "assets/banners/2026-08-30-1-se-as-eleies-autrquicas-fossem-em-agosto-rui-moreira-conquistaria-a-cmara-banner.jpg",
       "snapshot_url": ""
@@ -1124,6 +757,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.42,
+        0.48
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1138,7 +775,7 @@
       "relevance_weighted": 7.4,
       "relevance_justification": "O evento marcou a retomada da turnê internacional de Caetano Veloso após a pandemia, reforçando sua presença global, mas não alterou de forma significativa a trajetória cultural ou política da época.",
       "source_type": "archive",
-      "url_path": "noticia/2026/08/29/o-primeiro-passo-simbolico-do-aguardado-regresso-esta-marcado-para-este-sabado-0134d98a",
+      "url_path": "noticia/cultura/o-primeiro-passo-simbolico-do-aguardado",
       "page_id": "noticia-0134d98ac5b8c2a5e8ff7326",
       "detail_image": "assets/banners/2026-08-29-1-o-primeiro-passo-simblico-do-aguardado-regresso-est-marcado-para-este-sbado-banner.jpg",
       "snapshot_url": ""
@@ -1169,6 +806,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.47,
+        0.5
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1183,7 +824,7 @@
       "relevance_weighted": 15.9,
       "relevance_justification": "A inauguração do Passeio da Fama em Lisboa tem relevância cultural local, mas não gera impactos históricos significativos a longo prazo, servindo mais como homenagem ao teatro português do que como evento transformador.",
       "source_type": "archive",
-      "url_path": "noticia/2026/08/28/lisboa-inaugura-passeio-da-fama-no-parque-mayer-a162b800",
+      "url_path": "noticia/cultura/lisboa-inaugura-passeio-da-fama-no",
       "page_id": "noticia-a162b800b4dd331f3dd93530",
       "detail_image": "assets/banners/2026-08-28-2-lisboa-inaugura-passeio-da-fama-no-parque-mayer-banner.jpg",
       "snapshot_url": ""
@@ -1215,6 +856,10 @@
         "facebook",
         "x"
       ],
+      "cover_focus": [
+        0.45,
+        0.55
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1229,7 +874,7 @@
       "relevance_weighted": 18.8,
       "relevance_justification": "A sondagem destaca a forte posição de Rui Moreira no Porto, mas seu impacto histórico é restrito ao âmbito municipal. As consequências se concentram na consolidação de seu mandato e na pressão sobre os partidos tradicionais, sem repercussões nacionais duradouras.",
       "source_type": "archive",
-      "url_path": "noticia/2026/08/28/rui-moreira-lidera-sondagem-no-porto-com-59-5cd81db4",
+      "url_path": "noticia/politica/rui-moreira-lidera-sondagem-no-porto",
       "page_id": "noticia-5cd81db481ce184bd6dee41c",
       "detail_image": "assets/banners/2026-08-28-1-rui-moreira-lidera-sondagem-no-porto-com-59-banner.jpg",
       "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20210108195201%2Fhttps%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPorto"
@@ -1261,6 +906,10 @@
         "facebook",
         "x"
       ],
+      "cover_focus": [
+        0.47,
+        0.4
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1275,7 +924,7 @@
       "relevance_weighted": 12.1,
       "relevance_justification": "A notícia teve impacto limitado, refletindo tensões políticas pontuais sem consequências duradouras significativas. A repercussão mediática foi moderada, mas não alterou substancialmente o panorama institucional.",
       "source_type": "archive",
-      "url_path": "noticia/2026/08/27/il-acusa-provedoria-de-justica-b59f4673",
+      "url_path": "noticia/politica/il-acusa-provedoria-de-justica",
       "page_id": "noticia-b59f467380b6317a0eccfd58",
       "detail_image": "assets/banners/2026-08-27-1-il-acusa-provedoria-de-justia-banner.jpg",
       "snapshot_url": ""
@@ -1307,6 +956,10 @@
         "facebook",
         "x"
       ],
+      "cover_focus": [
+        0.58,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1321,7 +974,7 @@
       "relevance_weighted": 15.8,
       "relevance_justification": "A crítica da Iniciativa Liberal à Provedoria em 2021 reflete a tensão política sobre medidas de saúde pública, mas não provocou mudanças estruturais duradouras no sistema jurídico brasileiro. Embora tenha gerado debate mediático, não resultou em reformas significativas.",
       "source_type": "archive",
-      "url_path": "noticia/2026/08/26/iniciativa-liberal-critica-provedoria-por-nao-enviar-restricoes-ao-tc-72f3be79",
+      "url_path": "noticia/politica/iniciativa-liberal-critica-provedoria-por-nao",
       "page_id": "noticia-72f3be7927b767ca87a79179",
       "detail_image": "assets/banners/2026-08-26-1-iniciativa-liberal-critica-provedoria-por-no-enviar-restries-ao-tc-banner.jpg",
       "snapshot_url": ""
@@ -1352,6 +1005,10 @@
       "networks": [
         "facebook"
       ],
+      "cover_focus": [
+        0.51,
+        0.5
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1366,7 +1023,7 @@
       "relevance_weighted": 14.0,
       "relevance_justification": "A celebração dos 153 anos da PSP é um marco institucional, mas não gera mudanças significativas na história ou na sociedade; suas consequências são limitadas ao reconhecimento interno e à cobertura de mídia local.",
       "source_type": "archive",
-      "url_path": "noticia/2026/07/02/parabens-psp-a-policia-publica-celebra-153-anos-a60178d5",
+      "url_path": "noticia/sociedade/parabens-psp-a-policia-publica-celebra",
       "page_id": "noticia-a60178d54641a4cf81eca8f0",
       "detail_image": "assets/banners/2026-07-02-2-parabns-psp-a-polcia-pblica-celebra-153-anos-banner.jpg",
       "snapshot_url": ""
@@ -1397,6 +1054,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.52,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1411,7 +1072,7 @@
       "relevance_weighted": 12.5,
       "relevance_justification": "O feito de Borges chegar à terceira ronda em Wimbledon é relevante para o cenário português de tênis, mas não altera significativamente a história do esporte mundial. As consequências são limitadas a reconhecimento nacional e motivação para futuros torneios.",
       "source_type": "archive",
-      "url_path": "noticia/2026/07/02/nuno-borges-chega-a-terceira-ronda-em-wimbledon-e6037396",
+      "url_path": "noticia/desporto/nuno-borges-chega-a-terceira-ronda",
       "page_id": "noticia-e6037396764562651126c777",
       "detail_image": "assets/banners/2026-07-02-1-nuno-borges-chega-terceira-ronda-em-wimbledon-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-e6037396764562651126c777.jpg"
@@ -1442,6 +1103,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.46,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1456,7 +1121,7 @@
       "relevance_weighted": 13.8,
       "relevance_justification": "O evento teve impacto cultural limitado, servindo principalmente como celebração simbólica do legado de Amália. Não gerou mudanças duradouras no cenário musical ou social.",
       "source_type": "archive",
-      "url_path": "noticia/2026/07/01/100-guitarras-a-tocarem-juntas-para-os-100-anos-de-amalia-dbc9582f",
+      "url_path": "noticia/musica/100-guitarras-a-tocarem-juntas-para",
       "page_id": "noticia-dbc9582f872806c78ce6ff64",
       "detail_image": "assets/banners/2026-07-01-2-100-guitarras-a-tocarem-juntas-para-os-100-anos-de-amlia-banner.jpg",
       "snapshot_url": ""
@@ -1487,6 +1152,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.52,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1501,9 +1170,486 @@
       "relevance_weighted": 5.5,
       "relevance_justification": "A interrupção de um concerto de Beyoncé teve pouca relevância histórica, pois não gerou mudanças significativas ou consequências duradouras além da cobertura midiática momentânea.",
       "source_type": "archive",
-      "url_path": "noticia/2026/07/01/beyonce-e-interrompida-durante-concerto-289ee258",
+      "url_path": "noticia/desporto/beyonce-e-interrompida-durante-concerto",
       "page_id": "noticia-289ee258c7fc8a8d7f64004d",
       "detail_image": "assets/banners/2026-07-01-1-beyonc-interrompida-durante-concerto-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-22_2",
+      "lang": "pt",
+      "date": "2026-01-22",
+      "slot": 2,
+      "status": "pending",
+      "category": "POLÍTICA",
+      "title": "Congresso acusa Amazon, Apple, Facebook e Google de monopólio",
+      "title_en": "",
+      "summary": "Tech giants face antitrust accusations",
+      "summary_en": "",
+      "original_year": "2021",
+      "image": "assets/posts/2026-01-22-2-congresso-acusa-amazon-apple-facebook-e-google-de-monoplio.jpg",
+      "banner_image": "assets/banners/2026-01-22-2-congresso-acusa-amazon-apple-facebook-e-google-de-monoplio-banner.jpg",
+      "body": "Tech giants face antitrust accusations",
+      "caption": "O Congresso dos EUA apresentou um relatório de 449 páginas acusando as quatro maiores empresas de tecnologia de abuso de poder de mercado, marcando um passo na regulação digital.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20210122223520/https://www.publico.pt/2020/10/07/tecnologia/noticia/congresso-eua-quer-novas-leis-tirar-google-facebook-amazon-apple-1934363",
+      "source_profile": "publico.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "cover_focus": null,
+      "network_posts": {},
+      "relevance_level": null,
+      "relevance_scores": {},
+      "relevance_weighted": null,
+      "relevance_justification": "",
+      "source_type": "newspaper",
+      "url_path": "noticia/politica/congresso-acusa-amazon-apple-facebook-e",
+      "page_id": "noticia-d1695da41036e8d37f1a492b",
+      "detail_image": "assets/banners/2026-01-22-2-congresso-acusa-amazon-apple-facebook-e-google-de-monoplio-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-22_1",
+      "lang": "pt",
+      "date": "2026-01-22",
+      "slot": 1,
+      "status": "pending",
+      "category": "ESTRELA",
+      "title": "Madonna troca 'Boston' por 'Toronto' no show",
+      "title_en": "",
+      "summary": "Mistake onstage in Toronto",
+      "summary_en": "",
+      "original_year": "2024",
+      "image": "assets/posts/2026-01-22-1-madonna-troca-boston-por-toronto-no-show.jpg",
+      "banner_image": "assets/banners/2026-01-22-1-madonna-troca-boston-por-toronto-no-show-banner.jpg",
+      "body": "Mistake onstage in Toronto",
+      "caption": "Madonna quase cumprimentou Boston em vez de Toronto durante o seu tour. A cantora rapidamente corrigiu e riu do erro, mostrando que até as maiores estrelas cometem lapsos.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20240122210213/https://mag.sapo.pt/amp/musica/artigos/madonna-nao-tenho-nada-contra-a-lady-gaga-adoro-qualquer-pessoa-que-seja-mais-baixa-do-que-eu",
+      "source_profile": "mag.sapo.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "cover_focus": [
+        0.82,
+        0.45
+      ],
+      "network_posts": {},
+      "relevance_level": null,
+      "relevance_scores": {},
+      "relevance_weighted": null,
+      "relevance_justification": "",
+      "source_type": "newspaper",
+      "url_path": "noticia/estrela/madonna-troca-boston-por-toronto-no",
+      "page_id": "noticia-a3bad0ca86a496a3253115ac",
+      "detail_image": "assets/banners/2026-01-22-1-madonna-troca-boston-por-toronto-no-show-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-21_2",
+      "lang": "pt",
+      "date": "2026-01-21",
+      "slot": 2,
+      "status": "pending",
+      "category": "DESPORTO",
+      "title": "Messi supera Ronaldo na eleição de melhor do mundo da Marca",
+      "title_en": "Messi beats Ronaldo in Marca's 2018 world player vote",
+      "summary": "Messi leva 56% dos votos contra 25% de Ronaldo",
+      "summary_en": "Messi leads Ronaldo with 56% to 25% in Marca's 2018 best player poll.",
+      "original_year": "2018",
+      "image": "assets/posts/2026-01-21-2-messi-supera-ronaldo-na-eleio-de-melhor-do-mundo-da-marca.jpg",
+      "banner_image": "assets/banners/2026-01-21-2-messi-supera-ronaldo-na-eleio-de-melhor-do-mundo-da-marca-banner.jpg",
+      "body": "Em 2018, a publicação espanhola Marca realizou uma enquete entre seus leitores para eleger o melhor jogador do mundo daquele ano, colocando Lionel Messi e Cristiano Ronaldo como principais concorrentes. Segundo os resultados divulgados, Messi recebeu 56% dos votos, enquanto Ronaldo obteve 25%, colocando o argentino à frente do português por uma margem significativa. A votação foi amplamente coberta por meios esportivos, que destacaram a preferência dos leitores da publicação por Messi naquele momento. Não há indicação de que o resultado tenha influenciado premiações oficiais, contratos ou decisões de clubes relacionados aos dois jogadores. A enquete refletiu, portanto, uma opinião momentânea de um segmento específico de fãs, sem gerar alterações duradouras na percepção histórica das carreiras de Messi ou Ronaldo.",
+      "caption": "Segundo a revista Marca, Lionel Messi venceu Cristiano Ronaldo na eleição de melhor do mundo, recebendo 56% dos votos dos leitores.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20180121041254/http://www.lux.iol.pt/internacional/famosos/messi-eleito-de-melhor-do-mundo-a-frente-de-cristiano-ronaldo",
+      "source_profile": "lux.iol.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": true,
+      "networks": [
+        "instagram"
+      ],
+      "cover_focus": [
+        0.52,
+        0.45
+      ],
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 15.0,
+        "dimensao_impacto": 20.0,
+        "consequencias": 12.0,
+        "relevancia_posterior": 10.0,
+        "dimensao_duracao": 8.0,
+        "relevancia_mediatica": 18.0,
+        "singularidade": 12.0
+      },
+      "relevance_weighted": 14.1,
+      "relevance_justification": "Voto refletiu preferência momentânea dos fãs, sem alterar legacies ou conquistas dos jogadores.",
+      "source_type": "newspaper",
+      "url_path": "noticia/desporto/messi-supera-ronaldo-na-eleicao-de",
+      "page_id": "noticia-b82eaf5fde418010f082bf04",
+      "detail_image": "assets/banners/2026-01-21-2-messi-supera-ronaldo-na-eleio-de-melhor-do-mundo-da-marca-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-21_1",
+      "lang": "pt",
+      "date": "2026-01-21",
+      "slot": 1,
+      "status": "pending",
+      "category": "ESTRELA",
+      "title": "Madonna confunde Boston com Toronto no show",
+      "title_en": "Madonna mixes up Boston with Toronto during her show",
+      "summary": "Madonna sai do erro com humor e corrige ao vivo",
+      "summary_en": "A lighthearted moment where Madonna confused Boston with Toronto during her 2024 concert.",
+      "original_year": "2024",
+      "image": "assets/posts/2026-01-21-1-madonna-confunde-boston-com-toronto-no-show.jpg",
+      "banner_image": "assets/banners/2026-01-21-1-madonna-confunde-boston-com-toronto-no-show-banner.jpg",
+      "body": "Em 2024, durante um concerto da Madonna em Boston, a artista confundiu o nome da cidade com Toronto, mencionando erroneamente a localidade canadense ao se dirigir ao público. Imediatamente percebendo o lapso, Madonna respondeu com humor, brincando sobre a confusão e corrigindo-se ao afirmar que estava, de fato, em Boston. O momento foi registrado por fãs nas redes sociais e rapidamente circulou em vídeos curtos, gerando reações divertidas entre os espectadores. A cantora continuou o show sem interrupções significativas, mantendo o repertório planejado e a energia característica de suas apresentações. Embora o incidente tenha sido breve, ele ilustra como artistas lidam com pequenos erros ao vivo, transformando-os em oportunidades de conexão com o público. Não há registro de declarações oficiais da artista ou de sua equipe além da reação espontânea no palco. O episódio ficou limitado ao contexto daquela apresentação específica, sem repercutir em aspectos maiores da turnê ou da carreira da artista.",
+      "caption": "Durante a Celebration Tour em Toronto, Madonna acabou desejando 'boa noite' a Boston, percebeu o engano rapidamente e brincou com a plateia, até mencionando Lady Gaga de forma descontraída.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20240121192510/https://mag.sapo.pt/amp/musica/artigos/madonna-nao-tenho-nada-contra-a-lady-gaga-adoro-qualquer-pessoa-que-seja-mais-baixa-do-que-eu",
+      "source_profile": "mag.sapo.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "cover_focus": [
+        0.5,
+        0.4
+      ],
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 5.0,
+        "dimensao_impacto": 8.0,
+        "consequencias": 4.0,
+        "relevancia_posterior": 4.0,
+        "dimensao_duracao": 5.0,
+        "relevancia_mediatica": 15.0,
+        "singularidade": 10.0
+      },
+      "relevance_weighted": 6.0,
+      "relevance_justification": "Erro pontual de palco, sem efeitos duradouros; cobertura midiática limitada e sem consequências relevantes.",
+      "source_type": "newspaper",
+      "url_path": "noticia/estrela/madonna-confunde-boston-com-toronto-no",
+      "page_id": "noticia-e48939e14d9673a1b2517764",
+      "detail_image": "assets/banners/2026-01-21-1-madonna-confunde-boston-com-toronto-no-show-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-20_2",
+      "lang": "pt",
+      "date": "2026-01-20",
+      "slot": 2,
+      "status": "pending",
+      "category": "DESPORTO",
+      "title": "Messi e Ronaldo revelam a amizade na gala da UEFA",
+      "title_en": "Messi and Ronaldo Show Friendship at UEFA Gala",
+      "summary": "Rivalidade amigável",
+      "summary_en": "Moment of camaraderie between two football legends.",
+      "original_year": "2024",
+      "image": "assets/posts/2026-01-20-2-messi-e-ronaldo-revelam-a-amizade-na-gala-da-uefa.jpg",
+      "banner_image": "assets/banners/2026-01-20-2-messi-e-ronaldo-revelam-a-amizade-na-gala-da-uefa-banner.jpg",
+      "body": "Na gala anual da UEFA, realizada em 20 de abril de 2024, Lionel Messi e Cristiano Ronaldo demonstraram uma amizade inesperada diante dos fãs. O evento, que reúne líderes de clubes europeus, celebridades e atletas, foi palco de uma conversa descontraída entre os dois ícones, que trocaram elogios e lembranças de partidas memoráveis. A interação, capturada por câmeras, gerou repercussão nas redes sociais, onde os seguidores celebraram o fim simbólico da rivalidade que dominou o futebol mundial nos últimos anos. A presença de ambos na mesma cerimónia, em um ambiente de celebração, simboliza a maturidade e o respeito mútuo que evoluíram ao longo das carreiras. A amizade entre Messi e Ronaldo também reflete a evolução do esporte, onde a competição saudável pode coexistir com a camaradagem. A gala da UEFA, que costuma destacar conquistas individuais e coletivas, tornou-se um palco para este momento histórico, pois demonstra que os maiores jogadores podem se unir em reconhecimento mútuo. Embora a amizade não altere a história do futebol, ela oferece um exemplo inspirador de profissionalismo e respeito, influenciando a percepção pública e inspirando jovens atletas.",
+      "caption": "Durante a cerimônia, Messi e Ronaldo compartilharam histórias de sua rivalidade, mostrando humor e respeito mútuo.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20240120223833/https://holofote.pt/famosos/2019-08-30-cristiano-ronaldo-e-lionel-messi-falam-da-relacao-que-construiram-ao-longos-dos-anos/",
+      "source_profile": "holofote.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "cover_focus": null,
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 15.0,
+        "dimensao_impacto": 20.0,
+        "consequencias": 10.0,
+        "relevancia_posterior": 10.0,
+        "dimensao_duracao": 10.0,
+        "relevancia_mediatica": 70.0,
+        "singularidade": 40.0
+      },
+      "relevance_weighted": 18.0,
+      "relevance_justification": "Amizade entre Messi e Ronaldo simboliza fim de rivalidade, influenciando fãs.",
+      "source_type": "newspaper",
+      "url_path": "noticia/desporto/messi-e-ronaldo-revelam-a-amizade",
+      "page_id": "noticia-fa2f0e86f2adea6a19c6f464",
+      "detail_image": "assets/banners/2026-01-20-2-messi-e-ronaldo-revelam-a-amizade-na-gala-da-uefa-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-20_1",
+      "lang": "pt",
+      "date": "2026-01-20",
+      "slot": 1,
+      "status": "pending",
+      "category": "ESTRELA",
+      "title": "Britney Spears e Elton John lançam nova versão de 'Tiny Dancer'",
+      "title_en": "Britney Spears and Elton John Release New Version of 'Tiny Dancer'",
+      "summary": "Nova versão de um clássico",
+      "summary_en": "A collaboration between two music icons that is expected to resonate with fans of both.",
+      "original_year": "2024",
+      "image": "assets/posts/2026-01-20-1-britney-spears-e-elton-john-lanam-nova-verso-de-tiny-dancer.jpg",
+      "banner_image": "assets/banners/2026-01-20-1-britney-spears-e-elton-john-lanam-nova-verso-de-tiny-dancer-banner.jpg",
+      "body": "Em 2024, a cantora pop britânica Britney Spears e o lendário cantor britânico Elton John lançaram uma nova versão da icónica balada \"Tiny Dancer\". A colaboração, anunciada em agosto, reúne duas gerações de artistas que já deixaram marcas profundas na música pop. Spears, conhecida por hits como \"...Baby One More Time\", e John, com uma carreira que abrange mais de cinco décadas, trouxeram à tona a composição original de 1978, escrita por John para a sua esposa. A nova interpretação apresenta arranjos contemporâneos, com sintetizadores suaves e vocais harmonizados, mantendo a essência melódica que cativou gerações. O lançamento foi acompanhado por um clipe dirigido por um renomado cineasta, apresentando imagens de paisagens londrinas e cenas de performance ao vivo. A imprensa musical destacou a parceria como um marco de união entre duas figuras que transcenderam fronteiras culturais. Apesar da atenção mediática, o projeto não altera o panorama musical de forma significativa, mas reforça a tendência de remakes de clássicos que buscam reconectar fãs antigos com novos públicos. A recepção inicial indica que a versão será bem recebida em plataformas de streaming, com expectativas de alcançar milhões de reproduções nos primeiros dias. A colaboração também abre espaço para discussões sobre a preservação da música clássica em formatos modernos e a importância de artistas veteranos colaborarem com talentos contemporâneos. Em suma, a nova versão de \"Tiny Dancer\" representa um momento de celebração musical, mas permanece um evento de entretenimento sem impacto histórico duradouro.",
+      "caption": "Britney e Elton John reuniram-se em Beverly Hills para gravar uma nova versão de 'Tiny Dancer', prometendo um hit que mistura nostalgia e energia pop.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20240120032744/https://holofote.pt/famosos/2022-07-26-britney-spears-de-volta-a-industria-da-musica-ao-lado-de-elton-john/",
+      "source_profile": "holofote.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
+      "network_posts": {},
+      "relevance_level": 5,
+      "relevance_scores": {
+        "impacto_historico": 10.0,
+        "dimensao_impacto": 15.0,
+        "consequencias": 5.0,
+        "relevancia_posterior": 5.0,
+        "dimensao_duracao": 10.0,
+        "relevancia_mediatica": 70.0,
+        "singularidade": 30.0
+      },
+      "relevance_weighted": 13.5,
+      "relevance_justification": "Colaboração entre dois ícones gera atenção, mas não altera a história musical.",
+      "source_type": "newspaper",
+      "url_path": "noticia/estrela/britney-spears-e-elton-john-lancam",
+      "page_id": "noticia-b39a0eef4f65ffe372bba799",
+      "detail_image": "assets/banners/2026-01-20-1-britney-spears-e-elton-john-lanam-nova-verso-de-tiny-dancer-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-19_2",
+      "lang": "pt",
+      "date": "2026-01-19",
+      "slot": 2,
+      "status": "pending",
+      "category": "CULTURA",
+      "title": "Taylor Swift lidera vendas de vinil com '1989 (Taylor's Version)'",
+      "title_en": "",
+      "summary": "Álbum em vinil mais vendido",
+      "summary_en": "",
+      "original_year": "2024",
+      "image": "assets/posts/2026-01-19-2-taylor-swift-lidera-vendas-de-vinil-com-1989-taylors-version.jpg",
+      "banner_image": "assets/banners/2026-01-19-2-taylor-swift-lidera-vendas-de-vinil-com-1989-taylors-version-banner.jpg",
+      "body": "Álbum em vinil mais vendido",
+      "caption": "O álbum '1989 (Taylor's Version)' foi o disco de vinil mais vendido no Reino Unido, com mais de 84.700 cópias.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20240119203634/https://mag.sapo.pt/amp/musica/artigos/reino-unido-taylor-swift-e-the-beatles-dominam-top-de-vendas-de-discos-de-vinil-em-2023",
+      "source_profile": "mag.sapo.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "cover_focus": [
+        0.52,
+        0.48
+      ],
+      "network_posts": {},
+      "relevance_level": null,
+      "relevance_scores": {},
+      "relevance_weighted": null,
+      "relevance_justification": "",
+      "source_type": "newspaper",
+      "url_path": "noticia/cultura/taylor-swift-lidera-vendas-de-vinil",
+      "page_id": "noticia-68a7b374d62f1b4e3a66e746",
+      "detail_image": "assets/banners/2026-01-19-2-taylor-swift-lidera-vendas-de-vinil-com-1989-taylors-version-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-19_1",
+      "lang": "pt",
+      "date": "2026-01-19",
+      "slot": 1,
+      "status": "pending",
+      "category": "POLÍTICA",
+      "title": "De Niro critica Trump em discurso de premiação",
+      "title_en": "",
+      "summary": "Um ator faz crítica política em palco",
+      "summary_en": "",
+      "original_year": "2024",
+      "image": "assets/posts/2026-01-19-1-de-niro-critica-trump-em-discurso-de-premiao.jpg",
+      "banner_image": "assets/banners/2026-01-19-1-de-niro-critica-trump-em-discurso-de-premiao-banner.jpg",
+      "body": "Um ator faz crítica política em palco",
+      "caption": "Durante os prémios Gotham, Robert De Niro não hesitou em criticar Donald Trump, usando o palco para denunciar mentiras e teorias da conspiração.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20240119203727/https://mag.sapo.pt/cinema/atualidade-cinema/artigos/como-se-atrevem-de-niro-acusa-apple-de-censurar-o-seu-discurso-politico-em-cerimonia-de-premios",
+      "source_profile": "mag.sapo.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "cover_focus": [
+        0.55,
+        0.38
+      ],
+      "network_posts": {},
+      "relevance_level": null,
+      "relevance_scores": {},
+      "relevance_weighted": null,
+      "relevance_justification": "",
+      "source_type": "newspaper",
+      "url_path": "noticia/politica/de-niro-critica-trump-em-discurso",
+      "page_id": "noticia-0c118928ccb5e1851c45da2c",
+      "detail_image": "assets/banners/2026-01-19-1-de-niro-critica-trump-em-discurso-de-premiao-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-18_1",
+      "lang": "pt",
+      "date": "2026-01-18",
+      "slot": 1,
+      "status": "pending",
+      "category": "POLITICA",
+      "title": "Facebook, Google, LinkedIn, Microsoft, Reddit, Twitter e YouTube são as setes empre",
+      "title_en": "",
+      "summary": "Facebook, Google, LinkedIn, Microsoft, Reddit, Twitter e YouTube são as setes empre...",
+      "summary_en": "",
+      "original_year": "2024",
+      "image": "assets/posts/2026-01-18-1-facebook-google-linkedin-microsoft-reddit-twitter-e-youtube-so-as-setes-empre.jpg",
+      "banner_image": "assets/banners/2026-01-18-1-facebook-google-linkedin-microsoft-reddit-twitter-e-youtube-so-as-setes-empre-banner.jpg",
+      "body": "Facebook, Google, LinkedIn, Microsoft, Reddit, Twitter e YouTube são as setes empre...",
+      "caption": "Facebook, Google, LinkedIn, Microsoft, Reddit, Twitter e YouTube são as setes empresas tecnológicas que se juntaram para combater a desinformação relacionada com a Covid-19. O compromisso conjunto foi anunciado nesta terça-feira. “Estamos a trabalhar juntos nos esforços de resposta à Covid-19”, lê-se numa declaração conjunta assinada pelas gigantes norte-americanas. “Estamos a ajudar milhões de pessoas a manterem-se conectadas enquanto também combatemos em conjunto a fraude e a desinformação sobre este vírus”, lê-se ainda na declaração. Apesar de não serem muito explícitas na explicação de co...",
+      "source_url": "https://arquivo.pt/noFrame/replay/20240118103052/https://visao.pt/exameinformatica/noticias-ei/internet/2020-03-17-facebook-google-microsoft-combatem-covid-19-desinformacao/",
+      "source_profile": "",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "cover_focus": [
+        0.66,
+        0.42
+      ],
+      "network_posts": {},
+      "relevance_level": null,
+      "relevance_scores": {},
+      "relevance_weighted": null,
+      "relevance_justification": "",
+      "source_type": "archive",
+      "url_path": "noticia/politica/facebook-google-linkedin-microsoft-reddit-twitter",
+      "page_id": "noticia-0bc1ed621f9b0351c44ad14d",
+      "detail_image": "assets/banners/2026-01-18-1-facebook-google-linkedin-microsoft-reddit-twitter-e-youtube-so-as-setes-empre-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-17_2",
+      "lang": "pt",
+      "date": "2026-01-17",
+      "slot": 2,
+      "status": "pending",
+      "category": "CULTURA",
+      "title": "Free Fire estreia no Festival de Toronto 2017 com Brie Larson",
+      "title_en": "",
+      "summary": "A ação do filme Ben Wheatley chega às antestreias",
+      "summary_en": "",
+      "original_year": "2017",
+      "image": "assets/posts/2026-01-17-2-free-fire-estreia-no-festival-de-toronto-2017-com-brie-larson.jpg",
+      "banner_image": "assets/banners/2026-01-17-2-free-fire-estreia-no-festival-de-toronto-2017-com-brie-larson-banner.jpg",
+      "body": "A ação do filme Ben Wheatley chega às antestreias",
+      "caption": "Na abertura do 41º Festival de Cinema de Toronto, em setembro de 2017, o filme Free Fire teve sua antestreia, contando com a presença da protagonista Brie Larson.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20170117012054/http://www.lux.iol.pt/internacional/famosos/fotos-celebridades-no-festival-de-cinema-de-toronto",
+      "source_profile": "lux.iol.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "cover_focus": [
+        0.46,
+        0.45
+      ],
+      "network_posts": {},
+      "relevance_level": null,
+      "relevance_scores": {},
+      "relevance_weighted": null,
+      "relevance_justification": "",
+      "source_type": "newspaper",
+      "url_path": "noticia/cultura/free-fire-estreia-no-festival-de",
+      "page_id": "noticia-2b2fa3adc701f274b0120852",
+      "detail_image": "assets/banners/2026-01-17-2-free-fire-estreia-no-festival-de-toronto-2017-com-brie-larson-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-01-17_1",
+      "lang": "pt",
+      "date": "2026-01-17",
+      "slot": 1,
+      "status": "pending",
+      "category": "ESTRELA",
+      "title": "Jennifer Lawrence é novamente a atriz mais valiosa",
+      "title_en": "",
+      "summary": "A atriz lidera o ranking de valor em Hollywood",
+      "summary_en": "",
+      "original_year": "2016",
+      "image": "assets/posts/2026-01-17-1-jennifer-lawrence-novamente-a-atriz-mais-valiosa.jpg",
+      "banner_image": "assets/banners/2026-01-17-1-jennifer-lawrence-novamente-a-atriz-mais-valiosa-banner.jpg",
+      "body": "A atriz lidera o ranking de valor em Hollywood",
+      "caption": "Em 2016, a revista que mede o poder de bilheteria elegeu Jennifer Lawrence como a atriz mais valiosa do cinema, reforçando seu status de estrela de primeira magnitude.",
+      "source_url": "https://arquivo.pt/noFrame/replay/20160117221003/http://www.lux.iol.pt/internacional/famosos/jennifer-lawrence-volta-a-ser-eleita-a-atriz-mais-valiosa-do-cinema",
+      "source_profile": "lux.iol.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "cover_focus": null,
+      "network_posts": {},
+      "relevance_level": null,
+      "relevance_scores": {},
+      "relevance_weighted": null,
+      "relevance_justification": "",
+      "source_type": "newspaper",
+      "url_path": "noticia/estrela/jennifer-lawrence-e-novamente-a-atriz",
+      "page_id": "noticia-2b0d68b41973d0089875d589",
+      "detail_image": "assets/banners/2026-01-17-1-jennifer-lawrence-novamente-a-atriz-mais-valiosa-banner.jpg",
       "snapshot_url": ""
     },
     {
@@ -1532,6 +1678,7 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": null,
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1546,7 +1693,7 @@
       "relevance_weighted": 8.3,
       "relevance_justification": "Baixo impacto histórico e consequências limitadas; atenção midiática moderada, mas efeitos duradouros mínimos.",
       "source_type": "newspaper",
-      "url_path": "noticia/2026/01/16/madonna-pensa-em-ter-filho-com-alex-rodriguez-8e965e43",
+      "url_path": "noticia/estrela/madonna-pensa-em-ter-filho-com",
       "page_id": "noticia-8e965e431e72044015fe1b46",
       "detail_image": "assets/banners/2026-01-16-2-madonna-pensa-em-ter-filho-com-alex-rodriguez-banner.jpg",
       "snapshot_url": ""
@@ -1577,6 +1724,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.5,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1591,7 +1742,7 @@
       "relevance_weighted": 12.0,
       "relevance_justification": "Baixo impacto histórico e consequências limitadas; atenção midiática moderada, mas efeitos duradouros mínimos.",
       "source_type": "newspaper",
-      "url_path": "noticia/2026/01/16/taylor-swift-lidera-vendas-de-vinil-5dfff692",
+      "url_path": "noticia/cultura/taylor-swift-lidera-vendas-de-vinil",
       "page_id": "noticia-5dfff692b890da437d3857f5",
       "detail_image": "assets/banners/2026-01-16-1-taylor-swift-lidera-vendas-de-vinil-banner.jpg",
       "snapshot_url": ""
@@ -1622,6 +1773,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.32,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1636,7 +1791,7 @@
       "relevance_weighted": 7.5,
       "relevance_justification": "Evento de streaming com alcance limitado, sem mudanças estruturais. A atenção mediática foi moderada, mas não alterou o panorama cultural.",
       "source_type": "newspaper",
-      "url_path": "noticia/2026/01/15/fire-saga-chega-ao-netflix-portugal-a21f6119",
+      "url_path": "noticia/cultura/fire-saga-chega-ao-netflix-portugal",
       "page_id": "noticia-a21f6119c30b28dc432969e7",
       "detail_image": "assets/banners/2026-01-15-1-fire-saga-chega-ao-netflix-portugal-banner.jpg",
       "snapshot_url": ""
@@ -1668,6 +1823,10 @@
         "facebook",
         "x"
       ],
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1682,7 +1841,7 @@
       "relevance_weighted": 25.2,
       "relevance_justification": "Relatório impulsionou reformas regulatórias, alterando práticas de grandes tech e reforçando direitos dos consumidores.",
       "source_type": "newspaper",
-      "url_path": "noticia/2026/01/14/congresso-eua-acusa-amazon-apple-facebook-e-google-8d6e2e3b",
+      "url_path": "noticia/politica/congresso-eua-acusa-amazon-apple-facebook",
       "page_id": "noticia-8d6e2e3b82d1fe49f5c2aaf4",
       "detail_image": "assets/banners/2026-01-14-2-congresso-eua-acusa-amazon-apple-facebook-e-google-banner.jpg",
       "snapshot_url": ""
@@ -1713,6 +1872,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.75,
+        0.4
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1727,7 +1890,7 @@
       "relevance_weighted": 5.2,
       "relevance_justification": "Crítica musical de curta duração, sem repercussões históricas significativas.",
       "source_type": "newspaper",
-      "url_path": "noticia/2026/01/14/salvador-sobral-critica-toy-de-netta-34bf28fa",
+      "url_path": "noticia/cultura/salvador-sobral-critica-toy-de-netta",
       "page_id": "noticia-34bf28fa2e95c2618d6724e5",
       "detail_image": "assets/banners/2026-01-14-1-salvador-sobral-critica-toy-de-netta-banner.jpg",
       "snapshot_url": ""
@@ -1759,6 +1922,10 @@
         "facebook",
         "x"
       ],
+      "cover_focus": [
+        0.52,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1773,7 +1940,7 @@
       "relevance_weighted": 10.2,
       "relevance_justification": "Evento político de rotina com pouca repercussão histórica; apenas pequenas repercussões locais e de curto prazo, sem consequências duradouras significativas.",
       "source_type": "archive",
-      "url_path": "noticia/2026/01/12/em-termos-nacionais-destaca-se-a-reuniao-do-conselho-de-estado-na-sexta-feira-353e40f6",
+      "url_path": "noticia/politica/em-termos-nacionais-destaca-se-a",
       "page_id": "noticia-353e40f6120ac4cdf8be777d",
       "detail_image": "assets/banners/2026-01-12-1-em-termos-nacionais-destaca-se-a-reunio-do-conselho-de-estado-na-sexta-feira-banner.jpg",
       "snapshot_url": ""
@@ -1804,6 +1971,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.6,
+        0.5
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1818,7 +1989,7 @@
       "relevance_weighted": 27.2,
       "relevance_justification": "Museu submerso atrai turismo e consciência ambiental, contribuição modestamente duradoura para arte e conservação.",
       "source_type": "archive",
-      "url_path": "noticia/2026/01/11/primeiro-museu-submarino-da-europa-inaugurated-em-lanzarote-c04889bc",
+      "url_path": "noticia/cultura/primeiro-museu-submarino-da-europa-inaugurated",
       "page_id": "noticia-c04889bc05364ef5df0394e1",
       "detail_image": "assets/banners/2026-01-11-2-primeiro-museu-submarino-da-europa-inaugurated-em-lanzarote-banner.jpg",
       "snapshot_url": ""
@@ -1849,6 +2020,7 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": null,
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1863,7 +2035,7 @@
       "relevance_weighted": 14.2,
       "relevance_justification": "Pontuação simbólica, pouca mudança estrutural no basquetebol português ou internacional.",
       "source_type": "archive",
-      "url_path": "noticia/2026/01/11/neemias-queta-marca-os-primeiros-pontos-na-nba-d732475f",
+      "url_path": "noticia/desporto/neemias-queta-marca-os-primeiros-pontos",
       "page_id": "noticia-d732475fd43cb9a2bf402bc4",
       "detail_image": "assets/banners/2026-01-11-1-neemias-queta-marca-os-primeiros-pontos-na-nba-banner.jpg",
       "snapshot_url": ""
@@ -1894,6 +2066,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.5,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1908,7 +2084,7 @@
       "relevance_weighted": 19.2,
       "relevance_justification": "Iniciativa vaticana promoveu diálogo inter-religioso através do esporte, com efeito simbólico limitado.",
       "source_type": "archive",
-      "url_path": "noticia/2026/01/10/equipa-atletica-do-vaticano-corre-maratona-inter-religiosa-1d06eaed",
+      "url_path": "noticia/curioso/equipa-atletica-do-vaticano-corre-maratona",
       "page_id": "noticia-1d06eaedbaca2f7e05eeb812",
       "detail_image": "assets/banners/2026-01-10-2-equipa-atltica-do-vaticano-corre-maratona-inter-religiosa-banner.jpg",
       "snapshot_url": ""
@@ -1939,6 +2115,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.46,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -1953,7 +2133,7 @@
       "relevance_weighted": 35.2,
       "relevance_justification": "Acordo de patrocínio gerou grande mídia, mas impacto histórico limitado; efeito duradouro pequeno.",
       "source_type": "archive",
-      "url_path": "noticia/2026/01/10/ronaldo-ganha-200-mi-para-impulsionar-candidatura-saudita-acf22c72",
+      "url_path": "noticia/desporto/ronaldo-ganha-200-mi-para-impulsionar",
       "page_id": "noticia-acf22c72900270488295cd39",
       "detail_image": "assets/banners/2026-01-10-1-ronaldo-ganha-200-mi-para-impulsionar-candidatura-saudita-banner.jpg",
       "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20230102175517%2Fhttps%3A%2F%2Fwww.marca.com%2Fclaro-mx%2F"
@@ -1984,6 +2164,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.71,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 4,
       "relevance_scores": {
@@ -1998,7 +2182,7 @@
       "relevance_weighted": 49.8,
       "relevance_justification": "Imitação de Streep destacou deficiência e política, gerando debate duradouro sobre representação e respeito.",
       "source_type": "archive",
-      "url_path": "noticia/2026/01/09/meryl-streep-imita-jornalista-deficiente-nos-globos-ed6477b5",
+      "url_path": "noticia/estrela/meryl-streep-imita-jornalista-deficiente-nos",
       "page_id": "noticia-ed6477b5736843597a918846",
       "detail_image": "assets/banners/2026-01-09-2-meryl-streep-imita-jornalista-deficiente-nos-globos-banner.jpg",
       "snapshot_url": ""
@@ -2029,6 +2213,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.55,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -2043,7 +2231,7 @@
       "relevance_weighted": 25.0,
       "relevance_justification": "Estreia modesta de jovem tenista português; impacto histórico limitado e consequências duradouras mínimas.",
       "source_type": "archive",
-      "url_path": "noticia/2026/01/09/jaime-faria-surpreende-no-australian-open-6be2436b",
+      "url_path": "noticia/desporto/jaime-faria-surpreende-no-australian-open",
       "page_id": "noticia-6be2436b4f1779b4a3adf402",
       "detail_image": "assets/banners/2026-01-09-1-jaime-faria-surpreende-no-australian-open-banner.jpg",
       "snapshot_url": ""
@@ -2075,6 +2263,10 @@
         "facebook",
         "x"
       ],
+      "cover_focus": [
+        0.77,
+        0.5
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -2089,7 +2281,7 @@
       "relevance_weighted": 20.2,
       "relevance_justification": "Possível saída antecipada de cargo europeu com relevância política moderada e alguns efeitos futuros.",
       "source_type": "archive",
-      "url_path": "noticia/2026/01/08/antonio-costa-pode-deixar-presidencia-do-conselho-europeu-49f40860",
+      "url_path": "noticia/politica/antonio-costa-pode-deixar-presidencia-do",
       "page_id": "noticia-49f40860855a55993f2a7756",
       "detail_image": "assets/banners/2026-01-08-2-antnio-costa-pode-deixar-presidncia-do-conselho-europeu-banner.jpg",
       "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20240802105219%2Fhttps%3A%2F%2Fec.europa.eu%2Fstories%2Feu-institutional-appointments%2F"
@@ -2120,6 +2312,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.504,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -2134,7 +2330,7 @@
       "relevance_weighted": 14.0,
       "relevance_justification": "Transferência de alto perfil, mas com impacto histórico limitado e efeitos duradouros modestos.",
       "source_type": "archive",
-      "url_path": "noticia/2026/01/08/cristiano-ronaldo-rumo-ao-al-nassr-9c58260f",
+      "url_path": "noticia/desporto/cristiano-ronaldo-rumo-ao-al-nassr",
       "page_id": "noticia-9c58260f45f4131121a9587a",
       "detail_image": "assets/banners/2026-01-08-1-cristiano-ronaldo-rumo-ao-al-nassr-banner.jpg",
       "snapshot_url": ""
@@ -2166,6 +2362,10 @@
         "facebook",
         "x"
       ],
+      "cover_focus": [
+        0.5,
+        0.4
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -2180,54 +2380,9 @@
       "relevance_weighted": 17.8,
       "relevance_justification": "Crítica destacou limitações da Cimeira de Nice, gerando discussão institucional.",
       "source_type": "newspaper",
-      "url_path": "noticia/2026/01/07/garcia-pereira-critica-cimeira-de-nice-como-mera-autarquia-a8da0bbc",
+      "url_path": "noticia/politica/garcia-pereira-critica-cimeira-de-nice",
       "page_id": "noticia-a8da0bbcfaa41b8a48c92823",
       "detail_image": "assets/banners/2026-01-07-2-garcia-pereira-critica-cimeira-de-nice-como-mera-autarquia-banner.jpg",
-      "snapshot_url": ""
-    },
-    {
-      "id": "pt_2026-01-07_1",
-      "lang": "pt",
-      "date": "2026-01-07",
-      "slot": 1,
-      "status": "pending",
-      "category": "ESTRELA",
-      "title": "Fernanda Torres vence Globo de Ouro",
-      "title_en": "Portuguese Actress Fernanda Torres Wins Golden Globe",
-      "summary": "Atriz portuguesa celebra vitória internacional no cinema.",
-      "summary_en": "Fernanda Torres celebrates an international victory in cinema, highlighting Portuguese talent on the global stage.",
-      "original_year": "2025",
-      "image": "assets/posts/2026-01-07-1-fernanda-torres-vence-globo-de-ouro.jpg",
-      "banner_image": "assets/banners/2026-01-07-1-fernanda-torres-vence-globo-de-ouro-banner.jpg",
-      "body": "Atriz portuguesa celebra vitória internacional no cinema.",
-      "caption": "Fernanda Torres fez história ao levar o Globo de Ouro de Melhor Atriz para Portugal, emocionando fãs em Lisboa e além. Um marco que mostra o talento luso em Hollywood.",
-      "source_url": "https://arquivo.pt/textsearch?q=Fernanda%20Torres%20vence%20Globo%20de%20Ouro",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram"
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 30.0,
-        "dimensao_impacto": 40.0,
-        "consequencias": 20.0,
-        "relevancia_posterior": 20.0,
-        "dimensao_duracao": 15.0,
-        "relevancia_mediatica": 50.0,
-        "singularidade": 30.0
-      },
-      "relevance_weighted": 28.5,
-      "relevance_justification": "Vitoria destaca talento português, mas efeito duradouro limitado.",
-      "source_type": "archive",
-      "url_path": "noticia/2026/01/07/fernanda-torres-vence-globo-de-ouro-cee3bf90",
-      "page_id": "noticia-cee3bf901c8b2dbbc4aa4ddf",
-      "detail_image": "assets/banners/2026-01-07-1-fernanda-torres-vence-globo-de-ouro-banner.jpg",
       "snapshot_url": ""
     },
     {
@@ -2256,6 +2411,7 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": null,
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -2270,7 +2426,7 @@
       "relevance_weighted": 24.0,
       "relevance_justification": "A decisão sobre a criação de 274 novas freguesias pode alterar a organização administrativa local, mas seu impacto histórico e duradouro permanece limitado, sendo mais relevante no contexto político português do que global.",
       "source_type": "archive",
-      "url_path": "noticia/2026/01/06/enquanto-dormia-o-observador-antecipava-um-novo-veto-presidencial-a-57b34927",
+      "url_path": "noticia/desporto/enquanto-dormia-o-observador-antecipava-um",
       "page_id": "noticia-57b34927b4449ac65a273b9c",
       "detail_image": "assets/banners/2026-01-06-1-enquanto-dormia-o-observador-antecipava-um-novo-veto-presidencial-a-banner.jpg",
       "snapshot_url": ""
@@ -2301,6 +2457,10 @@
       "networks": [
         "x"
       ],
+      "cover_focus": [
+        0.49,
+        0.38
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -2315,7 +2475,7 @@
       "relevance_weighted": 35.2,
       "relevance_justification": "Eleito como primeiro republicano abertamente gay, mas posteriormente expulso por fraude, limitando seu impacto duradouro.",
       "source_type": "newspaper",
-      "url_path": "noticia/2026/01/05/george-santos-e-primeiro-republicano-gay-eleito-ao-congresso-03ecaaee",
+      "url_path": "noticia/mundial/george-santos-e-primeiro-republicano-gay",
       "page_id": "noticia-03ecaaeeddbcdcc42a67d4a2",
       "detail_image": "assets/banners/2026-01-05-2-george-santos-primeiro-republicano-gay-eleito-ao-congresso-banner.jpg",
       "snapshot_url": ""
@@ -2346,6 +2506,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.53,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 4,
       "relevance_scores": {
@@ -2360,7 +2524,7 @@
       "relevance_weighted": 53.5,
       "relevance_justification": "Primeira atriz brasileira a vencer o Globo de Ouro, marcando avanço para o cinema nacional e inspirando futuras gerações.",
       "source_type": "wikipedia",
-      "url_path": "noticia/2026/01/05/fernanda-torres-vence-globo-de-ouro-a2e15bb8",
+      "url_path": "noticia/estrela/fernanda-torres-vence-globo-de-ouro",
       "page_id": "noticia-a2e15bb81b3e3ab9dfa97230",
       "detail_image": "assets/banners/2026-01-05-1-fernanda-torres-vence-globo-de-ouro-banner.jpg",
       "snapshot_url": ""
@@ -2391,6 +2555,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.5,
+        0.51
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -2405,7 +2573,7 @@
       "relevance_weighted": 38.5,
       "relevance_justification": "A estreia recorde de Squid Game reforçou a influência da Netflix no consumo global de séries, mas seu impacto histórico é limitado a mudanças temporárias na indústria de streaming. Embora tenha impulsionado a discussão sobre o futuro das plataformas de streaming, os efeitos duradouros são restritos ao fortalecimento da marca da série e ao aumento de assinaturas.",
       "source_type": "archive",
-      "url_path": "noticia/2026/01/04/a-segunda-temporada-de-squid-game-quebrou-recordes-com-uma-estreia-monumental-244095aa",
+      "url_path": "noticia/atualidade/a-segunda-temporada-de-squid-game",
       "page_id": "noticia-244095aa496d74ac2a616741",
       "detail_image": "assets/banners/2026-01-04-1-a-segunda-temporada-de-squid-game-quebrou-recordes-com-uma-estreia-monumental-banner.jpg",
       "snapshot_url": ""
@@ -2436,6 +2604,10 @@
       "networks": [
         "x"
       ],
+      "cover_focus": [
+        0.55,
+        0.58
+      ],
       "network_posts": {},
       "relevance_level": 4,
       "relevance_scores": {
@@ -2450,7 +2622,7 @@
       "relevance_weighted": 43.0,
       "relevance_justification": "Eleições latino-americanas de 2022 indicam mudanças políticas regionais, porém efeitos concretos ainda estão em desenvolvimento.",
       "source_type": "internet_profile",
-      "url_path": "noticia/2026/01/03/eleicoes-na-america-latina-definem-rumo-politico-continental-be1bbd17",
+      "url_path": "noticia/mundial/eleicoes-na-america-latina-definem-rumo",
       "page_id": "noticia-be1bbd176e7a1e14b7c527cf",
       "detail_image": "assets/banners/2026-01-03-2-eleies-na-amrica-latina-definem-rumo-poltico-continental-banner.jpg",
       "snapshot_url": ""
@@ -2481,6 +2653,10 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -2495,7 +2671,7 @@
       "relevance_weighted": 24.8,
       "relevance_justification": "Expansão do estádio aumenta receita e capacidade, mas efeito limitado ao contexto futebolístico português.",
       "source_type": "newspaper",
-      "url_path": "noticia/2026/01/03/benfica-amplia-estadio-da-luz-para-70-mil-bf36744b",
+      "url_path": "noticia/desporto/benfica-amplia-estadio-da-luz-para",
       "page_id": "noticia-bf36744ba4ba7e3e5381af86",
       "detail_image": "assets/banners/2026-01-03-1-benfica-amplia-estdio-da-luz-para-70-mil-banner.jpg",
       "snapshot_url": ""
@@ -2527,6 +2703,10 @@
         "facebook",
         "x"
       ],
+      "cover_focus": [
+        0.65,
+        0.45
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -2541,7 +2721,7 @@
       "relevance_weighted": 20.0,
       "relevance_justification": "A declaração de Lula sobre não reconhecer a vitória de Maduro gerou repercussão diplomática, mas não alterou significativamente a dinâmica política regional. Seu impacto é limitado e de curta duração, sem consequências duradouras.",
       "source_type": "archive",
-      "url_path": "noticia/2026/01/02/lula-disse-que-nao-reconheceria-a-vitoria-de-nicolas-maduro-nas-presidenciais-01a70a70",
+      "url_path": "noticia/politica/lula-disse-que-nao-reconheceria-a",
       "page_id": "noticia-01a70a707cb964949a8fb27b",
       "detail_image": "assets/banners/2026-01-02-1-lula-disse-que-no-reconheceria-a-vitria-de-nicols-maduro-nas-presidenciais-banner.jpg",
       "snapshot_url": ""
@@ -2572,13 +2752,14 @@
       "networks": [
         "instagram"
       ],
+      "cover_focus": null,
       "network_posts": {},
       "relevance_level": null,
       "relevance_scores": {},
       "relevance_weighted": null,
       "relevance_justification": "",
       "source_type": "archive",
-      "url_path": "noticia/2026/01/01/um-atentado-durante-as-celebracoes-de-ano-novo-em-nova-orleans-estados-unidos-f0e46171",
+      "url_path": "noticia/entretenimento/um-atentado-durante-as-celebracoes-de",
       "page_id": "noticia-f0e461713a68bddfbb5dacf3",
       "detail_image": "assets/banners/2026-01-01-1-um-atentado-durante-as-celebraes-de-ano-novo-em-nova-orleans-estados-unidos-banner.jpg",
       "snapshot_url": ""
@@ -2601,6 +2782,12 @@
       "2026-01-14",
       "2026-01-15",
       "2026-01-16",
+      "2026-01-17",
+      "2026-01-18",
+      "2026-01-19",
+      "2026-01-20",
+      "2026-01-21",
+      "2026-01-22",
       "2026-07-01",
       "2026-07-02",
       "2026-08-26",
@@ -2625,7 +2812,7 @@
     "instagram_sources": 14,
     "unique_sources": 34,
     "published_posts": 0,
-    "social_followers": 234,
+    "social_followers": 233,
     "social_networks": 1,
     "news_source_domains": [
       "abola.pt",
