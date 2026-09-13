@@ -9,6 +9,7 @@ from datetime import datetime, timedelta
 import requests
 
 from archive_storage import load_posts_for_date
+from historical_relevance import normalize_relevance, relevance_json_shape, relevance_prompt_rules
 from imgbb_registry import register_imgbb_upload
 from nvidia_client import DEFAULT_NVIDIA_MODEL, NvidiaKeyPool, load_nvidia_api_keys
 from post_templates import create_image_with_text as render_post_image, is_volatile_image_url
@@ -232,16 +233,18 @@ def select_nvidia_candidates(news_items, max_total=MAX_NVIDIA_INPUT_ITEMS, max_p
         year = str(item.get("date", ""))[:4] or "0000"
         grouped.setdefault(year, []).append(item)
 
+    def selection_score(item):
+        # Jornais/perfis primeiro: eventos da Wikipédia não têm página de
+        # jornal preservada para ancorar a notícia.
+        platform = normalize_text(item.get("source_platform", "")).lower()
+        return (0 if platform != "wikipedia" else 1, score_nvidia_candidate(item), item.get("date", ""))
+
     selected = []
     years = sorted(grouped.keys(), reverse=True)
     # First pass: one strong item per year keeps July-like month runs from being dominated
     # by only the latest archived posts.
     for year in years:
-        year_items = sorted(
-            grouped[year],
-            key=lambda item: (score_nvidia_candidate(item), item.get("date", "")),
-            reverse=True,
-        )
+        year_items = sorted(grouped[year], key=selection_score, reverse=True)
         if year_items:
             selected.append(year_items[0])
         if len(selected) >= max_total:
@@ -251,13 +254,9 @@ def select_nvidia_candidates(news_items, max_total=MAX_NVIDIA_INPUT_ITEMS, max_p
         selected_ids = {id(item) for item in selected}
         remaining = []
         for year in years:
-            year_items = sorted(
-                grouped[year],
-                key=lambda item: (score_nvidia_candidate(item), item.get("date", "")),
-                reverse=True,
-            )
+            year_items = sorted(grouped[year], key=selection_score, reverse=True)
             remaining.extend(item for item in year_items[1:max_per_year] if id(item) not in selected_ids)
-        remaining.sort(key=lambda item: (score_nvidia_candidate(item), item.get("date", "")), reverse=True)
+        remaining.sort(key=selection_score, reverse=True)
         selected.extend(remaining[: max_total - len(selected)])
 
     return selected[:max_total]
@@ -348,6 +347,28 @@ def build_editorial_context(item):
     return "\n".join(parts).strip()
 
 
+# Filtro opcional de fontes (definido por popular_site.py / ARQUIVO_SOURCE_DOMAINS).
+SOURCE_DOMAIN_FILTER = set()
+
+
+def _source_matches_filter(item):
+    if not SOURCE_DOMAIN_FILTER:
+        return True
+    candidates = {
+        normalize_text(item.get("source_profile", "")).lower(),
+        normalize_text(item.get("domain", "")).lower(),
+    }
+    for handle in candidates:
+        if not handle:
+            continue
+        if handle in SOURCE_DOMAIN_FILTER or handle.replace(".pt", "") in SOURCE_DOMAIN_FILTER:
+            return True
+        for allowed in SOURCE_DOMAIN_FILTER:
+            if allowed in handle or handle in allowed:
+                return True
+    return False
+
+
 def get_historical_news_for_date(date_obj, lang):
     posts = load_posts_for_date(lang, date_obj.month, date_obj.day)
 
@@ -374,6 +395,8 @@ def get_historical_news_for_date(date_obj, lang):
                 if any(w in caption_lower for w in heavy_words):
                     continue
                 if is_low_value_anniversary(item):
+                    continue
+                if not _source_matches_filter(item):
                     continue
                 matching.append(item)
         except ValueError:
@@ -415,6 +438,7 @@ def create_image_with_text(
     exclude_background_urls=None,
     return_details=False,
     year=None,
+    relevance_level=None,
 ):
     return render_post_image(
         category_to_draw,
@@ -433,6 +457,7 @@ def create_image_with_text(
         exclude_background_urls=exclude_background_urls,
         return_details=return_details,
         year=year,
+        relevance_level=relevance_level,
     )
 
 
@@ -483,6 +508,212 @@ def review_image_path(lang, date_str, option, index):
     return os.path.join(directory, f"{date_str}_{index + 1:02d}_{year}_{title}.jpg")
 
 
+_WAYBACK_RESOLUTION_CACHE = {}
+
+
+def enrich_options_with_ai(options, lang):
+    """2.ª chamada leve: inglês americano + pontuação de relevância.
+
+    Mantém o pedido do rank pequeno (só PT); esta chamada recebe as opções
+    já escolhidas em formato compacto e devolve title_en/summary_en/relevance
+    por índice. Falha aqui não perde as opções — o backfill completa depois.
+    """
+    if not options or not nvidia_pool.has_keys():
+        return options
+    compact = [
+        {
+            "idx": index,
+            "year": option.get("year", ""),
+            "category": option.get("category", ""),
+            "title": option.get("title", ""),
+            "overlay": (option.get("overlay_description") or "")[:200],
+            "summary": (option.get("summary") or "")[:200],
+        }
+        for index, option in enumerate(options)
+    ]
+    prompt = f"""For each numbered news option below, respond with valid JSON only (no markdown):
+{{
+  "items": [
+    {{
+      "idx": 0,
+      "title_en": "The headline in natural United States English (not a literal translation)",
+      "summary_en": "The overlay/summary in natural United States English",
+      "relevance": {{
+        "impacto_historico": 0-100,
+        "dimensao_impacto": 0-100,
+        "consequencias": 0-100,
+        "relevancia_posterior": 0-100,
+        "dimensao_duracao": 0-100,
+        "relevancia_mediatica": 0-100,
+        "singularidade": 0-100,
+        "justification": "1-2 SHORT sentences in Portuguese (max 25 words)"
+      }}
+    }}
+  ]
+}}
+
+Scoring rules: {relevance_prompt_rules()}
+
+Options:
+{json.dumps(compact, ensure_ascii=False)}
+"""
+    try:
+        response = nvidia_pool.chat_json(prompt, timeout=180)
+        payload = json.loads(response or "{}")
+        items = payload.get("items") if isinstance(payload, dict) else payload
+        for item in items if isinstance(items, list) else []:
+            if not isinstance(item, dict):
+                continue
+            try:
+                index = int(item.get("idx"))
+            except (TypeError, ValueError):
+                continue
+            if not (0 <= index < len(options)):
+                continue
+            option = options[index]
+            if item.get("title_en"):
+                option["title_en"] = normalize_text(item.get("title_en"))
+            if item.get("summary_en"):
+                option["summary_en"] = normalize_text(item.get("summary_en"))
+            relevance = normalize_relevance(item.get("relevance"))
+            if relevance:
+                option["relevance"] = relevance
+    except Exception as exc:
+        print(f"[pregen] enriquecimento falhou (segue com backfill): {exc}")
+    return options
+
+
+def resolve_wayback_capture(url, year, title=""):
+    """Resolve a captura wayback mais próxima do artigo original.
+
+    Consulta o serviço CDX do Arquivo.pt para o URL exato, preferindo capturas
+    do próprio ano (aceita o ano seguinte se não houver). Devolve o URL
+    `arquivo.pt/wayback/<timestamp>/<url>` ou "" quando não existe captura —
+    sem captura não há snapshot nem ligação verificável.
+    """
+    url = normalize_text(url)
+    if not url or not url.startswith(("http://", "https://")):
+        return ""
+    cache_key = f"{url}|{year}"
+    if cache_key in _WAYBACK_RESOLUTION_CACHE:
+        return _WAYBACK_RESOLUTION_CACHE[cache_key]
+    result = ""
+    try:
+        year_int = int(str(year)[:4] or 0)
+    except ValueError:
+        year_int = 0
+    if year_int:
+        response = requests.get(
+            "https://arquivo.pt/wayback/cdx",
+            params={
+                "url": url,
+                "output": "json",
+                "from": str(year_int),
+                "to": str(year_int + 1),
+                "limit": "60",
+            },
+            timeout=45,
+        )
+        rows = []
+        if response.status_code == 200:
+            # O CDX responde em JSONL (um objeto JSON por linha) ou num único
+            # array — aceitar os dois formatos.
+            text = response.text or ""
+            try:
+                parsed = json.loads(text)
+                rows = parsed if isinstance(parsed, list) else []
+            except ValueError:
+                for line in text.splitlines():
+                    line = line.strip()
+                    if not line:
+                        continue
+                    try:
+                        item = json.loads(line)
+                    except ValueError:
+                        continue
+                    if isinstance(item, dict):
+                        rows.append(item)
+        normalized_rows = []
+        for row in rows:
+            if isinstance(row, dict):
+                normalized_rows.append([row.get("timestamp"), row.get("status"), row.get("mime"), row.get("original")])
+            elif isinstance(row, list):
+                normalized_rows.append(row)
+        rows = normalized_rows
+        best_ts, best_rank = "", None
+        for row in rows or []:
+            if not isinstance(row, (list, tuple)) or len(row) < 2:
+                continue
+            timestamp, status = str(row[0]), str(row[1])
+            try:
+                capture_year = int(timestamp[:4])
+            except ValueError:
+                continue
+            # Capturas 2xx preferidas; 3xx servem de fallback (o replay segue
+            # o redirecionamento para a página final preservada).
+            if status.startswith("2"):
+                status_rank = 0
+            elif status.startswith("3"):
+                status_rank = 1
+            else:
+                continue
+            is_html = str(row[2] or "").startswith("text/html")
+            rank = (status_rank, 0 if is_html else 1, abs(capture_year - year_int))
+            if best_rank is None or rank < best_rank:
+                best_ts, best_rank = timestamp, rank
+        if best_ts:
+            result = f"https://arquivo.pt/wayback/{best_ts}/{url}"
+    if not result and year_int:
+        # Fallback Memento timemap: mais tolerante com variações do URL.
+        try:
+            timemap = requests.get(
+                f"https://arquivo.pt/wayback/timemap/link/{url}",
+                timeout=40,
+            )
+            for line in (timemap.text or "").splitlines():
+                line = line.strip()
+                if not line.startswith("<") or ">" not in line:
+                    continue
+                capture_url = line[1 : line.index(">")]
+                timestamp = ""
+                for part in line.split(";"):
+                    if part.strip().startswith("datetime="):
+                        timestamp = part.split("=", 1)[1].strip('"').replace("Z", "")
+                        break
+                if timestamp and timestamp[:4].isdigit() and abs(int(timestamp[:4]) - year_int) <= 1:
+                    result = f"https://arquivo.pt/wayback/{timestamp}/{url}"
+                    break
+        except requests.RequestException:
+            pass
+    if not result:
+        # O URL exato pode nunca ter sido arquivado (ex.: sitemaps modernos
+        # com datas antigas): procurar a captura pelo título no mesmo domínio.
+        title_query = normalize_text(title)
+        domain_match = re.search(r"https?://([^/]+)/", url)
+        domain = domain_match.group(1) if domain_match else ""
+        if title_query and year_int:
+            try:
+                search_params = {
+                    "q": title_query,
+                    "maxItems": "8",
+                    "from": f"{year_int}0101",
+                    "to": f"{year_int + 1}1231",
+                }
+                if domain:
+                    search_params["siteSearch"] = domain
+                search = requests.get("https://arquivo.pt/textsearch", params=search_params, timeout=60)
+                items = (search.json() or {}).get("responseItems", []) if search.status_code == 200 else []
+                for item in items:
+                    archive_link = normalize_text(item.get("linkToArchive"))
+                    if "/wayback/" in archive_link:
+                        result = archive_link
+                        break
+            except (requests.RequestException, ValueError):
+                pass
+    _WAYBACK_RESOLUTION_CACHE[cache_key] = result
+    return result
+
+
 def rank_all_stories_for_day(news_items, lang, feedback_note=""):
     global NVIDIA_DISABLED
 
@@ -531,6 +762,7 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
     5. Penalize routine bureaucracy, municipal meeting notes, generic agency copy, budget/process updates, minor appointments, ceremonial anniversaries, and stories whose hook depends on knowing an obscure name.
     6. Return a JSON object with an "options" array containing exactly 10 distinct, non-repeating objects (ordered from highest viral potential to lowest).
     7. The first 5 options will be used for Slot 1 of the day, and the remaining 5 options will be used for Slot 2. Ensure the two slot groups do not overlap in theme, year, public figure, or framing.
+    8. GROUNDING: only propose events that actually correspond to one of the RAW DATA items provided. Never invent or mix up people, years, clubs or facts. If you are not certain the event matches a raw item, skip it.
 
     Format:
     {{
@@ -568,7 +800,7 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
         if not nvidia_pool.has_keys():
             break
         try:
-            response_text = nvidia_pool.chat_json(prompt, model=NVIDIA_MODEL)
+            response_text = nvidia_pool.chat_json(prompt, model=NVIDIA_MODEL, timeout=240)
             save_key_status_to_file()
             payload = json.loads(response_text or "{}")
             if isinstance(payload, dict):
@@ -583,19 +815,28 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
                 def _option_tokens(text):
                     return set(re.findall(r"[a-záâãéêíóôõúç]{4,}", normalize_text(text).lower()))
 
+                grounded_options = []
                 for option in options:
                     if not isinstance(option, dict):
                         continue
                     option["year"] = normalize_text(option.get("year", ""))
                     option["category"] = normalize_text(option.get("category", ""), uppercase=True)
                     option["title"] = normalize_text(option.get("title", ""))
+                    option["title_en"] = normalize_text(option.get("title_en", ""))
                     option["highlight_text"] = normalize_text(option.get("highlight_text", ""))
                     option["overlay_description"] = normalize_text(option.get("overlay_description", ""))
                     option["image_theme"] = normalize_text(option.get("image_theme", ""))
                     option["caption"] = normalize_text(option.get("caption", ""))
                     option["summary"] = normalize_text(option.get("summary", ""))
+                    option["summary_en"] = normalize_text(option.get("summary_en", ""))
+                    relevance = normalize_relevance(option.get("relevance"))
+                    option["relevance"] = relevance or {}
+                    if not option["title"] or not option["year"]:
+                        continue
                     # Ligar a opção à notícia candidata correspondente (ano +
-                    # palavras partilhadas) para o snapshot apontar à página certa.
+                    # palavras partilhadas) e resolver a captura wayback —
+                    # opções desancoradas (ex.: alucinações da IA) são
+                    # descartadas: sem artigo real não há snapshot nem fonte.
                     option["article_url"] = ""
                     pool = candidates_by_year.get(option["year"][:4], [])
                     opt_tokens = _option_tokens(f"{option.get('title', '')} {option.get('summary', '')}")
@@ -605,7 +846,28 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
                         if score > best_score:
                             best, best_score = candidate, score
                     if best and best_score >= 2:
-                        option["article_url"] = normalize_text(best.get("source_url") or best.get("url") or "")
+                        candidate_url = normalize_text(best.get("source_url") or best.get("url") or "")
+                        # Âncora a um candidato REAL (impede alucinações); a
+                        # captura wayback é procurada mas é best-effort — sem
+                        # captura mantém-se o artigo original como fonte.
+                        if "/wayback/" in candidate_url:
+                            option["article_url"] = candidate_url
+                        else:
+                            option["article_url"] = (
+                                resolve_wayback_capture(
+                                    candidate_url,
+                                    option["year"][:4],
+                                    title=normalize_text(best.get("title") or option.get("title", "")),
+                                )
+                                or candidate_url
+                            )
+                        # Proveniência do candidato (chip Jornal/Perfil/Wikipédia).
+                        option["source_platform"] = normalize_text(best.get("source_platform"))
+                        option["source_profile"] = normalize_text(best.get("source_profile"))
+                        grounded_options.append(option)
+                    else:
+                        print(f"[pregen] opção desancorada descartada: {option['title'][:60]} ({option['year']})")
+                options = enrich_options_with_ai(grounded_options, lang) if grounded_options else []
             return options if isinstance(options, list) and options else []
         except Exception as e:
             err_msg = str(e).lower()
@@ -801,16 +1063,21 @@ def normalize_pending_post(post):
         normalized_option["year"] = normalize_text(normalized_option.get("year", ""))
         normalized_option["category"] = normalize_text(normalized_option.get("category", ""), uppercase=True)
         normalized_option["title"] = normalize_text(normalized_option.get("title", ""))
+        normalized_option["title_en"] = normalize_text(normalized_option.get("title_en", ""))
         normalized_option["highlight_text"] = normalize_text(normalized_option.get("highlight_text", ""))
         normalized_option["overlay_description"] = normalize_text(normalized_option.get("overlay_description", ""))
         normalized_option["image_theme"] = normalize_text(normalized_option.get("image_theme", ""))
         normalized_option["caption"] = normalize_text(normalized_option.get("caption", ""))
         normalized_option["summary"] = normalize_text(normalized_option.get("summary", ""))
+        normalized_option["summary_en"] = normalize_text(normalized_option.get("summary_en", ""))
         normalized_option["layout_preference"] = str(normalized_option.get("layout_preference", "template_1")).strip().lower().replace("-", "_")
         normalized_option["breaking_candidate"] = bool(normalized_option.get("breaking_candidate", False))
         normalized_option["background_source_url"] = normalize_text(normalized_option.get("background_source_url", ""))
         normalized_option["local_image_path"] = normalize_text(normalized_option.get("local_image_path", ""))
         normalized_option["image_delete_url"] = normalize_text(normalized_option.get("image_delete_url", ""))
+        relevance = normalize_relevance(normalized_option.get("relevance"))
+        normalized_option["relevance"] = relevance or {}
+        normalized_option["article_url"] = normalize_text(normalized_option.get("article_url", ""))
         options.append(normalized_option)
     post["options"] = options
     if post["selected_option"] >= len(options):
@@ -957,6 +1224,7 @@ def prepare_options_for_review(
                 exclude_background_urls=[current_background_source] if force_new_background and current_background_source and not manual_background_url else [],
                 return_details=True,
                 year=option.get("year"),
+                relevance_level=(option.get("relevance") or {}).get("level"),
             )
             imgbb_upload = upload_to_imgbb(
                 stable_img_path,

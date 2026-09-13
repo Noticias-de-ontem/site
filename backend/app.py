@@ -34,6 +34,8 @@ from backend.topic_service import load_site_data
 
 ROOT = Path(__file__).resolve().parents[1]
 SITE_DIR = ROOT / "site"
+# Manter em sincronia com build_site.py SITE_ASSET_VERSION.
+SITE_ASSET_VERSION = "20260913b"
 DEFAULT_PUBLIC_URL = "https://luisflmaximo.github.io/Noticias-de-ontem-pt"
 TOPIC_MAX_ACTIVE_JOBS = positive_int("TOPIC_MAX_ACTIVE_JOBS", 8)
 TOPIC_JOB_SLOT_TTL_SECONDS = positive_int("TOPIC_JOB_SLOT_TTL_SECONDS", 7200)
@@ -281,12 +283,17 @@ def render_story_page(item):
         count=1,
         flags=re.DOTALL,
     )
-    return (
+    page = (
         page
         .replace('href="assets/', 'href="../../assets/')
         .replace('src="assets/', 'src="../../assets/')
-        .replace('href="styles.css?v=20260905g"', 'href="../../styles.css?v=20260905g"')
-        .replace('src="app.js?v=20260905g"', 'src="../../app.js?v=20260905g"')
+        # Versão-agnóstico: um bump da versão no template não pode partir
+        # as ligações para o CSS/JS nas páginas aninhadas.
+    )
+    page = re.sub(r'href="styles\.css\?v=[^"]*"', f'href="../../styles.css?v={SITE_ASSET_VERSION}"', page)
+    page = re.sub(r'src="app\.js\?v=[^"]*"', f'src="../../app.js?v={SITE_ASSET_VERSION}"', page)
+    return (
+        page
         .replace('href="inicio/"', 'href="../../inicio/"')
         .replace('href="calendario/"', 'href="../../calendario/"')
         .replace('href="temas/"', 'href="../../temas/"')

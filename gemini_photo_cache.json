@@ -1,0 +1,1184 @@
+{
+ "2026-08-28_01_2021_rui-moreira-lidera-sondagem-no-porto-com-59-fundo.jpg:567072": {
+  "_final": {
+   "subject": "Ponte Luís I sobre o Rio Douro e a cidade do Porto",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.45,
+    0.4
+   ],
+   "cover_focus": [
+    0.45,
+    0.55
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "A estrutura em arco da ponte tem orientação vertical pronunciada, cortada drasticamente num formato panorâmico largo."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-08-30_01_2021_notificacoes-bloqueadas-pelo-browser-a-informacao-tem-valor-considere-apoiar-est-fundo.jpg:479725": {
+  "_final": {
+   "subject": "Capa da revista Dragões comemorativa do 30º campeonato do FC Porto",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.395,
+     0.73
+    ],
+    [
+     0.445,
+     0.675
+    ],
+    [
+     0.555,
+     0.675
+    ],
+    [
+     0.595,
+     0.72
+    ],
+    [
+     0.7,
+     0.7
+    ],
+    [
+     0.29,
+     0.665
+    ],
+    [
+     0.255,
+     0.7
+    ],
+    [
+     0.68,
+     0.65
+    ],
+    [
+     0.725,
+     0.62
+    ],
+    [
+     0.415,
+     0.615
+    ],
+    [
+     0.59,
+     0.62
+    ],
+    [
+     0.74,
+     0.55
+    ],
+    [
+     0.68,
+     0.58
+    ],
+    [
+     0.525,
+     0.565
+    ],
+    [
+     0.435,
+     0.535
+    ],
+    [
+     0.375,
+     0.545
+    ],
+    [
+     0.575,
+     0.51
+    ],
+    [
+     0.675,
+     0.5
+    ],
+    [
+     0.74,
+     0.47
+    ]
+   ],
+   "banner_focus": [
+    0.49,
+    0.45
+   ],
+   "cover_focus": [
+    0.49,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "Capa de revista vertical com texto dominante; corte banner cortaria a composição do número 30."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-07-02_01_2025_nuno-borges-chega-a-terceira-ronda-em-wimbledon-fundo.jpg:197405": {
+  "_final": {
+   "subject": "Tenista em ação a bater a bola em campo de relva",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.49,
+     0.1
+    ]
+   ],
+   "banner_focus": [
+    0.49,
+    0.22
+   ],
+   "cover_focus": [
+    0.52,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "A pose vertical de corpo inteiro perde impacto essencial e contexto num recorte horizontal panorâmico."
+  },
+  "_model": "gemini-flash-latest"
+ },
+ "tmpx5z34xmw.jpg:276532": {
+  "_final": {
+   "subject": "Guitarras portuguesas em exposição numa loja",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.55,
+    0.65
+   ],
+   "cover_focus": [
+    0.53,
+    0.55
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "Instrumentos musicais verticais sofrem corte excessivo no formato horizontal panorâmico, mas enquadram-se bem no vertical."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "tmpjevsfpu0.jpg:625105": {
+  "_final": {
+   "subject": "Parede de museu com versos e ilustrações sobre o Fado",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.45,
+    0.45
+   ],
+   "cover_focus": [
+    0.45,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "Imagem dominada por texto manuscrito vertical, inadequada para recorte panorâmico com sobreposição de títulos."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "tmpr1c3pnjx.jpg:374886": {
+  "_final": {
+   "subject": "Fachada de esquadra policial em betão com escadaria de entrada",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.42
+   ],
+   "cover_focus": [
+    0.5,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "reason": "A fachada horizontal e a entrada central adaptam-se bem a ambos os formatos de recorte."
+  },
+  "_model": "gemini-flash-latest"
+ },
+ "tmp40qemt6u.jpg:52171": {
+  "_final": {
+   "subject": "Logótipo estilizado da letra i em azul, branco e vermelho",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.2
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "Elemento gráfico vertical que é severamente cortado num formato panorâmico 2.3:1."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "tmpbih7dffi.jpg:206991": {
+  "_final": {
+   "subject": "Criança nos ombros e cartaz de protesto 'Baza, Bozo' em manifestação",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.6
+   ],
+   "cover_focus": [
+    0.5,
+    0.58
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "Composição vertical com cartaz e criança; corte panorâmico corta elementos essenciais e há texto dominante."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "tmp9ejdsxwb.jpg:353868": {
+  "_final": {
+   "subject": "Retrato oficial de D. João VI em uniforme de gala",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.56,
+     0.16
+    ]
+   ],
+   "banner_focus": [
+    0.56,
+    0.2
+   ],
+   "cover_focus": [
+    0.54,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "Retrato vertical alongado; recorte banner corta excessivamente o corpo e as insígnias reais."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "tmp7q9uuzs3.jpg:176127": {
+  "_final": {
+   "subject": "Racks de equipamento de som e áudio em ambiente escuro",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.22,
+    0.35
+   ],
+   "cover_focus": [
+    0.45,
+    0.52
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "Imagem muito escura e vertical com equipamentos empilhados, inadequada para formato panorâmico largo."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "tmpdm2_x9tt.jpg:276532": {
+  "_final": {
+   "subject": "Guitarras portuguesas expostas para venda",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.55,
+    0.6
+   ],
+   "cover_focus": [
+    0.52,
+    0.55
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "Instrumentos musicais altos e verticais sofreriam cortes severos no formato largo de banner."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "tmps1t56gw4.jpg:78215": {
+  "_final": {
+   "subject": "Candeeiro de rua antigo iluminado contra o céu noturno",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.42,
+    0.52
+   ],
+   "cover_focus": [
+    0.42,
+    0.52
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "reason": "O candeeiro iluminado enquadra-se bem em ambos os formatos sem perder elementos importantes."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "tmpth3zjlbm.jpg:52171": {
+  "_final": {
+   "subject": "Logótipo estilizado da letra 'i' sobre fundo preto",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.2
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "Símbolo vertical e gráfico; inadequado para banner horizontal por corte excessivo e natureza de logótipo."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "tmpm4yeyzo6.jpg:264714": {
+  "_final": {
+   "subject": "Cartaz de protesto com a mensagem 'Don't just pray, act'",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.34,
+     0.82
+    ]
+   ],
+   "banner_focus": [
+    0.45,
+    0.42
+   ],
+   "cover_focus": [
+    0.47,
+    0.52
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "Texto dominante em cartaz vertical fica cortado em banner horizontal, mas funciona bem na capa vertical."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "tmpg_8xtuuw.jpg:353868": {
+  "_final": {
+   "subject": "Retrato oficial de D. João VI em uniforme militar de gala",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.56,
+     0.15
+    ]
+   ],
+   "banner_focus": [
+    0.56,
+    0.22
+   ],
+   "cover_focus": [
+    0.52,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "Retrato vertical de plano médio inadequado para banner panorâmico, mas ideal para capa vertical."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "tmpj87hlzf0.jpg:176127": {
+  "_final": {
+   "subject": "equipamento técnico e de som em bastidores escuros",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.35,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "reason": "Equipamento com displays iluminados em fundo escuro, adequado para ambos os enquadramentos sem cortes de rostos."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "tmp5lhee9g9.jpg:204714": {
+  "_final": {
+   "subject": "Amália Rodrigues a cantar fado acompanhada por guitarrista",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.46,
+     0.32
+    ],
+    [
+     0.74,
+     0.52
+    ]
+   ],
+   "banner_focus": [
+    0.47,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "Composição fortemente vertical com corpo inteiro; o formato banner cortaria o vestido e a postura cénica."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "tmp_g1t97yr.jpg:276532": {
+  "_final": {
+   "subject": "Duas guitarras portuguesas expostas numa parede",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.65
+   ],
+   "cover_focus": [
+    0.5,
+    0.55
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "Instrumentos musicais verticais sofrem corte excessivo no formato panorâmico estreito."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "tmpbarvznp4.jpg:625105": {
+  "_final": {
+   "subject": "Parede de exposição com letras de fado gravadas e corredor",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.45,
+    0.45
+   ],
+   "cover_focus": [
+    0.45,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "Composição vertical com texto manuscrito ao longo da parede, inadequada para recorte panorâmico largo."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "tmp15dv9wkl.jpg:291113": {
+  "_final": {
+   "subject": "Três pessoas sentadas à mesa numa reunião formal",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.36,
+     0.38
+    ],
+    [
+     0.59,
+     0.36
+    ],
+    [
+     0.78,
+     0.39
+    ]
+   ],
+   "banner_focus": [
+    0.58,
+    0.43
+   ],
+   "cover_focus": [
+    0.58,
+    0.48
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "reason": "As pessoas estão alinhadas horizontalmente à mesa, adaptando-se perfeitamente aos dois formatos de recorte."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "tmpl_a8ybrm.jpg:481779": {
+  "_final": {
+   "subject": "Dois homens de fato a posar lado a lado para fotografia",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.291,
+     0.329
+    ],
+    [
+     0.734,
+     0.316
+    ]
+   ],
+   "banner_focus": [
+    0.513,
+    0.37
+   ],
+   "cover_focus": [
+    0.513,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "reason": "Ambas as figuras estão bem centradas e visíveis, permitindo recortes adequados para banner e capa."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "tmp182r6f95.jpg:343102": {
+  "_final": {
+   "subject": "Crianças com máscaras sentadas ao ar livre",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.53,
+     0.35
+    ],
+    [
+     0.37,
+     0.41
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "reason": "As caras estão bem visíveis, permitindo recortes adequados para banner e capa."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "tmprcdytpnh.jpg:160284": {
+  "_final": {
+   "subject": "Close-up do rosto de um homem sorridente de óculos",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.5,
+     0.5
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.3
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "reason": "O rosto está demasiado próximo, cortando a testa no formato banner."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "tmpgxpvdxv8.jpg:300642": {
+  "_final": {
+   "subject": "Fachada do Teatro Éden em Lisboa",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.42
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "reason": "A fachada do edifício adapta-se bem a ambos os formatos de corte sem perder detalhes essenciais."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "tmptjuifj6w.jpg:204714": {
+  "_final": {
+   "subject": "Amália Rodrigues a cantar ao microfone com guitarrista ao fundo",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.46,
+     0.33
+    ],
+    [
+     0.74,
+     0.52
+    ]
+   ],
+   "banner_focus": [
+    0.46,
+    0.35
+   ],
+   "cover_focus": [
+    0.48,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Amália Rodrigues é a figura central dos 100 anos da sua data de nascimento."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "tmp2vt953ta.jpg:291113": {
+  "_final": {
+   "subject": "Iniciativa Liberal criticando Provedoria",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.37,
+     0.43
+    ],
+    [
+     0.59,
+     0.43
+    ],
+    [
+     0.79,
+     0.44
+    ]
+   ],
+   "banner_focus": [
+    0.58,
+    0.41
+   ],
+   "cover_focus": [
+    0.58,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de membros da Iniciativa Liberal numa reunião em Lisboa."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-08-27_01_2018_ronaldo-lidera-a-i-liga-fundo.jpg:205056": {
+  "_final": {
+   "subject": "Cristiano Ronaldo a gesticular durante um jogo de futebol",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.13,
+     0.44
+    ]
+   ],
+   "banner_focus": [
+    0.3,
+    0.48
+   ],
+   "cover_focus": [
+    0.3,
+    0.58
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Cristiano Ronaldo, diretamente relacionado com o tema da notícia."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-07-01_01_2025_beyonce-e-interrompida-durante-concerto-fundo.jpg:241299": {
+  "_final": {
+   "subject": "Ivete Sangalo a cantar com microfone em palco ou estádio",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.57,
+     0.28
+    ]
+   ],
+   "banner_focus": [
+    0.57,
+    0.32
+   ],
+   "cover_focus": [
+    0.52,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A foto retrata a cantora Ivete Sangalo e não a artista Beyoncé mencionada na notícia."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-07-01_01_2020_100-guitarras-a-tocarem-juntas-para-os-100-anos-de-amalia-fundo.jpg:204714": {
+  "_final": {
+   "subject": "Amália Rodrigues a cantar no palco acompanhada por um guitarrista",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.46,
+     0.32
+    ],
+    [
+     0.74,
+     0.52
+    ]
+   ],
+   "banner_focus": [
+    0.46,
+    0.35
+   ],
+   "cover_focus": [
+    0.46,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato histórico de Amália Rodrigues, diretamente relacionado com a homenagem ao seu centenário."
+  },
+  "_model": "gemini-3.5-flash"
+ },
+ "2026-07-02_01_2020_parabens-psp-a-policia-publica-celebra-153-anos-fundo.jpg:374886": {
+  "_final": {
+   "subject": "Fachada de esquadra da PSP com emblema e faixa institucional",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.51,
+    0.45
+   ],
+   "cover_focus": [
+    0.51,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra diretamente a PSP através da fachada de uma esquadra com o seu logótipo e bandeira oficial."
+  },
+  "_model": "gemini-3.5-flash"
+ },
+ "2026-08-26_01_2021_iniciativa-liberal-critica-provedoria-por-nao-enviar-restricoes-ao-tc-fundo.jpg:291113": {
+  "_final": {
+   "subject": "Três pessoas em reunião formal sentadas à mesa",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.36,
+     0.37
+    ],
+    [
+     0.59,
+     0.35
+    ],
+    [
+     0.78,
+     0.38
+    ]
+   ],
+   "banner_focus": [
+    0.58,
+    0.42
+   ],
+   "cover_focus": [
+    0.58,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de reunião de representantes políticos, adequado para ilustrar a atividade da Iniciativa Liberal ou Provedoria."
+  },
+  "_model": "gemini-3.5-flash"
+ },
+ "2026-08-27_01_2021_il-acusa-provedoria-de-justica-fundo.jpg:234404": {
+  "_final": {
+   "subject": "Rui Rocha, líder da Iniciativa Liberal, a falar aos jornalistas",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.47,
+     0.25
+    ]
+   ],
+   "banner_focus": [
+    0.47,
+    0.28
+   ],
+   "cover_focus": [
+    0.47,
+    0.4
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Rui Rocha é o líder da IL, partido que protagoniza a acusação à Provedoria de Justiça."
+  },
+  "_model": "gemini-3.5-flash"
+ },
+ "2026-08-28_01_2019_lisboa-inaugura-passeio-da-fama-no-parque-mayer-fundo.jpg:300642": {
+  "_final": {
+   "subject": "Fachada do antigo Teatro Éden em Lisboa",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.47,
+    0.45
+   ],
+   "cover_focus": [
+    0.47,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O Teatro Éden é um marco histórico do teatro e cinema em Lisboa, vizinho do Parque Mayer."
+  },
+  "_model": "gemini-3.5-flash"
+ },
+ "2026-08-29_01_2021_o-primeiro-passo-simbolico-do-aguardado-regresso-esta-marcado-para-este-sabado-fundo.jpg:211971": {
+  "_final": {
+   "subject": "Retrato de homem sorridente de cabelo grisalho e polo cor-de-laranja",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.42,
+     0.46
+    ]
+   ],
+   "banner_focus": [
+    0.42,
+    0.42
+   ],
+   "cover_focus": [
+    0.42,
+    0.48
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato em grande plano adequado para ilustrar a personalidade associada ao regresso cultural noticiado."
+  },
+  "_model": "gemini-3.5-flash"
+ },
+ "2026-08-30_01_2021_se-as-eleicoes-autarquicas-fossem-em-agosto-rui-moreira-conquistaria-a-camara-fundo.jpg:262548": {
+  "_final": {
+   "subject": "Cartaz eleitoral de Rui Moreira para as eleições autárquicas no Porto",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Cartaz de campanha de Rui Moreira diretamente relacionado com as eleições autárquicas do Porto."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-02_01_2025_lula-disse-que-nao-reconheceria-a-vitoria-de-nicolas-maduro-nas-presidenciais-fundo.jpg:346811": {
+  "_final": {
+   "subject": "Nicolás Maduro discursando com faixa presidencial venezuelana",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.74,
+     0.26
+    ]
+   ],
+   "banner_focus": [
+    0.68,
+    0.32
+   ],
+   "cover_focus": [
+    0.65,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata Nicolás Maduro, figura central mencionada na notícia sobre as eleições presidenciais."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-01-03_01_2025_benfica-amplia-estadio-da-luz-para-70-mil-fundo.jpg:229726": {
+  "_final": {
+   "subject": "Bandeiras da União Europeia a esvoaçar num mastro",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.42
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "Bandeiras da União Europeia não têm qualquer relação com a ampliação do Estádio da Luz."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-01-03_01_2022_eleicoes-na-america-latina-definem-rumo-politico-continental-fundo.jpg:163075": {
+  "_final": {
+   "subject": "Dedo pressionando botão confirma em urna eletrônica de votação",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.55,
+    0.62
+   ],
+   "cover_focus": [
+    0.55,
+    0.58
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Urna eletrônica de votação simboliza diretamente eleições democráticas na América Latina."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-04_01_2025_a-segunda-temporada-de-squid-game-quebrou-recordes-com-uma-estreia-monumental-fundo.jpg:134593": {
+  "_final": {
+   "subject": "Olho mecânico da boneca de Squid Game com o número 2",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.51
+   ],
+   "cover_focus": [
+    0.5,
+    0.51
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Teaser oficial da 2ª temporada de Squid Game com o olho da boneca e o número 2."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-07_01_2001_garcia-pereira-critica-cimeira-de-nice-como-mera-autarquia-fundo.jpg:156457": {
+  "_final": {
+   "subject": "Pessoas a serem entrevistadas na rua com microfone",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.3,
+     0.32
+    ],
+    [
+     0.61,
+     0.3
+    ]
+   ],
+   "banner_focus": [
+    0.48,
+    0.32
+   ],
+   "cover_focus": [
+    0.5,
+    0.4
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra cidadãos anónimos na rua, sem relação com Garcia Pereira ou a Cimeira de Nice."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-08_01_2023_cristiano-ronaldo-rumo-ao-al-nassr-fundo.jpg:315628": {
+  "_final": {
+   "subject": "Cristiano Ronaldo a segurar a camisola do Al-Nassr",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.504,
+     0.201
+    ]
+   ],
+   "banner_focus": [
+    0.504,
+    0.245
+   ],
+   "cover_focus": [
+    0.504,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Cristiano Ronaldo com a camisola do Al-Nassr ilustra perfeitamente a notícia da sua transferência."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-01-08_01_2024_antonio-costa-pode-deixar-presidencia-do-conselho-europeu-fundo.jpg:178157": {
+  "_final": {
+   "subject": "Sala do Conselho Europeu em Bruxelas com teto e carpete coloridos",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.77,
+    0.5
+   ],
+   "cover_focus": [
+    0.77,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra a sala de reuniões do Conselho Europeu em Bruxelas, diretamente relacionada com a notícia."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-09_01_2025_jaime-faria-surpreende-no-australian-open-fundo.jpg:366604": {
+  "_final": {
+   "subject": "Rafael Nadal a beijar o troféu do Australian Open",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.51,
+     0.36
+    ]
+   ],
+   "banner_focus": [
+    0.55,
+    0.35
+   ],
+   "cover_focus": [
+    0.55,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem retrata Rafael Nadal e não o tenista português Jaime Faria."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-01-09_01_2017_meryl-streep-imita-jornalista-deficiente-nos-globos-fundo.jpg:346363": {
+  "_final": {
+   "subject": "Meryl Streep a discursar num evento com microfone e óculos",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.71,
+     0.27
+    ]
+   ],
+   "banner_focus": [
+    0.71,
+    0.3
+   ],
+   "cover_focus": [
+    0.71,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Meryl Streep em discurso num evento de prémios, perfeitamente relevante para a notícia."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-10_01_2023_ronaldo-ganha-200-mi-para-impulsionar-candidatura-saudita-fundo.jpg:154026": {
+  "_final": {
+   "subject": "Ilustração de Cristiano Ronaldo com o equipamento do Al-Nassr",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.46,
+     0.18
+    ]
+   ],
+   "banner_focus": [
+    0.46,
+    0.25
+   ],
+   "cover_focus": [
+    0.46,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustração de Cristiano Ronaldo no Al-Nassr, diretamente relacionada com a Arábia Saudita e a notícia."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-01-10_01_2019_equipa-atletica-do-vaticano-corre-maratona-inter-religiosa-fundo.jpg:204520": {
+  "_final": {
+   "subject": "Atletas a correr numa maratona sobre uma ponte",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.32,
+     0.31
+    ],
+    [
+     0.48,
+     0.29
+    ],
+    [
+     0.57,
+     0.34
+    ],
+    [
+     0.7,
+     0.36
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.38
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra corredores numa maratona, ilustrando perfeitamente o tema da notícia sobre atletismo e maratona."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-01-11_01_2017_primeiro-museu-submarino-da-europa-inaugurated-em-lanzarote-fundo.jpg:383688": {
+  "_final": {
+   "subject": "Esculturas monumentais de rostos submersas no fundo do mar",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.68,
+     0.5
+    ],
+    [
+     0.13,
+     0.56
+    ]
+   ],
+   "banner_focus": [
+    0.65,
+    0.4
+   ],
+   "cover_focus": [
+    0.6,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata esculturas subaquáticas artísticas características de museus submarinos como o de Lanzarote."
+  },
+  "_model": "gemini-3.7-flash"
+ }
+}

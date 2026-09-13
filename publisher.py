@@ -668,6 +668,11 @@ def get_today_news_from_arquivo(lang, month, day):
     else:
         sources = []
 
+    # Filtro opcional por fontes (popular_site.py --jornal / ARQUIVO_SOURCE_DOMAINS).
+    _domain_filter = [item.strip().lower() for item in os.environ.get("ARQUIVO_SOURCE_DOMAINS", "").split(",") if item.strip()]
+    if _domain_filter:
+        sources = [source for source in sources if str(source.get("domain", "")).lower() in _domain_filter]
+
     # Intervalo de anos configurável (ARQUIVO_SEARCH_YEAR_START/END) para
     # acelerar runs locais e permitir foco em épocas com índice pesquisável.
     year_start = int(os.environ.get("ARQUIVO_SEARCH_YEAR_START", "1996"))
@@ -1342,6 +1347,7 @@ def publish_to_instagram(image_url, caption, lang):
         res = requests.post(
             f"https://graph.facebook.com/v25.0/{user_id}/media",
             data={"image_url": image_url, "caption": caption, "access_token": token},
+            timeout=60,
         )
         res_data = res.json()
         if "id" not in res_data:
@@ -1350,6 +1356,7 @@ def publish_to_instagram(image_url, caption, lang):
         pub = requests.post(
             f"https://graph.facebook.com/v25.0/{user_id}/media_publish",
             data={"creation_id": res_data["id"], "access_token": token},
+            timeout=60,
         )
         pub_data = pub.json()
         if "id" in pub_data:
@@ -1565,6 +1572,7 @@ def main():
                         "https://api.imgbb.com/1/upload",
                         data={"key": imgbb_api_key},
                         files={"image": img_file},
+                        timeout=60,
                     )
                 imgbb_data = imgbb_res.json()
 

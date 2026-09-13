@@ -4,6 +4,7 @@ import html
 import json
 import os
 import re
+import unicodedata
 import shutil
 import textwrap
 from datetime import datetime, timezone
@@ -30,7 +31,7 @@ CDXJ_BUILDER_FILE = ROOT / "build_arquivo_cdxj_index.py"
 INSTAGRAM_SCRAPER_FILE = ROOT / "scraper.py"
 ICON_SOURCE = ROOT / "images" / "noticias_de_ontem_icon.png"
 ICON_ASSET = "icon.png"
-SITE_ASSET_VERSION = "20260905g"
+SITE_ASSET_VERSION = "20260913b"
 SITE_FONTS = [
     "Montserrat-Regular.ttf",
     "Montserrat-Medium.ttf",
@@ -271,6 +272,56 @@ INSTAGRAM_SOURCE_BRANDS = {
     "revistaoriana": "revista-oriana",
 }
 
+# Perfis de Instagram que não são orgãos de comunicação (entretenimento).
+INTERNET_PROFILE_HANDLES = {
+    "epahsaiu",
+    "hojenomundomilitar",
+    "revista_nit",
+    "revistaoriana",
+    "deuxmoi",
+    "buzzfeed",
+    "buzzfeednews",
+    "insider",
+    "insidertech",
+}
+
+# Ano no fim do título (a IA às vezes embute-o; o site compõe "Título, em ANO").
+TRAILING_YEAR_PATTERN = re.compile(
+    r"[,\s]*(?:\(|\[)?\s*(?:em|in|anno)?\s*(?:19|20)\d{2}\s*(?:\)|\])?\s*[.,;:!]?\s*$",
+    re.IGNORECASE,
+)
+
+
+def strip_title_year(title):
+    title = clean_text(title)
+    previous = None
+    while previous != title:
+        previous = title
+        title = TRAILING_YEAR_PATTERN.sub("", title).strip()
+    return title.rstrip(",;:.").strip()
+
+
+def source_type_for_item(item):
+    """Tipo de fonte para o chip de proveniência (badges/contexto)."""
+    platform = clean_text(item.get("source_platform") or "").lower()
+    if platform == "wikipedia":
+        return "wikipedia"
+    profile = clean_text(item.get("source_profile") or "").lower()
+    domain = clean_text(item.get("domain") or "").lower()
+    if domain in NEWS_SOURCE_BRANDS or profile in NEWS_SOURCE_BRANDS:
+        return "newspaper"
+    if profile in INTERNET_PROFILE_HANDLES or domain in INTERNET_PROFILE_HANDLES:
+        return "internet_profile"
+    if profile or platform == "instagram":
+        # Perfis conhecidos do INSTAGRAM_SOURCE_BRANDS que não são jornais
+        # (renascenca, 4gnews, sapo24… contam como jornal/rádio digital).
+        if profile in INSTAGRAM_SOURCE_BRANDS or domain in INSTAGRAM_SOURCE_BRANDS:
+            brand = INSTAGRAM_SOURCE_BRANDS.get(profile) or INSTAGRAM_SOURCE_BRANDS.get(domain)
+            newspaper_brands = set(NEWS_SOURCE_BRANDS.values())
+            return "newspaper" if brand in newspaper_brands or profile not in INTERNET_PROFILE_HANDLES else "internet_profile"
+        return "internet_profile"
+    return "archive"
+
 
 def load_json(path, default):
     if not path.exists():
@@ -461,6 +512,29 @@ def news_page_id(item):
     return f"noticia-{digest}"
 
 
+def _fold_to_ascii(value):
+    text = clean_text(value).lower()
+    normalized = unicodedata.normalize("NFKD", text)
+    return "".join(char for char in normalized if not unicodedata.combining(char))
+
+
+def news_url_path(item):
+    """URL limpo estilo jornal: /noticia/AAAA/MM/DD/slug-do-título-d8/.
+
+    Usa a DATA DE PUBLICAÇÃO (o post parece notícia de hoje — o ano original
+    revela-se dentro da página) e o slug completo do título, com sufixo curto
+    determinístico (os 8 primeiros caracteres do digest do page_id) para
+    desambiguar títulos repetidos.
+    """
+    page_id = clean_text(item.get("page_id")) or news_page_id(item)
+    digest8 = page_id.replace("noticia-", "")[:8]
+    date_match = re.match(r"^(\d{4})-(\d{2})-(\d{2})", clean_text(item.get("date")))
+    year, month, day = date_match.groups() if date_match else ("0000", "00", "00")
+    title_slug = re.sub(r"[^a-z0-9-]+", "-", _fold_to_ascii(item.get("title") or "")).strip("-")
+    title_slug = re.sub(r"-{2,}", "-", title_slug)[:90].strip("-") or "noticia"
+    return f"noticia/{year}/{month}/{day}/{title_slug}-{digest8}"
+
+
 def arquivo_screenshot_url(source_url):
     source_url = clean_text(source_url)
     # A API de screenshots recebe apenas URLs preservados (wayback) — nunca
@@ -592,7 +666,58 @@ def draw_wrapped_text(draw, xy, text, font, fill, max_width, line_gap=8, max_lin
     return y
 
 
-def create_banner_image(source_path, fallback_name, title, category, year, sharp=False):
+def banner_focus_from_analysis(analysis, src_w, src_h, target_w, target_h):
+    """Converte a análise Gemini no foco do recorte do banner.
+
+    O ponto pedido ao Gemini indica o centro da região a manter; a janela é
+    depois ajustada para que a cara principal fique inteira, com ar acima da
+    cabeça, mesmo em recortes largos.
+    """
+    if not analysis:
+        return None
+    point = analysis.get("banner_focus")
+    if not isinstance(point, (list, tuple)) or len(point) != 2:
+        return None
+    try:
+        focus_x, focus_y = float(point[0]), float(point[1])
+    except (TypeError, ValueError):
+        return None
+    scale = max(target_w / src_w, target_h / src_h)
+    resized_h = src_h * scale
+    max_top = max(resized_h - target_h, 0)
+    if max_top <= 0:
+        return min(max(focus_x, 0.0), 1.0), min(max(focus_y, 0.0), 1.0)
+    window_top = max_top * min(max(focus_y, 0.0), 1.0)
+
+    faces = [face for face in (analysis.get("faces") or []) if isinstance(face, (list, tuple)) and len(face) >= 2]
+    if faces:
+        def face_area(face):
+            width = face[2] if len(face) >= 3 else 0.12
+            height = face[3] if len(face) >= 4 else 0.16
+            try:
+                return float(width) * float(height)
+            except (TypeError, ValueError):
+                return 0.0
+
+        main = max(faces, key=face_area)
+        cy = float(main[1])
+        fh = float(main[3]) if len(main) >= 4 else 0.16
+        face_top = (cy - fh / 2) * resized_h
+        face_bottom = (cy + fh / 2) * resized_h
+        headroom = fh * resized_h * 0.45
+        footroom = fh * resized_h * 0.30
+        lowest = max(0.0, face_bottom + footroom - target_h)
+        highest = min(float(max_top), face_top - headroom)
+        if lowest <= highest:
+            window_top = min(max(window_top, lowest), highest)
+        else:
+            centered = (face_top + face_bottom) / 2 - target_h / 2
+            window_top = min(max(centered, 0.0), float(max_top))
+
+    return min(max(focus_x, 0.0), 1.0), min(max(window_top / max_top, 0.0), 1.0)
+
+
+def create_banner_image(source_path, fallback_name, title, category, year, sharp=False, analysis=None):
     del title, category, year
     source = source_path if source_path and source_path.exists() else ICON_SOURCE
     if not source.exists():
@@ -603,9 +728,17 @@ def create_banner_image(source_path, fallback_name, title, category, year, sharp
     try:
         source_image = Image.open(source)
         # Banner do carrossel/hero: fotografia limpa, sem texto, com o
-        # enquadramento escolhido por deteção de rostos. Sem foto de fundo,
-        # cai-se para a capa desfocada como textura.
-        focus_x, focus_y = smart_image_focus(source_image) if sharp else (0.5, 0.3)
+        # enquadramento escolhido pela análise Gemini (ou deteção de caras).
+        # Sem foto de fundo, cai-se para a capa desfocada como textura.
+        focus = None
+        if analysis and analysis.get("banner_suitable"):
+            focus = banner_focus_from_analysis(analysis, source_image.width, source_image.height, canvas_w, canvas_h)
+        if focus:
+            focus_x, focus_y = focus
+        elif sharp:
+            focus_x, focus_y = smart_image_focus(source_image)
+        else:
+            focus_x, focus_y = (0.5, 0.3)
         image_area = cover_image(source_image, (canvas_w, canvas_h), focus_y=focus_y, focus_x=focus_x)
     except Exception:
         return ""
@@ -676,6 +809,20 @@ def post_to_site_item(post, registry_by_post_id):
     original_year = clean_text(option.get("year"))
     publish_date = clean_text(post.get("date"))
     category = clean_text(option.get("category") or "Atualidade")
+    # A análise Gemini escolhe o enquadramento do banner e avalia se a foto
+    # serve tanto para o recorte largo do carrossel como para o cartão 4:5.
+    # Sem chave/cache o site continua com os critérios locais (OpenCV).
+    photo_analysis = None
+    if background_local:
+        try:
+            from gemini_vision import analyze_photo
+
+            photo_analysis = analyze_photo(
+                background_local,
+                news_title=f"{title} {category}".strip(),
+            )
+        except Exception:
+            photo_analysis = None
     banner_image = create_banner_image(
         background_local or source_local_image,
         f"{publish_date}-{post.get('slot', '')}-{title}",
@@ -683,6 +830,15 @@ def post_to_site_item(post, registry_by_post_id):
         category,
         original_year,
         sharp=bool(background_local),
+        analysis=photo_analysis,
+    )
+    banner_ready = bool(
+        background_local
+        and photo_analysis
+        and photo_analysis.get("banner_suitable")
+        and photo_analysis.get("cover_suitable")
+        and photo_analysis.get("relevant", True)
+        and not photo_analysis.get("embedded_text")
     )
     # Ligação da notícia preservada: a URL do artigo tem prioridade. A origem
     # da foto de fundo só serve se for do mesmo ano da notícia; caso contrário
@@ -707,11 +863,16 @@ def post_to_site_item(post, registry_by_post_id):
         or registry_record.get("permalink")
     )
     instagram_id = clean_text(post.get("instagram_id") or registry_record.get("instagram_id"))
+    # Título sem ano embutido (o site compõe "Título, em ANO" no UI).
+    title = strip_title_year(title)
+    if not title:
+        return None
     # Texto adicional para a página da notícia (sem repetir o resumo).
     body = strip_hashtags(option.get("overlay_description") or option.get("description") or "")
     if body and body == clean_text(option.get("summary") or ""):
         body = ""
     caption = strip_hashtags(option.get("caption") or "")
+    relevance = option.get("relevance") if isinstance(option.get("relevance"), dict) else {}
     item = {
         "id": post_id,
         "lang": clean_text(post.get("lang") or "pt"),
@@ -730,10 +891,20 @@ def post_to_site_item(post, registry_by_post_id):
         "caption": caption,
         "source_url": source_url,
         "source_profile": clean_text(post.get("source_profile") or option.get("source_profile")),
+        "source_platform": clean_text(option.get("source_platform")),
         "instagram_url": instagram_url,
         "instagram_id": instagram_id,
         "archive_credit": "Arquivo.pt",
+        # Foto real validada para banner + cartão (usada na rotação do carrossel).
+        "banner_ready": banner_ready,
+        # Relevância histórica (níveis calculados em historical_relevance.py).
+        "relevance_level": relevance.get("level"),
+        "relevance_scores": relevance.get("scores") or {},
+        "relevance_weighted": relevance.get("weighted_score"),
+        "relevance_justification": relevance.get("justification") or "",
     }
+    item["source_type"] = source_type_for_item(item)
+    item["url_path"] = news_url_path(item)
     item["page_id"] = news_page_id(item)
     # A página da notícia usa o banner já enquadrado (1600×700, sem texto);
     # a capa 4:5 com texto fica reservada ao Instagram.
@@ -751,25 +922,153 @@ def post_to_site_item(post, registry_by_post_id):
 
 def build_calendar_payload(items):
     dates = sorted({item.get("date") for item in items if item.get("date")})
-    years = sorted({int(date[:4]) for date in dates if re.match(r"^\d{4}-\d{2}-\d{2}$", date)})
+    event_days = build_event_recommendations()
+    event_dates = sorted({
+        entry["event_date"]
+        for entries in event_days.values()
+        for entry in entries
+        if re.match(r"^\d{4}-\d{2}-\d{2}$", entry["event_date"] or "")
+    })
+    all_dates = sorted(set(dates) | set(event_dates))
     return {
-        "post_dates": dates,
-        "post_years": years,
-        "recommendations_by_day": {},
+        "post_dates": all_dates,
+        "post_years": sorted({int(date[:4]) for date in all_dates if re.match(r"^\d{4}-\d{2}-\d{2}$", date)}),
+        "recommendations_by_day": event_days,
         "recommendations_mode": "static_posts_only" if static_site_only() else "dynamic_api",
         "target_total_per_day": 25,
         "top_instagram_posts": 4,
     }
 
 
+CAROUSEL_STATE_FILE = ROOT / "carrossel_estado.json"
+CAROUSEL_SIZE = 10
+CAROUSEL_TENURE_DAYS = 8
+CAROUSEL_COOLDOWN_DAYS = 30
+EVENTS_INDEX_FILE = ROOT / "data" / "eventos_por_dia.json"
+
+
+def _parse_iso_datetime(value):
+    try:
+        return datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
+def select_carousel_with_tenure(items, limit=CAROUSEL_SIZE, now=None):
+    """Carrossel com tempo de permanência.
+
+    Cada notícia entra por ordem de prioridade (nível de badge, banner pronta,
+    data) e fica CAROUSEL_TENURE_DAYS dias; expiradas são substituídas pelas
+    melhores candidatas que não tenham saído há menos de CAROUSEL_COOLDOWN_DAYS.
+    A substituída NÃO é apagada do site — sai apenas do carrossel. O estado
+    (carrossel_estado.json) torna a rotação determinística entre builds.
+    """
+    now = now or datetime.now(timezone.utc)
+    candidates = select_carousel_items(items, limit=len(items))
+    state_data = load_json(CAROUSEL_STATE_FILE, {})
+    active = dict(state_data.get("active") or {})
+    retired = dict(state_data.get("retired") or {})
+    known_ids = {clean_text(item.get("page_id")) for item in items}
+
+    # Expirar membros que passaram o tempo de permanência.
+    for page_id in list(active.keys()):
+        if page_id not in known_ids:
+            del active[page_id]
+            continue
+        entered = _parse_iso_datetime(active[page_id])
+        if entered and (now - entered).days > CAROUSEL_TENURE_DAYS:
+            retired[page_id] = now.isoformat()
+            del active[page_id]
+    # Limpar reformados cujo arrefecimento já passou.
+    for page_id in list(retired.keys()):
+        retired_at = _parse_iso_datetime(retired[page_id])
+        if retired_at and (now - retired_at).days >= CAROUSEL_COOLDOWN_DAYS:
+            del retired[page_id]
+
+    chosen = [item for item in candidates if clean_text(item.get("page_id")) in active]
+    for item in candidates:
+        if len(chosen) >= limit:
+            break
+        page_id = clean_text(item.get("page_id"))
+        if page_id in active or page_id in retired:
+            continue
+        active[page_id] = now.isoformat()
+        chosen.append(item)
+    # Sem candidatas novas suficientes: readmitir os reformados mais antigos.
+    if len(chosen) < limit:
+        for page_id, retired_at in sorted(retired.items(), key=lambda entry: entry[1]):
+            item = next(
+                (candidate for candidate in candidates if clean_text(candidate.get("page_id")) == page_id),
+                None,
+            )
+            if item:
+                active[page_id] = now.isoformat()
+                del retired[page_id]
+                chosen.append(item)
+                if len(chosen) >= limit:
+                    break
+    chosen_ids = {clean_text(item.get("page_id")) for item in chosen}
+    active = {page_id: entered for page_id, entered in active.items() if page_id in known_ids or page_id in chosen_ids}
+    save_json(CAROUSEL_STATE_FILE, {"active": active, "retired": retired, "updated_at": now.isoformat()})
+    return chosen[:limit]
+
+
+def build_event_recommendations():
+    """Converte data/eventos_por_dia.json em recomendações por mês-dia.
+
+    O índice (Wikipedia "on this day" pontuado, gerado por popular_site.py
+    --com-eventos) dá conteúdo ao calendário para os 365 dias mesmo sem posts.
+    """
+    events = load_json(EVENTS_INDEX_FILE, {})
+    if not isinstance(events, dict) or not events:
+        return {}
+    by_day = {}
+    for month_day, entries in events.items():
+        if not re.match(r"^\d{2}-\d{2}$", str(month_day)):
+            continue
+        normalized = []
+        for entry in entries if isinstance(entries, list) else []:
+            if not isinstance(entry, dict) or not clean_text(entry.get("title")):
+                continue
+            year = clean_text(entry.get("year"))
+            title = clean_text(entry.get("title"))
+            event_date = clean_text(entry.get("event_date")) or (
+                f"{year}-{month_day}" if re.match(r"^\d{4}$", year) else ""
+            )
+            digest = hashlib.sha256(f"{month_day}|{year}|{title}".encode("utf-8")).hexdigest()[:24]
+            normalized.append({
+                "page_id": f"evento-{digest}",
+                "title": title,
+                "original_year": year,
+                "date": event_date,
+                "event_date": event_date,
+                "domain": "wikipedia",
+                "source_type": "wikipedia",
+                "source_url": clean_text(entry.get("source_url"))
+                or f"https://arquivo.pt/textsearch?q={quote(title, safe='')}",
+                "relevance_level": int(entry.get("relevance_level") or 4),
+                "summary": clean_text(entry.get("summary")),
+            })
+        if normalized:
+            by_day[month_day] = normalized
+    return by_day
+
+
 def select_carousel_items(items, limit=10):
-    """Rotação do carrossel: começa pelo destaque mais recente e prioriza a
-    diversidade — no máximo um post por combinação fonte + ano na primeira
-    passada; as restantes vagas são preenchidas por ordem de prioridade."""
-    if len(items) <= limit:
-        return list(items)
+    """Rotação do carrossel: só entram fotos que funcionam bem nos dois
+    formatos (banner largo do hero e cartão 4:5), sem repetir a mesma
+    fotografia; a diversidade fonte+ano desempata, e as restantes vagas são
+    preenchidas por ordem de prioridade."""
+
+    def banner_key(item):
+        return str(item.get("banner_image") or "").split("?")[0]
+
+    # Fotos distintas já validadas para banner + capa; guardadas por ordem de
+    # prioridade dos itens.
     chosen = []
     chosen_ids = set()
+    used_banners = set()
+    used_keys = set()
 
     def diversity_key(item):
         return (
@@ -777,23 +1076,39 @@ def select_carousel_items(items, limit=10):
             clean_text(item.get("original_year")),
         )
 
-    used_keys = set()
+    def take(item):
+        chosen.append(item)
+        chosen_ids.add(id(item))
+        used_banners.add(banner_key(item))
+        used_keys.add(diversity_key(item))
+
+    # 1ª passada: foto própria validada (banner_ready) + diversidade fonte+ano.
     for item in items:
         if len(chosen) >= limit:
             break
-        key = diversity_key(item)
-        if key in used_keys:
+        if not item.get("banner_ready"):
             continue
-        chosen.append(item)
-        chosen_ids.add(id(item))
-        used_keys.add(key)
+        key = diversity_key(item)
+        if key in used_keys or banner_key(item) in used_banners:
+            continue
+        take(item)
+    # 2ª passada: foto distinta mas não validada, mantendo a diversidade.
     for item in items:
         if len(chosen) >= limit:
             break
         if id(item) in chosen_ids:
             continue
-        chosen.append(item)
-        chosen_ids.add(id(item))
+        key = diversity_key(item)
+        if key in used_keys or banner_key(item) in used_banners:
+            continue
+        take(item)
+    # 3ª passada: preencher as vagas restantes por ordem de prioridade.
+    for item in items:
+        if len(chosen) >= limit:
+            break
+        if id(item) in chosen_ids:
+            continue
+        take(item)
     return chosen
 
 
@@ -819,7 +1134,7 @@ def build_payload():
     editorial_published = [item for item in published if has_enduring_editorial_value(item)]
     editorial_approved = [item for item in approved if has_enduring_editorial_value(item)]
     public_items = editorial_published or editorial_approved or editorial_items or published or approved or items
-    featured = public_items[0] if public_items else None
+    carousel_items = select_carousel_with_tenure(public_items)
     metrics = build_project_metrics(items)
     today = datetime.now().date()
     coverage_end_date = f"{metrics['coverage_end_year']}-12-31"
@@ -876,8 +1191,13 @@ def build_payload():
         "default_lang": "pt",
         "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
         "instagram_profile_url": os.environ.get("INSTAGRAM_PROFILE_URL", "https://www.instagram.com/"),
-        "featured": featured,
-        "carousel": select_carousel_items(public_items, 10),
+        # O destaque do hero precisa de foto que funcione em banner largo e
+        # cartão; só cai para outra notícia se nenhuma estiver validada.
+        "featured": next(
+            (item for item in carousel_items if item.get("banner_ready")),
+            public_items[0] if public_items else None,
+        ),
+        "carousel": carousel_items,
         "latest": published[:12] if published else public_items[:12],
         "all": items,
         "calendar": build_calendar_payload(items),
@@ -959,22 +1279,44 @@ def story_structured_data(item, canonical, image):
     return {key: value for key, value in payload.items() if value}
 
 
+def build_story_shell(source_html, prefix):
+    """Shell com caminhos relativos ao prefixo dado (versão-agnóstico)."""
+    shell = (
+        source_html
+        .replace('href="assets/', f'href="{prefix}assets/')
+        .replace('src="assets/', f'src="{prefix}assets/')
+    )
+    shell = re.sub(
+        r'href="styles\.css\?v=[^"]*"',
+        f'href="{prefix}styles.css?v={SITE_ASSET_VERSION}"',
+        shell,
+    )
+    shell = re.sub(
+        r'src="app\.js\?v=[^"]*"',
+        f'src="{prefix}app.js?v={SITE_ASSET_VERSION}"',
+        shell,
+    )
+    for route in ("inicio", "calendario", "temas", "documentacao"):
+        shell = shell.replace(f'href="{route}/"', f'href="{prefix}{route}/"')
+    return shell
+
+
 def write_route_pages(payload):
     index_path = SITE_DIR / "index.html"
     if not index_path.exists():
         return
     source_html = index_path.read_text(encoding="utf-8")
-    route_shell = (
-        source_html
-        .replace(f'href="assets/{ICON_ASSET}', f'href="../assets/{ICON_ASSET}')
-        .replace(f'src="assets/{ICON_ASSET}', f'src="../assets/{ICON_ASSET}')
-        .replace(f'href="styles.css?v={SITE_ASSET_VERSION}"', f'href="../styles.css?v={SITE_ASSET_VERSION}"')
-        .replace(f'src="app.js?v={SITE_ASSET_VERSION}"', f'src="../app.js?v={SITE_ASSET_VERSION}"')
-        .replace('href="inicio/"', 'href="../inicio/"')
-        .replace('href="calendario/"', 'href="../calendario/"')
-        .replace('href="temas/"', 'href="../temas/"')
-        .replace('href="documentacao/"', 'href="../documentacao/"')
+    # Reescrita de caminhos independente da versão: um bump de
+    # SITE_ASSET_VERSION não pode partir os shells aninhados quando o
+    # index.html em disco ainda traz a versão anterior.
+    versioned_asset_patterns = (
+        (re.compile(r'href="styles\.css\?v=[^"]*"'), f'href="styles.css?v={SITE_ASSET_VERSION}"'),
+        (re.compile(r'src="app\.js\?v=[^"]*"'), f'src="app.js?v={SITE_ASSET_VERSION}"'),
     )
+    source_html = source_html
+    for pattern, replacement in versioned_asset_patterns:
+        source_html = pattern.sub(replacement, source_html)
+    route_shell = build_story_shell(source_html, "../")
     route_metadata = {
         "inicio": (
             "Notícias de Ontem | Memória da imprensa portuguesa",
@@ -1041,43 +1383,42 @@ def write_route_pages(payload):
             shutil.rmtree(child)
 
     indexed_story_urls = []
-    nested_shell = (
-        source_html
-        .replace(f'href="assets/{ICON_ASSET}', f'href="../../assets/{ICON_ASSET}')
-        .replace(f'src="assets/{ICON_ASSET}', f'src="../../assets/{ICON_ASSET}')
-        .replace(f'href="styles.css?v={SITE_ASSET_VERSION}"', f'href="../../styles.css?v={SITE_ASSET_VERSION}"')
-        .replace(f'src="app.js?v={SITE_ASSET_VERSION}"', f'src="../../app.js?v={SITE_ASSET_VERSION}"')
-        .replace('href="inicio/"', 'href="../../inicio/"')
-        .replace('href="calendario/"', 'href="../../calendario/"')
-        .replace('href="temas/"', 'href="../../temas/"')
-        .replace('href="documentacao/"', 'href="../../documentacao/"')
-    )
+
+    alias_shell = build_story_shell(source_html, "../../")
     for item in payload.get("all", []):
         page_id = clean_text(item.get("page_id"))
         if not page_id or not re.fullmatch(r"[a-z0-9-]+", page_id):
             continue
         title = story_title(item)
         description = clean_text(item.get("summary")) or f"Consulte {title} e a fonte preservada no Arquivo.pt."
-        canonical_path = f"noticia/{page_id}/"
+        url_path = clean_text(item.get("url_path")) or f"noticia/{page_id}"
+        canonical_path = f"{url_path}/"
         image_path = clean_text(item.get("detail_image") or item.get("image") or item.get("banner_image")) or f"assets/{ICON_ASSET}"
         canonical = absolute_site_url(canonical_path)
         image = absolute_site_url(image_path)
         should_index = clean_text(item.get("status")).lower() == "published"
-        story_html = with_seo(
-            nested_shell,
-            seo_block(
-                f"{title} | Notícias de Ontem",
-                description,
-                canonical_path,
-                story_structured_data(item, canonical, image),
-                image_path=image_path,
-                index=should_index,
-                og_type="article",
-            ),
+        story_seo = seo_block(
+            f"{title} | Notícias de Ontem",
+            description,
+            canonical_path,
+            story_structured_data(item, canonical, image),
+            image_path=image_path,
+            index=should_index,
+            og_type="article",
         )
-        story_dir = news_root / page_id
+        # Página canónica em URL limpo (noticia/AAAA/MM/DD/slug-d8/).
+        depth = len(Path(url_path).parts)
+        canonical_shell = build_story_shell(source_html, "../" * depth)
+        story_html = with_seo(canonical_shell, story_seo)
+        story_dir = SITE_DIR / url_path
         story_dir.mkdir(parents=True, exist_ok=True)
         (story_dir / "index.html").write_text(story_html, encoding="utf-8")
+        # Alias pelo id interno (ligas antigas continuam a funcionar; o
+        # canonical aponta para o URL limpo).
+        alias_html = with_seo(alias_shell, story_seo)
+        alias_dir = news_root / page_id
+        alias_dir.mkdir(parents=True, exist_ok=True)
+        (alias_dir / "index.html").write_text(alias_html, encoding="utf-8")
         if should_index:
             indexed_story_urls.append(canonical)
 

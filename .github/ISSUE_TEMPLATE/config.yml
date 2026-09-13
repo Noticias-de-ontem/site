@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Arquivo.pt
+    url: https://arquivo.pt/
+    about: Fonte principal do projeto — páginas preservadas da web portuguesa.
+  - name: Prémio Arquivo.pt
+    url: https://sobre.arquivo.pt/pt/premio-arquivo-pt/
+    about: Prémio a que o projeto concorre.

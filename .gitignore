@@ -36,3 +36,8 @@ PLANO_*.md
 
 # Retired static calendar cache. Calendar entries are served by the dynamic API.
 calendar_recommendations_cache.json
+geracao_100.log
+*.log
+# Ficheiros locais grandes/artefactos de sessão
+.zcode/
+arquivo_cache.db

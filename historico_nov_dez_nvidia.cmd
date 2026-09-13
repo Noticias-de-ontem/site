@@ -5,7 +5,7 @@ title Noticias de Ontem - Nov-Dez (NVIDIA)
 if "%NVIDIA_API_KEY%"=="" if not exist nvidia_api_key.local.txt (
   echo ERRO: NVIDIA_API_KEY nao esta definida e nvidia_api_key.local.txt nao existe.
   echo.
-  echo Corre edit_nvidia_key.cmd ou cria nvidia_api_key.local.txt com a chave da NVIDIA.
+  echo Cria o ficheiro nvidia_api_key.local.txt com a chave da NVIDIA (ou define NVIDIA_API_KEY).
   pause
   exit /b 1
 )
@@ -16,7 +16,7 @@ echo ========================================================
 echo   Processamento Paralelo - Novembro e Dezembro (NVIDIA)
 echo ========================================================
 echo.
-python run_historical_scrapers.py --lang pt --start-year 1990 --end-year 2026 --limit 0 --months 11,12 --use-nvidia --nvidia-model meta/llama-3.1-8b-instruct
+python run_historical_scrapers.py --lang pt --start-year 1990 --end-year 2026 --limit 0 --months 11,12 --use-nvidia
 
 set EXIT_CODE=%ERRORLEVEL%
 if %EXIT_CODE% equ 2 (

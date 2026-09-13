@@ -7,6 +7,7 @@ from urllib.parse import quote, unquote, urlparse
 
 import numpy as np
 import requests
+from historical_relevance import LEVEL_COLORS, level_short
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageStat
 
 
@@ -1072,6 +1073,112 @@ def _draw_breaking_badge(base_image, text, x, y):
     return base_image
 
 
+def _draw_relevance_icon(draw, level, left, top, size, color):
+    """Ícone vetorial simples do nível, desenhado com formas PIL."""
+    right = left + size
+    middle_y = top + size / 2
+    stroke = max(3, size // 9)
+    if level == 1:  # coroa
+        base_y = top + size * 0.78
+        draw.polygon(
+            [
+                (left, top + size * 0.30),
+                (left + size * 0.28, middle_y),
+                (left + size * 0.5, top + size * 0.18),
+                (left + size * 0.72, middle_y),
+                (right, top + size * 0.30),
+                (right - size * 0.06, base_y),
+                (left + size * 0.06, base_y),
+            ],
+            fill=color,
+        )
+    elif level == 2:  # estrela de 5 pontas
+        import math
+
+        points = []
+        for index in range(10):
+            angle = -math.pi / 2 + index * math.pi / 5
+            radius = size * 0.48 if index % 2 == 0 else size * 0.21
+            points.append((left + size / 2 + radius * math.cos(angle), middle_y + radius * math.sin(angle)))
+        draw.polygon(points, fill=color)
+    elif level == 3:  # pessoas
+        small = size * 0.30
+        draw.ellipse((left, top + size * 0.16, left + small, top + size * 0.16 + small), fill=color)
+        draw.ellipse((right - small, top + size * 0.16, right, top + size * 0.16 + small), fill=color)
+        big = size * 0.40
+        draw.ellipse((left + size * 0.3, top + size * 0.06, left + size * 0.3 + big, top + size * 0.06 + big), fill=color)
+        draw.rounded_rectangle(
+            (left, top + size * 0.58, right, top + size),
+            radius=stroke,
+            fill=color,
+        )
+    elif level == 4:  # jornal
+        draw.rounded_rectangle((left, top + size * 0.14, right, top + size * 0.86), radius=stroke, outline=color, width=stroke)
+        draw.line((left + size * 0.16, top + size * 0.36, right - size * 0.16, top + size * 0.36), fill=color, width=stroke)
+        draw.line((left + size * 0.16, top + size * 0.56, right - size * 0.16, top + size * 0.56), fill=color, width=stroke)
+        draw.line((left + size * 0.16, top + size * 0.72, right - size * 0.38, top + size * 0.72), fill=color, width=stroke)
+    else:  # lupa
+        radius = size * 0.32
+        draw.ellipse(
+            (left + size * 0.06, top + size * 0.06, left + size * 0.06 + radius * 2, top + size * 0.06 + radius * 2),
+            outline=color,
+            width=stroke,
+        )
+        draw.line(
+            (left + size * 0.62, top + size * 0.62, right - size * 0.06, top + size * 0.94),
+            fill=color,
+            width=stroke + 1,
+        )
+
+
+def _draw_relevance_badge(base_image, level, lang, x, y, align="left", use_shadow=True, compact=True):
+    """Badge horizontal (ícone + nome curto) na cor do nível."""
+    level = int(level) if level else 0
+    if level < 1 or level > 5:
+        return base_image
+    label = level_short(level, lang)
+    measure_draw = ImageDraw.Draw(base_image)
+    font = get_font("bold", 22 if compact else 26)
+    text_width, text_height = _measure_text(measure_draw, label, font)
+
+    badge_height = 46 if compact else 56
+    icon_size = badge_height - 20
+    gap = 8
+    padding_x = 16 if compact else 20
+    badge_width = icon_size + gap + text_width + padding_x * 2
+    radius = badge_height // 2
+
+    if align == "center":
+        x = int(x - badge_width / 2)
+    elif align == "right":
+        x = x - badge_width
+
+    if use_shadow:
+        shadow_layer = Image.new("RGBA", base_image.size, (0, 0, 0, 0))
+        shadow_draw = ImageDraw.Draw(shadow_layer)
+        shadow_draw.rounded_rectangle(
+            (x + 4, y + 7, x + badge_width + 4, y + badge_height + 7),
+            radius=radius,
+            fill=(0, 0, 0, 90),
+        )
+        shadow_layer = shadow_layer.filter(ImageFilter.GaussianBlur(10))
+        base_image = Image.alpha_composite(base_image, shadow_layer)
+
+    background, text_fill = LEVEL_COLORS.get(level, ((86, 98, 106), (255, 255, 255)))
+    pill = Image.new("RGBA", (badge_width, badge_height), (0, 0, 0, 0))
+    pill_draw = ImageDraw.Draw(pill)
+    pill_draw.rounded_rectangle((0, 0, badge_width, badge_height), radius=radius, fill=(*background, 242))
+    pill_draw.rounded_rectangle((0, 0, badge_width, badge_height), radius=radius, outline=(255, 255, 255, 46), width=2)
+    _draw_relevance_icon(pill_draw, level, padding_x - 2, (badge_height - icon_size) // 2, icon_size, text_fill)
+    base_image.paste(pill, (x, y), pill)
+
+    text_x = x + padding_x + icon_size + gap
+    text_y = y + (badge_height - text_height) // 2 - 2
+    draw = ImageDraw.Draw(base_image)
+    draw.text((text_x, text_y), label, font=font, fill=text_fill)
+    return base_image
+
+
 def _draw_logo(base_image, lang, left=58, top=74, right=None, center_x=None, scale=1.0, use_shadows=True):
     top_text = "NOTÍCIAS" if lang == "pt" else "YESTERDAY'S"
     bottom_text = "DE ONTEM" if lang == "pt" else "NEWS"
@@ -1554,10 +1661,17 @@ def render_template_1(
     template_path=None,
     text_shadows=True,
     year=None,
+    relevance_level=None,
 ):
     canvas = _prepare_template_1_background(background_image, template_path, TARGET_SIZE)
     canvas = _draw_logo(canvas, lang, use_shadows=True)
     canvas = _draw_brand_badge(canvas, category, 58, 790, use_shadow=text_shadows)
+    if relevance_level:
+        measure_draw = ImageDraw.Draw(canvas)
+        category_font = get_font("medium", 34)
+        category_width, _ = _measure_text(measure_draw, _normalize_text_value(category, uppercase=True), category_font)
+        category_badge_width = min(max(196, category_width + 48), 360)
+        canvas = _draw_relevance_badge(canvas, relevance_level, lang, 58 + category_badge_width + 14, 790 + 6, align="left", use_shadow=text_shadows)
     canvas, title_height = _draw_title(
         canvas,
         title,
@@ -1589,7 +1703,7 @@ def render_template_1(
     return canvas
 
 
-def render_template_2(category, title, description, highlight_text, lang, background_image=None, template_path=None, year=None):
+def render_template_2(category, title, description, highlight_text, lang, background_image=None, template_path=None, year=None, relevance_level=None):
     del description
     canvas = _prepare_template_2_background(background_image, template_path, TARGET_SIZE)
     canvas = _draw_logo(canvas, lang, use_shadows=True)
@@ -1610,12 +1724,23 @@ def render_template_2(category, title, description, highlight_text, lang, backgr
         smallest=52,
         max_lines=5,
     )
+    year_height = 0
     if year:
-        canvas, _ = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 235 + title_height + 16, align="center", use_shadow=False)
+        canvas, year_height = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 235 + title_height + 16, align="center", use_shadow=False)
+    if relevance_level:
+        canvas = _draw_relevance_badge(
+            canvas,
+            relevance_level,
+            lang,
+            TARGET_SIZE[0] // 2,
+            235 + title_height + 16 + year_height + 16,
+            align="center",
+            use_shadow=False,
+        )
     return canvas
 
 
-def render_template_3(category, title, description, highlight_text, lang, background_image=None, template_path=None, year=None):
+def render_template_3(category, title, description, highlight_text, lang, background_image=None, template_path=None, year=None, relevance_level=None):
     del description
     canvas = _prepare_template_3_background(background_image, template_path, TARGET_SIZE)
     canvas = _draw_logo(canvas, lang, use_shadows=True)
@@ -1638,12 +1763,23 @@ def render_template_3(category, title, description, highlight_text, lang, backgr
         shadow_offset=(4, 8),
         shadow_blur=9,
     )
+    year_height = 0
     if year:
-        canvas, _ = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 978 + title_height + 14, align="center", use_shadow=True)
+        canvas, year_height = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 978 + title_height + 14, align="center", use_shadow=True)
+    if relevance_level:
+        canvas = _draw_relevance_badge(
+            canvas,
+            relevance_level,
+            lang,
+            TARGET_SIZE[0] // 2,
+            978 + title_height + 14 + year_height + 14,
+            align="center",
+            use_shadow=True,
+        )
     return canvas
 
 
-def render_breaking_template(category, title, description, highlight_text, lang, background_image=None, template_path=None, year=None):
+def render_breaking_template(category, title, description, highlight_text, lang, background_image=None, template_path=None, year=None, relevance_level=None):
     del description
     canvas = _prepare_breaking_background(background_image, template_path, TARGET_SIZE)
     draw = ImageDraw.Draw(canvas)
@@ -1677,6 +1813,7 @@ def render_breaking_template(category, title, description, highlight_text, lang,
     badge_top = 336
 
     canvas = _draw_breaking_badge(canvas, breaking_text, badges_left, badge_top)
+    relevance_x = badges_left + break_width
     if show_main_category:
         canvas = _draw_brand_badge(
             canvas,
@@ -1688,6 +1825,9 @@ def render_breaking_template(category, title, description, highlight_text, lang,
             compact=True,
             font_size=24,
         )
+        relevance_x = badges_left + break_width + badge_gap + main_width + badge_gap
+    if relevance_level:
+        canvas = _draw_relevance_badge(canvas, relevance_level, lang, relevance_x, badge_top, align="left", use_shadow=False)
 
     canvas, title_height = _draw_title(
         canvas,
@@ -1730,6 +1870,7 @@ def create_image_with_text(
     exclude_background_urls=None,
     return_details=False,
     year=None,
+    relevance_level=None,
     **kwargs,
 ):
     del overlay_path
@@ -1811,6 +1952,7 @@ def create_image_with_text(
             template_path=template_path,
             text_shadows=True,
             year=year,
+            relevance_level=relevance_level,
         )
     elif resolved_layout == "template_2":
         rendered = render_template_2(
@@ -1822,6 +1964,7 @@ def create_image_with_text(
             background_image=background_image,
             template_path=template_path,
             year=year,
+            relevance_level=relevance_level,
         )
     elif resolved_layout == "template_3":
         rendered = render_template_3(
@@ -1833,6 +1976,7 @@ def create_image_with_text(
             background_image=background_image,
             template_path=template_path,
             year=year,
+            relevance_level=relevance_level,
         )
     elif resolved_layout == "breaking":
         rendered = render_breaking_template(
@@ -1844,6 +1988,7 @@ def create_image_with_text(
             background_image=background_image,
             template_path=template_path,
             year=year,
+            relevance_level=relevance_level,
         )
     else:
         raise ValueError(f"Layout não suportado: {resolved_layout}")

@@ -41,6 +41,8 @@ def item_from_source(source):
         "source_url": arquivo_url,
         "original_url": original_url,
         "detail_image": screenshot_url(arquivo_url),
+        # A snapshot é a própria captura preservada (secção "A página preservada").
+        "snapshot_url": screenshot_url(arquivo_url),
         "archive_credit": "Arquivo.pt",
     }
 

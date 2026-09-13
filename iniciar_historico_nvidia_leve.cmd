@@ -5,7 +5,7 @@ cd /d "%~dp0"
 if "%NVIDIA_API_KEY%"=="" if not exist nvidia_api_key.local.txt (
   echo ERRO: NVIDIA_API_KEY nao esta definida e nvidia_api_key.local.txt nao existe.
   echo.
-  echo Corre edit_nvidia_key.cmd ou cria nvidia_api_key.local.txt com a chave da NVIDIA.
+  echo Cria o ficheiro nvidia_api_key.local.txt com a chave da NVIDIA (ou define NVIDIA_API_KEY).
   pause
   exit /b 1
 )

@@ -161,7 +161,7 @@ class NvidiaKeyPool:
                                 ],
                                 "temperature": 0.35,
                                 "response_format": {"type": "json_object"},
-                                "max_tokens": 6000,
+                                "max_tokens": 11000,
                             },
                             timeout=timeout,
                         )

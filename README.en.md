@@ -2,169 +2,125 @@
 
 [Português](README.md) | **English**
 
-**Notícias de Ontem** retrieves news preserved by [Arquivo.pt](https://arquivo.pt), organizes it by date, and presents it again with context, source, and original year. Arquivo.pt is the project's main source; current newspaper websites are not used to replace pages that have not been preserved.
+**Notícias de Ontem** ("Yesterday's News") brings back stories preserved by [Arquivo.pt](https://arquivo.pt), organizes them by date, and republishes them with context, source, and the original year — like a newspaper edition about the past, published today. A candidate for the [Arquivo.pt Award 2027](https://sobre.arquivo.pt/en/arquivo-pt-award/).
 
-The project has two interconnected components:
+The project has two connected parts:
 
-- a bilingual website, in Portuguese and English, for exploring news by date and topic;
-- an editorial workflow that prepares posts, enables human review, and publishes approved posts on Instagram.
+- a bilingual website (PT/EN) to explore news by date and topic, with individual story pages on newspaper-style clean URLs;
+- an editorial pipeline that prepares Instagram posts, scores their historical relevance, and publishes them after human review.
 
-The website can continue to run on GitHub Pages as a fallback version, but the main architecture is now dynamic: FastAPI serves the website and API, PostgreSQL stores the latest public snapshot, Celery processes time-consuming analyses, and a Valkey/Redis queue coordinates the jobs. An optional OpenSearch index also makes new searches fast.
+The architecture is static by default (GitHub Pages) and can switch to dynamic (FastAPI + PostgreSQL + Celery + OpenSearch) when infrastructure is available.
 
-## What is available on the website
+## What is on the website
 
-- `/inicio/`: lead story, editorial carousel, and recent posts;
-- `/calendário/`: important news from the same day across several years;
-- `/temas/`: evolution of a search in the Arquivo.pt index, with filters by publication and exact dates;
-- `/documentação/`: a simple explanation of the project and updated metrics;
-- `/noticia/?id=...`: a dedicated page for each news story, with context, image, and a link to the preserved source.
+- **Home** — lead story (fixed-height carousel), highlights by relevance level (Historic Landmarks, Major Events, More stories), and the latest posts;
+- **Calendar** — two views (**On this day**: important stories from the same date across the years; **Exact date**: only that precise day) in two layouts (**Month** or **Week**, Sunday through Saturday), with a newspaper filter and up to 6 project posts pinned to the top of each period;
+- **Topics** — a phrase's evolution across the Arquivo.pt index, with a progressive chart, per-source filter, and PNG/SVG/CSV export;
+- **Documentation** — how the project works, live metrics, an explainer on the [historical relevance levels](#historical-relevance), and a sources grid with logos;
+- **Individual story** — newspaper-style clean URL (`/noticia/YYYY/MM/DD/slug-id/`), relevance badge with the full score breakdown, the preserved original page (snapshot), an "On the same day" module, and previous/next navigation.
 
-The unaccented routes (`/calendario/` and `/documentacao/`) are also available for compatibility. Portuguese is the default language.
+Portuguese is the default language; the English version uses natural American English (never a literal translation).
+
+## Historical relevance
+
+Every story gets a relevance badge (icon + name) backed by a weighted score — the AI proposes the ratings, the system computes the level:
+
+| Level | Name | Meaning |
+| --- | --- | --- |
+| 1 | Historic Landmark | Lasting structural change in history (requires ≥90 on the substantive criteria + explicit account of later consequences) |
+| 2 | Major Event | Very significant national or international consequences |
+| 3 | Regional Relevance | Strong impact on a region or community |
+| 4 | Public Interest | Major public attention, limited long-term impact |
+| 5 | Historical Context | Useful to understand the era, not decisive on its own |
+
+Criteria: historical impact 30% · scope of impact 20% · consequences 15% · influence on later events 15% · scale and duration 10% · **media attention 5% (never decides the level)** · uniqueness 5%. Site highlights (lead story and carousel) are drawn only from levels 1-2. The full explainer lives on the Documentation page.
+
+## Sources
+
+Newspapers, magazines, and origins the project follows:
+
+[![Arquivo.pt](site/assets/logos/arquivo.pt.png)](https://arquivo.pt/)
+[![Público](site/assets/logos/publico.pt.png)](https://www.publico.pt/)
+[![SIC Notícias](site/assets/logos/sicnoticias.pt.png)](https://sicnoticias.pt/)
+[![CNN Portugal](site/assets/logos/cnnportugal.pt.png)](https://cnnportugal.iol.pt/)
+[![RTP](site/assets/logos/rtp.pt.png)](https://www.rtp.pt/noticias)
+[![Correio da Manhã](site/assets/logos/cmjornal.pt.png)](https://www.cmjornal.pt/)
+[![Observador](site/assets/logos/observador.pt.png)](https://observador.pt/)
+[![Diário de Notícias](site/assets/logos/dn.pt.png)](https://www.dn.pt/)
+[![Jornal de Notícias](site/assets/logos/jn.pt.png)](https://www.jn.pt/)
+[![Expresso](site/assets/logos/expresso.pt.png)](https://expresso.pt/)
+[![Sábado](site/assets/logos/sabado.pt.png)](https://www.sabado.pt/)
+[![Visão](site/assets/logos/visao.pt.png)](https://visao.sapo.pt/)
+[![Notícias ao Minuto](site/assets/logos/noticiasaominuto.com.png)](https://www.noticiasaominuto.com/)
+[![Renascença](site/assets/logos/renascenca.png)](https://www.tsfdifusao.pt/)
+[![4gnews](site/assets/logos/4gnewspt.png)](https://4gnews.pt/)
+[![NiT](site/assets/logos/nit.pt.png)](https://nit.pt/)
+[![Wikipedia](site/assets/logos/wikipedia.png)](https://en.wikipedia.org/)
+
+The same sources appear with logos on the site's Documentation page. Content from internet profiles (e.g. Epa hSaiu, Hoje no Mundo Militar) is tagged with an "Internet profile" chip, separate from the "Newspaper" chip.
 
 ## How the data flows
 
-1. Arquivo.pt's public CDXJ indexes are filtered for the newspapers and magazines being tracked.
-2. The pregenerator searches for candidates for each date, compares years, sources, and topics, and prepares editorial options.
-3. The options are stored in `pending_posts.json`, where they can be approved, skipped, or regenerated.
-4. The publisher publishes only approved posts and records the Instagram identifier and address.
-5. `build_site.py` combines posts, metrics, and images in `site/data/news.json`; calendar recommendations are requested from the dynamic API.
-6. `Sync Dynamic Website` sends the public snapshot to the protected API and stores it in PostgreSQL.
+1. Public Arquivo.pt CDXJ indexes are filtered down to the newspapers and magazines the project follows (`recolher_cdxj_*.cmd`);
+2. The `pregenerator` finds candidates for each date (local `pt/MM-DD.json` blocks and/or Arquivo.pt) and asks the AI (NVIDIA) for 10 options with categories, PT/EN titles, overlay copy, and a **relevance score**;
+3. **Mandatory grounding**: every option must anchor to a real wayback capture (Arquivo.pt CDX/textsearch); unanchored options — like the old fake "Ronaldo lidera a I Liga" story — are dropped;
+4. Options land in `pending_posts.json` for human review (`review_pt.html`, images under `images/review`), where they can be approved, skipped, or regenerated;
+5. The `publisher` publishes approved posts to Instagram and records the permalink;
+6. `build_site.py` combines posts, metrics, images, and the events index into `site/data/news.json`, generates pages (including snapshots via `collect_snapshots.py`), and analyzes every photo with Gemini (focus point, faces, embedded text, banner/cover suitability);
+7. The carousel has a **tenure system** (`carrossel_estado.json`): each story stays in for ~8 days and is then replaced by another one — without being removed from the site.
 
-The publishing and pregeneration workflows call this synchronization directly after rebuilding the website. This is necessary because automated commits use `[skip ci]` and would not trigger a second workflow on `push`.
-7. The frontend reads the dynamic version; if the API is unavailable, it can still open the static snapshot.
+## The CDXJ index
 
-Language models support selection, summarization, and editorial preparation. The news story, historical date, and source link remain anchored in Arquivo.pt, and the final post undergoes human review.
+CDXJ files are Arquivo.pt metadata indexes (URLs, capture dates, content types); they do not contain full article text. Because the filtered CDXJ set approaches 20 GB, **never store it in GitHub**: the repository keeps code, the static site, small state files, and editorial data.
 
-For a Hugging Face-only public website, see [`HF_DEPLOYMENT.md`](HF_DEPLOYMENT.md). This option uses a Static Space for the site and keeps the large CDXJ files separately on Hugging Face.
+- Full CDXJ mirror on the Hugging Face: dataset `MaNmAxImO/arquivo-pt-cdxj` (authenticate with `HF_TOKEN` in `.env`);
+- Collect from Arquivo.pt: `recolher_cdxj_arquivo_pt.cmd 1996 2026` (resumable; offset/anchor stored in `arquivo_cdxj_state.json`);
+- Raw CDXJ already downloaded: `recolher_cdxj_de_pasta_local.cmd <folder> 1996 2026`;
+- After the first full run: `reconstruir_cobertura_cdxj.cmd` (per-source coverage dates + site rebuild);
+- Specific collections: `python -u build_arquivo_cdxj_index.py --collections AWP30.cdxj --start-year 1996 --end-year 2026`;
+- S3/R2 sync (used by the backend worker): `sync_cdxj_storage.py`.
 
-## CDXJ
+## Populating the site (local generation)
 
-CDXJ files are Arquivo.pt metadata indexes. They contain addresses, capture dates, content types, and other fields useful for locating preserved pages; they do not contain the full text of the news stories.
-
-Because the filtered CDXJ files are already approaching 20 GB, the rule for operating at no cost is: **do not store CDXJ files, SQLite databases, OpenSearch dumps, large `.jsonl/.ndjson/.cdxj/.gz` files, or reconstruction artifacts on GitHub**. The repository should contain only code, the static website, small state files, and editorial data. GitHub recommends keeping repositories small, ideally below 1 GB and well below 5 GB; 20 GB of indexes would make clones, Actions, and Pages slow or problematic.
-
-### Free plan for CDXJ data approaching 20 GB
-
-To keep the project free, apart from purchasing the final domain, use this separation:
-
-- **GitHub Free**: code, workflows, `pending_posts.json`, `social_metrics.json`, generated pages, and small state files. It is not storage for raw data.
-- **GitHub Pages or Cloudflare Pages Free**: public static/fallback frontend. Cloudflare Pages is a good option when you want the final domain and a CDN without paying for hosting; always confirm the current limits before migrating.
-- **Personal local disk or temporary GitHub Actions cache**: building and updating the filtered CDXJ files. The 20 GB index should live outside the repository and be reproducible from Arquivo.pt.
-- **Compressed chunks outside Git**: if you need to move the index between machines, split it by collection or year (`arquivo_cdxj/YYYY/...`) and compress it (`.zst` or `.gz`). Keep a small manifest with the name, size, hash, and date range.
-- **R2/S3 only if it fits within the free tier**: Cloudflare R2 includes only a small monthly free storage allowance; 20 GB of persistent data may exceed that allowance. Use R2 only for partial snapshots, state files, images, and small backups, or accept that exceeding the free limit will incur a cost.
-- **No paid OpenSearch by default**: while the goal is zero cost, the topics page should work with Arquivo.pt TextSearch, a local cache, and batch jobs. The full OpenSearch index remains optional for a phase with a budget.
-- **Free/avoidable database**: for zero cost, the public snapshot remains in static JSON. PostgreSQL/Redis/Workers are introduced only if they fit within free plans and do not block the static fallback.
-
-Recommended workflow when the CDXJ data is large:
-
-1. Rebuild/update CDXJ data on a local machine or manual runner, never in a commit.
-2. Store only `arquivo_cdxj_state.json` and small manifests, without the large files.
-3. Generate `site/data/news.json` and static pages from the local state.
-4. Publish the website on GitHub Pages/Cloudflare Pages.
-5. Use the purchased domain only as the final layer (`SITE_PUBLIC_URL`), keeping everything else on free services.
-
-
-To build or resume the filtered index between 1996 and 2026:
+Everything runs through the resumable CLI `popular_site.py` (reads `.env`; 2-3 NVIDIA calls per generated day):
 
 ```cmd
-recolher_cdxj_arquivo_pt.cmd 1996 2026
+:: generate ~50 days (1-2 posts/day) spread across the year, from local blocks
+python popular_site.py --tudo-ano --source-mode local --limite 50
+
+:: a specific date range, prioritizing Arquivo.pt
+python popular_site.py --start 2026-03-01 --end 2026-03-31 --source-mode arquivo-first
+
+:: a single newspaper
+python popular_site.py --jornal publico.pt --start 2026-05-01 --end 2026-05-31
+
+:: per-day events index (Wikipedia "on this day" scored by the AI) — gives the
+:: calendar content for all 365 days; resumable and cached
+python popular_site.py --com-eventos
+
+:: complete older posts (relevance scores, EN fields, wayback links)
+python popular_site.py --backfill-relevance
 ```
 
-Progress is stored in `arquivo_cdxj_state.json`. A subsequent run:
+Source modes: `local` (collected `pt/*.json` blocks), `local-first`, `arquivo-first`, `arquivo-only`.
 
-- adds new collections;
-- reprocesses collections that have changed;
-- keeps collections that remain unchanged;
-- resumes an updated collection from the saved offset when the old prefix still matches;
-- removes old records from a collection before a full rebuild or when the prefix has changed.
+## Preparing posts and review
 
-For each completed collection, `arquivo_cdxj_state.json` stores the byte position and a prefix anchor. The anchor is validated through `Range` before a remote update; this avoids assuming that CDXJ ordering is chronological, which is not guaranteed. Previous state files can be populated explicitly, including the anchors:
-
-```cmd
-python -u build_arquivo_cdxj_index.py --migrate-state-only
-```
-
-If the anchor cannot be validated, the collection remains pending to avoid silently starting a potentially unsafe remote read.
-
-If the raw CDXJ files are already in a local folder:
-
-```cmd
-recolher_cdxj_de_pasta_local.cmd C:\caminho\para\cdxj_brutos 1996 2026
-```
-
-Specific collections can also be processed:
-
-```cmd
-python -u build_arquivo_cdxj_index.py --collections AWP30.cdxj AWP31.cdxj --start-year 1996 --end-year 2026
-```
-
-The `--all-remote` mode goes through all remote collections and can take many hours or days. It should be used for the initial build, not for every normal run.
-
-After completing the first full data collection, run this once:
-
-```cmd
-reconstruir_cobertura_cdxj.cmd
-```
-
-This command calculates the first and last capture for each source and regenerates the website. The chart's maximum date becomes the last date actually covered by the CDXJ data; when a newspaper is selected, the limit changes to that newspaper's last capture.
-
-## Preparing posts
-
-To prepare a date range in Portuguese, prioritizing Arquivo.pt:
+Direct alternative to `popular_site`:
 
 ```cmd
 python -u pregenerator.py --lang pt --start-date 2026-07-01 --end-date 2026-07-31 --source-mode arquivo-first
 ```
 
-Available modes:
-
-- `arquivo-first`: Arquivo.pt first, with the local archive as support;
-- `arquivo-only`: only information retrieved through Arquivo.pt;
-- `local-first`: local archive first;
-- `local`: local data only.
-
-The `review_pt.html` file is used to review the options. The states used in `pending_posts.json` are:
-
-- `pending`: awaiting a decision;
-- `approved`: authorized for publication;
-- `published`: publication completed;
-- `skip`: option rejected.
+Background photo analysis can be regenerated per post (`python regenerate_missing_backgrounds.py <post_id> ...`), always validated by Gemini. States in `pending_posts.json`: `pending`, `approved`, `published`, `skip`.
 
 ## Topic search
 
-The topics page compares up to four searches. Each click on `+` adds an analysis, and the button disappears when the limit of four is reached; if one is removed, it reappears. Each series has its own source and color. Exact numbers above the points can be shown or hidden, and the legend identifies the topic, source, color, and total.
-
-PNG, SVG, and CSV include all series. The SVG/PNG includes the legend drawn into the file itself; the CSV includes the analysis, topic, source, color, total, verification status, dates, method, and query URL. Exported headings and text follow the website's current language.
-
-Without a fast index, the page queries only the Arquivo.pt TextSearch API. A newspaper name, such as `www.publico.pt`, is sent to the API as a filter for the preserved index; that newspaper's current website is not contacted.
-
-The `estimated_nr_results` field is used only as an internal hint to speed up the boundary search. The number shown in the chart is verified through pagination with `dedupValue=0`: the application confirms that the last `offset` exists and the next one does not. When a range exceeds the API's result window, it is divided into smaller periods and counted again. A failed request is marked as unverified and is never converted to zero.
-
-The values represent archived records that match the search. The same page may be counted more than once if it was preserved at different times. The exported CSV includes dates, verification status, method, query URL, and retrieval timestamp.
-
-To avoid thousands of requests to Arquivo.pt, each analysis has a verification limit and respects the official request limit. When that limit is reached, missing years remain unverified and are never converted to zero.
-
-The backend first checks whether the OpenSearch index is complete for the range. If it is, an annual aggregation returns all points in the series in a single query. If it is incomplete or unavailable, the job moves to the queue and uses the official API. The fast index is enabled only after all files and pages in the range have been indexed without errors.
+The topics page compares up to four queries, each with its own source and color. Values are verified by pagination (`dedupValue=0`) under Arquivo.pt rate limits; failures stay marked as unverified, never zeroed. With a backend and a complete OpenSearch index, a yearly aggregation replaces pagination.
 
 ## Dynamic website and fast analysis
 
-The infrastructure prepared in `render.yaml` uses:
-
-- Render Web Service for FastAPI and the frontend;
-- Render Background Worker for Celery;
-- a second persistent worker to update CDXJ data and OpenSearch;
-- Render PostgreSQL for public data and cached results;
-- Render Key Value for the queue;
-- an OpenSearch-compatible service for the text index;
-- S3/R2 object storage, recommended for CDXJ data, index copies, and reconstruction data.
-
-OpenSearch does not replace Arquivo.pt as the source. Each document in the index corresponds to a capture retrieved from Arquivo.pt and retains its URL, date, newspaper, and preserved link. The CDXJ files locate the captures; the text is obtained from the preserved pages.
-
-The initial indexing process is resource-intensive and should not run in a normal GitHub Action. It can take several days and require tens or hundreds of gigabytes, depending on the number and size of the pages. After this initial load, `build_topic_search_index.py` skips unchanged files and reprocesses only new or modified files.
-
-`backend/index_update_worker.py` automates the following cycle on a persistent disk: it receives changes from the bucket, checks for new or modified CDXJ collections on Arquivo.pt, updates the backup, synchronizes the covered years and sources to PostgreSQL, and runs the indexer.
-
-The complete guide is available in [`DYNAMIC_DEPLOYMENT.md`](DYNAMIC_DEPLOYMENT.md).
+`render.yaml` provisions: FastAPI + frontend (Web Service), Celery (worker), CDXJ/OpenSearch updates (a second persistent worker), PostgreSQL, a Valkey/Redis queue, and optional OpenSearch. The initial indexing is heavy (days) and must not run in normal Actions. Full manual: [`DYNAMIC_DEPLOYMENT.md`](DYNAMIC_DEPLOYMENT.md). Static-only option on the Hugging Face: [`HF_DEPLOYMENT.md`](HF_DEPLOYMENT.md).
 
 ## Generating and testing the website
 
@@ -173,77 +129,61 @@ python -u build_site.py
 python -m http.server 8765 --directory site
 ```
 
-Then open [http://localhost:8765/inicio/](http://localhost:8765/inicio/).
-
-During development, when you do not want to reread several gigabytes of CDXJ data:
+Open [http://localhost:8765/inicio/](http://localhost:8765/inicio/). During development, to skip re-reading gigabytes of CDXJ:
 
 ```powershell
-$env:SITE_SKIP_CDXJ_REFRESH='1'
-python -u build_site.py
+$env:SITE_SKIP_CDXJ_REFRESH='1'; python -u build_site.py
 ```
-
-This option preserves the existing cache; normal workflows continue to detect new or modified CDXJ files.
 
 ## Metrics
 
-The documentation metrics are rebuilt each time `build_site.py` runs:
-
-- news coverage and date range, based on the CDXJ state;
-- distinct sources, combining newspapers, magazines, and profiles without counting the same brand more than once;
-- cumulative posts, retained in `social_metrics.json`;
-- followers across all configured networks.
-
-On the public page, the secondary metrics show only years covered and sources. The three main numbers restart their animation whenever the user enters the documentation page; on devices with reduced motion, the count is shorter but remains visible.
-
-When Meta credentials are available, the build updates `followers_count`. If the API fails, it retains the last valid value instead of replacing it with zero.
+Rebuilt on every `build_site.py` run: stories covered and time range (from CDXJ state), distinct sources, cumulative posts (`social_metrics.json`), and followers for the configured social networks. If the Meta API fails, the last valid value is kept rather than zeroed.
 
 ## Main workflows
 
-- `Pregenerate PT Review Queue`: prepares the regular editorial queue;
-- `Pregenerate PT Interval Review Queue`: prepares a manual date range and can update specified CDXJ collections;
-- `Daily Instagram Publisher`: publishes approved posts and rebuilds the website;
-- `Deploy Website`: generates and publishes the website on GitHub Pages;
-- `Sync Dynamic Website`: sends posts, metrics, and coverage to the dynamic API;
-- `Cleanup Used ImgBB Images`: removes images already used according to the project's records;
-- `Weekly Data Extraction`: updates the supplementary local archives.
-
-In the date-range workflow, `update_cdxj` runs the update only when collections are also specified in `cdxj_collections` or when `cdxj_all_remote` is deliberately enabled.
+- `Pregenerate PT Review Queue` / `Pregenerate PT Interval Review Queue` — editorial queue;
+- `Daily Instagram Publisher` — publishes approved posts and rebuilds the site;
+- `Deploy Website` — builds and publishes to GitHub Pages;
+- `Sync Dynamic Website` — sends the public snapshot to the API;
+- `Cleanup Used ImgBB Images`;
+- `Weekly Data Extraction` — refreshes the complementary local archives.
 
 ## Configuration
 
-Secrets and variables used by the workflows, depending on the enabled functionality:
+- `NVIDIA_API_KEY`, `NVIDIA_MODEL` — editorial analysis and preparation;
+- `GEMINI_API_KEY` — photo analysis (framing, faces, embedded text, suitability; cached in `gemini_photo_cache.json`, OpenCV fallback without a key);
+- `IMGBB_API_KEY` — review image hosting;
+- `IG_ACCESS_TOKEN_PT`, `IG_USER_ID_PT` — Instagram publishing;
+- `SITE_API_URL`, `SITE_SYNC_TOKEN` — dynamic sync;
+- `SITE_PUBLIC_URL` — final public domain (canonical/sitemap/structured data);
+- `DATABASE_URL`, `REDIS_URL`, `OPENSEARCH_URL`, `OPENSEARCH_API_KEY`, `OPENSEARCH_INDEX` — dynamic infrastructure.
 
-- `NVIDIA_API_KEY` and `NVIDIA_MODEL`;
-- `GEMINI_API_KEY`;
-- `IMGBB_API_KEY`;
-- `IG_ACCESS_TOKEN_PT` and `IG_USER_ID_PT`.
-- `SITE_API_URL` and `SITE_SYNC_TOKEN` for dynamic synchronization;
-- `SITE_PUBLIC_URL` with the final public domain, used in canonical URLs, the sitemap, and structured data;
-- `DATABASE_URL` and `REDIS_URL`, provided by Render;
-- `OPENSEARCH_URL`, `OPENSEARCH_API_KEY`, and `OPENSEARCH_INDEX` for fast search.
+Keys never go into the repository: in GitHub Actions use **Settings > Secrets and variables > Actions**; locally use a `.env` file (not committed) or `nvidia_api_key.local.txt`.
 
-Keys must never be stored in the repository. In GitHub Actions, configure them under **Settings > Secrets and variables > Actions**.
+## Useful .cmd commands
+
+- `recolher_cdxj_arquivo_pt.cmd [start] [end]` — build/resume the CDXJ index from Arquivo.pt;
+- `recolher_cdxj_de_pasta_local.cmd <folder> [start] [end]` — index raw CDXJ files already downloaded;
+- `reconstruir_cobertura_cdxj.cmd` — recompute per-source coverage and rebuild the site;
+- `iniciar_historico_nvidia.cmd` — continuous NVIDIA collection of Instagram profiles in 6 tabs (monthly scripts in `historico_*_nvidia.cmd`; light variant in `iniciar_historico_nvidia_leve.cmd`).
 
 ## Important files
 
-- `build_arquivo_cdxj_index.py`: builds the filtered index;
-- `pregenerator.py`: selects candidates and creates the review queue;
-- `publisher.py`: generates/publishes approved posts;
-- `build_site.py`: prepares the website's data, pages, and metrics;
-- `site/sitemap.xml` and `site/robots.txt`: public index and crawling rules, regenerated with the website;
-- `backend/`: API, database, queue, and fast search;
-- `build_topic_search_index.py`: builds/updates the full OpenSearch index;
-- `sync_dynamic_site.py`: sends the public snapshot to the backend;
-- `sync_cdxj_storage.py`: synchronizes CDXJ data and state files with S3 or R2;
-- `render.yaml`: dynamic infrastructure on Render;
-- `pending_posts.json`: editorial queue;
-- `social_metrics.json`: history of posts and followers;
-- `backend/calendar_service.py`: dynamic recommendations by day and source, and permanent pages for indexed news stories;
-- `SITE_AND_POSTS.md`: detailed reference for the website and workflows;
-- `PLANO_PREMIO_ARQUIVO_PT_2027.md`: development plan for the submission.
+- `build_arquivo_cdxj_index.py` — builds the filtered index;
+- `pregenerator.py` — candidates, AI, grounding, and review queue;
+- `historical_relevance.py` — relevance criteria, weights, and levels;
+- `gemini_vision.py` — visual photo analysis (framing/suitability);
+- `popular_site.py` — population CLI (stories, events, backfill);
+- `collect_snapshots.py` — downloads Arquivo.pt snapshots for stories;
+- `fetch_logos.py` — downloads source logos;
+- `publisher.py` — generates/publishes approved posts;
+- `build_site.py` — site, data, clean URLs, carousel tenure, pages, and metrics;
+- `carrossel_estado.json` — carousel state (tenure/rotation);
+- `data/eventos_por_dia.json` — per-day events index for the calendar;
+- `pending_posts.json` / `social_metrics.json` / `imgbb_uploads.json` — editorial queue, publication history, and image registry;
+- `backend/` — API, database, queue, and fast search;
+- `SITE_AND_POSTS.md` — detailed reference for the site and pipelines.
 
 ## Rights and provenance
 
-The project links to pages preserved by Arquivo.pt and identifies the original publications. Journalistic content remains the property of its respective authors and media organizations.
-
-This project's original source code is made available under the [MIT License](LICENSE). The license does not cover news stories, photographs, trademarks, or other third-party content, which remain subject to the rights of their respective owners. The Montserrat fonts included in the repository are distributed separately under the [SIL Open Font License 1.1](images/montserrat/OFL.txt).
+The project points to pages preserved by Arquivo.pt and identifies the originating publications. Journalistic content keeps the rights of its authors and media outlets. The original source code is available under the [MIT License](LICENSE); the included Montserrat fonts follow the [SIL Open Font License 1.1](images/montserrat/OFL.txt).

@@ -8,6 +8,8 @@ const state = {
   calendarYear: new Date().getFullYear(),
   calendarMonth: new Date().getMonth() + 1,
   calendarSource: "",
+  calendarFormat: "month",
+  calendarView: "onthisday",
   calendarPickerVisible: null,
   calendarRecommendations: [],
   calendarLoading: false,
@@ -30,6 +32,9 @@ const state = {
   topicAbort: null,
   apiBaseUrl: "",
 };
+
+// Máximo de publicações do projeto no topo de qualquer período do calendário.
+const CALENDAR_POSTS_LIMIT = 6;
 
 const ROUTE_SEGMENTS = new Set(["inicio", "calendário", "calendario", "temas", "documentação", "documentacao", "noticia"]);
 const SOURCE_LABELS = {
@@ -61,6 +66,68 @@ const SOURCE_LABELS = {
   "activa.pt": "Activa",
   "maxima.pt": "Máxima",
 };
+
+// Níveis de relevância histórica — nomes e resumos por idioma (ver
+// historical_relevance.py no gerador).
+const RELEVANCE_LEVELS = {
+  pt: [
+    { level: 1, name: "Marco Histórico", tooltip: "Acontecimento que mudou o rumo da História, com consequências estruturais e duradouras." },
+    { level: 2, name: "Grande Relevância", tooltip: "Grande impacto nacional ou internacional, sem ser necessariamente um ponto de viragem histórico." },
+    { level: 3, name: "Relevância Regional", tooltip: "Importância especialmente forte para uma região, país ou comunidade." },
+    { level: 4, name: "Interesse Público", tooltip: "Grande atenção pública na época, com impacto histórico de longo prazo limitado." },
+    { level: 5, name: "Contexto Histórico", tooltip: "Não foi determinante por si, mas ajuda a compreender a época e outros acontecimentos." },
+  ],
+  en: [
+    { level: 1, name: "Historic Landmark", tooltip: "An event that changed the course of history, with lasting, structural consequences." },
+    { level: 2, name: "Major Event", tooltip: "Major national or international impact, though not necessarily a turning point." },
+    { level: 3, name: "Regional Relevance", tooltip: "Especially significant for a specific region, country, or community." },
+    { level: 4, name: "Public Interest", tooltip: "Drew major public attention at the time, with limited long-term historical impact." },
+    { level: 5, name: "Historical Context", tooltip: "Not decisive on its own, but useful for understanding the era and later events." },
+  ],
+};
+
+// Ícones vetoriais por nível (coroa, estrela, pessoas, jornal, lupa).
+const RELEVANCE_ICONS = {
+  1: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l4 4 5-6 5 6 4-4v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8z"/></svg>',
+  2: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8L12 2z"/></svg>',
+  3: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7 1a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5zM2.5 18c0-2.6 2.9-4.5 6.5-4.5s6.5 1.9 6.5 4.5v1h-13v-1zm15.5 1v-1c0-1.5-.6-2.8-1.7-3.8 2.9.3 5.2 1.9 5.2 3.8v1h-3.5z"/></svg>',
+  4: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h13a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5zm2 4h4v4H6V9zm6 0h5v1.5h-5V9zm0 3.5h5V14h-5v-1.5zM6 15h11v1.5H6V15z"/></svg>',
+  5: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 0 1 5.9 12.1l4.3 4.3-1.4 1.4-4.3-4.3A7.5 7.5 0 1 1 10.5 3zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11z"/></svg>',
+};
+
+const SOURCE_TYPE_KEY = {
+  newspaper: "sourceTypeNewspaper",
+  internet_profile: "sourceTypeProfile",
+  wikipedia: "sourceTypeWikipedia",
+  archive: "sourceTypeArchive",
+};
+
+function relevanceLevelInfo(item) {
+  const level = Number(item && item.relevance_level);
+  if (!level || level < 1 || level > 5) return null;
+  const table = RELEVANCE_LEVELS[state.lang === "en" ? "en" : "pt"] || RELEVANCE_LEVELS.pt;
+  return table.find((entry) => entry.level === level) || null;
+}
+
+function relevanceBadge(item, options = {}) {
+  const info = relevanceLevelInfo(item);
+  if (!info) return "";
+  const aria = t("relevanceHelpAria");
+  const icon = RELEVANCE_ICONS[info.level] || "";
+  const size = options.compact ? " relevance-badge-compact" : "";
+  return (
+    `<span class="relevance-badge relevance-level-${info.level}${size}" data-relevance-level="${info.level}" ` +
+    `tabindex="0" role="button" aria-describedby="relevance-tooltip" aria-label="${aria}">` +
+    `${icon}<span class="relevance-badge-name">${info.name}</span></span>`
+  );
+}
+
+function sourceTypeChip(item) {
+  const type = item && item.source_type ? item.source_type : "archive";
+  const key = SOURCE_TYPE_KEY[type] || SOURCE_TYPE_KEY.archive;
+  return `<span class="source-chip source-${type}">${t(key)}</span>`;
+}
+
 
 const i18n = {
   pt: {
@@ -109,6 +176,67 @@ const i18n = {
     dayRecommendationsTitle: "Notícias importantes deste dia:",
     monthRecommendationsTitle: "Notícias importantes de",
     openDay: "Abrir dia",
+    calendarFormatLabel: "Formato",
+    calendarFormatMonth: "Mês",
+    calendarFormatWeek: "Semana",
+    calendarViewLabel: "Vista",
+    calendarViewOnThisDay: "Notícias de Ontem",
+    calendarViewExactDate: "Dia exato",
+    calendarWeekPrevious: "Semana anterior",
+    calendarWeekNext: "Semana seguinte",
+    weekRangeJoin: "a",
+    exactDayTitle: "Notícias de",
+    projectPostsTitle: "Publicações do projeto",
+    noPostsForPeriod: "Sem publicações do projeto neste período.",
+    relevanceWhy: "Porquê este nível?",
+    relevanceHelpAria: "O que significa este nível de relevância",
+    sourceTypeNewspaper: "Jornal",
+    sourceTypeProfile: "Perfil da internet",
+    sourceTypeWikipedia: "Wikipédia",
+    sourceTypeArchive: "Arquivo.pt",
+    scoreImpact: "Impacto histórico",
+    scoreScope: "Dimensão do impacto",
+    scoreConsequences: "Consequências",
+    scoreLater: "Relevância posterior",
+    scoreDuration: "Dimensão e duração",
+    scoreMedia: "Relevância mediática",
+    scoreUniqueness: "Singularidade",
+    relevanceDefaultNote: "Classificação provisória: pontuação detalhada ainda não calculada para esta notícia.",
+    relevanceEyebrow: "Níveis de relevância histórica",
+    relevanceDocTitle: "Como distinguimos a relevância das notícias",
+    relevanceDocLead: "Cada notícia recebe um badge que indica o seu grau de importância histórica. O nível resulta de uma pontuação objetiva — e não de uma opinião solta da inteligência artificial.",
+    relevanceDocHow: "Como o nível é atribuído",
+    relevanceDocHowBody: "Cada critério recebe uma nota de 0 a 100. A pontuação final é a média ponderada dos sete critérios e é ela que define o nível: 85 ou mais é Marco Histórico, 70 a 84 é Grande Relevância, 55 a 69 é Relevância Regional, 40 a 54 é Interesse Público e abaixo de 40 é Contexto Histórico. A inteligência artificial propõe as notas, mas o nível é sempre recalculado pelo sistema a partir delas.",
+    relevanceDocMedia: "Relevância mediática não é importância histórica",
+    relevanceDocMediaBody: "Uma notícia pode ter sido extremamente popular durante uma semana e hoje ter pouca importância histórica. O contrário também acontece. Por isso, a relevância mediática pesa apenas 5% e nunca determina o nível sozinha.",
+    relevanceDocLandmark: "Regra do Marco Histórico",
+    relevanceDocLandmarkBody: "Uma notícia nunca recebe Marco Histórico só porque a IA a considera importante. Para esse nível exige-se pontuação mínima de 90 nos quatro critérios substantivos e uma justificação explícita das consequências posteriores do acontecimento.",
+    relevanceDocCuration: "Os badges como curadoria",
+    relevanceDocCurationBody: "Os destaques do site — notícia principal e carrossel — são escolhidos apenas entre notícias de Marco Histórico ou Grande Relevância. No calendário, as publicações do projeto aparecem primeiro (até seis por período, por nível de badge), seguidas das restantes notícias ordenadas da mesma forma.",
+    relevanceDocCriteriaTitle: "Critérios de atribuição",
+    relevanceDocExampleTitle: "Exemplo de uma notícia",
+    relevanceDocExampleBadge: "Marco Histórico",
+    relevanceDocExampleHeadline: "25 de Abril de 1974: o fim da ditadura e o início da democracia em Portugal",
+    relevanceDocExampleBody: "A revolução dos cravos é um acontecimento fundamental na história de Portugal e da Europa, com impacto político, social e cultural duradouro — pontuações altas em impacto, consequências e relevância posterior.",
+    relevanceDocScoresNote: "No site, a pontuação completa de cada notícia aparece na respetiva página individual.",
+    homeHighlightsEyebrow: "Agora no projeto",
+    homeHighlightsTitle: "Destaques",
+    homeLevel1Title: "Marcos Históricos",
+    homeLevel1Lead: "Acontecimentos que mudaram o rumo da História.",
+    homeLevel2Title: "Grande Relevância",
+    homeLevel2Lead: "Momentos decisivos de grande impacto nacional ou internacional.",
+    homeMoreTitle: "Mais notícias",
+    homeMoreLead: "Notícias de interesse público e contexto histórico para compreender a época.",
+    sameDayTitle: "No mesmo dia",
+    sameDayLead: "Outros acontecimentos preservados nesta data, em anos diferentes.",
+    previousStory: "Notícia anterior",
+    nextStory: "Notícia seguinte",
+    breadcrumbHome: "Início",
+    breadcrumbCalendar: "Calendário",
+    footerSourcesTitle: "Fontes acompanhadas",
+    footerExploreTitle: "Explorar",
+    footerAboutTitle: "Sobre o projeto",
+    footerBackTop: "Voltar ao topo",
     topicsEyebrow: "Pesquisa histórica",
     topicsTitle: "Evolução de um tema",
     topicsLead: "Compara a presença de um tema no índice preservado ao longo dos anos e filtra por fonte.",
@@ -228,6 +356,67 @@ const i18n = {
     dayRecommendationsTitle: "Important stories from this day:",
     monthRecommendationsTitle: "Important stories from",
     openDay: "Open day",
+    calendarFormatLabel: "Layout",
+    calendarFormatMonth: "Month",
+    calendarFormatWeek: "Week",
+    calendarViewLabel: "View",
+    calendarViewOnThisDay: "On this day",
+    calendarViewExactDate: "Exact date",
+    calendarWeekPrevious: "Previous week",
+    calendarWeekNext: "Next week",
+    weekRangeJoin: "to",
+    exactDayTitle: "Stories from",
+    projectPostsTitle: "Project posts",
+    noPostsForPeriod: "No project posts for this period yet.",
+    relevanceWhy: "Why this level?",
+    relevanceHelpAria: "What this relevance level means",
+    sourceTypeNewspaper: "Newspaper",
+    sourceTypeProfile: "Internet profile",
+    sourceTypeWikipedia: "Wikipedia",
+    sourceTypeArchive: "Arquivo.pt",
+    scoreImpact: "Historical impact",
+    scoreScope: "Scope of impact",
+    scoreConsequences: "Consequences",
+    scoreLater: "Influence on later events",
+    scoreDuration: "Scale and duration",
+    scoreMedia: "Media attention",
+    scoreUniqueness: "Uniqueness",
+    relevanceDefaultNote: "Provisional rating: detailed scores for this story haven't been computed yet.",
+    relevanceEyebrow: "Historical relevance levels",
+    relevanceDocTitle: "How we measure a story's relevance",
+    relevanceDocLead: "Every story gets a badge indicating its historical weight. The level comes from an objective score — never from a free-form opinion by the AI.",
+    relevanceDocHow: "How the level is assigned",
+    relevanceDocHowBody: "Each criterion receives a 0-100 score. The final score is the weighted average of all seven criteria, and that number sets the level: 85 or above is a Historic Landmark, 70-84 a Major Event, 55-69 Regional Relevance, 40-54 Public Interest, and below 40 Historical Context. The AI proposes the scores, but the system always recomputes the level from them.",
+    relevanceDocMedia: "Media attention is not historical importance",
+    relevanceDocMediaBody: "A story can be hugely popular for a week and still matter little to history — and the reverse happens too. That's why media attention only weighs 5% and can never set the level on its own.",
+    relevanceDocLandmark: "The Historic Landmark rule",
+    relevanceDocLandmarkBody: "A story never becomes a Historic Landmark just because the AI finds it important. That level requires at least 90 points on each of the four substantive criteria plus an explicit account of the event's later consequences.",
+    relevanceDocCuration: "Badges as curation",
+    relevanceDocCurationBody: "The site's highlights — the lead story and the carousel — are chosen only among Historic Landmarks and Major Events. In the calendar, project posts come first (up to six per period, ordered by badge), followed by the remaining stories sorted the same way.",
+    relevanceDocCriteriaTitle: "Scoring criteria",
+    relevanceDocExampleTitle: "A worked example",
+    relevanceDocExampleBadge: "Historic Landmark",
+    relevanceDocExampleHeadline: "April 25, 1974: the end of the dictatorship and the beginning of democracy in Portugal",
+    relevanceDocExampleBody: "The Carnation Revolution is a foundational event in Portuguese and European history, with lasting political, social, and cultural impact — top scores in impact, consequences, and influence on later events.",
+    relevanceDocScoresNote: "On the site, each story's full score breakdown appears on its own page.",
+    homeHighlightsEyebrow: "Now on the project",
+    homeHighlightsTitle: "Top stories",
+    homeLevel1Title: "Historic Landmarks",
+    homeLevel1Lead: "Events that changed the course of history.",
+    homeLevel2Title: "Major Events",
+    homeLevel2Lead: "Decisive moments with major national or international impact.",
+    homeMoreTitle: "More stories",
+    homeMoreLead: "Stories of public interest and historical context to understand the era.",
+    sameDayTitle: "On the same day",
+    sameDayLead: "Other preserved events from this date, in different years.",
+    previousStory: "Previous story",
+    nextStory: "Next story",
+    breadcrumbHome: "Home",
+    breadcrumbCalendar: "Calendar",
+    footerSourcesTitle: "Sources we follow",
+    footerExploreTitle: "Explore",
+    footerAboutTitle: "About the project",
+    footerBackTop: "Back to top",
     topicsEyebrow: "Historical search",
     topicsTitle: "How a topic evolved",
     topicsLead: "Compare a topic's presence in the preserved index over time and filter by source.",
@@ -366,7 +555,7 @@ function formatDate(value) {
   const parts = String(value).split("-");
   if (parts.length < 3) return value;
   const date = new Date(`${parts[0]}-${parts[1]}-${parts[2]}T12:00:00`);
-  return new Intl.DateTimeFormat(state.lang === "pt" ? "pt-PT" : "en-GB", {
+  return new Intl.DateTimeFormat(state.lang === "pt" ? "pt-PT" : "en-US", {
     day: "numeric",
     month: "short",
     year: "numeric",
@@ -434,21 +623,53 @@ function ensureCalendarDate() {
 
 function monthName(monthIndex) {
   const date = new Date(2026, monthIndex, 1);
-  return new Intl.DateTimeFormat(state.lang === "pt" ? "pt-PT" : "en-GB", { month: "long" }).format(date);
+  return new Intl.DateTimeFormat(state.lang === "pt" ? "pt-PT" : "en-US", { month: "long" }).format(date);
 }
+
+// Categorias: em EN apresentam-se traduzidas (os dados ficam em PT).
+const CATEGORY_EN = {
+  "POLÍTICA": "POLITICS",
+  "POLITICA": "POLITICS",
+  "DESPORTO": "SPORTS",
+  "CULTURA": "CULTURE",
+  "SOCIEDADE": "SOCIETY",
+  "CIÊNCIA": "SCIENCE",
+  "CIENCIA": "SCIENCE",
+  "NACIONAL": "NATIONAL",
+  "MUNDIAL": "WORLD",
+  "ESTRELA": "STARS",
+  "CURIOSO": "OFFBEAT",
+  "ECONOMIA": "ECONOMY",
+  "ATUALIDADE": "NEWS",
+};
 
 function itemMeta(item) {
-  return item.category ? [item.category] : [];
+  if (!item.category) return [];
+  const category = state.lang === "en" ? CATEGORY_EN[item.category] || item.category : item.category;
+  return [category];
 }
 
-function titleWithYear(item) {
+// Título limpo (sem ano residual) para contexts onde o ano aparece à parte.
+function cleanTitle(item) {
   const title = localized(item, "title");
+  if (!title) return "";
+  const year = String(item?.original_year || "").trim();
+  if (!year) return title.replace(/[,\s]+$/, "").trim();
+  const pattern = new RegExp(`[\\s,;:.]*\\(?${t("yearOnly")}\\s*\\)?\\s*${year}\\s*[.,;:!?]*$`, "i");
+  return title.replace(pattern, "").replace(/[,\s]+$/, "").trim() || title;
+}
+
+// "Título, em 2021" — vírgula sempre antes do ano, em PT e EN.
+function titleWithYear(item) {
+  const title = cleanTitle(item);
   const year = String(item?.original_year || "").trim();
   if (!title || !year || new RegExp(`\\b${year}\\b`).test(title)) return title;
-  return `${title} ${t("yearOnly")} ${year}`;
+  return `${title}, ${t("yearOnly")} ${year}`;
 }
 
 function newsPageUrl(item) {
+  // URL limpo estilo jornal (noticia/AAAA/MM/DD/slug-d8) quando existe.
+  if (item?.url_path) return `${siteBasePath()}${item.url_path}/`;
   return item?.page_id
     ? `${siteBasePath()}noticia/${encodeURIComponent(item.page_id)}/`
     : "";
@@ -465,28 +686,37 @@ function absolutePageUrl(path) {
 
 function updateDocumentMetadata() {
   const route = state.route || routeFromLocation();
+  const isEn = state.lang === "en";
   const routeSeo = {
     home: {
-      title: "Notícias de Ontem | Memória da imprensa portuguesa",
-      description: "Explore notícias preservadas pelo Arquivo.pt, compare diferentes anos e descubra a memória da imprensa portuguesa em cada dia.",
+      title: isEn ? "Notícias de Ontem | Memory of the Portuguese press" : "Notícias de Ontem | Memória da imprensa portuguesa",
+      description: isEn
+        ? "Explore stories preserved by Arquivo.pt, compare different years, and rediscover the Portuguese news memory day by day."
+        : "Explore notícias preservadas pelo Arquivo.pt, compare diferentes anos e descubra a memória da imprensa portuguesa em cada dia.",
       path: routeUrl("inicio"),
       type: "website",
     },
     calendar: {
-      title: "Calendário de notícias históricas | Notícias de Ontem",
-      description: "Escolha uma data e descubra notícias de diferentes anos preservadas pelo Arquivo.pt.",
+      title: isEn ? "Calendar of historical stories | Notícias de Ontem" : "Calendário de notícias históricas | Notícias de Ontem",
+      description: isEn
+        ? "Pick a date and discover stories from different years preserved by Arquivo.pt."
+        : "Escolha uma data e descubra notícias de diferentes anos preservadas pelo Arquivo.pt.",
       path: routeUrl("calendario"),
       type: "website",
     },
     topics: {
-      title: "Evolução de temas na imprensa portuguesa | Notícias de Ontem",
-      description: "Analise a evolução de temas na imprensa portuguesa preservada e filtre os resultados por jornal e período.",
+      title: isEn ? "How topics evolved in the Portuguese press | Notícias de Ontem" : "Evolução de temas na imprensa portuguesa | Notícias de Ontem",
+      description: isEn
+        ? "Track how topics evolved across the preserved Portuguese press and filter by newspaper and period."
+        : "Analise a evolução de temas na imprensa portuguesa preservada e filtre os resultados por jornal e período.",
       path: routeUrl("temas"),
       type: "website",
     },
     docs: {
-      title: "Como funciona o projeto | Notícias de Ontem",
-      description: "Conheça as fontes, a cobertura e o método usado para selecionar conteúdos preservados pelo Arquivo.pt.",
+      title: isEn ? "How the project works | Notícias de Ontem" : "Como funciona o projeto | Notícias de Ontem",
+      description: isEn
+        ? "Learn about the sources, coverage, and method used to select content preserved by Arquivo.pt."
+        : "Conheça as fontes, a cobertura e o método usado para selecionar conteúdos preservados pelo Arquivo.pt.",
       path: routeUrl("documentacao"),
       type: "website",
     },
@@ -500,7 +730,7 @@ function updateDocumentMetadata() {
     name: seo.title,
     description: seo.description,
     url: absolutePageUrl(seo.path),
-    inLanguage: "pt-PT",
+    inLanguage: isEn ? "en-US" : "pt-PT",
     isBasedOn: "https://arquivo.pt/",
   };
 
@@ -510,7 +740,8 @@ function updateDocumentMetadata() {
       const title = titleWithYear(item);
       seo = {
         title: `${title} | Notícias de Ontem`,
-        description: localized(item, "summary") || `Consulte ${title} e a fonte preservada no Arquivo.pt.`,
+        description: localized(item, "summary")
+          || (isEn ? `Read ${title} and the source preserved on Arquivo.pt.` : `Consulte ${title} e a fonte preservada no Arquivo.pt.`),
         path: newsPageUrl(item),
         type: "article",
       };
@@ -526,7 +757,7 @@ function updateDocumentMetadata() {
         image: [image],
         datePublished: item.date || undefined,
         articleSection: item.category || undefined,
-        inLanguage: "pt-PT",
+        inLanguage: isEn ? "en-US" : "pt-PT",
         isBasedOn: item.source_url || "https://arquivo.pt/",
         publisher: {
           "@type": "Organization",
@@ -594,13 +825,15 @@ function renderHero() {
   }
 
   hero.style.backgroundImage = `url('${assetPath(item.banner_image || item.image || "assets/icon.png")}')`;
-  setText("#hero-detail", localized(item, "title"));
+  // Título com ano inline ("Título, em 2021") — sem pílula de ano separada.
+  setText("#hero-detail", titleWithYear(item));
+  setText("#hero-year", "");
+  const heroBadges = document.getElementById("hero-badges");
+  if (heroBadges) heroBadges.innerHTML = `${sourceTypeChip(item)}${relevanceBadge(item)}`;
   if (detail && item.page_id) {
     detail.href = newsPageUrl(item);
     detail.dataset.newsId = item.page_id;
   }
-  const year = item.original_year ? `${t("yearOnly")} ${item.original_year}` : "";
-  setText("#hero-year", year);
   setText("#hero-summary", localized(item, "summary"));
   setLink(instagram, item.instagram_url, t("openInstagram"), t("unavailableInstagram"));
   setLink(source, item.source_url, t("openArquivo"), t("unavailableSource"));
@@ -616,17 +849,25 @@ function cardImage(item, linked = false) {
   return `<a class="card-image-link" href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}" aria-label="${escapeHtml(titleWithYear(item))}">${image}</a>`;
 }
 
+function cardMetaHtml(item) {
+  const parts = [
+    ...itemMeta(item).map(escapeHtml),
+    sourceTypeChip(item),
+    relevanceBadge(item, { compact: true }),
+  ].filter(Boolean);
+  return parts.join("");
+}
+
 function renderCarousel() {
   const carousel = document.getElementById("carousel");
   if (!carousel) return;
   const items = state.data?.carousel || [];
   carousel.innerHTML = `<div class="carousel-track">${items.map((item) => {
-    const meta = itemMeta(item).map(escapeHtml).join(" · ");
     return `
       <article class="story-card" style="background-image: url('${escapeHtml(assetPath(item.banner_image || item.image || "assets/icon.png"))}')">
         <div class="story-shade"></div>
         <div class="content">
-          <div class="meta">${meta}</div>
+          <div class="meta">${cardMetaHtml(item)}</div>
           <h3><a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">${escapeHtml(titleWithYear(item))}</a></h3>
           <p>${escapeHtml(localized(item, "summary"))}</p>
           <div class="card-actions">
@@ -645,12 +886,11 @@ function renderLatest() {
   const note = state.data?.has_published_posts ? t("latestPublishedNote") : t("latestPreviewNote");
   setText("#latest-note", note);
   grid.innerHTML = items.map((item) => {
-    const meta = itemMeta(item).map(escapeHtml).join(" · ");
     return `
       <article class="latest-card">
         ${cardImage(item, true)}
         <div class="content">
-          <div class="meta">${meta}</div>
+          <div class="meta">${cardMetaHtml(item)}</div>
           <h3><a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">${escapeHtml(titleWithYear(item))}</a></h3>
           <p>${escapeHtml(formatDate(item.date))}</p>
           <div class="card-actions">
@@ -668,17 +908,249 @@ function calendarPostsForDate(dateValue) {
   const targetYears = new Set([selectedYear, selectedYear - 1]);
   const targetMonthDay = monthDay(dateValue);
   return (state.data?.all || [])
-    .filter((item) => monthDay(item.date) === targetMonthDay && targetYears.has(dateYear(item.date)))
-    .sort((a, b) => `${b.date}-${b.slot || 0}`.localeCompare(`${a.date}-${a.slot || 0}`))
-    .slice(0, state.data?.calendar?.top_instagram_posts || 4);
+    .filter((item) => monthDay(item.date) === targetMonthDay && targetYears.has(dateYear(item.date)));
 }
 
 function calendarPostsForMonth(year, month) {
   const monthStr = String(month).padStart(2, "0");
   return (state.data?.all || [])
-    .filter((item) => dateYear(item.date) === year && String(item.date || "").slice(5, 7) === monthStr)
-    .sort((a, b) => `${b.date}-${b.slot || 0}`.localeCompare(`${a.date}-${a.slot || 0}`))
-    .slice(0, state.data?.calendar?.top_instagram_posts || 4);
+    .filter((item) => dateYear(item.date) === year && String(item.date || "").slice(5, 7) === monthStr);
+}
+
+function weekRangeFor(dateValue) {
+  // Semana de domingo a sábado contendo a data.
+  const [year, month, day] = String(dateValue).split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+  const start = new Date(date);
+  start.setDate(date.getDate() - date.getDay());
+  const days = [];
+  for (let index = 0; index < 7; index += 1) {
+    const current = new Date(start);
+    current.setDate(start.getDate() + index);
+    days.push(isoDate(current.getFullYear(), current.getMonth() + 1, current.getDate()));
+  }
+  return { start: days[0], end: days[6], days };
+}
+
+// Ordenação por badge: nível menor = mais importante; empate por data desc.
+function relevanceSortKey(item) {
+  const level = Number(item?.relevance_level) || 4;
+  return level;
+}
+
+function sortByRelevanceDesc(items) {
+  return [...items].sort((left, right) => {
+    const levelDiff = relevanceSortKey(left) - relevanceSortKey(right);
+    if (levelDiff) return levelDiff;
+    return `${right.date || ""}-${right.slot || 0}`.localeCompare(`${left.date || ""}-${left.slot || 0}`);
+  });
+}
+
+// Publicações do projeto do período: ordenadas por badge, máx. 6 no topo.
+function projectPostsForPeriod(periodDays) {
+  const postMap = new Map();
+  const register = (item) => {
+    if (item?.page_id && !postMap.has(item.page_id)) postMap.set(item.page_id, item);
+  };
+  if (periodDays.length === 1) {
+    for (const item of calendarPostsForDate(periodDays[0])) register(item);
+  } else if (periodDays.length === 7) {
+    const { start, end } = weekRangeFor(periodDays[0]);
+    for (const item of calendarPostsForMonth(dateYear(start), Number(start.slice(5, 7)))) {
+      if (item.date >= start && item.date <= end) register(item);
+    }
+    for (const item of calendarPostsForMonth(dateYear(start) - 1, Number(start.slice(5, 7)))) {
+      const anniversary = `${dateYear(start)}${item.date.slice(4)}`;
+      if (anniversary >= start && anniversary <= end) register(item);
+    }
+  } else {
+    const monthStr = String(periodDays[0].slice(5, 7));
+    for (const item of calendarPostsForMonth(dateYear(periodDays[0]), Number(monthStr))) register(item);
+  }
+  return sortByRelevanceDesc([...postMap.values()]).slice(0, CALENDAR_POSTS_LIMIT);
+}
+
+// Notícias (não posts) do período, ordenadas por badge.
+function periodNews(periodDays) {
+  const seen = new Set();
+  const items = [];
+  const selectedYear = dateYear(periodDays[0]);
+  for (const day of periodDays) {
+    const targetMonthDay = monthDay(day);
+    const candidates = [
+      ...(state.data?.calendar?.recommendations_by_day?.[targetMonthDay] || []),
+      ...state.calendarRecommendations.filter((item) => monthDay(item.date || item.captured_at || "") === targetMonthDay),
+    ];
+    for (const item of candidates) {
+      const key = item.page_id || titleKey(item.title);
+      if (!key || seen.has(key)) continue;
+      // Vista "Dia exato": só itens cuja data original é exatamente aquela.
+      if (state.calendarView === "exact" && periodDays.length === 1) {
+        const itemYear = dateYear(item.event_date || item.date || `${item.original_year}-01-01`);
+        const itemMonthDay = monthDay(item.event_date || item.date || `${item.original_year}-01-01`);
+        if (itemYear !== selectedYear || itemMonthDay !== targetMonthDay) continue;
+      }
+      seen.add(key);
+      items.push(item);
+    }
+  }
+  return sortByRelevanceDesc(items);
+}
+
+// Posts no "dia exato": dia de publicação ou o dia+ano da notícia original.
+function exactDatePosts(dateValue) {
+  const targetMonthDay = monthDay(dateValue);
+  const selectedYear = dateYear(dateValue);
+  return sortByRelevanceDesc((state.data?.all || []).filter((item) => {
+    if (item.date === dateValue) return true;
+    return monthDay(item.date) === targetMonthDay
+      && String(item.original_year || "") === String(selectedYear)
+      && dateYear(item.date) > selectedYear;
+  }));
+}
+
+function recommendationListHtml(items) {
+  if (!items.length) return "";
+  return `<ol class="recommendation-list">${items.map((item) => `
+      <li>
+        <a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">
+          <span>${escapeHtml(item.original_year || dateYear(item.date))}</span>
+          <strong>${escapeHtml(localized(item, "title"))}</strong>
+          <em>${escapeHtml([topicSourceLabel(item.domain || item.source_profile), "Arquivo.pt"].filter(Boolean).join(" · "))}</em>
+          ${relevanceBadge(item, { compact: true })}
+        </a>
+      </li>
+    `).join("")}</ol>`;
+}
+
+function renderCalendarGrid() {
+  const grid = document.getElementById("calendar-grid");
+  if (!grid) return;
+
+  const postDates = new Set(state.data?.calendar?.post_dates || []);
+  const recommendationDays = state.data?.calendar?.recommendations_by_day || {};
+
+  if (state.calendarFormat === "week") {
+    const { days } = weekRangeFor(state.selectedDate);
+    const weekdayLabels = state.lang === "pt"
+      ? ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"]
+      : ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    const cells = weekdayLabels.map((label) => `<div class="calendar-weekday">${escapeHtml(label)}</div>`);
+    for (const day of days) {
+      const hasPosts = postDates.has(day) || postDates.has(isoDate(dateYear(day) - 1, Number(day.slice(5, 7)), Number(day.slice(8, 10))));
+      const hasRecommendations = Boolean(recommendationDays[monthDay(day)]?.length);
+      cells.push(`
+        <button type="button" class="calendar-day ${day === state.selectedDate ? "active" : ""}" data-date="${day}">
+          <span>${Number(day.slice(8, 10))}</span>
+          <small>${hasPosts || hasRecommendations ? "•" : ""}</small>
+        </button>
+      `);
+    }
+    grid.classList.add("calendar-grid-week");
+    grid.innerHTML = cells.join("");
+    return;
+  }
+
+  grid.classList.remove("calendar-grid-week");
+  const firstDay = new Date(state.calendarYear, state.calendarMonth - 1, 1);
+  const daysInMonth = new Date(state.calendarYear, state.calendarMonth, 0).getDate();
+  const offset = (firstDay.getDay() + 6) % 7;
+  const weekdayLabels = state.lang === "pt"
+    ? ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"]
+    : ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  const cells = weekdayLabels.map((label) => `<div class="calendar-weekday">${escapeHtml(label)}</div>`);
+  for (let i = 0; i < offset; i += 1) {
+    cells.push('<div class="calendar-empty"></div>');
+  }
+  for (let day = 1; day <= daysInMonth; day += 1) {
+    const dateValue = isoDate(state.calendarYear, state.calendarMonth, day);
+    const hasPosts = postDates.has(dateValue) || postDates.has(isoDate(state.calendarYear - 1, state.calendarMonth, day));
+    const hasRecommendations = Boolean(recommendationDays[monthDay(dateValue)]?.length);
+    const active = dateValue === state.selectedDate;
+    cells.push(`
+      <button type="button" class="calendar-day ${active ? "active" : ""}" data-date="${dateValue}">
+        <span>${day}</span>
+        <small>${hasPosts || hasRecommendations ? "•" : ""}</small>
+      </button>
+    `);
+  }
+  grid.innerHTML = cells.join("");
+}
+
+function renderDayPanel() {
+  const panel = document.getElementById("day-panel");
+  if (!panel) return;
+  const week = weekRangeFor(state.selectedDate);
+  const viewingMonth = dateYear(state.selectedDate) !== state.calendarYear
+    || Number(state.selectedDate.slice(5, 7)) !== state.calendarMonth;
+
+  let periodDays;
+  let headingDate;
+  let headingTitle;
+  let posts;
+  let recommendations;
+  const targetTotal = state.data?.calendar?.target_total_per_day || 25;
+
+  if (state.calendarView === "exact") {
+    // "Dia exato": apenas o que aconteceu/preservou nessa data precisa.
+    periodDays = [state.selectedDate];
+    posts = state.calendarSource ? [] : exactDatePosts(state.selectedDate).slice(0, CALENDAR_POSTS_LIMIT);
+    recommendations = periodNews(periodDays);
+    headingDate = formatDate(state.selectedDate);
+    headingTitle = `${t("exactDayTitle")} ${headingDate}`.trim();
+  } else if (state.calendarFormat === "week") {
+    periodDays = week.days;
+    posts = state.calendarSource ? [] : projectPostsForPeriod(week.days);
+    recommendations = periodNews(week.days).slice(0, Math.max(targetTotal - posts.length, 0));
+    const startDay = Number(week.start.slice(8, 10));
+    const endDay = Number(week.end.slice(8, 10));
+    const startLabel = `${startDay} ${monthName(Number(week.start.slice(5, 7)) - 1)}`;
+    const endLabel = `${endDay} ${monthName(Number(week.end.slice(5, 7)) - 1)}`;
+    headingDate = `${startLabel} ${t("weekRangeJoin")} ${endLabel}`;
+    headingTitle = `${t("monthRecommendationsTitle")} ${headingDate}:`;
+  } else if (viewingMonth) {
+    const monthDays = Array.from(
+      { length: new Date(state.calendarYear, state.calendarMonth, 0).getDate() },
+      (_, index) => isoDate(state.calendarYear, state.calendarMonth, index + 1),
+    );
+    periodDays = monthDays;
+    posts = state.calendarSource ? [] : projectPostsForPeriod(monthDays);
+    recommendations = periodNews(monthDays).slice(0, Math.max(targetTotal - posts.length, 0));
+    headingDate = `${monthName(state.calendarMonth - 1)} ${state.calendarYear}`;
+    headingTitle = `${t("monthRecommendationsTitle")} ${headingDate}:`;
+  } else {
+    periodDays = [state.selectedDate];
+    posts = state.calendarSource ? [] : projectPostsForPeriod(periodDays);
+    recommendations = calendarRecommendationsForDate(state.selectedDate, posts)
+      .slice(0, Math.max(targetTotal - posts.length, 0));
+    headingDate = formatDate(state.selectedDate);
+    headingTitle = t("dayRecommendationsTitle");
+  }
+
+  const stateMessage = state.calendarLoading
+    ? `<p class="calendar-status">${escapeHtml(t("calendarLoading"))}</p>`
+    : state.calendarError
+      ? `<p class="calendar-status error">${escapeHtml(t("calendarLoadError"))}</p>`
+      : (!posts.length && !recommendations.length)
+        ? `<p class="calendar-status">${escapeHtml(t("calendarNoResults"))}</p>`
+        : "";
+
+  panel.innerHTML = `
+    <div class="day-panel-heading">
+      <div>
+        <p class="eyebrow">${escapeHtml(headingDate)}</p>
+        <h2>${escapeHtml(headingTitle)}</h2>
+      </div>
+    </div>
+    ${stateMessage}
+    ${posts.length ? `
+      <div class="day-posts-block">
+        <h3 class="day-posts-title">${escapeHtml(t("projectPostsTitle"))}</h3>
+        <div class="day-post-grid">${posts.map((item) => storyCard(item, { compactImage: true, showDate: true })).join("")}</div>
+      </div>` : ""}
+    ${recommendationListHtml(recommendations)}
+  `;
 }
 
 function calendarRecommendationsForDate(dateValue, usedItems) {
@@ -728,6 +1200,17 @@ function renderCalendarNavigation() {
   setText("#calendar-month-label", monthName(state.calendarMonth - 1));
   setText("#calendar-year-label", String(state.calendarYear));
   setText("#calendar-date-label", formatDate(state.selectedDate));
+  // Estado dos controlos de formato e vista (segmented controls).
+  for (const button of document.querySelectorAll("[data-calendar-format]")) {
+    const active = button.getAttribute("data-calendar-format") === state.calendarFormat;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  }
+  for (const button of document.querySelectorAll("[data-calendar-view]")) {
+    const active = button.getAttribute("data-calendar-view") === state.calendarView;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  }
   if (!source) return;
   const sources = calendarSourcesForDate(state.selectedDate);
   if (state.calendarSource && !sources.includes(state.calendarSource)) state.calendarSource = "";
@@ -738,13 +1221,12 @@ function renderCalendarNavigation() {
 }
 
 function storyCard(item, options = {}) {
-  const meta = itemMeta(item).map(escapeHtml).join(" · ");
   const imageHtml = options.compactImage ? cardImage(item, true) : "";
   return `
     <article class="${options.className || "latest-card"}">
       ${imageHtml}
       <div class="content">
-        <div class="meta">${meta}</div>
+        <div class="meta">${cardMetaHtml(item)}</div>
         <h3><a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">${escapeHtml(titleWithYear(item))}</a></h3>
         ${options.showDate ? `<p>${escapeHtml(formatDate(item.date))}</p>` : ""}
         ${localized(item, "summary") ? `<p>${escapeHtml(localized(item, "summary"))}</p>` : ""}
@@ -754,88 +1236,6 @@ function storyCard(item, options = {}) {
         </div>
       </div>
     </article>
-  `;
-}
-
-function renderCalendarGrid() {
-  const grid = document.getElementById("calendar-grid");
-  if (!grid) return;
-
-  const firstDay = new Date(state.calendarYear, state.calendarMonth - 1, 1);
-  const daysInMonth = new Date(state.calendarYear, state.calendarMonth, 0).getDate();
-  const offset = (firstDay.getDay() + 6) % 7;
-  const postDates = new Set(state.data?.calendar?.post_dates || []);
-  const recommendationDays = state.data?.calendar?.recommendations_by_day || {};
-  const weekdayLabels = state.lang === "pt"
-    ? ["Seg", "Ter", "Qua", "Qui", "Sex", "Sáb", "Dom"]
-    : ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-
-  const cells = weekdayLabels.map((label) => `<div class="calendar-weekday">${escapeHtml(label)}</div>`);
-  for (let i = 0; i < offset; i += 1) {
-    cells.push('<div class="calendar-empty"></div>');
-  }
-  for (let day = 1; day <= daysInMonth; day += 1) {
-    const dateValue = isoDate(state.calendarYear, state.calendarMonth, day);
-    const hasPosts = postDates.has(dateValue) || postDates.has(isoDate(state.calendarYear - 1, state.calendarMonth, day));
-    const hasRecommendations = Boolean(recommendationDays[monthDay(dateValue)]?.length);
-    const active = dateValue === state.selectedDate;
-    cells.push(`
-      <button type="button" class="calendar-day ${active ? "active" : ""}" data-date="${dateValue}">
-        <span>${day}</span>
-        <small>${hasPosts || hasRecommendations ? "•" : ""}</small>
-      </button>
-    `);
-  }
-  grid.innerHTML = cells.join("");
-}
-
-function renderDayPanel() {
-  const panel = document.getElementById("day-panel");
-  if (!panel) return;
-  // A navegar por um mês diferente do dia selecionado, o painel mostra as
-  // notícias importantes desse mês (mesmo limite e comportamento do dia).
-  const viewingMonth = dateYear(state.selectedDate) !== state.calendarYear
-    || Number(state.selectedDate.slice(5, 7)) !== state.calendarMonth;
-  const posts = state.calendarSource
-    ? []
-    : (viewingMonth
-        ? calendarPostsForMonth(state.calendarYear, state.calendarMonth)
-        : calendarPostsForDate(state.selectedDate));
-  const targetTotal = state.data?.calendar?.target_total_per_day || 25;
-  const recommendationLimit = Math.max(targetTotal - posts.length, 0);
-  const recommendations = calendarRecommendationsForDate(state.selectedDate, posts).slice(0, recommendationLimit);
-  const headingDate = viewingMonth
-    ? `${monthName(state.calendarMonth - 1)} ${state.calendarYear}`
-    : formatDate(state.selectedDate);
-  const headingTitle = viewingMonth
-    ? `${t("monthRecommendationsTitle")} ${headingDate}:`
-    : t("dayRecommendationsTitle");
-  const stateMessage = state.calendarLoading
-    ? `<p class="calendar-status">${escapeHtml(t("calendarLoading"))}</p>`
-    : state.calendarError
-      ? `<p class="calendar-status error">${escapeHtml(t("calendarLoadError"))}</p>`
-      : (!posts.length && !recommendations.length)
-        ? `<p class="calendar-status">${escapeHtml(t("calendarNoResults"))}</p>`
-        : "";
-
-  panel.innerHTML = `
-    <div class="day-panel-heading">
-      <div>
-        <p class="eyebrow">${escapeHtml(headingDate)}</p>
-        <h2>${escapeHtml(headingTitle)}</h2>
-      </div>
-    </div>
-    ${stateMessage}
-    ${posts.length ? `<div class="day-post-grid">${posts.map((item) => storyCard(item, { compactImage: true, showDate: true })).join("")}</div>` : ""}
-    ${recommendations.length ? `<ol class="recommendation-list">${recommendations.map((item) => `
-      <li>
-        <a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">
-          <span>${escapeHtml(item.original_year || dateYear(item.date))}</span>
-          <strong>${escapeHtml(localized(item, "title"))}</strong>
-          <em>${escapeHtml([topicSourceLabel(item.domain || item.source_profile), "Arquivo.pt"].filter(Boolean).join(" · "))}</em>
-        </a>
-      </li>
-    `).join("")}</ol>` : ""}
   `;
 }
 
@@ -880,24 +1280,28 @@ function renderCalendar() {
 }
 
 function selectedNewsIdFromLocation() {
-  const pathMatch = decodeURIComponent(window.location.pathname).match(/\/noticia\/([^/]+)\/?$/i);
+  // Aceita URL limpo (/noticia/AAAA/MM/DD/slug-d8), alias (/noticia/noticia-hash)
+  // e o legado ?id=.
+  const pathMatch = decodeURIComponent(window.location.pathname).match(/\/noticia\/(.+?)\/?$/i);
   if (pathMatch) return pathMatch[1];
   return new URLSearchParams(window.location.search).get("id") || "";
 }
 
 function findNewsItem(pageId) {
   if (!pageId) return null;
-  const post = (state.data?.all || []).find((item) => item.page_id === pageId);
-  if (post) return post;
-  if (state.dynamicNews[pageId]) return state.dynamicNews[pageId];
-  const dynamicRecommendation = state.calendarRecommendations.find((item) => item.page_id === pageId);
-  if (dynamicRecommendation) return dynamicRecommendation;
-  const recommendationDays = state.data?.calendar?.recommendations_by_day || {};
-  for (const items of Object.values(recommendationDays)) {
-    const match = (items || []).find((item) => item.page_id === pageId);
-    if (match) return match;
-  }
-  return null;
+  const sources = [
+    ...(state.data?.all || []),
+    ...Object.values(state.dynamicNews || {}),
+    ...state.calendarRecommendations,
+    ...Object.values(state.data?.calendar?.recommendations_by_day || {}).flat(),
+  ];
+  return (
+    sources.find((item) => item && item.page_id === pageId) ||
+    // URL limpo: casar pelo caminho completo (noticia/AAAA/MM/DD/slug-d8).
+    sources.find((item) => item && item.url_path === pageId) ||
+    sources.find((item) => item && item.url_path && item.url_path.endsWith(`/${pageId}`)) ||
+    null
+  );
 }
 
 async function loadDynamicNewsItem(pageId) {
@@ -931,11 +1335,92 @@ function snapshotCaptureDate(item) {
   const value = match[1];
   const date = new Date(`${value.slice(0, 4)}-${value.slice(4, 6)}-${value.slice(6, 8)}T12:00:00`);
   if (Number.isNaN(date.getTime())) return "";
-  return new Intl.DateTimeFormat(state.lang === "pt" ? "pt-PT" : "en-GB", {
+  return new Intl.DateTimeFormat(state.lang === "pt" ? "pt-PT" : "en-US", {
     day: "numeric",
     month: "long",
     year: "numeric",
   }).format(date);
+}
+
+// Pontuação detalhada do badge ("Porquê este nível?") — tabela na página.
+function relevanceScoresHtml(item) {
+  const level = Number(item?.relevance_level);
+  const scores = item?.relevance_scores || {};
+  const hasScores = scores && Object.keys(scores).length;
+  if (!level || !hasScores) return "";
+  const rows = [
+    ["scoreImpact", "impacto_historico"],
+    ["scoreScope", "dimensao_impacto"],
+    ["scoreConsequences", "consequencias"],
+    ["scoreLater", "relevancia_posterior"],
+    ["scoreDuration", "dimensao_duracao"],
+    ["scoreMedia", "relevancia_mediatica"],
+    ["scoreUniqueness", "singularidade"],
+  ];
+  return `
+    <section class="news-article-relevance">
+      <h2 class="news-article-sub">${escapeHtml(t("relevanceWhy"))}</h2>
+      <div class="relevance-scores">
+        ${rows.map(([key, field]) => {
+          const value = Number(scores[field]);
+          if (!Number.isFinite(value)) return "";
+          return `
+            <div class="relevance-score-row">
+              <span class="relevance-score-label">${escapeHtml(t(key))}</span>
+              <span class="relevance-score-bar"><span style="width:${Math.max(0, Math.min(100, value))}%"></span></span>
+              <span class="relevance-score-value">${Math.round(value)}</span>
+            </div>
+          `;
+        }).join("")}
+      </div>
+      ${item.relevance_justification ? `<p class="relevance-justification">${escapeHtml(item.relevance_justification)}</p>` : ""}
+    </section>
+  `;
+}
+
+// Módulo "No mesmo dia": outras notícias do projeto nesta data, noutros anos.
+function sameDayHtml(item) {
+  const targetMonthDay = monthDay(item.date || "");
+  if (!targetMonthDay) return "";
+  const others = (state.data?.all || [])
+    .filter((other) => other.page_id !== item.page_id && monthDay(other.date) === targetMonthDay)
+    .sort((left, right) => `${right.date}-${right.slot || 0}`.localeCompare(`${left.date}-${left.slot || 0}`))
+    .slice(0, 4);
+  if (!others.length) return "";
+  return `
+    <section class="news-article-same-day">
+      <h2 class="news-article-sub">${escapeHtml(t("sameDayTitle"))}</h2>
+      <p class="same-day-lead">${escapeHtml(t("sameDayLead"))}</p>
+      <div class="same-day-grid">
+        ${others.map((other) => `
+          <a class="same-day-card" href="${escapeHtml(newsPageUrl(other))}" data-news-id="${escapeHtml(other.page_id)}">
+            <span class="same-day-year">${escapeHtml(other.original_year || dateYear(other.date))}</span>
+            <strong>${escapeHtml(cleanTitle(other))}</strong>
+            ${relevanceBadge(other, { compact: true })}
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+// Navegação anterior/seguinte dentro da lista ordenada por data/nível.
+function adjacentNewsHtml(item) {
+  const all = [...(state.data?.all || [])].sort((left, right) =>
+    `${left.date}-${left.slot || 0}`.localeCompare(`${right.date}-${right.slot || 0}`));
+  const index = all.findIndex((other) => other.page_id === item.page_id);
+  if (index < 0) return "";
+  const neighbours = [
+    index > 0 ? all[index - 1] : null,
+    index < all.length - 1 ? all[index + 1] : null,
+  ];
+  if (!neighbours[0] && !neighbours[1]) return "";
+  return `
+    <nav class="news-article-neighbours" aria-label="${escapeHtml(t("sameDayTitle"))}">
+      ${neighbours[0] ? `<a class="neighbour prev" href="${escapeHtml(newsPageUrl(neighbours[0]))}" data-news-id="${escapeHtml(neighbours[0].page_id)}"><span>‹ ${escapeHtml(t("previousStory"))}</span><strong>${escapeHtml(cleanTitle(neighbours[0]))}</strong></a>` : "<span></span>"}
+      ${neighbours[1] ? `<a class="neighbour next" href="${escapeHtml(newsPageUrl(neighbours[1]))}" data-news-id="${escapeHtml(neighbours[1].page_id)}"><span>${escapeHtml(t("nextStory"))} ›</span><strong>${escapeHtml(cleanTitle(neighbours[1]))}</strong></a>` : "<span></span>"}
+    </nav>
+  `;
 }
 
 function renderNewsDetail() {
@@ -959,8 +1444,6 @@ function renderNewsDetail() {
   const title = titleWithYear(item);
   const image = assetPath(item.detail_image || item.image || item.banner_image || "assets/icon.png");
   const category = item.category || "";
-  // Categoria + Arquivo.pt são o cabeçalho principal; as datas ficam por baixo.
-  const meta = [category, "Arquivo.pt"].filter(Boolean).join(" · ");
   const dateLine = [
     item.date ? `${t("publishedOn")} ${formatDate(item.date)}` : "",
     item.original_year ? `${t("originalYearLabel")} ${item.original_year}` : "",
@@ -968,19 +1451,30 @@ function renderNewsDetail() {
   const paragraphs = articleParagraphs(item);
   const snapshotUrl = item.snapshot_url ? assetPath(item.snapshot_url) : "";
   const capturedOn = snapshotCaptureDate(item);
+  const [lead, ...restParagraphs] = paragraphs;
   container.innerHTML = `
+    <nav class="news-breadcrumb" aria-label="Breadcrumb">
+      <a href="${escapeHtml(routeUrl("inicio"))}" data-route-link="home">${escapeHtml(t("breadcrumbHome"))}</a>
+      <span aria-hidden="true">›</span>
+      <a href="${escapeHtml(routeUrl("calendario"))}" data-route-link="calendar">${escapeHtml(t("breadcrumbCalendar"))}</a>
+      <span aria-hidden="true">›</span>
+      <span class="current">${escapeHtml(title)}</span>
+    </nav>
     <article class="news-article">
       <header class="news-article-head">
         <p class="news-article-meta">
           ${category ? `<span class="meta-pill">${escapeHtml(category)}</span>` : ""}
-          <span class="meta-source">Arquivo.pt</span>
+          ${sourceTypeChip(item)}
+          ${relevanceBadge(item)}
         </p>
         <h1 id="news-detail-title">${escapeHtml(title)}</h1>
         ${dateLine ? `<p class="news-article-dates">${escapeHtml(dateLine)}</p>` : ""}
       </header>
       ${image ? `<figure class="news-article-figure"><img id="news-detail-image" src="${escapeHtml(image)}" alt="${escapeHtml(title)}"></figure>` : ""}
       <div class="news-article-body">
-        ${paragraphs.map((paragraph, index) => `<p${index === 0 ? ' class="news-article-lead"' : ""}>${escapeHtml(paragraph)}</p>`).join("")}
+        ${lead ? `<p class="news-article-lead">${escapeHtml(lead)}</p>` : ""}
+        ${relevanceScoresHtml(item)}
+        ${restParagraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
         ${snapshotUrl ? `
         <section class="news-article-snapshot">
           <h2 class="news-article-sub">${escapeHtml(t("snapshotSectionTitle"))}</h2>
@@ -1000,6 +1494,8 @@ function renderNewsDetail() {
           ${item.instagram_url ? `<a class="button primary" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenInstagram"))}</a>` : ""}
           ${item.source_url ? `<a class="button secondary" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenArquivo"))}</a>` : ""}
         </div>
+        ${sameDayHtml(item)}
+        ${adjacentNewsHtml(item)}
       </div>
     </article>
   `;
@@ -1424,7 +1920,7 @@ function topicYearSlices(fromDate, toDate) {
   });
 }
 
-async function fetchTopicSeries(query, source, fromDate, toDate, signal, onProgress = null) {
+async function fetchTopicSeries(query, source, fromDate, toDate, signal, onProgress = null, onSeriesUpdate = null) {
   const slices = topicYearSlices(fromDate, toDate);
   const results = new Array(slices.length);
   let cursor = 0;
@@ -1462,6 +1958,7 @@ async function fetchTopicSeries(query, source, fromDate, toDate, signal, onProgr
       }
       completed += 1;
       if (onProgress) onProgress(completed, slices.length, slice.year, "done");
+      if (onSeriesUpdate) onSeriesUpdate(slice.year, results[index]);
     }
   };
 
@@ -1518,7 +2015,7 @@ function topicDateBoundsForAnalyses(analyses) {
 
 function formatTopicDate(value) {
   if (!validTopicDate(value)) return value;
-  return new Intl.DateTimeFormat(state.lang === "pt" ? "pt-PT" : "en-GB", {
+  return new Intl.DateTimeFormat(state.lang === "pt" ? "pt-PT" : "en-US", {
     day: "numeric",
     month: "long",
     year: "numeric",
@@ -1756,6 +2253,7 @@ function renderTopicGraph() {
     ? `${formatMetricNumber(resultSets[0].total)} ${t("topicMentions")}`
     : `${resultSets.length} ${state.lang === "pt" ? "análises" : "analyses"}`;
 
+  container.classList.toggle("loading", Boolean(state.topicLoading));
   container.innerHTML = `
     <div class="topic-result-heading">
       <div>
@@ -1772,6 +2270,7 @@ function renderTopicGraph() {
         ${yearLabels}
       </svg>
     </div>
+    ${state.topicLoading ? "" : `
     <div class="topic-chart-footer">
       <div class="topic-chart-notes">
         <span>${escapeHtml(t("topicApiCredit"))}</span>
@@ -1788,7 +2287,7 @@ function renderTopicGraph() {
         </select>
         <button type="button" class="chart-download" data-download-chart title="${escapeHtml(t("topicDownload"))}">${escapeHtml(t("topicDownload"))}</button>
       </div>
-    </div>
+    </div>`}
   `;
   const status = document.getElementById("topic-status");
   if (status) {
@@ -2109,9 +2608,23 @@ async function runTopicSearch(updateHistory = true) {
         ...analysis,
       }));
     } else {
-      results = new Array(analyses.length);
-      let cursor = 0;
-      const worker = async () => {
+        // Esqueleto com todos os anos a null: o gráfico nasce vazio e cresce
+        // ano a ano à medida que cada contagem é verificada.
+        results = analyses.map((analysis) => ({
+          ...analysis,
+          series: topicYearSlices(fromDate, toDate).map((slice) => ({
+            year: slice.year,
+            from_date: slice.fromDate,
+            to_date: slice.toDate,
+            count: null,
+            failed: false,
+          })),
+          total: 0,
+        }));
+        state.topicResultSets = results;
+        renderTopicGraph();
+        let cursor = 0;
+        const worker = async () => {
         while (cursor < analyses.length) {
           const index = cursor;
           cursor += 1;
@@ -2124,6 +2637,7 @@ async function runTopicSearch(updateHistory = true) {
             updateTopicProgress(completedPeriods, totalPeriods);
           } else {
             try {
+              const seriesIndex = index;
               result = await fetchTopicSeries(
                 analysis.query,
                 analysis.source,
@@ -2138,6 +2652,18 @@ async function runTopicSearch(updateHistory = true) {
                   }
                   completedPeriods += 1;
                   updateTopicProgress(completedPeriods, totalPeriods);
+                },
+                (year, entry) => {
+                  // Cada ano verificado entra no gráfico imediatamente.
+                  const resultSet = state.topicResultSets[seriesIndex];
+                  const point = resultSet?.series?.find((item) => item.year === Number(year));
+                  if (point) {
+                    point.count = entry.count;
+                    point.failed = entry.failed;
+                    point.error_code = entry.error_code;
+                    if (Number.isFinite(entry.count)) resultSet.total += entry.count;
+                    renderTopicGraph();
+                  }
                 },
               );
             } catch (error) {
@@ -2183,11 +2709,13 @@ async function runTopicSearch(updateHistory = true) {
     state.topicLoading = false;
     if (submit) submit.disabled = false;
     if (progress) progress.hidden = true;
+    // Render final sem a marca de carregamento: liberta a exportação.
+    renderTopicGraph();
   }
 }
 
 function formatMetricNumber(value) {
-  return new Intl.NumberFormat(state.lang === "pt" ? "pt-PT" : "en-GB").format(Math.max(0, Number(value) || 0));
+  return new Intl.NumberFormat(state.lang === "pt" ? "pt-PT" : "en-US").format(Math.max(0, Number(value) || 0));
 }
 
 function renderMetrics() {
@@ -2296,6 +2824,8 @@ function animateMetricCounters() {
       const reel = document.createElement("span");
       reel.className = "odometer-digit";
       reel.setAttribute("aria-hidden", "true");
+      reel.dataset.targetDigit = String(targetDigit);
+      reel.dataset.maxDelay = String((index * 55) + (digitsToRight * 16));
 
       const track = document.createElement("span");
       track.className = "odometer-track";
@@ -2324,8 +2854,73 @@ function animateMetricCounters() {
       if (run !== state.counterRun || state.route !== "docs") return;
       counters.forEach((element) => element.classList.add("odometer-running"));
       state.counterFrame = null;
+      settleOdometers(counters);
     });
   });
+}
+
+// No fim da transição, cada rolo é substituído pelo dígito final estático:
+// elimina subpixels dos últimos frames (números sempre alinhados) e liberta
+// os spans do rolo. Fallback por timeout caso transitionend não dispare.
+function settleOdometers(counters) {
+  const settleReel = (reel) => {
+    if (!reel.isConnected) return;
+    const digit = document.createElement("span");
+    digit.className = "odometer-static-digit";
+    digit.setAttribute("aria-hidden", "true");
+    digit.textContent = reel.dataset.targetDigit || "0";
+    reel.replaceWith(digit);
+  };
+  counters.forEach((element) => {
+    element.querySelectorAll(".odometer-digit").forEach((reel) => {
+      const track = reel.querySelector(".odometer-track");
+      let settled = false;
+      const settleOnce = () => {
+        if (settled) return;
+        settled = true;
+        settleReel(reel);
+      };
+      track?.addEventListener("transitionend", settleOnce, { once: true });
+      const delay = Number(reel.dataset.maxDelay) || 0;
+      window.setTimeout(settleOnce, 1250 + delay + 150);
+    });
+  });
+}
+
+// Secções da home por nível de relevância (padrão de blocos temáticos dos
+// jornais: kicker por badge, depois as notícias).
+function renderHomeSections() {
+  const all = state.data?.all || [];
+  const sections = [
+    { id: "home-level-1", levels: [1], limit: 3 },
+    { id: "home-level-2", levels: [2], limit: 3 },
+    { id: "home-more", levels: [3, 4, 5], limit: 6 },
+  ];
+  const used = new Set();
+  for (const section of sections) {
+    const container = document.getElementById(section.id);
+    const wrapper = document.getElementById(`${section.id}-section`);
+    if (!container || !wrapper) continue;
+    const items = all
+      .filter((item) => section.levels.includes(Number(item.relevance_level) || 4) && !used.has(item.page_id))
+      .sort((left, right) => (Number(left.relevance_level) || 4) - (Number(right.relevance_level) || 4))
+      .slice(0, section.limit);
+    for (const item of items) used.add(item.page_id);
+    wrapper.hidden = items.length === 0;
+    container.innerHTML = items.map((item) => `
+      <article class="latest-card">
+        ${cardImage(item, true)}
+        <div class="content">
+          <div class="meta">${cardMetaHtml(item)}</div>
+          <h3><a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">${escapeHtml(titleWithYear(item))}</a></h3>
+          <p>${escapeHtml(localized(item, "summary"))}</p>
+          <div class="card-actions">
+            ${item.source_url ? `<a class="text-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openArquivo"))}</a>` : ""}
+          </div>
+        </div>
+      </article>
+    `).join("");
+  }
 }
 
 function renderDocs() {
@@ -2340,8 +2935,83 @@ function renderDocs() {
       </ul>
     </article>
   `).join("");
+  renderRelevanceDocs();
   const githubLink = document.getElementById("docs-github");
   if (githubLink) githubLink.href = state.data?.github_url || "https://github.com/Noticias-de-ontem/site";
+}
+
+// Secção detalhada "Níveis de relevância histórica" na Documentação:
+// níveis, critérios com pesos, exemplo pontuado e regras de curadoria.
+function renderRelevanceDocs() {
+  const container = document.getElementById("relevance-doc");
+  if (!container) return;
+  const lang = state.lang === "en" ? "en" : "pt";
+  const levels = RELEVANCE_LEVELS[lang];
+  const criteria = lang === "en"
+    ? [
+        ["Historical impact", "30%", "How much the event influenced the course of history, nationally or internationally."],
+        ["Scope of impact", "20%", "From local to global reach."],
+        ["Consequences", "15%", "Political, social, or economic consequences."],
+        ["Influence on later events", "15%", "How much it helps explain what came after."],
+        ["Scale and duration", "10%", "Size of the event and how long it lasted."],
+        ["Media attention", "5%", "Coverage it received at the time — never decisive."],
+        ["Uniqueness", "5%", "A one-of-a-kind event versus a recurring one."],
+      ]
+    : [
+        ["Impacto histórico", "30%", "Grau de influência no curso da História, a nível nacional ou internacional."],
+        ["Dimensão do impacto", "20%", "Do impacto local ao impacto internacional."],
+        ["Consequências", "15%", "Consequências políticas, sociais ou económicas."],
+        ["Relevância posterior", "15%", "O quanto ajuda a compreender os acontecimentos seguintes."],
+        ["Dimensão e duração", "10%", "Dimensão do acontecimento e quanto durou."],
+        ["Relevância mediática", "5%", "Cobertura que recebeu na época — nunca decisiva."],
+        ["Singularidade", "5%", "Acontecimento único em vez de recorrente."],
+      ];
+  container.innerHTML = `
+    <div class="relevance-doc-head">
+      <p class="eyebrow">${escapeHtml(t("relevanceEyebrow"))}</p>
+      <h2>${escapeHtml(t("relevanceDocTitle"))}</h2>
+      <p>${escapeHtml(t("relevanceDocLead"))}</p>
+    </div>
+    <div class="relevance-doc-grid">
+      <div class="relevance-doc-card">
+        <h3>${escapeHtml(t("relevanceDocCriteriaTitle"))}</h3>
+        <table class="relevance-criteria">
+          <tbody>
+            ${criteria.map(([label, weight, description]) => `
+              <tr>
+                <th scope="row">${escapeHtml(label)}</th>
+                <td class="weight">${escapeHtml(weight)}</td>
+                <td class="description">${escapeHtml(description)}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+        <h3>${escapeHtml(t("relevanceDocHow"))}</h3>
+        <p>${escapeHtml(t("relevanceDocHowBody"))}</p>
+        <h3>${escapeHtml(t("relevanceDocMedia"))}</h3>
+        <p>${escapeHtml(t("relevanceDocMediaBody"))}</p>
+        <h3>${escapeHtml(t("relevanceDocLandmark"))}</h3>
+        <p>${escapeHtml(t("relevanceDocLandmarkBody"))}</p>
+        <h3>${escapeHtml(t("relevanceDocCuration"))}</h3>
+        <p>${escapeHtml(t("relevanceDocCurationBody"))}</p>
+      </div>
+      <div class="relevance-doc-card example">
+        <h3>${escapeHtml(t("relevanceDocExampleTitle"))}</h3>
+        <div class="relevance-example">
+          ${relevanceBadge({ relevance_level: 1 })}
+          <h4>${escapeHtml(t("relevanceDocExampleHeadline"))}</h4>
+          <p>${escapeHtml(t("relevanceDocExampleBody"))}</p>
+        </div>
+        <p class="relevance-scores-note">${escapeHtml(t("relevanceDocScoresNote"))}</p>
+        <div class="relevance-level-legend">
+          ${levels.map((info) => `
+            <span class="relevance-badge relevance-level-${info.level}" tabindex="0" role="button" aria-describedby="relevance-tooltip">
+              ${RELEVANCE_ICONS[info.level]}<span class="relevance-badge-name">${escapeHtml(info.name)}</span>
+            </span>
+          `).join("")}
+        </div>
+      </div>
+    </div>`;
 }
 
 function renderStaticText() {
@@ -2364,6 +3034,7 @@ function render() {
   renderStaticText();
   renderHero();
   renderCarousel();
+  renderHomeSections();
   renderLatest();
   renderCalendar();
   renderTopics();
@@ -2381,6 +3052,7 @@ function setRoute(route) {
     link.classList.toggle("active", link.dataset.route === state.route);
   });
   if (state.route === "calendar") {
+    readCalendarStateFromLocation();
     renderCalendar();
   }
   if (state.route === "topics") {
@@ -2405,7 +3077,8 @@ function routeFromLocation() {
   if (pathname.match(/\/(calendário|calendario)(?:\/\d{4}-\d{2}-\d{2})?\/?$/)) return "calendar";
   if (pathname.match(/\/temas\/?$/)) return "topics";
   if (pathname.match(/\/(documentação|documentacao)\/?$/)) return "docs";
-  if (pathname.match(/\/noticia(?:\/[^/]+)?\/?$/)) return "news";
+  // URL limpo com qualquer profundidade (noticia/AAAA/MM/DD/slug-d8) ou alias.
+  if (pathname.match(/\/noticia(?:\/.+)?\/?$/)) return "news";
   return "home";
 }
 
@@ -2602,14 +3275,42 @@ function wireTopics() {
   });
 }
 
+// Parâmetros do calendário persistidos no URL.
+function calendarUrlParams(dateValue) {
+  return {
+    data: dateValue,
+    ...(state.calendarFormat !== "month" ? { formato: state.calendarFormat } : {}),
+    ...(state.calendarView !== "onthisday" ? { vista: state.calendarView } : {}),
+    ...(state.calendarSource ? { fonte: state.calendarSource } : {}),
+  };
+}
+
+function readCalendarStateFromLocation() {
+  const params = new URLSearchParams(window.location.search);
+  const format = params.get("formato");
+  if (format === "week" || format === "month") state.calendarFormat = format;
+  const view = params.get("vista");
+  if (view === "exact" || view === "onthisday") state.calendarView = view;
+  state.calendarSource = params.get("fonte") || "";
+}
+
+function setCalendarPeriod(patch = {}) {
+  if (patch.formato && ["month", "week"].includes(patch.formato)) state.calendarFormat = patch.formato;
+  if (patch.vista && ["onthisday", "exact"].includes(patch.vista)) state.calendarView = patch.vista;
+  if ("fonte" in patch) state.calendarSource = patch.fonte || "";
+  history.pushState({}, "", routeUrl("calendario", calendarUrlParams(state.selectedDate)));
+  renderCalendarNavigation();
+  renderCalendarGrid();
+  renderDayPanel();
+}
+
 function applyCalendarDate(dateValue) {
   if (!isValidIsoDate(dateValue)) return;
   state.selectedDate = dateValue;
   state.calendarYear = dateYear(dateValue);
   state.calendarMonth = Number(dateValue.slice(5, 7));
-  state.calendarSource = "";
   state.calendarPickerVisible = true;
-  history.pushState({}, "", routeUrl("calendario", { data: dateValue }));
+  history.pushState({}, "", routeUrl("calendario", calendarUrlParams(dateValue)));
   setRoute("calendar");
 }
 
@@ -2626,12 +3327,32 @@ function wireCalendar() {
     const date = new Date(state.calendarYear, state.calendarMonth - 1 + delta, 1);
     state.calendarYear = date.getFullYear();
     state.calendarMonth = date.getMonth() + 1;
+    // Em vista semana, o mês muda junto com a semana visível.
+    if (state.calendarFormat === "week") {
+      const { start } = weekRangeFor(state.selectedDate);
+      const shifted = new Date(dateYear(start), Number(start.slice(5, 7)) - 1, Number(start.slice(8, 10)));
+      shifted.setDate(shifted.getDate() + delta * 7);
+      applyCalendarDate(isoDate(shifted.getFullYear(), shifted.getMonth() + 1, shifted.getDate()));
+      return;
+    }
     renderCalendarNavigation();
     renderCalendarGrid();
     renderDayPanel();
   };
-  document.getElementById("calendar-prev-month")?.addEventListener("click", () => shiftMonth(-1));
-  document.getElementById("calendar-next-month")?.addEventListener("click", () => shiftMonth(1));
+  const shiftWeek = (delta) => {
+    const { start } = weekRangeFor(state.selectedDate);
+    const shifted = new Date(dateYear(start), Number(start.slice(5, 7)) - 1, Number(start.slice(8, 10)));
+    shifted.setDate(shifted.getDate() + delta * 7);
+    applyCalendarDate(isoDate(shifted.getFullYear(), shifted.getMonth() + 1, shifted.getDate()));
+  };
+  document.getElementById("calendar-prev-month")?.addEventListener("click", () => {
+    if (state.calendarFormat === "week") shiftWeek(-1);
+    else shiftMonth(-1);
+  });
+  document.getElementById("calendar-next-month")?.addEventListener("click", () => {
+    if (state.calendarFormat === "week") shiftWeek(1);
+    else shiftMonth(1);
+  });
   document.getElementById("calendar-month-button")?.addEventListener("click", (event) => {
     event.stopPropagation();
     toggleMonthPopover(document.getElementById("calendar-month-button"));
@@ -2639,6 +3360,17 @@ function wireCalendar() {
   document.getElementById("calendar-date-button")?.addEventListener("click", (event) => {
     event.stopPropagation();
     toggleDatePopover(document.getElementById("calendar-date-button"));
+  });
+  // Controlos de formato (Mês | Semana) e vista (Notícias de Ontem | Dia exato).
+  for (const button of document.querySelectorAll("[data-calendar-format]")) {
+    button.addEventListener("click", () => setCalendarPeriod({ formato: button.dataset.calendarFormat }));
+  }
+  for (const button of document.querySelectorAll("[data-calendar-view]")) {
+    button.addEventListener("click", () => setCalendarPeriod({ vista: button.dataset.calendarView }));
+  }
+  // Filtro de jornais (finalmente ligado) — persiste no URL.
+  document.getElementById("calendar-source")?.addEventListener("change", (event) => {
+    setCalendarPeriod({ fonte: event.target.value });
   });
 }
 
@@ -2660,19 +3392,28 @@ function openCalendarPopover(anchor, content, onSelect) {
   activeCalendarPopover = popover;
   anchor.setAttribute("aria-expanded", "true");
   const width = Math.min(320, window.innerWidth - 24);
+  const height = popover.offsetHeight || 360;
   if (window.innerWidth <= 768) {
-    // Em ecrãs estreitos o popover fica centrado e junto ao topo do painel.
+    // Em ecrãs estreitos o popover fica centrado, abaixo da barra dos meses.
     const panel = document.getElementById("calendar-picker-panel");
     const panelRect = panel?.getBoundingClientRect();
     popover.style.left = `${(window.innerWidth - width) / 2}px`;
     popover.style.top = panelRect
-      ? `${Math.max(12, panelRect.top + 70)}px`
-      : `${(window.innerHeight - 380) / 2}px`;
+      ? `${Math.max(12, panelRect.bottom + 10)}px`
+      : `${(window.innerHeight - height) / 2}px`;
   } else {
+    // No PC abre sempre abaixo (ou acima, se não couber) do botão — nunca a
+    // sobrepor a fila dos botões.
     const rect = anchor.getBoundingClientRect();
     const left = Math.min(Math.max(rect.left, 12), window.innerWidth - width - 12);
+    const below = rect.bottom + 8;
+    let top = below;
+    if (top + height > window.innerHeight - 8) {
+      const above = rect.top - height - 8;
+      top = above >= 12 ? above : Math.max(12, window.innerHeight - height - 12);
+    }
     popover.style.left = `${left}px`;
-    popover.style.top = `${Math.max(12, Math.min(rect.bottom + 8, window.innerHeight - 380))}px`;
+    popover.style.top = `${top}px`;
   }
   popover.addEventListener("click", (event) => {
     const target = event.target.closest("[data-value]");
@@ -2785,12 +3526,98 @@ document.addEventListener("pointerdown", (event) => {
 // Deslizar a página também fecha os popovers.
 document.addEventListener("scroll", () => closeCalendarPopovers(), { passive: true, capture: true });
 
+// ---- Tooltip dos badges de relevância -------------------------------------
+let relevanceTooltipElement = null;
+
+function relevanceTooltipText(level) {
+  const table = RELEVANCE_LEVELS[state.lang === "en" ? "en" : "pt"] || RELEVANCE_LEVELS.pt;
+  const info = table.find((entry) => entry.level === Number(level));
+  if (!info) return "";
+  let html = `<strong>${info.name}</strong><span>${info.tooltip}</span>`;
+  return html;
+}
+
+function showRelevanceTooltip(badge) {
+  hideRelevanceTooltip();
+  const level = badge.getAttribute("data-relevance-level");
+  const text = relevanceTooltipText(level);
+  if (!text) return;
+  const tooltip = document.createElement("div");
+  tooltip.id = "relevance-tooltip";
+  tooltip.className = `relevance-tooltip relevance-level-${level}`;
+  tooltip.setAttribute("role", "tooltip");
+  tooltip.innerHTML = text;
+  document.body.appendChild(tooltip);
+  relevanceTooltipElement = tooltip;
+  const badgeRect = badge.getBoundingClientRect();
+  const tooltipRect = tooltip.getBoundingClientRect();
+  let left = badgeRect.left + badgeRect.width / 2 - tooltipRect.width / 2;
+  left = Math.max(10, Math.min(left, window.innerWidth - tooltipRect.width - 10));
+  let top = badgeRect.top - tooltipRect.height - 10;
+  if (top < 10) top = badgeRect.bottom + 10;
+  tooltip.style.left = `${Math.round(left)}px`;
+  tooltip.style.top = `${Math.round(top)}px`;
+  tooltip.classList.add("visible");
+}
+
+function hideRelevanceTooltip() {
+  if (relevanceTooltipElement) {
+    relevanceTooltipElement.remove();
+    relevanceTooltipElement = null;
+  }
+}
+
+function wireRelevanceTooltips() {
+  document.addEventListener("pointerenter", (event) => {
+    const badge = event.target.closest?.(".relevance-badge");
+    if (badge) showRelevanceTooltip(badge);
+  }, true);
+  document.addEventListener("pointerleave", (event) => {
+    if (event.target.closest?.(".relevance-badge")) hideRelevanceTooltip();
+  }, true);
+  document.addEventListener("focusin", (event) => {
+    const badge = event.target.closest?.(".relevance-badge");
+    if (badge) showRelevanceTooltip(badge);
+  });
+  document.addEventListener("focusout", (event) => {
+    if (event.target.closest?.(".relevance-badge")) hideRelevanceTooltip();
+  });
+  // Toque em mobile: primeiro toque abre, toque fora fecha.
+  document.addEventListener("click", (event) => {
+    const badge = event.target.closest?.(".relevance-badge");
+    if (badge) {
+      event.preventDefault();
+      event.stopPropagation();
+      showRelevanceTooltip(badge);
+    } else {
+      hideRelevanceTooltip();
+    }
+  });
+  document.addEventListener("scroll", hideRelevanceTooltip, { passive: true, capture: true });
+}
+
+// Rodapé: voltar ao topo (botão na grelha + botão flutuante ao deslizar).
+function wireFooter() {
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  document.getElementById("footer-back-top")?.addEventListener("click", scrollToTop);
+  const floating = document.getElementById("back-top-floating");
+  floating?.addEventListener("click", scrollToTop);
+  if (!floating) return;
+  const updateVisibility = () => {
+    floating.hidden = window.scrollY < 480;
+  };
+  window.addEventListener("scroll", updateVisibility, { passive: true });
+  updateVisibility();
+}
+
 async function init() {
   wireNavigation();
   wireCalendar();
   wireLanguageSwitch();
   wireStoryLinks();
   wireTopics();
+  wireRelevanceTooltips();
+  wireFooter();
   try {
     const response = await fetch(assetPath("data/news.json"), { cache: "no-store" });
     state.data = await response.json();
