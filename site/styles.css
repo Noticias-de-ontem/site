@@ -3385,8 +3385,8 @@ html {
 /* ==== Rodapé melhorado ====================================================== */
 .footer-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) auto auto;
-  gap: 24px 56px;
+  grid-template-columns: minmax(0, 0.9fr) auto auto minmax(0, 1.5fr);
+  gap: 24px 44px;
   align-items: start;
   width: 100%;
 }
@@ -3429,20 +3429,32 @@ html {
   color: var(--brand);
 }
 
-.footer-sources {
-  width: 100%;
-  margin-top: 30px;
-  padding-top: 22px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+.footer-sources-col {
+  min-width: 0;
 }
 
 .footer-sources-grid {
   display: grid;
-  /* 3 linhas: nº de colunas = ceil(itens/3), distribuído pela largura toda */
+  /* 3 linhas: colunas calculadas para ~37 itens da coluna do rodapé */
   grid-template-columns: repeat(13, minmax(0, 1fr));
   grid-template-rows: repeat(3, auto);
   grid-auto-flow: column;
-  gap: 10px;
+  gap: 7px;
+}
+
+.footer-sources-grid .footer-source {
+  padding: 7px 4px;
+  border-radius: 8px;
+}
+
+.footer-sources-grid .footer-source img {
+  height: 20px;
+  max-width: 64px;
+}
+
+.footer-sources-grid .footer-source span {
+  font-size: 0.62rem;
+  line-height: 1.15;
 }
 
 .footer-source {
