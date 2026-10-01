@@ -1038,5 +1038,83 @@
         "created_at": "2026-09-13T16:41:38+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-01-23",
+        "option_index": 0,
+        "title": "Adele homenageia George Michael no Grammy",
+        "year": "2024",
+        "image_url": "https://i.ibb.co/V0f9v28X/2026-01-23-01-2024-adele-homenageia-george-michael-no-grammy.jpg",
+        "delete_url": "https://ibb.co/KcTh9FHC/0529c571faaea6068e3ddbdc2dc42135",
+        "created_at": "2026-09-13T17:13:37+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-01-23",
+        "option_index": 0,
+        "title": "Lady Gaga canta canção contra agressão sexual no Oscar",
+        "year": "2023",
+        "image_url": "https://i.ibb.co/Q73BB5g4/2026-01-23-01-2023-lady-gaga-canta-cancao-contra-agressao-sexual-no-oscar.jpg",
+        "delete_url": "https://ibb.co/bjMhhf0k/e36af377ee9d0c7953dd10c781d53d35",
+        "created_at": "2026-09-13T17:14:08+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-01-24",
+        "option_index": 0,
+        "title": "Cristiano Ronaldo quebra recorde de likes no Instagram",
+        "year": "2024",
+        "image_url": "https://i.ibb.co/39VfpgsT/2026-01-24-01-2024-cristiano-ronaldo-quebra-recorde-de-likes-no-instagram.jpg",
+        "delete_url": "https://ibb.co/0R1BCHXn/624ab45bbc7702236d48f5ac65b89762",
+        "created_at": "2026-09-13T17:31:41+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-01-24",
+        "option_index": 0,
+        "title": "Taylor Swift homenageia Ed Sheeran no seu 25º aniversário",
+        "year": "2018",
+        "image_url": "https://i.ibb.co/5Xb5rX0h/2026-01-24-01-2018-taylor-swift-homenageia-ed-sheeran-no-seu-25o-aniversario.jpg",
+        "delete_url": "https://ibb.co/ymH86m9F/91001f36772a7ea0dd240f9ff8718d66",
+        "created_at": "2026-09-13T17:33:15+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-01-25",
+        "option_index": 0,
+        "title": "Filtro IA deixa você igual à Taylor Swift",
+        "year": "2024",
+        "image_url": "https://i.ibb.co/mVsjVXvr/2026-01-25-01-2024-filtro-ia-deixa-voce-igual-a-taylor-swift.jpg",
+        "delete_url": "https://ibb.co/B5Dp5r4H/246d3787f10d54221df8b598b7e82dc2",
+        "created_at": "2026-09-13T17:45:47+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-01-25",
+        "option_index": 0,
+        "title": "Alerta sobre filtro IA e segurança infantil",
+        "year": "2024",
+        "image_url": "https://i.ibb.co/FbgPdzLj/2026-01-25-01-2024-alerta-sobre-filtro-ia-e-seguranca-infantil.jpg",
+        "delete_url": "https://ibb.co/wNMv24Fx/3aa195dc581953683c31e39a81c12f73",
+        "created_at": "2026-09-13T17:46:19+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
