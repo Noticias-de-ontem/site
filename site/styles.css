@@ -1942,8 +1942,9 @@ select:focus-visible {
    (visíveis por inteiro enquanto o texto desliza). */
 .news-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 380px;
-  gap: 16px 44px;
+  /* Coluna de texto mais larga: menos cortes em títulos longos */
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 380px);
+  gap: 16px 40px;
   align-items: start;
 }
 
@@ -2261,10 +2262,7 @@ select:focus-visible {
 }
 
 .site-footer {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) auto auto;
-  gap: 24px 48px;
-  align-items: start;
+  display: block;
   padding: 36px var(--page-padding);
   border-top: 3px solid var(--brand);
   color: #9fb0b8;
@@ -3440,7 +3438,10 @@ html {
 
 .footer-sources-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  /* 3 linhas: nº de colunas = ceil(itens/3), distribuído pela largura toda */
+  grid-template-columns: repeat(13, minmax(0, 1fr));
+  grid-template-rows: repeat(3, auto);
+  grid-auto-flow: column;
   gap: 10px;
 }
 
@@ -3513,6 +3514,10 @@ html {
     grid-template-columns: 1fr 1fr;
   }
 
+  .footer-sources-grid {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+
   .footer-brand {
     grid-column: 1 / -1;
   }
@@ -3523,6 +3528,10 @@ html {
 }
 
 @media (max-width: 620px) {
+  .footer-sources-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .calendar-filters-row {
     flex-direction: column;
     gap: 12px;
@@ -3759,4 +3768,9 @@ html {
 /* Nota de estimado no gráfico */
 .topic-chart-notes span:nth-child(2) {
   font-style: italic;
+}
+
+#news-detail-title {
+  overflow-wrap: anywhere;
+  text-wrap: balance;
 }

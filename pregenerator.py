@@ -816,6 +816,9 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
     6. Return a JSON object with an "options" array containing exactly 10 distinct, non-repeating objects (ordered from highest viral potential to lowest).
     7. The first 5 options will be used for Slot 1 of the day, and the remaining 5 options will be used for Slot 2. Ensure the two slot groups do not overlap in theme, year, public figure, or framing.
     8. GROUNDING: only propose events that actually correspond to one of the RAW DATA items provided. Never invent or mix up people, years, clubs or facts. If you are not certain the event matches a raw item, skip it.
+    9. DATE ACCURACY (critical): the "year" field MUST be the year of the event itself as reported in the raw data. Prefer completed, time-boxed events (a match that ended, an announcement that was made, a release that happened) over ongoing states. ONGOING STATES (someone still holding an office, still playing for a club, a law still in force) are BAD stories: "X elected PM" only makes sense when they LEFT office or on meaningful anniversaries of the election — never as current-state filler. If the raw item is about the START of an ongoing situation, skip it or frame it around the completed moment (the election day, the signing, the debut).
+    10. ONE OPTION PER EVENT: two options must never describe the SAME event/story even from different sources (different outlets covering the identical event count as ONE). Group duplicates and keep the single best version. Additionally, when several candidates cover the same event, base YOUR texts (title, overlay_description, caption, summary) on the RICHEST article (most detail, from the free/no-paywall source), and the "year" from that article's own date.
+    11. RECURRING THEMES vs THE SAME EVENT: similar topics in different years (e.g. "wildfires in August" in 2016 and 2024) are DIFFERENT stories and both are valid — what is forbidden is the same event twice, not the same theme.
 
     Format:
     {{
@@ -823,7 +826,7 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
         {{
           "year": "YYYY",
           "category": "ONE WORD CATEGORY IN PORTUGUESE (e.g., POLÍTICA, DESPORTO, CULTURA, SOCIEDADE)",
-          "title": "A short, punchy headline summarizing the event. MAXIMUM 70 CHARACTERS. Never truncate, never use ellipsis",
+          "title": "A short, punchy headline summarizing the event. HARD LIMIT 70 CHARACTERS (count them). Never truncate, never use ellipsis, never leave incomplete sentences",
           "highlight_text": "Either an empty string or 1 to 3 words that appear exactly in the title. Prefer just 1 word.",
           "overlay_description": "A short sentence for the image overlay. NO hashtags, NO call to action, and absolutely NO dates or years.",
           "image_theme": "A short visual search query, ideally 2 to 5 words, for the background image.",
@@ -899,6 +902,21 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
                         if score > best_score:
                             best, best_score = candidate, score
                     if best and best_score >= 2:
+                        # Entre candidatos do MESMO evento (score empatado),
+                        # preferir a fonte com mais conteúdo e sem paywall.
+                        FREE_SOURCES = {"publico.pt", "rtp.pt", "sicnoticias.pt", "dn.pt", "jn.pt", "observador.pt", "noticiasaominuto.com"}
+                        PAYWALLED = {"expresso.pt", "sabado.pt", "visao.pt", "activa.pt", "maxima.pt", "exameinformatica.pt"}
+                        best_domain = normalize_text(best.get("domain") or "")
+                        if best_domain in PAYWALLED:
+                            for candidate in pool:
+                                if candidate is best:
+                                    continue
+                                c_score = len(opt_tokens & _option_tokens(build_editorial_context(candidate)))
+                                c_domain = normalize_text(candidate.get("domain") or "")
+                                if c_score >= best_score and c_domain in FREE_SOURCES:
+                                    best = candidate
+                                    best_domain = c_domain
+                                    break
                         candidate_url = normalize_text(best.get("source_url") or best.get("url") or "")
                         # Âncora a um candidato REAL (impede alucinações); a
                         # captura wayback é procurada mas é best-effort — sem

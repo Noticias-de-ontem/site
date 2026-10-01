@@ -597,6 +597,7 @@ GLOBAL EDITORIAL PHILOSOPHY:
    * TITLE-ONLY OFFICE HOOK: If a past political/social scandal or law is highly interesting/controversial but the person involved is NO LONGER widely famous or popular today, we CAN still select it. The post will refer to them ONLY by their official title/office instead of their name, creating a hook where it looks like the current title-holder did it!
 2. HISTORICAL IRONIES & POLITICAL/SOCIAL MILESTONES: Choose major milestones that shaped the political or social landscape, or controversial laws and election results that remain highly discussable, ironic, or interesting when looked back at from a modern perspective.
 3. CURIOUS & BIZARRE NEWS: Select human-interest stories, funny occurrences, local oddities, or bizarre happenings that are universally amusing, strange, or relatable. Avoid obscure historical records or dry trivia.
+4. SOURCE PREFERENCE when two headlines cover THE SAME story/event: prefer the source with (a) NO paywall (publico.pt, rtp.pt, sicnoticias.pt, dn.pt, jn.pt, observador.pt, noticiasaominuto.com are free; expresso.pt, sabado.pt, visao.pt, activa.pt, maxima.pt, exameinformatica.pt are paywalled), and (b) MORE content/detail. When both are equivalent, prefer the national wide-reach outlet.
 4. STRICT EXCLUSIONS:
    - Absolutely NO routine administrative bureaucracy (minor ministerial meetings, budget statistics, normal policy updates).
    - Absolutely NO minor sports transactions (loans, transfers, or line-ups of ordinary players/coaches who are no longer relevant today).

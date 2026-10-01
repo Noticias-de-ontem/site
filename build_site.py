@@ -550,7 +550,7 @@ def news_url_path(item, taken_paths=None):
             word_count += 1
             candidate = f"noticia/{category_slug}/{'-'.join(words[:word_count])}"
         if candidate in taken_paths:
-            candidate = f"{path}-{page_id[:8]}"
+            candidate = f"{path}-{(clean_text(item.get('page_id')) or 'x')[:8]}"
         taken_paths.add(candidate)
         return candidate
     return path
