@@ -1569,5 +1569,130 @@
    "reason": "Contém a cantora Madonna no painel direito, permitindo ilustrar diretamente a notícia sobre o seu concerto."
   },
   "_model": "gemini-3.6-flash"
+ },
+ "2026-01-23_01_2024_adele-homenageia-george-michael-no-grammy-fundo.jpg:360756": {
+  "_final": {
+   "subject": "Retrato aproximado da cantora Adele a sorrir",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.53,
+     0.31
+    ]
+   ],
+   "banner_focus": [
+    0.53,
+    0.31
+   ],
+   "cover_focus": [
+    0.53,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato direto de Adele, a artista que protagoniza a notícia."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-23_01_2023_lady-gaga-canta-cancao-contra-agressao-sexual-no-oscar-fundo.jpg:401593": {
+  "_final": {
+   "subject": "Lady Gaga a cantar em palco com vestido verde e microfone",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.68,
+     0.16
+    ]
+   ],
+   "banner_focus": [
+    0.65,
+    0.22
+   ],
+   "cover_focus": [
+    0.55,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra Lady Gaga a cantar em palco, adequada para ilustrar uma atuação da artista."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-24_01_2018_taylor-swift-homenageia-ed-sheeran-no-seu-25o-aniversario-fundo.jpg:166791": {
+  "_final": {
+   "subject": "Ed Sheeran a tocar guitarra acústica em concerto",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.57,
+     0.29
+    ]
+   ],
+   "banner_focus": [
+    0.57,
+    0.32
+   ],
+   "cover_focus": [
+    0.53,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Ed Sheeran em palco, pessoa homenageada diretamente na notícia."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-01-25_01_2024_filtro-ia-deixa-voce-igual-a-taylor-swift-fundo.jpg:276085": {
+  "_final": {
+   "subject": "Retrato em primeiro plano da cantora Taylor Swift",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.51,
+     0.35
+    ]
+   ],
+   "banner_focus": [
+    0.51,
+    0.32
+   ],
+   "cover_focus": [
+    0.51,
+    0.42
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Foto de Taylor Swift perfeitamente relevante, ideal para capa vertical, mas demasiado aproximada para recorte banner panorâmico."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-25_01_2024_alerta-sobre-filtro-ia-e-seguranca-infantil-fundo.jpg:390531": {
+  "_final": {
+   "subject": "Figura digital futurista a flutuar com iluminação néon e círculos gráficos",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.507,
+     0.252
+    ]
+   ],
+   "banner_focus": [
+    0.507,
+    0.3
+   ],
+   "cover_focus": [
+    0.507,
+    0.48
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustração conceptual de avatar digital e inteligência artificial adequada ao tema de filtros virtuais e tecnologia."
+  },
+  "_model": "gemini-3.8-flash"
  }
 }

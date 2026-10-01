@@ -102,17 +102,17 @@ const SOCIAL_NETWORKS = {
   instagram: {
     label: "Instagram",
     url: "https://www.instagram.com/",
-    icon: '<img src="assets/logos/networks/instagram.svg" alt="" loading="lazy">',
+    logo: "assets/logos/networks/instagram.svg",
   },
   facebook: {
     label: "Facebook",
     url: "https://www.facebook.com/",
-    icon: '<img src="assets/logos/networks/facebook.svg" alt="" loading="lazy">',
+    logo: "assets/logos/networks/facebook.svg",
   },
   x: {
     label: "X",
     url: "https://x.com/",
-    icon: '<img src="assets/logos/networks/x.svg" alt="" loading="lazy">',
+    logo: "assets/logos/networks/x.svg",
   },
 };
 
@@ -124,7 +124,8 @@ function networkBadgesHtml(item) {
     const meta = SOCIAL_NETWORKS[network];
     if (!meta) return "";
     const href = item?.network_posts?.[network] || meta.url;
-    return `<a class="network-badge network-${network}" href="${escapeHtml(href)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(meta.label)}" title="${escapeHtml(meta.label)}">${meta.icon}</a>`;
+    const logo = assetPath(meta.logo);
+    return `<a class="network-badge network-${network}" href="${escapeHtml(href)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(meta.label)}" title="${escapeHtml(meta.label)}"><img src="${escapeHtml(logo)}" alt="" loading="lazy"></a>`;
   }).join("");
 }
 

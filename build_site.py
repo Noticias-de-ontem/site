@@ -32,7 +32,7 @@ CDXJ_BUILDER_FILE = ROOT / "build_arquivo_cdxj_index.py"
 INSTAGRAM_SCRAPER_FILE = ROOT / "scraper.py"
 ICON_SOURCE = ROOT / "images" / "noticias_de_ontem_icon.png"
 ICON_ASSET = "icon.png"
-SITE_ASSET_VERSION = "20260913n"
+SITE_ASSET_VERSION = "20260913o"
 SITE_FONTS = [
     "Montserrat-Regular.ttf",
     "Montserrat-Medium.ttf",
