@@ -224,7 +224,7 @@ def relevance_prompt_rules():
     return f"""RELEVANCE SCORING (mandatory for every option):
 - Add a "relevance" object with a 0-100 integer score for EACH key: {weights_text}.
 - Score objectively what the event itself caused. "relevancia_mediatica" (media attention back then) must NOT inflate the other scores: a story can be hugely popular for a week and historically minor, or barely covered yet hugely consequential.
-- "justification": 1-2 SHORT sentences in PORTUGUESE (max 25 words total) explaining the scores. For events you score 85+ overall, the justification MUST explicitly describe the lasting consequences (what changed afterwards and why it still matters).
+- "justification": 1-2 SHORT sentences in PORTUGUESE (max 25 words total) explaining the scores. For events you score 70+ overall (levels 1-2), the justification MUST explicitly cite the CONCRETE documented consequences (what changed afterwards and why it still matters) — consequences actually present in the source article/raw data, never invented. If the raw data does NOT document lasting consequences, the scores MUST stay below 70.
 - Never invent facts to justify high scores; when unsure, score lower."""
 
 

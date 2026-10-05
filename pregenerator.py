@@ -560,11 +560,12 @@ Scoring rules: {relevance_prompt_rules()}
 {networks_prompt_rules()}
 
 BODY rules (field "body", in European Portuguese, journalistic tone, factual, based only on the option and the real event):
-- Level 1 (Marco Histórico) or 2 (Grande Relevância): 600-800 words.
+- Level 1 (Marco Histórico) or 2 (Grande Relevância): 600-800 words, and the LAST paragraph must be titled "Consequências posteriores:" describing the documented later consequences.
 - Level 3 (Relevância Regional): 400-500 words.
 - Level 4 (Interesse Público): 250-350 words.
 - Level 5 (Contexto Histórico): 200-250 words.
-- Write it AFTER scoring, sizing the text by the level the scores produce. Cover context, development and lasting relevance. Never invent specific facts, quotes or numbers that are not in the option.
+- HARD MINIMUM 200 words for every level — a shorter body is a failure.
+- Structure: context → development → lasting relevance. Write it AFTER scoring, sizing the text by the level the scores produce. Never invent specific facts, quotes or numbers that are not in the option.
 
 Options:
 {json.dumps(compact, ensure_ascii=False)}

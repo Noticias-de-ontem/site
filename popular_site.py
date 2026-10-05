@@ -222,6 +222,34 @@ Legenda: {option.get("caption")}"""
                         option_changed = True
                 except Exception as exc:
                     print(f"[backfill EN] {post.get('id')}: {exc}")
+            if len((option.get("body") or "").split()) < 120 and option.get("title") and pool.has_keys():
+                level = (option.get("relevance") or {}).get("level") or 4
+                word_target = {1: "600-800", 2: "600-800", 3: "400-500", 4: "250-350", 5: "200-250"}.get(level, "250-350")
+                try:
+                    response = pool.chat_json(
+                        f"""Escreve o artigo da página desta notícia histórica, em português de Portugal, tom jornalístico, factual.
+Nível de relevância {level}: o corpo DEVE ter {word_target} palavras (mínimo absoluto 200).{" O último parágrafo deve começar por \"Consequências posteriores:\" e descrever as consequências documentadas." if level in (1, 2) else ""}
+Estrutura: contexto → desenvolvimento → relevância duradoura. Nunca inventes factos, citações ou números que não estejam abaixo.
+
+Ano: {option.get("year")}
+Categoria: {option.get("category")}
+Título: {option.get("title")}
+Resumo: {option.get("overlay_description") or option.get("summary")}
+Legenda: {option.get("caption")}
+
+Responde APENAS JSON: {{"body": "artigo completo"}}""",
+                        timeout=240,
+                    )
+                    body_payload = json.loads(response or "{}")
+                    body_text = str(body_payload.get("body") or "").strip()
+                    if len(body_text.split()) >= 180:
+                        option["body"] = body_text
+                        option_changed = True
+                        print(f"[body] {post.get('id')}: {len(body_text.split())} palavras")
+                    else:
+                        print(f"[body] {post.get('id')}: curto ({len(body_text.split())} palavras), rejeitado")
+                except Exception as exc:
+                    print(f"[body] {post.get('id')}: {exc}")
             if not option.get("article_url") and option.get("year"):
                 source_candidate = option.get("background_source_url") or option.get("source_url") or ""
                 resolved = ""

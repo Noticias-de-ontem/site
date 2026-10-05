@@ -149,8 +149,13 @@ function relevanceBadge(item, options = {}) {
   const aria = t("relevanceHelpAria");
   const icon = RELEVANCE_ICONS[info.level] || "";
   const size = options.compact ? " relevance-badge-compact" : "";
+  // Na página individual o badge transporta a pontuação completa: a tooltip
+  // global mostra notas por critério + soma ponderada + justificação.
+  const scoreData = options.scores && Object.keys(options.scores).length
+    ? ` data-scores='${escapeHtml(JSON.stringify({ scores: options.scores, weighted: options.weighted, justification: options.justification, level: info.level, name: info.name }))}'`
+    : "";
   return (
-    `<span class="relevance-badge relevance-level-${info.level}${size}" data-relevance-level="${info.level}" ` +
+    `<span class="relevance-badge relevance-level-${info.level}${size}" data-relevance-level="${info.level}"${scoreData} ` +
     `tabindex="0" role="button" aria-describedby="relevance-tooltip" aria-label="${aria}">` +
     `${icon}<span class="relevance-badge-name">${info.name}</span></span>`
   );
@@ -1568,7 +1573,7 @@ function renderNewsDetail() {
           <p class="news-article-meta">
             ${category ? `<span class="meta-pill">${escapeHtml(category)}</span>` : ""}
             ${sourceTypeChip(item)}
-            ${relevanceBadge(item)}
+            ${relevanceBadge(item, { scores: item.relevance_scores, justification: item.relevance_justification, weighted: item.relevance_weighted })}
           </p>
           <h1 id="news-detail-title">${escapeHtml(title)}</h1>
           ${dateLine ? `<p class="news-article-dates">${escapeHtml(dateLine)}</p>` : ""}
@@ -3443,6 +3448,14 @@ function renderRelevanceDocs() {
       en: { title: "2000s fashion: the return of platform boots", body: "Not decisive on its own, but useful for understanding the era's culture and aesthetics." },
     },
   };
+  // Exemplos REAIS: a melhor notícia de cada nível presente no site.
+  const realExamples = {};
+  for (const item of state.data?.all || []) {
+    const level = Number(item.relevance_level) || 4;
+    if (!realExamples[level] || (Number(item.relevance_weighted) || 0) > (Number(realExamples[level].relevance_weighted) || 0)) {
+      realExamples[level] = item;
+    }
+  }
   const currentExample = { level: 1 };
   const criteria = lang === "en"
     ? [
@@ -3514,6 +3527,7 @@ function renderRelevanceDocs() {
       badge.addEventListener("click", () => {
         const level = Number(badge.dataset.docLevel);
         const example = examplesByLevel[level];
+        const real = realExamples[level];
         const exampleEl = container.querySelector(".relevance-example");
         if (!example || !exampleEl) return;
         const badgeColor = { 1: "#a8203c", 2: "#d66a15", 3: "#c4940c", 4: "#10609b", 5: "#56626a" }[level] || "#56626a";
@@ -3521,10 +3535,20 @@ function renderRelevanceDocs() {
         exampleEl.querySelector(".relevance-badge").outerHTML = relevanceBadge({ relevance_level: level });
         const heading = exampleEl.querySelector("h4");
         const body = exampleEl.querySelector("p");
-        if (heading && example && lang === "pt") heading.textContent = example.pt?.title || heading.textContent;
-        if (heading && example && lang === "en") heading.textContent = example.en?.title || heading.textContent;
-        if (body && example && lang === "pt") body.textContent = example.pt?.body || body.textContent;
-        if (body && example && lang === "en") body.textContent = example.en?.body || body.textContent;
+        if (real) {
+          // Exemplo real: título, justificação e link da notícia do site.
+          if (heading) {
+            heading.innerHTML = `<a href="${escapeHtml(newsPageUrl(real))}" data-news-id="${escapeHtml(real.page_id)}" style="color:inherit;text-decoration:none">${escapeHtml(cleanTitle(real))}</a>`;
+          }
+          if (body) {
+            body.textContent = real.relevance_justification || localized(real, "summary") || "";
+          }
+        } else {
+          if (heading && example && lang === "pt") heading.textContent = example.pt?.title || heading.textContent;
+          if (heading && example && lang === "en") heading.textContent = example.en?.title || heading.textContent;
+          if (body && example && lang === "pt") body.textContent = example.pt?.body || body.textContent;
+          if (body && example && lang === "en") body.textContent = example.en?.body || body.textContent;
+        }
         container.querySelectorAll("[data-doc-level]").forEach((b) => b.classList.toggle("active", Number(b.dataset.docLevel) === level));
       });
     });
@@ -4067,6 +4091,62 @@ function relevanceTooltipText(level) {
   return html;
 }
 
+// Tooltip rica na página individual: notas por critério, soma ponderada
+// e justificação — da MESMA notícia cuja captura está na página.
+function showScoreTooltip(badge) {
+  hideRelevanceTooltip();
+  let data;
+  try {
+    data = JSON.parse(badge.dataset.scores);
+  } catch {
+    return;
+  }
+  const scores = data.scores || {};
+  const rows = [
+    ["scoreImpact", "impacto_historico"],
+    ["scoreScope", "dimensao_impacto"],
+    ["scoreConsequences", "consequencias"],
+    ["scoreLater", "relevancia_posterior"],
+    ["scoreDuration", "dimensao_duracao"],
+    ["scoreMedia", "relevancia_mediatica"],
+    ["scoreUniqueness", "singularidade"],
+  ];
+  let rowsHtml = "";
+  for (const [key, field] of rows) {
+    const value = Number(scores[field]);
+    if (!Number.isFinite(value)) continue;
+    rowsHtml += `
+      <div class="score-tooltip-row">
+        <span class="score-tooltip-label">${escapeHtml(t(key))}</span>
+        <span class="relevance-score-bar"><span style="width:${Math.max(0, Math.min(100, value))}%"></span></span>
+        <span class="score-tooltip-value">${Math.round(value)}</span>
+      </div>`;
+  }
+  const weighted = Number(data.weighted);
+  const weightedHtml = Number.isFinite(weighted)
+    ? `<div class="score-tooltip-weighted"><span>${escapeHtml(state.lang === "pt" ? "Soma ponderada" : "Weighted score")}</span><strong>${Math.round(weighted * 10) / 10}</strong></div>`
+    : "";
+  const justification = data.justification
+    ? `<p class="score-tooltip-justification">${escapeHtml(data.justification)}</p>`
+    : "";
+  const tooltip = document.createElement("div");
+  tooltip.id = "relevance-tooltip";
+  tooltip.className = `relevance-tooltip relevance-level-${data.level} score-tooltip`;
+  tooltip.setAttribute("role", "tooltip");
+  tooltip.innerHTML = `<strong>${escapeHtml(data.name || "")}</strong>${rowsHtml}${weightedHtml}${justification}`;
+  document.body.appendChild(tooltip);
+  relevanceTooltipElement = tooltip;
+  const badgeRect = badge.getBoundingClientRect();
+  const tooltipRect = tooltip.getBoundingClientRect();
+  let left = badgeRect.left + badgeRect.width / 2 - tooltipRect.width / 2;
+  left = Math.max(10, Math.min(left, window.innerWidth - tooltipRect.width - 10));
+  let top = badgeRect.top - tooltipRect.height - 10;
+  if (top < 10) top = badgeRect.bottom + 10;
+  tooltip.style.left = `${Math.round(left)}px`;
+  tooltip.style.top = `${Math.round(top)}px`;
+  tooltip.classList.add("visible");
+}
+
 function showRelevanceTooltipRaw(badge, rawText) {
   hideRelevanceTooltip();
   if (!rawText) return;
@@ -4122,7 +4202,9 @@ function wireRelevanceTooltips() {
   const target = (event) => event.target.closest?.(".relevance-badge, [data-tip]");
   const tipFor = (element) => (element.dataset.tip ? element.dataset.tip : relevanceTooltipText(element.dataset.relevanceLevel));
   const show = (element) => {
-    if (element.dataset.tip) {
+    if (element.dataset.scores) {
+      showScoreTooltip(element);
+    } else if (element.dataset.tip) {
       showRelevanceTooltipRaw(element, element.dataset.tip);
     } else {
       showRelevanceTooltip(element);

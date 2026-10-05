@@ -3786,3 +3786,62 @@ html {
   overflow-wrap: anywhere;
   text-wrap: balance;
 }
+
+/* Tooltip de pontuação (página individual): notas por critério */
+.score-tooltip {
+  max-width: 340px;
+  min-width: 280px;
+  pointer-events: auto;
+}
+
+.score-tooltip-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 74px 30px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.score-tooltip-label {
+  font-size: 0.72rem;
+  color: #cdd8dd;
+}
+
+.score-tooltip .relevance-score-bar {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.score-tooltip .relevance-score-bar span {
+  background: var(--brand);
+}
+
+.score-tooltip-value {
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-align: right;
+  color: var(--brand);
+}
+
+.score-tooltip-weighted {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.18);
+  font-size: 0.78rem;
+  color: #e8eff2;
+}
+
+.score-tooltip-weighted strong {
+  color: var(--brand);
+  font-size: 0.9rem;
+}
+
+.score-tooltip-justification {
+  margin: 8px 0 0;
+  color: #b9c7cc;
+  font-size: 0.74rem;
+  line-height: 1.45;
+}

@@ -3915,6 +3915,169 @@
         ]
     },
     {
+        "id": "pt_2026-01-13_1",
+        "date": "2026-01-13",
+        "slot": 1,
+        "lang": "pt",
+        "selected_option": 0,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "",
+        "status": "pending",
+        "generated_month": "2026-01",
+        "external_suggestions": [
+            {
+                "year": "1610",
+                "category": "CIÊNCIA",
+                "title": "Galileu descobre Calisto, quarto satélite de Júpiter",
+                "summary": "A descoberta ampliou o conhecimento do sistema solar e permanece um marco da astronomia."
+            },
+            {
+                "year": "1968",
+                "category": "CULTURA",
+                "title": "Johnny Cash grava o icônico concerto na Prisão de Folsom",
+                "summary": "O álbum tornou-se um clássico da música country e influenciou gerações de artistas."
+            },
+            {
+                "year": "2018",
+                "category": "SOCIEDADE",
+                "title": "Alerta falso de míssil gera pânico no Havaí",
+                "summary": "Um erro do sistema de alerta levou residentes a acreditar em um ataque iminente, gerando repercussão mundial sobre protocolos de emergência."
+            }
+        ],
+        "options": [
+            {
+                "article_url": "https://arquivo.pt/noFrame/replay/20210113141508/https://www.publico.pt/2020/07/29/tecnologia/noticia/inedito-lideres-google-facebook-amazon-apple-dao-explicacoes-congresso-eua-1926274/embed?FromApp=1",
+                "year": "2021",
+                "category": "TECNOLOGIA",
+                "title": "Amazon, Google, Facebook e Apple juntaram-se, por videoconferência, para tentar con...",
+                "highlight_text": "",
+                "overlay_description": "Amazon, Google, Facebook e Apple juntaram-se, por videoconferência, para tentar con...",
+                "image_theme": "Amazon, Google, Facebook e Apple juntaram-se, por videoconferência, para tentar con...",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "caption": "Amazon, Google, Facebook e Apple juntaram-se, por videoconferência, para tentar convencer o Congresso norte-americano de que não representam monopólios tecnológicos\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Amazon, Google, Facebook e Apple juntaram-se, por videoconferência, para tentar convencer o Congresso norte-americano de que não representam monopólios tecnológicos",
+                "background_source_url": "",
+                "image_url": "https://i.ibb.co/LDyjDv74/2026-01-13-01-2021-amazon-google-facebook-e-apple-juntaram-se-por-videoconferencia-para-tentar-con.jpg",
+                "image_delete_url": "https://ibb.co/PsyXstHB/178e6d9d7293c5b394e183987698a2c3",
+                "local_image_path": "images/review/pt/2026-01-13_01_2021_amazon-google-facebook-e-apple-juntaram-se-por-videoconferencia-para-tentar-con.jpg",
+                "local_background_path": "",
+                "title_en": "",
+                "summary_en": "",
+                "body": "",
+                "networks": [
+                    "x"
+                ],
+                "relevance": {}
+            },
+            {
+                "article_url": "https://arquivo.pt/noFrame/replay/20200113015458/https://www.lux.iol.pt/internacional/famosos/fotos-atores-brasileiros-em-protesto-no-festival-de-cannes",
+                "year": "2020",
+                "category": "POLITICA",
+                "title": "Arrancou na passada quarta-feira (11) a 69ª edição do Festival de Cinema",
+                "highlight_text": "",
+                "overlay_description": "Arrancou na passada quarta-feira (11) a 69ª edição do Festival de Cinema",
+                "image_theme": "Arrancou na passada quarta-feira (11) a 69ª edição do Festival de Cinema",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "caption": "Arrancou na passada quarta-feira (11) a 69ª edição do Festival de Cinema de Cannes. Como é habitual, o evento tem contado com um majestoso desfile de celebridades naquela que é considerada uma das maiores festas internacionais de cinema. Esta terça-feira (17), que contou com a exibição do filme \"Aquarius\", realizado por Kleber Mendonça Filho, ficou marcada por protestos. O elenco, composto por nomes como Sonia Braga, Humberto Carrão e Maeve Jikings, protestou contra o processo de impeachment de Dilma Rousseff, que levou ao governo provisório de Michel Temer, vice-presidente eleito. \"Um golpe...\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Arrancou na passada quarta-feira (11) a 69ª edição do Festival de Cinema de Cannes. Como é habitual, o evento tem contado com um majestoso desfile de celebridades naquela que é co...",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "title_en": "",
+                "summary_en": "",
+                "body": "",
+                "networks": [
+                    "facebook",
+                    "x"
+                ],
+                "relevance": {}
+            },
+            {
+                "article_url": "https://arquivo.pt/noFrame/replay/20160113214731/http://www.lux.iol.pt/internacional/famosos/jennifer-lawrence-volta-a-ser-eleita-a-atriz-mais-valiosa-do-cinema",
+                "year": "2016",
+                "category": "POLITICA",
+                "title": "Jennifer Lawrence volta a ser eleita \"a atriz mais valiosa do cinema\"",
+                "highlight_text": "",
+                "overlay_description": "Jennifer Lawrence volta a ser eleita \"a atriz mais valiosa do cinema\"",
+                "image_theme": "Jennifer Lawrence volta a ser eleita \"a atriz mais valiosa do cinema\"",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "caption": "Jennifer Lawrence volta a ser eleita \"a atriz mais valiosa do cinema\" Jennifer lawrence volta a ser eleita a atriz mais valiosa do cinema\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Jennifer Lawrence volta a ser eleita \"a atriz mais valiosa do cinema\" Jennifer lawrence volta a ser eleita a atriz mais valiosa do cinema",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "title_en": "",
+                "summary_en": "",
+                "body": "",
+                "networks": [
+                    "facebook",
+                    "x"
+                ],
+                "relevance": {}
+            },
+            {
+                "article_url": "https://arquivo.pt/noFrame/replay/20130113044840/http://www.lux.iol.pt/internacionais/fotos-estrelas-da-musica-reunem-se-em-festival-iheart-festival-iheart-2012-rihanna-usher-shakira-britney-spears/1376895-4997.html",
+                "year": "2013",
+                "category": "ENTRETENIMENTO",
+                "title": "O Festival de Música iHeart Radio decorre este fim de semana em",
+                "highlight_text": "",
+                "overlay_description": "O Festival de Música iHeart Radio decorre este fim de semana em",
+                "image_theme": "O Festival de Música iHeart Radio decorre este fim de semana em",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "caption": "O Festival de Música iHeart Radio decorre este fim de semana em Las Vegas, juntando as principais estrelas americanas.Pelo palco passaram Rihanna, Miley Cyrus, Usher ou bandas como os Bon Jovi e os No Doubt.A grande ausência da primeira noite foi a da cantora Shakira que deveria atuar no evento, mas cancelou a participação ao anunciar no Facebbok a sua gravidez, agradecendo «o amor constante e compreensão» dos seus fãs. O Festival de Música iHeart Radio decorre este fim de semana em Las Vegas, juntando as principais estrelas americanas.Pelo palco passaram Rihanna, Miley Cyrus, Usher ou bandas...\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "O Festival de Música iHeart Radio decorre este fim de semana em Las Vegas, juntando as principais estrelas americanas.Pelo palco passaram Rihanna, Miley Cyrus, Usher ou bandas com...",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "title_en": "",
+                "summary_en": "",
+                "body": "",
+                "networks": [
+                    "instagram"
+                ],
+                "relevance": {}
+            },
+            {
+                "article_url": "https://arquivo.pt/noFrame/replay/20210113222117/https://www.publico.pt/2020/10/07/tecnologia/noticia/congresso-eua-quer-novas-leis-tirar-google-facebook-amazon-apple-1934363",
+                "year": "2021",
+                "category": "CRIME",
+                "title": "O Congresso norte-americano acusou formalmente a Amazon, Apple, Facebook e Alphabet...",
+                "highlight_text": "",
+                "overlay_description": "O Congresso norte-americano acusou formalmente a Amazon, Apple, Facebook e Alphabet...",
+                "image_theme": "O Congresso norte-americano acusou formalmente a Amazon, Apple, Facebook e Alphabet...",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "caption": "O Congresso norte-americano acusou formalmente a Amazon, Apple, Facebook e Alphabet (dona da Google) de terem demasiado poder e anunciou a criação de novas leis para resolver o problema. A informação surge num relatório de 449 páginas publicado esta terça-feira: resulta de 16 meses de investigação, 250 entrevistas e de uma extensa audiência realizada em Julho com os líderes dessas empresas. “Durante quase seis horas, pressionámos [os líderes das tecnológicas] para obtermos respostas sobre as práticas de negócios das empresas e a dimensão com que exploram e expandem o seu poder sobre o mercado...\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "O Congresso norte-americano acusou formalmente a Amazon, Apple, Facebook e Alphabet (dona da Google) de terem demasiado poder e anunciou a criação de novas leis para resolver o pr...",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "title_en": "",
+                "summary_en": "",
+                "body": "",
+                "networks": [
+                    "instagram"
+                ],
+                "relevance": {}
+            }
+        ]
+    },
+    {
         "id": "pt_2026-01-14_1",
         "date": "2026-01-14",
         "slot": 1,
@@ -4470,6 +4633,247 @@
                 "source_platform": "",
                 "source_profile": "mag.sapo.pt",
                 "body": "Em 2021, o filme 'Berlin Alexanderplatz', de Welket Bungué, entrou em competição no Festival de Cinema de Berlim (Berlinale), marcando um momento significativo para a representação lusófono no cenário internacional. Bungué, nascido em Angola e criado em Portugal, traz uma perspectiva única que mistura influências africanas e europeias. O longa, baseado no romance de Alfred Döblin, reinterpreta a história de um ex‑condenado que tenta reconstruir a sua vida em um Berlin pós‑guerra, mas com uma estética contemporânea que dialoga com a realidade das comunidades de origem africana na Europa.\n\nA presença de 'Berlin Alexanderplatz' na Berlinale foi recebida com entusiasmo pela crítica especializada, que destacou a direção audaciosa e a escolha de elenco que inclui atores de origem africana e europeia. O filme também recebeu atenção por abordar temas como identidade, migração e a memória coletiva, que são relevantes para o debate sobre a diversidade cultural na Europa. Além disso, a participação de Bungué na competição ajudou a colocar o cinema angolano e português em um contexto de relevância global, inspirando outros cineastas da diáspora a explorar narrativas transnacionais.\n\nDo ponto de vista histórico, o impacto do filme é modesto, mas relevante para a visibilidade de produções lusófonas em festivais de prestígio. A obra contribui para a discussão sobre a representação de minorias no cinema europeu e pode abrir portas para futuras colaborações entre artistas africanos e europeus. No entanto, não alterou de forma decisiva a estrutura do mercado cinematográfico, mas continua a ser um marco cultural para a comunidade lusófonas.",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": ""
+            }
+        ]
+    },
+    {
+        "id": "pt_2026-01-15_2",
+        "date": "2026-01-15",
+        "slot": 2,
+        "lang": "pt",
+        "selected_option": 0,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "",
+        "status": "pending",
+        "generated_month": "2026-01",
+        "external_suggestions": [
+            {
+                "year": "1559",
+                "category": "CULTURA",
+                "title": "Coronation de Isabel I de Inglaterra",
+                "summary": "Marca o início de um dos reinados mais longos e influentes da história britânica, com impacto cultural e político duradouro."
+            },
+            {
+                "year": "1759",
+                "category": "CULTURA",
+                "title": "O British Museum abre suas portas ao público",
+                "summary": "Primeiro museu nacional público do mundo, tornando o conhecimento e a arte acessíveis a todos."
+            },
+            {
+                "year": "2001",
+                "category": "CIÊNCIA",
+                "title": "Wikipédia é lançada oficialmente",
+                "summary": "Enciclopédia livre e colaborativa que revolucionou o acesso à informação em escala global."
+            }
+        ],
+        "options": [
+            {
+                "year": "2016",
+                "category": "ESTRELA",
+                "title": "Jennifer Lawrence lidera ranking de valor em 2016",
+                "highlight_text": "Jennifer Lawrence",
+                "overlay_description": "A atriz consolida seu posto como maior atrativo de bilheteria.",
+                "image_theme": "Jennifer Lawrence movie premiere",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "caption": "Segundo análises de 2016, Jennifer Lawrence manteve-se como a atriz que mais gera receita para os estúdios.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Seu valor de mercado reflete sucesso constante em franquias como Jogos Vorazes.",
+                "title_en": "Jennifer Lawrence leads 2016 box‑office value ranking",
+                "summary_en": "The actress consolidates her position as Hollywood's top draw in that year.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 5.0,
+                        "dimensao_impacto": 9.0,
+                        "consequencias": 4.0,
+                        "relevancia_posterior": 4.0,
+                        "dimensao_duracao": 3.0,
+                        "relevancia_mediatica": 13.0,
+                        "singularidade": 7.0
+                    },
+                    "weighted_score": 5.8,
+                    "justification": "Posição de liderança em ranking anual com efeito informativo moderado; baixa influência histórica.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/noFrame/replay/20160115215402/http://www.lux.iol.pt/internacional/famosos/jennifer-lawrence-volta-a-ser-eleita-a-atriz-mais-valiosa-do-cinema",
+                "source_platform": "",
+                "source_profile": "lux.iol.pt",
+                "body": "O ranking de valor de bilheteria de 2016 colocou Jennifer Lawrence no primeiro lugar, confirmando seu status como a atrativa mais lucrativa de Hollywood naquele período. A avaliação levou em conta o retorno das produções em que ela atuou, com destaque para os últimos capítulos da saga Jogos Vorazes e os filmes da franquia X-Men, que continuaram a gerar receitas elevadas em mercados internacionais. A liderança no indicador foi interpretada como sinal de que a atriz conseguia equilibrar apelo comercial com escolhas de projetos que mantinham seu nome em evidência. Apesar do reconhecimento, não houve alterações contratuais imediatas nem mudanças visíveis nos critérios de seleção de papéis oferecidos a Lawrence após 2016. O efeito da notícia foi principalmente informativo, servindo como referência para analistas de mercado e para a mídia especializada em entretenimento. Para o público, a confirmação de seu posto no ranking reforçou a imagem de Lawrence como estrela confiável, mas não resultou em novos projetos ou em mudanças significativas na forma como sua carreira é gerenciada. O ranking de 2016, portanto, tem valor histórico como instantâneo do mercado, mas sua influência direta sobre a trajetória da atriz foi modestamente limitada.",
+                "networks": [
+                    "facebook"
+                ],
+                "background_source_url": "https://arquivo.pt/wayback/20240511211402/https://www.cheatsheet.com/movies/",
+                "image_url": "https://i.ibb.co/FkfSt2rF/2026-01-15-01-2016-jennifer-lawrence-lidera-ranking-de-valor-em-2016.jpg",
+                "image_delete_url": "https://ibb.co/Ngk8z5vM/c54e55fe8b77d8847e5e6776ac6f7a73",
+                "local_image_path": "images/review/pt/2026-01-15_01_2016_jennifer-lawrence-lidera-ranking-de-valor-em-2016.jpg",
+                "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-01-15_01_2016_jennifer-lawrence-lidera-ranking-de-valor-em-2016-fundo.jpg"
+            },
+            {
+                "year": "2021",
+                "category": "ESTRELA",
+                "title": "Welket Bungué estrela filme na Berlinale 2021",
+                "highlight_text": "Welket Bungué",
+                "overlay_description": "O ator luso-guineense interpreta um refugiado no filme em competição.",
+                "image_theme": "Berlin Alexanderplatz film still",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "caption": "Welket Bungué destaca a importância de ter um português na competição principal da Berlinale.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Ele fala sobre a raridade de artistas lusófonos em produções internacionais alemãs.",
+                "title_en": "Luso‑Guinean actor Welket Bungué stars in Berlinale 2021 film",
+                "summary_en": "He plays a refugee in the German competition entry.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 4.0,
+                        "dimensao_impacto": 7.0,
+                        "consequencias": 3.0,
+                        "relevancia_posterior": 3.0,
+                        "dimensao_duracao": 2.0,
+                        "relevancia_mediatica": 11.0,
+                        "singularidade": 6.0
+                    },
+                    "weighted_score": 4.5,
+                    "justification": "Participação em festival com visibilidade restrita; baixo impacto histórico e consequências mínimas.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/noFrame/replay/20210115195116/https://mag.sapo.pt/amp/cinema/atualidade-cinema/artigos/berlim-entrevista-ao-ator-welket-bungue-um-peao-portugues-no-festival-de-cinema",
+                "source_platform": "",
+                "source_profile": "mag.sapo.pt",
+                "body": "O ator luso‑guineense Welket Bungué integrou o elenco de um filme em competição no Festival de Berlim 2021, onde interpreta um refugiado cuja história aborda temas de deslocamento e identidade. A participação marcou um momento de visibilidade para artistas de origem lusófona em um dos principais eventos de cinema europeu, destacando a crescente presença de talentos de países como Guiné‑Bissau e Portugal em festivais internacionais. Embora o filme não tenha sido amplamente divulgado fora do circuito festivalero, a presença de Bungué foi mencionada em notas da imprensa especializada que ressaltaram a importância da representação diversificada nas seleções oficiais da Berlinale. O impacto da participação ficou restrito ao âmbito do festival e não gerou mudanças mensuráveis na carreira do ator além do reconhecimento dentro da comunidade cinematográfica. Para o público português, a notícia serviu como exemplo de como atores com ligações a lusofonia conseguem acessar espaços de prestige internacional, ainda que em escala limitada. A presença de Bungué na Berlinale 2021 reforça a ideia de que festivais de cinema continuam a ser plataformas relevantes para a descoberta de novos talentos, embora seu efeito imediato sobre a indústria global seja modesto.",
+                "networks": [
+                    "instagram"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2021",
+                "category": "ESTRELA",
+                "title": "Welket Bungué fala sobre carreira em Berlim",
+                "highlight_text": "Berlim",
+                "overlay_description": "Ele conta como estudou no Brasil antes de voltar à Europa.",
+                "image_theme": "Welket Bungué interview",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "caption": "Após anos na Alemanha, Welket Bungué reflete sobre as dificuldades de mercado para artistas guineenses em Portugal.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Seu percurso inclui passagens pelo Brasil e séries portuguesas como Equador.",
+                "title_en": "Welket Bungué discusses his career at Berlinale 2021",
+                "summary_en": "He talks about studying in Brazil before returning to Europe.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 4.0,
+                        "dimensao_impacto": 6.0,
+                        "consequencias": 3.0,
+                        "relevancia_posterior": 3.0,
+                        "dimensao_duracao": 2.0,
+                        "relevancia_mediatica": 10.0,
+                        "singularidade": 5.0
+                    },
+                    "weighted_score": 4.3,
+                    "justification": "Declaração de formação com alcance informativo limitado; baixa influência histórica.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/noFrame/replay/20210115195116/https://mag.sapo.pt/amp/cinema/atualidade-cinema/artigos/berlim-entrevista-ao-ator-welket-bungue-um-peao-portugues-no-festival-de-cinema",
+                "source_platform": "",
+                "source_profile": "mag.sapo.pt",
+                "body": "Durante o Festival de Berlim 2021, o ator Welket Bungué concedeu entrevistas em que contou que estudou interpretação no Brasil antes de retornar à Europa e dar sequência à sua carreira. Essa formação internacional foi apresentada como um diferencial que enriqueceu seu enfoque nos papéis que tem interpretado, incluindo o personagem de refugiado no filme em competição. Bungué também mencionou suas passagens por produções portuguesas, como a série Equador, destacando como a experiência em diferentes mercados linguísticos contribuiu para sua versatilidade. As declarações foram divulgadas em veículos especializados em cinema e não geraram repercussão além do âmbito festivalero. Para o público lusófono, a menção ao percurso brasileiro ofereceu um ponto de conexão com a formação de artistas que transitam entre Portugal, Brasil e África. No entanto, o impacto das falas ficou limitado ao contexto das entrevistas e não resultou em mudanças contratuais nem em novos projetos anunciados imediatamente após o festival. A relevância da declaração reside principalmente em ilustrar as trajetórias multifacetadas de artistas lusófonos, mas seu efeito sobre a indústria cinematográfica global permanece modesto.",
+                "networks": [
+                    "facebook"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2021",
+                "category": "ESTRELA",
+                "title": "Welket Bungué se vê como peão português na Berlinale",
+                "highlight_text": "peão português",
+                "overlay_description": "Ele destaca a importância de representar Portugal em festivais de cinema.",
+                "image_theme": "Berlinale red carpet",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "caption": "Welket Bungué afirma que, apesar de ser o único português na competição, dá o seu melhor pelo filme.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "O ator vê sua presença como símbolo de representação lusófona na Berlinale.",
+                "title_en": "Welket Bungué sees himself as a Portuguese pawn at Berlinale 2021",
+                "summary_en": "He stresses the importance of representing Portugal at the film festival.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 4.0,
+                        "dimensao_impacto": 6.0,
+                        "consequencias": 3.0,
+                        "relevancia_posterior": 3.0,
+                        "dimensao_duracao": 2.0,
+                        "relevancia_mediatica": 9.0,
+                        "singularidade": 5.0
+                    },
+                    "weighted_score": 4.2,
+                    "justification": "Metáfora simbólica com alcance restrito; baixo efeito histórico e consequências mínimas.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/noFrame/replay/20210115195116/https://mag.sapo.pt/amp/cinema/atualidade-cinema/artigos/berlim-entrevista-ao-ator-welket-bungue-um-peao-portugues-no-festival-de-cinema",
+                "source_platform": "",
+                "source_profile": "mag.sapo.pt",
+                "body": "Em conversas durante o Festival de Berlim 2021, Welket Bungué afirmou que vê sua presença como um símbolo de representação lusófona, descrevendo-se como um \"peão português\" no evento. Essa metáfora foi utilizada para enfatizar o valor de ter artistas de Portugal e de países africanos de língua portuguesa participando de um dos maiores festivais de cinema do mundo. Bungué destacou que a visibilidade obtida na Berlinale pode servir como inspiração para novos talentos lusófonos que desejam ingressar no circuito internacional. As declarações foram reproduzidas em notas de imprensa focadas em diversidade e representação, mas não geraram ações concretas nem mudanças nas políticas de seleção do festival. Para o público português, a fala reforçou a ideia de que a participação em eventos internacionais pode ser vista como forma de afirmar identidade cultural, embora o efeito prático sobre a carreira do ator tenha sido limitado. O impacto da afirmação ficou restrito ao âmbito simbólico e não se traduziu em aumentos mensuráveis de oportunidades ou em alterações significativas nos critérios de inclusão do festival. Assim, a relevância da afirmação é principalmente ilustrativa, com baixa repercussão histórica e consequências modestas.",
+                "networks": [
+                    "instagram"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2021",
+                "category": "CURIOSO",
+                "title": "Fire Saga: banda islandesa que não existe de verdade",
+                "highlight_text": "Fire Saga",
+                "overlay_description": "A dupla fictícia foi criada para o filme da Netflix.",
+                "image_theme": "Fire Saga fictional band",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "caption": "Will Ferrell e Rachel McAdams interpretam os membros da banda imaginária que representa a Islândia na Eurovisão.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "A história brinca com a ficção de um grupo que nunca existiu fora das telas.",
+                "title_en": "Fire Saga: the fictional Icelandic band that does not exist in reality",
+                "summary_en": "The duo was created solely for the Netflix Eurovision parody film.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 3.0,
+                        "dimensao_impacto": 5.0,
+                        "consequencias": 2.0,
+                        "relevancia_posterior": 2.0,
+                        "dimensao_duracao": 1.0,
+                        "relevancia_mediatica": 8.0,
+                        "singularidade": 4.0
+                    },
+                    "weighted_score": 3.2,
+                    "justification": "Banda fictícia com efeito restrito ao entretenimento; baixa repercussão histórica.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/noFrame/replay/20210115181918/https://mag.sapo.pt/cinema/filmes/criticas/festival-eurovisao-da-cancao-a-historia-dos-fire-saga-comedia-da-netflix-adora-o-festival-mas-deixa-muito-por-celebrar",
+                "source_platform": "",
+                "source_profile": "mag.sapo.pt",
+                "body": "Fire Saga é uma dupla fictícia criada exclusivamente para o filme da Netflix Eurovisão: A História de Fire Saga, lançado em 2020 e disponibilizado na Netflix Portugal em 2021. A banda, composta pelos personagens Lars e Sigrit, nunca existiu fora das telas e foi concebida como parte da trama de comédia que parodia o Festival Eurovisão da Canção. Apesar de sua inexistência real, o projeto conseguiu gerar discussões sobre a linha entre ficção e realidade no contexto de eventos musicais internacionais, já que muitas de suas apresentações imitam o estilo de performances reais do concurso. O filme utilizou a inexistência da banda como recurso cômico, destacando a absurdidade de levar a sério um grupo que foi criado apenas para entreter. Para o público português, a disponibilidade do título na streaming permitiu que a piada fosse compreendida mesmo por quem não acompanha o Eurovisão com regularidade. O impacto da menção à inexistência de Fire Saga ficou limitado ao âmbito do entretenimento e não gerou mudanças na forma como o concurso é percebido nem na indústria musical. Assim, a relevância da história reside principalmente no valor de humor e na capacidade de atrair espectadores que buscam conteúdo leve, com baixo efeito histórico e consequências mínimas.",
+                "networks": [
+                    "facebook"
+                ],
                 "image_url": "",
                 "image_delete_url": "",
                 "local_image_path": "",
@@ -7559,6 +7963,149 @@
                 "background_source_url": "",
                 "local_background_path": "",
                 "body": ""
+            }
+        ]
+    },
+    {
+        "id": "pt_2026-01-26_1",
+        "date": "2026-01-26",
+        "slot": 1,
+        "lang": "pt",
+        "selected_option": 0,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "",
+        "status": "pending",
+        "generated_month": "2026-01",
+        "external_suggestions": [],
+        "options": [
+            {
+                "article_url": "https://arquivo.pt/noFrame/replay/20250112191506/https://caras.pt/famosos/2025-01-08-fernanda-torres-atriz-brasileira-faz-historia-nos-golden-globes/",
+                "year": "2025",
+                "category": "ENTRETENIMENTO",
+                "title": "“E o Globo de Ouro vai para… Fernanda Torres”, anunciou Viola Davis.",
+                "highlight_text": "",
+                "overlay_description": "“E o Globo de Ouro vai para… Fernanda Torres”, anunciou Viola Davis.",
+                "image_theme": "“E o Globo de Ouro vai para… Fernanda Torres”, anunciou Viola Davis.",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "caption": "“E o Globo de Ouro vai para… Fernanda Torres”, anunciou Viola Davis. E assim se fez história. A atriz, de 59 anos, tornou-se a primeira brasileira a vencer o troféu de Melhor Atriz num filme dramático. Visivelmente emocionada e sem um discurso preparado, Fernanda Torres, distinguida pelo seu papel como protagonista em Ainda Estou Aqui, de Walter Salles, e que estava na corrida ao galardão ao lado de Angelina Jolie, Tilda Swinton, Kate Winslet, Nicole Kidman e Pamela Anderson, mostrou-se surpreendida e dedicou a vitória à mãe, a veterana Fernanda Montenegro, que recebeu uma nomeação em 1999, p...\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "“E o Globo de Ouro vai para… Fernanda Torres”, anunciou Viola Davis. E assim se fez história. A atriz, de 59 anos, tornou-se a primeira brasileira a vencer o troféu de Melhor Atri...",
+                "background_source_url": "https://arquivo.pt/wayback/20171220213019/https://www.noticiasaominuto.com/desporto/919837/atletico-madrid-queria-ficar-aqui-para-sempre",
+                "image_url": "https://i.ibb.co/27tm05PD/2026-01-26-01-2025-e-o-globo-de-ouro-vai-para-fernanda-torres-anunciou-viola-davis.jpg",
+                "image_delete_url": "https://ibb.co/KjqRcm7M/2ae71c9ed7bc58729ecbd4d44858e5c6",
+                "local_image_path": "images/review/pt/2026-01-26_01_2025_e-o-globo-de-ouro-vai-para-fernanda-torres-anunciou-viola-davis.jpg",
+                "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-01-26_01_2025_e-o-globo-de-ouro-vai-para-fernanda-torres-anunciou-viola-davis-fundo.jpg",
+                "title_en": "",
+                "summary_en": "",
+                "body": "",
+                "networks": [
+                    "instagram"
+                ],
+                "relevance": {}
+            },
+            {
+                "article_url": "https://arquivo.pt/noFrame/replay/20240126204336/https://holofote.pt/famosos/2023-08-16-madonna-regressa-a-lisboa-para-celebrar-65o-aniversario/",
+                "year": "2024",
+                "category": "ENTRETENIMENTO",
+                "title": "Madonna regressou a Lisboa para comemorar na capital portuguesa o seu 65º",
+                "highlight_text": "",
+                "overlay_description": "Madonna regressou a Lisboa para comemorar na capital portuguesa o seu 65º",
+                "image_theme": "Madonna regressou a Lisboa para comemorar na capital portuguesa o seu 65º",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "caption": "Madonna regressou a Lisboa para comemorar na capital portuguesa o seu 65º aniversário. A cantora celebra a data esta quarta-feira, dia 16, e a noite anterior recebeu a festa em família. De fato Madonna mostrou nas redes sociais que está com a família na capital portuguesa. Dessa forma mostrou fotos tiradas nas ruas de Alfama e também dentro de um restaurante. Além de comemorar o próprio aniversário em Lisboa, Madonna também festejou os 23 anos de Rocco, o filho mais velho. Veja na galeria, em cima. A saber que no dia 24 de junho, Madonna precisou de ir para o hospital de urgência com uma infe...\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Madonna regressou a Lisboa para comemorar na capital portuguesa o seu 65º aniversário. A cantora celebra a data esta quarta-feira, dia 16, e a noite anterior recebeu a festa em fa...",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "title_en": "",
+                "summary_en": "",
+                "body": "",
+                "networks": [
+                    "instagram"
+                ],
+                "relevance": {}
+            },
+            {
+                "article_url": "https://arquivo.pt/noFrame/replay/20210126221052/https://www.publico.pt/2020/10/07/tecnologia/noticia/congresso-eua-quer-novas-leis-tirar-google-facebook-amazon-apple-1934363",
+                "year": "2021",
+                "category": "CRIME",
+                "title": "O Congresso norte-americano acusou formalmente a Amazon, Apple, Facebook e Alphabet...",
+                "highlight_text": "",
+                "overlay_description": "O Congresso norte-americano acusou formalmente a Amazon, Apple, Facebook e Alphabet...",
+                "image_theme": "O Congresso norte-americano acusou formalmente a Amazon, Apple, Facebook e Alphabet...",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "caption": "O Congresso norte-americano acusou formalmente a Amazon, Apple, Facebook e Alphabet (dona da Google) de terem demasiado poder e anunciou a criação de novas leis para resolver o problema. A informação surge num relatório de 449 páginas publicado esta terça-feira: resulta de 16 meses de investigação, 250 entrevistas e de uma extensa audiência realizada em Julho com os líderes dessas empresas. “Durante quase seis horas, pressionámos [os líderes das tecnológicas] para obtermos respostas sobre as práticas de negócios das empresas e a dimensão com que exploram e expandem o seu poder sobre o mercado...\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "O Congresso norte-americano acusou formalmente a Amazon, Apple, Facebook e Alphabet (dona da Google) de terem demasiado poder e anunciou a criação de novas leis para resolver o pr...",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "title_en": "",
+                "summary_en": "",
+                "body": "",
+                "networks": [
+                    "instagram"
+                ],
+                "relevance": {}
+            },
+            {
+                "article_url": "https://arquivo.pt/noFrame/replay/20180126043442/http://www.lux.iol.pt/internacional/famosos/messi-eleito-de-melhor-do-mundo-a-frente-de-cristiano-ronaldo",
+                "year": "2018",
+                "category": "DESPORTO",
+                "title": "Lionel Messi bateu Cristiano Ronaldo na eleição de melhor do mundo do",
+                "highlight_text": "",
+                "overlay_description": "Lionel Messi bateu Cristiano Ronaldo na eleição de melhor do mundo do",
+                "image_theme": "Lionel Messi bateu Cristiano Ronaldo na eleição de melhor do mundo do",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "caption": "Lionel Messi bateu Cristiano Ronaldo na eleição de melhor do mundo do jornal «Marca», através dos votos dos seus leitores. O argentino do Barcelona recebeu 56% dos votos, contra 25% do português Cristiano Ronaldo. Isco ficou no terceiro posto, com 6%. André Silva (71º) e Gonçalo Guedes (82º) são os outros portugueses que entram neste top-100 de a «Marca», que inclui ainda o brasileiro Jonas, do Benfica (77º), e os portistas Jesús Corna (89º) e Hector Herrera (95º)\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Lionel Messi bateu Cristiano Ronaldo na eleição de melhor do mundo do jornal «Marca», através dos votos dos seus leitores. O argentino do Barcelona recebeu 56% dos votos, contra 2...",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "title_en": "",
+                "summary_en": "",
+                "body": "",
+                "networks": [
+                    "instagram"
+                ],
+                "relevance": {}
+            },
+            {
+                "article_url": "https://arquivo.pt/noFrame/replay/20160126080521/http://www.lux.iol.pt/internacional/famosos/jennifer-lawrence-volta-a-ser-eleita-a-atriz-mais-valiosa-do-cinema",
+                "year": "2016",
+                "category": "POLITICA",
+                "title": "Jennifer Lawrence volta a ser eleita \"a atriz mais valiosa do cinema\"",
+                "highlight_text": "",
+                "overlay_description": "Jennifer Lawrence volta a ser eleita \"a atriz mais valiosa do cinema\"",
+                "image_theme": "Jennifer Lawrence volta a ser eleita \"a atriz mais valiosa do cinema\"",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "caption": "Jennifer Lawrence volta a ser eleita \"a atriz mais valiosa do cinema\" Jennifer lawrence volta a ser eleita a atriz mais valiosa do cinema\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Jennifer Lawrence volta a ser eleita \"a atriz mais valiosa do cinema\" Jennifer lawrence volta a ser eleita a atriz mais valiosa do cinema",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "title_en": "",
+                "summary_en": "",
+                "body": "",
+                "networks": [
+                    "facebook",
+                    "x"
+                ],
+                "relevance": {}
             }
         ]
     },

@@ -556,6 +556,59 @@ def news_url_path(item, taken_paths=None):
     return path
 
 
+WAYBACK_BUILD_CACHE_FILE = ROOT / "wayback_resolucao_cache.json"
+_wayback_build_cache = None
+
+
+def _load_wayback_build_cache():
+    global _wayback_build_cache
+    if _wayback_build_cache is None:
+        try:
+            data = json.loads(WAYBACK_BUILD_CACHE_FILE.read_text(encoding="utf-8"))
+            _wayback_build_cache = data if isinstance(data, dict) else {}
+        except Exception:
+            _wayback_build_cache = {}
+    return _wayback_build_cache
+
+
+def _save_wayback_build_cache():
+    try:
+        WAYBACK_BUILD_CACHE_FILE.write_text(
+            json.dumps(_wayback_build_cache or {}, ensure_ascii=False, indent=1),
+            encoding="utf-8",
+        )
+    except Exception:
+        pass
+
+
+def resolve_wayback_for_build(title, year, fallback_url=""):
+    """Resolve a captura wayback de uma notícia durante o build.
+
+    Ordem: URL de fallback (CDX) → procura por título. Cache em ficheiro
+    para rebuilds instantâneos. Devolve "" quando não existe captura —
+    nesses casos a notícia mantém a sua fonte original (nunca um link de
+    pesquisa).
+    """
+    global _wayback_build_cache
+    cache = _load_wayback_build_cache()
+    key = f"{(title or '').lower().strip()}|{year}"
+    if key in cache:
+        return cache[key]
+    result = ""
+    try:
+        from pregenerator import resolve_wayback_capture, resolve_wayback_by_title
+
+        if fallback_url and fallback_url.startswith(("http://", "https://")) and "/wayback/" not in fallback_url:
+            result = resolve_wayback_capture(fallback_url, str(year), title=title)
+        if not result:
+            result = resolve_wayback_by_title(title, str(year))
+    except Exception:
+        result = ""
+    cache[key] = result
+    _save_wayback_build_cache()
+    return result
+
+
 def arquivo_screenshot_url(source_url):
     source_url = clean_text(source_url)
     # A API de screenshots recebe apenas URLs preservados (wayback) — nunca
@@ -874,9 +927,16 @@ def post_to_site_item(post, registry_by_post_id):
         capture_year = re.search(r"wayback/(\d{4})", photo_source)
         if capture_year and capture_year.group(1) == clean_text(original_year):
             source_url = photo_source
+    if not source_url and photo_source.startswith(("http://", "https://")):
+        # Captura do arquivo.pt para o URL original (sem links de pesquisa).
+        resolved = resolve_wayback_for_build(title, original_year, fallback_url=photo_source)
+        if resolved:
+            source_url = resolved
     if not source_url:
-        search_title = re.sub(r"\s+", " ", title).strip()
-        source_url = f"https://arquivo.pt/textsearch?q={quote(search_title, safe='')}"
+        resolved = resolve_wayback_for_build(title, original_year)
+        if resolved:
+            source_url = resolved
+    # Sem captura e sem fonte original: fica sem URL (nunca link de pesquisa).
     instagram_url = clean_text(
         post.get("instagram_url")
         or option.get("instagram_url")
@@ -1123,8 +1183,7 @@ def build_event_recommendations():
                 "event_date": event_date,
                 "domain": "wikipedia",
                 "source_type": "wikipedia",
-                "source_url": clean_text(entry.get("source_url"))
-                or f"https://arquivo.pt/textsearch?q={quote(title, safe='')}",
+                "source_url": clean_text(entry.get("source_url")),
                 "relevance_level": int(entry.get("relevance_level") or 4),
                 "summary": clean_text(entry.get("summary")),
             })

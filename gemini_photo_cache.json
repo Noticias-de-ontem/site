@@ -1694,5 +1694,30 @@
    "reason": "Ilustração conceptual de avatar digital e inteligência artificial adequada ao tema de filtros virtuais e tecnologia."
   },
   "_model": "gemini-3.8-flash"
+ },
+ "2026-01-15_01_2016_jennifer-lawrence-lidera-ranking-de-valor-em-2016-fundo.jpg:246297": {
+  "_final": {
+   "subject": "Jennifer Lawrence em evento na passadeira vermelha",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.67,
+     0.19
+    ]
+   ],
+   "banner_focus": [
+    0.66,
+    0.22
+   ],
+   "cover_focus": [
+    0.62,
+    0.4
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Jennifer Lawrence perfeitamente adequado para ilustrar a notícia sobre a liderança da atriz."
+  },
+  "_model": "gemini-3.8-flash"
  }
 }

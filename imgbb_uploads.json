@@ -1116,5 +1116,44 @@
         "created_at": "2026-09-13T17:46:19+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-01-13",
+        "option_index": 0,
+        "title": "Amazon, Google, Facebook e Apple juntaram-se, por videoconferência, para tentar con...",
+        "year": "2021",
+        "image_url": "https://i.ibb.co/LDyjDv74/2026-01-13-01-2021-amazon-google-facebook-e-apple-juntaram-se-por-videoconferencia-para-tentar-con.jpg",
+        "delete_url": "https://ibb.co/PsyXstHB/178e6d9d7293c5b394e183987698a2c3",
+        "created_at": "2026-10-05T21:18:54+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-01-15",
+        "option_index": 0,
+        "title": "Jennifer Lawrence lidera ranking de valor em 2016",
+        "year": "2016",
+        "image_url": "https://i.ibb.co/FkfSt2rF/2026-01-15-01-2016-jennifer-lawrence-lidera-ranking-de-valor-em-2016.jpg",
+        "delete_url": "https://ibb.co/Ngk8z5vM/c54e55fe8b77d8847e5e6776ac6f7a73",
+        "created_at": "2026-10-05T21:27:48+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-01-26",
+        "option_index": 0,
+        "title": "“E o Globo de Ouro vai para… Fernanda Torres”, anunciou Viola Davis.",
+        "year": "2025",
+        "image_url": "https://i.ibb.co/27tm05PD/2026-01-26-01-2025-e-o-globo-de-ouro-vai-para-fernanda-torres-anunciou-viola-davis.jpg",
+        "delete_url": "https://ibb.co/KjqRcm7M/2ae71c9ed7bc58729ecbd4d44858e5c6",
+        "created_at": "2026-10-05T21:51:21+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
