@@ -3845,3 +3845,92 @@ html {
   font-size: 0.74rem;
   line-height: 1.45;
 }
+
+/* Newsletter: formulário e promo na home */
+.newsletter-form {
+  display: grid;
+  gap: 16px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 26px;
+  border: 1px solid rgba(16, 24, 29, 0.08);
+  border-top: 3px solid var(--brand);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: var(--shadow-low);
+}
+
+.newsletter-field {
+  display: grid;
+  gap: 6px;
+}
+
+.newsletter-field span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.newsletter-field input,
+.newsletter-field textarea {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: var(--ink);
+  resize: vertical;
+}
+
+.newsletter-field input:focus,
+.newsletter-field textarea:focus {
+  outline: 2px solid var(--brand);
+  outline-offset: 1px;
+  border-color: var(--brand);
+}
+
+.newsletter-status {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--brand-deep);
+  min-height: 1.2em;
+}
+
+.newsletter-actions {
+  display: flex;
+}
+
+.newsletter-actions .button {
+  width: 100%;
+}
+
+.newsletter-privacy {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.newsletter-promo-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px 26px;
+  border: 1px solid rgba(16, 24, 29, 0.08);
+  border-left: 4px solid var(--brand);
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(0, 199, 214, 0.05), rgba(13, 155, 168, 0.02));
+}
+
+.newsletter-promo-card h2 {
+  margin: 6px 0 6px;
+}
+
+.newsletter-promo-card p {
+  max-width: 560px;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}

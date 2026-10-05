@@ -1719,5 +1719,80 @@
    "reason": "Retrato de Jennifer Lawrence perfeitamente adequado para ilustrar a notícia sobre a liderança da atriz."
   },
   "_model": "gemini-3.8-flash"
+ },
+ "2026-01-26_01_2025_e-o-globo-de-ouro-vai-para-fernanda-torres-anunciou-viola-davis-fundo.jpg:182127": {
+  "_final": {
+   "subject": "Futebolista Fernando Torres com expressão desolada",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.58,
+     0.22
+    ]
+   ],
+   "banner_focus": [
+    0.6,
+    0.26
+   ],
+   "cover_focus": [
+    0.65,
+    0.4
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "Mostra o futebolista Fernando Torres, não a atriz brasileira Fernanda Torres premiada no evento."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-28_01_2025_e-o-globo-de-ouro-vai-para-fernanda-torres-anunciou-viola-davis-fundo.jpg:182127": {
+  "_final": {
+   "subject": "Fernando Torres de cabeça baixa com camisola do Atlético de Madrid",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.57,
+     0.25
+    ]
+   ],
+   "banner_focus": [
+    0.58,
+    0.22
+   ],
+   "cover_focus": [
+    0.6,
+    0.4
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem retrata o futebolista Fernando Torres, não a atriz brasileira Fernanda Torres."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-30_01_2023_joe-biden-o-vice-presidente-dos-estados-unidos-subira-este-domingo-28-ao-fundo.jpg:247190": {
+  "_final": {
+   "subject": "Joe Biden a discursar com a bandeira dos EUA ao fundo",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.82,
+     0.43
+    ]
+   ],
+   "banner_focus": [
+    0.75,
+    0.42
+   ],
+   "cover_focus": [
+    0.65,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fotografia de Joe Biden discursando, perfeitamente adequada para ilustrar a notícia sobre a sua intervenção política."
+  },
+  "_model": "gemini-3.6-flash"
  }
 }

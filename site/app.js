@@ -37,7 +37,7 @@ const state = {
 // Máximo de publicações do projeto no topo de qualquer período do calendário.
 const CALENDAR_POSTS_LIMIT = 6;
 
-const ROUTE_SEGMENTS = new Set(["inicio", "calendário", "calendario", "temas", "documentação", "documentacao", "noticia"]);
+const ROUTE_SEGMENTS = new Set(["inicio", "calendário", "calendario", "temas", "documentação", "documentacao", "noticia", "newsletter"]);
 const SOURCE_LABELS = {
   "publico.pt": "Público",
   "expresso.pt": "Expresso",
@@ -279,6 +279,20 @@ const i18n = {
     footerExploreTitle: "Explorar",
     footerAboutTitle: "Sobre o projeto",
     footerBackTop: "Voltar ao topo",
+    newsletterEyebrow: "Newsletter semanal",
+    newsletterTitle: "As notícias dos teus temas, todas as semanas",
+    newsletterLead: "Escreve numa mensagem o que te interessa. Interpretamos os teus temas e enviamos-te, uma vez por semana, as notícias históricas escolhidas para ti — diretamente do Arquivo.pt.",
+    newsletterEmailLabel: "O teu email",
+    newsletterMessageLabel: "Os teus temas — escreve livremente",
+    newsletterMessagePlaceholder: "Ex.: adoro futebol clássico, a história do cinema português e descobertas científicas…",
+    newsletterSubmit: "Subscrever",
+    newsletterPrivacy: "Enviamos um email por semana. Podes reconfigurar os temas ou cancelar a qualquer momento a partir do próprio email.",
+    newsletterStatusOk: "Subscrição registada! A tua seleção semanal chega no próximo envio.",
+    newsletterStatusReconfigure: "Temas atualizados! A próxima edição já vai com a tua nova seleção.",
+    newsletterStatusError: "Não foi possível registar a subscrição. Tenta novamente em instantes.",
+    newsletterPromoTitle: "Recebe os teus temas por email",
+    newsletterPromoBody: "Diz-nos numa mensagem o que te interessa e enviamos-te as melhores notícias históricas dessa categoria, todas as semanas.",
+    newsletterPromoCta: "Escolher os meus temas",
     minuteFeedTitle: "Arquivo ao minuto",
     minuteFeedLead: "As últimas publicações do nosso perfil.",
     topicsEyebrow: "Pesquisa histórica",
@@ -474,6 +488,20 @@ const i18n = {
     footerExploreTitle: "Explore",
     footerAboutTitle: "About the project",
     footerBackTop: "Back to top",
+    newsletterEyebrow: "Weekly newsletter",
+    newsletterTitle: "The stories you care about, every week",
+    newsletterLead: "Describe your interests in one message. We’ll map them to topics and send you a weekly pick of historical stories — straight from Arquivo.pt.",
+    newsletterEmailLabel: "Your email",
+    newsletterMessageLabel: "Your topics — write freely",
+    newsletterMessagePlaceholder: "e.g. classic soccer, the history of Portuguese cinema, and science breakthroughs…",
+    newsletterSubmit: "Subscribe",
+    newsletterPrivacy: "One email per week. You can change your topics or unsubscribe at any time from the email itself.",
+    newsletterStatusOk: "You’re subscribed! Your first weekly selection arrives in the next send.",
+    newsletterStatusReconfigure: "Topics updated! The next edition will follow your new selection.",
+    newsletterStatusError: "We couldn’t process your subscription. Please try again shortly.",
+    newsletterPromoTitle: "Get your topics by email",
+    newsletterPromoBody: "Tell us what you’re interested in and we’ll send you the best historical stories in those categories, every week.",
+    newsletterPromoCta: "Choose my topics",
     minuteFeedTitle: "Archive live feed",
     minuteFeedLead: "The latest posts from our profile.",
     topicsEyebrow: "Historical search",
@@ -3564,9 +3592,71 @@ function renderStaticText() {
   document.querySelectorAll("[data-i18n-aria-label]").forEach((element) => {
     element.setAttribute("aria-label", t(element.getAttribute("data-i18n-aria-label")));
   });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    const value = t(element.getAttribute("data-i18n-placeholder"));
+    if (typeof value === "string") element.setAttribute("placeholder", value);
+  });
   document.querySelectorAll(".language-switch button").forEach((button) => {
     const active = button.dataset.lang === state.lang;
     button.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+}
+
+// Newsletter: subscrição com mensagem livre + modo reconfigurar.
+function renderNewsletter() {
+  const form = document.getElementById("newsletter-form");
+  if (!form || form.dataset.wired === "1") return;
+  form.dataset.wired = "1";
+  const params = new URLSearchParams(window.location.search);
+  const emailInput = document.getElementById("newsletter-email");
+  const messageInput = document.getElementById("newsletter-message");
+  const status = document.getElementById("newsletter-status");
+  const submit = document.getElementById("newsletter-submit");
+  if (params.get("reconfigurar") === "1") {
+    emailInput.value = params.get("email") || "";
+    messageInput.value = "";
+    if (status) status.textContent = state.lang === "pt"
+      ? "Reescreve os teus temas e envia — a próxima edição já vai com a tua nova seleção."
+      : "Rewrite your topics and submit — the next edition will follow your new selection.";
+  }
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const email = emailInput.value.trim();
+    const mensagem = messageInput.value.trim();
+    if (!email || !mensagem) return;
+    submit.disabled = true;
+    if (status) status.textContent = state.lang === "pt" ? "A registar…" : "Registering…";
+    const reconfiguring = params.get("reconfigurar") === "1";
+    try {
+      let ok = false;
+      if (state.apiBaseUrl) {
+        const response = await fetch(`${state.apiBaseUrl}/newsletter/subscribe`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, mensagem, reconfigurar: reconfiguring }),
+        });
+        ok = response.ok;
+      } else if (state.data?.newsletter?.form_url) {
+        // Sem backend: o formulário alojado do serviço de email trata a
+        // subscrição; os campos são passados como query params quando o
+        // formulário alojado os aceita.
+        const url = new URL(state.data.newsletter.form_url);
+        url.searchParams.set("email", email);
+        url.searchParams.set("mensagem", mensagem);
+        window.open(url.toString(), "_blank");
+        ok = true;
+      } else {
+        ok = false;
+      }
+      if (status) status.textContent = ok
+        ? (reconfiguring ? t("newsletterStatusReconfigure") : t("newsletterStatusOk"))
+        : t("newsletterStatusError");
+      if (ok) form.reset();
+    } catch {
+      if (status) status.textContent = t("newsletterStatusError");
+    } finally {
+      submit.disabled = false;
+    }
   });
 }
 
@@ -3578,6 +3668,7 @@ function render() {
   renderCalendar();
   renderTopics();
   renderDocs();
+  renderNewsletter();
   renderNewsDetail();
 }
 
@@ -3600,6 +3691,9 @@ function setRoute(route) {
   if (state.route === "news") {
     renderNewsDetail();
   }
+  if (state.route === "newsletter") {
+    renderNewsletter();
+  }
   if (state.route === "docs") {
     renderMetrics();
     animateMetricCounters();
@@ -3616,6 +3710,7 @@ function routeFromLocation() {
   if (pathname.match(/\/(calendário|calendario)(?:\/\d{4}-\d{2}-\d{2})?\/?$/)) return "calendar";
   if (pathname.match(/\/temas\/?$/)) return "topics";
   if (pathname.match(/\/(documentação|documentacao)\/?$/)) return "docs";
+  if (pathname.match(/\/newsletter\/?$/)) return "newsletter";
   // URL limpo com qualquer profundidade (noticia/AAAA/MM/DD/slug-d8) ou alias.
   if (pathname.match(/\/noticia(?:\/.+)?\/?$/)) return "news";
   return "home";

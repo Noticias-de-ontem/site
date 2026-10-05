@@ -1342,6 +1342,10 @@ def build_payload():
         "default_lang": "pt",
         "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
         "instagram_profile_url": os.environ.get("INSTAGRAM_PROFILE_URL", "https://www.instagram.com/"),
+        "newsletter": {
+            "form_url": os.environ.get("NEWSLETTER_FORM_URL", ""),
+            "enabled": True,
+        },
         # O destaque do hero precisa de foto que funcione em banner largo e
         # cartão; só cai para outra notícia se nenhuma estiver validada.
         "featured": next(
@@ -1499,6 +1503,11 @@ def write_route_pages(payload):
             "Consulte uma notícia histórica, a sua imagem, contexto e ligação verificável ao Arquivo.pt.",
             "noticia",
         ),
+        "newsletter": (
+            "Newsletter semanal | Notícias de Ontem",
+            "Escolhe os teus temas numa mensagem e recebe todas as semanas as notícias históricas escolhidas para ti.",
+            "newsletter",
+        ),
     }
     home_title, home_description, home_canonical_path = route_metadata["inicio"]
     source_html = with_seo(
@@ -1515,7 +1524,7 @@ def write_route_pages(payload):
         "calendário": "calendario",
         "documentação": "documentacao",
     }
-    for route in ["inicio", "calendário", "documentação", "temas", "noticia", "calendario", "documentacao"]:
+    for route in ["inicio", "calendário", "documentação", "temas", "noticia", "calendario", "documentacao", "newsletter"]:
         canonical_route = aliases.get(route, route)
         title, description, canonical_path = route_metadata[canonical_route]
         structured = route_structured_data(canonical_path, title, description)
@@ -1587,6 +1596,7 @@ def write_route_pages(payload):
         absolute_site_url("calendario/"),
         absolute_site_url("temas/"),
         absolute_site_url("documentacao/"),
+        absolute_site_url("newsletter/"),
         *indexed_story_urls,
     ]
     sitemap_entries = "\n".join(

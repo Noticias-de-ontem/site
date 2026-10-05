@@ -135,6 +135,29 @@
 
       </section>
 
+      <section id="newsletter-view" class="view page-view" data-view="newsletter" aria-labelledby="newsletter-title">
+        <div class="page-intro">
+          <p class="eyebrow" data-i18n="newsletterEyebrow">Newsletter semanal</p>
+          <h1 id="newsletter-title" data-i18n="newsletterTitle">As notícias dos teus temas, todas as semanas</h1>
+          <p data-i18n="newsletterLead">Escreve numa mensagem o que te interessa. Interpretamos os teus temas e enviamos-te, uma vez por semana, as notícias históricas escolhidas para ti — diretamente do Arquivo.pt.</p>
+        </div>
+        <form class="newsletter-form" id="newsletter-form">
+          <label class="newsletter-field">
+            <span data-i18n="newsletterEmailLabel">O teu email</span>
+            <input id="newsletter-email" name="email" type="email" required autocomplete="email">
+          </label>
+          <label class="newsletter-field">
+            <span data-i18n="newsletterMessageLabel">Os teus temas — escreve livremente</span>
+            <textarea id="newsletter-message" name="mensagem" rows="4" required placeholder="Ex.: adoro futebol clássico, a história do cinema português e descobertas científicas…" data-i18n-placeholder="newsletterMessagePlaceholder"></textarea>
+          </label>
+          <p class="newsletter-status" id="newsletter-status" role="status"></p>
+          <div class="newsletter-actions">
+            <button type="submit" class="button primary" id="newsletter-submit" data-i18n="newsletterSubmit">Subscrever</button>
+          </div>
+          <p class="newsletter-privacy" data-i18n="newsletterPrivacy">Enviamos um email por semana. Podes reconfigurar os temas ou cancelar a qualquer momento a partir do próprio email.</p>
+        </form>
+      </section>
+
       <section id="calendar-view" class="view page-view" data-view="calendar" aria-labelledby="calendar-title">
         <div class="page-intro">
           <p class="eyebrow" data-i18n="calendarEyebrow">Calendário editorial</p>

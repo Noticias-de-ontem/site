@@ -1,0 +1,62 @@
+name: Newsletter Semanal
+
+on:
+  schedule:
+    # Domingo 18:00 UTC = 19:00 Lisboa
+    - cron: "0 18 * * 0"
+  workflow_dispatch:
+    inputs:
+      seco:
+        description: "Pré-visualização (grava HTMLs, não envia)"
+        required: false
+        default: "false"
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  newsletter:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.14.6"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Mapear temas de subscritores (IA)
+        if: ${{ inputs.seco != true }}
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          BREVO_LISTA_BASE_ID: ${{ secrets.BREVO_LISTA_BASE_ID }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+        run: python -u scripts/newsletter.py --mapear
+
+      - name: Enviar newsletter semanal
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          BREVO_LISTA_BASE_ID: ${{ secrets.BREVO_LISTA_BASE_ID }}
+          NEWSLETTER_REMETENTE_EMAIL: ${{ secrets.NEWSLETTER_REMETENTE_EMAIL }}
+          NEWSLETTER_REMETENTE_NOME: "Notícias de Ontem"
+          NEWSLETTER_URL_SITE: ${{ vars.NEWSLETTER_URL_SITE || 'https://noticias-de-ontem.github.io/site/' }}
+        run: |
+          if [ "${{ inputs.seco }}" = "true" ]; then
+            python -u scripts/newsletter.py --seco
+          else
+            python -u scripts/newsletter.py --enviar
+          fi
+
+      - name: Upload previews
+        if: ${{ inputs.seco == true }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: newsletter-previews
+          path: newsletter_previews/

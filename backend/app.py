@@ -48,6 +48,9 @@ TOPIC_POLL_GLOBAL_RATE_LIMIT = positive_int("TOPIC_POLL_GLOBAL_RATE_LIMIT", 600)
 CALENDAR_RATE_LIMIT = positive_int("CALENDAR_RATE_LIMIT", 60)
 CALENDAR_GLOBAL_RATE_LIMIT = positive_int("CALENDAR_GLOBAL_RATE_LIMIT", 300)
 NEWS_RATE_LIMIT = positive_int("NEWS_RATE_LIMIT", 120)
+NEWSLETTER_RATE_LIMIT = positive_int("NEWSLETTER_RATE_LIMIT", 3)
+BREVO_API = "https://api.brevo.com/v3"
+NEWSLETTER_GLOBAL_RATE_LIMIT = positive_int("NEWSLETTER_GLOBAL_RATE_LIMIT", 60)
 NEWS_GLOBAL_RATE_LIMIT = positive_int("NEWS_GLOBAL_RATE_LIMIT", 600)
 ADMIN_RATE_LIMIT = positive_int("ADMIN_RATE_LIMIT", 10)
 
@@ -454,6 +457,56 @@ def robots():
         ]
     )
     return Response(content, media_type="text/plain")
+
+
+@app.post("/api/newsletter/subscribe")
+def newsletter_subscribe(request: Request, payload: dict = Body(...)):
+    """Regista o subscritor no Brevo com a mensagem livre de temas.
+
+    Server-side: a chave Brevo nunca chega ao browser. A interpretação dos
+    temas acontece no workflow semanal (scripts/newsletter.py --mapear).
+    """
+    enforce_rate_limit(request, "newsletter", NEWSLETTER_RATE_LIMIT, NEWSLETTER_GLOBAL_RATE_LIMIT)
+    email = str(payload.get("email") or "").strip().lower()
+    mensagem = str(payload.get("mensagem") or "").strip()
+    reconfigurar = bool(payload.get("reconfigurar"))
+    if not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", email):
+        raise HTTPException(status_code=422, detail="email inválido")
+    if len(mensagem) < 5:
+        raise HTTPException(status_code=422, detail="mensagem muito curta")
+    if len(mensagem) > 500:
+        mensagem = mensagem[:500]
+
+    api_key = os.environ.get("BREVO_API_KEY", "").strip()
+    list_id = positive_int("BREVO_LISTA_BASE_ID", 0)
+    if not api_key or not list_id:
+        raise HTTPException(status_code=503, detail="serviço de email não configurado")
+
+    import requests as _requests
+
+    attributes = {"NOTICIAS_MENSAGEM": mensagem}
+    if reconfigurar:
+        # Reconfigurar limpa as categorias antigas para o workflow remapear.
+        attributes["NOTICIAS_CATEGORIAS"] = ""
+    response = _requests.post(
+        f"{BREVO_API}/contacts",
+        headers={"api-key": api_key, "Content-Type": "application/json"},
+        json={
+            "email": email,
+            "attributes": attributes,
+            "updateEnabled": True,
+            "listIds": [list_id],
+        },
+        timeout=30,
+    )
+    if response.status_code in (200, 201, 204):
+        return {"ok": True}
+    detail = "falha no serviço de email"
+    try:
+        detail = response.json().get("message", detail)
+    except Exception:
+        pass
+    raise HTTPException(status_code=502, detail=detail)
 
 
 @app.post("/api/admin/site-data")

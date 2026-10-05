@@ -184,6 +184,19 @@ Chaves nunca no repositório: em GitHub Actions, usar **Settings > Secrets and v
 - `backend/` — API, base de dados, fila e pesquisa rápida;
 - `docs/SITE_AND_POSTS.md` — referência detalhada do site e dos fluxos.
 
+## Newsletter semanal
+
+Os subscritores escolhem os temas **escrevendo uma mensagem livre** na página `/newsletter/`. A IA interpreta a mensagem, mapeia-a para as categorias do site e **agrupa subscritores com perfis idênticos** — o envio é 1 campanha por perfil único, não por pessoa.
+
+- **Email**: minimalista, com as cores do site; cada notícia leva categoria, ano original, resumo e "Ler no site"; botão **"Não foi o que pedi — reconfigurar temas"** que reabre a mensagem de temas; cancelamento pelo próprio Brevo.
+- **Serviço externo**: [Brevo](https://www.brevo.com/) (free tier 300 emails/dia). Para ativar:
+  1. Cria a conta Brevo, uma lista chamada `Subscritores` e copia o **id** dela;
+  2. Cria a **API key v3** (Settings → SMTP & API);
+  3. Coloca `BREVO_API_KEY` e `BREVO_LISTA_BASE_ID` no `.env` local e nos **GitHub Secrets**; adiciona também `NEWSLETTER_REMETENTE_EMAIL` (email validado no Brevo);
+  4. (Site estático) cria um **formulário alojado** no Brevo e coloca o URL em `NEWSLETTER_FORM_URL` no `.env`/env do build — é o destino do formulário quando não há backend dinâmico.
+- **Envio**: workflow `Newsletter Semanal` — domingo 19:00 Lisboa; interpreta mensagens novas (IA), segmenta perfis, gera e envia as campanhas. `workflow_dispatch` com "seco" grava previews sem enviar.
+- **Testes locais**: `python scripts/newsletter.py --seco` grava os HTMLs em `newsletter_previews/`.
+
 ## Estrutura do repositório
 
 - **Raiz**: pipeline principal (`pregenerator`, `publisher`, `build_site`, `scraper`), módulos partilhados (`nvidia_client`, `gemini_vision`, `historical_relevance`, `social_networks`), CLI de população (`popular_site.py`) e os `.cmd` de recolha;

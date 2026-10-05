@@ -184,6 +184,19 @@ Keys never go into the repository: in GitHub Actions use **Settings > Secrets an
 - `backend/` — API, database, queue, and fast search;
 - `docs/SITE_AND_POSTS.md` — detailed reference for the site and pipelines.
 
+## Weekly newsletter
+
+Subscribers pick their topics by **writing a free-form message** on the `/newsletter/` page. The AI maps that message to the site's categories and **groups subscribers with identical profiles** — one campaign per unique profile, not per person.
+
+- **Email**: minimalist, using the site's colors; each story carries its category, original year, summary and a "Read on the site" link; plus a **"Not what I asked for — reconfigure topics"** button that reopens the topic message; unsubscribe is handled by Brevo.
+- **External service**: [Brevo](https://www.brevo.com/) (free tier 300 emails/day). To activate:
+  1. Create the Brevo account, a list named `Subscritores`, and copy its **id**;
+  2. Create the **v3 API key** (Settings → SMTP & API);
+  3. Set `BREVO_API_KEY` and `BREVO_LISTA_BASE_ID` in your local `.env` and in **GitHub Secrets**; add `NEWSLETTER_REMETENTE_EMAIL` (a verified sender email);
+  4. (Static site) create a **hosted subscription form** in Brevo and put its URL in `NEWSLETTER_FORM_URL` — that's where the form goes when no dynamic backend is present.
+- **Sending**: the `Weekly Newsletter` workflow runs Sundays 19:00 Lisbon time; it interprets new messages (AI), segments profiles, builds and sends the campaigns. `workflow_dispatch` with "seco" records previews without sending.
+- **Local testing**: `python scripts/newsletter.py --seco` writes the HTMLs to `newsletter_previews/`.
+
 ## Rights and provenance
 
 The project points to pages preserved by Arquivo.pt and identifies the originating publications. Journalistic content keeps the rights of its authors and media outlets. The original source code is available under the [MIT License](LICENSE); the included Montserrat fonts follow the [SIL Open Font License 1.1](images/montserrat/OFL.txt).
