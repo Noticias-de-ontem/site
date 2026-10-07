@@ -470,7 +470,19 @@ def newsletter_subscribe(request: Request, payload: dict = Body(...)):
     email = str(payload.get("email") or "").strip().lower()
     mensagem = str(payload.get("mensagem") or "").strip()
     reconfigurar = bool(payload.get("reconfigurar"))
-    if not re.match(r"^[^@\s]+@[^@\s]+\.[^@\s]+$", email):
+    # Validação de email em tempo linear: a regex anterior tinha
+    # backtracking polinomial com input controlado pelo utilizador.
+    _partes_email = email.split("@")
+    _dominio_email = _partes_email[1] if len(_partes_email) == 2 else ""
+    if (
+        len(_partes_email) != 2
+        or not _partes_email[0]
+        or not _dominio_email
+        or any(ch.isspace() for ch in email)
+        or "." not in _dominio_email
+        or _dominio_email.startswith(".")
+        or _dominio_email.endswith(".")
+    ):
         raise HTTPException(status_code=422, detail="email inválido")
     if len(mensagem) < 5:
         raise HTTPException(status_code=422, detail="mensagem muito curta")
