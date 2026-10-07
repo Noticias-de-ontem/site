@@ -3,6 +3,9 @@ name: Smoke Test - Publish One Real Post
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   smoke_test:
     runs-on: ubuntu-latest
