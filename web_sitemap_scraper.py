@@ -8,6 +8,7 @@ from requests.adapters import HTTPAdapter
 import xml.etree.ElementTree as ET
 from bs4 import BeautifulSoup
 from datetime import datetime
+from urllib.parse import urlparse
 import calendar
 import re
 import ssl
@@ -990,10 +991,19 @@ class NvidiaLimitExceeded(Exception):
 nvidia_call_count = 0
 NVIDIA_CALL_LIMIT = 0
 
+def _is_vercapas_host(url):
+    """Hostname real em vez de substring: evita evil-vercapas.com."""
+    try:
+        host = (urlparse(url or "").hostname or "").lower()
+    except ValueError:
+        return False
+    return host == "vercapas.com" or host.endswith(".vercapas.com")
+
+
 def enrich_article_with_nvidia(article, lang):
     global nvidia_call_count
     
-    if "vercapas.com" in article.get("image_url", "").lower() or "vercapas.com" in article.get("url", "").lower():
+    if _is_vercapas_host(article.get("image_url", "")) or _is_vercapas_host(article.get("url", "")):
         url = article.get("url", "")
         text_to_search = (article.get("image_url", "") + " " + article.get("title", "") + " " + url).lower()
         pub_name = "Público"
