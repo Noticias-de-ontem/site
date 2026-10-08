@@ -56,7 +56,7 @@ jobs:
 
       - name: Upload previews
         if: ${{ inputs.seco == true }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: newsletter-previews
           path: newsletter_previews/
