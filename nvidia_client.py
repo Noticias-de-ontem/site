@@ -4,28 +4,84 @@ import json
 import requests
 
 
-def _repair_model_json(content):
-    """Repara JSON quase válido devolvido por modelos de linguagem."""
-    text = content.strip()
-    if text.startswith("```"):
-        text = re.sub(r"^```[a-zA-Z]*\s*", "", text)
-        text = re.sub(r"\s*```$", "", text).strip()
-    # Vírgulas pendentes antes de fechar objetos/arrays.
-    text = re.sub(r",\s*([}\]])", r"\1", text)
-    # Aspas tipográficas que partem o JSON.
-    text = text.replace("\u201c", '"').replace("\u201d", '"')
-    text = text.replace("\u2018", "'").replace("\u2019", "'")
+def _try_parse_json(text):
+    """Tenta fazer parse de JSON diretamente ou via raw_decode (ignorando texto extra no fim)."""
+    text = text.strip()
+    if not text:
+        return None
     try:
         json.loads(text)
         return text
     except Exception:
         pass
+    for start_char in ("{", "["):
+        idx = text.find(start_char)
+        if idx != -1:
+            try:
+                obj, _end = json.JSONDecoder().raw_decode(text[idx:])
+                return json.dumps(obj, ensure_ascii=False)
+            except Exception:
+                pass
+    return None
+
+
+def _escape_newlines_in_strings(text):
+    """Escapa quebras de linha literais dentro de strings JSON."""
+    out = []
+    in_str = False
+    esc = False
+    for ch in text:
+        if esc:
+            out.append(ch)
+            esc = False
+        elif ch == "\\":
+            out.append(ch)
+            esc = True
+        elif ch == '"':
+            out.append(ch)
+            in_str = not in_str
+        elif in_str and ch == "\n":
+            out.append("\\n")
+        elif in_str and ch == "\r":
+            continue
+        elif in_str and ch == "\t":
+            out.append("\\t")
+        else:
+            out.append(ch)
+    return "".join(out)
+
+
+def _repair_model_json(content):
+    """Repara JSON quase válido devolvido por modelos de linguagem."""
+    text = (content or "").strip()
+    if text.startswith("```"):
+        text = re.sub(r"^```[a-zA-Z]*\s*", "", text)
+        text = re.sub(r"\s*```$", "", text).strip()
+
+    # 1. Tentar parse direto ANTES de substituir aspas tipográficas (que podem estar dentro de strings válidas).
+    parsed = _try_parse_json(text)
+    if parsed is not None:
+        return parsed
+
+    # 2. Reparar vírgulas pendentes e quebras de linha literais dentro de strings.
+    cleaned = re.sub(r",\s*([}\]])", r"\1", text)
+    cleaned = _escape_newlines_in_strings(cleaned)
+    parsed = _try_parse_json(cleaned)
+    if parsed is not None:
+        return parsed
+
+    # 3. Se falhar, tentar substituir aspas tipográficas e avaliar com literal_eval.
+    alt = cleaned.replace("\u201c", '"').replace("\u201d", '"').replace("\u2018", "'").replace("\u2019", "'")
+    parsed = _try_parse_json(alt)
+    if parsed is not None:
+        return parsed
+
     try:
         import ast
-        value = ast.literal_eval(text)
+        value = ast.literal_eval(cleaned)
         return json.dumps(value, ensure_ascii=False)
     except Exception:
-        return text
+        return cleaned
 
 
 class NvidiaQuotaExceeded(Exception):
@@ -53,6 +109,13 @@ def load_nvidia_api_keys(key_file=NVIDIA_KEY_FILE):
     if os.path.exists(key_file):
         with open(key_file, "r", encoding="utf-8") as f:
             _append_unique_keys(keys, f.read())
+
+    if not os.environ.get("NVIDIA_API_KEY") and os.path.exists(".env"):
+        try:
+            from dotenv import load_dotenv
+            load_dotenv(".env")
+        except Exception:
+            pass
 
     _append_unique_keys(keys, os.environ.get("NVIDIA_API_KEY", ""))
     return keys
@@ -144,26 +207,31 @@ class NvidiaKeyPool:
                 backoff = 3.0
                 for attempt in range(max_retries):
                     try:
+                        req_json = {
+                            "model": model_to_use,
+                            "messages": [
+                                {
+                                    "role": "system",
+                                    "content": "You are a careful editorial assistant. Keep internal reasoning very brief and return only valid JSON and no markdown.",
+                                },
+                                {"role": "user", "content": prompt},
+                            ],
+                            "temperature": 0.35,
+                            "response_format": {"type": "json_object"},
+                            "max_tokens": 4500,
+                        }
+                        if model_to_use.startswith("nvidia/"):
+                            req_json["chat_template_kwargs"] = {"enable_thinking": False}
+                        elif model_to_use.startswith("openai/"):
+                            req_json["reasoning_effort"] = "low"
                         response = requests.post(
                             NVIDIA_API_URL,
                             headers={
                                 "Authorization": f"Bearer {self.api_keys[self.current_index]}",
                                 "Content-Type": "application/json",
                             },
-                            json={
-                                "model": model_to_use,
-                                "messages": [
-                                    {
-                                        "role": "system",
-                                        "content": "You are a careful editorial assistant. Return only valid JSON and no markdown.",
-                                    },
-                                    {"role": "user", "content": prompt},
-                                ],
-                                "temperature": 0.35,
-                                "response_format": {"type": "json_object"},
-                                "max_tokens": 11000,
-                            },
-                            timeout=timeout,
+                            json=req_json,
+                            timeout=min(timeout, 60),
                         )
                     except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as net_err:
                         print(f"\n[NVIDIA] Erro de rede/timeout ({net_err}) para {model_to_use} na chave #{self.current_index + 1}.")
@@ -216,19 +284,20 @@ class NvidiaKeyPool:
                     data = response.json()
                     message = data["choices"][0].get("message") or {}
                     content = message.get("content") or ""
-                    if not content.strip():
-                        content = message.get("reasoning_content") or ""
-                    # Modelos de raciocínio (p. ex. nemotron-3) podem embrulhar
-                    # a resposta em blocos <think>; o JSON vive fora deles.
                     content = re.sub(r"<think>.*?</think>", "", content, flags=re.DOTALL).strip()
                     if not content:
+                        reasoning = message.get("reasoning_content") or ""
+                        reasoning = re.sub(r"<think>.*?</think>", "", reasoning, flags=re.DOTALL).strip()
+                        if "{" in reasoning and "}" in reasoning:
+                            content = reasoning
+                    if not content:
                         raise NvidiaModelError("Resposta vazia do modelo")
-                    if not content.lstrip().startswith(("{", "[")):
-                        start = content.find("{")
-                        end = content.rfind("}")
-                        if start != -1 and end > start:
-                            content = content[start:end + 1]
-                    return _repair_model_json(content)
+                    repaired = _repair_model_json(content)
+                    try:
+                        json.loads(repaired)
+                        return repaired
+                    except Exception as parse_err:
+                        raise NvidiaModelError(f"JSON inválido do modelo: {parse_err}") from parse_err
                     
                 raise RuntimeError("NVIDIA API 429: Excedido o número de tentativas sob limite de rate limit (429).")
 

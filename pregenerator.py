@@ -45,7 +45,7 @@ def rotate_nvidia_client():
 
 IMGBB_API_KEY = os.environ.get("IMGBB_API_KEY")
 PREGENERATOR_SOURCE_MODE = os.environ.get("PREGENERATOR_SOURCE_MODE", "arquivo-first")
-MAX_NVIDIA_INPUT_ITEMS = int(os.environ.get("PREGENERATOR_NVIDIA_MAX_INPUT_ITEMS", "80"))
+MAX_NVIDIA_INPUT_ITEMS = int(os.environ.get("PREGENERATOR_NVIDIA_MAX_INPUT_ITEMS", "32"))
 MAX_NVIDIA_CONTEXT_CHARS = int(os.environ.get("PREGENERATOR_NVIDIA_MAX_CONTEXT_CHARS", "320"))
 NVIDIA_DISABLED = False
 NVIDIA_ERROR_MARKERS = ("429", "503", "401", "403", "resource_exhausted", "unavailable", "quota exceeded", "rate limit", "invalid", "unauthorized", "forbidden")
@@ -238,7 +238,13 @@ def select_nvidia_candidates(news_items, max_total=MAX_NVIDIA_INPUT_ITEMS, max_p
         # Jornais/perfis primeiro: eventos da Wikipédia não têm página de
         # jornal preservada para ancorar a notícia.
         platform = normalize_text(item.get("source_platform", "")).lower()
-        return (0 if platform != "wikipedia" else 1, score_nvidia_candidate(item), item.get("date", ""))
+        if platform == "arquivo.pt":
+            priority = 2
+        elif platform != "wikipedia":
+            priority = 1
+        else:
+            priority = 0
+        return (priority, score_nvidia_candidate(item), item.get("date", ""))
 
     selected = []
     years = sorted(grouped.keys(), reverse=True)
@@ -320,12 +326,13 @@ def build_fallback_options(news_items, lang, limit=5):
 
 
 def build_editorial_context(item):
-    primary_context = normalize_text(
+    primary_context = compact_text(
         item.get("enriched_context")
         or item.get("global_context")
         or item.get("caption")
         or item.get("raw_caption")
-        or ""
+        or "",
+        limit=MAX_NVIDIA_CONTEXT_CHARS,
     )
     source_profile = normalize_text(item.get("source_profile", ""))
     content_mode = normalize_text(item.get("content_mode", ""))
@@ -341,7 +348,6 @@ def build_editorial_context(item):
         parts.append(f"Media count: {media_count}")
     if flags:
         parts.append(f"Signals: {', '.join(flags)}")
-    parts.append("Metadata richness warning: Do not treat richer metadata as evidence that this story is better.")
     if primary_context:
         parts.append(f"Context: {primary_context}")
 
@@ -418,8 +424,21 @@ def load_json(filepath, default=None):
 
 
 def save_json(filepath, data):
-    with open(filepath, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
+    import time as _time
+    tmp_path = f"{filepath}.tmp"
+    payload = json.dumps(data, ensure_ascii=False, indent=4)
+    for attempt in range(5):
+        try:
+            with open(tmp_path, "w", encoding="utf-8") as f:
+                f.write(payload)
+            os.replace(tmp_path, filepath)
+            return
+        except OSError:
+            if attempt == 4:
+                with open(filepath, "w", encoding="utf-8") as f:
+                    f.write(payload)
+                return
+            _time.sleep(0.4 * (attempt + 1))
 
 
 def create_image_with_text(
@@ -512,13 +531,46 @@ def review_image_path(lang, date_str, option, index):
 _WAYBACK_RESOLUTION_CACHE = {}
 
 
-def enrich_options_with_ai(options, lang):
-    """2.ª chamada leve: inglês americano + pontuação de relevância.
+def generate_option_body_with_ai(option):
+    """Gera o artigo detalhado (200-800 palavras) apenas para a opção selecionada do slot."""
+    if not option or not option.get("title") or not nvidia_pool.has_keys():
+        return ""
+    existing_body = normalize_text(option.get("body", ""))
+    if len(existing_body.split()) >= 180:
+        return existing_body
+    level = (option.get("relevance") or {}).get("level") or 4
+    word_target = {1: "600-800", 2: "600-800", 3: "400-500", 4: "250-350", 5: "200-250"}.get(level, "250-350")
+    consequences_rule = (
+        ' O último parágrafo deve começar por "Consequências posteriores:" e descrever as consequências documentadas.'
+        if level in (1, 2)
+        else ""
+    )
+    prompt = f"""Escreve o artigo da página desta notícia histórica, em português de Portugal, tom jornalístico, factual.
+Nível de relevância {level}: o corpo DEVE ter {word_target} palavras (mínimo absoluto 200).{consequences_rule}
+Estrutura: contexto → desenvolvimento → relevância duradoura. Nunca inventes factos, citações ou números que não estejam abaixo.
 
-    Mantém o pedido do rank pequeno (só PT); esta chamada recebe as opções
-    já escolhidas em formato compacto e devolve title_en/summary_en/relevance
-    por índice. Falha aqui não perde as opções — o backfill completa depois.
-    """
+Ano: {option.get("year")}
+Categoria: {option.get("category")}
+Título: {option.get("title")}
+Resumo: {option.get("overlay_description") or option.get("summary")}
+Legenda: {option.get("caption")}
+
+Responde APENAS JSON válido: {{"body": "artigo completo"}}"""
+    for attempt in range(2):
+        try:
+            response = nvidia_pool.chat_json(prompt, timeout=180)
+            payload = json.loads(response or "{}")
+            body_text = normalize_text(payload.get("body") or "")
+            if len(body_text.split()) >= 160:
+                option["body"] = body_text
+                return body_text
+        except Exception as exc:
+            print(f"[pregen] geração de body falhou (tentativa {attempt + 1}): {exc}")
+    return existing_body
+
+
+def enrich_options_with_ai(options, lang):
+    """2.ª chamada leve: inglês americano + pontuação de relevância + redes."""
     if not options or not nvidia_pool.has_keys():
         return options
     compact = [
@@ -540,7 +592,6 @@ def enrich_options_with_ai(options, lang):
       "title_en": "The headline in natural United States English (not a literal translation)",
       "summary_en": "The overlay/summary in natural United States English",
       "networks": ["instagram", "facebook" ou "x" — ver regras],
-      "body": "O artigo da página da notícia, em português de Portugal",
       "relevance": {{
         "impacto_historico": 0-100,
         "dimensao_impacto": 0-100,
@@ -559,19 +610,11 @@ Scoring rules: {relevance_prompt_rules()}
 
 {networks_prompt_rules()}
 
-BODY rules (field "body", in European Portuguese, journalistic tone, factual, based only on the option and the real event):
-- Level 1 (Marco Histórico) or 2 (Grande Relevância): 600-800 words, and the LAST paragraph must be titled "Consequências posteriores:" describing the documented later consequences.
-- Level 3 (Relevância Regional): 400-500 words.
-- Level 4 (Interesse Público): 250-350 words.
-- Level 5 (Contexto Histórico): 200-250 words.
-- HARD MINIMUM 200 words for every level — a shorter body is a failure.
-- Structure: context → development → lasting relevance. Write it AFTER scoring, sizing the text by the level the scores produce. Never invent specific facts, quotes or numbers that are not in the option.
-
 Options:
 {json.dumps(compact, ensure_ascii=False)}
 """
     try:
-        response = nvidia_pool.chat_json(prompt, timeout=180)
+        response = nvidia_pool.chat_json(prompt, timeout=150)
         payload = json.loads(response or "{}")
         items = payload.get("items") if isinstance(payload, dict) else payload
         for item in items if isinstance(items, list) else []:
@@ -590,14 +633,14 @@ Options:
                 option["summary_en"] = normalize_text(item.get("summary_en"))
             if item.get("body"):
                 option["body"] = normalize_text(item.get("body"))
+            relevance = normalize_relevance(item.get("relevance"))
+            if relevance:
+                option["relevance"] = relevance
             option["networks"] = normalize_networks(
                 item.get("networks"),
                 option.get("category", ""),
                 (option.get("relevance") or {}).get("level"),
             )
-            relevance = normalize_relevance(item.get("relevance"))
-            if relevance:
-                option["relevance"] = relevance
     except Exception as exc:
         print(f"[pregen] enriquecimento falhou (segue com backfill): {exc}")
     return options
@@ -746,25 +789,49 @@ def resolve_wayback_by_title(title, year):
         year_int = 0
     if not title_query or not year_int:
         return ""
-    try:
-        search = requests.get(
-            "https://arquivo.pt/textsearch",
-            params={"q": title_query, "maxItems": "8"},
-            timeout=60,
-        )
-        payload = search.json() if search.status_code == 200 else {}
-        items = payload.get("response_items") or payload.get("responseItems") or []
-        for item in items:
-            archive_link = normalize_text(item.get("linkToArchive"))
-            if "/wayback/" not in archive_link:
-                continue
-            capture_year = re.search(r"/wayback/(\d{4})", archive_link)
-            # A captura tem de ser do ano da notícia (±1): resultados de
-            # outros anos seriam páginas diferentes com o mesmo tema.
-            if capture_year and abs(int(capture_year.group(1)) - year_int) <= 1:
-                return archive_link
-    except (requests.RequestException, ValueError):
-        pass
+    stopwords = {
+        "para", "como", "mais", "pela", "pelo", "sobre", "entre", "após",
+        "apos", "contra", "durante", "antes", "depois", "onde", "quando",
+        "este", "esta", "isso", "novo", "nova", "novos", "novas", "dois",
+        "três", "tres", "hoje", "ontem", "ainda", "vira", "torna",
+    }
+    words = [
+        w for w in re.findall(r"[A-Za-zÀ-ÿ0-9]{4,}", title_query)
+        if w.lower() not in stopwords and not w.isdigit()
+    ]
+    short_query = " ".join(words[:4])
+    queries = [title_query]
+    if short_query and short_query != title_query:
+        queries.append(short_query)
+    if len(words) > 2:
+        queries.append(" ".join(words[:2]))
+
+    from_year = max(1996, year_int)
+    for q in queries:
+        try:
+            search = requests.get(
+                "https://arquivo.pt/textsearch",
+                params={
+                    "q": q,
+                    "maxItems": "8",
+                    "from": f"{from_year}0101",
+                    "to": f"{year_int + 1}1231",
+                },
+                timeout=12,
+            )
+            payload = search.json() if search.status_code == 200 else {}
+            items = payload.get("response_items") or payload.get("responseItems") or []
+            for item in items:
+                archive_link = normalize_text(item.get("linkToArchive"))
+                if "/noFrame/replay/" in archive_link:
+                    archive_link = archive_link.replace("/noFrame/replay/", "/wayback/")
+                if "/wayback/" not in archive_link:
+                    continue
+                capture_year = re.search(r"/wayback/(\d{4})", archive_link)
+                if capture_year and (abs(int(capture_year.group(1)) - year_int) <= 1 or year_int < 1996):
+                    return archive_link
+        except (requests.RequestException, ValueError):
+            pass
     return ""
 
 
@@ -919,6 +986,8 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
                                     best_domain = c_domain
                                     break
                         candidate_url = normalize_text(best.get("source_url") or best.get("url") or "")
+                        if "/noFrame/replay/" in candidate_url:
+                            candidate_url = candidate_url.replace("/noFrame/replay/", "/wayback/")
                         # Âncora a um candidato REAL (impede alucinações); a
                         # captura wayback é procurada mas é best-effort — sem
                         # captura mantém-se o artigo original como fonte.
@@ -955,9 +1024,7 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
                 import time
                 time.sleep(2)
             else:
-                if any(marker in str(e).lower() for marker in NVIDIA_ERROR_MARKERS):
-                    NVIDIA_DISABLED = True
-                    print(f"[{lang}] NVIDIA indisponivel na pre-geracao: {e}")
+                print(f"[{lang}] Falha na pre-geracao apos {max_retries} tentativas: {e}")
                 return build_fallback_options(news_items, lang)
     return build_fallback_options(news_items, lang)
 
@@ -1285,6 +1352,7 @@ def prepare_options_for_review(
                     print(f"[{lang}] Imagem do artigo ignorada: URL temporario do Instagram/Facebook CDN.")
 
         if should_render_image:
+            generate_option_body_with_ai(option)
             stable_img_path = review_image_path(lang, date_str, option, option_index)
             current_background_source = normalize_text(option.get("background_source_url", ""))
             effective_manual_background_url = manual_background_url or ("" if force_new_background else matched_background_url)
@@ -1400,13 +1468,15 @@ def get_news_with_arquivo_first(date_obj, lang):
         arquivo_news = get_today_news_from_arquivo(lang, date_obj.month, date_obj.day)
         if arquivo_news:
             print(f"[{lang}][Arquivo.pt] Obtidos {len(arquivo_news)} artigos com sucesso do Arquivo.pt.")
-            return tag_source_origin(arquivo_news, "arquivo.pt")
         else:
             print(f"[{lang}][Arquivo.pt] Sem resultados ao buscar no Arquivo.pt. A usar dados locais como fallback...")
     except Exception as e:
         print(f"[{lang}][Arquivo.pt] Erro ao aceder ao Arquivo.pt ({e}). A usar dados locais como fallback...")
 
-    return tag_source_origin(get_historical_news_for_date(date_obj, lang), "local_fallback")
+    local_news = get_historical_news_for_date(date_obj, lang)
+    if arquivo_news:
+        return tag_source_origin(arquivo_news, "arquivo.pt") + tag_source_origin(local_news, "local_fallback")
+    return tag_source_origin(local_news, "local_fallback")
 
 
 def normalize_source_mode(value):
@@ -2174,11 +2244,43 @@ def generate_pending_posts_for_interval(pending_posts, lang, start_date, end_dat
             continue
 
         external_suggestions = generate_external_day_suggestions(current_date, lang, options_list)
-        slot1_base_options = options_list[:5]
-        slot2_base_options = options_list[5:10]
-        # O segundo slot só existe quando a IA devolveu opções distintas dele;
-        # com poucas opções, duplicar o slot 1 não acrescenta nada ao site.
-        slots_to_create = [1, 2] if len(slot2_base_options) >= 2 else [1]
+
+        def _story_tokens(text):
+            return set(re.findall(r"[a-záâãéêíóôõúç]{4,}", normalize_text(text).lower()))
+
+        used_selected_tokens = []
+        for existing_post in pending_posts:
+            opts = existing_post.get("options") or []
+            sel_idx = int(existing_post.get("selected_option", 0) or 0)
+            if 0 <= sel_idx < len(opts):
+                sel_opt = opts[sel_idx]
+                toks = _story_tokens(sel_opt.get("title", ""))
+                if toks:
+                    used_selected_tokens.append((str(sel_opt.get("year", ""))[:4], toks))
+
+        def _is_duplicate_of_existing(opt):
+            opt_year = str(opt.get("year", ""))[:4]
+            opt_toks = _story_tokens(opt.get("title", ""))
+            if not opt_toks:
+                return False
+            for used_year, used_toks in used_selected_tokens:
+                overlap = len(opt_toks & used_toks)
+                if overlap >= 3 or (opt_year == used_year and overlap >= 2):
+                    return True
+            return False
+
+        deduped_options = [opt for opt in options_list if not _is_duplicate_of_existing(opt)]
+        if len(deduped_options) >= 2:
+            options_list = deduped_options
+
+        if slot1_exists and not slot2_exists:
+            slot1_base_options = []
+            slot2_base_options = options_list[:5]
+            slots_to_create = [2] if len(slot2_base_options) >= 1 else []
+        else:
+            slot1_base_options = options_list[:5]
+            slot2_base_options = options_list[5:10] if len(options_list) >= 7 else options_list[len(options_list) // 2 :]
+            slots_to_create = [1, 2] if len(options_list) >= 2 and len(slot2_base_options) >= 1 else [1]
 
         for slot in slots_to_create:
             post_id = f"{lang}_{date_str}_{slot}"

@@ -1,5 +1,6 @@
 import os
 import re
+import sys
 import unicodedata
 from functools import lru_cache
 from io import BytesIO
@@ -9,6 +10,13 @@ import numpy as np
 import requests
 from historical_relevance import LEVEL_COLORS, level_short
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageStat
+
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 
 TARGET_SIZE = (1080, 1350)
@@ -466,7 +474,7 @@ def _looks_like_overlay_text_or_watermark(image):
 
 
 def _download_image_from_url(image_url, headers=None):
-    response = requests.get(image_url, headers=headers or {}, timeout=25)
+    response = requests.get(image_url, headers=headers or {}, timeout=8)
     response.raise_for_status()
     return Image.open(BytesIO(response.content)).convert("RGBA")
 
@@ -529,7 +537,7 @@ def _fetch_wikipedia_lead_image(query, lang, target_size, exclude_urls=None):
                     "pithumbsize": 1600,
                 },
                 headers=_UA_HEADERS,
-                timeout=12,
+                timeout=8,
             )
             if res.status_code != 200:
                 continue
@@ -556,8 +564,14 @@ def _fetch_wikipedia_lead_image(query, lang, target_size, exclude_urls=None):
     return None, ""
 
 
+_OPENVERSE_DISABLED = False
+
+
 def _fetch_openverse_image(query, lang, target_size, exclude_urls=None):
     """Pesquisa imagens licenciadas em toda a internet via Openverse."""
+    global _OPENVERSE_DISABLED
+    if _OPENVERSE_DISABLED:
+        return None, ""
     try:
         headers = {**_UA_HEADERS, "Accept": "application/json"}
         openverse_key = os.environ.get("OPENVERSE_API_KEY")
@@ -567,13 +581,14 @@ def _fetch_openverse_image(query, lang, target_size, exclude_urls=None):
             "https://api.openverse.org/v1/images/",
             params={
                 "q": " ".join(str(query or "").split()),
-                "page_size": 10,
+                "page_size": 6,
                 "mature": "false",
             },
             headers=headers,
-            timeout=25,
+            timeout=5,
         )
         if res.status_code != 200:
+            _OPENVERSE_DISABLED = True
             print(f"[{lang}] Openverse indisponível ({res.status_code}).")
             return None, ""
         excluded = {url for url in (exclude_urls or []) if url}
@@ -596,7 +611,8 @@ def _fetch_openverse_image(query, lang, target_size, exclude_urls=None):
             if fitted:
                 return fitted, item.get("foreign_landing_url") or image_url
     except Exception as exc:
-        print(f"[{lang}] Erro Openverse: {exc}")
+        _OPENVERSE_DISABLED = True
+        print(f"[{lang}] Erro Openverse (desativado nesta sessão): {exc}")
     return None, ""
 
 
@@ -621,7 +637,6 @@ def fetch_background_image(
                 print(f"[{lang}] Vou tentar pesquisa automatica de imagem como fallback...")
 
     # 1. Wikimedia Commons fallback
-
     if query:
         try:
             print(f"[{lang}][Wikimedia] A pesquisar imagem para: {query}...")
@@ -639,14 +654,14 @@ def fetch_background_image(
                     "generator": "search",
                     "gsrsearch": " ".join(str(query or "").split()),
                     "gsrnamespace": 6,
-                    "gsrlimit": 10,
+                    "gsrlimit": 6,
                     "prop": "imageinfo",
                     "iiprop": "url|mime",
                     "iiurlwidth": max(target_size),
                     "format": "json",
                 },
                 headers=headers,
-                timeout=10,
+                timeout=8,
             )
             if res.status_code == 200:
                 pages = (res.json().get("query", {}) or {}).get("pages", {}) or {}
@@ -669,7 +684,17 @@ def fetch_background_image(
         except Exception as exc:
             print(f"[{lang}] Erro Wikimedia: {exc}")
 
-    # Fallback to Arquivo.pt imagesearch
+    # 2. Wikipédia costuma ter a fotografia principal de pessoas, equipas e
+    # lugares; o Openverse pesquisa imagens licenciadas por toda a internet.
+    if query:
+        image, source_url = _fetch_wikipedia_lead_image(query, lang, target_size, exclude_urls)
+        if image:
+            return image, source_url
+        image, source_url = _fetch_openverse_image(query, lang, target_size, exclude_urls)
+        if image:
+            return image, source_url
+
+    # 3. Fallback to Arquivo.pt imagesearch
     if query:
         print(f"[{lang}][Arquivo.pt] A pesquisar imagens no Arquivo.pt para: {query}...")
         try:
@@ -679,12 +704,19 @@ def fetch_background_image(
                     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
                 )
             }
-            res = requests.get("https://arquivo.pt/imagesearch", params={"q": query, "format": "json", "limit": 10}, timeout=20)
+            res = requests.get("https://arquivo.pt/imagesearch", params={"q": query, "format": "json", "limit": 6}, timeout=8)
             if res.status_code == 200:
                 data = res.json()
                 items = data.get("responseItems", [])
                 excluded = {url for url in (exclude_urls or []) if url}
                 for item in items:
+                    try:
+                        w = int(item.get("imgWidth") or 0)
+                        h = int(item.get("imgHeight") or 0)
+                        if (w and w < MIN_BACKGROUND_WIDTH) or (h and h < MIN_BACKGROUND_HEIGHT):
+                            continue
+                    except (TypeError, ValueError):
+                        pass
                     img_archive_url = item.get("imgLinkToArchive") or item.get("imgURL")
                     if not img_archive_url or img_archive_url in excluded:
                         continue
@@ -705,16 +737,6 @@ def fetch_background_image(
                         continue
         except Exception as exc:
             print(f"[{lang}] Erro ao buscar imagem no Arquivo.pt: {exc}")
-
-    # Wikipédia costuma ter a fotografia principal de pessoas, equipas e
-    # lugares; o Openverse pesquisa imagens licenciadas por toda a internet.
-    if query:
-        image, source_url = _fetch_wikipedia_lead_image(query, lang, target_size, exclude_urls)
-        if image:
-            return image, source_url
-        image, source_url = _fetch_openverse_image(query, lang, target_size, exclude_urls)
-        if image:
-            return image, source_url
 
     return None, ""
 
@@ -1894,16 +1916,14 @@ def create_image_with_text(
 
     if background_image is None:
         query = _build_background_search_query(title_to_draw, background_query, category_to_draw)
-        # A consulta completa pode ser demasiado longa para as pesquisas de
-        # imagem; repetir pelo tema e pelo título evita ficar sem fundo
-        # fotográfico quando a primeira variante não devolve nada utilizável.
         theme_query = _normalize_text_value(background_query)
+        short_theme = " ".join(theme_query.split()[:3]) if theme_query else ""
         title_query = _normalize_text_value(title_to_draw)
         query_candidates = []
-        for candidate in (query, theme_query, title_query):
+        for candidate in (theme_query, short_theme, title_query, query):
             if candidate and candidate not in query_candidates:
                 query_candidates.append(candidate)
-        for candidate in query_candidates:
+        for candidate in query_candidates[:2]:
             background_image, background_source_url = fetch_background_image(
                 candidate,
                 lang,

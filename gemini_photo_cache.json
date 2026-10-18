@@ -1794,5 +1794,1174 @@
    "reason": "Fotografia de Joe Biden discursando, perfeitamente adequada para ilustrar a notícia sobre a sua intervenção política."
   },
   "_model": "gemini-3.6-flash"
+ },
+ "2026-01-01_01_2003_lula-toma-posse-como-presidente-do-brasil-fundo.jpg:139565": {
+  "_final": {
+   "subject": "balão verde e amarelo e apoiante em comício",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.05,
+     0.7
+    ]
+   ],
+   "banner_focus": [
+    0.45,
+    0.65
+   ],
+   "cover_focus": [
+    0.45,
+    0.6
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "Recorte de baixa qualidade com texto cortado e enquadramento confuso, inadequado para ilustrar a posse."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-01_01_2004_piloto-japones-vence-prologo-do-rali-dakar-2004-fundo.jpg:132577": {
+  "_final": {
+   "subject": "Carro de rali Mitsubishi vermelho a cruzar água no Dakar",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.52,
+    0.5
+   ],
+   "cover_focus": [
+    0.52,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata carro Mitsubishi em prova de rali Dakar, adequado à notícia sobre piloto japonês."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-02_01_2023_velorio-de-pele-no-vila-belmiro-a-ultima-homenagem-ao-rei-do-futebol-fundo.jpg:284799": {
+  "_final": {
+   "subject": "fachada do Estádio do Pacaembu",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.4
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra o Estádio do Pacaembu e não a Vila Belmiro, onde ocorreu o velório de Pelé."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-02_01_2002_portugal-entra-no-euro-a-nova-moeda-comum-chega-sem-euforia-fundo.jpg:146273": {
+  "_final": {
+   "subject": "Moeda de um euro em grande plano",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra a moeda de um euro, diretamente ligada à notícia sobre a adesão à moeda única."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-06_01_2025_presidente-tenta-abraco-e-recebe-aperto-de-mao-fundo.jpg:282005": {
+  "_final": {
+   "subject": "Cartaz de candidatura presidencial de Gave Fraga com bandeira de Portugal",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.96,
+     0.26
+    ]
+   ],
+   "banner_focus": [
+    0.96,
+    0.3
+   ],
+   "cover_focus": [
+    0.65,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "Cartaz político promocional com texto sobreposto abundante, não correspondendo ao Presidente Marcelo nem ao episódio."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-06_01_2008_sporting-e-benfica-perdem-pontos-favorecendo-fc-porto-fundo.jpg:65728": {
+  "_final": {
+   "subject": "Logótipo parcial do Jornal de Notícias",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "Trata-se apenas do logótipo do jornal, sem conteúdo visual relacionado com desporto ou os clubes referidos."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-12_01_2024_teaser-de-back-to-black-revela-a-ascensao-de-amy-winehouse-fundo.jpg:431998": {
+  "_final": {
+   "subject": "Roda gigante e estátua em monumento à beira-mar",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra uma roda gigante e um monumento, sem relação com Amy Winehouse ou o filme."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-13_01_2025_governo-espanhol-quer-limitar-arrendamentos-turisticos-e-compra-de-habitacoes-po-fundo.jpg:393744": {
+  "_final": {
+   "subject": "Retrato fotográfico a preto e branco de homem do século XIX",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.47,
+     0.24
+    ]
+   ],
+   "banner_focus": [
+    0.47,
+    0.26
+   ],
+   "cover_focus": [
+    0.48,
+    0.38
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "Retrato histórico do século XIX sem qualquer relação com a política de habitação espanhola contemporânea."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-18_01_2025_israel-aprova-acordo-de-cessar-fogo-em-gaza-fundo.jpg:346949": {
+  "_final": {
+   "subject": "Edifícios sob densas nuvens de fumo negro após bombardeamentos em Gaza",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.65
+   ],
+   "cover_focus": [
+    0.5,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata o cenário de destruição em Gaza, contextualmente relevante para a notícia sobre acordo de cessar-fogo."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-18_01_2019_expresso-oferece-marcadores-de-livros-e-colecao-de-gandhi-em-compra-de-jornal-fundo.jpg:496627": {
+  "_final": {
+   "subject": "jornais portugueses estendidos na fachada de um edifício tradicional",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.36,
+    0.16
+   ],
+   "cover_focus": [
+    0.38,
+    0.28
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra jornais portugueses em banca de rua, contextualizando a venda de imprensa nacional referida na notícia."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-19_02_2024_beatles-conquista-titulo-de-singlevinil-mais-vendido-fundo.jpg:330606": {
+  "_final": {
+   "subject": "Disco antigo de gramofone Pathé com capa original em húngaro",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.47,
+    0.49
+   ],
+   "cover_focus": [
+    0.47,
+    0.49
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "Disco antigo Pathé em húngaro sem relação com os Beatles ou singles de vinil modernos."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-22_02_2024_malware-escondido-nos-comentarios-do-instagram-da-britney-spears-fundo.jpg:484139": {
+  "_final": {
+   "subject": "Retrato em grande plano da cantora Britney Spears",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.44,
+     0.38
+    ]
+   ],
+   "banner_focus": [
+    0.44,
+    0.38
+   ],
+   "cover_focus": [
+    0.47,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato em grande plano de Britney Spears, diretamente relevante para ilustrar a notícia."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-26_01_2025_tim-cook-mostra-64-iphones-em-video-com-ok-go-fundo.jpg:156295": {
+  "_final": {
+   "subject": "Traseira de smartphone Huawei P30 Pro com câmara Leica",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.35,
+    0.45
+   ],
+   "cover_focus": [
+    0.45,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "Mostra um smartphone Huawei com lentes Leica, não iPhones da Apple nem Tim Cook."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-26_01_2018_justin-trudeau-usa-meias-criativas-em-davos-fundo.jpg:358411": {
+  "_final": {
+   "subject": "Justin Trudeau conversa com John Kerry",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.24,
+     0.21
+    ],
+    [
+     0.74,
+     0.24
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.22
+   ],
+   "cover_focus": [
+    0.55,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Justin Trudeau, protagonista da notícia, em evento internacional."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-27_01_2008_crise-do-banco-comercial-portugues-revela-falhas-regulatorias-fundo.jpg:114509": {
+  "_final": {
+   "subject": "Retrato de Paulo Teixeira Pinto, antigo presidente do BCP",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.47,
+     0.45
+    ]
+   ],
+   "banner_focus": [
+    0.47,
+    0.45
+   ],
+   "cover_focus": [
+    0.47,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Paulo Teixeira Pinto, protagonista central na crise interna e regulatória do BCP."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-28_01_2025_moldavia-abandona-eurovisao-2025-por-falta-de-cancoes-fundo.jpg:169264": {
+  "_final": {
+   "subject": "mãos de músico a tocar guitarra acústica em detalhe",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.55,
+    0.45
+   ],
+   "cover_focus": [
+    0.55,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "Imagem genérica de guitarra acústica sem ligação específica à Moldávia ou ao Festival Eurovisão da Canção."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-29_01_2025_draghi-em-conselho-de-estado-futuro-da-ue-em-pauta-fundo.jpg:311485": {
+  "_final": {
+   "subject": "Cartaz de conferência académica com vista urbana de Curitiba",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.72
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "Cartaz com texto sobreposto sobre evento no Brasil, sem relação com Mario Draghi ou a União Europeia."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-29_01_2018_protesto-antimotim-em-sao-petersburgo-vira-viral-fundo.jpg:396893": {
+  "_final": {
+   "subject": "Multidão com bandeiras em manifestação política junto a canal",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.72
+   ],
+   "cover_focus": [
+    0.5,
+    0.65
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra protesto multitudinário na Rússia com bandeiras e manifestantes, enquadrando-se no tema da notícia."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-30_01_2016_google-paga-919-milhoes-de-euros-a-apple-para-manter-a-barra-de-pesquisa-nos-iph-fundo.jpg:565263": {
+  "_final": {
+   "subject": "Fachada do edifício da Google com logótipo colorido",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.36,
+    0.38
+   ],
+   "cover_focus": [
+    0.36,
+    0.42
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra o logótipo e edifício da Google, interveniente central do acordo noticiado."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-31_01_2025_sofia-aparicio-da-manequim-iconica-ao-palco-de-cinema-e-teatro-fundo.jpg:255521": {
+  "_final": {
+   "subject": "Retrato em primeiro plano da atriz e manequim Sofia Aparício",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.48,
+     0.38
+    ]
+   ],
+   "banner_focus": [
+    0.48,
+    0.38
+   ],
+   "cover_focus": [
+    0.48,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato da visada Sofia Aparício, excelente para capa vertical mas demasiado aproximado para recorte panorâmico."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-01-31_01_2017_caneta-magica-no-dia-mundial-do-magico-truque-surpreendente-fundo.jpg:216248": {
+  "_final": {
+   "subject": "Caneta azul apagável por fricção sobre fundo claro",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": true,
+   "reason": "Ilustra uma caneta mágica apagável, mas apresenta uma marca de água dominante no centro."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-01_01_2024_portugal-marca-maior-crescimento-da-ue-e-divida-abaixo-de-99-do-pib-fundo.jpg:275120": {
+  "_final": {
+   "subject": "Vista através de janela para edifícios residenciais e zona verde",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.55,
+    0.45
+   ],
+   "cover_focus": [
+    0.55,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "Fotografia residencial genérica sem qualquer ligação à economia, crescimento da UE ou dívida pública de Portugal."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-01_01_2009_danny-boyle-recebe-premio-de-melhor-diretor-pela-dga-por-quem-quer-ser-bilionari-fundo.jpg:194339": {
+  "_final": {
+   "subject": "Danny Boyle a operar uma câmara de filmar em rodagem",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.88,
+     0.28
+    ]
+   ],
+   "banner_focus": [
+    0.65,
+    0.28
+   ],
+   "cover_focus": [
+    0.55,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata o realizador Danny Boyle a trabalhar com uma câmara cinematográfica num set de filmagens."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-02_01_2025_rui-rocha-reeleito-presidente-da-il-com-73-4-dos-votos-fundo.jpg:430554": {
+  "_final": {
+   "subject": "Oficial ou político italiano em fato e gravata com bandeiras institucionais",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.465,
+     0.334
+    ]
+   ],
+   "banner_focus": [
+    0.465,
+    0.35
+   ],
+   "cover_focus": [
+    0.465,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra um representante institucional italiano diante de bandeiras provinciais italianas, não Rui Rocha nem a IL."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-02_01_2018_governo-concede-tolerancia-de-ponto-na-terca-feira-de-carnaval-fundo.jpg:364079": {
+  "_final": {
+   "subject": "Retrato oficial do presidente brasileiro Luiz Inácio Lula da Silva",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.53,
+     0.28
+    ]
+   ],
+   "banner_focus": [
+    0.53,
+    0.28
+   ],
+   "cover_focus": [
+    0.53,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "Retrato do presidente do Brasil não se relaciona com a tolerância de ponto do governo português."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-03_01_2025_netanyahu-recebe-trump-na-casa-branca-e-reforca-lacos-com-eua-fundo.jpg:319346": {
+  "_final": {
+   "subject": "Locomotiva a vapor antiga abrigada num barracão",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.41,
+    0.45
+   ],
+   "cover_focus": [
+    0.41,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem retrata uma locomotiva a vapor antiga, sem ligação a Netanyahu, Trump ou política internacional."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-03_01_2017_renato-duarte-visita-porto-e-destaca-a-cidade-como-destino-europeu-fundo.jpg:576684": {
+  "_final": {
+   "subject": "Fachada de edifício tradicional com azulejos amarelos no Porto",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.45,
+    0.45
+   ],
+   "cover_focus": [
+    0.45,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata arquitetura urbana tradicional típica do Porto, relevante para ilustrar a cidade como destino."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-04_01_2023_trump-volta-ao-facebook-e-instagram-apos-suspensao-fundo.jpg:92266": {
+  "_final": {
+   "subject": "Logótipo parcial a preto e branco de Voz de Cambra",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "Logótipo cortado a preto e branco, irrelevante para a notícia sobre Trump e as redes sociais."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-04_02_2019_google-firma-parceria-com-fact-checkers-para-eleicoes-europeias-fundo.jpg:565263": {
+  "_final": {
+   "subject": "Edifício com o logótipo da Google na fachada de vidro",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.35,
+    0.4
+   ],
+   "cover_focus": [
+    0.36,
+    0.42
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fachada da Google representa diretamente a empresa tecnológica responsável pela iniciativa de verificação de factos."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-05_01_2023_meme-viral-celebridades-de-beyonce-a-drake-tiram-os-dentes-fundo.jpg:249689": {
+  "_final": {
+   "subject": "Grumpy Cat a dormir numa almofada com letras da Friskies",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.45,
+    0.42
+   ],
+   "cover_focus": [
+    0.45,
+    0.48
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra o Grumpy Cat, não tendo relação com o meme de celebridades sem dentes."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-05_01_2024_dark-mode-poupa-ate-30-de-bateria-e-reduz-pegada-ecologica-fundo.jpg:783522": {
+  "_final": {
+   "subject": "Ilustração militar histórica com tropas e artilharia junto a rio",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.48
+   ],
+   "cover_focus": [
+    0.5,
+    0.48
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "Cena histórica militar não tem qualquer relação com ecrãs, modo escuro ou consumo de bateria."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-06_01_2025_estatua-de-cristiano-ronaldo-aparece-na-times-square-em-nova-iorque-fundo.jpg:278918": {
+  "_final": {
+   "subject": "Busto de bronze de Cristiano Ronaldo esculpido por Emanuel Santos",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.47,
+     0.28
+    ]
+   ],
+   "banner_focus": [
+    0.47,
+    0.28
+   ],
+   "cover_focus": [
+    0.47,
+    0.42
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata um busto de Cristiano Ronaldo, tematicamente ligado a notícias sobre estátuas do futebolista."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-06_01_2016_show-de-shawn-mendes-esgota-bilhetes-em-apenas-duas-horas-fundo.jpg:180655": {
+  "_final": {
+   "subject": "Shawn Mendes a cantar em palco com guitarra",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.43,
+     0.25
+    ]
+   ],
+   "banner_focus": [
+    0.44,
+    0.27
+   ],
+   "cover_focus": [
+    0.45,
+    0.4
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra Shawn Mendes ao vivo em concerto, ideal para ilustrar a notícia sobre o esgotamento do espetáculo."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-07_01_2024_cristiano-ronaldo-celebra-39-anos-hoje-fundo.jpg:295996": {
+  "_final": {
+   "subject": "Cristiano Ronaldo jovem com Kylian Mbappé em visita ao Real Madrid",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.7,
+     0.24
+    ],
+    [
+     0.42,
+     0.49
+    ]
+   ],
+   "banner_focus": [
+    0.58,
+    0.28
+   ],
+   "cover_focus": [
+    0.55,
+    0.38
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fotografia histórica marcante de Cristiano Ronaldo com Mbappé, muito relevante, mas o enquadramento vertical corta rostos em banner."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-07_01_2018_spacex-lanca-foguete-vermelhocereja-em-direto-para-marte-fundo.jpg:280447": {
+  "_final": {
+   "subject": "Foguete da SpaceX na plataforma de lançamento à noite",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.4
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra um foguete da SpaceX na plataforma, diretamente ligado ao tema do lançamento espacial."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-08_01_2025_ainda-estou-aqui-nomeado-para-tres-oscares-fundo.jpg:277238": {
+  "_final": {
+   "subject": "Dois homens a trabalhar num estúdio ou escritório",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.22,
+     0.28
+    ],
+    [
+     0.7,
+     0.53
+    ]
+   ],
+   "banner_focus": [
+    0.65,
+    0.55
+   ],
+   "cover_focus": [
+    0.55,
+    0.55
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "Cena de escritório sem qualquer relação evidente com o filme 'Ainda Estou Aqui' ou os Óscares."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-08_01_2019_cidadaos-protestam-contra-brexit-com-cartazes-criativos-fundo.jpg:298657": {
+  "_final": {
+   "subject": "Manifestante contra o Brexit com chapéu azul com a inscrição Stop Brexit",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.51,
+     0.56
+    ]
+   ],
+   "banner_focus": [
+    0.51,
+    0.35
+   ],
+   "cover_focus": [
+    0.51,
+    0.48
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata diretamente um manifestante anti-Brexit característico, ilustrando perfeitamente protestos da sociedade civil contra o Brexit."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-09_01_2024_google-lanca-ferramentas-anti-desinformacao-no-youtube-fundo.jpg:97860": {
+  "_final": {
+   "subject": "Ilustração gráfica 3D da interface do YouTube em tons de verde",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustração estilizada da interface do YouTube, relevante para o tema mas demasiado vertical para recorte em banner."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-10_01_2024_kylie-minogue-lanca-padam-padam-e-viraliza-no-tiktok-fundo.jpg:301131": {
+  "_final": {
+   "subject": "Kylie Minogue sorridente sentada num cenário vermelho e dourado",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.355,
+     0.49
+    ]
+   ],
+   "banner_focus": [
+    0.36,
+    0.52
+   ],
+   "cover_focus": [
+    0.36,
+    0.58
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Kylie Minogue adequado à notícia; orientação vertical inviabiliza recorte panorâmico sem cortes bruscos."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-02-10_01_2020_cate-blanchett-presidira-juri-do-festival-de-veneza-fundo.jpg:293184": {
+  "_final": {
+   "subject": "Retrato em plano aproximado de uma mulher",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.51,
+     0.26
+    ]
+   ],
+   "banner_focus": [
+    0.51,
+    0.28
+   ],
+   "cover_focus": [
+    0.51,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A pessoa retratada não é Cate Blanchett, sendo irrelevante para a notícia."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-02-11_01_2018_portugal-conquista-o-euro-de-futsal-2018-fundo.jpg:526705": {
+  "_final": {
+   "subject": "Ricardinho em jogo de futsal pelo Benfica",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.241,
+     0.101
+    ]
+   ],
+   "banner_focus": [
+    0.35,
+    0.25
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra o jogador Ricardinho em jogo, figura central do futsal português e da conquista do Euro 2018."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-02-11_01_2008_barack-obama-vence-primarias-democratas-nos-eua-fundo.jpg:55045": {
+  "_final": {
+   "subject": "Cabeçalho com texto em fonte gótica",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "Imagem contém apenas texto do cabeçalho de um jornal, sendo irrelevante para a notícia sobre Barack Obama."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-02-12_01_2024_diogo-ribeiro-e-campeao-mundial-de-50m-mariposa-fundo.jpg:685850": {
+  "_final": {
+   "subject": "página de texto impresso antigo sobre a conquista na Índia",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "Documento histórico antigo sem qualquer relação com o nadador Diogo Ribeiro ou desporto."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-02-12_01_2019_bradley-cooper-atua-no-glastonbury-com-lady-gaga-fundo.jpg:240589": {
+  "_final": {
+   "subject": "Bradley Cooper e Lady Gaga em evento de gala",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.12,
+     0.2
+    ],
+    [
+     0.46,
+     0.19
+    ],
+    [
+     0.79,
+     0.14
+    ]
+   ],
+   "banner_focus": [
+    0.62,
+    0.2
+   ],
+   "cover_focus": [
+    0.62,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra Bradley Cooper e Lady Gaga, os protagonistas referidos na notícia."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-02-13_01_2023_marcelo-vai-ao-qatar-ver-estreia-de-portugal-no-mundial-fundo.jpg:201418": {
+  "_final": {
+   "subject": "Retrato de Marcelo Rebelo de Sousa, Presidente da República Portuguesa",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.51,
+     0.24
+    ]
+   ],
+   "banner_focus": [
+    0.51,
+    0.25
+   ],
+   "cover_focus": [
+    0.51,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra Marcelo Rebelo de Sousa, a figura central mencionada na notícia sobre a deslocação ao Qatar."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-02-13_01_2010_festival-de-berlim-celebra-60-anos-com-retrospectiva-do-urso-de-ouro-fundo.jpg:191350": {
+  "_final": {
+   "subject": "Cena do filme Tropa de Elite, vencedor do Urso de Ouro",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.17,
+     0.38
+    ]
+   ],
+   "banner_focus": [
+    0.35,
+    0.38
+   ],
+   "cover_focus": [
+    0.45,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O filme Tropa de Elite venceu o Urso de Ouro em 2008, sendo relevante para a retrospectiva de Berlim."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-02-14_01_2021_funcionario-de-escola-vira-viral-ao-arremessar-bola-ao-cesto-fundo.jpg:202535": {
+  "_final": {
+   "subject": "jogador de basquetebol com bola em foto com perspetiva vertical",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.73,
+     0.26
+    ]
+   ],
+   "banner_focus": [
+    0.6,
+    0.28
+   ],
+   "cover_focus": [
+    0.55,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Imagem de basquetebolista a realizar proeza viral, apropriada para ilustrar notícias sobre lances virais de basquetebol."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-02-14_01_2018_ritual-hindu-com-piercing-no-rosto-antecede-festival-fundo.jpg:587785": {
+  "_final": {
+   "subject": "Página de texto sobre teologia católica e ecumenismo",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "A imagem é um documento de texto católico, irrelevante para a notícia sobre ritual hindu."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-02-15_01_2023_chris-pine-entra-no-barulho-da-internet-com-video-viral-fundo.jpg:406438": {
+  "_final": {
+   "subject": "Retrato em plano aproximado do ator Chris Pine",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.48,
+     0.36
+    ]
+   ],
+   "banner_focus": [
+    0.48,
+    0.38
+   ],
+   "cover_focus": [
+    0.48,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato direto de Chris Pine, sujeito principal da notícia sobre o seu vídeo viral."
+  },
+  "_model": "gemini-3.5-flash"
+ },
+ "2026-02-15_01_2014_expresso-publica-capa-com-analise-economica-de-portugal-fundo.jpg:223218": {
+  "_final": {
+   "subject": "Retrato de uma jovem com lenço floral a sorrir",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.48,
+     0.4
+    ]
+   ],
+   "banner_focus": [
+    0.48,
+    0.4
+   ],
+   "cover_focus": [
+    0.48,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem de uma criança com lenço não tem relação com uma análise económica de Portugal ou o Expresso."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-08-26_01_2023_marisa-liz-canta-para-madonna-em-festa-em-lisboa-fundo.jpg:248121": {
+  "_final": {
+   "subject": "Duas pessoas disfarçadas, uma com capacete metálico e outra como Marilyn Monroe",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.72,
+     0.32
+    ],
+    [
+     0.43,
+     0.38
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra pessoas mascaradas sem qualquer relação com Marisa Liz ou Madonna."
+  },
+  "_model": "gemini-3.6-flash"
  }
 }

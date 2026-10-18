@@ -66,7 +66,34 @@ def dates_between(start: date_type, end: date_type):
 
 
 def existing_dates(posts):
-    return {str(post.get("date", ""))[:10] for post in posts}
+    by_date = {}
+    for post in posts:
+        date_str = str(post.get("date", ""))[:10]
+        if date_str:
+            by_date.setdefault(date_str, set()).add(int(post.get("slot", 1) or 1))
+    return {d for d, slots in by_date.items() if 1 in slots and 2 in slots}
+
+
+def all_dates_with_any_post(posts):
+    return sorted({str(post.get("date", ""))[:10] for post in posts if post.get("date")})
+
+
+def group_contiguous_dates(dates_list):
+    if not dates_list:
+        return []
+    sorted_dates = sorted(dates_list)
+    ranges = []
+    start = sorted_dates[0]
+    prev = sorted_dates[0]
+    for d in sorted_dates[1:]:
+        if (d - prev).days == 1:
+            prev = d
+        else:
+            ranges.append((start, prev))
+            start = d
+            prev = d
+    ranges.append((start, prev))
+    return ranges
 
 
 def configure_source_filter(domains):
@@ -182,15 +209,22 @@ def build_events_index(lang="pt"):
 
 
 def backfill_relevance():
-    """Pontua options antigas sem relevance, completa EN e ancora wayback."""
+    """Pontua a opção selecionada de cada post sem relevance, completa EN, body e ancora wayback."""
     pool = get_pool()
     posts = pregenerator.load_json(pregenerator.PENDING_POSTS_FILE, [])
     changed = 0
     for post in posts:
-        for option in post.get("options") or []:
-            option_changed = False
-            if not option.get("relevance"):
-                prompt = f"""Avalie a relevância histórica desta notícia e devolva APENAS JSON:
+        options = post.get("options") or []
+        if not options:
+            continue
+        sel_idx = int(post.get("selected_option", 0) or 0)
+        if not (0 <= sel_idx < len(options)):
+            sel_idx = 0
+        option = options[sel_idx]
+        option_changed = False
+
+        if not option.get("relevance") and pool.has_keys():
+            prompt = f"""Avalie a relevância histórica desta notícia e devolva APENAS JSON:
 {{"impacto_historico": 0-100, "dimensao_impacto": 0-100, "consequencias": 0-100, "relevancia_posterior": 0-100, "dimensao_duracao": 0-100, "relevancia_mediatica": 0-100, "singularidade": 0-100, "justification": "1-2 frases em português sobre o nível, citando consequências duradouras se existirem"}}
 
 Ano: {option.get("year")}
@@ -198,36 +232,37 @@ Categoria: {option.get("category")}
 Título: {option.get("title")}
 Resumo: {option.get("summary")}
 Legenda: {option.get("caption")}"""
-                if pool.has_keys():
-                    try:
-                        response = pool.chat_json(prompt, timeout=90)
-                        relevance = normalize_relevance(json.loads(response or "{}"))
-                        if relevance:
-                            option["relevance"] = relevance
-                            option_changed = True
-                    except Exception as exc:
-                        print(f"[backfill] {post.get('id')}: {exc}")
-            if not option.get("title_en") and pool.has_keys():
-                try:
-                    response = pool.chat_json(
-                        "Traduza para inglês americano natural (não literal). Responda apenas JSON: "
-                        f'{{"title_en": "...", "summary_en": "..."}}\n'
-                        f'Título: {option.get("title")}\nResumo: {option.get("overlay_description") or option.get("summary")}',
-                        timeout=60,
-                    )
-                    translated = json.loads(response or "{}")
-                    if translated.get("title_en"):
-                        option["title_en"] = str(translated["title_en"]).strip()
-                        option["summary_en"] = str(translated.get("summary_en") or "").strip()
-                        option_changed = True
-                except Exception as exc:
-                    print(f"[backfill EN] {post.get('id')}: {exc}")
-            if len((option.get("body") or "").split()) < 120 and option.get("title") and pool.has_keys():
-                level = (option.get("relevance") or {}).get("level") or 4
-                word_target = {1: "600-800", 2: "600-800", 3: "400-500", 4: "250-350", 5: "200-250"}.get(level, "250-350")
-                try:
-                    response = pool.chat_json(
-                        f"""Escreve o artigo da página desta notícia histórica, em português de Portugal, tom jornalístico, factual.
+            try:
+                response = pool.chat_json(prompt, timeout=90)
+                relevance = normalize_relevance(json.loads(response or "{}"))
+                if relevance:
+                    option["relevance"] = relevance
+                    option_changed = True
+            except Exception as exc:
+                print(f"[backfill] {post.get('id')}: {exc}", flush=True)
+
+        if not option.get("title_en") and pool.has_keys():
+            try:
+                response = pool.chat_json(
+                    "Traduza para inglês americano natural (não literal). Responda apenas JSON: "
+                    f'{{"title_en": "...", "summary_en": "..."}}\n'
+                    f'Título: {option.get("title")}\nResumo: {option.get("overlay_description") or option.get("summary")}',
+                    timeout=60,
+                )
+                translated = json.loads(response or "{}")
+                if translated.get("title_en"):
+                    option["title_en"] = str(translated["title_en"]).strip()
+                    option["summary_en"] = str(translated.get("summary_en") or "").strip()
+                    option_changed = True
+            except Exception as exc:
+                print(f"[backfill EN] {post.get('id')}: {exc}", flush=True)
+
+        if len((option.get("body") or "").split()) < 160 and option.get("title") and pool.has_keys():
+            level = (option.get("relevance") or {}).get("level") or 4
+            word_target = {1: "600-800", 2: "600-800", 3: "400-500", 4: "250-350", 5: "200-250"}.get(level, "250-350")
+            try:
+                response = pool.chat_json(
+                    f"""Escreve o artigo da página desta notícia histórica, em português de Portugal, tom jornalístico, factual.
 Nível de relevância {level}: o corpo DEVE ter {word_target} palavras (mínimo absoluto 200).{" O último parágrafo deve começar por \"Consequências posteriores:\" e descrever as consequências documentadas." if level in (1, 2) else ""}
 Estrutura: contexto → desenvolvimento → relevância duradoura. Nunca inventes factos, citações ou números que não estejam abaixo.
 
@@ -238,50 +273,65 @@ Resumo: {option.get("overlay_description") or option.get("summary")}
 Legenda: {option.get("caption")}
 
 Responde APENAS JSON: {{"body": "artigo completo"}}""",
-                        timeout=240,
-                    )
-                    body_payload = json.loads(response or "{}")
-                    body_text = str(body_payload.get("body") or "").strip()
-                    if len(body_text.split()) >= 180:
-                        option["body"] = body_text
-                        option_changed = True
-                        print(f"[body] {post.get('id')}: {len(body_text.split())} palavras")
-                    else:
-                        print(f"[body] {post.get('id')}: curto ({len(body_text.split())} palavras), rejeitado")
-                except Exception as exc:
-                    print(f"[body] {post.get('id')}: {exc}")
-            if not option.get("article_url") and option.get("year"):
-                source_candidate = option.get("background_source_url") or option.get("source_url") or ""
-                resolved = ""
-                if source_candidate.startswith(("http://", "https://")):
-                    resolved = pregenerator.resolve_wayback_capture(
-                        source_candidate,
-                        str(option.get("year")),
-                        title=str(option.get("title") or ""),
-                    )
-                if not resolved:
-                    resolved = pregenerator.resolve_wayback_by_title(
-                        str(option.get("title") or ""),
-                        str(option.get("year")),
-                    )
-                if resolved:
-                    option["article_url"] = resolved
+                    timeout=180,
+                )
+                body_payload = json.loads(response or "{}")
+                body_text = str(body_payload.get("body") or "").strip()
+                if len(body_text.split()) >= 160:
+                    option["body"] = body_text
                     option_changed = True
-            if option_changed:
-                changed += 1
+                    print(f"[body] {post.get('id')}: {len(body_text.split())} palavras", flush=True)
+                else:
+                    print(f"[body] {post.get('id')}: curto ({len(body_text.split())} palavras), rejeitado", flush=True)
+            except Exception as exc:
+                print(f"[body] {post.get('id')}: {exc}", flush=True)
+
+        art_url = str(option.get("article_url") or "")
+        if "/noFrame/replay/" in art_url:
+            option["article_url"] = art_url.replace("/noFrame/replay/", "/wayback/")
+            art_url = option["article_url"]
+            option_changed = True
+
+        if (not art_url or ("/wayback/" not in art_url and "wikipedia.org" in art_url)) and option.get("year"):
+            source_candidate = option.get("background_source_url") or option.get("source_url") or ""
+            if "/noFrame/replay/" in source_candidate:
+                source_candidate = source_candidate.replace("/noFrame/replay/", "/wayback/")
+            resolved = ""
+            if "/wayback/" in source_candidate:
+                resolved = source_candidate
+            elif source_candidate.startswith(("http://", "https://")) and "wikipedia.org" not in source_candidate:
+                resolved = pregenerator.resolve_wayback_capture(
+                    source_candidate,
+                    str(option.get("year")),
+                    title=str(option.get("title") or ""),
+                )
+            if not resolved:
+                resolved = pregenerator.resolve_wayback_by_title(
+                    str(option.get("title") or ""),
+                    str(option.get("year")),
+                )
+            if resolved:
+                option["article_url"] = resolved
+                option_changed = True
+                print(f"[wayback] {post.get('id')}: {resolved[:80]}", flush=True)
+
+        if option_changed:
+            changed += 1
+            pregenerator.save_json(pregenerator.PENDING_POSTS_FILE, posts)
+
     pregenerator.save_json(pregenerator.PENDING_POSTS_FILE, posts)
-    print(f"[backfill] {changed} option(s) atualizadas.")
+    print(f"[backfill] {changed} post(s) atualizados.", flush=True)
 
 
 def main():
     parser = argparse.ArgumentParser(description="Popula o site com notícias históricas.")
     parser.add_argument("--start", help="Data inicial YYYY-MM-DD")
     parser.add_argument("--end", help="Data final YYYY-MM-DD")
-    parser.add_argument("--tudo-ano", action="store_true", help="Todos os dias do ano sem posts (default: ano atual)")
+    parser.add_argument("--tudo-ano", action="store_true", help="Todos os dias do ano sem posts completos (default: ano atual)")
     parser.add_argument("--ano", type=int, default=datetime.now().year, help="Ano para --tudo-ano")
     parser.add_argument("--source-mode", default="local-first", choices=["local", "local-first", "arquivo-first", "arquivo-only"])
     parser.add_argument("--jornal", action="append", default=[], help="Domínio/handle a incluir (repetível)")
-    parser.add_argument("--limite", type=int, default=0, help="Máximo de DIAS a gerar nesta execução")
+    parser.add_argument("--limite", type=int, default=0, help="Máximo de DIAS totais no arquivo após esta execução")
     parser.add_argument("--com-eventos", action="store_true", help="Reconstruir o índice de eventos por dia (Wikipedia + IA)")
     parser.add_argument("--backfill-relevance", action="store_true", help="Pontuar/completar posts existentes")
     args = parser.parse_args()
@@ -302,24 +352,40 @@ def main():
         taken = existing_dates(posts)
         if args.tudo_ano:
             year = args.ano
-            targets = [
+            all_year_dates = [
                 date_type(year, month, day)
                 for month in range(1, 13)
                 for day in range(1, calendar_module.monthrange(year, month)[1] + 1)
-                if f"{year:04d}-{month:02d}-{day:02d}" not in taken
             ]
+            if args.limite > 0:
+                existing_any = [
+                    datetime.strptime(d, "%Y-%m-%d").date()
+                    for d in all_dates_with_any_post(posts)
+                    if d.startswith(f"{year:04d}-")
+                ]
+                pool_dates = list(existing_any)
+                existing_set = set(pool_dates)
+                for d in all_year_dates:
+                    if len(pool_dates) >= args.limite:
+                        break
+                    if d not in existing_set:
+                        pool_dates.append(d)
+                        existing_set.add(d)
+                pool_dates.sort()
+                targets = [d for d in pool_dates if d.isoformat() not in taken]
+            else:
+                targets = [d for d in all_year_dates if d.isoformat() not in taken]
         else:
             if not (args.start and args.end):
                 parser.error("--start e --end são obrigatórios sem --tudo-ano")
             start = datetime.strptime(args.start, "%Y-%m-%d").date()
             end = datetime.strptime(args.end, "%Y-%m-%d").date()
             targets = [day for day in dates_between(start, end) if day.isoformat() not in taken]
-        if args.limite > 0:
-            targets = targets[: args.limite]
-        print(f"Dias a gerar: {len(targets)} ({args.source_mode})")
-        for index in range(0, len(targets), 10):
-            batch = targets[index : index + 10]
-            generate_range(batch[0], batch[-1], args.source_mode, args.limite)
+            if args.limite > 0:
+                targets = targets[: args.limite]
+        print(f"Dias a gerar/completar: {len(targets)} ({args.source_mode})", flush=True)
+        for range_start, range_end in group_contiguous_dates(targets):
+            generate_range(range_start, range_end, args.source_mode, args.limite)
         did_work = True
     if not did_work:
         parser.print_help()

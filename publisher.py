@@ -3,6 +3,7 @@ import os
 import random
 import re
 import shutil
+import sys
 import unicodedata
 import gzip
 from datetime import datetime
@@ -11,6 +12,13 @@ from urllib.parse import unquote, urlparse
 from zoneinfo import ZoneInfo
 
 import requests
+
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 from archive_storage import (
     block_id_for_month_day,
@@ -573,10 +581,10 @@ def build_editorial_context(item):
     return "\n".join(parts).strip()
 
 
-def filter_headlines_with_ai(candidate_articles, lang):
+def filter_headlines_with_ai(candidate_articles, lang, max_items=15):
     global nvidia_pool
     if not nvidia_pool.has_keys():
-        return select_arquivo_fallback_indexes(candidate_articles)
+        return select_arquivo_fallback_indexes(candidate_articles, max_total=max_items)
 
     print(f"[{lang}] A filtrar {len(candidate_articles)} cabeçalhos usando a NVIDIA...")
 
@@ -589,7 +597,7 @@ def filter_headlines_with_ai(candidate_articles, lang):
         headlines_text += f"{prompt_idx}: {art['title']} (Fonte: {art['domain']})\n"
 
     prompt = f"""You are an expert social media editor and journalist managing a high-engagement Instagram page dedicated to nostalgic look-backs, historical ironies, and curious news.
-Look at the following list of news headlines from this day in the past. Your task is to select up to 5 index numbers of headlines that align with our global editorial philosophy:
+Look at the following list of news headlines from this day in the past. Your task is to select up to {max_items} distinct index numbers of headlines (covering diverse years and topics) that align with our global editorial philosophy:
 
 GLOBAL EDITORIAL PHILOSOPHY:
 1. NOSTALGIA & RECOGNITION: The headline MUST refer to personalities, brands, organizations, political parties, or concepts that are still highly famous, active, or widely recognized by the general public TODAY (e.g. major political parties like PS/PSD, globally famous athletes/celebrities, or active major politicians).
@@ -598,13 +606,13 @@ GLOBAL EDITORIAL PHILOSOPHY:
 2. HISTORICAL IRONIES & POLITICAL/SOCIAL MILESTONES: Choose major milestones that shaped the political or social landscape, or controversial laws and election results that remain highly discussable, ironic, or interesting when looked back at from a modern perspective.
 3. CURIOUS & BIZARRE NEWS: Select human-interest stories, funny occurrences, local oddities, or bizarre happenings that are universally amusing, strange, or relatable. Avoid obscure historical records or dry trivia.
 4. SOURCE PREFERENCE when two headlines cover THE SAME story/event: prefer the source with (a) NO paywall (publico.pt, rtp.pt, sicnoticias.pt, dn.pt, jn.pt, observador.pt, noticiasaominuto.com are free; expresso.pt, sabado.pt, visao.pt, activa.pt, maxima.pt, exameinformatica.pt are paywalled), and (b) MORE content/detail. When both are equivalent, prefer the national wide-reach outlet.
-4. STRICT EXCLUSIONS:
+5. STRICT EXCLUSIONS:
    - Absolutely NO routine administrative bureaucracy (minor ministerial meetings, budget statistics, normal policy updates).
    - Absolutely NO minor sports transactions (loans, transfers, or line-ups of ordinary players/coaches who are no longer relevant today).
    - Absolutely NO heavy, tragic, or depressing stories (deaths, fatal accidents, violence, kidnappings, crimes, abuse).
 
 Return a JSON object with exactly this key:
-selected_indexes (a list of integers representing the chosen indexes, maximum 5 items)
+selected_indexes (a list of integers representing the chosen indexes, maximum {max_items} items)
 
 Headlines list:
 {headlines_text}"""
@@ -620,14 +628,22 @@ Headlines list:
                 continue
             prompt_idx = int(x)
             if 0 <= prompt_idx < len(candidate_pool):
-                selected.append(candidate_pool[prompt_idx][0])
-        return selected
+                orig_idx = candidate_pool[prompt_idx][0]
+                if orig_idx not in selected:
+                    selected.append(orig_idx)
+        if len(selected) < min(10, max_items):
+            for fallback_idx in select_arquivo_fallback_indexes(candidate_articles, max_total=max_items):
+                if fallback_idx not in selected:
+                    selected.append(fallback_idx)
+                if len(selected) >= max_items:
+                    break
+        return selected[:max_items]
     except Exception as e:
         print(f"[{lang}] Erro na filtragem de cabecalhos: {e}")
-    return select_arquivo_fallback_indexes(candidate_articles)
+    return select_arquivo_fallback_indexes(candidate_articles, max_total=max_items)
 
 
-def get_today_news_from_arquivo(lang, month, day):
+def get_today_news_from_arquivo(lang, month, day, max_items=15):
     import requests
     import json
     import re
@@ -680,264 +696,264 @@ def get_today_news_from_arquivo(lang, month, day):
     year_end = int(os.environ.get("ARQUIVO_SEARCH_YEAR_END", "2026"))
     years = list(range(year_start, year_end))
     candidate_articles = []
-    search_terms = [
-        term.strip()
-        for term in os.environ.get(
-            "ARQUIVO_SEARCH_TERMS",
-            "Portugal,noticia,futebol,cultura,politica,economia,famosos,celebridades,musica,cinema,televisao,moda,tecnologia,desporto",
-        ).split(",")
-        if term.strip()
-    ]
-    textsearch_global_failures = 0
-    textsearch_disabled = False
-    homepage_global_failures = 0
-    homepage_disabled = False
+    seen_urls = set()
 
+    # 1. Passagem rápida pelo índice CDXJ local (D:\arquivo_cdxj)
     for year in years:
-        print(f"[{lang}][Arquivo.pt] A pesquisar no ano {year} para o dia {month:02d}-{day:02d}...")
-        
-        all_extracted = []
-        date_str = f"{year}{month:02d}{day:02d}"
-        textsearch_url = "https://arquivo.pt/textsearch"
-
-        seen_urls = {item["url"] for item in candidate_articles}
-
-        year_textsearch_failures = 0
         cdxj_candidates = load_arquivo_cdxj_candidates_for_day(year, month, day, sources, seen_urls)
         if cdxj_candidates:
-            all_extracted.extend(cdxj_candidates)
+            candidate_articles.extend(cdxj_candidates)
             seen_urls.update(item["url"] for item in cdxj_candidates)
             print(f"[{lang}][Arquivo.pt][CDXJ] Ano {year}: {len(cdxj_candidates)} candidatos lidos do indice local.")
-        elif textsearch_disabled:
-            print(f"[{lang}][Arquivo.pt] Textsearch desativado neste run apos demasiados timeouts. A usar homepage/capas no ano {year}.")
-        else:
-            for term in search_terms:
-                before_term_count = len(all_extracted)
-                params = {
-                    "q": term,
-                    "from": f"{date_str}000000",
-                    "to": f"{date_str}235959",
-                    "itemsPerPage": 50
-                }
-                try:
-                    res = cached_get(textsearch_url, params=params, timeout=ARQUIVO_TEXTSEARCH_TIMEOUT)
-                except Exception as exc:
-                    year_textsearch_failures += 1
-                    textsearch_global_failures += 1
-                    print(f"[{lang}][Arquivo.pt] Falha no termo '{term}' no ano {year}: {exc}")
-                    if textsearch_global_failures >= ARQUIVO_TEXTSEARCH_GLOBAL_FAILURE_LIMIT:
-                        textsearch_disabled = True
-                        print(f"[{lang}][Arquivo.pt] Textsearch com demasiadas falhas neste run; a usar homepage/capas nos anos seguintes.")
-                        break
-                    if year_textsearch_failures >= ARQUIVO_TEXTSEARCH_MAX_FAILURES_PER_YEAR:
-                        print(f"[{lang}][Arquivo.pt] Textsearch lento no ano {year}; a saltar restantes termos e tentar homepage/capas.")
-                        break
-                    continue
 
-                if res.status_code != 200:
-                    if res.status_code >= 500:
+    # 2. Só recorrer a pesquisa online (textsearch/homepages) se o índice local não tiver candidatos suficientes
+    if len(candidate_articles) < 100:
+        search_terms = [
+            term.strip()
+            for term in os.environ.get(
+                "ARQUIVO_SEARCH_TERMS",
+                "Portugal,noticia,futebol,cultura,politica,economia,famosos,celebridades,musica,cinema,televisao,moda,tecnologia,desporto",
+            ).split(",")
+            if term.strip()
+        ]
+        textsearch_global_failures = 0
+        textsearch_disabled = False
+        homepage_global_failures = 0
+        homepage_disabled = False
+
+        for year in years:
+            print(f"[{lang}][Arquivo.pt] A pesquisar no ano {year} para o dia {month:02d}-{day:02d}...")
+            all_extracted = []
+            date_str = f"{year}{month:02d}{day:02d}"
+            textsearch_url = "https://arquivo.pt/textsearch"
+            year_textsearch_failures = 0
+
+            if textsearch_disabled:
+                print(f"[{lang}][Arquivo.pt] Textsearch desativado neste run apos demasiados timeouts. A usar homepage/capas no ano {year}.")
+            else:
+                for term in search_terms:
+                    params = {
+                        "q": term,
+                        "from": f"{date_str}000000",
+                        "to": f"{date_str}235959",
+                        "itemsPerPage": 50
+                    }
+                    try:
+                        res = cached_get(textsearch_url, params=params, timeout=ARQUIVO_TEXTSEARCH_TIMEOUT)
+                    except Exception as exc:
                         year_textsearch_failures += 1
                         textsearch_global_failures += 1
+                        print(f"[{lang}][Arquivo.pt] Falha no termo '{term}' no ano {year}: {exc}")
                         if textsearch_global_failures >= ARQUIVO_TEXTSEARCH_GLOBAL_FAILURE_LIMIT:
                             textsearch_disabled = True
-                            print(f"[{lang}][Arquivo.pt] Textsearch com demasiados erros neste run; a usar homepage/capas nos anos seguintes.")
                             break
                         if year_textsearch_failures >= ARQUIVO_TEXTSEARCH_MAX_FAILURES_PER_YEAR:
-                            print(f"[{lang}][Arquivo.pt] Textsearch devolveu erros no ano {year}; a tentar homepage/capas.")
                             break
-                    continue
-
-                data = json.loads(res.text)
-                response_items = data.get("responseItems") or data.get("response_items") or []
-
-                for item in response_items:
-                    title = item.get("title", "").strip()
-                    url = item.get("originalURL", "").strip()
-                    timestamp = item.get("tstamp", "").strip()
-
-                    if not title or len(title) < 15:
                         continue
 
-                    title_lower = title.lower()
-                    heavy_words = [
-                        "morre", "morto", "morte", "rapto", "raptado", "abuso", "abusa", "viola", 
-                        "violada", "violador", "assassina", "homicídio", "crime", "suicídio", 
-                        "tragédia", "pedofilia", "guerra", "falece", "falecimento", "assassina",
-                        "dies", "died", "death", "kidnap", "kidnapped", "abuse", "rape", "murder", 
-                        "murdered", "homicide", "suicide", "tragedy", "pedophilia", "war", "fatal"
-                    ]
-                    if any(w in title_lower for w in heavy_words):
-                        continue
-
-                    path = url.lower()
-                    exclude = [
-                        "/opiniao/", "/editorial/", "/tag/",
-                        "/autor/", "/comentarios/", "/page/", "/feed/", "/wp-json/",
-                        "/wp-admin/", "/comments/", "/blogs/", "/opinion/"
-                    ]
-                    if any(x in path for x in exclude):
-                        continue
-
-                    include = [
-                        "/politica/", "/economia/", "/desporto/", "/sociedade/", "/cultura/", "/local/", "/insolito/",
-                        "/gente/", "/bizarro/", "/curioso/", "/famosos/", "/vida/",
-                        "/champions/", "/mundial/", "/euro/", "/espetaculo/", "/entertainment/",
-                        "/showbiz/", "/sport/", "/lifestyle/", "/odd/", "/weird/", "/bizarre/",
-                        "/noticias/", "/pais/", "/mundo/"
-                    ]
-
-                    is_article = (
-                        "/noticia/" in path
-                        or "/article/" in path
-                        or path.endswith(".html")
-                        or any(x in path for x in include)
-                        or ".asp" in path
-                        or "/jornal/noticia/" in path
-                        or "/shownews.asp" in path
-                    )
-
-                    if is_article:
-                        matched_domain = None
-                        for source in sources:
-                            if source["domain"] in path:
-                                matched_domain = source["domain"]
+                    if res.status_code != 200:
+                        if res.status_code >= 500:
+                            year_textsearch_failures += 1
+                            textsearch_global_failures += 1
+                            if textsearch_global_failures >= ARQUIVO_TEXTSEARCH_GLOBAL_FAILURE_LIMIT:
+                                textsearch_disabled = True
                                 break
-                        if not matched_domain:
+                            if year_textsearch_failures >= ARQUIVO_TEXTSEARCH_MAX_FAILURES_PER_YEAR:
+                                break
+                        continue
+
+                    data = json.loads(res.text)
+                    response_items = data.get("responseItems") or data.get("response_items") or []
+
+                    for item in response_items:
+                        title = item.get("title", "").strip()
+                        url = item.get("originalURL", "").strip()
+                        timestamp = item.get("tstamp", "").strip()
+
+                        if not title or len(title) < 15:
                             continue
 
-                        if url not in seen_urls:
-                            all_extracted.append({
-                                "url": url,
-                                "title": f"[{year}] {title}",
-                                "snippet": item.get("snippet", "") or item.get("text", ""),
-                                "timestamp": timestamp,
-                                "domain": matched_domain,
-                                "year": year
-                            })
-                            seen_urls.add(url)
-                if len(all_extracted) > before_term_count:
-                    pass
+                        title_lower = title.lower()
+                        heavy_words = [
+                            "morre", "morto", "morte", "rapto", "raptado", "abuso", "abusa", "viola", 
+                            "violada", "violador", "assassina", "homicídio", "crime", "suicídio", 
+                            "tragédia", "pedofilia", "guerra", "falece", "falecimento", "assassina",
+                            "dies", "died", "death", "kidnap", "kidnapped", "abuse", "rape", "murder", 
+                            "murdered", "homicide", "suicide", "tragedy", "pedophilia", "war", "fatal"
+                        ]
+                        if any(w in title_lower for w in heavy_words):
+                            continue
 
-        if not all_extracted and homepage_disabled:
-            print(f"[{lang}][Arquivo.pt] Homepage/capas desativadas neste run apos demasiados timeouts. A saltar ano {year}.")
+                        path = url.lower()
+                        exclude = [
+                            "/opiniao/", "/editorial/", "/tag/",
+                            "/autor/", "/comentarios/", "/page/", "/feed/", "/wp-json/",
+                            "/wp-admin/", "/comments/", "/blogs/", "/opinion/"
+                        ]
+                        if any(x in path for x in exclude):
+                            continue
 
-        if not all_extracted and not homepage_disabled:
-            year_homepage_failures = 0
-            for src in sources:
-                if year_homepage_failures >= ARQUIVO_HOMEPAGE_MAX_FAILURES_PER_YEAR:
-                    print(f"[{lang}][Arquivo.pt] Homepages lentas no ano {year}; a saltar restantes fontes deste ano.")
-                    break
-                if (
-                    homepage_global_failures >= ARQUIVO_HOMEPAGE_GLOBAL_FAILURE_LIMIT
-                    and len(candidate_articles) >= ARQUIVO_DEGRADED_MIN_CANDIDATES
-                ):
-                    homepage_disabled = True
-                    print(f"[{lang}][Arquivo.pt] Homepages/capas com demasiadas falhas. A usar os candidatos ja recolhidos.")
-                    break
-                homepage_replay_url = f"https://arquivo.pt/noFrame/replay/{date_str}120000/{src['url']}"
-                try:
-                    home_res = cached_get(homepage_replay_url, timeout=ARQUIVO_HOMEPAGE_TIMEOUT)
-                except Exception as exc:
-                    year_homepage_failures += 1
-                    homepage_global_failures += 1
-                    print(f"[{lang}][Arquivo.pt] Falha homepage {src['domain']} no ano {year}: {exc}")
-                    continue
-                if home_res.status_code != 200:
-                    if home_res.status_code >= 500:
+                        include = [
+                            "/politica/", "/economia/", "/desporto/", "/sociedade/", "/cultura/", "/local/", "/insolito/",
+                            "/gente/", "/bizarro/", "/curioso/", "/famosos/", "/vida/",
+                            "/champions/", "/mundial/", "/euro/", "/espetaculo/", "/entertainment/",
+                            "/showbiz/", "/sport/", "/lifestyle/", "/odd/", "/weird/", "/bizarre/",
+                            "/noticias/", "/pais/", "/mundo/"
+                        ]
+
+                        is_article = (
+                            "/noticia/" in path
+                            or "/article/" in path
+                            or path.endswith(".html")
+                            or any(x in path for x in include)
+                            or ".asp" in path
+                            or "/jornal/noticia/" in path
+                            or "/shownews.asp" in path
+                        )
+
+                        if is_article:
+                            matched_domain = None
+                            for source in sources:
+                                if source["domain"] in path:
+                                    matched_domain = source["domain"]
+                                    break
+                            if not matched_domain:
+                                continue
+
+                            if url not in seen_urls:
+                                all_extracted.append({
+                                    "url": url,
+                                    "title": f"[{year}] {title}",
+                                    "snippet": item.get("snippet", "") or item.get("text", ""),
+                                    "timestamp": timestamp,
+                                    "domain": matched_domain,
+                                    "year": year
+                                })
+                                seen_urls.add(url)
+
+            if not all_extracted and not homepage_disabled:
+                year_homepage_failures = 0
+                for src in sources:
+                    if year_homepage_failures >= ARQUIVO_HOMEPAGE_MAX_FAILURES_PER_YEAR:
+                        break
+                    if (
+                        homepage_global_failures >= ARQUIVO_HOMEPAGE_GLOBAL_FAILURE_LIMIT
+                        and len(candidate_articles) >= ARQUIVO_DEGRADED_MIN_CANDIDATES
+                    ):
+                        homepage_disabled = True
+                        break
+                    homepage_replay_url = f"https://arquivo.pt/noFrame/replay/{date_str}120000/{src['url']}"
+                    try:
+                        home_res = cached_get(homepage_replay_url, timeout=ARQUIVO_HOMEPAGE_TIMEOUT)
+                    except Exception:
                         year_homepage_failures += 1
                         homepage_global_failures += 1
-                    continue
-
-                soup = BeautifulSoup(home_res.content, "html.parser")
-                for anchor in soup.find_all("a"):
-                    title = re.sub(r"\s+", " ", anchor.get_text(" ", strip=True)).strip()
-                    href = (anchor.get("href") or "").strip()
-                    if not href or len(title) < 18:
+                        continue
+                    if home_res.status_code != 200:
+                        if home_res.status_code >= 500:
+                            year_homepage_failures += 1
+                            homepage_global_failures += 1
                         continue
 
-                    timestamp = date_str + "120000"
-                    replay_match = re.search(r"/replay/(\d{14})/(https?://.+)$", href)
-                    if replay_match:
-                        timestamp = replay_match.group(1)
-                        url = replay_match.group(2)
-                    else:
-                        url = urljoin(src["url"], href)
+                    soup = BeautifulSoup(home_res.content, "html.parser")
+                    for anchor in soup.find_all("a"):
+                        title = re.sub(r"\s+", " ", anchor.get_text(" ", strip=True)).strip()
+                        href = (anchor.get("href") or "").strip()
+                        if not href or len(title) < 18:
+                            continue
 
-                    path = url.lower()
-                    if src["domain"] not in path:
-                        continue
-                    if url in seen_urls:
-                        continue
+                        timestamp = date_str + "120000"
+                        replay_match = re.search(r"/replay/(\d{14})/(https?://.+)$", href)
+                        if replay_match:
+                            timestamp = replay_match.group(1)
+                            url = replay_match.group(2)
+                        else:
+                            url = urljoin(src["url"], href)
 
-                    title_lower = title.lower()
-                    heavy_words = [
-                        "morre", "morto", "morte", "rapto", "raptado", "abuso", "abusa", "viola",
-                        "violada", "violador", "assassina", "homicídio", "crime", "suicídio",
-                        "tragédia", "pedofilia", "guerra", "falece", "falecimento",
-                        "dies", "died", "death", "kidnap", "kidnapped", "abuse", "rape", "murder",
-                        "murdered", "homicide", "suicide", "tragedy", "pedophilia", "war", "fatal"
-                    ]
-                    if any(w in title_lower for w in heavy_words):
-                        continue
+                        path = url.lower()
+                        if src["domain"] not in path or url in seen_urls:
+                            continue
 
-                    exclude = [
-                        "/opiniao/", "/editorial/", "/tag/", "/autor/", "/comentarios/",
-                        "/page/", "/feed/", "/wp-json/", "/wp-admin/", "/comments/",
-                        "/blogs/", "/opinion/"
-                    ]
-                    if any(x in path for x in exclude):
-                        continue
+                        title_lower = title.lower()
+                        heavy_words = [
+                            "morre", "morto", "morte", "rapto", "raptado", "abuso", "abusa", "viola",
+                            "violada", "violador", "assassina", "homicídio", "crime", "suicídio",
+                            "tragédia", "pedofilia", "guerra", "falece", "falecimento",
+                            "dies", "died", "death", "kidnap", "kidnapped", "abuse", "rape", "murder",
+                            "murdered", "homicide", "suicide", "tragedy", "pedophilia", "war", "fatal"
+                        ]
+                        if any(w in title_lower for w in heavy_words):
+                            continue
 
-                    include = [
-                        "/politica/", "/economia/", "/desporto/", "/sociedade/", "/cultura/",
-                        "/local/", "/insolito/", "/gente/", "/bizarro/", "/curioso/",
-                        "/famosos/", "/vida/", "/champions/", "/mundial/", "/euro/",
-                        "/espetaculo/", "/entertainment/", "/showbiz/", "/sport/",
-                        "/lifestyle/", "/odd/", "/weird/", "/bizarre/", "/noticias/",
-                        "/pais/", "/mundo/"
-                    ]
-                    is_article = (
-                        "/noticia/" in path
-                        or "/article/" in path
-                        or path.endswith(".html")
-                        or any(x in path for x in include)
-                        or ".asp" in path
-                        or "/jornal/noticia/" in path
-                        or "/shownews.asp" in path
-                    )
-                    if not is_article:
-                        continue
+                        exclude = [
+                            "/opiniao/", "/editorial/", "/tag/", "/autor/", "/comentarios/",
+                            "/page/", "/feed/", "/wp-json/", "/wp-admin/", "/comments/",
+                            "/blogs/", "/opinion/"
+                        ]
+                        if any(x in path for x in exclude):
+                            continue
 
-                    all_extracted.append({
-                        "url": url,
-                        "title": f"[{year}] {title}",
-                        "snippet": title,
-                        "timestamp": timestamp,
-                        "domain": src["domain"],
-                        "year": year
-                    })
-                    seen_urls.add(url)
+                        include = [
+                            "/politica/", "/economia/", "/desporto/", "/sociedade/", "/cultura/",
+                            "/local/", "/insolito/", "/gente/", "/bizarro/", "/curioso/",
+                            "/famosos/", "/vida/", "/champions/", "/mundial/", "/euro/",
+                            "/espetaculo/", "/entertainment/", "/showbiz/", "/sport/",
+                            "/lifestyle/", "/odd/", "/weird/", "/bizarre/", "/noticias/",
+                            "/pais/", "/mundo/"
+                        ]
+                        is_article = (
+                            "/noticia/" in path
+                            or "/article/" in path
+                            or path.endswith(".html")
+                            or any(x in path for x in include)
+                            or ".asp" in path
+                            or "/jornal/noticia/" in path
+                            or "/shownews.asp" in path
+                        )
+                        if not is_article:
+                            continue
 
-        if all_extracted:
-            candidate_articles.extend(all_extracted)
-            print(f"[{lang}][Arquivo.pt] Ano {year}: Obtidos {len(all_extracted)} links candidatos. Seguindo para o proximo ano...")
+                        all_extracted.append({
+                            "url": url,
+                            "title": f"[{year}] {title}",
+                            "snippet": title,
+                            "timestamp": timestamp,
+                            "domain": src["domain"],
+                            "year": year
+                        })
+                        seen_urls.add(url)
 
-        if (
-            textsearch_disabled
-            and homepage_disabled
-            and len(candidate_articles) >= ARQUIVO_DEGRADED_MIN_CANDIDATES
-        ):
-            print(f"[{lang}][Arquivo.pt] Modo degradado: encontrados {len(candidate_articles)} candidatos. A parar recolha deste dia para evitar timeouts.")
-            break
+            if all_extracted:
+                candidate_articles.extend(all_extracted)
+                print(f"[{lang}][Arquivo.pt] Ano {year}: Obtidos {len(all_extracted)} links candidatos. Seguindo para o proximo ano...")
+
+            if (
+                textsearch_disabled
+                and homepage_disabled
+                and len(candidate_articles) >= ARQUIVO_DEGRADED_MIN_CANDIDATES
+            ):
+                break
 
     if not candidate_articles:
         return []
 
     print(f"[{lang}][Arquivo.pt] Encontrados {len(candidate_articles)} candidatos no total de todos os anos. A selecionar com a IA...")
 
-    selected_indices = filter_headlines_with_ai(candidate_articles, lang)
+    selected_indices = filter_headlines_with_ai(candidate_articles, lang, max_items=max_items)
     if not selected_indices:
-        selected_indices = select_arquivo_fallback_indexes(candidate_articles)
+        selected_indices = select_arquivo_fallback_indexes(candidate_articles, max_total=max_items)
+
+    boilerplate_markers = (
+        "obrigado por subscrever",
+        "primeira newsletter",
+        "subscreva a newsletter",
+        "receba as principais notícias",
+        "utilizamos cookies",
+        "política de privacidade",
+        "erro 404",
+        "página não encontrada",
+        "arquivo.pt",
+    )
 
     matching_news = []
     for idx in selected_indices:
@@ -946,31 +962,43 @@ def get_today_news_from_arquivo(lang, month, day):
         art = candidate_articles[idx]
 
         replay_url = f"https://arquivo.pt/noFrame/replay/{art['timestamp']}/{art['url']}"
+        wayback_url = f"https://arquivo.pt/wayback/{art['timestamp']}/{art['url']}"
         print(f"[{lang}][Arquivo.pt] A descarregar corpo do artigo ({art['year']}): {replay_url}...")
         body_text = ""
         page_title = ""
         try:
-            art_res = cached_get(replay_url, timeout=ARQUIVO_HOMEPAGE_TIMEOUT)
+            art_res = cached_get(replay_url, timeout=15)
             if art_res.status_code == 200:
                 art_soup = BeautifulSoup(art_res.content, "html.parser")
 
                 for s in art_soup(["script", "style", "nav", "footer", "header", "aside"]):
                     s.decompose()
 
-                heading = art_soup.find(["h1", "h2"])
-                title_tag = art_soup.find("title")
-                page_title = normalize_text(
-                    (heading.get_text(" ", strip=True) if heading else "")
-                    or (title_tag.get_text(" ", strip=True) if title_tag else "")
-                )
-                page_title = re.sub(r"\s+[-|].*$", "", page_title).strip()
-                paragraphs = [p.get_text().strip() for p in art_soup.find_all("p") if len(p.get_text().strip()) > 30]
+                for tag_name in ("h1", "title", "h2"):
+                    for candidate_tag in art_soup.find_all(tag_name):
+                        candidate_text = normalize_text(candidate_tag.get_text(" ", strip=True))
+                        candidate_text = re.sub(r"\s+[-|].*$", "", candidate_text).strip()
+                        if (
+                            len(candidate_text) >= 15
+                            and not any(m in candidate_text.lower() for m in boilerplate_markers)
+                        ):
+                            page_title = candidate_text
+                            break
+                    if page_title:
+                        break
+
+                paragraphs = [
+                    p.get_text(" ", strip=True)
+                    for p in art_soup.find_all("p")
+                    if len(p.get_text(" ", strip=True)) > 30
+                    and not any(m in p.get_text(" ", strip=True).lower() for m in boilerplate_markers)
+                ]
                 body_text = " ".join(paragraphs[:8])
-        except Exception as e:
+        except Exception:
             pass
 
         article_title = art["title"].replace(f"[{art['year']}] ", "")
-        if page_title and len(page_title) >= 12 and "arquivo.pt" not in page_title.lower():
+        if page_title and len(page_title) >= 12 and not any(m in page_title.lower() for m in boilerplate_markers):
             article_title = page_title
         fallback_context = " ".join(
             value.strip()
@@ -984,11 +1012,13 @@ def get_today_news_from_arquivo(lang, month, day):
         if len(context) > 30:
             matching_news.append({
                 "url": art["url"],
-                "source_url": replay_url,
+                "source_url": wayback_url,
                 "date": f"{art['year']}-{month:02d}-{day:02d} 12:00:00",
                 "title": article_title,
                 "global_context": context,
                 "source_profile": art["domain"],
+                "domain": art["domain"],
+                "source_platform": "newspaper",
                 "published": False
             })
 
