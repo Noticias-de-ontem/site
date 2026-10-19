@@ -2963,5 +2963,252 @@
    "reason": "A imagem mostra pessoas mascaradas sem qualquer relação com Marisa Liz ou Madonna."
   },
   "_model": "gemini-3.6-flash"
+ },
+ "2026-01-04_01_2025_squid-game-2-bate-recorde-de-estreia-com-68-milhoes-de-visualizacoes-fundo.jpg:577433": {
+  "_final": {
+   "subject": "Pessoa com fato e máscara de guarda da série Squid Game",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.415,
+     0.345
+    ]
+   ],
+   "banner_focus": [
+    0.415,
+    0.35
+   ],
+   "cover_focus": [
+    0.415,
+    0.48
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra uma pessoa vestida como guarda de Squid Game, tema central da notícia."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-04_01_2019_benfica-conquista-a-liga-portuguesa-sob-a-lideranca-de-rui-vitoria-fundo.jpg:245333": {
+  "_final": {
+   "subject": "Emblema do SL Benfica sobre mapa de Portugal e do mundo",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.51,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mural oficial com o emblema do Benfica, diretamente relacionado com notícias sobre o clube."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-11_01_2022_neemias-queta-marca-os-primeiros-pontos-na-nba-fundo.jpg:23749": {
+  "_final": {
+   "subject": "Imagem totalmente escura sem conteúdo visível",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "A imagem está totalmente escura e não apresenta qualquer conteúdo relacionado com Neemias Queta ou a NBA."
+  },
+  "_model": "gemini-3.5-flash"
+ },
+ "2026-01-12_01_2016_campanha-politica-em-memes-mostra-a-esquerda-da-direita-fundo.jpg:23749": {
+  "_final": {
+   "subject": "Imagem escura sem conteúdo visível",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "Imagem totalmente escura e sem conteúdo visível, irrelevante para a notícia sobre campanha política."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-13_01_2019_xutos-pontapes-estreiam-em-1979-no-salao-de-baile-dos-alunos-de-apolo-fundo.jpg:23749": {
+  "_final": {
+   "subject": "Imagem totalmente escura sem conteúdo visível",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "A imagem está completamente escura e sem qualquer conteúdo relevante para a notícia."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-16_01_2009_madonna-pensa-em-ter-filho-com-alex-rodriguez-fundo.jpg:23749": {
+  "_final": {
+   "subject": "Fundo escuro uniforme sem conteúdo visual identificável.",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "Imagem completamente escura sem qualquer conteúdo relacionado com a notícia sobre Madonna e Alex Rodriguez."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-20_01_2024_messi-e-ronaldo-revelam-a-amizade-na-gala-da-uefa-fundo.jpg:23749": {
+  "_final": {
+   "subject": "Fundo azul escuro sólido sem conteúdo visível",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "Imagem totalmente vazia em cor sólida, sem qualquer conteúdo visual relacionado com Messi ou Ronaldo."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-24_01_2024_cristiano-ronaldo-quebra-recorde-de-likes-no-instagram-fundo.jpg:572395": {
+  "_final": {
+   "subject": "Estátua de bronze de Cristiano Ronaldo no Funchal, Madeira",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.536,
+     0.142
+    ]
+   ],
+   "banner_focus": [
+    0.536,
+    0.22
+   ],
+   "cover_focus": [
+    0.536,
+    0.38
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata a famosa estátua de Cristiano Ronaldo na Madeira, diretamente relevante para notícias sobre o jogador."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-01-27_01_2024_apple-abre-app-store-a-apps-de-terceiros-na-ue-fundo.jpg:254709": {
+  "_final": {
+   "subject": "Interior de Apple Store com escada de vidro e clientes",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.68,
+     0.64
+    ],
+    [
+     0.81,
+     0.66
+    ],
+    [
+     0.88,
+     0.61
+    ],
+    [
+     0.51,
+     0.7
+    ]
+   ],
+   "banner_focus": [
+    0.68,
+    0.72
+   ],
+   "cover_focus": [
+    0.6,
+    0.65
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata o interior de uma Apple Store, ambiente representativo da marca Apple associada à notícia."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-01-30_01_2024_portugal-vai-a-votar-para-escolher-o-proximo-primeiro-ministro-fundo.jpg:422150": {
+  "_final": {
+   "subject": "Edifício da Assembleia da República em Lisboa",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.55
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra a Assembleia da República, instituição central na escolha do Governo e Primeiro-Ministro."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-02-09_01_2025_portugal-vence-alemanha-no-raguebi-e-apura-se-para-o-mundial-2027-fundo.jpg:393451": {
+  "_final": {
+   "subject": "jogo de râguebi com jogadores em campo",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.55
+   ],
+   "cover_focus": [
+    0.5,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fotografia de uma partida de râguebi, perfeitamente adequada para ilustrar o evento desportivo da notícia."
+  },
+  "_model": "gemini-3.6-flash"
  }
 }

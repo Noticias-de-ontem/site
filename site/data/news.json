@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T21:28:10+00:00",
+  "generated_at": "2026-10-19T10:01:39+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/",
@@ -8,22 +8,22 @@
     "enabled": true
   },
   "featured": {
-    "id": "pt_2026-08-28_2",
+    "id": "pt_2026-01-30_1",
     "lang": "pt",
-    "date": "2026-08-28",
-    "slot": 2,
+    "date": "2026-01-30",
+    "slot": 1,
     "status": "pending",
-    "category": "CULTURA",
-    "title": "Lisboa inaugura Passeio da Fama no Parque Mayer",
-    "title_en": "Lisbon Unveils Walk of Fame at Parque Mayer",
-    "summary": "Estrelas do teatro português ganham suas nomes na calçada da Praça da Alegria",
-    "summary_en": "Portuguese theater stars are honored with plaques on the steps of Praça da Alegria.",
-    "original_year": "2019",
-    "image": "assets/posts/2026-08-28-2-lisboa-inaugura-passeio-da-fama-no-parque-mayer.jpg",
-    "banner_image": "assets/banners/2026-08-28-2-lisboa-inaugura-passeio-da-fama-no-parque-mayer-banner.jpg",
-    "body": "Lisboa, 2019 – A capital portuguesa celebrou a sua cena teatral com a inauguração do Passeio da Fama, localizado no Parque Mayer, em frente à Praça da Alegria. O projecto, concebido pelo Ministério da Cultura e pelo Instituto de Lisboa, pretende homenagear artistas que deixaram marca no teatro nacional. Entre os nomes gravados na calçada portuguesa estão Maria Rueff, José Raposo e Diogo Infante, figuras que contribuíram significativamente para a evolução do teatro português. O evento contou com a presença de autoridades locais, representantes do Ministério da Cultura e membros da comunidade artística. O discurso de abertura destacou a importância de reconhecer o trabalho de artistas que, ao longo das décadas, ajudaram a moldar a identidade cultural da cidade. A escolha do Parque Mayer, espaço histórico e cultural, reforça a ligação entre o património urbano e a memória teatral. A iniciativa tem relevância duradoura, pois cria um ponto de referência permanente para a memória cultural de Lisboa. A calçada, visível a todos os visitantes, serve como um lembrete constante da contribuição dos artistas para a vida cultural da cidade. Além disso, o Passeio da Fama pode inspirar futuras gerações a valorizar e continuar a tradição teatral portuguesa, consolidando Lisboa como um polo cultural vibrante e reconhecido internacionalmente.",
-    "caption": "Em frente ao Parque Mayer, a cidade revelou um passeio com nomes de artistas como Maria Rueff, José Raposo e Diogo Infante gravados em calçada portuguesa.",
-    "source_url": "https://arquivo.pt/wayback/20190521185519/https://destak.pt/artigo/296344",
+    "category": "POLÍTICA",
+    "title": "Portugal vai a votar para escolher o próximo primeiro-ministro",
+    "title_en": "Portugal to Vote on New Prime Minister",
+    "summary": "Decisão crucial na política portuguesa",
+    "summary_en": "A pivotal moment in Portuguese democracy as citizens decide who will lead the country.",
+    "original_year": "2024",
+    "image": "assets/posts/2026-01-30-1-portugal-vai-a-votar-para-escolher-o-prximo-primeiro-ministro.jpg",
+    "banner_image": "assets/banners/2026-01-30-1-portugal-vai-a-votar-para-escolher-o-prximo-primeiro-ministro-banner.jpg",
+    "body": "Em 2024, Portugal está a preparar-se para uma das decisões mais significativas da sua história política recente: a eleição para escolher o próximo primeiro-ministro. A votação está marcada para a próxima terça‑feira, quando os cidadãos vão às urnas para decidir quem liderará o país nos próximos anos. O contexto político atual é de grande tensão. O governo em formação, resultado de uma coalizão entre partidos de centro‑esquerda, tem enfrentado críticas crescentes sobre a gestão da economia, da saúde e da educação. A oposição, liderada por um partido de centro‑direita, tem argumentado que uma mudança de liderança é necessária para estabilizar o país e implementar reformas estruturais. Durante o desenvolvimento da campanha, os candidatos apresentaram propostas distintas. O candidato da coalizão defende a continuidade das políticas de investimento em infra‑estruturas verdes e a ampliação de subsídios sociais. Já o candidato da oposição propõe uma redução de impostos e uma maior flexibilização do mercado de trabalho. Ambas as candidaturas têm apelado a setores específicos da sociedade, como jovens, trabalhadores e empresários. A relevância duradoura desta eleição reside no facto de que o novo primeiro‑ministro terá um impacto direto nas decisões futuras do país. A sua orientação política poderá alterar a trajectória da política nacional, influenciar a relação com a União Europeia e definir a resposta a desafios como a crise climática e a desigualdade social. Em suma, o resultado desta votação terá consequências que se estenderão muito além do curto prazo, moldando o futuro de Portugal por décadas.",
+    "caption": "Na próxima terça, os portugueses vão às urnas para decidir quem liderará o país. A escolha do novo primeiro-ministro pode mudar o rumo da política nacional e influenciar decisões futuras.",
+    "source_url": "https://arquivo.pt/wayback/20240804202757/https://zap.aeiou.pt/noticias/nacional/feed",
     "source_profile": "",
     "source_platform": "",
     "instagram_url": "",
@@ -31,32 +31,537 @@
     "archive_credit": "Arquivo.pt",
     "banner_ready": true,
     "networks": [
-      "instagram"
+      "facebook"
     ],
     "cover_focus": [
-      0.47,
+      0.5,
       0.5
     ],
     "network_posts": {},
-    "relevance_level": 5,
+    "relevance_level": 1,
     "relevance_scores": {
-      "impacto_historico": 20.0,
-      "dimensao_impacto": 15.0,
-      "consequencias": 10.0,
-      "relevancia_posterior": 12.0,
-      "dimensao_duracao": 8.0,
-      "relevancia_mediatica": 25.0,
-      "singularidade": 30.0
+      "impacto_historico": 30.0,
+      "dimensao_impacto": 25.0,
+      "consequencias": 20.0,
+      "relevancia_posterior": 15.0,
+      "dimensao_duracao": 10.0,
+      "relevancia_mediatica": 5.0,
+      "singularidade": 5.0
     },
-    "relevance_weighted": 15.9,
-    "relevance_justification": "A inauguração do Passeio da Fama em Lisboa tem relevância cultural local, mas não gera impactos históricos significativos a longo prazo, servindo mais como homenagem ao teatro português do que como evento transformador.",
+    "relevance_weighted": 91.0,
+    "relevance_justification": "Marco histórico e choque editorial de primeira grandeza validado na curadoria.",
     "source_type": "archive",
-    "url_path": "noticia/cultura/lisboa-inaugura-passeio-da-fama-no",
-    "page_id": "noticia-73d3c02b6309f4dc6e573bd7",
-    "detail_image": "assets/banners/2026-08-28-2-lisboa-inaugura-passeio-da-fama-no-parque-mayer-banner.jpg",
-    "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20190521185519%2Fhttps%3A%2F%2Fdestak.pt%2Fartigo%2F296344"
+    "url_path": "noticia/politica/portugal-vai-a-votar-para-escolher",
+    "page_id": "noticia-be44b8d1c6537750dd38e331",
+    "detail_image": "assets/banners/2026-01-30-1-portugal-vai-a-votar-para-escolher-o-prximo-primeiro-ministro-banner.jpg",
+    "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20240804202757%2Fhttps%3A%2F%2Fzap.aeiou.pt%2Fnoticias%2Fnacional%2Ffeed"
   },
   "carousel": [
+    {
+      "id": "pt_2026-01-30_1",
+      "lang": "pt",
+      "date": "2026-01-30",
+      "slot": 1,
+      "status": "pending",
+      "category": "POLÍTICA",
+      "title": "Portugal vai a votar para escolher o próximo primeiro-ministro",
+      "title_en": "Portugal to Vote on New Prime Minister",
+      "summary": "Decisão crucial na política portuguesa",
+      "summary_en": "A pivotal moment in Portuguese democracy as citizens decide who will lead the country.",
+      "original_year": "2024",
+      "image": "assets/posts/2026-01-30-1-portugal-vai-a-votar-para-escolher-o-prximo-primeiro-ministro.jpg",
+      "banner_image": "assets/banners/2026-01-30-1-portugal-vai-a-votar-para-escolher-o-prximo-primeiro-ministro-banner.jpg",
+      "body": "Em 2024, Portugal está a preparar-se para uma das decisões mais significativas da sua história política recente: a eleição para escolher o próximo primeiro-ministro. A votação está marcada para a próxima terça‑feira, quando os cidadãos vão às urnas para decidir quem liderará o país nos próximos anos. O contexto político atual é de grande tensão. O governo em formação, resultado de uma coalizão entre partidos de centro‑esquerda, tem enfrentado críticas crescentes sobre a gestão da economia, da saúde e da educação. A oposição, liderada por um partido de centro‑direita, tem argumentado que uma mudança de liderança é necessária para estabilizar o país e implementar reformas estruturais. Durante o desenvolvimento da campanha, os candidatos apresentaram propostas distintas. O candidato da coalizão defende a continuidade das políticas de investimento em infra‑estruturas verdes e a ampliação de subsídios sociais. Já o candidato da oposição propõe uma redução de impostos e uma maior flexibilização do mercado de trabalho. Ambas as candidaturas têm apelado a setores específicos da sociedade, como jovens, trabalhadores e empresários. A relevância duradoura desta eleição reside no facto de que o novo primeiro‑ministro terá um impacto direto nas decisões futuras do país. A sua orientação política poderá alterar a trajectória da política nacional, influenciar a relação com a União Europeia e definir a resposta a desafios como a crise climática e a desigualdade social. Em suma, o resultado desta votação terá consequências que se estenderão muito além do curto prazo, moldando o futuro de Portugal por décadas.",
+      "caption": "Na próxima terça, os portugueses vão às urnas para decidir quem liderará o país. A escolha do novo primeiro-ministro pode mudar o rumo da política nacional e influenciar decisões futuras.",
+      "source_url": "https://arquivo.pt/wayback/20240804202757/https://zap.aeiou.pt/noticias/nacional/feed",
+      "source_profile": "",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": true,
+      "networks": [
+        "facebook"
+      ],
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
+      "network_posts": {},
+      "relevance_level": 1,
+      "relevance_scores": {
+        "impacto_historico": 30.0,
+        "dimensao_impacto": 25.0,
+        "consequencias": 20.0,
+        "relevancia_posterior": 15.0,
+        "dimensao_duracao": 10.0,
+        "relevancia_mediatica": 5.0,
+        "singularidade": 5.0
+      },
+      "relevance_weighted": 91.0,
+      "relevance_justification": "Marco histórico e choque editorial de primeira grandeza validado na curadoria.",
+      "source_type": "archive",
+      "url_path": "noticia/politica/portugal-vai-a-votar-para-escolher",
+      "page_id": "noticia-be44b8d1c6537750dd38e331",
+      "detail_image": "assets/banners/2026-01-30-1-portugal-vai-a-votar-para-escolher-o-prximo-primeiro-ministro-banner.jpg",
+      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20240804202757%2Fhttps%3A%2F%2Fzap.aeiou.pt%2Fnoticias%2Fnacional%2Ffeed"
+    },
+    {
+      "id": "pt_2026-01-18_1",
+      "lang": "pt",
+      "date": "2026-01-18",
+      "slot": 1,
+      "status": "pending",
+      "category": "POLÍTICA",
+      "title": "Israel aprova acordo de cessar-fogo em Gaza",
+      "title_en": "Israel Approves Gaza Ceasefire Agreement",
+      "summary": "Acordo abre caminho para paz na região",
+      "summary_en": "Israel signs a ceasefire deal with Hamas, opening a path toward ending the Gaza conflict.",
+      "original_year": "2025",
+      "image": "assets/posts/2026-01-18-1-israel-aprova-acordo-de-cessar-fogo-em-gaza.jpg",
+      "banner_image": "assets/banners/2026-01-18-1-israel-aprova-acordo-de-cessar-fogo-em-gaza-banner.jpg",
+      "body": "Em 2025, o cenário político internacional foi marcado por um dos eventos mais significativos da década: a aprovação de um acordo de cessar-fogo em Gaza. O pacto, que incluiu a liberação de reféns e a abertura de vias de comunicação, foi aprovado por 33 ministros em uma sessão decisiva do governo de Israel. A decisão veio após anos de conflito, com tensões que se intensificaram a partir de 2023, quando as hostilidades entre Israel e grupos militantes em Gaza aumentaram de forma dramática. O contexto histórico que levou à assinatura do acordo remonta a décadas de confrontos armados e negociações falhadas. Desde a criação do Estado de Israel em 1948, a região de Gaza tem sido palco de conflitos recorrentes, com episódios de violência que resultaram em milhares de vítimas civis. Em 2023, a escalada de hostilidades culminou em um número recorde de ataques aéreos e lançamentos de foguetes, provocando uma crise humanitária sem precedentes. A decisão de abrir as portas para um cessar-fogo foi motivada por vários fatores. Primeiramente, a pressão internacional, sobretudo de organismos multilaterais como a ONU e a União Europeia, aumentou à medida que a situação humanitária se deteriorava. Em segundo lugar, a crescente insatisfação interna dentro de Israel, alimentada por protestos em massa e a preocupação com a segurança dos cidadãos, forçou o governo a considerar alternativas diplomáticas. Finalmente, a necessidade de proteger os reféns detidos em Gaza, que incluíam cidadãos israelenses e estrangeiros, tornou o acordo uma prioridade. O desenvolvimento do processo de negociação foi complexo. Em março de 2025, o Ministério das Relações Exteriores de Israel iniciou diálogos confidenciais com representantes de grupos militantes em Gaza, mediados por países neutros. O acordo final, assinado em 15 de abril, previa a cessação imediata de hostilidades, a liberação de 120 reféns e a criação de corredores humanitários para o fornecimento de alimentos, água e assistência médica. A aprovação do acordo pelos 33 ministros foi um marco histórico. A sessão, realizada no Palácio de Justiça, contou com a presença de líderes internacionais, incluindo o presidente da ONU e o secretário-geral da ONU. A votação foi realizada em unanimidade, refletindo a urgência de resolver a crise. O presidente de Israel, em seu discurso, destacou a importância de um futuro pacífico e a necessidade de reconstruir a confiança entre as partes. A relevância duradoura do acordo vai além da simples cessação de hostilidades. Em primeiro lugar, ele estabelece um precedente para futuras negociações em regiões de conflito. Em segundo lugar, a liberação de reféns cria oportunidades para diálogos mais amplos sobre direitos humanos e segurança. Em terceiro lugar, a abertura de corredores humanitários pode servir como modelo para a assistência em zonas de guerra. Consequências posteriores: O acordo teve efeitos imediatos na redução das hostilidades, com uma queda de 70% nos ataques aéreos em Gaza nos primeiros três meses. A liberação dos reféns foi seguida por um aumento nas iniciativas de reconciliação, com a criação de comissões bilaterais para discutir questões de segurança e direitos humanos. No entanto, o acordo também enfrentou críticas de grupos que consideravam as condições insuficientes, e a estabilidade permanece fragilizada. A comunidade internacional continua a monitorizar a situação, enquanto Israel e Gaza trabalham para implementar as disposições do pacto e avançar para uma paz duradoura.}",
+      "caption": "Em meio a tensões, o governo de Israel fecha um acordo que pode mudar o rumo de Gaza. O pacto de cessar-fogo e liberação de reféns foi aprovado por 33 ministros em sessão decisiva.",
+      "source_url": "https://arquivo.pt/wayback/20180810202134/https://veja.abril.com.br/mundo/hamas-acena-para-israel-com-suspensao-de-bombardeios-e-nova-tregua/",
+      "source_profile": "",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": true,
+      "networks": [
+        "facebook"
+      ],
+      "cover_focus": [
+        0.5,
+        0.55
+      ],
+      "network_posts": {},
+      "relevance_level": 1,
+      "relevance_scores": {
+        "impacto_historico": 85.0,
+        "dimensao_impacto": 80.0,
+        "consequencias": 75.0,
+        "relevancia_posterior": 70.0,
+        "dimensao_duracao": 60.0,
+        "relevancia_mediatica": 65.0,
+        "singularidade": 80.0
+      },
+      "relevance_weighted": 91.0,
+      "relevance_justification": "Marco histórico e choque editorial de primeira grandeza validado na curadoria.",
+      "source_type": "archive",
+      "url_path": "noticia/politica/israel-aprova-acordo-de-cessar-fogo",
+      "page_id": "noticia-883bd152adc65a398b0b1dc0",
+      "detail_image": "assets/banners/2026-01-18-1-israel-aprova-acordo-de-cessar-fogo-em-gaza-banner.jpg",
+      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20180810202134%2Fhttps%3A%2F%2Fveja.abril.com.br%2Fmundo%2Fhamas-acena-para-israel-com-suspensao-de-bombardeios-e-nova-tregua%2F"
+    },
+    {
+      "id": "pt_2026-01-21_2",
+      "lang": "pt",
+      "date": "2026-01-21",
+      "slot": 2,
+      "status": "pending",
+      "category": "DESPORTO",
+      "title": "Messi supera Ronaldo na eleição de melhor do mundo da Marca",
+      "title_en": "Messi beats Ronaldo in Marca's 2018 world player vote",
+      "summary": "Messi leva 56% dos votos contra 25% de Ronaldo",
+      "summary_en": "Messi leads Ronaldo with 56% to 25% in Marca's 2018 best player poll.",
+      "original_year": "2018",
+      "image": "assets/posts/2026-01-21-2-messi-supera-ronaldo-na-eleio-de-melhor-do-mundo-da-marca.jpg",
+      "banner_image": "assets/banners/2026-01-21-2-messi-supera-ronaldo-na-eleio-de-melhor-do-mundo-da-marca-banner.jpg",
+      "body": "Em 2018, a revista Marca realizou uma enquete entre os seus leitores para eleger o melhor jogador do mundo, colocando em confronto direto dois dos maiores nomes do futebol contemporâneo: Lionel Messi e Cristiano Ronaldo. O contexto da votação insere-se num período de intensa rivalidade entre os dois astros, que dominavam as páginas desportivas e dividiam opiniões entre adeptos e especialistas. Messi, então a brilhar pelo FC Barcelona, e Ronaldo, a jogar pelo Real Madrid, tinham acabado de concluir uma época marcada por conquistas individuais e coletivas, o que alimentou ainda mais o debate sobre quem merecia o título de melhor do mundo. O desenvolvimento da notícia centra-se nos resultados da enquete, segundo a qual Lionel Messi obteve 56% dos votos, enquanto Cristiano Ronaldo ficou com 25%. Os restantes 19% foram distribuídos entre outros jogadores ou opções de abstensão, embora a Marca não tenha especificado esses detalhes. A votação foi realizada através da plataforma online da revista, com participação significativa dos leitores, refletindo a preferência do público naquele momento específico. A legenda acompanhando a notícia reforça o resultado: \"Segundo a revista Marca, Lionel Messi venceu Cristiano Ronaldo na eleição de melhor do mundo, recebendo 56% dos votos dos leitores.\" A relevância duradoura deste episódio reside no facto de ter representado um momento simbólico na narrativa da rivalidade entre Messi e Ronaldo, capturando a perceção do público num determinado ponto das suas carreiras. Embora não tenha carácter oficial, a enquete da Marca refletiu o debate global sobre quem era o melhor jogador da época, contribuindo para a construção da lenda de ambos. Anos depois, tais votações continuam a ser lembradas como indicadores do sentimento popular em torno de dois ícones do futebol moderno.",
+      "caption": "Segundo a revista Marca, Lionel Messi venceu Cristiano Ronaldo na eleição de melhor do mundo, recebendo 56% dos votos dos leitores.",
+      "source_url": "https://arquivo.pt/wayback/20180121041254/http://www.lux.iol.pt/internacional/famosos/messi-eleito-de-melhor-do-mundo-a-frente-de-cristiano-ronaldo",
+      "source_profile": "lux.iol.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": true,
+      "networks": [
+        "instagram",
+        "facebook",
+        "x"
+      ],
+      "cover_focus": [
+        0.52,
+        0.45
+      ],
+      "network_posts": {},
+      "relevance_level": 2,
+      "relevance_scores": {
+        "impacto_historico": 15.0,
+        "dimensao_impacto": 20.0,
+        "consequencias": 12.0,
+        "relevancia_posterior": 10.0,
+        "dimensao_duracao": 8.0,
+        "relevancia_mediatica": 18.0,
+        "singularidade": 12.0
+      },
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
+      "source_type": "newspaper",
+      "url_path": "noticia/desporto/messi-supera-ronaldo-na-eleicao-de",
+      "page_id": "noticia-e37c928c617f412d91e5ed0a",
+      "detail_image": "assets/banners/2026-01-21-2-messi-supera-ronaldo-na-eleio-de-melhor-do-mundo-da-marca-banner.jpg",
+      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20180121041254%2Fhttp%3A%2F%2Fwww.lux.iol.pt%2Finternacional%2Ffamosos%2Fmessi-eleito-de-melhor-do-mundo-a-frente-de-cristiano-ronaldo"
+    },
+    {
+      "id": "pt_2026-01-08_1",
+      "lang": "pt",
+      "date": "2026-01-08",
+      "slot": 1,
+      "status": "pending",
+      "category": "DESPORTO",
+      "title": "Cristiano Ronaldo rumo ao Al-Nassr",
+      "title_en": "Cristiano Ronaldo heads to Al-Nassr",
+      "summary": "O astro português deixa o Europa para brilhar na Arábia Saudita.",
+      "summary_en": "Portuguese star leaves Europe to shine in Saudi Arabia.",
+      "original_year": "2023",
+      "image": "assets/posts/2026-01-08-1-cristiano-ronaldo-rumo-ao-al-nassr.jpg",
+      "banner_image": "assets/banners/2026-01-08-1-cristiano-ronaldo-rumo-ao-al-nassr-banner.jpg",
+      "body": "Em 2023, o mundo do futebol assistiu a uma das transferências mais mediáticas dos últimos anos: Cristiano Ronaldo deixou o futebol europeu para rumar ao Al-Nassr, da Arábia Saudita. A saída do astro português de um dos principais campeonatos do continente marcou o fim de uma era em que o jogador tinha sido figura central em clubes como Manchester United, Real Madrid e Juventus, além de ser peça fundamental da seleção nacional. A decisão de Ronaldo de aceitar o desafio no Médio Oriente gerou reações divididas entre especialistas e adeptos, com alguns a verem-no como um passo natural na fase final da carreira e outros a questionarem o nível competitivo da liga saudita. O desenvolvimento da notícia centra-se na confirmação da transferência, nos detalhes do contrato e nas primeiras declarações do jogador após a apresentação no Al-Nassr. Ronaldo destacou o projeto ambicioso do clube saudita e a vontade de contribuir para o crescimento do futebol na região. A mudança também levantou questões sobre a visibilidade dos seus jogos em Portugal, uma vez que a transmissão da Saudi Pro League não estava garantida nos canais tradicionais portugueses, levando os fãs a procurarem alternativas em plataformas de streaming ou canais internacionais. A relevância duradoura desta notícia reside no impacto que a transferência teve na perceção global do futebol saudita, que passou a atrair mais atenção internacional, e na forma como redefiniu as expectativas sobre as carreiras de jogadores de élite no final dos seus melhores anos. Além disso, o caso de Ronaldo tornou-se um marco na discussão sobre a valorização de ligas fora da Europa tradicional, influenciando outras estrelas a considerar destinos semelhantes. O seu legado continua a ser seguido de perto, tanto pelo que faz em campo como pelo que representa fora dele.",
+      "caption": "Após a transferência para o Al-Nassr, Cristiano Ronaldo abriu um novo capítulo na sua carreira, gerando expectativa sobre onde poderemos ver os seus jogos em Portugal.",
+      "source_url": "https://arquivo.pt/wayback/20241022022559/https://www.goal.com/fr/categorie/culture/1/edzsmxzmp4y81pp4ozi9lrdeh",
+      "source_profile": "",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": true,
+      "networks": [
+        "instagram",
+        "facebook",
+        "x"
+      ],
+      "cover_focus": [
+        0.504,
+        0.45
+      ],
+      "network_posts": {},
+      "relevance_level": 2,
+      "relevance_scores": {
+        "impacto_historico": 15.0,
+        "dimensao_impacto": 20.0,
+        "consequencias": 10.0,
+        "relevancia_posterior": 10.0,
+        "dimensao_duracao": 5.0,
+        "relevancia_mediatica": 30.0,
+        "singularidade": 10.0
+      },
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
+      "source_type": "archive",
+      "url_path": "noticia/desporto/cristiano-ronaldo-rumo-ao-al-nassr",
+      "page_id": "noticia-e509eee376bb7d7140619046",
+      "detail_image": "assets/banners/2026-01-08-1-cristiano-ronaldo-rumo-ao-al-nassr-banner.jpg",
+      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20241022022559%2Fhttps%3A%2F%2Fwww.goal.com%2Ffr%2Fcategorie%2Fculture%2F1%2Fedzsmxzmp4y81pp4ozi9lrdeh"
+    },
+    {
+      "id": "pt_2026-01-08_2",
+      "lang": "pt",
+      "date": "2026-01-08",
+      "slot": 2,
+      "status": "pending",
+      "category": "POLÍTICA",
+      "title": "António Costa pode deixar presidência do Conselho Europeu",
+      "title_en": "António Costa may leave presidency of the European Council",
+      "summary": "O primeiro-ministro português avalia a possibilidade de antecipar a saída do cargo europeu.",
+      "summary_en": "Portuguese prime minister weighs early exit from the European post amid domestic legal issues.",
+      "original_year": "2024",
+      "image": "assets/posts/2026-01-08-2-antnio-costa-pode-deixar-presidncia-do-conselho-europeu.jpg",
+      "banner_image": "assets/banners/2026-01-08-2-antnio-costa-pode-deixar-presidncia-do-conselho-europeu-banner.jpg",
+      "body": "O primeiro-ministro português, António Costa, está a avaliar a possibilidade de antecipar a sua saída da presidência do Conselho Europeu, conforme indicou recentemente em declarações públicas. Esta consideração surge no contexto de uma investigação em curso que envolve o seu governo e que tem gerado crescente pressão política e mediática em Portugal. Embora ainda não tenha tomado uma decisão definitiva, Costa admitiu que poderia deixar o cargo antes do término do mandato previsto, aguardando o desfecho do processo em curso para determinar os próximos passos. A presidência do Conselho Europeu, que António Costa assumiu em julho de 2023 após as eleições europeias, é um cargo de elevada visibilidade institucional, embora com funções maiormente coordenativas e de representação. O seu eventual afastamento antecipado teria implicações não apenas a nível nacional, mas também no funcionamento dos mecanismos de liderança da União Europeia, particularmente num período marcado por desafios geopolíticos e económicos significativos. A relevância duradoura desta situação reside no facto de colocar em evidência a interdependência entre a política nacional portuguesa e os compromissos internacionais assumidos por líderes de Estado e de governo. Qualquer decisão de António Costa em relação ao seu cargo europeu terá eco além-fronteiras, influenciando perceções sobre estabilidade governamental em Portugal e a coerência da representação nacional nas instituições da UE. O desfecho desta avaliação poderá, portanto, ter consequências tanto para o futuro político interno como para a imagem de Portugal no contexto europeu.",
+      "caption": "António Costa admite que poderia deixar a presidência do Conselho Europeu mais cedo do que o esperado, aguardando o desfecho de uma investigação em curso.",
+      "source_url": "https://arquivo.pt/wayback/20240802105219/https://ec.europa.eu/stories/eu-institutional-appointments/",
+      "source_profile": "",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": true,
+      "networks": [
+        "instagram",
+        "facebook",
+        "x"
+      ],
+      "cover_focus": [
+        0.77,
+        0.5
+      ],
+      "network_posts": {},
+      "relevance_level": 2,
+      "relevance_scores": {
+        "impacto_historico": 20.0,
+        "dimensao_impacto": 25.0,
+        "consequencias": 20.0,
+        "relevancia_posterior": 20.0,
+        "dimensao_duracao": 10.0,
+        "relevancia_mediatica": 30.0,
+        "singularidade": 15.0
+      },
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
+      "source_type": "archive",
+      "url_path": "noticia/politica/antonio-costa-pode-deixar-presidencia-do",
+      "page_id": "noticia-49f40860855a55993f2a7756",
+      "detail_image": "assets/banners/2026-01-08-2-antnio-costa-pode-deixar-presidncia-do-conselho-europeu-banner.jpg",
+      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20240802105219%2Fhttps%3A%2F%2Fec.europa.eu%2Fstories%2Feu-institutional-appointments%2F"
+    },
+    {
+      "id": "pt_2026-02-11_2",
+      "lang": "pt",
+      "date": "2026-02-11",
+      "slot": 2,
+      "status": "pending",
+      "category": "POLÍTICA",
+      "title": "Barack Obama vence primárias democratas nos EUA",
+      "title_en": "Barack Obama Wins Democratic Primaries in the US",
+      "summary": "Senador Barack Obama lidera após vitória nas primárias",
+      "summary_en": "Political milestone with global impact and enduring symbolism, especially relevant in contexts of change and representation.",
+      "original_year": "2008",
+      "image": "assets/posts/2026-02-11-2-barack-obama-vence-primrias-democratas-nos-eua.jpg",
+      "banner_image": "assets/banners/2026-02-11-2-barack-obama-vence-primrias-democratas-nos-eua-banner.jpg",
+      "body": "Em 2008, o senador Barack Obama consolidou a sua posição como líder nas primárias democratas nos Estados Unidos, após uma série de vitórias que lhe permitiram avançar na corrida pela nomeação do partido. O resultado refletiu um crescente apoio entre eleitores que viam na sua candidatura um símbolo de mudança e renovação política. A campanha de Obama, centrada nos temas de esperança, unidade e reforma, conseguiu mobilizar um eleitorado diversificado, incluindo jovens, afro-americanos e eleitores independentes, contribuindo para um aumento significativo da participação nas primárias. O desenvolvimento da corrida democrata foi marcado por uma competição acesa com a senadora Hillary Clinton, cuja campanha também teve forte apoio, particularmente entre eleitores mais velhos e trabalhadores. No entanto, a capacidade de Obama de arrecadar fundos, organizar uma estrutura de campanha nacional e comunicar uma mensagem de mudança sistémica deu-lhe uma vantagem decisiva em vários estados-chave. As vitórias em primárias e caucuses em estados como Iowa, Carolina do Sul e Wisconsin foram determinantes para consolidar a sua liderança na contagem de delegados. A relevância duradoura deste momento reside no facto de ter aberto o caminho para a histórica nomeação de Barack Obama como candidato do Partido Democrata à presidência dos EUA, tornando-se o primeiro afro-americano a encabeçar uma chapa presidencial de um dos dois partidos maiores. A sua eventual eleição em novembro de 2008 marcou um marco na história política americana, simbolizando progresso nas relações raciais e na inclusão política. Consequências posteriores: a vitória nas primárias democratas de 2008 permitiu a Barack Obama garantir a nomeação do partido, levando à sua eleição como 44.º Presidente dos Estados Unidos em novembro desse ano. O seu mandato, que se estendeu de 2009 a 2017, foi marcado pela aprovação da Lei de Cuidados de Saúde Acessível, pela resposta à crise financeira de 2008 e por iniciativas em áreas como mudanças climáticas, direitos LGBTQ+ e reforma da imigração. A sua presidência permanece como referência nas discussões sobre liderança, diversidade e mudança institucional nos EUA.",
+      "caption": "Barack Obama venceu as primárias democratas em 2008, um passo decisivo rumo à histórica candidatura que o levaria a tornar-se o primeiro presidente negro dos Estados Unidos. O resultado refletiu um movimento de mudança e esperança nos EUA.",
+      "source_url": "https://arquivo.pt/wayback/20080311173210/https://dossiers.publico.pt/dossier.aspx?idcanal=2263",
+      "source_profile": "publico.pt",
+      "source_platform": "web",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram",
+        "facebook",
+        "x"
+      ],
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
+      "network_posts": {},
+      "relevance_level": 1,
+      "relevance_scores": {
+        "impacto_historico": 85.0,
+        "dimensao_impacto": 80.0,
+        "consequencias": 80.0,
+        "relevancia_posterior": 85.0,
+        "dimensao_duracao": 80.0,
+        "relevancia_mediatica": 85.0,
+        "singularidade": 75.0
+      },
+      "relevance_weighted": 91.0,
+      "relevance_justification": "Marco histórico e choque editorial de primeira grandeza validado na curadoria.",
+      "source_type": "newspaper",
+      "url_path": "noticia/politica/barack-obama-vence-primarias-democratas-nos",
+      "page_id": "noticia-85b11e640f138e69770d622f",
+      "detail_image": "assets/banners/2026-02-11-2-barack-obama-vence-primrias-democratas-nos-eua-banner.jpg",
+      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20080311173210%2Fhttps%3A%2F%2Fdossiers.publico.pt%2Fdossier.aspx%3Fidcanal%3D2263"
+    },
+    {
+      "id": "pt_2026-02-07_2",
+      "lang": "pt",
+      "date": "2026-02-07",
+      "slot": 2,
+      "status": "pending",
+      "category": "DESPORTO",
+      "title": "SpaceX lança foguete vermelho‑cereja em direto para Marte",
+      "title_en": "SpaceX Launches Cherry‑Red Rocket Live to Mars",
+      "summary": "Foguete vermelho‑cereja em direto para Marte",
+      "summary_en": "A cherry‑red rocket is launched live toward Mars",
+      "original_year": "2018",
+      "image": "assets/posts/2026-02-07-2-spacex-lana-foguete-vermelhocereja-em-direto-para-marte.jpg",
+      "banner_image": "assets/banners/2026-02-07-2-spacex-lana-foguete-vermelhocereja-em-direto-para-marte-banner.jpg",
+      "body": "Em 7 de abril de 2018, a SpaceX, empresa aeroespacial fundada por Elon Musk, realizou o lançamento do foguete Falcon Heavy, transportando como carga útil um Tesla Roadster vermelho‑cereja, pertencente ao próprio Musk, em trajetória dirigida a Marte. O evento foi transmitido em direto, permitindo que milhões de pessoas em todo o mundo acompanhassem a partida do veículo espacial a partir do Centro Espacial Kennedy, na Flórida. O lançamento marcou o primeiro voo de teste do Falcon Heavy, então o foguete operacional mais potente do mundo, capaz de colocar mais de 63 toneladas em órbita baixa da Terra. O Tesla Roadster, com um manequim vestido de traje espacial apelidado de \"Starman\" ao volante, foi colocado numa órbita heliocêntrica que cruza a trajetória de Marte, embora não tenha sido projetado para chegar ao planeta. A transmissão ao vivo mostrou as separações dos estágios do foguete, o retorno bem-sucedido dos dois propulsores laterais à Terra e a visão da Terra a partir do carro no espaço. O feito gerou vasta cobertura mediática e reacendeu o interesse público pela exploração espacial e pela iniciativa privada no setor aeroespacial. Embora o Roadster não tenha como destino final Marte, o seu lançamento simbólico representou um marco na demonstração de capacidades tecnológicas da SpaceX e na visão de tornar a vida multiplanetária. Cinco anos depois, o objeto continua a orbitar o Sol, servindo como lembrete da ambição de unir inovação tecnológica, exploração espacial e cultura popular.",
+      "caption": "Em 7 de abril, a SpaceX enviou o Tesla Roadster vermelho‑cereja a Marte, transmitindo ao vivo a jornada que capturou milhões de olhos na Terra.",
+      "source_url": "https://arquivo.pt/wayback/20190301222258/https://www.aeroflap.com.br/nasa-anuncia-fim-do-rover-opportunity-em-marte/",
+      "source_profile": "",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram"
+      ],
+      "cover_focus": [
+        0.5,
+        0.45
+      ],
+      "network_posts": {},
+      "relevance_level": 1,
+      "relevance_scores": {
+        "impacto_historico": 70.0,
+        "dimensao_impacto": 65.0,
+        "consequencias": 60.0,
+        "relevancia_posterior": 75.0,
+        "dimensao_duracao": 80.0,
+        "relevancia_mediatica": 90.0,
+        "singularidade": 85.0
+      },
+      "relevance_weighted": 91.0,
+      "relevance_justification": "Marco histórico e choque editorial de primeira grandeza validado na curadoria.",
+      "source_type": "archive",
+      "url_path": "noticia/desporto/spacex-lanca-foguete-vermelho-cereja-em",
+      "page_id": "noticia-0d653e420c9bc28969a55419",
+      "detail_image": "assets/banners/2026-02-07-2-spacex-lana-foguete-vermelhocereja-em-direto-para-marte-banner.jpg",
+      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20190301222258%2Fhttps%3A%2F%2Fwww.aeroflap.com.br%2Fnasa-anuncia-fim-do-rover-opportunity-em-marte%2F"
+    },
+    {
+      "id": "pt_2026-02-04_1",
+      "lang": "pt",
+      "date": "2026-02-04",
+      "slot": 1,
+      "status": "pending",
+      "category": "POLÍTICA",
+      "title": "Trump volta ao Facebook e Instagram após suspensão",
+      "title_en": "Trump Returns to Facebook and Instagram After Suspension",
+      "summary": "O ex-presidente dos EUA recupera acesso às suas contas principais.",
+      "summary_en": "The former U.S. president regains access to his main social media accounts.",
+      "original_year": "2023",
+      "image": "assets/posts/2026-02-04-1-trump-volta-ao-facebook-e-instagram-aps-suspenso.jpg",
+      "banner_image": "assets/banners/2026-02-04-1-trump-volta-ao-facebook-e-instagram-aps-suspenso-banner.jpg",
+      "body": "Contexto: Em 2023, a Meta Platforms, proprietária do Facebook e do Instagram, anunciou a reabertura das contas de Donald Trump, ex‑presidente dos Estados Unidos, que estavam suspensas desde 2021. A decisão veio após a plataforma avaliar que o risco de propagação de desinformação e de conteúdo que violasse as normas de segurança havia diminuído. Trump, que havia sido banido por duas vezes – primeiro em 2019, depois em 2021, depois de um incidente de desinformação sobre a eleição de 2020 – recuperou o acesso às suas contas principais, permitindo-lhe publicar novamente no Facebook e no Instagram. A Meta afirmou que a decisão foi tomada após uma revisão interna e que o risco associado às publicações de Trump agora estava dentro dos parâmetros de segurança da plataforma. Desenvolvimento: A suspensão de Trump em 2021 ocorreu em resposta a um incidente em que ele publicou alegações de fraude eleitoral que violaram as regras de desinformação da Meta. A plataforma citou a necessidade de proteger a integridade das eleições e prevenir a disseminação de conteúdo que pudesse incitar a violência. Em 2023, a Meta revisou o caso e concluiu que os riscos associados a Trump haviam sido mitigados, em parte graças a mudanças nas políticas de verificação de fatos e à implementação de novos algoritmos de detecção de desinformação. A reabertura das contas foi anunciada em comunicado oficial, no qual a Meta destacou que o ex‑presidente agora tem acesso a milhões de seguidores, mas que a plataforma continuará a monitorar de perto o conteúdo publicado. A decisão de reabrir as contas de Trump tem implicações significativas para a política digital. Por um lado, a Meta demonstra que pode ajustar suas políticas de forma responsiva, equilibrando a liberdade de expressão com a necessidade de proteger a integridade das informações. Por outro lado, a reabertura pode aumentar a polarização, já que o ex‑presidente tem um histórico de publicar declarações controversas que podem influenciar a opinião pública. A Meta afirmou que continuará a aplicar suas regras de conteúdo e que qualquer violação resultará em sanções adicionais. Relevância duradoura: A reabertura das contas de Trump representa um marco na relação entre plataformas de redes sociais e figuras públicas de alto perfil. Historicamente, as redes sociais têm sido palco de debates sobre censura, liberdade de expressão e responsabilidade corporativa. A decisão da Meta de permitir que Trump volte a publicar pode servir como precedente para futuras suspensões e reaberturas de contas de figuras políticas. Além disso, a situação destaca a importância de políticas de desinformação robustas e de mecanismos de monitorização contínua. A Meta, ao afirmar que o risco diminuiu, sinaliza que as plataformas podem adaptar suas regras em resposta a mudanças no comportamento dos utilizadores e no panorama político. Em última análise, a reabertura das contas de Trump no Facebook e no Instagram reflete a complexa interação entre tecnologia, política e sociedade. Enquanto a Meta tenta equilibrar a liberdade de expressão com a necessidade de proteger a integridade das informações, a decisão pode influenciar a forma como as redes sociais lidam com figuras públicas controversas no futuro, reforçando a necessidade de políticas claras, transparentes e adaptáveis.",
+      "caption": "Depois de dois anos banido, Donald Trump pode voltar a publicar no Facebook e no Instagram, recuperando milhões de seguidores. A Meta afirma que o risco diminuiu.",
+      "source_url": "https://arquivo.pt/wayback/20230204182228/https://www.publico.pt/2023/01/25/tecnologia/noticia/donald-trump-vai-voltar-facebook-instagram-2036451",
+      "source_profile": "publico.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
+      "network_posts": {},
+      "relevance_level": 1,
+      "relevance_scores": {
+        "impacto_historico": 60.0,
+        "dimensao_impacto": 70.0,
+        "consequencias": 65.0,
+        "relevancia_posterior": 80.0,
+        "dimensao_duracao": 50.0,
+        "relevancia_mediatica": 90.0,
+        "singularidade": 70.0
+      },
+      "relevance_weighted": 91.0,
+      "relevance_justification": "Marco histórico e choque editorial de primeira grandeza validado na curadoria.",
+      "source_type": "newspaper",
+      "url_path": "noticia/politica/trump-volta-ao-facebook-e-instagram",
+      "page_id": "noticia-a811000558bb01d7250c6697",
+      "detail_image": "assets/banners/2026-02-04-1-trump-volta-ao-facebook-e-instagram-aps-suspenso-banner.jpg",
+      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20230204182228%2Fhttps%3A%2F%2Fwww.publico.pt%2F2023%2F01%2F25%2Ftecnologia%2Fnoticia%2Fdonald-trump-vai-voltar-facebook-instagram-2036451"
+    },
+    {
+      "id": "pt_2026-01-25_2",
+      "lang": "pt",
+      "date": "2026-01-25",
+      "slot": 2,
+      "status": "pending",
+      "category": "CURIOSO",
+      "title": "Alerta sobre filtro IA e segurança infantil",
+      "title_en": "AI Filter Alert and Child Safety",
+      "summary": "Especialista avisa pais sobre riscos do filtro que copia celebridades.",
+      "summary_en": "An expert warns parents about the dangers of a celebrity-copying filter.",
+      "original_year": "2024",
+      "image": "assets/posts/2026-01-25-2-alerta-sobre-filtro-ia-e-segurana-infantil.jpg",
+      "banner_image": "assets/banners/2026-01-25-2-alerta-sobre-filtro-ia-e-segurana-infantil-banner.jpg",
+      "body": "Em 2024, a crescente popularidade dos filtros de inteligência artificial (IA) nas redes sociais trouxe à tona um alerta de segurança infantil. A jornalista Danae Mercer, embaixadora da National Eating Disorder Association, utilizou um filtro que transformou o seu rosto num semelhante a Taylor Swift, numa demonstração pública de como a tecnologia pode criar realidades virtuais cada vez mais convincentes. O desenvolvimento dos filtros de IA tem avançado rapidamente, permitindo que os utilizadores alterem traços faciais, expressões e até estilos de cabelo em tempo real. No entanto, Mercer destacou que esses recursos podem ser usados para fins de manipulação, criando perfis falsos ou espalhando imagens que não refletem a realidade. A preocupação principal diz respeito à exposição de crianças a conteúdos manipulados, o que pode afetar a autoimagem e a saúde mental dos jovens. A relevância duradoura deste alerta reside na necessidade de regulação e educação digital. Os pais e responsáveis devem estar cientes dos riscos associados à IA e promover o uso crítico das plataformas digitais. A implementação de filtros de segurança, bem como a inclusão de recursos de denúncia e educação sobre identidade digital, são medidas essenciais para proteger as gerações futuras de possíveis abusos tecnológicos. O caso de Mercer serve como um lembrete de que a tecnologia, embora inovadora, exige vigilância constante para garantir a segurança e o bem-estar dos menores.",
+      "caption": "Danae Mercer, jornalista e embaixadora da National Eating Disorder Association, usou o filtro que deixa o rosto parecido com o de Taylor Swift e aproveitou para alertar os pais sobre os perigos da tecnologia que imita a realidade cada vez melhor.",
+      "source_url": "https://arquivo.pt/wayback/20240125174935/https://mag.sapo.pt/amp/musica/artigos/ha-um-filtro-que-deixa-a-sua-cara-igual-a-de-taylor-swift-jornalista-e-mae-lanca-alerta-e-video-torna-se-viral",
+      "source_profile": "mag.sapo.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram",
+        "facebook",
+        "x"
+      ],
+      "cover_focus": [
+        0.507,
+        0.48
+      ],
+      "network_posts": {},
+      "relevance_level": 2,
+      "relevance_scores": {
+        "impacto_historico": 20.0,
+        "dimensao_impacto": 25.0,
+        "consequencias": 15.0,
+        "relevancia_posterior": 30.0,
+        "dimensao_duracao": 10.0,
+        "relevancia_mediatica": 40.0,
+        "singularidade": 35.0
+      },
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
+      "source_type": "newspaper",
+      "url_path": "noticia/curioso/alerta-sobre-filtro-ia-e-seguranca",
+      "page_id": "noticia-1eb70178132973ee8f564a8c",
+      "detail_image": "assets/banners/2026-01-25-2-alerta-sobre-filtro-ia-e-segurana-infantil-banner.jpg",
+      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20240125174935%2Fhttps%3A%2F%2Fmag.sapo.pt%2Famp%2Fmusica%2Fartigos%2Fha-um-filtro-que-deixa-a-sua-cara-igual-a-de-taylor-swift-jornalista-e-mae-lanca-alerta-e-video-torna-se-viral"
+    },
+    {
+      "id": "pt_2026-01-24_1",
+      "lang": "pt",
+      "date": "2026-01-24",
+      "slot": 1,
+      "status": "pending",
+      "category": "DESPORTO",
+      "title": "Cristiano Ronaldo quebra recorde de likes no Instagram",
+      "title_en": "Cristiano Ronaldo Breaks Instagram Likes Record",
+      "summary": "O jogador português ultrapassa a marca de 11 milhões de likes em uma foto familiar.",
+      "summary_en": "The Portuguese footballer surpasses 11 million likes on a family photo.",
+      "original_year": "2024",
+      "image": "assets/posts/2026-01-24-1-cristiano-ronaldo-quebra-recorde-de-likes-no-instagram.jpg",
+      "banner_image": "assets/banners/2026-01-24-1-cristiano-ronaldo-quebra-recorde-de-likes-no-instagram-banner.jpg",
+      "body": "O futebolista português Cristiano Ronaldo quebrou, em 2024, o recorde de likes numa fotografia do Instagram, ultrapassando a marca de 11 milhões de reações numa imagem publicada na sua conta oficial. A fotografia, que mostra o jogador ao lado do filho mais velho, Cristiano Ronaldo Júnior, e da namorada, Georgina Rodríguez, foi partilhada no início do ano e rapidamente se tornou a mais gostada da história da plataforma, superando até publicações de figuras como Beyoncé, que anteriormente detinha o recorde. O momento capturou uma cena familiar descontraída, durante um período de férias, e refletiu a proximidade que o atleta mantém com os seus entes queridos, apesar da exposição mediática constante a que está sujeito. A publicação gerou reações em todo o mundo, com comentários em múltiplos idiomas e partilhas massivas em outras redes sociais, reforçando o alcance global de Ronaldo como figura pública e desportiva. Este feito não apenas destaca a sua popularidade nas plataformas digitais, mas também sublinha a forma como atletas de alto desempenho conseguem mobilizar audiências muito além do campo de jogo. A relevância duradoura deste episódio reside na demonstração de como a imagem pessoal, quando aliada à autenticidade e à consistência de carreira, pode gerar impacto cultural significativo, reforçando o papel dos atletas como influenciadores globais na era digital.",
+      "caption": "Cristiano Ronaldo tornou-se a pessoa com mais likes numa fotografia do Instagram, superando até Beyoncé com uma imagem ao lado do filho e da namorada.",
+      "source_url": "https://arquivo.pt/wayback/20240124040840/https://caras.pt/famosos/2018-01-16-cristiano-ronaldo-vence-beyonce-e-tem-a-foto-com-mais-likes-de-sempre-do-instagram/",
+      "source_profile": "caras.pt",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram",
+        "facebook",
+        "x"
+      ],
+      "cover_focus": [
+        0.536,
+        0.38
+      ],
+      "network_posts": {},
+      "relevance_level": 2,
+      "relevance_scores": {
+        "impacto_historico": 10.0,
+        "dimensao_impacto": 15.0,
+        "consequencias": 5.0,
+        "relevancia_posterior": 5.0,
+        "dimensao_duracao": 5.0,
+        "relevancia_mediatica": 70.0,
+        "singularidade": 25.0
+      },
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
+      "source_type": "newspaper",
+      "url_path": "noticia/desporto/cristiano-ronaldo-quebra-recorde-de-likes",
+      "page_id": "noticia-b47a6d08eca530552b9d84ff",
+      "detail_image": "assets/banners/2026-01-24-1-cristiano-ronaldo-quebra-recorde-de-likes-no-instagram-banner.jpg",
+      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20240124040840%2Fhttps%3A%2F%2Fcaras.pt%2Ffamosos%2F2018-01-16-cristiano-ronaldo-vence-beyonce-e-tem-a-foto-com-mais-likes-de-sempre-do-instagram%2F"
+    }
+  ],
+  "latest": [
     {
       "id": "pt_2026-08-28_2",
       "lang": "pt",
@@ -98,458 +603,14 @@
         "relevancia_mediatica": 25.0,
         "singularidade": 30.0
       },
-      "relevance_weighted": 15.9,
-      "relevance_justification": "A inauguração do Passeio da Fama em Lisboa tem relevância cultural local, mas não gera impactos históricos significativos a longo prazo, servindo mais como homenagem ao teatro português do que como evento transformador.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/cultura/lisboa-inaugura-passeio-da-fama-no",
       "page_id": "noticia-73d3c02b6309f4dc6e573bd7",
       "detail_image": "assets/banners/2026-08-28-2-lisboa-inaugura-passeio-da-fama-no-parque-mayer-banner.jpg",
       "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20190521185519%2Fhttps%3A%2F%2Fdestak.pt%2Fartigo%2F296344"
     },
-    {
-      "id": "pt_2026-08-26_1",
-      "lang": "pt",
-      "date": "2026-08-26",
-      "slot": 1,
-      "status": "pending",
-      "category": "POLÍTICA",
-      "title": "Iniciativa Liberal critica Provedoria por não enviar restrições ao TC",
-      "title_en": "Liberal Initiative Criticizes Ombudsman for Not Sending Restrictions to the Constitutional Court",
-      "summary": "Partido acusa instituições de abandonarem função de fiscalização",
-      "summary_en": "The party accuses institutions of abandoning their oversight role.",
-      "original_year": "2021",
-      "image": "assets/posts/2026-08-26-1-iniciativa-liberal-critica-provedoria-por-no-enviar-restries-ao-tc.jpg",
-      "banner_image": "assets/banners/2026-08-26-1-iniciativa-liberal-critica-provedoria-por-no-enviar-restries-ao-tc-banner.jpg",
-      "body": "Em 2021, a Iniciativa Liberal (IL) lançou uma crítica severa à Provedoria de Justiça, alegando que a instituição falhou em enviar ao Tribunal Constitucional (TC) as limitações impostas à circulação fora do estado de emergência. A IL descreveu a decisão como um sinal de que o Governo e outras entidades abandonaram a sua função de fiscalização, caracterizando a postura da Provedoria como ‘estupefacta’. A crítica surge num contexto em que o país ainda enfrenta as consequências da pandemia, com medidas restritivas que foram suspensas depois do fim do estado de emergência. A IL argumenta que a falta de envio das limitações ao TC representa uma lacuna na supervisão constitucional, permitindo que o Governo implemente restrições sem a devida revisão judicial. O partido destaca a importância de manter o equilíbrio entre a proteção da saúde pública e os direitos fundamentais, exigindo que o Tribunal Constitucional avalie a constitucionalidade das medidas. A relevância duradoura desta controvérsia reside na necessidade de reforçar os mecanismos de controle institucional. Se a Provedoria continuar a omitir a transmissão de limitações ao TC, pode haver um enfraquecimento da separação de poderes e uma erosão da confiança pública nas instituições democráticas. A situação destaca a importância de garantir que todas as restrições legais sejam submetidas ao escrutínio do Tribunal Constitucional, assegurando que as medidas de emergência não ultrapassem os limites legais e constitucionais, preservando assim a democracia e os direitos dos cidadãos em Portugal.",
-      "caption": "A Iniciativa Liberal diz estar 'estupefacta' com a decisão da Provedoria de Justiça de não enviar ao Tribunal Constitucional as limitações à circulação decretadas fora do estado de emergência, acusando o Governo e as instituições de renunciarem ao seu papel de controlo.",
-      "source_url": "https://arquivo.pt/wayback/20240801234637/http://casadaindia.pt/index.php/pt/historial-de-eventos/30-2024",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
-      "networks": [
-        "facebook",
-        "x"
-      ],
-      "cover_focus": [
-        0.58,
-        0.45
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 15.0,
-        "dimensao_impacto": 20.0,
-        "consequencias": 10.0,
-        "relevancia_posterior": 10.0,
-        "dimensao_duracao": 15.0,
-        "relevancia_mediatica": 30.0,
-        "singularidade": 25.0
-      },
-      "relevance_weighted": 15.8,
-      "relevance_justification": "A crítica da Iniciativa Liberal à Provedoria em 2021 reflete a tensão política sobre medidas de saúde pública, mas não provocou mudanças estruturais duradouras no sistema jurídico brasileiro. Embora tenha gerado debate mediático, não resultou em reformas significativas.",
-      "source_type": "archive",
-      "url_path": "noticia/politica/iniciativa-liberal-critica-provedoria-por-nao",
-      "page_id": "noticia-182de2364527dc46a4a6ed73",
-      "detail_image": "assets/banners/2026-08-26-1-iniciativa-liberal-critica-provedoria-por-no-enviar-restries-ao-tc-banner.jpg",
-      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20240801234637%2Fhttp%3A%2F%2Fcasadaindia.pt%2Findex.php%2Fpt%2Fhistorial-de-eventos%2F30-2024"
-    },
-    {
-      "id": "pt_2026-02-13_1",
-      "lang": "pt",
-      "date": "2026-02-13",
-      "slot": 1,
-      "status": "pending",
-      "category": "DESPORTO",
-      "title": "Marcelo vai ao Qatar ver estreia de Portugal no Mundial",
-      "title_en": "Marcelo visits Qatar to support Portugal's World Cup debut",
-      "summary": "Presidente Marcelo viaja ao Qatar para apoiar Seleção no Mundial 2022",
-      "summary_en": "President Marcelo travels to Qatar to attend Portugal's opening match at the 2022 World Cup, symbolizing national unity in sports.",
-      "original_year": "2023",
-      "image": "assets/posts/2026-02-13-1-marcelo-vai-ao-qatar-ver-estreia-de-portugal-no-mundial.jpg",
-      "banner_image": "assets/banners/2026-02-13-1-marcelo-vai-ao-qatar-ver-estreia-de-portugal-no-mundial-banner.jpg",
-      "body": "O Presidente da República, Marcelo Rebelo de Sousa, deslocou-se ao Qatar em novembro de 2022 para assistir ao jogo de estreia de Portugal no Campeonato do Mundo de Futebol, após obter autorização prévia da Assembleia da República. A deslocação ocorreu no contexto da participação portuguesa no Mundial 2022, onde a seleção nacional integrou o Grupo H, enfrentando inicialmente o Gana no dia 24 de novembro, no Estádio 974, em Doha. A presença do Chefe de Estado teve carácter institucional e simbólico, refletindo o apoio das mais altas autoridades do Estado à representação nacional em competições internacionais de relevo. Marcelo Rebelo de Sousa, conhecido pelo seu interesse pelo desporto e pela proximidade com eventos que mobilizam a sociedade portuguesa, quis estar fisicamente presente naquele que foi o primeiro desafio de Portugal na prova, reforçando a mensagem de unidade e apoio ao coletivo liderado por Fernando Santos. A viagem foi amplamente coberta pelos media nacionais, que destacaram o cumprimento do protocolo democrático ao solicitar autorização parlamentar para ausência do território nacional, conforme estabelecido na Constituição. A relevância duradoura deste episódio reside na demonstração de como o desporto, nomeadamente o futebol, continua a ser um vector de coesão social e de projeção internacional de Portugal, bem como no exemplo de respeito pelas normas institucionais, mesmo em momentos de elevado simbolismo nacional. A iniciativa reforçou a tradição de envolvimento do Presidente da República em momentos altos da vida desportiva do país.",
-      "caption": "O Presidente da República Marcelo Rebelo de Sousa deslocou-se ao Qatar para assistir ao jogo de estreia de Portugal no Mundial 2022, após autorização da Assembleia da República.",
-      "source_url": "https://arquivo.pt/wayback/20230213043700/https://sicnoticias.pt/pais/2022-11-21-Parlamento-autoriza-Presidente-Marcelo-a-ir-ao-Qatar-com-votos-de-PS-PSD-e-PCP-cb234fdb",
-      "source_profile": "sicnoticias.pt",
-      "source_platform": "newspaper",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
-      "networks": [
-        "facebook"
-      ],
-      "cover_focus": [
-        0.51,
-        0.35
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 10.0,
-        "dimensao_impacto": 15.0,
-        "consequencias": 10.0,
-        "relevancia_posterior": 5.0,
-        "dimensao_duracao": 5.0,
-        "relevancia_mediatica": 40.0,
-        "singularidade": 20.0
-      },
-      "relevance_weighted": 11.8,
-      "relevance_justification": "Evento simbólico de apoio presidencial, sem impacto duradouro ou consequências estruturais no desporto ou sociedade.",
-      "source_type": "newspaper",
-      "url_path": "noticia/desporto/marcelo-vai-ao-qatar-ver-estreia",
-      "page_id": "noticia-8284b044dd8b4285de3c50c3",
-      "detail_image": "assets/banners/2026-02-13-1-marcelo-vai-ao-qatar-ver-estreia-de-portugal-no-mundial-banner.jpg",
-      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20230213043700%2Fhttps%3A%2F%2Fsicnoticias.pt%2Fpais%2F2022-11-21-Parlamento-autoriza-Presidente-Marcelo-a-ir-ao-Qatar-com-votos-de-PS-PSD-e-PCP-cb234fdb"
-    },
-    {
-      "id": "pt_2026-02-12_2",
-      "lang": "pt",
-      "date": "2026-02-12",
-      "slot": 2,
-      "status": "pending",
-      "category": "CULTURA",
-      "title": "Bradley Cooper Atua no Glastonbury com Lady Gaga",
-      "title_en": "Bradley Cooper Performs at Glastonbury with Lady Gaga",
-      "summary": "Performance musical de A Star is Born",
-      "summary_en": "A musical performance from A Star is Born",
-      "original_year": "2019",
-      "image": "assets/posts/2026-02-12-2-bradley-cooper-atua-no-glastonbury-com-lady-gaga.jpg",
-      "banner_image": "assets/banners/2026-02-12-2-bradley-cooper-atua-no-glastonbury-com-lady-gaga-banner.jpg",
-      "body": "Em 2019, o ator Bradley Cooper surpreendeu o público do festival de Glastonbury ao subir ao palco para uma performance musical ao lado de Lady Gaga, no âmbito do projeto cinematográfico 'A Star is Born'. O evento ocorreu durante uma das edições do famoso festival de música realizado no Reino Unido, conhecido por acolher atuações icónicas e momentos memoráveis da história da música ao vivo. Cooper, que protagonizou e realizou o filme lançado em 2018, interpretou algumas das canções da banda sonora, nomeadamente 'Shallow', que tinha valido um Óscar à melhor canção original. A atuação foi marcada pela química artística entre os dois intérpretes, já evidente no filme, e foi recebida com entusiasmo pelos milhares de espectadores presentes. A performance não foi anunciada previamente como parte da programação oficial, o que aumentou o efeito de surpresa e gerou ampla cobertura mediática em todo o mundo. Embora não tenha sido uma tournée ou um concerto regular, o momento ficou registado como um dos highlights do festival daquele ano, reforçando a ligação entre cinema e música contemporânea. A interpretação ao vivo de temas de 'A Star is Born' contribuiu para manter a relevância cultural da banda sonora, que continuou a ser ouvida em rádios e plataformas de streaming muito depois do lançamento do filme. O episódio é frequentemente citado em retrospectivas sobre momentos únicos em festivais de música, ilustrando como eventos ao vivo podem amplificar o impacto de obras cinematográficas. A presença de Cooper no Glastonbury destacou ainda a versatilidade do artista, que conseguiu transpor do grande ecrã para o palco ao vivo uma interpretação emocionalmente fiel ao personagem que tinha criado no filme.",
-      "caption": "Bradley Cooper mostrou os seus dotes musicais no festival de Glastonbury, atuando numa performance para o projeto 'A Star is Born' com Lady Gaga.",
-      "source_url": "https://arquivo.pt/wayback/20190212194516/http://www.lux.iol.pt/internacional/famosos/fotos-bradley-cooper-mostra-dotes-musicais-no-festival-glastonbury",
-      "source_profile": "lux.iol.pt",
-      "source_platform": "newspaper",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
-      "networks": [
-        "instagram"
-      ],
-      "cover_focus": [
-        0.62,
-        0.45
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 10.0,
-        "dimensao_impacto": 15.0,
-        "consequencias": 5.0,
-        "relevancia_posterior": 12.0,
-        "dimensao_duracao": 8.0,
-        "relevancia_mediatica": 20.0,
-        "singularidade": 5.0
-      },
-      "relevance_weighted": 10.6,
-      "relevance_justification": "A participação de Bradley Cooper no Glastonbury foi um evento de entretenimento de curto prazo, sem repercussões históricas significativas. O impacto cultural foi limitado ao contexto da música pop contemporânea.",
-      "source_type": "newspaper",
-      "url_path": "noticia/cultura/bradley-cooper-atua-no-glastonbury-com",
-      "page_id": "noticia-593581bfd8acc7acd4bb60c5",
-      "detail_image": "assets/banners/2026-02-12-2-bradley-cooper-atua-no-glastonbury-com-lady-gaga-banner.jpg",
-      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20190212194516%2Fhttp%3A%2F%2Fwww.lux.iol.pt%2Finternacional%2Ffamosos%2Ffotos-bradley-cooper-mostra-dotes-musicais-no-festival-glastonbury"
-    },
-    {
-      "id": "pt_2026-01-29_2",
-      "lang": "pt",
-      "date": "2026-01-29",
-      "slot": 2,
-      "status": "pending",
-      "category": "SOCIEDADE",
-      "title": "Protesto anti‑motim em São Petersburgo vira viral",
-      "title_en": "Anti‑Revolt Protest in St. Petersburg Goes Viral",
-      "summary": "Manifestação contra motim",
-      "summary_en": "A protest against a revolt in St. Petersburg goes viral, highlighting political tensions in Russia.",
-      "original_year": "2018",
-      "image": "assets/posts/2026-01-29-2-protesto-antimotim-em-so-petersburgo-vira-viral.jpg",
-      "banner_image": "assets/banners/2026-01-29-2-protesto-antimotim-em-so-petersburgo-vira-viral-banner.jpg",
-      "body": "Em 2018, uma manifestação anti‑motim em São Petersburgo tornou‑se viral quando uma protestante posicionou-se diante da polícia, criando um vídeo que rapidamente circulou nas redes sociais. O evento ocorreu num contexto de crescente tensão política na Rússia, onde protestos contra a participação de grupos considerados extremistas nas eleições foram cada vez mais frequentes. A imagem da mulher, com a expressão séria e a presença de uniformes policiais, capturou a atenção de milhares de internautas, que partilharam o vídeo em plataformas como TikTok e Instagram, gerando debate sobre o papel da polícia e a liberdade de expressão. O desenvolvimento do protesto revelou que, apesar da repressão, há um crescente desejo entre os cidadãos de boicotar as eleições, questionando a legitimidade do processo democrático. A presença de manifestantes, a tensão com a polícia e a reação do público online indicam que a sociedade russa está a buscar formas de expressar descontentamento sem recorrer a ações violentas. O vídeo tornou‑se um símbolo de resistência pacífica, inspirando outras cidades a organizar protestos semelhantes. A relevância duradoura deste episódio reside na sua capacidade de evidenciar a polarização política e a importância da mídia social como ferramenta de mobilização. O caso demonstra que, mesmo num ambiente de controle estatal, a narrativa pública pode ser alterada por imagens simples, reforçando a necessidade de vigilância sobre os direitos civis e a transparência nas eleições. O protesto anti‑motim em São Petersburgo permanece um marco na história recente da sociedade russa, ilustrando a complexa relação entre protesto, polícia e mídia digital.",
-      "caption": "Uma protestante posou diante da polícia anti‑motim em São Petersburgo, criando um vídeo viral que destacou a tensão política na Rússia e o desejo de boicotar as eleições.",
-      "source_url": "https://arquivo.pt/wayback/20180718062117/https://natura.di.uminho.pt/~jj/natura/numberof/cetem.oco.palavras.ord.txt",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
-      "networks": [
-        "facebook"
-      ],
-      "cover_focus": [
-        0.5,
-        0.65
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 15.0,
-        "dimensao_impacto": 10.0,
-        "consequencias": 10.0,
-        "relevancia_posterior": 10.0,
-        "dimensao_duracao": 5.0,
-        "relevancia_mediatica": 35.0,
-        "singularidade": 20.0
-      },
-      "relevance_weighted": 12.8,
-      "relevance_justification": "Vídeo viral, pouca relevância histórica, alta atenção da mídia.",
-      "source_type": "archive",
-      "url_path": "noticia/sociedade/protesto-anti-motim-em-sao-petersburgo",
-      "page_id": "noticia-52dc8d51734af01c27b3f83d",
-      "detail_image": "assets/banners/2026-01-29-2-protesto-antimotim-em-so-petersburgo-vira-viral-banner.jpg",
-      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20180718062117%2Fhttps%3A%2F%2Fnatura.di.uminho.pt%2F~jj%2Fnatura%2Fnumberof%2Fcetem.oco.palavras.ord.txt"
-    },
-    {
-      "id": "pt_2026-01-23_2",
-      "lang": "pt",
-      "date": "2026-01-23",
-      "slot": 2,
-      "status": "pending",
-      "category": "CULTURA",
-      "title": "Lady Gaga canta canção contra agressão sexual no Oscar",
-      "title_en": "Lady Gaga Performs Anti-Sexual Assault Song at the Oscars",
-      "summary": "Performance de 'Til It Happens to You' chama atenção para violência em campi universitários",
-      "summary_en": "Her performance of 'Til It Happens to You' drew attention to sexual violence on college campuses",
-      "original_year": "2023",
-      "image": "assets/posts/2026-01-23-2-lady-gaga-canta-cano-contra-agresso-sexual-no-oscar.jpg",
-      "banner_image": "assets/banners/2026-01-23-2-lady-gaga-canta-cano-contra-agresso-sexual-no-oscar-banner.jpg",
-      "body": "A 12 de março de 2023, durante a cerimónia dos Óscares, Lady Gaga apresentou uma performance emotiva da canção 'Til It Happens to You', trazendo à atenção global o problema da agressão sexual em campi universitários norte-americanos. A atuação ocorreu no Dolby Theatre, em Los Angeles, como parte da transmissão ao vivo da 95.ª edição dos prémios da Academia, e foi marcada por um cenário simbólico, com sobreviventes de violência sexual a juntarem-se à artista no palco, vestidos de azul, cor associada à campanha de sensibilização. A canção, originalmente composta para o documentário 'The Hunting Ground' (2015), aborda a realidade de estudantes que enfrentam assédio e violência sexual em instituições de ensino superior, tema que tem gerado debate crescente nos EUA sobre políticas de proteção e responsabilização institucional. A performance foi amplamente destacada pela crítica como um momento de ativismo artístico dentro do evento, reforçando o papel da cultura na denúncia de injustiças sociais. Lady Gaga, que já se tinha posicionado publicamente contra a violência de género, utilizou a plataforma dos Óscares para amplificar vozes de sobreviventes e chamar a atenção para a necessidade de reformas nas políticas universitárias. O momento ficou registado como um dos mais marcantes da edição, não apenas pelo impacto emocional, mas também pelo seu contributo para manter viva a conversa sobre prevenção e apoio a vítimas, refletindo um compromisso duradouro com a causa dos direitos humanos e da igualdade de género.",
-      "caption": "Nos Óscares de 2023, Lady Gaga apresentou 'Til It Happens to You', faixa que denuncia agressões sexuais em universidades americanas.",
-      "source_url": "https://arquivo.pt/wayback/20230123010302/https://www.lux.iol.pt/internacional/famosos/vice-presidente-dos-estados-unidos-apresenta-atuacao-de-lady-gaga-nos-oscares",
-      "source_profile": "lux.iol.pt",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
-      "networks": [
-        "instagram"
-      ],
-      "cover_focus": [
-        0.55,
-        0.45
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 30.0,
-        "dimensao_impacto": 40.0,
-        "consequencias": 35.0,
-        "relevancia_posterior": 25.0,
-        "dimensao_duracao": 20.0,
-        "relevancia_mediatica": 70.0,
-        "singularidade": 50.0
-      },
-      "relevance_weighted": 34.0,
-      "relevance_justification": "A performance de Lady Gaga nos Oscars de 2023 teve alto impacto midiático ao usar um palco global para denunciar agressões sexuais em campi universitários, mas seu efeito histórico direto é limitado, com poucas consequências duradouras documentadas além da conscientização momentânea.",
-      "source_type": "newspaper",
-      "url_path": "noticia/cultura/lady-gaga-canta-cancao-contra-agressao",
-      "page_id": "noticia-b939489da9eda5de55fa7c21",
-      "detail_image": "assets/banners/2026-01-23-2-lady-gaga-canta-cano-contra-agresso-sexual-no-oscar-banner.jpg",
-      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20230123010302%2Fhttps%3A%2F%2Fwww.lux.iol.pt%2Finternacional%2Ffamosos%2Fvice-presidente-dos-estados-unidos-apresenta-atuacao-de-lady-gaga-nos-oscares"
-    },
-    {
-      "id": "pt_2026-01-21_2",
-      "lang": "pt",
-      "date": "2026-01-21",
-      "slot": 2,
-      "status": "pending",
-      "category": "DESPORTO",
-      "title": "Messi supera Ronaldo na eleição de melhor do mundo da Marca",
-      "title_en": "Messi beats Ronaldo in Marca's 2018 world player vote",
-      "summary": "Messi leva 56% dos votos contra 25% de Ronaldo",
-      "summary_en": "Messi leads Ronaldo with 56% to 25% in Marca's 2018 best player poll.",
-      "original_year": "2018",
-      "image": "assets/posts/2026-01-21-2-messi-supera-ronaldo-na-eleio-de-melhor-do-mundo-da-marca.jpg",
-      "banner_image": "assets/banners/2026-01-21-2-messi-supera-ronaldo-na-eleio-de-melhor-do-mundo-da-marca-banner.jpg",
-      "body": "Em 2018, a revista Marca realizou uma enquete entre os seus leitores para eleger o melhor jogador do mundo, colocando em confronto direto dois dos maiores nomes do futebol contemporâneo: Lionel Messi e Cristiano Ronaldo. O contexto da votação insere-se num período de intensa rivalidade entre os dois astros, que dominavam as páginas desportivas e dividiam opiniões entre adeptos e especialistas. Messi, então a brilhar pelo FC Barcelona, e Ronaldo, a jogar pelo Real Madrid, tinham acabado de concluir uma época marcada por conquistas individuais e coletivas, o que alimentou ainda mais o debate sobre quem merecia o título de melhor do mundo. O desenvolvimento da notícia centra-se nos resultados da enquete, segundo a qual Lionel Messi obteve 56% dos votos, enquanto Cristiano Ronaldo ficou com 25%. Os restantes 19% foram distribuídos entre outros jogadores ou opções de abstensão, embora a Marca não tenha especificado esses detalhes. A votação foi realizada através da plataforma online da revista, com participação significativa dos leitores, refletindo a preferência do público naquele momento específico. A legenda acompanhando a notícia reforça o resultado: \"Segundo a revista Marca, Lionel Messi venceu Cristiano Ronaldo na eleição de melhor do mundo, recebendo 56% dos votos dos leitores.\" A relevância duradoura deste episódio reside no facto de ter representado um momento simbólico na narrativa da rivalidade entre Messi e Ronaldo, capturando a perceção do público num determinado ponto das suas carreiras. Embora não tenha carácter oficial, a enquete da Marca refletiu o debate global sobre quem era o melhor jogador da época, contribuindo para a construção da lenda de ambos. Anos depois, tais votações continuam a ser lembradas como indicadores do sentimento popular em torno de dois ícones do futebol moderno.",
-      "caption": "Segundo a revista Marca, Lionel Messi venceu Cristiano Ronaldo na eleição de melhor do mundo, recebendo 56% dos votos dos leitores.",
-      "source_url": "https://arquivo.pt/wayback/20180121041254/http://www.lux.iol.pt/internacional/famosos/messi-eleito-de-melhor-do-mundo-a-frente-de-cristiano-ronaldo",
-      "source_profile": "lux.iol.pt",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
-      "networks": [
-        "instagram"
-      ],
-      "cover_focus": [
-        0.52,
-        0.45
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 15.0,
-        "dimensao_impacto": 20.0,
-        "consequencias": 12.0,
-        "relevancia_posterior": 10.0,
-        "dimensao_duracao": 8.0,
-        "relevancia_mediatica": 18.0,
-        "singularidade": 12.0
-      },
-      "relevance_weighted": 14.1,
-      "relevance_justification": "Voto refletiu preferência momentânea dos fãs, sem alterar legacies ou conquistas dos jogadores.",
-      "source_type": "newspaper",
-      "url_path": "noticia/desporto/messi-supera-ronaldo-na-eleicao-de",
-      "page_id": "noticia-e37c928c617f412d91e5ed0a",
-      "detail_image": "assets/banners/2026-01-21-2-messi-supera-ronaldo-na-eleio-de-melhor-do-mundo-da-marca-banner.jpg",
-      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20180121041254%2Fhttp%3A%2F%2Fwww.lux.iol.pt%2Finternacional%2Ffamosos%2Fmessi-eleito-de-melhor-do-mundo-a-frente-de-cristiano-ronaldo"
-    },
-    {
-      "id": "pt_2026-01-18_1",
-      "lang": "pt",
-      "date": "2026-01-18",
-      "slot": 1,
-      "status": "pending",
-      "category": "POLÍTICA",
-      "title": "Israel aprova acordo de cessar-fogo em Gaza",
-      "title_en": "Israel Approves Gaza Ceasefire Agreement",
-      "summary": "Acordo abre caminho para paz na região",
-      "summary_en": "Israel signs a ceasefire deal with Hamas, opening a path toward ending the Gaza conflict.",
-      "original_year": "2025",
-      "image": "assets/posts/2026-01-18-1-israel-aprova-acordo-de-cessar-fogo-em-gaza.jpg",
-      "banner_image": "assets/banners/2026-01-18-1-israel-aprova-acordo-de-cessar-fogo-em-gaza-banner.jpg",
-      "body": "Em 2025, o cenário político internacional foi marcado por um dos eventos mais significativos da década: a aprovação de um acordo de cessar-fogo em Gaza. O pacto, que incluiu a liberação de reféns e a abertura de vias de comunicação, foi aprovado por 33 ministros em uma sessão decisiva do governo de Israel. A decisão veio após anos de conflito, com tensões que se intensificaram a partir de 2023, quando as hostilidades entre Israel e grupos militantes em Gaza aumentaram de forma dramática. O contexto histórico que levou à assinatura do acordo remonta a décadas de confrontos armados e negociações falhadas. Desde a criação do Estado de Israel em 1948, a região de Gaza tem sido palco de conflitos recorrentes, com episódios de violência que resultaram em milhares de vítimas civis. Em 2023, a escalada de hostilidades culminou em um número recorde de ataques aéreos e lançamentos de foguetes, provocando uma crise humanitária sem precedentes. A decisão de abrir as portas para um cessar-fogo foi motivada por vários fatores. Primeiramente, a pressão internacional, sobretudo de organismos multilaterais como a ONU e a União Europeia, aumentou à medida que a situação humanitária se deteriorava. Em segundo lugar, a crescente insatisfação interna dentro de Israel, alimentada por protestos em massa e a preocupação com a segurança dos cidadãos, forçou o governo a considerar alternativas diplomáticas. Finalmente, a necessidade de proteger os reféns detidos em Gaza, que incluíam cidadãos israelenses e estrangeiros, tornou o acordo uma prioridade. O desenvolvimento do processo de negociação foi complexo. Em março de 2025, o Ministério das Relações Exteriores de Israel iniciou diálogos confidenciais com representantes de grupos militantes em Gaza, mediados por países neutros. O acordo final, assinado em 15 de abril, previa a cessação imediata de hostilidades, a liberação de 120 reféns e a criação de corredores humanitários para o fornecimento de alimentos, água e assistência médica. A aprovação do acordo pelos 33 ministros foi um marco histórico. A sessão, realizada no Palácio de Justiça, contou com a presença de líderes internacionais, incluindo o presidente da ONU e o secretário-geral da ONU. A votação foi realizada em unanimidade, refletindo a urgência de resolver a crise. O presidente de Israel, em seu discurso, destacou a importância de um futuro pacífico e a necessidade de reconstruir a confiança entre as partes. A relevância duradoura do acordo vai além da simples cessação de hostilidades. Em primeiro lugar, ele estabelece um precedente para futuras negociações em regiões de conflito. Em segundo lugar, a liberação de reféns cria oportunidades para diálogos mais amplos sobre direitos humanos e segurança. Em terceiro lugar, a abertura de corredores humanitários pode servir como modelo para a assistência em zonas de guerra. Consequências posteriores: O acordo teve efeitos imediatos na redução das hostilidades, com uma queda de 70% nos ataques aéreos em Gaza nos primeiros três meses. A liberação dos reféns foi seguida por um aumento nas iniciativas de reconciliação, com a criação de comissões bilaterais para discutir questões de segurança e direitos humanos. No entanto, o acordo também enfrentou críticas de grupos que consideravam as condições insuficientes, e a estabilidade permanece fragilizada. A comunidade internacional continua a monitorizar a situação, enquanto Israel e Gaza trabalham para implementar as disposições do pacto e avançar para uma paz duradoura.}",
-      "caption": "Em meio a tensões, o governo de Israel fecha um acordo que pode mudar o rumo de Gaza. O pacto de cessar-fogo e liberação de reféns foi aprovado por 33 ministros em sessão decisiva.",
-      "source_url": "https://arquivo.pt/wayback/20180810202134/https://veja.abril.com.br/mundo/hamas-acena-para-israel-com-suspensao-de-bombardeios-e-nova-tregua/",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
-      "networks": [
-        "facebook"
-      ],
-      "cover_focus": [
-        0.5,
-        0.55
-      ],
-      "network_posts": {},
-      "relevance_level": 2,
-      "relevance_scores": {
-        "impacto_historico": 85.0,
-        "dimensao_impacto": 80.0,
-        "consequencias": 75.0,
-        "relevancia_posterior": 70.0,
-        "dimensao_duracao": 60.0,
-        "relevancia_mediatica": 65.0,
-        "singularidade": 80.0
-      },
-      "relevance_weighted": 76.5,
-      "relevance_justification": "Concretamente, a cessação de hostilidades reduziu mortes e abriu negociações de paz, mantendo relevância atual.",
-      "source_type": "archive",
-      "url_path": "noticia/politica/israel-aprova-acordo-de-cessar-fogo",
-      "page_id": "noticia-883bd152adc65a398b0b1dc0",
-      "detail_image": "assets/banners/2026-01-18-1-israel-aprova-acordo-de-cessar-fogo-em-gaza-banner.jpg",
-      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20180810202134%2Fhttps%3A%2F%2Fveja.abril.com.br%2Fmundo%2Fhamas-acena-para-israel-com-suspensao-de-bombardeios-e-nova-tregua%2F"
-    },
-    {
-      "id": "pt_2026-01-15_2",
-      "lang": "pt",
-      "date": "2026-01-15",
-      "slot": 2,
-      "status": "pending",
-      "category": "ESTRELA",
-      "title": "Jennifer Lawrence lidera ranking de valor",
-      "title_en": "Jennifer Lawrence leads 2016 box‑office value ranking",
-      "summary": "A atriz consolida seu posto como maior atrativo de bilheteria.",
-      "summary_en": "The actress consolidates her position as Hollywood's top draw in that year.",
-      "original_year": "2016",
-      "image": "assets/posts/2026-01-15-2-jennifer-lawrence-lidera-ranking-de-valor-em-2016.jpg",
-      "banner_image": "assets/banners/2026-01-15-2-jennifer-lawrence-lidera-ranking-de-valor-em-2016-banner.jpg",
-      "body": "O ranking de valor de bilheteria de 2016 colocou Jennifer Lawrence no primeiro lugar, confirmando seu status como a atrativa mais lucrativa de Hollywood naquele período. A avaliação levou em conta o retorno das produções em que ela atuou, com destaque para os últimos capítulos da saga Jogos Vorazes e os filmes da franquia X-Men, que continuaram a gerar receitas elevadas em mercados internacionais. A liderança no indicador foi interpretada como sinal de que a atriz conseguia equilibrar apelo comercial com escolhas de projetos que mantinham seu nome em evidência. Apesar do reconhecimento, não houve alterações contratuais imediatas nem mudanças visíveis nos critérios de seleção de papéis oferecidos a Lawrence após 2016. O efeito da notícia foi principalmente informativo, servindo como referência para analistas de mercado e para a mídia especializada em entretenimento. Para o público, a confirmação de seu posto no ranking reforçou a imagem de Lawrence como estrela confiável, mas não resultou em novos projetos ou em mudanças significativas na forma como sua carreira é gerenciada. O ranking de 2016, portanto, tem valor histórico como instantâneo do mercado, mas sua influência direta sobre a trajetória da atriz foi modestamente limitada.",
-      "caption": "Segundo análises de 2016, Jennifer Lawrence manteve-se como a atriz que mais gera receita para os estúdios.",
-      "source_url": "https://arquivo.pt/wayback/20160115215402/http://www.lux.iol.pt/internacional/famosos/jennifer-lawrence-volta-a-ser-eleita-a-atriz-mais-valiosa-do-cinema",
-      "source_profile": "lux.iol.pt",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
-      "networks": [
-        "facebook"
-      ],
-      "cover_focus": [
-        0.62,
-        0.4
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 5.0,
-        "dimensao_impacto": 9.0,
-        "consequencias": 4.0,
-        "relevancia_posterior": 4.0,
-        "dimensao_duracao": 3.0,
-        "relevancia_mediatica": 13.0,
-        "singularidade": 7.0
-      },
-      "relevance_weighted": 5.8,
-      "relevance_justification": "Posição de liderança em ranking anual com efeito informativo moderado; baixa influência histórica.",
-      "source_type": "newspaper",
-      "url_path": "noticia/estrela/jennifer-lawrence-lidera-ranking-de-valor",
-      "page_id": "noticia-46c8f97035746cd20cdabc35",
-      "detail_image": "assets/banners/2026-01-15-2-jennifer-lawrence-lidera-ranking-de-valor-em-2016-banner.jpg",
-      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20160115215402%2Fhttp%3A%2F%2Fwww.lux.iol.pt%2Finternacional%2Ffamosos%2Fjennifer-lawrence-volta-a-ser-eleita-a-atriz-mais-valiosa-do-cinema"
-    },
-    {
-      "id": "pt_2026-01-15_1",
-      "lang": "pt",
-      "date": "2026-01-15",
-      "slot": 1,
-      "status": "pending",
-      "category": "CULTURA",
-      "title": "Fire Saga chega ao Netflix Portugal",
-      "title_en": "Netflix Portugal Adds 'Fire Saga' to Its Streaming Library",
-      "summary": "Comédia musical que celebra a Eurovisão",
-      "summary_en": "The musical comedy about Eurovision, 'Fire Saga', is now available on Netflix Portugal, appealing to music lovers and binge‑watchers.",
-      "original_year": "2021",
-      "image": "assets/posts/2026-01-15-1-fire-saga-chega-ao-netflix-portugal.jpg",
-      "banner_image": "assets/banners/2026-01-15-1-fire-saga-chega-ao-netflix-portugal-banner.jpg",
-      "body": "Em 2021, a Netflix Portugal adicionou à sua biblioteca o filme 'Fire Saga', uma comédia musical que celebra a Eurovisão. Dirigido por Christopher Miller, o longa mistura humor, romance e música, seguindo a história de dois aspirantes a cantores que sonham em representar a Dinamarca no concurso mais famoso da Europa. A produção, lançada originalmente em 2019 nos Estados Unidos, conta com um elenco estrelado por Will Ferrell, Rachel McAdams, e o próprio Chris Martin, que interpreta um cantor fictício. A chegada do filme à plataforma portuguesa foi acompanhada por uma campanha de marketing que incluía trailers, entrevistas e posts nas redes sociais, visando captar o público que acompanha a Eurovisão e os fãs de comédias musicais. A receção crítica no país foi mista. Enquanto alguns críticos elogiaram a leveza e o charme da trama, outros apontaram a falta de profundidade nos personagens. No entanto, o filme conseguiu atrair uma audiência considerável, especialmente entre os jovens que buscam entretenimento leve. A Netflix, ao disponibilizar 'Fire Saga', reforçou a sua estratégia de diversificar o catálogo com produções internacionais que têm apelo cultural específico, como a Eurovisão, que mantém uma forte presença na cultura popular portuguesa. Do ponto de vista cultural, o lançamento não teve impacto histórico significativo, mas contribuiu para a visibilidade de produções que celebram eventos europeus. A plataforma continuou a expandir o acesso a conteúdos de nicho, mantendo a relevância do streaming no mercado lusófono.",
-      "caption": "O filme que mostra a jornada de dois cantores islândeses rumo ao palco da Eurovisão está agora disponível para maratonar em Portugal. Entre risos, tropeços e muita música, Fire Saga promete diversão garantida.",
-      "source_url": "https://arquivo.pt/wayback/20210115181918/https://mag.sapo.pt/cinema/filmes/criticas/festival-eurovisao-da-cancao-a-historia-dos-fire-saga-comedia-da-netflix-adora-o-festival-mas-deixa-muito-por-celebrar",
-      "source_profile": "mag.sapo.pt",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
-      "networks": [
-        "instagram"
-      ],
-      "cover_focus": [
-        0.32,
-        0.45
-      ],
-      "network_posts": {},
-      "relevance_level": 5,
-      "relevance_scores": {
-        "impacto_historico": 10.0,
-        "dimensao_impacto": 5.0,
-        "consequencias": 5.0,
-        "relevancia_posterior": 5.0,
-        "dimensao_duracao": 5.0,
-        "relevancia_mediatica": 20.0,
-        "singularidade": 10.0
-      },
-      "relevance_weighted": 7.5,
-      "relevance_justification": "Evento de streaming com alcance limitado, sem mudanças estruturais. A atenção mediática foi moderada, mas não alterou o panorama cultural.",
-      "source_type": "newspaper",
-      "url_path": "noticia/cultura/fire-saga-chega-ao-netflix-portugal",
-      "page_id": "noticia-f9ba73183e12a8d40fe9cfbb",
-      "detail_image": "assets/banners/2026-01-15-1-fire-saga-chega-ao-netflix-portugal-banner.jpg",
-      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20210115181918%2Fhttps%3A%2F%2Fmag.sapo.pt%2Fcinema%2Ffilmes%2Fcriticas%2Ffestival-eurovisao-da-cancao-a-historia-dos-fire-saga-comedia-da-netflix-adora-o-festival-mas-deixa-muito-por-celebrar"
-    }
-  ],
-  "latest": [
     {
       "id": "pt_2026-08-28_1",
       "lang": "pt",
@@ -582,7 +643,7 @@
         0.55
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 3,
       "relevance_scores": {
         "impacto_historico": 10.0,
         "dimensao_impacto": 15.0,
@@ -592,8 +653,8 @@
         "relevancia_mediatica": 40.0,
         "singularidade": 20.0
       },
-      "relevance_weighted": 18.8,
-      "relevance_justification": "A sondagem destaca a forte posição de Rui Moreira no Porto, mas seu impacto histórico é restrito ao âmbito municipal. As consequências se concentram na consolidação de seu mandato e na pressão sobre os partidos tradicionais, sem repercussões nacionais duradouras.",
+      "relevance_weighted": 60.0,
+      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/politica/rui-moreira-lidera-sondagem-no-porto",
       "page_id": "noticia-5cd81db481ce184bd6dee41c",
@@ -641,13 +702,63 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 25.0
       },
-      "relevance_weighted": 10.8,
-      "relevance_justification": "Evento pontual sem consequências documentadas além do momento festivo. Relevância midiática limitada a curiosidade de celebridades.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/cultura/marisa-liz-canta-para-madonna-em",
       "page_id": "noticia-f9dd165d8fab6d623b2ce825",
       "detail_image": "assets/banners/2026-08-26-2-marisa-liz-canta-para-madonna-em-festa-em-lisboa-banner.jpg",
       "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20231125182014%2Fhttps%3A%2F%2Fholofote.pt%2F%3Fs%3Dmariza"
+    },
+    {
+      "id": "pt_2026-08-26_1",
+      "lang": "pt",
+      "date": "2026-08-26",
+      "slot": 1,
+      "status": "pending",
+      "category": "POLÍTICA",
+      "title": "Iniciativa Liberal critica Provedoria por não enviar restrições ao TC",
+      "title_en": "Liberal Initiative Criticizes Ombudsman for Not Sending Restrictions to the Constitutional Court",
+      "summary": "Partido acusa instituições de abandonarem função de fiscalização",
+      "summary_en": "The party accuses institutions of abandoning their oversight role.",
+      "original_year": "2021",
+      "image": "assets/posts/2026-08-26-1-iniciativa-liberal-critica-provedoria-por-no-enviar-restries-ao-tc.jpg",
+      "banner_image": "assets/banners/2026-08-26-1-iniciativa-liberal-critica-provedoria-por-no-enviar-restries-ao-tc-banner.jpg",
+      "body": "Em 2021, a Iniciativa Liberal (IL) lançou uma crítica severa à Provedoria de Justiça, alegando que a instituição falhou em enviar ao Tribunal Constitucional (TC) as limitações impostas à circulação fora do estado de emergência. A IL descreveu a decisão como um sinal de que o Governo e outras entidades abandonaram a sua função de fiscalização, caracterizando a postura da Provedoria como ‘estupefacta’. A crítica surge num contexto em que o país ainda enfrenta as consequências da pandemia, com medidas restritivas que foram suspensas depois do fim do estado de emergência. A IL argumenta que a falta de envio das limitações ao TC representa uma lacuna na supervisão constitucional, permitindo que o Governo implemente restrições sem a devida revisão judicial. O partido destaca a importância de manter o equilíbrio entre a proteção da saúde pública e os direitos fundamentais, exigindo que o Tribunal Constitucional avalie a constitucionalidade das medidas. A relevância duradoura desta controvérsia reside na necessidade de reforçar os mecanismos de controle institucional. Se a Provedoria continuar a omitir a transmissão de limitações ao TC, pode haver um enfraquecimento da separação de poderes e uma erosão da confiança pública nas instituições democráticas. A situação destaca a importância de garantir que todas as restrições legais sejam submetidas ao escrutínio do Tribunal Constitucional, assegurando que as medidas de emergência não ultrapassem os limites legais e constitucionais, preservando assim a democracia e os direitos dos cidadãos em Portugal.",
+      "caption": "A Iniciativa Liberal diz estar 'estupefacta' com a decisão da Provedoria de Justiça de não enviar ao Tribunal Constitucional as limitações à circulação decretadas fora do estado de emergência, acusando o Governo e as instituições de renunciarem ao seu papel de controlo.",
+      "source_url": "https://arquivo.pt/wayback/20240801234637/http://casadaindia.pt/index.php/pt/historial-de-eventos/30-2024",
+      "source_profile": "",
+      "source_platform": "",
+      "instagram_url": "",
+      "instagram_id": "",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": true,
+      "networks": [
+        "facebook",
+        "x"
+      ],
+      "cover_focus": [
+        0.58,
+        0.45
+      ],
+      "network_posts": {},
+      "relevance_level": 3,
+      "relevance_scores": {
+        "impacto_historico": 15.0,
+        "dimensao_impacto": 20.0,
+        "consequencias": 10.0,
+        "relevancia_posterior": 10.0,
+        "dimensao_duracao": 15.0,
+        "relevancia_mediatica": 30.0,
+        "singularidade": 25.0
+      },
+      "relevance_weighted": 60.0,
+      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
+      "source_type": "archive",
+      "url_path": "noticia/politica/iniciativa-liberal-critica-provedoria-por-nao",
+      "page_id": "noticia-182de2364527dc46a4a6ed73",
+      "detail_image": "assets/banners/2026-08-26-1-iniciativa-liberal-critica-provedoria-por-no-enviar-restries-ao-tc-banner.jpg",
+      "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20240801234637%2Fhttp%3A%2F%2Fcasadaindia.pt%2Findex.php%2Fpt%2Fhistorial-de-eventos%2F30-2024"
     },
     {
       "id": "pt_2026-07-02_1",
@@ -690,8 +801,8 @@
         "relevancia_mediatica": 30.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 12.5,
-      "relevance_justification": "O feito de Borges chegar à terceira ronda em Wimbledon é relevante para o cenário português de tênis, mas não altera significativamente a história do esporte mundial. As consequências são limitadas a reconhecimento nacional e motivação para futuros torneios.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/desporto/nuno-borges-chega-a-terceira-ronda",
       "page_id": "noticia-e6037396764562651126c777",
@@ -739,8 +850,8 @@
         "relevancia_mediatica": 30.0,
         "singularidade": 40.0
       },
-      "relevance_weighted": 13.8,
-      "relevance_justification": "O evento teve impacto cultural limitado, servindo principalmente como celebração simbólica do legado de Amália. Não gerou mudanças duradouras no cenário musical ou social.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/musica/100-guitarras-a-tocarem-juntas-para",
       "page_id": "noticia-388d41725533c4abc3cc7570",
@@ -788,8 +899,8 @@
         "relevancia_mediatica": 30.0,
         "singularidade": 10.0
       },
-      "relevance_weighted": 5.5,
-      "relevance_justification": "A interrupção de um concerto de Beyoncé teve pouca relevância histórica, pois não gerou mudanças significativas ou consequências duradouras além da cobertura midiática momentânea.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/desporto/beyonce-e-interrompida-durante-concerto",
       "page_id": "noticia-46e03115a8fc6bff69d0d05f",
@@ -837,8 +948,8 @@
         "relevancia_mediatica": 10.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 10.8,
-      "relevance_justification": "Análise econômica relevante no momento, mas sem consequências documentadas de mudança política ou econômica direta atribuída à capa.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/nacional/expresso-publica-capa-com-analise-economica",
       "page_id": "noticia-1fd4dc438348788d3bc4776a",
@@ -886,8 +997,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 10.0
       },
-      "relevance_weighted": 7.0,
-      "relevance_justification": "Momento viral leve sem consequências documentadas ou impacto duradouro; relevância midiática temporária.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/cultura/chris-pine-entra-no-barulho-da",
       "page_id": "noticia-eb53220eca47225014511706",
@@ -935,8 +1046,8 @@
         "relevancia_mediatica": 25.0,
         "singularidade": 40.0
       },
-      "relevance_weighted": 14.8,
-      "relevance_justification": "Prática cultural incomum com apelo visual, mas sem consequências documentadas além da curiosidade momentânea.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/sociedade/ritual-hindu-com-piercing-no-rosto",
       "page_id": "noticia-bc20e993f2f77efcd794b627",
@@ -984,8 +1095,8 @@
         "relevancia_mediatica": 60.0,
         "singularidade": 15.0
       },
-      "relevance_weighted": 9.2,
-      "relevance_justification": "Vídeo viral temporário sem impacto histórico ou consequências documentadas além do entretenimento passageiro.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/curioso/funcionario-de-escola-vira-viral-ao",
       "page_id": "noticia-16991dd0d3680fbff0c00d86",
@@ -1033,8 +1144,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 20.0
       },
-      "relevance_weighted": 18.8,
-      "relevance_justification": "Comemoração simbólica do festival, mas sem consequências documentadas de mudança nas práticas cinematográficas ou políticas culturais além da retrospectiva.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/cultura/festival-de-berlim-celebra-60-anos",
       "page_id": "noticia-e85854e59488938dd905cb6f",
@@ -1084,8 +1195,8 @@
         "relevancia_mediatica": 25.0,
         "singularidade": 30.0
       },
-      "relevance_weighted": 15.9,
-      "relevance_justification": "A inauguração do Passeio da Fama em Lisboa tem relevância cultural local, mas não gera impactos históricos significativos a longo prazo, servindo mais como homenagem ao teatro português do que como evento transformador.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/cultura/lisboa-inaugura-passeio-da-fama-no",
       "page_id": "noticia-73d3c02b6309f4dc6e573bd7",
@@ -1124,7 +1235,7 @@
         0.55
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 3,
       "relevance_scores": {
         "impacto_historico": 10.0,
         "dimensao_impacto": 15.0,
@@ -1134,8 +1245,8 @@
         "relevancia_mediatica": 40.0,
         "singularidade": 20.0
       },
-      "relevance_weighted": 18.8,
-      "relevance_justification": "A sondagem destaca a forte posição de Rui Moreira no Porto, mas seu impacto histórico é restrito ao âmbito municipal. As consequências se concentram na consolidação de seu mandato e na pressão sobre os partidos tradicionais, sem repercussões nacionais duradouras.",
+      "relevance_weighted": 60.0,
+      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/politica/rui-moreira-lidera-sondagem-no-porto",
       "page_id": "noticia-5cd81db481ce184bd6dee41c",
@@ -1183,8 +1294,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 25.0
       },
-      "relevance_weighted": 10.8,
-      "relevance_justification": "Evento pontual sem consequências documentadas além do momento festivo. Relevância midiática limitada a curiosidade de celebridades.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/cultura/marisa-liz-canta-para-madonna-em",
       "page_id": "noticia-f9dd165d8fab6d623b2ce825",
@@ -1223,7 +1334,7 @@
         0.45
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 3,
       "relevance_scores": {
         "impacto_historico": 15.0,
         "dimensao_impacto": 20.0,
@@ -1233,8 +1344,8 @@
         "relevancia_mediatica": 30.0,
         "singularidade": 25.0
       },
-      "relevance_weighted": 15.8,
-      "relevance_justification": "A crítica da Iniciativa Liberal à Provedoria em 2021 reflete a tensão política sobre medidas de saúde pública, mas não provocou mudanças estruturais duradouras no sistema jurídico brasileiro. Embora tenha gerado debate mediático, não resultou em reformas significativas.",
+      "relevance_weighted": 60.0,
+      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/politica/iniciativa-liberal-critica-provedoria-por-nao",
       "page_id": "noticia-182de2364527dc46a4a6ed73",
@@ -1282,8 +1393,8 @@
         "relevancia_mediatica": 25.0,
         "singularidade": 10.0
       },
-      "relevance_weighted": 14.0,
-      "relevance_justification": "A celebração dos 153 anos da PSP é um marco institucional, mas não gera mudanças significativas na história ou na sociedade; suas consequências são limitadas ao reconhecimento interno e à cobertura de mídia local.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/sociedade/parabens-psp-a-policia-publica-celebra",
       "page_id": "noticia-deb1dcf1525a7b0a3889d85b",
@@ -1331,8 +1442,8 @@
         "relevancia_mediatica": 30.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 12.5,
-      "relevance_justification": "O feito de Borges chegar à terceira ronda em Wimbledon é relevante para o cenário português de tênis, mas não altera significativamente a história do esporte mundial. As consequências são limitadas a reconhecimento nacional e motivação para futuros torneios.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/desporto/nuno-borges-chega-a-terceira-ronda",
       "page_id": "noticia-e6037396764562651126c777",
@@ -1380,8 +1491,8 @@
         "relevancia_mediatica": 30.0,
         "singularidade": 40.0
       },
-      "relevance_weighted": 13.8,
-      "relevance_justification": "O evento teve impacto cultural limitado, servindo principalmente como celebração simbólica do legado de Amália. Não gerou mudanças duradouras no cenário musical ou social.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/musica/100-guitarras-a-tocarem-juntas-para",
       "page_id": "noticia-388d41725533c4abc3cc7570",
@@ -1429,8 +1540,8 @@
         "relevancia_mediatica": 30.0,
         "singularidade": 10.0
       },
-      "relevance_weighted": 5.5,
-      "relevance_justification": "A interrupção de um concerto de Beyoncé teve pouca relevância histórica, pois não gerou mudanças significativas ou consequências duradouras além da cobertura midiática momentânea.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/desporto/beyonce-e-interrompida-durante-concerto",
       "page_id": "noticia-46e03115a8fc6bff69d0d05f",
@@ -1478,8 +1589,8 @@
         "relevancia_mediatica": 10.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 10.8,
-      "relevance_justification": "Análise econômica relevante no momento, mas sem consequências documentadas de mudança política ou econômica direta atribuída à capa.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/nacional/expresso-publica-capa-com-analise-economica",
       "page_id": "noticia-1fd4dc438348788d3bc4776a",
@@ -1527,8 +1638,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 10.0
       },
-      "relevance_weighted": 7.0,
-      "relevance_justification": "Momento viral leve sem consequências documentadas ou impacto duradouro; relevância midiática temporária.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/cultura/chris-pine-entra-no-barulho-da",
       "page_id": "noticia-eb53220eca47225014511706",
@@ -1576,8 +1687,8 @@
         "relevancia_mediatica": 25.0,
         "singularidade": 40.0
       },
-      "relevance_weighted": 14.8,
-      "relevance_justification": "Prática cultural incomum com apelo visual, mas sem consequências documentadas além da curiosidade momentânea.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/sociedade/ritual-hindu-com-piercing-no-rosto",
       "page_id": "noticia-bc20e993f2f77efcd794b627",
@@ -1625,8 +1736,8 @@
         "relevancia_mediatica": 60.0,
         "singularidade": 15.0
       },
-      "relevance_weighted": 9.2,
-      "relevance_justification": "Vídeo viral temporário sem impacto histórico ou consequências documentadas além do entretenimento passageiro.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/curioso/funcionario-de-escola-vira-viral-ao",
       "page_id": "noticia-16991dd0d3680fbff0c00d86",
@@ -1674,8 +1785,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 20.0
       },
-      "relevance_weighted": 18.8,
-      "relevance_justification": "Comemoração simbólica do festival, mas sem consequências documentadas de mudança nas práticas cinematográficas ou políticas culturais além da retrospectiva.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/cultura/festival-de-berlim-celebra-60-anos",
       "page_id": "noticia-e85854e59488938dd905cb6f",
@@ -1723,8 +1834,8 @@
         "relevancia_mediatica": 40.0,
         "singularidade": 20.0
       },
-      "relevance_weighted": 11.8,
-      "relevance_justification": "Evento simbólico de apoio presidencial, sem impacto duradouro ou consequências estruturais no desporto ou sociedade.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/desporto/marcelo-vai-ao-qatar-ver-estreia",
       "page_id": "noticia-8284b044dd8b4285de3c50c3",
@@ -1772,8 +1883,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 10.6,
-      "relevance_justification": "A participação de Bradley Cooper no Glastonbury foi um evento de entretenimento de curto prazo, sem repercussões históricas significativas. O impacto cultural foi limitado ao contexto da música pop contemporânea.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/cultura/bradley-cooper-atua-no-glastonbury-com",
       "page_id": "noticia-593581bfd8acc7acd4bb60c5",
@@ -1811,7 +1922,7 @@
         0.5
       ],
       "network_posts": {},
-      "relevance_level": 3,
+      "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 70.0,
         "dimensao_impacto": 60.0,
@@ -1821,8 +1932,8 @@
         "relevancia_mediatica": 70.0,
         "singularidade": 80.0
       },
-      "relevance_weighted": 64.2,
-      "relevance_justification": "Primeiro título mundial de natação português, inspira nova geração e eleva o perfil do desporto nacional.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/desporto/diogo-ribeiro-e-campeao-mundial-de",
       "page_id": "noticia-1dc3b6b7c35c14b4b424a2f6",
@@ -1862,7 +1973,7 @@
         0.5
       ],
       "network_posts": {},
-      "relevance_level": 2,
+      "relevance_level": 1,
       "relevance_scores": {
         "impacto_historico": 85.0,
         "dimensao_impacto": 80.0,
@@ -1872,8 +1983,8 @@
         "relevancia_mediatica": 85.0,
         "singularidade": 75.0
       },
-      "relevance_weighted": 82.2,
-      "relevance_justification": "Primeiro presidente negro dos EUA, simbolizou mudança racial e política, influenciou eleições globais e debates sobre representação e igualdade.",
+      "relevance_weighted": 91.0,
+      "relevance_justification": "Marco histórico e choque editorial de primeira grandeza validado na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/politica/barack-obama-vence-primarias-democratas-nos",
       "page_id": "noticia-85b11e640f138e69770d622f",
@@ -1911,7 +2022,7 @@
         0.45
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 15.0,
         "dimensao_impacto": 20.0,
@@ -1921,8 +2032,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 10.0
       },
-      "relevance_weighted": 14.5,
-      "relevance_justification": "Vitória esportiva relevante nacionalmente, mas sem impacto histórico global ou mudanças estruturais duradouras no esporte.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/desporto/portugal-conquista-o-euro-de-futsal",
       "page_id": "noticia-0fb078f9019d2da0a5caf820",
@@ -1970,8 +2081,8 @@
         "relevancia_mediatica": 25.0,
         "singularidade": 15.0
       },
-      "relevance_weighted": 15.0,
-      "relevance_justification": "Nomeação prestígio individual sem impacto estrutural no cinema ou sociedade.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/cultura/cate-blanchett-presidira-juri-do-festival",
       "page_id": "noticia-d7d756222530f949a19ca979",
@@ -2019,8 +2130,8 @@
         "relevancia_mediatica": 70.0,
         "singularidade": 30.0
       },
-      "relevance_weighted": 22.8,
-      "relevance_justification": "A música reforça a longevidade da artista, mas não altera significativamente a história musical; o impacto principal é na mídia e nas plataformas digitais, com efeitos duradouros apenas na cultura pop contemporânea.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/estrela/kylie-minogue-lanca-padam-padam-e",
       "page_id": "noticia-62e312188657b05c703f691b",
@@ -2049,13 +2160,16 @@
       "instagram_url": "",
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.55
+      ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 3,
       "relevance_scores": {
         "impacto_historico": 25.0,
         "dimensao_impacto": 30.0,
@@ -2065,8 +2179,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 15.0
       },
-      "relevance_weighted": 21.5,
-      "relevance_justification": "Vitória importante para o râguebi português, mas sem impacto global duradouro ou mudanças estruturais no esporte.",
+      "relevance_weighted": 60.0,
+      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/desporto/portugal-vence-alemanha-no-raguebi-e",
       "page_id": "noticia-5e104403c927a2cfc2eb5509",
@@ -2115,8 +2229,8 @@
         "relevancia_mediatica": 50.0,
         "singularidade": 15.0
       },
-      "relevance_weighted": 31.2,
-      "relevance_justification": "A medida representa um passo importante na regulação de plataformas digitais, mas seu impacto histórico é moderado, pois outras iniciativas semelhantes já ocorreram. A repercussão mediática é alta devido à proximidade das eleições, mas a durabilidade das mudanças é incerta.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/politica/google-lanca-ferramentas-anti-desinformacao-no",
       "page_id": "noticia-d47c715c5d40a44bfbf85bd0",
@@ -2164,8 +2278,8 @@
         "relevancia_mediatica": 45.0,
         "singularidade": 40.0
       },
-      "relevance_weighted": 28.5,
-      "relevance_justification": "Protesto criativo chamou atenção pela forma, mas não influenciou o processo do Brexit nem gerou mudanças políticas documentadas no Reino Unido ou UE.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/sociedade/cidadaos-protestam-contra-brexit-com-cartazes",
       "page_id": "noticia-e38d31b420f3beb38fbd47ff",
@@ -2204,7 +2318,7 @@
         0.55
       ],
       "network_posts": {},
-      "relevance_level": 3,
+      "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 70.0,
         "dimensao_impacto": 60.0,
@@ -2214,8 +2328,8 @@
         "relevancia_mediatica": 40.0,
         "singularidade": 55.0
       },
-      "relevance_weighted": 61.5,
-      "relevance_justification": "Primeira indicação múltipla para filme brasileiro nos Oscars, impulsionando cinema nacional e abrindo portas para futuras produções.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/cultura/ainda-estou-aqui-nomeado-para-tres",
       "page_id": "noticia-6e0c9896898015dd8d061e30",
@@ -2253,7 +2367,7 @@
         0.45
       ],
       "network_posts": {},
-      "relevance_level": 2,
+      "relevance_level": 1,
       "relevance_scores": {
         "impacto_historico": 70.0,
         "dimensao_impacto": 65.0,
@@ -2263,8 +2377,8 @@
         "relevancia_mediatica": 90.0,
         "singularidade": 85.0
       },
-      "relevance_weighted": 71.0,
-      "relevance_justification": "A missão marcou um marco simbólico na exploração espacial, inspirando interesse público e impulsionando investimentos em tecnologia de foguetes, com efeitos duradouros na percepção da humanidade sobre a exploração planetária.",
+      "relevance_weighted": 91.0,
+      "relevance_justification": "Marco histórico e choque editorial de primeira grandeza validado na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/desporto/spacex-lanca-foguete-vermelho-cereja-em",
       "page_id": "noticia-0d653e420c9bc28969a55419",
@@ -2295,14 +2409,15 @@
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
-        "instagram"
+        "instagram",
+        "facebook"
       ],
       "cover_focus": [
         0.55,
         0.38
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 25.0,
         "dimensao_impacto": 25.0,
@@ -2312,8 +2427,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 15.0
       },
-      "relevance_weighted": 19.8,
-      "relevance_justification": "O aniversário de Ronaldo tem interesse principalmente para fãs, sem impactos históricos ou consequências duradouros documentados.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/estrela/cristiano-ronaldo-celebra-39-anos-hoje",
       "page_id": "noticia-3a4d7ee44b35890e5af85c84",
@@ -2361,8 +2476,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 15.0
       },
-      "relevance_weighted": 6.8,
-      "relevance_justification": "Esgotamento rápido de ingressos, sem impacto histórico.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/desporto/show-de-shawn-mendes-esgota-bilhetes",
       "page_id": "noticia-59c99dc3f282b67406b45816",
@@ -2400,7 +2515,7 @@
         0.42
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 10.0,
         "dimensao_impacto": 10.0,
@@ -2410,8 +2525,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 20.0
       },
-      "relevance_weighted": 9.0,
-      "relevance_justification": "Evento de grande apelo visual, mas sem consequências duradouras.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/desporto/estatua-de-cristiano-ronaldo-aparece-na",
       "page_id": "noticia-1fc44ad97d3f09f9370afab3",
@@ -2459,8 +2574,8 @@
         "relevancia_mediatica": 25.0,
         "singularidade": 30.0
       },
-      "relevance_weighted": 13.5,
-      "relevance_justification": "A notícia destaca um benefício ambiental de uso de tecnologia, mas seu impacto histórico e duradouro é limitado, com efeitos principalmente de curto prazo e pouca singularidade.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/sociedade/dark-mode-poupa-ate-30-de",
       "page_id": "noticia-00ea005c95a8845caa893d03",
@@ -2508,8 +2623,8 @@
         "relevancia_mediatica": 70.0,
         "singularidade": 12.0
       },
-      "relevance_weighted": 10.3,
-      "relevance_justification": "Acontecimento de curta duração e alta visibilidade nas redes sociais, mas sem consequências duradouras significativas para a história ou cultura.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/estrela/meme-viral-celebridades-de-beyonce-a",
       "page_id": "noticia-cd40c49029d2b7f77546e4ff",
@@ -2598,7 +2713,7 @@
         0.5
       ],
       "network_posts": {},
-      "relevance_level": 3,
+      "relevance_level": 1,
       "relevance_scores": {
         "impacto_historico": 60.0,
         "dimensao_impacto": 70.0,
@@ -2608,8 +2723,8 @@
         "relevancia_mediatica": 90.0,
         "singularidade": 70.0
       },
-      "relevance_weighted": 66.8,
-      "relevance_justification": "A restauração do acesso de Trump às plataformas sociais aumenta a polarização política e reforça a influência de figuras controversas na esfera digital. O evento pode levar a um aumento nos debates sobre regulação de mídia e liberdade de expressão, com efeitos duradouros nas normas de governança de redes sociais.",
+      "relevance_weighted": 91.0,
+      "relevance_justification": "Marco histórico e choque editorial de primeira grandeza validado na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/politica/trump-volta-ao-facebook-e-instagram",
       "page_id": "noticia-a811000558bb01d7250c6697",
@@ -2657,8 +2772,8 @@
         "relevancia_mediatica": 25.0,
         "singularidade": 30.0
       },
-      "relevance_weighted": 16.5,
-      "relevance_justification": "Aumentou interesse turístico, mas sem mudanças estruturais.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/sociedade/renato-duarte-visita-porto-e-destaca",
       "page_id": "noticia-221dacfa18c6c8de4d8479b6",
@@ -2696,7 +2811,7 @@
         0.5
       ],
       "network_posts": {},
-      "relevance_level": 3,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 70.0,
         "dimensao_impacto": 60.0,
@@ -2706,8 +2821,8 @@
         "relevancia_mediatica": 30.0,
         "singularidade": 40.0
       },
-      "relevance_weighted": 59.5,
-      "relevance_justification": "Reforçou alianças estratégicas e acordos de cooperação militar, com impactos duradouros na política regional.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/politica/netanyahu-recebe-trump-na-casa-branca",
       "page_id": "noticia-d7a3f07c6883dac392a97e02",
@@ -2755,8 +2870,8 @@
         "relevancia_mediatica": 12.0,
         "singularidade": 4.0
       },
-      "relevance_weighted": 7.0,
-      "relevance_justification": "A medida reforça a tradição cultural e oferece folga aos trabalhadores, mas não tem consequências duradouras significativas além de manter a prática de tolerância de ponto em eventos festivos.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/sociedade/governo-concede-tolerancia-de-ponto-na",
       "page_id": "noticia-9e4f7780293ca5ea976e50e6",
@@ -2794,7 +2909,7 @@
         0.45
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 35.0,
         "dimensao_impacto": 30.0,
@@ -2804,8 +2919,8 @@
         "relevancia_mediatica": 10.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 25.5,
-      "relevance_justification": "Voto recorde fortalece IL, define futuro político. Consequências imediatas: nova candidata, maior visibilidade. Impacto histórico moderado.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/politica/rui-rocha-reeleito-presidente-da-il",
       "page_id": "noticia-d2e4b9f75253009ce71aa330",
@@ -2853,8 +2968,8 @@
         "relevancia_mediatica": 25.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 6.0,
-      "relevance_justification": "Reconhecimento de carreira, impacto limitado.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/cultura/danny-boyle-recebe-premio-de-melhor",
       "page_id": "noticia-9820e55eb8f3b5830f9f5bb0",
@@ -2892,7 +3007,7 @@
         0.45
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 40.0,
         "dimensao_impacto": 35.0,
@@ -2902,8 +3017,8 @@
         "relevancia_mediatica": 15.0,
         "singularidade": 15.0
       },
-      "relevance_weighted": 30.8,
-      "relevance_justification": "Crescimento econômico e baixa dívida reforçam posição de Portugal na UE, mas não alteram cenário global.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/nacional/portugal-marca-maior-crescimento-da-ue",
       "page_id": "noticia-63a3a97eb0bb0bd20dace985",
@@ -2951,8 +3066,8 @@
         "relevancia_mediatica": 0.0,
         "singularidade": 0.0
       },
-      "relevance_weighted": 0.0,
-      "relevance_justification": "A notícia descreve um truque de mágica leve que não teve efeitos duradouros ou impacto histórico significativo.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/curioso/caneta-magica-no-dia-mundial-do",
       "page_id": "noticia-521952e9bfcaa67678413811",
@@ -3000,8 +3115,8 @@
         "relevancia_mediatica": 5.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 13.0,
-      "relevance_justification": "Crescimento de carreira, influência cultural, mas impacto histórico limitado.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/cultura/sofia-aparicio-da-manequim-iconica-ao",
       "page_id": "noticia-fb205e673634f2fd6d3891d3",
@@ -3039,7 +3154,7 @@
         0.42
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 3,
       "relevance_scores": {
         "impacto_historico": 20.0,
         "dimensao_impacto": 25.0,
@@ -3049,8 +3164,8 @@
         "relevancia_mediatica": 5.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 17.8,
-      "relevance_justification": "Acordo corporativo com impacto moderado no mercado tecnológico.",
+      "relevance_weighted": 60.0,
+      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/ciencia/google-paga-919-milhoes-de-euros",
       "page_id": "noticia-7ad75c1870b13a3b3df8c289",
@@ -3079,13 +3194,16 @@
       "instagram_url": "",
       "instagram_id": "",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 1,
       "relevance_scores": {
         "impacto_historico": 30.0,
         "dimensao_impacto": 25.0,
@@ -3095,8 +3213,8 @@
         "relevancia_mediatica": 5.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 20.8,
-      "relevance_justification": "Eleição que define a política nacional, mas não tem impacto histórico global.",
+      "relevance_weighted": 91.0,
+      "relevance_justification": "Marco histórico e choque editorial de primeira grandeza validado na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/politica/portugal-vai-a-votar-para-escolher",
       "page_id": "noticia-be44b8d1c6537750dd38e331",
@@ -3144,8 +3262,8 @@
         "relevancia_mediatica": 35.0,
         "singularidade": 20.0
       },
-      "relevance_weighted": 12.8,
-      "relevance_justification": "Vídeo viral, pouca relevância histórica, alta atenção da mídia.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/sociedade/protesto-anti-motim-em-sao-petersburgo",
       "page_id": "noticia-52dc8d51734af01c27b3f83d",
@@ -3193,8 +3311,8 @@
         "relevancia_mediatica": 10.0,
         "singularidade": 10.0
       },
-      "relevance_weighted": 25.8,
-      "relevance_justification": "Reunião de Draghi pode influenciar decisões da UE, mas efeitos ainda não comprovados. Impacto moderado e duração curta.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/politica/draghi-em-conselho-de-estado-futuro",
       "page_id": "noticia-b43a2505a08c40b9494d26ee",
@@ -3213,8 +3331,8 @@
       "summary": "Blocos de montar que ainda usamos hoje",
       "summary_en": "In 1958, Lego patented the interlocking block design that remains the foundation of its products today.",
       "original_year": "1958",
-      "image": "assets/posts/2026-01-28-2-lego-patenteia-o-desenho-dos-blocos-que-ainda-usamos-hoje.jpg",
-      "banner_image": "assets/banners/2026-01-28-2-lego-patenteia-o-desenho-dos-blocos-que-ainda-usamos-hoje-banner.jpg",
+      "image": "",
+      "banner_image": "",
       "body": "Em 1958, a Lego patenteou o design dos blocos de montar que ainda hoje são amplamente utilizados em todo o mundo. Este marco tecnológico ocorreu na Dinamarca, onde a empresa familiar, fundada por Ole Kirk Christiansen, consolidou uma inovação que revolucionou o brinquedo educativo e criativo. O patenteado sistema de encaixe por espinhos e cavidades, conhecido como \"stud and tube\", garantiu uma ligação firme, mas desmontável, entre as peças, permitindo construções estáveis e complexas. Essa solução técnica, simples e eficaz, substituiu modelos anteriores menos fiáveis e estabeleceu o padrão que permanece inalterado há mais de seis décadas. O desenvolvimento desse design refletiu um compromisso com a precisão de fabrico e a durabilidade dos materiais, inicialmente em celulose acetato e depois em polímero de alta qualidade. A decisão de proteger juridicamente o formato dos blocos foi estratégica, assegurando à Lego uma posição de liderança no mercado global de brinquedos de montagem. A relevância duradoura desta patente reside na sua universalidade: gerações de crianças e adultos continuam a usar os mesmos blocos para brincar, aprender e criar, desde protótipos simples até modelos arquitetónicos sofisticados. Além do aspecto lúdico, o sistema Lego foi adotado em contextos educativos e de engenharia, demonstrando o impacto transcendente de uma invenção pensada inicialmente para o entretenimento infantil. A longevidade do design confirma que, por vezes, a simplicidade técnica aliada à criatividade pode produzir soluções intemporais.",
       "caption": "Em 1958, a Lego patenteou o design dos blocos que continuam a encantar crianças e adultos, mostrando a durabilidade da criatividade.",
       "source_url": "https://pt.wikipedia.org/wiki/01_28",
@@ -3244,7 +3362,7 @@
       "source_type": "wikipedia",
       "url_path": "noticia/ciencia/lego-patenteia-o-desenho-dos-blocos",
       "page_id": "noticia-5e81893144c80da6937804e1",
-      "detail_image": "assets/banners/2026-01-28-2-lego-patenteia-o-desenho-dos-blocos-que-ainda-usamos-hoje-banner.jpg",
+      "detail_image": "",
       "snapshot_url": ""
     },
     {
@@ -3288,8 +3406,8 @@
         "relevancia_mediatica": 25.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 14.0,
-      "relevance_justification": "Moldova’s exit reduces its visibility in a major European event, but no long‑term cultural shift is documented.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/cultura/moldavia-abandona-eurovisao-2025-por-falta",
       "page_id": "noticia-0c1134afb2733f041d545365",
@@ -3327,7 +3445,7 @@
         0.45
       ],
       "network_posts": {},
-      "relevance_level": 4,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 40.0,
         "dimensao_impacto": 50.0,
@@ -3337,8 +3455,8 @@
         "relevancia_mediatica": 65.0,
         "singularidade": 50.0
       },
-      "relevance_weighted": 48.8,
-      "relevance_justification": "Crise levou a reformas regulatórias e maior vigilância bancária em Portugal.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/politica/crise-do-banco-comercial-portugues-revela",
       "page_id": "noticia-40fee5577f44e81a9d421cad",
@@ -3371,9 +3489,12 @@
       "networks": [
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.6,
+        0.65
+      ],
       "network_posts": {},
-      "relevance_level": 4,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 45.0,
         "dimensao_impacto": 55.0,
@@ -3383,8 +3504,8 @@
         "relevancia_mediatica": 30.0,
         "singularidade": 40.0
       },
-      "relevance_weighted": 48.5,
-      "relevance_justification": "Abertura da App Store gera competição, altera ecossistema de apps e pode reduzir custos para usuários portugueses.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/tecnologia/apple-abre-app-store-a-apps",
       "page_id": "noticia-89cdcd553b1f3d8c81d4a850",
@@ -3432,8 +3553,8 @@
         "relevancia_mediatica": 25.0,
         "singularidade": 20.0
       },
-      "relevance_weighted": 6.8,
-      "relevance_justification": "Momento de moda política viral, mas sem impacto histórico.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/sociedade/justin-trudeau-usa-meias-criativas-em",
       "page_id": "noticia-52dc8d51734af01c27b3f83d",
@@ -3481,8 +3602,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 10.0
       },
-      "relevance_weighted": 17.2,
-      "relevance_justification": "Evento de marketing que aumentou engajamento nas redes, mas sem impacto histórico duradouro.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/cultura/tim-cook-mostra-64-iphones-em",
       "page_id": "noticia-52d6d66743581eb41229a13e",
@@ -3513,14 +3634,16 @@
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
-        "instagram"
+        "instagram",
+        "facebook",
+        "x"
       ],
       "cover_focus": [
         0.507,
         0.48
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 20.0,
         "dimensao_impacto": 25.0,
@@ -3530,8 +3653,8 @@
         "relevancia_mediatica": 40.0,
         "singularidade": 35.0
       },
-      "relevance_weighted": 22.5,
-      "relevance_justification": "A notícia destaca preocupações atuais sobre filtros de IA e segurança infantil, mas seu impacto histórico é limitado, pois reflete tendências tecnológicas já em discussão, sem consequências duradouras significativas.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/curioso/alerta-sobre-filtro-ia-e-seguranca",
       "page_id": "noticia-1eb70178132973ee8f564a8c",
@@ -3579,8 +3702,8 @@
         "relevancia_mediatica": 8.0,
         "singularidade": 7.0
       },
-      "relevance_weighted": 4.8,
-      "relevance_justification": "A tendência de filtros de IA que transformam rostos em celebridades pode influenciar a percepção de identidade e segurança digital, mas seu impacto histórico permanece limitado e de curta duração.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/curioso/filtro-ia-deixa-voce-igual-a",
       "page_id": "noticia-1eb70178132973ee8f564a8c",
@@ -3628,8 +3751,8 @@
         "relevancia_mediatica": 15.0,
         "singularidade": 10.0
       },
-      "relevance_weighted": 5.8,
-      "relevance_justification": "Trata-se de uma homenagem pessoal entre celebridades sem impacto histórico significativo. Não há consequências duradouras além do âmbito midiático e do entretenimento.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/estrela/taylor-swift-homenageia-ed-sheeran-no",
       "page_id": "noticia-d7617126d016da8f31f9120d",
@@ -3660,11 +3783,16 @@
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
-        "instagram"
+        "instagram",
+        "facebook",
+        "x"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.536,
+        0.38
+      ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 10.0,
         "dimensao_impacto": 15.0,
@@ -3674,8 +3802,8 @@
         "relevancia_mediatica": 70.0,
         "singularidade": 25.0
       },
-      "relevance_weighted": 12.8,
-      "relevance_justification": "O evento tem baixo impacto histórico, pois trata-se de um recorde nas redes sociais sem consequências duradouras na sociedade, cultura ou política. Embora tenha grande relevância mediática momentânea, não alterou estruturas ou deixou marcas significativas além do âmbito digital e de celebridades.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/desporto/cristiano-ronaldo-quebra-recorde-de-likes",
       "page_id": "noticia-b47a6d08eca530552b9d84ff",
@@ -3713,7 +3841,7 @@
         0.45
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 3,
       "relevance_scores": {
         "impacto_historico": 30.0,
         "dimensao_impacto": 40.0,
@@ -3723,8 +3851,8 @@
         "relevancia_mediatica": 70.0,
         "singularidade": 50.0
       },
-      "relevance_weighted": 34.0,
-      "relevance_justification": "A performance de Lady Gaga nos Oscars de 2023 teve alto impacto midiático ao usar um palco global para denunciar agressões sexuais em campi universitários, mas seu efeito histórico direto é limitado, com poucas consequências duradouras documentadas além da conscientização momentânea.",
+      "relevance_weighted": 60.0,
+      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/cultura/lady-gaga-canta-cancao-contra-agressao",
       "page_id": "noticia-b939489da9eda5de55fa7c21",
@@ -3772,8 +3900,8 @@
         "relevancia_mediatica": 60.0,
         "singularidade": 25.0
       },
-      "relevance_weighted": 16.8,
-      "relevance_justification": "A homenagem da Adele ao George Michael nos Grammys 2024 foi um momento emotivo e bem recebido pela mídia, mas sem impacto histórico significativo. Não gerou consequências duradouras além da cobertura midiática imediata.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/estrela/adele-homenageia-george-michael-no-grammy",
       "page_id": "noticia-0597cfde59e97d1d60655b26",
@@ -3792,8 +3920,8 @@
       "summary": "Facebook and Instagram rival each other",
       "summary_en": "Facebook and Instagram are competing directly with each other",
       "original_year": "2021",
-      "image": "assets/posts/2026-01-22-2-facebook-e-instagram-revelam-rivalidade-direta-no-relatrio-do-congresso.jpg",
-      "banner_image": "assets/banners/2026-01-22-2-facebook-e-instagram-revelam-rivalidade-direta-no-relatrio-do-congresso-banner.jpg",
+      "image": "",
+      "banner_image": "",
       "body": "O relatório do Congresso publicado em 2021 revelou que Facebook e Instagram, apesar de fazerem parte da mesma empresa, mantêm uma rivalidade direta entre si. O documento, elaborado no âmbito das investigações sobre o poder de mercado das grandes plataformas digitais, indica que as duas redes sociais competem por utilizadores, por atenção publicitária e por recursos de desenvolvimento, funcionando quase como entidades separadas no mesmo ecossistema. Essa competição interna, segundo o relatório, cria desafios regulatórios porque dificulta a definição clara de quais práticas pertencem a uma única entidade e quais resultam de estratégias concorrenciais entre filiais da mesma holding. Os legisladores apontam que, quando duas plataformas da mesma empresa atuam como rivais, os mecanismos tradicionais de antitrust podem ser insuficientes para avaliar possíveis abusos de posição dominante, uma vez que a concorrência interna pode mascarar ou exagerar efeitos de mercado. O estudo sugere que as autoridades de concorrência deverão considerar estruturas de propriedade complexas ao analisar fusões, acordos de partilha de dados e práticas de preferential treatment. Além disso, o relatório destaca que a rivalidade entre Facebook e Instagram pode influenciar decisões de produto, algoritmos de recomendação e políticas de moderação de conteúdo, fatores que têm repercussões diretas na experiência dos utilizadores e na formação do discurso público. Embora o documento não proponha medidas específicas, ele reforça a necessidade de um quadro regulatório mais adaptado às realidades de conglomerados tecnológicos onde as subsidiárias podem simultaneamente cooperar e competir. Assim, o relatório contribui para o debate em curso sobre a reforma das leis de concorrência na era digital.",
       "caption": "O relatório mostra que, apesar de serem parte da mesma empresa, Facebook e Instagram competem entre si, criando desafios regulatórios.",
       "source_url": "https://arquivo.pt/wayback/20210122223520/https://www.publico.pt/2020/10/07/tecnologia/noticia/congresso-eua-quer-novas-leis-tirar-google-facebook-amazon-apple-1934363",
@@ -3824,7 +3952,7 @@
       "source_type": "newspaper",
       "url_path": "noticia/politica/facebook-e-instagram-revelam-rivalidade-direta",
       "page_id": "noticia-f05358bb454b488b559680e2",
-      "detail_image": "assets/banners/2026-01-22-2-facebook-e-instagram-revelam-rivalidade-direta-no-relatrio-do-congresso-banner.jpg",
+      "detail_image": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20210122223520%2Fhttps%3A%2F%2Fwww.publico.pt%2F2020%2F10%2F07%2Ftecnologia%2Fnoticia%2Fcongresso-eua-quer-novas-leis-tirar-google-facebook-amazon-apple-1934363",
       "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20210122223520%2Fhttps%3A%2F%2Fwww.publico.pt%2F2020%2F10%2F07%2Ftecnologia%2Fnoticia%2Fcongresso-eua-quer-novas-leis-tirar-google-facebook-amazon-apple-1934363"
     },
     {
@@ -3900,14 +4028,16 @@
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
       "networks": [
-        "instagram"
+        "instagram",
+        "facebook",
+        "x"
       ],
       "cover_focus": [
         0.52,
         0.45
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 15.0,
         "dimensao_impacto": 20.0,
@@ -3917,8 +4047,8 @@
         "relevancia_mediatica": 18.0,
         "singularidade": 12.0
       },
-      "relevance_weighted": 14.1,
-      "relevance_justification": "Voto refletiu preferência momentânea dos fãs, sem alterar legacies ou conquistas dos jogadores.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/desporto/messi-supera-ronaldo-na-eleicao-de",
       "page_id": "noticia-e37c928c617f412d91e5ed0a",
@@ -3966,8 +4096,8 @@
         "relevancia_mediatica": 15.0,
         "singularidade": 10.0
       },
-      "relevance_weighted": 6.0,
-      "relevance_justification": "Erro pontual de palco, sem efeitos duradouros; cobertura midiática limitada e sem consequências relevantes.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/estrela/madonna-confunde-boston-com-toronto-no",
       "page_id": "noticia-0500eb020de20760ae588bbb",
@@ -3998,11 +4128,16 @@
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
-        "instagram"
+        "instagram",
+        "facebook",
+        "x"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 15.0,
         "dimensao_impacto": 20.0,
@@ -4012,8 +4147,8 @@
         "relevancia_mediatica": 70.0,
         "singularidade": 40.0
       },
-      "relevance_weighted": 18.0,
-      "relevance_justification": "Amizade entre Messi e Ronaldo simboliza fim de rivalidade, influenciando fãs.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/desporto/messi-e-ronaldo-revelam-a-amizade",
       "page_id": "noticia-6d93b556e1b6ab4488b63629",
@@ -4061,8 +4196,8 @@
         "relevancia_mediatica": 70.0,
         "singularidade": 30.0
       },
-      "relevance_weighted": 13.5,
-      "relevance_justification": "Colaboração entre dois ícones gera atenção, mas não altera a história musical.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/estrela/britney-spears-e-elton-john-lancam",
       "page_id": "noticia-76423371bdcc06dcbff2b668",
@@ -4150,7 +4285,7 @@
         0.38
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 3,
       "relevance_scores": {
         "impacto_historico": 15.0,
         "dimensao_impacto": 20.0,
@@ -4160,8 +4295,8 @@
         "relevancia_mediatica": 40.0,
         "singularidade": 25.0
       },
-      "relevance_weighted": 15.2,
-      "relevance_justification": "O discurso de De Niro gerou repercussão midiática imediata, mas não teve consequências políticas ou históricas duradouras, sendo um episódio isolado de engajamento de celebridade em debate público.",
+      "relevance_weighted": 60.0,
+      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/politica/de-niro-critica-trump-em-discurso",
       "page_id": "noticia-3df2612a6e0a3a133a638eb9",
@@ -4209,8 +4344,8 @@
         "relevancia_mediatica": 25.0,
         "singularidade": 20.0
       },
-      "relevance_weighted": 9.2,
-      "relevance_justification": "Promoção cultural, pouca repercussão histórica.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/sociedade/expresso-oferece-marcadores-de-livros-e",
       "page_id": "noticia-d228f57974733339e48264d3",
@@ -4248,7 +4383,7 @@
         0.55
       ],
       "network_posts": {},
-      "relevance_level": 2,
+      "relevance_level": 1,
       "relevance_scores": {
         "impacto_historico": 85.0,
         "dimensao_impacto": 80.0,
@@ -4258,8 +4393,8 @@
         "relevancia_mediatica": 65.0,
         "singularidade": 80.0
       },
-      "relevance_weighted": 76.5,
-      "relevance_justification": "Concretamente, a cessação de hostilidades reduziu mortes e abriu negociações de paz, mantendo relevância atual.",
+      "relevance_weighted": 91.0,
+      "relevance_justification": "Marco histórico e choque editorial de primeira grandeza validado na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/politica/israel-aprova-acordo-de-cessar-fogo",
       "page_id": "noticia-883bd152adc65a398b0b1dc0",
@@ -4307,8 +4442,8 @@
         "relevancia_mediatica": 30.0,
         "singularidade": 25.0
       },
-      "relevance_weighted": 15.2,
-      "relevance_justification": "A estreia de Free Fire no TIFF 2017 com Brie Larson teve pouca relevância histórica, sendo um evento promocional de um filme de ação modesto sem consequências duradouras na cultura ou cinema.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/cultura/free-fire-estreia-no-festival-de",
       "page_id": "noticia-2b273f211518008a57640bcf",
@@ -4327,8 +4462,8 @@
       "summary": "Justiça confirma que as concelhias não são totalmente autónomas",
       "summary_en": "Justice confirms that parishes are not fully autonomous",
       "original_year": "2021",
-      "image": "assets/posts/2026-01-17-1-tribunal-rejeita-recurso-sobre-autonomia-das-concelhias.jpg",
-      "banner_image": "assets/banners/2026-01-17-1-tribunal-rejeita-recurso-sobre-autonomia-das-concelhias-banner.jpg",
+      "image": "",
+      "banner_image": "",
       "body": "Em 2021, o sistema judicial português voltou a pronunciar-se sobre a natureza das concelhias partidárias, confirmando que estas estruturas não detêm autonomia plena. O caso teve origem num recurso interposto por dois partidos políticos, que contestavam uma decisão de primeira instância que já tinha limitado a independência das concelhias a nível municipal. Os recursos foram apresentados após um tribunal de primeira instância ter considerado que, apesar de possuírem certa capacidade de organização interna, as concelhias permanecem sujeitas à direção central dos respetivos partidos, pelo que não podem ser tratadas como entidades totalmente autónomas. O tribunal de segunda instância, analisando os argumentos apresentados, manteve o entendimento de que a lei partidária e os estatutos internos das formações políticas atribuem aos órgãos nacionais a competência última para definir linhas de ação, financiamento e disciplina, deixando às concelhias apenas funções executivas e de representação local. Os juízes salientaram que a ausência de personalidade jurídica própria e a dependência de recursos financeiros atribuídos pelos órgãos centrais impedem que as concelhias exerçam poderes de decisão independentes, nomeadamente em matéria de contratação, gestão de património ou definição de estratégias eleitorais sem aprovação superior. A decisão tem relevância duradoura porque delimita claramente o âmbito de atuação das estruturas concelhias dentro do quadro partidário português, reforçando a ideia de que a organização interna dos partidos permanece centralizada. Assim, quaisquer tentativas de alegar maior autonomia devem passar por revisão legislativa ou mudança nos estatutos partidários, sob risco de serem novamente rejeitadas pelos tribunais. Esta jurisprudência deverá orientar futuros litígios sobre a organização partidária.",
       "caption": "Em 2021, dois partidos recorreram de uma decisão que afirmava a autonomia das concelhias, mas os juízes de várias instâncias mantiveram o entendimento de que tais entidades não gozam de plena independência.",
       "source_url": "https://arquivo.pt/wayback/20210117222849/https://amp.sicnoticias.pt/pais/2019-10-11-PS-e-o-PSD-condenados-a-pagar-10-mil-euros-por-uso-indevido-da-musica-Despacito-nas-eleicoes-de-2017",
@@ -4359,7 +4494,7 @@
       "source_type": "newspaper",
       "url_path": "noticia/politica/tribunal-rejeita-recurso-sobre-autonomia-das",
       "page_id": "noticia-61988c9e881900441a3c89a3",
-      "detail_image": "assets/banners/2026-01-17-1-tribunal-rejeita-recurso-sobre-autonomia-das-concelhias-banner.jpg",
+      "detail_image": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20210117222849%2Fhttps%3A%2F%2Famp.sicnoticias.pt%2Fpais%2F2019-10-11-PS-e-o-PSD-condenados-a-pagar-10-mil-euros-por-uso-indevido-da-musica-Despacito-nas-eleicoes-de-2017",
       "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20210117222849%2Fhttps%3A%2F%2Famp.sicnoticias.pt%2Fpais%2F2019-10-11-PS-e-o-PSD-condenados-a-pagar-10-mil-euros-por-uso-indevido-da-musica-Despacito-nas-eleicoes-de-2017"
     },
     {
@@ -4388,7 +4523,10 @@
       "networks": [
         "instagram"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -4400,8 +4538,8 @@
         "relevancia_mediatica": 22.0,
         "singularidade": 12.0
       },
-      "relevance_weighted": 8.3,
-      "relevance_justification": "Baixo impacto histórico e consequências limitadas; atenção midiática moderada, mas efeitos duradouros mínimos.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/estrela/madonna-pensa-em-ter-filho-com",
       "page_id": "noticia-17a30d23a341b43ee315f107",
@@ -4439,7 +4577,7 @@
         0.45
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 3,
       "relevance_scores": {
         "impacto_historico": 10.0,
         "dimensao_impacto": 15.0,
@@ -4449,8 +4587,8 @@
         "relevancia_mediatica": 30.0,
         "singularidade": 20.0
       },
-      "relevance_weighted": 12.0,
-      "relevance_justification": "Baixo impacto histórico e consequências limitadas; atenção midiática moderada, mas efeitos duradouros mínimos.",
+      "relevance_weighted": 60.0,
+      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/cultura/taylor-swift-lidera-vendas-de-vinil",
       "page_id": "noticia-453ddcdcf0054581330fc62f",
@@ -4498,8 +4636,8 @@
         "relevancia_mediatica": 13.0,
         "singularidade": 7.0
       },
-      "relevance_weighted": 5.8,
-      "relevance_justification": "Posição de liderança em ranking anual com efeito informativo moderado; baixa influência histórica.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/estrela/jennifer-lawrence-lidera-ranking-de-valor",
       "page_id": "noticia-46c8f97035746cd20cdabc35",
@@ -4547,8 +4685,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 10.0
       },
-      "relevance_weighted": 7.5,
-      "relevance_justification": "Evento de streaming com alcance limitado, sem mudanças estruturais. A atenção mediática foi moderada, mas não alterou o panorama cultural.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/cultura/fire-saga-chega-ao-netflix-portugal",
       "page_id": "noticia-f9ba73183e12a8d40fe9cfbb",
@@ -4587,7 +4725,7 @@
         0.5
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 3,
       "relevance_scores": {
         "impacto_historico": 30.0,
         "dimensao_impacto": 30.0,
@@ -4597,8 +4735,8 @@
         "relevancia_mediatica": 10.0,
         "singularidade": 20.0
       },
-      "relevance_weighted": 25.2,
-      "relevance_justification": "Relatório impulsionou reformas regulatórias, alterando práticas de grandes tech e reforçando direitos dos consumidores.",
+      "relevance_weighted": 60.0,
+      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/politica/congresso-eua-acusa-amazon-apple-facebook",
       "page_id": "noticia-5d32a279a835c9b55aaf5064",
@@ -4646,8 +4784,8 @@
         "relevancia_mediatica": 10.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 5.2,
-      "relevance_justification": "Crítica musical de curta duração, sem repercussões históricas significativas.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/cultura/salvador-sobral-critica-toy-de-netta",
       "page_id": "noticia-a66ead2ea36c51e5a9e836be",
@@ -4680,7 +4818,10 @@
       "networks": [
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -4692,8 +4833,8 @@
         "relevancia_mediatica": 5.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 20.8,
-      "relevance_justification": "Evento cultural relevante para fãs, mas impacto histórico limitado.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/cultura/xutos-pontapes-estreiam-em-1979-no",
       "page_id": "noticia-bb0d11d163c2d76f8020a9fd",
@@ -4731,7 +4872,7 @@
         0.38
       ],
       "network_posts": {},
-      "relevance_level": 3,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 70.0,
         "dimensao_impacto": 65.0,
@@ -4741,8 +4882,8 @@
         "relevancia_mediatica": 45.0,
         "singularidade": 40.0
       },
-      "relevance_weighted": 60.5,
-      "relevance_justification": "Mudança de política que afeta mercado imobiliário e turismo, com impactos econômicos e sociais duradouros.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/politica/governo-espanhol-quer-limitar-arrendamentos-turisticos",
       "page_id": "noticia-f5cd52d5c0b918e0728e153e",
@@ -4775,7 +4916,10 @@
       "networks": [
         "x"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -4787,8 +4931,8 @@
         "relevancia_mediatica": 5.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 10.2,
-      "relevance_justification": "Humor viral, impacto histórico mínimo.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/sociedade/campanha-politica-em-memes-mostra-a",
       "page_id": "noticia-da880b525ee09e896e059aeb",
@@ -4836,8 +4980,8 @@
         "relevancia_mediatica": 5.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 15.0,
-      "relevance_justification": "Teaser revive interesse, mas não altera legado.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/cultura/teaser-de-back-to-black-revela",
       "page_id": "noticia-667764774250c85fe0d0faef",
@@ -4885,8 +5029,8 @@
         "relevancia_mediatica": 25.0,
         "singularidade": 15.0
       },
-      "relevance_weighted": 27.2,
-      "relevance_justification": "Museu submerso atrai turismo e consciência ambiental, contribuição modestamente duradoura para arte e conservação.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/cultura/primeiro-museu-submarino-da-europa-inaugurado",
       "page_id": "noticia-bce8e971eace32e5569ab0a0",
@@ -4919,7 +5063,10 @@
       "networks": [
         "instagram"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {},
       "relevance_level": 5,
       "relevance_scores": {
@@ -4931,8 +5078,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 15.0
       },
-      "relevance_weighted": 14.2,
-      "relevance_justification": "Pontuação simbólica, pouca mudança estrutural no basquetebol português ou internacional.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/desporto/neemias-queta-marca-os-primeiros-pontos",
       "page_id": "noticia-1c5dd483263e5fd0a85ac2af",
@@ -4980,8 +5127,8 @@
         "relevancia_mediatica": 30.0,
         "singularidade": 40.0
       },
-      "relevance_weighted": 19.2,
-      "relevance_justification": "Iniciativa vaticana promoveu diálogo inter-religioso através do esporte, com efeito simbólico limitado.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/curioso/equipa-atletica-do-vaticano-corre-maratona",
       "page_id": "noticia-3709f5633c4f3f917e00bec3",
@@ -5012,14 +5159,16 @@
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
-        "instagram"
+        "instagram",
+        "facebook",
+        "x"
       ],
       "cover_focus": [
         0.46,
         0.45
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 30.0,
         "dimensao_impacto": 40.0,
@@ -5029,8 +5178,8 @@
         "relevancia_mediatica": 80.0,
         "singularidade": 50.0
       },
-      "relevance_weighted": 35.2,
-      "relevance_justification": "Acordo de patrocínio gerou grande mídia, mas impacto histórico limitado; efeito duradouro pequeno.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/desporto/ronaldo-ganha-200-mi-para-impulsionar",
       "page_id": "noticia-acf22c72900270488295cd39",
@@ -5068,7 +5217,7 @@
         0.45
       ],
       "network_posts": {},
-      "relevance_level": 4,
+      "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 60.0,
         "dimensao_impacto": 55.0,
@@ -5078,8 +5227,8 @@
         "relevancia_mediatica": 70.0,
         "singularidade": 45.0
       },
-      "relevance_weighted": 49.8,
-      "relevance_justification": "Imitação de Streep destacou deficiência e política, gerando debate duradouro sobre representação e respeito.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/estrela/meryl-streep-imita-jornalista-deficiente-nos",
       "page_id": "noticia-d32d90ecfd3d58869b46981e",
@@ -5127,8 +5276,8 @@
         "relevancia_mediatica": 50.0,
         "singularidade": 40.0
       },
-      "relevance_weighted": 25.0,
-      "relevance_justification": "Estreia modesta de jovem tenista português; impacto histórico limitado e consequências duradouras mínimas.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "archive",
       "url_path": "noticia/desporto/jaime-faria-surpreende-no-australian-open",
       "page_id": "noticia-ba96f7fb1446e4bad4711483",
@@ -5159,6 +5308,7 @@
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
       "networks": [
+        "instagram",
         "facebook",
         "x"
       ],
@@ -5167,7 +5317,7 @@
         0.5
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 20.0,
         "dimensao_impacto": 25.0,
@@ -5177,8 +5327,8 @@
         "relevancia_mediatica": 30.0,
         "singularidade": 15.0
       },
-      "relevance_weighted": 20.2,
-      "relevance_justification": "Possível saída antecipada de cargo europeu com relevância política moderada e alguns efeitos futuros.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/politica/antonio-costa-pode-deixar-presidencia-do",
       "page_id": "noticia-49f40860855a55993f2a7756",
@@ -5209,14 +5359,16 @@
       "archive_credit": "Arquivo.pt",
       "banner_ready": true,
       "networks": [
-        "instagram"
+        "instagram",
+        "facebook",
+        "x"
       ],
       "cover_focus": [
         0.504,
         0.45
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 15.0,
         "dimensao_impacto": 20.0,
@@ -5226,8 +5378,8 @@
         "relevancia_mediatica": 30.0,
         "singularidade": 10.0
       },
-      "relevance_weighted": 14.0,
-      "relevance_justification": "Transferência de alto perfil, mas com impacto histórico limitado e efeitos duradouros modestos.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "archive",
       "url_path": "noticia/desporto/cristiano-ronaldo-rumo-ao-al-nassr",
       "page_id": "noticia-e509eee376bb7d7140619046",
@@ -5276,8 +5428,8 @@
         "relevancia_mediatica": 25.0,
         "singularidade": 20.0
       },
-      "relevance_weighted": 17.8,
-      "relevance_justification": "Crítica destacou limitações da Cimeira de Nice, gerando discussão institucional.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/politica/garcia-pereira-critica-cimeira-de-nice",
       "page_id": "noticia-a8da0bbcfaa41b8a48c92823",
@@ -5296,8 +5448,8 @@
       "summary": "Golo decisivo leva os leões à final da Taça da Liga.",
       "summary_en": "Gyökeres' decisive goal sends Sporting to the League Cup final against Porto.",
       "original_year": "2025",
-      "image": "assets/posts/2026-01-07-1-sporting-vence-porto-1-0-com-gykeres.jpg",
-      "banner_image": "assets/banners/2026-01-07-1-sporting-vence-porto-1-0-com-gykeres-banner.jpg",
+      "image": "",
+      "banner_image": "",
       "body": "Sporting CP venceu o FC Porto por 1-0 num encontro da Taça da Liga realizado em 2025, graças ao golo de Viktor Gyökeres. O único tento da partida surgiu num momento de pressão elevada, quando o avançado sueco recebeu a bola dentro da área, desviou‑se de um marcador e finalizou com precisão para o fundo da rede. O resultado assegurou aos leões a presença na final da competição, interrompendo a sequência de eliminatórias anteriores e colocando o clube novamente a lutar por um troféu nacional. Segundo a legenda fornecida, o jogo foi intenso, com ambas as equipas a criarem oportunidades, mas foi o remate de Gyökeres a decidir o desfecho. Os festejos já tinham início nas bancadas de Alvalade, onde os adeptos celebraram o avanço para a fase decisiva da Taça da Liga. A vitória reforça a ambição do Sporting de conquistar um título nesta época e demonstra a capacidade da equipa de responder em jogos de alta exigência. O golo de Gyökeres fica assim marcado como o momento que levou os leões à final, um feito que será recordado pelos suportes como um passo importante na campanha do clube. Esta vitória reforça a confiança do grupo para os desafios que se avizinham na competição.",
       "caption": "Num jogo intenso, Gyökeres marcou o único golo que deu ao Sporting a vitória sobre o FC Porto e garantiu a presença na final da Taça da Liga. Os festejos já começaram em Alvalade.",
       "source_url": "https://arquivo.pt/wayback/20250101023720/https://observador.pt/2024/12/29/o-dia-que-mudou-uma-era-e-pode-mudar-o-trajeto-da-liga-outra-vez-a-cronica-do-sporting-benfica",
@@ -5327,7 +5479,7 @@
       "source_type": "archive",
       "url_path": "noticia/desporto/sporting-vence-porto-1-0-com",
       "page_id": "noticia-dfd0c43b22cd2583dfbf0778",
-      "detail_image": "assets/banners/2026-01-07-1-sporting-vence-porto-1-0-com-gykeres-banner.jpg",
+      "detail_image": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20250101023720%2Fhttps%3A%2F%2Fobservador.pt%2F2024%2F12%2F29%2Fo-dia-que-mudou-uma-era-e-pode-mudar-o-trajeto-da-liga-outra-vez-a-cronica-do-sporting-benfica",
       "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20250101023720%2Fhttps%3A%2F%2Fobservador.pt%2F2024%2F12%2F29%2Fo-dia-que-mudou-uma-era-e-pode-mudar-o-trajeto-da-liga-outra-vez-a-cronica-do-sporting-benfica"
     },
     {
@@ -5361,7 +5513,7 @@
         0.5
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 3,
       "relevance_scores": {
         "impacto_historico": 10.0,
         "dimensao_impacto": 15.0,
@@ -5371,8 +5523,8 @@
         "relevancia_mediatica": 15.0,
         "singularidade": 5.0
       },
-      "relevance_weighted": 10.5,
-      "relevance_justification": "Mudança de cenário esportivo de curta duração, impacto limitado. Popularidade moderada.",
+      "relevance_weighted": 60.0,
+      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/desporto/sporting-e-benfica-perdem-pontos-favorecendo",
       "page_id": "noticia-80cd13038ea0d49e1098a697",
@@ -5420,8 +5572,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 10.0
       },
-      "relevance_weighted": 14.0,
-      "relevance_justification": "Evento de curto prazo, sem consequências duradouras. Popularidade moderada nas redes.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "internet_profile",
       "url_path": "noticia/sociedade/presidente-tenta-abraco-e-recebe-aperto",
       "page_id": "noticia-e5bc51ed7ea2a35d4b3f3367",
@@ -5469,8 +5621,8 @@
         "relevancia_mediatica": 70.0,
         "singularidade": 35.0
       },
-      "relevance_weighted": 35.2,
-      "relevance_justification": "Eleito como primeiro republicano abertamente gay, mas posteriormente expulso por fraude, limitando seu impacto duradouro.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/mundial/george-santos-e-primeiro-republicano-gay",
       "page_id": "noticia-03ecaaeeddbcdcc42a67d4a2",
@@ -5501,14 +5653,14 @@
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
-        "instagram"
+        "facebook"
       ],
       "cover_focus": [
         0.53,
         0.45
       ],
       "network_posts": {},
-      "relevance_level": 4,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 55.0,
         "dimensao_impacto": 60.0,
@@ -5518,8 +5670,8 @@
         "relevancia_mediatica": 70.0,
         "singularidade": 65.0
       },
-      "relevance_weighted": 53.5,
-      "relevance_justification": "Primeira atriz brasileira a vencer o Globo de Ouro, marcando avanço para o cinema nacional e inspirando futuras gerações.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "wikipedia",
       "url_path": "noticia/estrela/fernanda-torres-vence-globo-de-ouro",
       "page_id": "noticia-ffe49f0badad78dc38a1351f",
@@ -5533,13 +5685,13 @@
       "slot": 2,
       "status": "pending",
       "category": "DESPORTO",
-      "title": "Benfica conquista a Liga Portuguesa sob a liderança de Rui Vitória",
+      "title": "Benfica conquista a Liga Portuguesa",
       "title_en": "Benfica Wins Portuguese League Under Rui Vitória's Leadership",
       "summary": "Um título que marcou a história",
       "summary_en": "A title that made history",
       "original_year": "2019",
-      "image": "assets/posts/2026-01-04-2-benfica-conquista-a-liga-portuguesa-sob-a-liderana-de-rui-vitria.jpg",
-      "banner_image": "assets/banners/2026-01-04-2-benfica-conquista-a-liga-portuguesa-sob-a-liderana-de-rui-vitria-banner.jpg",
+      "image": "assets/posts/2026-01-04-2-benfica-conquista-a-liga-portuguesa.jpg",
+      "banner_image": "assets/banners/2026-01-04-2-benfica-conquista-a-liga-portuguesa-banner.jpg",
       "body": "Em 2019, o Sport Lisboa e Benfica conquistou a Liga Portuguesa de Futebol, um feito que marcou a história do clube e consolidou a sua posição como um dos principais nomes do futebol português. A campanha foi guiada pelo treinador Rui Vitória, cuja liderança foi decisiva para o sucesso da equipa. O contexto da temporada foi de grande expectativa. O Benfica, já habituado a disputar os primeiros lugares, enfrentou uma competição acirrada, com rivais como o FC Porto e o Sporting CP a oferecerem desafios constantes. Desde o início da temporada, a equipa mostrou consistência e domínio, mantendo uma sequência de resultados positivos que garantiram a sua posição no topo da tabela. No desenvolvimento da campanha, Rui Vitória demonstrou uma gestão tática eficaz, combinando um estilo de jogo ofensivo com uma defesa sólida. A equipa manteve um ritmo de jogo que permitiu controlar os confrontos e garantir vitórias importantes. A performance dos jogadores-chave, bem como a coesão do grupo, foram fatores cruciais que levaram o Benfica a acumular pontos de forma consistente. A relevância duradoura deste título vai além da conquista em si. A vitória reforçou a tradição do Benfica como um clube de elite no futebol português, inspirando torcedores e jovens atletas. Além disso, o sucesso em 2019 serviu de base para a continuidade do clube em competições europeias, mantendo a sua presença em alto nível. A celebração pelos torcedores, tanto nas ruas como nos estádios, sublinhou a importância cultural e social deste triunfo para a comunidade do Benfica e para o país. Em resumo, a conquista da Liga Portuguesa em 2019, sob a liderança de Rui Vitória, não só marcou a história do Benfica, mas também deixou um legado duradouro que continua a influenciar o futebol português e a inspirar futuras gerações de jogadores e fãs.",
       "caption": "Em 2019, o Benfica conquistou a Liga Portuguesa, liderado por Rui Vitória. A vitória foi celebrada por torcedores e consolidou o clube como um dos principais nomes do futebol português.",
       "source_url": "https://www.instagram.com/p/BsOPxA2n7PS/",
@@ -5552,9 +5704,12 @@
       "networks": [
         "instagram"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.45
+      ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 30.0,
         "dimensao_impacto": 35.0,
@@ -5564,12 +5719,12 @@
         "relevancia_mediatica": 50.0,
         "singularidade": 20.0
       },
-      "relevance_weighted": 28.8,
-      "relevance_justification": "O título de 2019 foi relevante no contexto imediato do futebol português, mas não teve consequências duradouras ou transformadoras na história do esporte, sendo um feito esportivo comum dentro da competição anual.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "newspaper",
-      "url_path": "noticia/desporto/benfica-conquista-a-liga-portuguesa-sob",
+      "url_path": "noticia/desporto/benfica-conquista-a-liga-portuguesa",
       "page_id": "noticia-03496db2fc600d31d08e9a78",
-      "detail_image": "assets/banners/2026-01-04-2-benfica-conquista-a-liga-portuguesa-sob-a-liderana-de-rui-vitria-banner.jpg",
+      "detail_image": "assets/banners/2026-01-04-2-benfica-conquista-a-liga-portuguesa-banner.jpg",
       "snapshot_url": ""
     },
     {
@@ -5598,7 +5753,10 @@
       "networks": [
         "instagram"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.415,
+        0.48
+      ],
       "network_posts": {},
       "relevance_level": 3,
       "relevance_scores": {
@@ -5610,8 +5768,8 @@
         "relevancia_mediatica": 80.0,
         "singularidade": 50.0
       },
-      "relevance_weighted": 66.2,
-      "relevance_justification": "Recorde de estreia e influência contínua na indústria de streaming, demonstrando mudança de consumo digital.",
+      "relevance_weighted": 60.0,
+      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
       "source_type": "internet_profile",
       "url_path": "noticia/cultura/squid-game-2-bate-recorde-de",
       "page_id": "noticia-244095aa496d74ac2a616741",
@@ -5649,7 +5807,7 @@
         0.58
       ],
       "network_posts": {},
-      "relevance_level": 4,
+      "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 45.0,
         "dimensao_impacto": 50.0,
@@ -5659,8 +5817,8 @@
         "relevancia_mediatica": 45.0,
         "singularidade": 30.0
       },
-      "relevance_weighted": 43.0,
-      "relevance_justification": "Eleições latino-americanas de 2022 indicam mudanças políticas regionais, porém efeitos concretos ainda estão em desenvolvimento.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "internet_profile",
       "url_path": "noticia/mundial/eleicoes-na-america-latina-definem-rumo",
       "page_id": "noticia-be1bbd176e7a1e14b7c527cf",
@@ -5698,7 +5856,7 @@
         0.5
       ],
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 3,
       "relevance_scores": {
         "impacto_historico": 20.0,
         "dimensao_impacto": 30.0,
@@ -5708,8 +5866,8 @@
         "relevancia_mediatica": 40.0,
         "singularidade": 25.0
       },
-      "relevance_weighted": 24.8,
-      "relevance_justification": "Expansão do estádio aumenta receita e capacidade, mas efeito limitado ao contexto futebolístico português.",
+      "relevance_weighted": 60.0,
+      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/desporto/benfica-amplia-estadio-da-luz-para",
       "page_id": "noticia-bf36744ba4ba7e3e5381af86",
@@ -5747,7 +5905,7 @@
         0.5
       ],
       "network_posts": {},
-      "relevance_level": 4,
+      "relevance_level": 5,
       "relevance_scores": {
         "impacto_historico": 45.0,
         "dimensao_impacto": 50.0,
@@ -5757,8 +5915,8 @@
         "relevancia_mediatica": 65.0,
         "singularidade": 55.0
       },
-      "relevance_weighted": 50.2,
-      "relevance_justification": "A mudança monetária alterou transações e políticas econômicas, mas sem grande entusiasmo.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/ciencia/portugal-entra-no-euro-a-nova",
       "page_id": "noticia-973ecfaa4d65eee5b669c81d",
@@ -5806,8 +5964,8 @@
         "relevancia_mediatica": 80.0,
         "singularidade": 70.0
       },
-      "relevance_weighted": 66.0,
-      "relevance_justification": "O velório consolidou a memória de Pelé, inspirou homenagens futuras e permanece relevante na cultura esportiva.",
+      "relevance_weighted": 60.0,
+      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/cultura/velorio-de-pele-no-vila-belmiro",
       "page_id": "noticia-a5332420433cfd3e31363db4",
@@ -5855,8 +6013,8 @@
         "relevancia_mediatica": 20.0,
         "singularidade": 15.0
       },
-      "relevance_weighted": 7.2,
-      "relevance_justification": "Prologue win only; no lasting impact on rally outcomes, driver career trajectory, or motorsport regulations documented.",
+      "relevance_weighted": 12.0,
+      "relevance_justification": "Ruído, efeméride rotineira ou notícia sem impacto duradouro (desclassificada).",
       "source_type": "newspaper",
       "url_path": "noticia/esporte/piloto-japones-vence-prologo-do-rali",
       "page_id": "noticia-b7ff664f6a21b5eebf239157",
@@ -5904,8 +6062,8 @@
         "relevancia_mediatica": 60.0,
         "singularidade": 70.0
       },
-      "relevance_weighted": 76.2,
-      "relevance_justification": "Lula's presidency introduced major social policies reducing poverty and inequality in Brazil, with lasting effects still debated today.",
+      "relevance_weighted": 82.0,
+      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
       "source_type": "newspaper",
       "url_path": "noticia/mundial/lula-toma-posse-como-presidente-do",
       "page_id": "noticia-2cf180e9d1ad34289ddde251",
@@ -5982,7 +6140,7 @@
     "instagram_sources": 14,
     "unique_sources": 34,
     "published_posts": 0,
-    "social_followers": 229,
+    "social_followers": 228,
     "social_networks": 1,
     "news_source_domains": [
       "abola.pt",

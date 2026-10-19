@@ -321,12 +321,20 @@ const i18n = {
     topicGranularityLabel: "Períodos",
     topicGranularityYear: "Por ano",
     topicGranularityMonth: "Por mês",
-    topicGranularityDay: "Por dia",
-    topicGranularityMonthTip: "A verificação por mês só está disponível para períodos de 2 anos ou menos: cada mês é verificado ponto a ponto e períodos longos tornariam a pesquisa excessiva.",
-    topicGranularityDayTip: "A verificação por dia está disponível para um mês completo (ou janelas equivalentes, como de 17 de agosto a 17 de setembro): cada dia é verificado individualmente.",
-    topicGranularityLocked: "Escolhe um período mais curto para desbloquear.",
+    topicGranularityMonthTip: "Verificação mensal por cada mês individual.",
+    topicGranularityDayTip: "Verificação diária por cada dia individual.",
+    topicSwitchToMonth: "Mudar para Por mês",
+    topicSwitchToYear: "Mudar para Por ano",
+    topicPendingPoint: "A verificar...",
     topicFailedPoint: "Não verificado (falha na consulta)",
+    topicFailedShort: "Falha",
     topicMonthDivider: "mudança de mês",
+    topicTableTitle: "Ver correspondências em tabela",
+    topicTablePeriod: "Período",
+    topicTableDates: "Datas",
+    topicTableTotal: "Total verificado",
+    topicEmbargoNote: "O Arquivo.pt disponibiliza a pesquisa de texto integral com cerca de 1 ano de intervalo: períodos recentes podem devolver 0.",
+    topicLogScaleToggle: "Escala logarítmica",
     topicEstimatedNote: "Tendência baseada nas notícias guardadas do projeto (o filtro de datas do Arquivo.pt falha neste período — não é o valor real do índice).",
     topicEmpty: "Não foram encontrados resultados neste intervalo.",
     topicError: "Não foi possível concluir a pesquisa no Arquivo.pt. Tenta novamente dentro de momentos.",
@@ -530,12 +538,20 @@ const i18n = {
     topicGranularityLabel: "Periods",
     topicGranularityYear: "Yearly",
     topicGranularityMonth: "Monthly",
-    topicGranularityDay: "Daily",
-    topicGranularityMonthTip: "Monthly verification is only available for periods of 2 years or less: each month is verified point by point, and longer periods would make the search excessive.",
-    topicGranularityDayTip: "Daily verification is available for a full month (or equivalent windows, such as August 17 to September 17): each day is verified individually.",
-    topicGranularityLocked: "Choose a shorter period to unlock.",
+    topicGranularityMonthTip: "Monthly breakdown for each individual month.",
+    topicGranularityDayTip: "Daily breakdown for each individual day.",
+    topicSwitchToMonth: "Switch to Monthly",
+    topicSwitchToYear: "Switch to Yearly",
+    topicPendingPoint: "Verifying...",
     topicFailedPoint: "Not verified (query failed)",
+    topicFailedShort: "Failed",
     topicMonthDivider: "month change",
+    topicTableTitle: "View matches in table",
+    topicTablePeriod: "Period",
+    topicTableDates: "Dates",
+    topicTableTotal: "Verified total",
+    topicEmbargoNote: "Arquivo.pt indexes full text with roughly a 1-year lag: recent periods may return 0.",
+    topicLogScaleToggle: "Logarithmic scale",
     topicEstimatedNote: "Trend based on the project's saved stories (the Arquivo.pt date filter fails in this period — not the real index value).",
     topicEmpty: "No results were found in this time range.",
     topicError: "The Arquivo.pt search could not be completed. Please try again shortly.",
@@ -1691,32 +1707,53 @@ function matchingInstagramPosts(query, source, fromDate, toDate) {
   });
 }
 
-function topicCacheKey(query, source, fromDate, toDate) {
-  return `ndo-topic-v4-verified:${normalizedTopicText(query)}:${source}:${fromDate}:${toDate}`;
+// Cache POR PERÍODO (tema + fonte + datas exatas): mudar o intervalo ou a
+// granularidade reaproveita todos os períodos já contados.
+const TOPIC_PERIOD_CACHE_KEY = "ndo-topic-periods-v5";
+const TOPIC_PERIOD_CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+const TOPIC_PERIOD_CACHE_MAX_ENTRIES = 5000;
+let topicPeriodCacheMemory = null;
+let topicPeriodCacheSaveTimer = null;
+
+function topicPeriodCacheKey(query, source, fromDate, toDate) {
+  return `${normalizedTopicText(query)}|${source || ""}|${fromDate}|${toDate}`;
 }
 
-function readTopicCache(key) {
+function topicPeriodCache() {
+  if (topicPeriodCacheMemory) return topicPeriodCacheMemory;
   try {
-    const cached = JSON.parse(localStorage.getItem(key) || "null");
-    if (!cached || cached.verified !== true || !Array.isArray(cached.series)) return null;
-    if (Date.now() - Number(cached.savedAt || 0) > 24 * 60 * 60 * 1000) return null;
-    return cached;
+    const stored = JSON.parse(localStorage.getItem(TOPIC_PERIOD_CACHE_KEY) || "null");
+    topicPeriodCacheMemory = stored && typeof stored === "object" ? stored : {};
   } catch {
-    return null;
+    topicPeriodCacheMemory = {};
   }
+  return topicPeriodCacheMemory;
 }
 
-function writeTopicCache(key, result) {
-  try {
-    localStorage.setItem(key, JSON.stringify({
-      savedAt: Date.now(),
-      verified: true,
-      series: result.series,
-      total: result.total,
-    }));
-  } catch {
-    // The graph still works when private browsing disables local storage.
-  }
+function readTopicPeriodCache(key) {
+  const entry = topicPeriodCache()[key];
+  if (!entry || !Number.isFinite(entry.c)) return null;
+  if (Date.now() - Number(entry.t || 0) > TOPIC_PERIOD_CACHE_TTL_MS) return null;
+  return entry.c;
+}
+
+function writeTopicPeriodCache(key, count) {
+  const cache = topicPeriodCache();
+  cache[key] = { c: count, t: Date.now() };
+  if (topicPeriodCacheSaveTimer) return;
+  topicPeriodCacheSaveTimer = window.setTimeout(() => {
+    topicPeriodCacheSaveTimer = null;
+    try {
+      const entries = Object.entries(cache);
+      if (entries.length > TOPIC_PERIOD_CACHE_MAX_ENTRIES) {
+        entries.sort((a, b) => Number(b[1].t || 0) - Number(a[1].t || 0));
+        topicPeriodCacheMemory = Object.fromEntries(entries.slice(0, TOPIC_PERIOD_CACHE_MAX_ENTRIES));
+      }
+      localStorage.setItem(TOPIC_PERIOD_CACHE_KEY, JSON.stringify(topicPeriodCacheMemory));
+    } catch {
+      // Sem localStorage (navegação privada): o gráfico funciona na mesma.
+    }
+  }, 400);
 }
 
 function topicSearchHosts(source) {
@@ -1739,73 +1776,73 @@ function topicSearchUrl(query, source, fromValue, toValue, options = {}) {
     offset: String(options.offset ?? 0),
     dedupValue: "0",
   });
-  // Datas vazias são omitidas: sondas de presença vão sem filtro temporal
-  // (o filtro from do Arquivo.pt falha para conteúdo de meados de 2021 em diante).
+  if (options.fields) params.set("fields", options.fields);
   if (fromValue) params.set("from", topicApiBoundary(fromValue, false));
   if (toValue) params.set("to", topicApiBoundary(toValue, true));
   topicSearchHosts(source).forEach((host) => params.append("siteSearch", host));
   return `https://arquivo.pt/textsearch?${params.toString()}`;
 }
 
-async function fetchTopicProbe(query, source, fromTimestamp, toTimestamp, offset, parentSignal) {
+// Total de correspondências de UM período = `estimated_nr_results` devolvido
+// pelo índice do Arquivo.pt para essa pesquisa e esse intervalo exato.
+// Uma só chamada por período (antes eram dezenas de sondas por offset, que
+// além de lentas davam valores errados: os offsets do Arquivo.pt não são
+// contínuos e a primeira página pode vir vazia mesmo havendo milhares de
+// correspondências).
+async function fetchTopicPeriodCount(query, source, fromDate, toDate, parentSignal) {
   let lastError = null;
-  for (let attempt = 0; attempt < 3; attempt += 1) {
+  for (let attempt = 0; attempt < TOPIC_REQUEST_ATTEMPTS; attempt += 1) {
     if (parentSignal?.aborted) throw new DOMException("Aborted", "AbortError");
-    const budget = topicProbeBudgets.get(parentSignal);
-    if (budget && budget.used >= budget.maximum) {
-      const error = new Error("Topic verification limit reached");
-      error.code = "verification_limit";
-      throw error;
-    }
-    if (budget) budget.used += 1;
     const controller = new AbortController();
     const abortRequest = () => controller.abort();
     parentSignal?.addEventListener("abort", abortRequest, { once: true });
-    const timeout = window.setTimeout(() => controller.abort(), 35000);
+    let timeout = null;
     try {
       await waitForTopicRequestSlot(parentSignal);
-      const response = await fetch(topicSearchUrl(query, source, fromTimestamp, toTimestamp, { offset }), {
+      timeout = window.setTimeout(() => controller.abort(), TOPIC_REQUEST_TIMEOUT_MS);
+      const response = await fetch(topicSearchUrl(query, source, fromDate, toDate, { fields: "tstamp" }), {
         signal: controller.signal,
         headers: { Accept: "application/json" },
       });
+      if (response.status === 429 || response.status === 503) {
+        // Limite do Arquivo.pt: trava TODAS as consultas durante a espera.
+        const retryAfter = Number(response.headers.get("Retry-After")) || 0;
+        pauseTopicRequests(Math.max(retryAfter * 1000, 2500 * (attempt + 1)));
+        throw new Error(`Arquivo.pt ${response.status}`);
+      }
       if (!response.ok) throw new Error(`Arquivo.pt ${response.status}`);
       const payload = await response.json();
-      const rawEstimate = String(payload.estimated_nr_results ?? payload.estimatedNrResults ?? "0");
-      const estimate = Number(rawEstimate.replace(/[^0-9]/g, "")) || 0;
+      const rawEstimate = String(payload.estimated_nr_results ?? payload.estimatedNrResults ?? "");
       const items = payload.response_items || payload.responseItems || [];
-      return { hasResult: Array.isArray(items) && items.length > 0, estimate };
+      if (!/\d/.test(rawEstimate) && !Array.isArray(items)) throw new Error("Arquivo.pt invalid payload");
+      const estimate = Number(rawEstimate.replace(/[^0-9]/g, "")) || 0;
+      return Math.max(estimate, Array.isArray(items) ? items.length : 0);
     } catch (error) {
       if (parentSignal?.aborted) throw error;
       lastError = error;
-      // 429/503: limite por minuto ou indisponibilidade — esperar mais antes
-      // de repetir evita converter falhas temporárias em "não verificado".
-      const message = String(error?.message || "");
-      if (message.includes("429") || message.includes("503")) {
-        if (attempt < 2) await new Promise((resolve) => window.setTimeout(resolve, 2200 * (attempt + 1)));
-      } else if (attempt < 2) {
-        await new Promise((resolve) => window.setTimeout(resolve, 400 * (attempt + 1)));
+      if (attempt < TOPIC_REQUEST_ATTEMPTS - 1) {
+        await abortableTopicDelay(600 * (attempt + 1), parentSignal);
       }
     } finally {
-      window.clearTimeout(timeout);
+      if (timeout) window.clearTimeout(timeout);
       parentSignal?.removeEventListener("abort", abortRequest);
     }
   }
   throw lastError || new Error("Arquivo.pt unavailable");
 }
 
-function updateTopicProgress(done, total, currentYear = "") {
+function updateTopicProgress(done, total) {
   const progress = document.getElementById("topic-progress");
   const bar = document.getElementById("topic-progress-bar");
   const text = document.getElementById("topic-progress-text");
   if (!progress || !bar || !text) return;
-  const percent = total ? Math.round((done / total) * 100) : 100;
+  const percent = total ? Math.min(100, Math.round((done / total) * 100)) : 100;
   progress.hidden = false;
   bar.max = 100;
   bar.value = percent;
-  const yearLabel = currentYear ? (state.lang === "pt" ? ` · a verificar ${currentYear}` : ` · verifying ${currentYear}`) : "";
-  text.textContent = state.lang === "pt" ? `A carregar ${percent}%${yearLabel}` : `Loading ${percent}%${yearLabel}`;
+  const counter = total ? ` · ${formatMetricNumber(done)}/${formatMetricNumber(total)} ${state.lang === "pt" ? "períodos" : "periods"}` : "";
+  text.textContent = state.lang === "pt" ? `A carregar ${percent}%${counter}` : `Loading ${percent}%${counter}`;
 }
-
 function normalizedApiBaseUrl(value) {
   const raw = String(value || "").trim();
   if (!raw) return "";
@@ -1876,7 +1913,7 @@ function waitForTopicPoll(milliseconds, signal) {
   return abortableTopicDelay(milliseconds, signal);
 }
 
-async function fetchTopicSeriesFromBackend(analyses, fromDate, toDate, showValues, signal) {
+async function fetchTopicSeriesFromBackend(analyses, fromDate, toDate, showValues, signal, granularity = "year") {
   const createResponse = await fetch(`${state.apiBaseUrl}/topic-analyses`, {
     method: "POST",
     signal,
@@ -1886,6 +1923,7 @@ async function fetchTopicSeriesFromBackend(analyses, fromDate, toDate, showValue
       from_date: fromDate,
       to_date: toDate,
       show_values: showValues,
+      granularity,
     }),
   });
   if (!createResponse.ok) {
@@ -1911,39 +1949,23 @@ async function fetchTopicSeriesFromBackend(analyses, fromDate, toDate, showValue
   throw new DOMException("Aborted", "AbortError");
 }
 
-const TOPIC_EXACT_SLICE_LIMIT = 1800;
-const TOPIC_MAX_PROBES_PER_SEARCH = 2000;
-const TOPIC_MIN_REQUEST_INTERVAL_MS = 200;
-// Intervalo entre aparecimentos no gráfico (revelação ordenada).
-const TOPIC_REVEAL_INTERVAL_MS = 5000;
-let topicRevealTimer = null;
-
-// Contagem de fallback: quantas notícias GUARDADAS do projeto batem no tema
-// dentro do período (tendência — não é o valor real do índice do Arquivo.pt).
-function countLocalSavedNews(analysis, slice) {
-  const terms = normalizedTopicText(analysis.query).split(" ").filter(Boolean);
-  if (!terms.length) return null;
-  const source = analysis.source || "";
-  let count = 0;
-  for (const item of state.data?.all || []) {
-    const year = Number(item.original_year);
-    if (!Number.isFinite(year)) continue;
-    const originalDate = `${year}-${monthDay(item.date)}`;
-    if (originalDate < slice.fromDate || originalDate > slice.toDate) continue;
-    if (source) {
-      const itemSource = `${item.domain || ""} ${item.source_profile || ""} ${item.source_url || ""}`.toLowerCase();
-      if (!itemSource.includes(source)) continue;
-    }
-    const haystack = normalizedTopicText(`${localized(item, "title")} ${item.body || ""} ${localized(item, "summary")}`);
-    if (terms.every((term) => haystack.includes(term))) count += 1;
-  }
-  return count;
-}
-// O filtro `from` do Arquivo.pt devolve 0 resultados para conteúdo a partir
-// de meados de 2021 (confirmado a 2026-09): a partir daqui, um 0 só é aceito
-// se uma sonda SEM datas também não tiver resultados.
-const TOPIC_DATE_FILTER_BREAK = "2021-07-01";
-const topicProbeBudgets = new WeakMap();
+// Consultas ao Arquivo.pt: várias em paralelo, mas com espaçamento mínimo
+// global e pausa partilhada quando o arquivo devolve 429/503.
+const TOPIC_CONCURRENCY = 6;
+const TOPIC_MIN_REQUEST_INTERVAL_MS = 120;
+const TOPIC_REQUEST_TIMEOUT_MS = 30000;
+const TOPIC_REQUEST_ATTEMPTS = 4;
+// Limiares ergonómicos a partir dos quais o gráfico se torna demasiado denso
+// e o sistema sugere mudar para a versão mais condensada:
+// - Dia: sugerir mudar para Mês a partir de 31 dias (mais de 1 mês).
+// - Mês: sugerir mudar para Ano a partir de 24 meses (mais de 2 anos).
+const TOPIC_SUGGEST_DAY_THRESHOLD = 31;
+const TOPIC_SUGGEST_MONTH_THRESHOLD = 24;
+const TOPIC_MONTH_MAX_PERIODS = 24;
+const TOPIC_DAY_MAX_PERIODS = 31;
+// O Arquivo.pt só torna pesquisável em texto integral o conteúdo com cerca
+// de um ano: períodos mais recentes podem aparecer a zero.
+const TOPIC_FULLTEXT_EMBARGO_DAYS = 365;
 let nextTopicRequestAt = 0;
 let topicRequestQueue = Promise.resolve();
 
@@ -1965,6 +1987,10 @@ function abortableTopicDelay(milliseconds, signal) {
   });
 }
 
+function pauseTopicRequests(milliseconds) {
+  nextTopicRequestAt = Math.max(nextTopicRequestAt, Date.now() + milliseconds);
+}
+
 function waitForTopicRequestSlot(signal) {
   const requestSlot = topicRequestQueue.then(async () => {
     const delay = Math.max(0, nextTopicRequestAt - Date.now());
@@ -1975,119 +2001,8 @@ function waitForTopicRequestSlot(signal) {
   topicRequestQueue = requestSlot.catch(() => {});
   return requestSlot;
 }
-
-async function firstEmptyTopicOffset(query, source, fromTimestamp, toTimestamp, lowPresent, highEmpty, signal, onProbe = null) {
-  let low = lowPresent;
-  let high = highEmpty;
-  while (high - low > 1) {
-    const middle = Math.floor((low + high) / 2);
-    const probe = await fetchTopicProbe(query, source, fromTimestamp, toTimestamp, middle, signal);
-    if (onProbe) onProbe();
-    if (probe.hasResult) low = middle;
-    else high = middle;
-  }
-  return high;
-}
-
-async function verifiedTopicIntervalCount(query, source, fromTimestamp, toTimestamp, signal, onProbe = null) {
-  const first = await fetchTopicProbe(query, source, fromTimestamp, toTimestamp, 0, signal);
-  if (onProbe) onProbe();
-  if (!first.hasResult) return 0;
-
-  const hint = Math.max(0, Number(first.estimate) || 0);
-  if (hint > 0 && hint <= TOPIC_EXACT_SLICE_LIMIT) {
-    const beforePromise = hint === 1
-      ? Promise.resolve(first)
-      : fetchTopicProbe(query, source, fromTimestamp, toTimestamp, hint - 1, signal);
-    const afterPromise = fetchTopicProbe(query, source, fromTimestamp, toTimestamp, hint, signal);
-    const [before, after] = await Promise.all([beforePromise, afterPromise]);
-    if (onProbe) onProbe(2);
-    if (before.hasResult && !after.hasResult) return hint;
-    if (!before.hasResult) {
-      return firstEmptyTopicOffset(query, source, fromTimestamp, toTimestamp, 0, hint - 1, signal, onProbe);
-    }
-    const limit = hint === TOPIC_EXACT_SLICE_LIMIT
-      ? after
-      : await fetchTopicProbe(query, source, fromTimestamp, toTimestamp, TOPIC_EXACT_SLICE_LIMIT, signal);
-    if (onProbe) onProbe();
-    if (limit.hasResult) return null;
-    return firstEmptyTopicOffset(query, source, fromTimestamp, toTimestamp, hint, TOPIC_EXACT_SLICE_LIMIT, signal, onProbe);
-  }
-
-  const limit = await fetchTopicProbe(
-    query,
-    source,
-    fromTimestamp,
-    toTimestamp,
-    TOPIC_EXACT_SLICE_LIMIT,
-    signal,
-  );
-  if (onProbe) onProbe();
-  if (limit.hasResult) return null;
-  return firstEmptyTopicOffset(query, source, fromTimestamp, toTimestamp, 0, TOPIC_EXACT_SLICE_LIMIT, signal, onProbe);
-}
-
-function topicTimestampToSeconds(value) {
-  const text = String(value || "");
-  return Math.floor(Date.UTC(
-    Number(text.slice(0, 4)),
-    Number(text.slice(4, 6)) - 1,
-    Number(text.slice(6, 8)),
-    Number(text.slice(8, 10)),
-    Number(text.slice(10, 12)),
-    Number(text.slice(12, 14)),
-  ) / 1000);
-}
-
-function topicSecondsToTimestamp(seconds) {
-  const date = new Date(seconds * 1000);
-  const part = (value) => String(value).padStart(2, "0");
-  return `${date.getUTCFullYear()}${part(date.getUTCMonth() + 1)}${part(date.getUTCDate())}${part(date.getUTCHours())}${part(date.getUTCMinutes())}${part(date.getUTCSeconds())}`;
-}
-
-async function countTopicIntervalExactly(query, source, fromTimestamp, toTimestamp, signal, onProbe = null) {
-  const directCount = await verifiedTopicIntervalCount(query, source, fromTimestamp, toTimestamp, signal, onProbe);
-  if (directCount !== null) return directCount;
-
-  const fromSeconds = topicTimestampToSeconds(fromTimestamp);
-  const toSeconds = topicTimestampToSeconds(toTimestamp);
-  if (!Number.isFinite(fromSeconds) || !Number.isFinite(toSeconds) || fromSeconds >= toSeconds) {
-    throw new Error("Arquivo.pt result window could not be divided");
-  }
-  // Divisão binária por tempo: convergência log2 — mais eficiente do que
-  // mês a mês (que seria linear ~12 chamadas por ano).
-  const middle = Math.floor((fromSeconds + toSeconds) / 2);
-  const leftCount = await countTopicIntervalExactly(
-    query,
-    source,
-    topicSecondsToTimestamp(fromSeconds),
-    topicSecondsToTimestamp(middle),
-    signal,
-    onProbe,
-  );
-  const rightCount = await countTopicIntervalExactly(
-    query,
-    source,
-    topicSecondsToTimestamp(middle + 1),
-    topicSecondsToTimestamp(toSeconds),
-    signal,
-    onProbe,
-  );
-  return leftCount + rightCount;
-}
-
-function topicYearSlices(fromDate, toDate) {
-  const fromYear = Number(fromDate.slice(0, 4));
-  const toYear = Number(toDate.slice(0, 4));
-  return Array.from({ length: toYear - fromYear + 1 }, (_, index) => {
-    const year = fromYear + index;
-    return {
-      year,
-      label: String(year),
-      fromDate: fromDate > `${year}-01-01` ? fromDate : `${year}-01-01`,
-      toDate: toDate < `${year}-12-31` ? toDate : `${year}-12-31`,
-    };
-  });
+function topicIsoFromUtc(date) {
+  return date.toISOString().slice(0, 10);
 }
 
 // Dias entre duas datas (para os limites de granularidade).
@@ -2103,152 +2018,183 @@ function topicLastDayOfMonth(year, month) {
 }
 
 // Fatias por granularidade: ano (default), mês ou dia. Cada fatia tem um
-// `label` estável (YYYY | YYYY-MM | YYYY-MM-DD) e as datas exatas de borda.
+// `label` estável (YYYY | YYYY-MM | YYYY-MM-DD) e as datas exatas de borda
+// (a primeira e a última fatia são cortadas ao intervalo escolhido).
 function topicPeriodSlices(fromDate, toDate, granularity = "year") {
-  if (granularity === "month" || granularity === "day") {
-    const slices = [];
-    let [year, month, day] = fromDate.split("-").map(Number);
-    const [endYear, endMonth, endDay] = toDate.split("-").map(Number);
-    let guard = 0;
-    while (guard < 800) {
-      guard += 1;
-      const lastDay = topicLastDayOfMonth(year, month);
-      const sliceEndDay = Math.min(lastDay, granularity === "day" ? lastDay : lastDay);
-      const sliceFrom = `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-      const sliceToDate = granularity === "day" ? sliceFrom : `${year}-${String(month).padStart(2, "0")}-${String(sliceEndDay).padStart(2, "0")}`;
-      const clippedTo = sliceToDate > toDate ? toDate : sliceToDate;
-      const label = granularity === "day" ? sliceFrom : `${year}-${String(month).padStart(2, "0")}`;
-      slices.push({
-        label,
-        year,
-        month,
-        fromDate: sliceFrom,
-        toDate: clippedTo,
-      });
-      if (granularity === "day") {
-        day += 1;
-        if (day > lastDay) {
-          day = 1;
-          month += 1;
-          if (month > 12) {
-            month = 1;
-            year += 1;
-          }
-        }
-      } else {
-        month += 1;
-        day = 1;
-        if (month > 12) {
-          month = 1;
-          year += 1;
-        }
-      }
-      if (`${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}` > toDate) break;
-      if (year > endYear || (year === endYear && month > endMonth)) break;
+  if (!validTopicDate(fromDate) || !validTopicDate(toDate) || fromDate > toDate) return [];
+  const slices = [];
+  const end = new Date(`${toDate}T00:00:00Z`);
+  let cursor = new Date(`${fromDate}T00:00:00Z`);
+  while (cursor <= end && slices.length < 20000) {
+    const year = cursor.getUTCFullYear();
+    const month = cursor.getUTCMonth() + 1;
+    let periodEnd;
+    let label;
+    if (granularity === "day") {
+      periodEnd = new Date(cursor);
+      label = topicIsoFromUtc(cursor);
+    } else if (granularity === "month") {
+      periodEnd = new Date(Date.UTC(year, month - 1, topicLastDayOfMonth(year, month)));
+      label = `${year}-${padNumber(month)}`;
+    } else {
+      periodEnd = new Date(Date.UTC(year, 11, 31));
+      label = String(year);
     }
-    return slices;
+    if (periodEnd > end) periodEnd = new Date(end);
+    slices.push({
+      label,
+      year,
+      month,
+      from_date: topicIsoFromUtc(cursor),
+      to_date: topicIsoFromUtc(periodEnd),
+      fromDate: topicIsoFromUtc(cursor),
+      toDate: topicIsoFromUtc(periodEnd),
+    });
+    cursor = new Date(periodEnd.getTime() + 86400000);
   }
-  return topicYearSlices(fromDate, toDate);
+  return slices;
 }
 
-// Limites de desbloqueio: mês exige ≤ 2 anos; dia exige ≈ 1 mês corrido.
+// O utilizador tem total liberdade de escolher qualquer intervalo em qualquer
+// granularidade. Nas versões por mês e por dia, quando o intervalo é grande,
+// o sistema sugere mudar para a versão mais condensada (ano ou mês).
 function topicGranularityUnlocked(fromDate, toDate, granularity) {
-  if (granularity === "month") {
-    const [fy, fm] = fromDate.split("-").map(Number);
-    const [ty, tm] = toDate.split("-").map(Number);
-    return ((ty - fy) * 12 + (tm - fm)) <= 25;
-  }
-  if (granularity === "day") {
-    const span = topicDaysBetween(fromDate, toDate);
-    return span >= 1 && span <= 32;
-  }
   return true;
 }
 
-async function fetchTopicSeries(query, source, fromDate, toDate, signal, onProgress = null, onSeriesUpdate = null, granularity = "year", localFallback = null) {
-  const slices = topicPeriodSlices(fromDate, toDate, granularity);
-  const results = new Array(slices.length);
-  let cursor = 0;
-  let completed = 0;
-  let failed = 0;
-
-  const worker = async () => {
-    while (cursor < slices.length) {
-      const index = cursor;
-      cursor += 1;
-      const slice = slices[index];
-      if (onProgress) onProgress(completed, slices.length, slice.label, "start");
-      try {
-        const fromTimestamp = topicApiBoundary(slice.fromDate, false);
-        const toTimestamp = topicApiBoundary(slice.toDate, true);
-        let probeCount = 0;
-        const onProbe = () => {
-          probeCount += 1;
-          if (onProgress && probeCount % 3 === 0) {
-            onProgress(completed, slices.length, `${slice.label} · ${probeCount} verificações`, "start");
-          }
-        };
-        let count = await countTopicIntervalExactly(query, source, fromTimestamp, toTimestamp, signal, onProbe);
-        let estimated = false;
-        let method = "";
-        // Detecção de falso zero: se o filtro de datas do arquivo falhar para
-        // este período mas o tema tem capturas sem filtro temporal, conta nas
-        // NOTÍCIAS GUARDADAS do projeto (tendência, não o valor real); sem
-        // fallback disponível, o período fica NÃO verificado em vez de zero.
-        if (count === 0 && slice.toDate >= TOPIC_DATE_FILTER_BREAK) {
-          let presence;
-          try {
-            presence = await fetchTopicProbe(query, source, "", "", 0, signal);
-          } catch (presenceError) {
-            presenceError.code = presenceError.code || "date_filter_unavailable";
-            throw presenceError;
-          }
-          if (presence.hasResult) {
-            const localCount = localFallback ? localFallback(slice) : null;
-            if (localCount === null || localCount === undefined) {
-              throw Object.assign(new Error("Arquivo.pt date filter unavailable"), { code: "date_filter_unavailable" });
-            }
-            count = localCount;
-            estimated = true;
-            method = "noticias_guardadas";
-          }
-        }
-        results[index] = {
-          year: slice.year,
-          label: slice.label,
-          from_date: slice.fromDate,
-          to_date: slice.toDate,
-          count,
-          failed: false,
-          estimated,
-          method,
-        };
-      } catch (error) {
-        if (signal.aborted) throw error;
-        results[index] = {
-          year: slice.year,
-          label: slice.label,
-          from_date: slice.fromDate,
-          to_date: slice.toDate,
-          count: null,
-          failed: true,
-          error_code: error?.code || "request_failed",
-        };
-        failed += 1;
-      }
-      completed += 1;
-      if (onProgress) onProgress(completed, slices.length, slice.label, "done");
-      if (onSeriesUpdate) onSeriesUpdate(slice.label, results[index]);
+function topicGranularitySuggestion(fromDate, toDate, granularity) {
+  if (!validTopicDate(fromDate) || !validTopicDate(toDate)) return null;
+  const [startDate, endDate] = fromDate <= toDate ? [fromDate, toDate] : [toDate, fromDate];
+  if (granularity === "day") {
+    const days = topicDaysBetween(startDate, endDate) + 1;
+    if (days > TOPIC_SUGGEST_DAY_THRESHOLD) {
+      return {
+        unit: "day",
+        count: days,
+        suggests: days > 365 ? ["month", "year"] : ["month"],
+      };
     }
+  } else if (granularity === "month") {
+    const [fy, fm] = startDate.split("-").map(Number);
+    const [ty, tm] = endDate.split("-").map(Number);
+    const months = (ty - fy) * 12 + (tm - fm) + 1;
+    if (months > TOPIC_SUGGEST_MONTH_THRESHOLD) {
+      return {
+        unit: "month",
+        count: months,
+        suggests: ["year"],
+      };
+    }
+  }
+  return null;
+}
+
+function topicResultTotal(result) {
+  return (result?.series || []).reduce((sum, item) => sum + (Number.isFinite(item.count) ? item.count : 0), 0);
+}
+
+function emptyTopicResultSets(analyses, fromDate, toDate, granularity) {
+  const slices = topicPeriodSlices(fromDate, toDate, granularity);
+  return analyses.map((analysis) => ({
+    ...analysis,
+    granularity,
+    method: "arquivo_pt_estimated_nr_results",
+    series: slices.map((slice) => ({
+      year: slice.year,
+      label: slice.label,
+      from_date: slice.fromDate,
+      to_date: slice.toDate,
+      count: null,
+      pending: true,
+      failed: false,
+    })),
+    total: 0,
+  }));
+}
+
+// Conta TODOS os períodos de TODAS as análises com um único conjunto de
+// trabalhadores: os períodos são pedidos da esquerda para a direita (todas
+// as linhas crescem juntas) e cada valor entra no gráfico assim que chega.
+// Períodos já consultados vêm da cache local; falhas são repetidas no fim.
+async function fetchTopicResultSets(analyses, fromDate, toDate, granularity, signal, onUpdate = null) {
+  const resultSets = emptyTopicResultSets(analyses, fromDate, toDate, granularity);
+  const periodCount = resultSets[0]?.series.length || 0;
+  const totalTasks = periodCount * resultSets.length;
+  let done = 0;
+  const pendingTasks = [];
+  for (let periodIndex = 0; periodIndex < periodCount; periodIndex += 1) {
+    resultSets.forEach((result, resultIndex) => {
+      const point = result.series[periodIndex];
+      const key = topicPeriodCacheKey(result.query, result.source, point.from_date, point.to_date);
+      const cached = readTopicPeriodCache(key);
+      if (cached !== null) {
+        point.count = cached;
+        point.pending = false;
+        done += 1;
+      } else {
+        pendingTasks.push({ resultIndex, periodIndex, key });
+      }
+    });
+  }
+  const notify = () => {
+    resultSets.forEach((result) => {
+      result.total = topicResultTotal(result);
+    });
+    if (onUpdate) onUpdate(resultSets, done, totalTasks);
+  };
+  notify();
+
+  const runTasks = async (tasks, concurrency) => {
+    let cursor = 0;
+    const failedTasks = [];
+    const worker = async () => {
+      while (cursor < tasks.length) {
+        const task = tasks[cursor];
+        cursor += 1;
+        const result = resultSets[task.resultIndex];
+        const point = result.series[task.periodIndex];
+        try {
+          const count = await fetchTopicPeriodCount(result.query, result.source, point.from_date, point.to_date, signal);
+          point.count = count;
+          point.failed = false;
+          delete point.error_code;
+          writeTopicPeriodCache(task.key, count);
+        } catch (error) {
+          if (signal?.aborted) throw error;
+          point.count = null;
+          point.failed = true;
+          point.error_code = error?.code || "request_failed";
+          failedTasks.push(task);
+        }
+        if (!point.failed && point.pending) {
+          point.pending = false;
+          done += 1;
+        }
+        notify();
+      }
+    };
+    await Promise.all(Array.from({ length: Math.min(concurrency, tasks.length) }, () => worker()));
+    return failedTasks;
   };
 
-  await Promise.all(Array.from({ length: Math.min(10, slices.length) }, () => worker()));
-  if (failed === slices.length) throw new Error("Arquivo.pt unavailable");
-  return {
-    series: results,
-    total: results.reduce((sum, item) => sum + (Number.isFinite(item.count) ? item.count : 0), 0),
-    complete: failed === 0,
-  };
+  let failedTasks = await runTasks(pendingTasks, TOPIC_CONCURRENCY);
+  // Segunda e terceira tentativas, mais lentas, só para os períodos que falharam.
+  for (let round = 0; round < 2 && failedTasks.length; round += 1) {
+    await abortableTopicDelay(2000 * (round + 1), signal);
+    failedTasks = await runTasks(failedTasks, 2);
+  }
+  failedTasks.forEach((task) => {
+    const point = resultSets[task.resultIndex].series[task.periodIndex];
+    if (point.pending) {
+      point.pending = false;
+      done += 1;
+    }
+  });
+  notify();
+  resultSets.forEach((result) => {
+    result.complete = result.series.every((item) => Number.isFinite(item.count));
+  });
+  return resultSets;
 }
 
 function topicSourceLabel(source) {
@@ -2434,8 +2380,15 @@ function renderTopicControls() {
   applyTopicDateLimits();
 }
 
-// Controlo de granularidade: Por ano sempre ativo; Mês exige ≤2 anos e
-// Dia ≈1 mês. Bloqueados mostram a razão ao passar o rato ou clicar.
+// Granularidade efetivamente usada: respeita sempre a escolha do utilizador
+// sem forçar descidas involuntárias, permitindo qualquer intervalo.
+function effectiveTopicGranularity(fromDate, toDate, requested = state.topicGranularity) {
+  return requested === "month" || requested === "day" ? requested : "year";
+}
+
+// Controlo de granularidade: todos os períodos estão sempre disponíveis.
+// Nas versões por mês e por dia, quando o intervalo é grande, exibe uma
+// sugestão com botões de ação rápida para mudar para a versão mais condensada.
 function renderTopicGranularity() {
   const container = document.getElementById("topic-granularity");
   if (!container) return;
@@ -2444,125 +2397,236 @@ function renderTopicGranularity() {
   const hint = document.getElementById("topic-granularity-hint");
   const fromDate = fromInput?.value || state.topicFromDate;
   const toDate = toInput?.value || state.topicToDate;
-  let unlockedText = "";
+  const currentGranularity = effectiveTopicGranularity(fromDate, toDate);
+
   for (const button of container.querySelectorAll("[data-topic-granularity]")) {
     const granularity = button.dataset.topicGranularity;
-    const unlocked = topicGranularityUnlocked(fromDate, toDate, granularity);
-    button.classList.toggle("locked", !unlocked);
-    button.classList.toggle("active", state.topicGranularity === granularity);
-    button.setAttribute("aria-pressed", String(state.topicGranularity === granularity));
-    button.dataset.locked = unlocked ? "0" : "1";
-    if (!unlocked) {
-      unlockedText = t(granularity === "month" ? "topicGranularityMonthTip" : "topicGranularityDayTip");
-      button.setAttribute("data-tip", unlockedText);
+    const isActive = currentGranularity === granularity;
+    button.classList.remove("locked");
+    button.classList.toggle("active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+    button.removeAttribute("data-tip");
+    button.removeAttribute("data-locked");
+  }
+
+  if (hint) {
+    const suggestion = topicGranularitySuggestion(fromDate, toDate, currentGranularity);
+    if (!suggestion) {
+      hint.hidden = true;
+      hint.innerHTML = "";
     } else {
-      button.removeAttribute("data-tip");
+      hint.hidden = false;
+      const countFormatted = formatMetricNumber(suggestion.count);
+      const isPt = state.lang === "pt";
+      const message = suggestion.unit === "day"
+        ? (isPt
+            ? `O intervalo tem <strong>${countFormatted} dias</strong>. Sugerimos mudar para uma versão mais condensada:`
+            : `The selected range covers <strong>${countFormatted} days</strong>. We suggest switching to a more condensed view:`)
+        : (isPt
+            ? `O intervalo tem <strong>${countFormatted} meses</strong>. Sugerimos mudar para uma versão mais condensada:`
+            : `The selected range covers <strong>${countFormatted} months</strong>. We suggest switching to a more condensed view:`);
+
+      const buttons = suggestion.suggests.map((target) => {
+        const label = target === "month"
+          ? (isPt ? "Mudar para Por mês" : "Switch to Monthly")
+          : (isPt ? "Mudar para Por ano" : "Switch to Yearly");
+        return `<button type="button" class="topic-suggest-btn" data-suggest-granularity="${target}">${escapeHtml(label)}</button>`;
+      }).join(" ");
+
+      hint.innerHTML = `<span class="granularity-hint-text">${message}</span><span class="granularity-hint-actions">${buttons}</span>`;
     }
   }
-  if (hint) {
-    hint.hidden = !unlockedText || state.topicGranularity === "year";
-    hint.textContent = state.topicGranularity === "year" ? "" : (state.topicGranularity === "month" || state.topicGranularity === "day") && !topicGranularityUnlocked(fromDate, toDate, state.topicGranularity) ? unlockedText : "";
+}
+
+function formatCompactNumber(value) {
+  const number = Math.max(0, Number(value) || 0);
+  if (number < 10000) return formatMetricNumber(number);
+  return new Intl.NumberFormat(state.lang === "pt" ? "pt-PT" : "en-US", {
+    notation: "compact",
+    maximumFractionDigits: 1,
+  }).format(number);
+}
+
+// Granularidade deduzida das próprias etiquetas da série (evita desencontros
+// entre o botão escolhido e os dados que chegaram — p. ex. do servidor).
+function topicSeriesGranularity(series) {
+  const label = String(series?.[0]?.label || series?.[0]?.year || "");
+  if (/^\d{4}-\d{2}-\d{2}$/.test(label)) return "day";
+  if (/^\d{4}-\d{2}$/.test(label)) return "month";
+  return "year";
+}
+
+function topicPointLabel(item) {
+  return String(item?.label || item?.year || "");
+}
+
+function topicPeriodLabel(item, granularity) {
+  const locale = state.lang === "pt" ? "pt-PT" : "en-US";
+  const label = topicPointLabel(item);
+  if (granularity === "month" && /^\d{4}-\d{2}$/.test(label)) {
+    return new Intl.DateTimeFormat(locale, { month: "long", year: "numeric", timeZone: "UTC" })
+      .format(new Date(`${label}-15T00:00:00Z`));
   }
+  if (granularity === "day" && validTopicDate(label)) return formatTopicDate(label);
+  return label;
+}
+
+function topicShortDate(value) {
+  if (!validTopicDate(value)) return value || "";
+  return new Intl.DateTimeFormat(state.lang === "pt" ? "pt-PT" : "en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${value}T00:00:00Z`));
+}
+
+// Escala linear com marcas "redondas" (1, 2, 2,5, 5 × 10^n) e inteiras.
+function topicLinearScale(maxValue) {
+  if (!(maxValue > 0)) return { max: 4, ticks: [0, 1, 2, 3, 4] };
+  const raw = maxValue / 4;
+  const magnitude = 10 ** Math.floor(Math.log10(raw));
+  const normalized = raw / magnitude;
+  const nice = normalized <= 1 ? 1
+    : normalized <= 2 ? 2
+      : normalized <= 2.5 && magnitude >= 10 ? 2.5
+        : normalized <= 5 ? 5 : 10;
+  const step = Math.max(1, Math.round(nice * magnitude));
+  const max = Math.max(step, Math.ceil(maxValue / step) * step);
+  const ticks = [];
+  for (let value = 0; value <= max; value += step) ticks.push(value);
+  return { max, ticks };
+}
+
+// Escala logarítmica: marcas em potências de 10.
+function topicLogScale(maxValue) {
+  const exponent = Math.max(1, Math.ceil(Math.log10(Math.max(1, maxValue))));
+  const ticks = [0];
+  for (let power = exponent >= 4 ? 1 : 0; power <= exponent; power += 1) ticks.push(10 ** power);
+  return { max: 10 ** exponent, ticks };
+}
+
+let topicRenderFrame = null;
+function scheduleTopicGraphRender() {
+  if (topicRenderFrame) return;
+  topicRenderFrame = window.requestAnimationFrame(() => {
+    topicRenderFrame = null;
+    renderTopicGraph();
+  });
+}
+
+function topicTableHtml(resultSets, granularity) {
+  const baseSeries = resultSets[0].series;
+  const header = resultSets.map((result, index) => {
+    const color = validTopicColor(result.color, TOPIC_DEFAULT_COLORS[index]);
+    return `<th scope="col"><i style="--series-color:${color}"></i>${escapeHtml(result.query)}<small>${escapeHtml(topicSourceLabel(result.source))}</small></th>`;
+  }).join("");
+  const rows = baseSeries.map((item, periodIndex) => {
+    const cells = resultSets.map((result) => {
+      const point = result.series[periodIndex] || {};
+      if (Number.isFinite(point.count)) return `<td>${escapeHtml(formatMetricNumber(point.count))}</td>`;
+      if (point.failed && !point.pending) return `<td class="topic-cell-failed">${escapeHtml(t("topicFailedShort"))}</td>`;
+      return `<td class="topic-cell-pending" aria-label="${escapeHtml(t("topicPendingPoint"))}">…</td>`;
+    }).join("");
+    const range = item.from_date === item.to_date
+      ? topicShortDate(item.from_date)
+      : `${topicShortDate(item.from_date)} – ${topicShortDate(item.to_date)}`;
+    return `<tr><th scope="row">${escapeHtml(topicPeriodLabel(item, granularity))}</th><td class="topic-cell-range">${escapeHtml(range)}</td>${cells}</tr>`;
+  }).join("");
+  const totals = resultSets.map((result) => `<td>${escapeHtml(formatMetricNumber(topicResultTotal(result)))}</td>`).join("");
+  return `
+    <details class="topic-data-table"${state.topicTableOpen === false ? "" : " open"}>
+      <summary>${escapeHtml(t("topicTableTitle"))}</summary>
+      <div class="topic-table-scroll">
+        <table>
+          <thead><tr><th scope="col">${escapeHtml(t("topicTablePeriod"))}</th><th scope="col">${escapeHtml(t("topicTableDates"))}</th>${header}</tr></thead>
+          <tbody>${rows}</tbody>
+          <tfoot><tr><th scope="row">${escapeHtml(t("topicTableTotal"))}</th><td></td>${totals}</tr></tfoot>
+        </table>
+      </div>
+    </details>`;
 }
 
 function renderTopicGraph() {
   const container = document.getElementById("topic-results");
   if (!container) return;
-  const resultSets = (state.topicResultSets || []).filter((result) => Array.isArray(result.series));
+  const resultSets = (state.topicResultSets || []).filter((result) => Array.isArray(result.series) && result.series.length);
   if (!resultSets.length) {
     container.innerHTML = "";
     return;
   }
+  resultSets.forEach((result) => {
+    result.total = topicResultTotal(result);
+  });
 
   const baseSeries = resultSets[0].series;
-  if (!baseSeries.length) {
-    container.innerHTML = "";
-    return;
-  }
+  const pointCount = baseSeries.length;
+  const granularity = topicSeriesGranularity(baseSeries);
+  const locale = state.lang === "pt" ? "pt-PT" : "en-US";
+  const shortMonth = (label) => new Intl.DateTimeFormat(locale, { month: "short", timeZone: "UTC" })
+    .format(new Date(`${label.slice(0, 7)}-15T00:00:00Z`))
+    .replace(".", "");
 
-  const width = 920;
-  const height = 380;
-  const left = 62;
-  const right = 24;
-  const top = 26;
-  const bottom = 54;
-  const plotWidth = width - left - right;
-  const plotHeight = height - top - bottom;
-  const verifiedSeries = resultSets.flatMap((result) => result.series).filter((item) => Number.isFinite(item.count));
-  const granularity = state.topicGranularity === "month" || state.topicGranularity === "day" ? state.topicGranularity : "year";
-  // Sem dados (ou valores residuais), a escala mostra o padrão 0–10 mil:
-  // nunca os eixos degenerados "1,1,1,0,0".
-  const hasVerifiedData = verifiedSeries.length > 0;
-  const positiveCounts = verifiedSeries.map((item) => item.count).filter((count) => count > 0);
-  const dataMax = hasVerifiedData ? Math.max(...verifiedSeries.map((item) => item.count), 1) : 0;
-  const defaultScale = !hasVerifiedData || dataMax < 10;
-  const maxCount = defaultScale ? 10000 : dataMax;
-  const minPositive = positiveCounts.length ? Math.min(...positiveCounts) : 0;
-  const useLogScale = !defaultScale && minPositive > 0 && maxCount / minPositive >= 100;
-  const xForIndex = (index) => left + (baseSeries.length === 1 ? plotWidth / 2 : (index / (baseSeries.length - 1)) * plotWidth);
+  const finiteCounts = resultSets.flatMap((result) => result.series).map((item) => item.count).filter(Number.isFinite);
+  const dataMax = finiteCounts.length ? Math.max(...finiteCounts) : 0;
+  const positiveCounts = finiteCounts.filter((count) => count > 0);
+  const autoLog = positiveCounts.length > 1 && dataMax / Math.min(...positiveCounts) >= 100;
+  const useLogScale = state.topicLogScale === null || state.topicLogScale === undefined ? autoLog : Boolean(state.topicLogScale);
+  const scale = useLogScale ? topicLogScale(dataMax) : topicLinearScale(dataMax);
+
+  // Geometria: o gráfico alarga (com scroll horizontal) quando há muitos
+  // períodos, para que TODAS as etiquetas de período caibam sem saltos.
+  const minSpacing = granularity === "year" ? 36 : granularity === "month" ? 30 : 22;
+  const left = 64;
+  const right = 28;
+  const plotHeight = 280;
+  const showValues = state.topicShowValues;
+  const valueChars = finiteCounts.reduce((longest, count) => Math.max(longest, formatMetricNumber(count).length), 1);
+  const valueWidth = valueChars * 6.6 + 8;
+  const plotWidth = Math.max(920 - left - right, (pointCount - 1) * minSpacing);
+  const width = left + right + plotWidth;
+  const spacing = pointCount > 1 ? plotWidth / (pointCount - 1) : plotWidth;
+  const multiSeries = resultSets.length > 1;
+  const verticalValues = showValues && (spacing < valueWidth || (multiSeries && spacing < valueWidth * 1.4));
+  const top = !showValues ? 22 : verticalValues ? Math.round(18 + valueChars * 6.6) : multiSeries ? 40 : 30;
+  const bottom = granularity === "year" ? 38 : 52;
+  const height = top + plotHeight + bottom;
+  const xForIndex = (index) => left + (pointCount === 1 ? plotWidth / 2 : index * spacing);
   const scaledCount = (count) => useLogScale
-    ? Math.log1p(Math.max(0, count)) / Math.log1p(maxCount)
-    : Math.max(0, count) / maxCount;
-  const yForCount = (count) => top + plotHeight - scaledCount(count) * plotHeight;
-  const labelStep = Math.max(1, Math.ceil(baseSeries.length / 8));
+    ? Math.log10(1 + Math.max(0, count)) / Math.log10(1 + scale.max)
+    : Math.max(0, count) / scale.max;
+  const yForCount = (count) => top + plotHeight - Math.min(1, scaledCount(count)) * plotHeight;
+  const baseline = top + plotHeight;
 
-  const horizontalGrid = Array.from({ length: 5 }, (_, index) => {
-    const ratio = index / 4;
-    const y = top + plotHeight * ratio;
-    const scaledValue = 1 - ratio;
-    const value = Math.round(useLogScale
-      ? Math.expm1(Math.log1p(maxCount) * scaledValue)
-      : maxCount * scaledValue);
-    return `<line x1="${left}" y1="${y}" x2="${width - right}" y2="${y}" class="chart-grid-line"></line><text x="${left - 10}" y="${y + 4}" class="chart-axis-value" text-anchor="end">${escapeHtml(formatMetricNumber(value))}</text>`;
+  const horizontalGrid = scale.ticks.map((value) => {
+    const y = yForCount(value);
+    return `<line x1="${left}" y1="${y.toFixed(2)}" x2="${width - right}" y2="${y.toFixed(2)}" class="chart-grid-line"></line><text x="${left - 10}" y="${(y + 4).toFixed(2)}" class="chart-axis-value" text-anchor="end">${escapeHtml(formatCompactNumber(value))}</text>`;
   }).join("");
 
-  // Eixo X por granularidade + divisores leves de mês nas vistas de dia.
-  let yearLabels = "";
-  let monthDividers = "";
-  if (granularity === "year") {
-    yearLabels = baseSeries.map((item, index) => {
-      if (index % labelStep !== 0 && index !== baseSeries.length - 1) return "";
-      return `<text x="${xForIndex(index)}" y="${height - 20}" class="chart-year" text-anchor="middle">${item.year}</text>`;
-    }).join("");
-  } else {
-    const locale = state.lang === "pt" ? "pt-PT" : "en-US";
-    const monthName = (label) => new Intl.DateTimeFormat(locale, { month: "short", timeZone: "UTC" })
-      .format(new Date(`${label}-15T00:00:00Z`));
-    if (granularity === "month") {
-      yearLabels = baseSeries.map((item, index) => {
-        if (index % labelStep !== 0 && index !== baseSeries.length - 1) return "";
-        return `<text x="${xForIndex(index)}" y="${height - 20}" class="chart-year" text-anchor="middle">${monthName(item.label)} ${item.label.slice(0, 4)}</text>`;
-      }).join("");
-    } else {
-      // Dia: número do dia; linha fina + nome do mês quando o mês muda.
-      let previousMonth = "";
-      const dividers = [];
-      yearLabels = baseSeries.map((item, index) => {
-        const month = item.label.slice(0, 7);
-        if (previousMonth && month !== previousMonth) {
-          const boundary = (xForIndex(index) + xForIndex(index - 1)) / 2;
-          dividers.push(`<line x1="${boundary}" y1="${top}" x2="${boundary}" y2="${top + plotHeight}" class="chart-month-divider"></line>`);
-          dividers.push(`<text x="${boundary - 4}" y="${height - 20}" class="chart-year chart-month-name" text-anchor="middle">${monthName(previousMonth)}</text>`);
-        }
-        previousMonth = month;
-        if (index % labelStep !== 0 && index !== baseSeries.length - 1) return "";
-        return `<text x="${xForIndex(index)}" y="${height - 6}" class="chart-year" text-anchor="middle">${Number(item.label.slice(8, 10))}</text>`;
-      }).join("");
-      monthDividers = dividers.join("");
+  // Eixo X: uma etiqueta por período, sempre (sem saltar anos/meses/dias).
+  const dividers = [];
+  const xLabels = baseSeries.map((item, index) => {
+    const label = topicPointLabel(item);
+    const x = xForIndex(index).toFixed(2);
+    if (granularity === "year") {
+      return `<text x="${x}" y="${baseline + 22}" class="chart-year" text-anchor="middle">${escapeHtml(label)}</text>`;
     }
-  }
-
-  // Períodos falhos: marcador oco na base — visivelmente NÃO zero.
-  const failedMarkers = resultSets.map((result, resultIndex) => {
-    const color = validTopicColor(result.color, TOPIC_DEFAULT_COLORS[resultIndex]);
-    return result.series.map((item, index) => {
-      if (item.count !== null || !item.failed) return "";
-      const x = xForIndex(index);
-      return `<circle class="chart-failed-point" cx="${x}" cy="${top + plotHeight - 4}" r="4" style="stroke:${color}"><title>${escapeHtml(`${result.query} · ${item.label}: ${t("topicFailedPoint")}`)}</title></circle>`;
-    }).join("");
+    const previous = index ? topicPointLabel(baseSeries[index - 1]) : "";
+    const groupChanged = granularity === "month" ? previous.slice(0, 4) !== label.slice(0, 4) : previous.slice(0, 7) !== label.slice(0, 7);
+    if (index && groupChanged) {
+      const boundary = ((xForIndex(index) + xForIndex(index - 1)) / 2).toFixed(2);
+      dividers.push(`<line x1="${boundary}" y1="${top}" x2="${boundary}" y2="${baseline}" class="chart-month-divider"></line>`);
+    }
+    const primary = granularity === "month" ? shortMonth(label) : String(Number(label.slice(8, 10)));
+    const secondary = !groupChanged ? "" : granularity === "month" ? label.slice(0, 4) : `${shortMonth(label)} ${label.slice(0, 4)}`;
+    return `<text x="${x}" y="${baseline + 20}" class="chart-year" text-anchor="middle">${escapeHtml(primary)}</text>${secondary ? `<text x="${x}" y="${baseline + 38}" class="chart-year chart-month-name" text-anchor="${index === 0 ? "start" : "middle"}">${escapeHtml(secondary)}</text>` : ""}`;
   }).join("");
-  const valueOffsets = [-13, 18, -29, 34];
+
+  const pointRadius = pointCount > 60 ? 2.8 : pointCount > 31 ? 3.4 : 4;
+  const animationScale = Math.min(1, 11 / Math.max(1, pointCount));
+  const valueOffsets = [-11, 19, -25, 33];
   let postCount = 0;
+  const statusMarkers = [];
   const chartSeries = resultSets.map((result, resultIndex) => {
     const color = validTopicColor(result.color, TOPIC_DEFAULT_COLORS[resultIndex]);
     let pathStarted = false;
@@ -2576,51 +2640,65 @@ function renderTopicGraph() {
       return `${command}${xForIndex(index).toFixed(2)},${yForCount(item.count).toFixed(2)}`;
     }).join(" ");
     const points = result.series.map((item, index) => {
-      if (!Number.isFinite(item.count)) return "";
       const x = xForIndex(index);
+      const periodText = `${result.query} · ${topicPeriodLabel(item, granularity)}`;
+      if (!Number.isFinite(item.count)) {
+        const failed = item.failed && !item.pending;
+        statusMarkers.push(`<circle class="${failed ? "chart-failed-point" : "chart-pending-point"}" cx="${x.toFixed(2)}" cy="${(baseline - 4 - resultIndex * 3).toFixed(2)}" r="${failed ? 4 : 2.5}" style="stroke:${color}"><title>${escapeHtml(`${periodText}: ${t(failed ? "topicFailedPoint" : "topicPendingPoint")}`)}</title></circle>`);
+        return "";
+      }
       const y = yForCount(item.count);
-      let labelY = y + valueOffsets[resultIndex];
-      if (labelY < top + 10) labelY = y + 17 + (resultIndex * 10);
-      if (labelY > top + plotHeight - 2) labelY = y - 13 - (resultIndex * 9);
-      const labelX = x + (resultIndex % 2 ? 4 : -4);
-      const valueLabel = state.topicShowValues
-        ? `<text class="chart-value-label" x="${labelX}" y="${labelY}" text-anchor="middle" style="fill:${color};--i:${index}">${escapeHtml(formatMetricNumber(item.count))}</text>`
-        : "";
+      const exactValue = formatMetricNumber(item.count);
+      let valueLabel = "";
+      if (showValues) {
+        if (verticalValues) {
+          const offsetX = multiSeries ? (resultIndex - (resultSets.length - 1) / 2) * 9 : 0;
+          valueLabel = `<text class="chart-value-label chart-value-vertical" transform="translate(${(x + offsetX + 3.5).toFixed(2)} ${(y - pointRadius - 4).toFixed(2)}) rotate(-90)" text-anchor="start" style="fill:${color};--i:${(index * animationScale).toFixed(2)}">${escapeHtml(exactValue)}</text>`;
+        } else {
+          let labelY = y + valueOffsets[resultIndex % valueOffsets.length];
+          if (labelY < top - 6) labelY = y + 18;
+          if (labelY > baseline - 4) labelY = y - 11;
+          valueLabel = `<text class="chart-value-label" x="${x.toFixed(2)}" y="${labelY.toFixed(2)}" text-anchor="middle" style="fill:${color};--i:${(index * animationScale).toFixed(2)}">${escapeHtml(exactValue)}</text>`;
+        }
+      }
+      const range = item.from_date === item.to_date ? topicShortDate(item.from_date) : `${topicShortDate(item.from_date)} – ${topicShortDate(item.to_date)}`;
       return `
-        <circle class="chart-point${item.estimated ? " chart-point-estimated" : ""}" cx="${x}" cy="${y}" r="4" style="stroke:${color};--i:${index}">
-          <title>${escapeHtml(result.query)} · ${item.label}: ${formatMetricNumber(item.count)} ${t("topicMentions")}${item.estimated ? ` (${t("topicEstimatedNote")})` : ""}</title>
+        <circle class="chart-point" cx="${x.toFixed(2)}" cy="${y.toFixed(2)}" r="${pointRadius}" style="stroke:${color};--i:${(index * animationScale).toFixed(2)}">
+          <title>${escapeHtml(`${periodText} (${range}): ${exactValue} ${t("topicMentions")}`)}</title>
         </circle>
-        ${valueLabel}
-      `;
+        ${valueLabel}`;
     }).join("");
 
     const posts = matchingInstagramPosts(result.query, result.source, state.topicFromDate, state.topicToDate);
     postCount += posts.length;
     const postPoints = posts.map((post, postIndex) => {
-      const monthDayOfPost = monthDay(post.date);
-      const index = result.series.findIndex((item) => {
-        if (granularity === "month") return item.label === `${post.original_year}-${monthDayOfPost.slice(0, 2)}`;
-        if (granularity === "day") return item.label === `${post.original_year}-${monthDayOfPost}`;
-        return item.year === Number(post.original_year);
-      });
+      const postDate = `${post.original_year}-${monthDay(post.date)}`;
+      const index = result.series.findIndex((item) => postDate >= item.from_date && postDate <= item.to_date);
       if (index < 0 || !Number.isFinite(result.series[index].count)) return "";
       const y = Math.max(top + 8, yForCount(result.series[index].count) - 15 - ((postIndex % 3) * 11));
-      return `<a href="${escapeHtml(newsPageUrl(post))}" data-news-id="${escapeHtml(post.page_id)}"><circle class="chart-post-point" cx="${xForIndex(index)}" cy="${y}" r="5" style="fill:${color}"><title>${escapeHtml(titleWithYear(post))}</title></circle></a>`;
+      return `<a href="${escapeHtml(newsPageUrl(post))}" data-news-id="${escapeHtml(post.page_id)}"><circle class="chart-post-point" cx="${xForIndex(index).toFixed(2)}" cy="${y.toFixed(2)}" r="5" style="fill:${color}"><title>${escapeHtml(titleWithYear(post))}</title></circle></a>`;
     }).join("");
     return `<path class="chart-line" d="${linePath}" pathLength="1" style="stroke:${color};animation-delay:${resultIndex * 180}ms"></path>${points}${postPoints}`;
   }).join("");
 
   const legend = resultSets.map((result, index) => {
     const color = validTopicColor(result.color, TOPIC_DEFAULT_COLORS[index]);
-    return `<span><i style="--series-color:${color}"></i>${escapeHtml(result.query)} · ${escapeHtml(topicSourceLabel(result.source))} · ${escapeHtml(formatMetricNumber(result.total))}</span>`;
+    return `<span><i style="--series-color:${color}"></i>${escapeHtml(result.query)} · ${escapeHtml(topicSourceLabel(result.source))} · <strong>${escapeHtml(formatMetricNumber(result.total))}</strong></span>`;
   }).join("");
   const chartTitle = resultSets.length === 1 ? resultSets[0].query : t("topicComparisonTitle");
-  const verifiedTotal = resultSets.reduce((sum, result) => sum + (Number(result.total) || 0), 0);
+  const grandTotal = resultSets.reduce((sum, result) => sum + result.total, 0);
   const headingValue = resultSets.length === 1
     ? `${formatMetricNumber(resultSets[0].total)} ${t("topicMentions")}`
     : `${resultSets.length} ${state.lang === "pt" ? "análises" : "analyses"}`;
+  const embargoStart = topicIsoFromUtc(new Date(Date.now() - TOPIC_FULLTEXT_EMBARGO_DAYS * 86400000));
+  const touchesEmbargo = String(baseSeries[pointCount - 1]?.to_date || "") >= embargoStart;
+  const allPeriods = resultSets.flatMap((result) => result.series);
+  const pendingCount = allPeriods.filter((item) => item.pending).length;
+  const failureCount = allPeriods.filter((item) => item.failed && !item.pending).length;
+  const minSvgWidth = Math.max(680, Math.round(width * 0.82));
 
   container.classList.toggle("loading", Boolean(state.topicLoading));
+  container.classList.toggle("settled", !state.topicLoading && Boolean(state.topicShownProgressively));
   container.innerHTML = `
     <div class="topic-result-heading">
       <div>
@@ -2631,25 +2709,26 @@ function renderTopicGraph() {
     </div>
     <div class="topic-series-legend">${legend}</div>
     <div class="topic-chart-shell">
-      <svg class="topic-chart" viewBox="0 0 ${width} ${height}" role="img" aria-label="${escapeHtml(`${chartTitle}: ${formatMetricNumber(verifiedTotal)} ${t("topicMentions")}`)}">
+      <svg class="topic-chart" viewBox="0 0 ${width} ${height}" style="aspect-ratio:${width} / ${height};min-width:${minSvgWidth}px" role="img" aria-label="${escapeHtml(`${chartTitle}: ${formatMetricNumber(grandTotal)} ${t("topicMentions")}`)}">
         ${horizontalGrid}
-        ${monthDividers}
+        ${dividers.join("")}
         ${chartSeries}
-        ${failedMarkers}
-        ${yearLabels}
+        ${statusMarkers.join("")}
+        ${xLabels}
       </svg>
     </div>
+    ${topicTableHtml(resultSets, granularity)}
     ${state.topicLoading ? "" : `
     <div class="topic-chart-footer">
       <div class="topic-chart-notes">
         <span>${escapeHtml(t("topicApiCredit"))}</span>
         <span>${escapeHtml(t("topicCaptureNote"))}</span>
-        <span>${escapeHtml(t("topicCoverageUneven"))}</span>
+        ${touchesEmbargo ? `<span>${escapeHtml(t("topicEmbargoNote"))}</span>` : ""}
         ${useLogScale ? `<span>${escapeHtml(t("topicLogScale"))}</span>` : ""}
-        ${(resultSets || []).some((result) => (result.series || []).some((item) => item.estimated)) ? `<span>${escapeHtml(t("topicEstimatedNote"))}</span>` : ""}
         ${postCount ? `<span class="chart-legend"><i></i>${escapeHtml(t("topicInstagramLegend"))}</span>` : ""}
       </div>
       <div class="chart-download-controls">
+        <label class="topic-scale-toggle"><input type="checkbox" data-topic-log-scale ${useLogScale ? "checked" : ""}><span>${escapeHtml(t("topicLogScaleToggle"))}</span></label>
         <select id="chart-download-format" aria-label="${escapeHtml(t("topicDownloadFormat"))}">
           <option value="png">PNG</option>
           <option value="svg">SVG</option>
@@ -2661,28 +2740,14 @@ function renderTopicGraph() {
   `;
   const status = document.getElementById("topic-status");
   if (status) {
-    const allPeriods = resultSets.flatMap((result) => result.series);
-    const failures = allPeriods.filter((item) => item.failed).length;
-    const limited = allPeriods.filter((item) => item.error_code === "verification_limit").length;
-    // Falhas em períodos recentes = janela em que o filtro de datas do
-    // Arquivo.pt falha (independente do código de erro: throttle ou datas).
-    const dateFilter = allPeriods.filter((item) => item.failed && String(item.to_date || "") >= TOPIC_DATE_FILTER_BREAK).length;
-    if (failures) {
-      if (dateFilter) {
-        status.textContent = state.lang === "pt"
-          ? `${dateFilter} períodos não puderam ser verificados: o filtro de datas do Arquivo.pt está a devolver resultados vazios para conteúdo recente (falha do lado do arquivo, a partir de meados de 2021). Ficam marcados como não verificados — nunca como zero.`
-          : `${dateFilter} periods could not be verified: the Arquivo.pt date filter is returning empty results for recent content (an archive-side issue, from mid-2021 on). They are marked as not verified — never as zero.`;
-      } else if (limited) {
-        status.textContent = state.lang === "pt"
-          ? `${failures} períodos não puderam ser verificados sem tornar a pesquisa excessiva. Escolhe uma fonte ou reduz as datas; estes períodos não foram tratados como zero.`
-          : `${failures} periods could not be verified without making the search excessive. Choose a source or shorten the dates; these periods were not treated as zero.`;
-      } else {
-        status.textContent = state.lang === "pt"
-          ? `${failures} períodos não puderam ser verificados e não foram tratados como zero.`
-          : `${failures} periods could not be verified and were not treated as zero.`;
-      }
+    if (state.topicLoading && pendingCount) {
+      status.textContent = "";
+    } else if (failureCount) {
+      status.textContent = state.lang === "pt"
+        ? `${failureCount} períodos não obtiveram resposta do Arquivo.pt após várias tentativas: ficam assinalados no gráfico e na tabela e não contam como zero. Carrega novamente em Analisar para repetir só esses períodos (os restantes ficam em cache).`
+        : `${failureCount} periods got no answer from Arquivo.pt after several attempts: they are flagged in the chart and table and are not counted as zero. Press Analyse again to retry only those periods (the rest are cached).`;
     } else {
-      status.textContent = verifiedTotal ? "" : t("topicEmpty");
+      status.textContent = grandTotal ? "" : t("topicEmpty");
     }
   }
 }
@@ -2741,11 +2806,9 @@ function downloadTopicCsv() {
       Number.isFinite(item.count) ? item.count : "",
       item.failed
         ? (portuguese ? "nao_verificado" : "not_verified")
-        : item.estimated
-          ? (portuguese ? "estimado (noticias_guardadas)" : "estimated (saved_news)")
-          : (portuguese ? "verificado" : "verified"),
+        : (portuguese ? "verificado" : "verified"),
       item.error_code || "",
-      item.method || result.method || "paginacao_offset_com_divisao_temporal",
+      item.method || result.method || "arquivo_pt_estimated_nr_results",
       topicSearchUrl(result.query, result.source, item.from_date, item.to_date),
       collectedAt,
     ])),
@@ -2757,10 +2820,14 @@ function downloadTopicCsv() {
 function exportableTopicSvg(svg) {
   const clone = svg.cloneNode(true);
   const resultSets = state.topicResultSets || [];
-  const exportHeight = 452 + (resultSets.length * 24);
+  const viewBoxAttr = svg.getAttribute("viewBox") || "0 0 920 380";
+  const [vbMinX, vbMinY, vbWidth, vbHeight] = viewBoxAttr.split(/\s+/).map(Number);
+  const chartWidth = vbWidth || 920;
+  const chartHeight = vbHeight || 380;
+  const exportHeight = chartHeight + 60 + (resultSets.length * 24);
   clone.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-  clone.setAttribute("viewBox", `0 0 920 ${exportHeight}`);
-  clone.setAttribute("width", "1840");
+  clone.setAttribute("viewBox", `0 0 ${chartWidth} ${exportHeight}`);
+  clone.setAttribute("width", String(chartWidth * 2));
   clone.setAttribute("height", String(exportHeight * 2));
   const metadata = document.createElementNS("http://www.w3.org/2000/svg", "metadata");
   const methods = [...new Set(resultSets.map((result) => result.method).filter(Boolean))];
@@ -2774,8 +2841,7 @@ function exportableTopicSvg(svg) {
     from_date: state.topicFromDate,
     to_date: state.topicToDate,
     show_values: state.topicShowValues,
-    count_methods: methods.length ? methods : ["offset pagination with recursive time splitting"],
-    maximum_api_probes: TOPIC_MAX_PROBES_PER_SEARCH,
+    count_methods: methods.length ? methods : ["Arquivo.pt TextSearch API estimated_nr_results per period"],
     data_source: "Arquivo.pt TextSearch API",
     generated_at: new Date().toISOString(),
   });
@@ -2809,7 +2875,7 @@ function exportableTopicSvg(svg) {
         ? `Evolution of "${resultSets[0].query}" in the Arquivo.pt preserved index between ${formatTopicDate(state.topicFromDate)} and ${formatTopicDate(state.topicToDate)}${periodWording}`
         : `Topic comparison in the Arquivo.pt preserved index between ${formatTopicDate(state.topicFromDate)} and ${formatTopicDate(state.topicToDate)}${periodWording}`);
   const title = document.createElementNS("http://www.w3.org/2000/svg", "text");
-  title.setAttribute("x", String(width / 2));
+  title.setAttribute("x", String(chartWidth / 2));
   title.setAttribute("y", "34");
   title.setAttribute("text-anchor", "middle");
   title.setAttribute("class", "export-title");
@@ -2820,7 +2886,7 @@ function exportableTopicSvg(svg) {
   legend.setAttribute("data-export-series-legend", "true");
   resultSets.forEach((result, index) => {
     const color = validTopicColor(result.color, TOPIC_DEFAULT_COLORS[index]);
-    const y = 426 + (index * 24);
+    const y = chartHeight + 20 + (index * 24);
     const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
     line.setAttribute("x1", "62");
     line.setAttribute("x2", "84");
@@ -2840,7 +2906,7 @@ function exportableTopicSvg(svg) {
 
   const credit = document.createElementNS("http://www.w3.org/2000/svg", "text");
   credit.setAttribute("x", "62");
-  credit.setAttribute("y", String(444 + (resultSets.length * 24)));
+  credit.setAttribute("y", String(chartHeight + 40 + (resultSets.length * 24)));
   credit.setAttribute("fill", "#5c6b78");
   credit.setAttribute("font-family", "Montserrat, Arial, sans-serif");
   credit.setAttribute("font-size", "12");
@@ -2920,8 +2986,6 @@ function loadTopicStateFromLocation() {
   state.topicTotal = 0;
   state.topicSeries = [];
   state.topicResultSets = [];
-  // Resultados da mesma configuração nesta sessão: evita refazer pesquisas
-  // longas ao recarregar a página.
   try {
     const saved = JSON.parse(sessionStorage.getItem("ndo-topic-results") || "null");
     if (topicResultsMatchLocation() && saved) {
@@ -2942,6 +3006,7 @@ async function runTopicSearch(updateHistory = true) {
   if (!analyses.length || !validTopicDate(fromDate) || !validTopicDate(toDate)) return;
   if (fromDate > toDate) [fromDate, toDate] = [toDate, fromDate];
 
+  const granularity = effectiveTopicGranularity(fromDate, toDate, state.topicGranularity);
   state.topicAnalyses = analyses;
   state.topicQuery = analyses[0].query;
   state.topicSource = analyses[0].source;
@@ -2951,21 +3016,19 @@ async function runTopicSearch(updateHistory = true) {
   state.topicAbort?.abort();
   state.topicAbort = new AbortController();
   const searchAbort = state.topicAbort;
-  if (state.topicRevealStop) state.topicRevealStop();
-  topicProbeBudgets.set(searchAbort.signal, {
-    used: 0,
-    maximum: TOPIC_MAX_PROBES_PER_SEARCH * analyses.length,
-  });
   state.topicLoading = true;
+  state.topicShownProgressively = false;
   state.topicSeries = [];
   state.topicTotal = 0;
-  state.topicResultSets = [];
+  state.topicResultSets = emptyTopicResultSets(analyses, fromDate, toDate, granularity);
+
   const submit = document.querySelector("#topic-form button[type='submit']");
   const status = document.getElementById("topic-status");
   const progress = document.getElementById("topic-progress");
   if (submit) submit.disabled = true;
   if (status) status.textContent = "";
   if (progress) progress.hidden = true;
+  renderTopicGranularity();
   renderTopicGraph();
   if (updateHistory) {
     history.pushState({}, "", routeUrl("temas", {
@@ -2973,15 +3036,14 @@ async function runTopicSearch(updateHistory = true) {
       de: fromDate,
       ate: toDate,
       valores: state.topicShowValues ? "1" : "0",
-      ...(state.topicGranularity !== "year" ? { granularidade: state.topicGranularity } : {}),
+      ...(granularity !== "year" ? { granularidade: granularity } : {}),
     }));
   }
 
-  const granularity = topicGranularityUnlocked(fromDate, toDate, state.topicGranularity) ? state.topicGranularity : "year";
-  const periodsPerAnalysis = topicPeriodSlices(fromDate, toDate, granularity).length;
+  const periodsPerAnalysis = state.topicResultSets[0]?.series.length || 0;
   const totalPeriods = periodsPerAnalysis * analyses.length;
-  let completedPeriods = 0;
   updateTopicProgress(0, totalPeriods);
+
   try {
     let results;
     if (state.apiBaseUrl) {
@@ -2991,156 +3053,40 @@ async function runTopicSearch(updateHistory = true) {
         toDate,
         state.topicShowValues,
         searchAbort.signal,
+        granularity,
       );
       results = analyses.map((analysis, index) => ({
         ...(jobResult.analyses?.[index] || {}),
         ...analysis,
+        granularity,
       }));
+      state.topicResultSets = results;
+      state.topicSeries = results[0]?.series || [];
+      state.topicTotal = results.reduce((sum, result) => sum + topicResultTotal(result), 0);
+      renderTopicGraph();
     } else {
-        // Esqueleto com todos os períodos a null: o gráfico nasce vazio e
-        // cresce à medida que cada contagem é verificada.
-        results = analyses.map((analysis) => ({
-          ...analysis,
-          series: topicPeriodSlices(fromDate, toDate, granularity).map((slice) => ({
-            year: slice.year,
-            label: slice.label,
-            from_date: slice.fromDate,
-            to_date: slice.toDate,
-            count: null,
-            failed: false,
-          })),
-          total: 0,
-        }));
-        state.topicResultSets = results;
-        renderTopicGraph();
-        // Revelação ORDENADA: embora os períodos sejam verificados em
-        // paralelo, cada um só aparece no gráfico quando o anterior já
-        // apareceu, com 5 segundos de intervalo — nunca buracos no meio.
-        const revealEntries = new Map();
-        let revealCursor = { analysis: 0, period: 0 };
-        const stopReveal = () => {
-          if (topicRevealTimer) window.clearTimeout(topicRevealTimer);
-          topicRevealTimer = null;
-        };
-        state.topicRevealStop = stopReveal;
-        const revealNext = () => {
+      state.topicShownProgressively = true;
+      results = await fetchTopicResultSets(
+        analyses,
+        fromDate,
+        toDate,
+        granularity,
+        searchAbort.signal,
+        (currentSets, done, total) => {
           if (searchAbort.signal.aborted) return;
-          try {
-            for (let attempt = 0; attempt < analyses.length; attempt += 1) {
-              const resultSet = state.topicResultSets[revealCursor.analysis];
-              if (!resultSet) {
-                stopReveal();
-                return;
-              }
-              const point = resultSet.series[revealCursor.period];
-              if (!point) {
-                revealCursor.analysis += 1;
-                revealCursor.period = 0;
-                continue;
-              }
-              const label = point.label;
-              if (!revealEntries.has(`${revealCursor.analysis}:${label}`)) {
-                // Ainda a verificar: espera pela próxima passada (sem buracos).
-                topicRevealTimer = window.setTimeout(revealNext, 1500);
-                return;
-              }
-              const entry = revealEntries.get(`${revealCursor.analysis}:${label}`);
-              point.count = entry.count;
-              point.failed = entry.failed;
-              point.error_code = entry.error_code;
-              point.estimated = entry.estimated;
-              point.method = entry.method;
-              if (Number.isFinite(entry.count)) resultSet.total += entry.count;
-              point.revealed = true;
-              renderTopicGraph();
-              revealCursor.period += 1;
-              topicRevealTimer = window.setTimeout(revealNext, TOPIC_REVEAL_INTERVAL_MS);
-              return;
-            }
-            stopReveal();
-          } catch (revealError) {
-            // A fila nunca pode morrer por um erro de renderização.
-            topicRevealTimer = window.setTimeout(revealNext, 1500);
-          }
-        };
-        topicRevealTimer = window.setTimeout(revealNext, 1200);
-        let cursor = 0;
-        const worker = async () => {
-        while (cursor < analyses.length) {
-          const index = cursor;
-          cursor += 1;
-          const analysis = analyses[index];
-          const cacheKey = topicCacheKey(analysis.query, analysis.source, fromDate, toDate) + `:${granularity}`;
-          const cached = readTopicCache(cacheKey);
-          let result = cached;
-          if (cached) {
-            completedPeriods += cached.series.length;
-            updateTopicProgress(completedPeriods, totalPeriods);
-            cached.series.forEach((entry) => revealEntries.set(`${index}:${entry.label}`, entry));
-          } else {
-            try {
-              const seriesIndex = index;
-              result = await fetchTopicSeries(
-                analysis.query,
-                analysis.source,
-                fromDate,
-                toDate,
-                searchAbort.signal,
-                (done, total, label, phase) => {
-                  // O progresso mostra o ano FRONTEIRA (primeiro ainda não
-                  // revelado), não o ano de cada sonda individual.
-                  const series = state.topicResultSets?.[seriesIndex]?.series || [];
-                  const frontier = series.find((i) => !i.revealed);
-                  const frontierLabel = frontier ? frontier.label : label;
-                  if (phase === "start") {
-                    updateTopicProgress(completedPeriods, totalPeriods, frontierLabel);
-                    return;
-                  }
-                  completedPeriods += 1;
-                  updateTopicProgress(completedPeriods, totalPeriods, frontierLabel);
-                },
-                (label, entry) => {
-                  // Cada período verificado entra na fila de revelação
-                  // ordenada (nunca diretamente no gráfico).
-                  revealEntries.set(`${seriesIndex}:${label}`, entry);
-                },
-                granularity,
-                (slice) => countLocalSavedNews(analysis, slice),
-              );
-            } catch (error) {
-              if (searchAbort.signal.aborted) throw error;
-              result = {
-                series: topicPeriodSlices(fromDate, toDate, granularity).map((slice) => ({
-                  year: slice.year,
-                  label: slice.label,
-                  from_date: slice.fromDate,
-                  to_date: slice.toDate,
-                  count: null,
-                  failed: true,
-                  error_code: error?.code || "request_failed",
-                })),
-                total: 0,
-                complete: false,
-              };
-              completedPeriods += periodsPerAnalysis;
-              updateTopicProgress(Math.min(completedPeriods, totalPeriods), totalPeriods);
-            }
-            result.series.forEach((entry) => {
-              if (!revealEntries.has(`${index}:${entry.label}`)) {
-                revealEntries.set(`${index}:${entry.label}`, entry);
-              }
-            });
-            if (result.complete) writeTopicCache(cacheKey, result);
-          }
-          results[index] = { ...analysis, ...result };
-        }
-      };
-      await Promise.all(Array.from({ length: Math.min(2, analyses.length) }, () => worker()));
+          state.topicResultSets = currentSets;
+          state.topicSeries = currentSets[0]?.series || [];
+          state.topicTotal = currentSets.reduce((sum, result) => sum + result.total, 0);
+          updateTopicProgress(done, total);
+          scheduleTopicGraphRender();
+        },
+      );
+      state.topicResultSets = results;
+      state.topicSeries = results[0]?.series || [];
+      state.topicTotal = results.reduce((sum, result) => sum + topicResultTotal(result), 0);
+      renderTopicGraph();
     }
-    state.topicResultSets = results;
-    state.topicSeries = results[0]?.series || [];
-    state.topicTotal = results.reduce((sum, result) => sum + (Number(result.total) || 0), 0);
-    renderTopicGraph();
+
     try {
       sessionStorage.setItem("ndo-topic-results", JSON.stringify({
         search: window.location.search,
@@ -3156,11 +3102,9 @@ async function runTopicSearch(updateHistory = true) {
     state.topicLoading = false;
     if (submit) submit.disabled = false;
     if (progress) progress.hidden = true;
-    // Render final sem a marca de carregamento: liberta a exportação.
     renderTopicGraph();
   }
 }
-
 function formatMetricNumber(value) {
   return new Intl.NumberFormat(state.lang === "pt" ? "pt-PT" : "en-US").format(Math.max(0, Number(value) || 0));
 }
@@ -3898,25 +3842,42 @@ function wireTopics() {
   ["topic-from-date", "topic-to-date"].forEach((id) => {
     document.getElementById(id)?.addEventListener("change", applyTopicDateLimits);
   });
-  // Granularidade: bloqueada mostra a razão; desbloqueada re-corre a análise.
-  const hint = document.getElementById("topic-granularity-hint");
+  // Granularidade: o utilizador escolhe livremente qualquer opção.
   for (const button of document.querySelectorAll("[data-topic-granularity]")) {
-    button.addEventListener("click", (event) => {
-      if (button.dataset.locked === "1") {
-        event.preventDefault();
-        hint.textContent = t("topicGranularityLocked");
-        hint.hidden = false;
-        return;
-      }
+    button.addEventListener("click", () => {
       state.topicGranularity = button.dataset.topicGranularity;
       renderTopicGranularity();
-      runTopicSearch(true);
+      if ((state.topicResultSets || []).length) {
+        runTopicSearch(true);
+      }
     });
   }
+  // Ação rápida ao carregar num botão de sugestão de granularidade
+  document.getElementById("topic-granularity-hint")?.addEventListener("click", (event) => {
+    const suggestBtn = event.target.closest("[data-suggest-granularity]");
+    if (!suggestBtn) return;
+    event.preventDefault();
+    state.topicGranularity = suggestBtn.dataset.suggestGranularity;
+    renderTopicGranularity();
+    if ((state.topicResultSets || []).length) {
+      runTopicSearch(true);
+    }
+  });
   document.getElementById("topic-show-values")?.addEventListener("change", (event) => {
     state.topicShowValues = event.target.checked;
     renderTopicGraph();
   });
+  document.getElementById("topic-results")?.addEventListener("change", (event) => {
+    if (event.target.matches("[data-topic-log-scale]")) {
+      state.topicLogScale = event.target.checked;
+      renderTopicGraph();
+    }
+  });
+  document.getElementById("topic-results")?.addEventListener("toggle", (event) => {
+    if (event.target.matches(".topic-data-table")) {
+      state.topicTableOpen = event.target.open;
+    }
+  }, true);
   document.getElementById("topic-results")?.addEventListener("click", (event) => {
     if (!event.target.closest("[data-download-chart]")) return;
     const format = document.getElementById("chart-download-format")?.value || "png";

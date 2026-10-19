@@ -19,6 +19,7 @@ class TopicJobInput(BaseModel):
     from_date: date
     to_date: date
     show_values: bool = True
+    granularity: str = Field(default="year", pattern=r"^(year|month|day)$")
 
     @model_validator(mode="after")
     def validate_interval(self):

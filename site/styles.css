@@ -1547,7 +1547,7 @@ select:focus-visible {
   display: block;
   width: 100%;
   min-width: 680px;
-  aspect-ratio: 23 / 9.5;
+  height: auto;
 }
 
 .chart-grid-line {
@@ -2856,6 +2856,11 @@ select:focus-visible {
 }
 
 /* Home em colunas (estilo jornal): 66% Mais notícias | barra lateral */
+.home-columns-section {
+  padding-bottom: 96px;
+  margin-bottom: 32px;
+}
+
 .home-columns {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
@@ -3622,19 +3627,53 @@ html {
 }
 
 .granularity-hint {
-  max-width: 320px;
-  color: var(--muted);
-  font-size: 0.72rem;
-  line-height: 1.4;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-width: 440px;
+  padding: 8px 12px;
+  border-radius: var(--radius-small);
+  background: var(--brand-soft);
+  border: 1px solid var(--brand-faint);
+  color: var(--ink);
+  font-size: 0.74rem;
+  line-height: 1.35;
+  margin-top: 4px;
 }
 
-.segmented-button.locked {
-  opacity: 0.45;
-  cursor: help;
+.granularity-hint[hidden] {
+  display: none !important;
 }
 
-.segmented-button.locked:hover {
+.granularity-hint strong {
   color: var(--brand-deep);
+  font-weight: 700;
+}
+
+.granularity-hint-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.topic-suggest-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border: 1px solid var(--brand-deep);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--brand-deep);
+  font-size: 0.72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 140ms ease, color 140ms ease;
+  line-height: 1.2;
+}
+
+.topic-suggest-btn:hover {
+  background: var(--brand-deep);
+  color: #ffffff;
 }
 
 /* Gráfico: falhas e divisores de mês */
@@ -3653,6 +3692,188 @@ html {
 .chart-month-name {
   font-style: italic;
   opacity: 0.85;
+}
+
+.chart-pending-point {
+  fill: transparent;
+  stroke-width: 2.2;
+  stroke-dasharray: 2 2;
+  opacity: 0.65;
+  animation: chart-pending-pulse 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes chart-pending-pulse {
+  from {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 0.95;
+    transform: scale(1.15);
+  }
+}
+
+.chart-value-label.chart-value-vertical {
+  font-size: 10px;
+  letter-spacing: -0.02em;
+  dominant-baseline: central;
+}
+
+.topic-scale-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  cursor: pointer;
+  user-select: none;
+}
+
+.topic-scale-toggle input {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: var(--brand-deep);
+  cursor: pointer;
+}
+
+/* Tabela de correspondências exatas por período */
+.topic-data-table {
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  overflow: hidden;
+  transition: border-color 140ms ease;
+}
+
+.topic-data-table[open] {
+  border-color: var(--line-strong);
+}
+
+.topic-data-table summary {
+  padding: 12px 18px;
+  background: var(--canvas);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid transparent;
+}
+
+.topic-data-table[open] summary {
+  border-bottom-color: var(--line);
+}
+
+.topic-data-table summary:hover {
+  background: var(--brand-soft);
+  color: var(--brand-deep);
+}
+
+.topic-table-scroll {
+  max-height: 380px;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--brand) var(--canvas);
+}
+
+.topic-table-scroll table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  text-align: right;
+}
+
+.topic-table-scroll th,
+.topic-table-scroll td {
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.topic-table-scroll th {
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.topic-table-scroll th[scope="row"] {
+  text-align: left;
+  font-weight: 700;
+  position: sticky;
+  left: 0;
+  background: var(--paper);
+  z-index: 1;
+}
+
+.topic-table-scroll thead th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 3;
+}
+
+.topic-table-scroll tfoot th,
+.topic-table-scroll tfoot td {
+  font-weight: 700;
+  background: var(--soft);
+  border-top: 2px solid var(--line-strong);
+  border-bottom: none;
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+}
+
+.topic-table-scroll tfoot th[scope="row"] {
+  position: sticky;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+  background: var(--soft);
+}
+
+.topic-table-scroll th i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--series-color);
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.topic-table-scroll th small {
+  display: block;
+  font-weight: 400;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.topic-cell-range {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-variant-numeric: tabular-nums;
+  text-align: left;
+}
+
+.topic-cell-pending {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.topic-cell-failed {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.topic-table-scroll td {
+  font-variant-numeric: tabular-nums;
 }
 
 /* Badges das redes sociais (à direita do badge de importância) */

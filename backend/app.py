@@ -557,6 +557,7 @@ def create_topic_job(request: Request, payload: TopicJobInput, db: Session = Dep
         ],
         "from_date": canonical["from_date"],
         "to_date": canonical["to_date"],
+        "granularity": canonical.get("granularity", "year"),
     }
     fingerprint = hashlib.sha256(
         json.dumps(cache_identity, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")

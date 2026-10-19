@@ -8,7 +8,7 @@ from backend.database import SessionLocal, init_db
 from backend.fast_topic_service import FastTopicSearchError, analyze_topic_fast, can_answer, index_status
 from backend.models import TopicJob
 from backend.rate_limit import release_topic_job_slot
-from backend.topic_service import TopicProbeBudget, analyze_topic, year_slices
+from backend.topic_service import TopicProbeBudget, analyze_topic, period_slices, year_slices
 
 
 REDIS_URL = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
@@ -40,7 +40,9 @@ def run_topic_job(job_id):
             from_date = date.fromisoformat(request_data["from_date"])
             to_date = date.fromisoformat(request_data["to_date"])
             analyses = request_data["analyses"]
-            total_periods = max(1, len(year_slices(from_date, to_date)) * len(analyses))
+            granularity = request_data.get("granularity", "year")
+            slices = period_slices(from_date, to_date, granularity)
+            total_periods = max(1, len(slices) * len(analyses))
             completed_periods = 0
             budget = TopicProbeBudget(int(os.environ.get("TOPIC_MAX_PROBES_BACKEND", "5000")))
 
@@ -51,7 +53,7 @@ def run_topic_job(job_id):
                 db.commit()
 
             try:
-                fast_search = can_answer(from_date, to_date)
+                fast_search = granularity == "year" and can_answer(from_date, to_date)
                 if fast_search:
                     try:
                         results = []
@@ -67,13 +69,14 @@ def run_topic_job(job_id):
                         db.commit()
                 if not fast_search:
                     results = [
-                        analyze_topic(analysis, from_date, to_date, budget, update_progress)
+                        analyze_topic(analysis, from_date, to_date, budget, update_progress, granularity)
                         for analysis in analyses
                     ]
                 job.result_json = json.dumps({
                     "analyses": results,
                     "from_date": request_data["from_date"],
                     "to_date": request_data["to_date"],
+                    "granularity": granularity,
                     "show_values": bool(request_data.get("show_values", True)),
                     "probes_used": budget.used,
                     "complete": all(result.get("complete") for result in results),

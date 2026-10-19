@@ -869,14 +869,12 @@ def post_to_site_item(post, registry_by_post_id):
     )
     image_path = clean_text(option.get("local_image_path"))
     source_local_image = local_source_path(image_path)
-    # A foto de fundo original (sem texto) alimenta os cartões e a página da
-    # notícia, como nos sites de notícias; a capa com texto é só para o Instagram.
+    # A foto de fundo original (sem texto nem logótipos) alimenta os cartões e a página da
+    # notícia, tal como nos sites de jornalismo; a capa com texto é estritamente para o Instagram.
     background_local = local_source_path(option.get("local_background_path"))
-    card_source = background_local or source_local_image
+    card_source = background_local
     image = copy_site_image(card_source, f"{post.get('date', '')}-{post.get('slot', '')}-{title}") if card_source else ""
-    if not image:
-        image = copy_site_image(image_path, f"{post.get('date', '')}-{post.get('slot', '')}-{title}")
-    if not image:
+    if not image and background_local:
         image = clean_text(option.get("image_url") or registry_record.get("image_url"))
 
     status = clean_text(post.get("status") or "pending").lower()
@@ -898,14 +896,14 @@ def post_to_site_item(post, registry_by_post_id):
         except Exception:
             photo_analysis = None
     banner_image = create_banner_image(
-        background_local or source_local_image,
+        background_local,
         f"{publish_date}-{post.get('slot', '')}-{title}",
         title,
         category,
         original_year,
         sharp=bool(background_local),
         analysis=photo_analysis,
-    )
+    ) if background_local else ""
     banner_ready = bool(
         background_local
         and photo_analysis
@@ -1107,11 +1105,11 @@ def select_carousel_with_tenure(items, limit=CAROUSEL_SIZE, now=None):
     state_data = load_json(CAROUSEL_STATE_FILE, {})
     active = dict(state_data.get("active") or {})
     retired = dict(state_data.get("retired") or {})
-    known_ids = {clean_text(item.get("page_id")) for item in items}
+    candidate_ids = {clean_text(item.get("page_id")) for item in candidates}
 
-    # Expirar membros que passaram o tempo de permanência.
+    # Expirar membros que passaram o tempo de permanência ou que já não são candidatos válidos (ex.: nível 4 ou 5).
     for page_id in list(active.keys()):
-        if page_id not in known_ids:
+        if page_id not in candidate_ids:
             del active[page_id]
             continue
         entered = _parse_iso_datetime(active[page_id])
@@ -1147,7 +1145,7 @@ def select_carousel_with_tenure(items, limit=CAROUSEL_SIZE, now=None):
                 if len(chosen) >= limit:
                     break
     chosen_ids = {clean_text(item.get("page_id")) for item in chosen}
-    active = {page_id: entered for page_id, entered in active.items() if page_id in known_ids or page_id in chosen_ids}
+    active = {page_id: entered for page_id, entered in active.items() if page_id in candidate_ids or page_id in chosen_ids}
     save_json(CAROUSEL_STATE_FILE, {"active": active, "retired": retired, "updated_at": now.isoformat()})
     return chosen[:limit]
 
@@ -1193,16 +1191,27 @@ def build_event_recommendations():
 
 
 def select_carousel_items(items, limit=10):
-    """Rotação do carrossel: só entram fotos que funcionam bem nos dois
-    formatos (banner largo do hero e cartão 4:5), sem repetir a mesma
-    fotografia; a diversidade fonte+ano desempata, e as restantes vagas são
-    preenchidas por ordem de prioridade."""
+    """Rotação do carrossel: só entram notícias de alta relevância (Nível 1 e 2;
+    máximo Nível 3 se necessário) cujas fotos funcionam bem nos dois formatos
+    (banner largo do hero e cartão 4:5), sem repetir a mesma fotografia.
+    Ordenadas estritamente por relevância histórica (nível e pontuação ponderada)."""
 
     def banner_key(item):
         return str(item.get("banner_image") or "").split("?")[0]
 
-    # Fotos distintas já validadas para banner + capa; guardadas por ordem de
-    # prioridade dos itens.
+    # Ordenar candidatos prioritariamente por nível de relevância histórica (1 antes de 2, etc.)
+    # e depois pela pontuação ponderada decrescente.
+    valid_candidates = [
+        item for item in items
+        if int(item.get("relevance_level") or 5) <= 3 and has_enduring_editorial_value(item)
+    ]
+    top_tier = [item for item in valid_candidates if int(item.get("relevance_level") or 5) <= 2]
+    candidates = top_tier if len(top_tier) >= 5 else valid_candidates
+    candidates = sorted(
+        candidates,
+        key=lambda x: (int(x.get("relevance_level") or 5), -float(x.get("relevance_weighted") or 0)),
+    )
+
     chosen = []
     chosen_ids = set()
     used_banners = set()
@@ -1221,7 +1230,7 @@ def select_carousel_items(items, limit=10):
         used_keys.add(diversity_key(item))
 
     # 1ª passada: foto própria validada (banner_ready) + diversidade fonte+ano.
-    for item in items:
+    for item in candidates:
         if len(chosen) >= limit:
             break
         if not item.get("banner_ready"):
@@ -1230,8 +1239,19 @@ def select_carousel_items(items, limit=10):
         if key in used_keys or banner_key(item) in used_banners:
             continue
         take(item)
-    # 2ª passada: foto distinta mas não validada, mantendo a diversidade.
-    for item in items:
+    # 2ª passada: foto própria validada (banner_ready), relaxando ano/fonte para preencher com alta qualidade.
+    for item in candidates:
+        if len(chosen) >= limit:
+            break
+        if id(item) in chosen_ids:
+            continue
+        if not item.get("banner_ready"):
+            continue
+        if banner_key(item) in used_banners:
+            continue
+        take(item)
+    # 3ª passada: foto distinta mas não validada por IA, mantendo diversidade.
+    for item in candidates:
         if len(chosen) >= limit:
             break
         if id(item) in chosen_ids:
@@ -1240,11 +1260,13 @@ def select_carousel_items(items, limit=10):
         if key in used_keys or banner_key(item) in used_banners:
             continue
         take(item)
-    # 3ª passada: preencher as vagas restantes por ordem de prioridade.
-    for item in items:
+    # 4ª passada: preencher as vagas restantes dos candidatos por ordem de relevância.
+    for item in candidates:
         if len(chosen) >= limit:
             break
         if id(item) in chosen_ids:
+            continue
+        if banner_key(item) in used_banners:
             continue
         take(item)
     return chosen
