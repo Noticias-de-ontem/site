@@ -120,25 +120,33 @@ STRONG_TOPIC_KEYWORDS = [
     "mundial", "euro", "champions", "festival", "concerto", "cinema", "filme", "série",
     "serie", "música", "musica", "cantor", "atriz", "ator", "actor", "beyonc", "swift",
     "madonna", "lady gaga", "tecnologia", "iphone", "apple", "google", "spacex", "tesla",
-    "internet", "viral", "meme", "curioso", "insólito", "insolito", "bizarro", "recorde",
-    "estreia", "primeiro", "histórico", "historico", "vitória", "vitoria", "campeão",
-    "campeao", "oscar", "televisão", "televisao",
-    # Notícia forte nacional/internacional — deve competir com desporto/famosos.
+    "falcon heavy", "al-nassr", "globo de ouro", "óscar", "oscar", "estátua", "estatua",
+    "recorde", "estreia", "primeiro", "histórico", "historico", "vitória", "vitoria", "campeão",
+    "campeao", "liga portuguesa", "clássico", "classico", "televisão", "televisao",
+    # Notícia forte nacional/internacional — marcos estruturais e pontos de viragem
     "eleições", "eleicoes", "presidenciais", "legislativas", "autárquicas", "autarquicas",
     "governo", "primeiro-ministro", "primeiro ministro", "presidente", "parlamento",
     "assembleia da república", "assembleia da republica", "cimeira", "referendo",
-    "constituição", "constituicao", "acordo", "tratado", "brexit", "corrupção", "corrupcao",
-    "julgamento", "tribunal", "terramoto", "furacão", "furacao", "cheias", "incêndio",
-    "incendio", "pandemia", "vacina", "banco central", "economia", "desemprego",
-    "atentado", "acidente", "resgatado", "desaparecido", "emergência", "emergencia",
-    "ue", "união europeia", "uniao europeia", "nato", "onu", "nações unidas", "nacoes unidas"
+    "constituição", "constituicao", "acordo", "acordo de paz", "cessar-fogo", "cessar fogo",
+    "tomada de posse", "posse presidencial", "tratado", "brexit", "corrupção", "corrupcao",
+    "alojamento turístico", "alojamento local", "habitação", "habitacao",
+    "suspensão", "suspensao", "banido", "reintegração", "julgamento", "tribunal",
+    "terramoto", "furacão", "furacao", "cheias", "incêndio", "incendio", "pandemia", "vacina",
+    "banco central", "economia", "desemprego", "atentado", "acidente", "resgatado",
+    "emergência", "emergencia", "ue", "união europeia", "uniao europeia", "nato", "onu"
 ]
 WEAK_TOPIC_KEYWORDS = [
     "segundo a ap", "durante a reunião", "reunião pública", "executivo municipal",
     "orçamento", "orcamento", "relatório", "relatorio", "plano nacional",
     "secretário de estado", "secretario de estado", "comunicado",
     "conferência de imprensa", "conferencia de imprensa", "fonte oficial",
-    "ministério", "ministerio", "processo administrativo"
+    "ministério", "ministerio", "processo administrativo",
+    # Ruído efémero, memes e curiosidades anedóticas penalizados
+    "meme", "viral", "curioso", "insólito", "insolito", "bizarro",
+    "velório", "velorio", "funeral", "tiktok", "filtro de ia", "filtro ia",
+    "perdem pontos", "perde pontos", "empata com", "jornada da liga",
+    "sondagem autárquica", "sondagem municipal", "concelhia", "concelhias",
+    "meias criativas", "sem dentes"
 ]
 
 WEAK_TOPIC_KEYWORDS.extend([
@@ -861,32 +869,47 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
     Language required for the output: {lang.upper()}
 
     CRITICAL RULES:
-    1. CATEGORY LANGUAGE:
+    1. CATEGORY DISCIPLINE (PORTUGUESE):
        - Since the language is {lang.upper()}, you MUST output the "category" field STRICTLY in Portuguese!
-       - Use categories like: POLÍTICA, DESPORTO, CULTURA, SOCIEDADE, CIÊNCIA, NACIONAL, MUNDIAL, ESTRELA, CURIOSO. Never output English categories like "SPORTS" or "SOCIETY".
+       - Valid categories: POLÍTICA, DESPORTO, CULTURA, SOCIEDADE, CIÊNCIA, TECNOLOGIA, NACIONAL, MUNDIAL.
+       - NEVER use ESTRELA or CURIOSO for serious achievements:
+         * Cinema, acting awards (Golden Globes, Oscars), music milestones, statues/monuments -> CULTURA
+         * Space launches, rockets, astronomy, physics -> CIÊNCIA
+         * AI, cyber, tech platforms, software -> TECNOLOGIA
+         * Landmark personal birthdays/milestones -> SOCIEDADE
     2. NO DATES IN OVERLAY DESCRIPTION:
        - The "overlay_description" field will be drawn directly onto the Instagram post image. It MUST NOT contain any dates, years, months, or days (e.g., absolutely NO 'em 2005', 'em 1974', 'em Julho', 'no dia 1', etc.). Keep it strictly timeless.
-    3. NO DEATHS:
-       - Do NOT select, write options about, or mention any stories involving deaths, passings, murders, suicides, violent tragedies, or funerals. Focus on sports, culture, light stories, positive or neutral historical milestones.
+    3. NO DEATHS & NO FUNERAL WAKES:
+       - Do NOT select, write options about, or mention any stories involving deaths, passings, murders, suicides, violent tragedies, or funeral wakes (velórios).
     4. HISTORICAL ACCURACY (PORTUGAL):
        - The dictatorship in Portugal (Estado Novo) lasted from 1933 until the Carnation Revolution on April 25, 1974. Never refer to 1960 or any other year as the end of the dictatorship.
-    5. ENDURING EDITORIAL VALUE:
-       - A story must remain interesting after removing any anniversary number, ceremonial wording, or congratulatory framing.
-       - Treat routine institutional birthdays, age-count announcements, commemorative greetings, and publicity-led anniversaries as low-value material.
-       - Anniversary coverage is only strong when it reports a substantive event with lasting public relevance, such as a major launch, victory, reform, discovery, performance, exhibition, or cultural milestone.
+    5. USER EDITORIAL CRITERIA (SHOCK & LASTING IMPACT):
+       - SURPRISE & DOUBLE-TAKE: Prefer events that make a modern reader pause and exclaim: "Did this really happen on this day?!", "Was that so long ago?", "A major turning point happened here!".
+       - DO NOT choose facts so universally known and mundane that they cause zero surprise today (e.g., introducing the euro currency in 2002 — everyone knows Portugal uses the euro).
+       - STRICTLY REJECT EPHEMERAL INTERNET NOISE: internet memes (e.g. photoshopped celebrities, funny faces), viral TikTok dances, AI face filters, celebrity private trivia (funny socks, minor gaffes, tabloid rumors).
+       - STRICTLY REJECT ROUTINE NOISE: minor party press releases, municipal polls that expired years ago, routine parliamentary committee debates, routine diplomatic travels with no historic treaties.
+       - SPORTS RULES (NO SPOILERS):
+         * YES: Historic generational transfers (Ronaldo to Al-Nassr), peak rivalries (Messi vs Ronaldo), monumental title triumphs (league/Euro championships), historic big classics (Sporting vs FC Porto, Benfica vs Porto).
+         * NO SPOILERS IN HEADLINES: In football classics, NEVER reveal who scored in the title! Use clean, compelling headlines: "Sporting vence FC Porto em clássico decisivo" (NEVER "Sporting vence Porto 1-0 com golo de X aos 85'").
+         * NO: Routine weekly league matches where teams merely lose or gain points during regular season.
+         * NO: Preliminary tennis tournament rounds, minor rally stages, or routine friendly games.
+       - POLITICS & WORLD:
+         * YES: Historic peace accords / ceasefires, landmark elections of heads of state/government, sweeping structural decisions impacting citizens (housing restrictions, social network bans/reversals).
+       - CIÊNCIA & TECNOLOGIA:
+         * YES: Groundbreaking space milestones (SpaceX Falcon Heavy with Tesla in space), critical AI and digital safety alerts.
 
     YOUR TASK:
     1. Read all the provided historical news items.
     2. Group similar stories to find distinct events.
-    3. Rank the distinct events by viral potential and recognizability today, not by formal institutional importance.
-    4. Prefer stories that a Portuguese Instagram audience can understand immediately: famous people, sport, pop culture, technology, internet moments, curious public-life ironies, or major social milestones.
+    3. Rank the distinct events by surprise/shock value ("double-take") and lasting historical resonance today, strictly filtering out memes, trivia, and routine noise.
+    4. Prefer stories that a Portuguese audience finds truly fascinating: historic turning points, landmark sports moments without spoilers, culture breakthroughs, and science wonders.
     5. Penalize routine bureaucracy, municipal meeting notes, generic agency copy, budget/process updates, minor appointments, ceremonial anniversaries, and stories whose hook depends on knowing an obscure name.
-    6. Return a JSON object with an "options" array containing exactly 10 distinct, non-repeating objects (ordered from highest viral potential to lowest).
+    6. Return a JSON object with an "options" array containing exactly 10 distinct, non-repeating objects (ordered from highest impact/shock to lowest).
     7. The first 5 options will be used for Slot 1 of the day, and the remaining 5 options will be used for Slot 2. Ensure the two slot groups do not overlap in theme, year, public figure, or framing.
     8. GROUNDING: only propose events that actually correspond to one of the RAW DATA items provided. Never invent or mix up people, years, clubs or facts. If you are not certain the event matches a raw item, skip it.
-    9. DATE ACCURACY (critical): the "year" field MUST be the year of the event itself as reported in the raw data. Prefer completed, time-boxed events (a match that ended, an announcement that was made, a release that happened) over ongoing states. ONGOING STATES (someone still holding an office, still playing for a club, a law still in force) are BAD stories: "X elected PM" only makes sense when they LEFT office or on meaningful anniversaries of the election — never as current-state filler. If the raw item is about the START of an ongoing situation, skip it or frame it around the completed moment (the election day, the signing, the debut).
-    10. ONE OPTION PER EVENT: two options must never describe the SAME event/story even from different sources (different outlets covering the identical event count as ONE). Group duplicates and keep the single best version. Additionally, when several candidates cover the same event, base YOUR texts (title, overlay_description, caption, summary) on the RICHEST article (most detail, from the free/no-paywall source), and the "year" from that article's own date.
-    11. RECURRING THEMES vs THE SAME EVENT: similar topics in different years (e.g. "wildfires in August" in 2016 and 2024) are DIFFERENT stories and both are valid — what is forbidden is the same event twice, not the same theme.
+    9. DATE ACCURACY (critical): the "year" field MUST be the year of the event itself as reported in the raw data. Prefer completed, time-boxed events (a match that ended, an announcement that was made, a release that happened) over ongoing states.
+    10. ONE OPTION PER EVENT: two options must never describe the SAME event/story even from different sources. Group duplicates and keep the single best version.
+    11. RECURRING THEMES vs THE SAME EVENT: similar topics in different years are DIFFERENT stories and both are valid.
 
     Format:
     {{

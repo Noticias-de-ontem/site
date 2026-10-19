@@ -132,7 +132,12 @@ def prompt_events_for_day(pool, month, day, events_payload):
     prompt = f"""Você é o curador de um site português de notícias históricas ("Notícias de Ontem").
 Data: dia {day} de {calendar_module.month_name[month] if month <= 12 else month} (qualquer ano).
 
-A partir dos acontecimentos reais abaixo (Wikipedia "on this day"), escolha até {EVENTS_PER_DAY} que valem uma notícia no site — priorize acontecimentos verdadeiramente marcantes (política, guerra e paz, ciência, desporto, catástrofe, cultura) com reconhecimento imediato para o público português.
+Critérios editoriais obrigatórios:
+- Priorize acontecimentos com fator de choque ou surpresa ("double-take"): o leitor pára e pensa "Isto aconteceu mesmo neste dia?", "Foi há tanto tempo?".
+- Rejeite absolutamente: memes, virais efémeros, boatos de celebridades, rotinas burocráticas e velórios fúnebres de figuras já falecidas antes.
+- No desporto, escolha apenas grandes marcos (títulos, transferências históricas, grandes rivalidades) e NUNCA ponha spoilers de autores de golos no título.
+- Priorize marcos substantivos: acordos de paz, eleições históricas, ciência, avanços espaciais, cultura e conquistas com reconhecimento para o público português.
+Escolha até {EVENTS_PER_DAY} acontecimentos reais que valem uma notícia no site.
 
 Para cada escolhido devolva (JSON válido, sem markdown):
 {{

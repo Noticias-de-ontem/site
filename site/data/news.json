@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-19T10:41:59+00:00",
+  "generated_at": "2026-10-19T11:07:20+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/",
@@ -806,55 +806,6 @@
       "page_id": "noticia-63a3a97eb0bb0bd20dace985",
       "detail_image": "assets/banners/2026-02-01-1-portugal-marca-maior-crescimento-da-ue-e-dvida-abaixo-de-99-do-pib-banner.jpg",
       "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20180727031356%2Fhttp%3A%2F%2Festoresrg.pt%2Fmarquises%2F"
-    },
-    {
-      "id": "pt_2026-01-27_2",
-      "lang": "pt",
-      "date": "2026-01-27",
-      "slot": 2,
-      "status": "approved",
-      "category": "POLÍTICA",
-      "title": "Crise do Banco Comercial Português revela falhas regulatórias",
-      "title_en": "Banco Comercial Português Crisis Exposes Regulatory Failures",
-      "summary": "Crise bancária expõe falhas de regulação",
-      "summary_en": "The bank’s collapse highlights systemic weaknesses, prompting reforms in Portugal’s financial oversight.",
-      "original_year": "2008",
-      "image": "assets/posts/2026-01-27-2-crise-do-banco-comercial-portugus-revela-falhas-regulatrias.jpg",
-      "banner_image": "assets/banners/2026-01-27-2-crise-do-banco-comercial-portugus-revela-falhas-regulatrias-banner.jpg",
-      "body": "Em 2008, o Banco Comercial Português (BCP) entrou em crise, revelando falhas significativas na regulação bancária portuguesa. O colapso do BCP, um dos maiores bancos do país, foi desencadeado por uma combinação de exposição excessiva a ativos de risco e gestão inadequada de capital. A crise expôs a fragilidade do sistema regulatório, que, apesar de existir, não conseguiu impedir a deterioração das condições financeiras do banco. O desenvolvimento da crise começou com a expansão agressiva do BCP no mercado de crédito, sobretudo no setor imobiliário. A falta de supervisão rigorosa permitiu que o banco acumulasse empréstimos de alto risco, sem a devida provisão de capital. Quando o mercado imobiliário começou a desvalorizar, os ativos tóxicos do BCP começaram a deteriorar, levando a perdas substanciais. O Banco de Portugal, responsável pela supervisão, foi criticado por não ter identificado e mitigado esses riscos de forma proativa. A intervenção do Estado, que incluiu a injeção de capital e a reestruturação do BCP, foi necessária para evitar um colapso sistémico. No entanto, o episódio destacou a necessidade de uma regulação mais robusta e de mecanismos de supervisão mais eficazes. A crise do BCP serviu de alerta para a comunidade financeira e política, mostrando que a regulação existente era insuficiente para lidar com a complexidade e a velocidade das operações bancárias. A relevância duradoura da crise do BCP reside na sua contribuição para a reforma regulatória em Portugal. Em resposta, foram implementadas novas normas de capital, requisitos de liquidez e um regime de supervisão mais integrado com a Autoridade Bancária Europeia. Estas medidas visam prevenir futuras crises e reforçar a confiança no sistema bancário português, assegurando que os bancos operem com prudência e transparência. A crise do BCP permanece um marco histórico que continua a moldar a política regulatória e a prática bancária em Portugal.",
-      "caption": "O Banco Comercial Português enfrentou uma crise que expôs falhas na regulação bancária portuguesa. O artigo critica a atuação do Banco de Portugal e destaca a necessidade de maior rigor.",
-      "source_url": "https://www.publico.pt/2008/01/27/economia/opiniao/crise-bcp-falibilidade-regulacao-bancaria-1903654",
-      "source_profile": "publico.pt",
-      "source_platform": "web",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "facebook"
-      ],
-      "cover_focus": [
-        0.47,
-        0.45
-      ],
-      "network_posts": {},
-      "relevance_level": 2,
-      "relevance_scores": {
-        "impacto_historico": 40.0,
-        "dimensao_impacto": 50.0,
-        "consequencias": 55.0,
-        "relevancia_posterior": 45.0,
-        "dimensao_duracao": 60.0,
-        "relevancia_mediatica": 65.0,
-        "singularidade": 50.0
-      },
-      "relevance_weighted": 82.0,
-      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
-      "source_type": "newspaper",
-      "url_path": "noticia/politica/crise-do-banco-comercial-portugues-revela",
-      "page_id": "noticia-40fee5577f44e81a9d421cad",
-      "detail_image": "assets/banners/2026-01-27-2-crise-do-banco-comercial-portugus-revela-falhas-regulatrias-banner.jpg",
-      "snapshot_url": ""
     }
   ],
   "all": [
@@ -1353,55 +1304,6 @@
       "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20240804202757%2Fhttps%3A%2F%2Fzap.aeiou.pt%2Fnoticias%2Fnacional%2Ffeed"
     },
     {
-      "id": "pt_2026-01-27_2",
-      "lang": "pt",
-      "date": "2026-01-27",
-      "slot": 2,
-      "status": "approved",
-      "category": "POLÍTICA",
-      "title": "Crise do Banco Comercial Português revela falhas regulatórias",
-      "title_en": "Banco Comercial Português Crisis Exposes Regulatory Failures",
-      "summary": "Crise bancária expõe falhas de regulação",
-      "summary_en": "The bank’s collapse highlights systemic weaknesses, prompting reforms in Portugal’s financial oversight.",
-      "original_year": "2008",
-      "image": "assets/posts/2026-01-27-2-crise-do-banco-comercial-portugus-revela-falhas-regulatrias.jpg",
-      "banner_image": "assets/banners/2026-01-27-2-crise-do-banco-comercial-portugus-revela-falhas-regulatrias-banner.jpg",
-      "body": "Em 2008, o Banco Comercial Português (BCP) entrou em crise, revelando falhas significativas na regulação bancária portuguesa. O colapso do BCP, um dos maiores bancos do país, foi desencadeado por uma combinação de exposição excessiva a ativos de risco e gestão inadequada de capital. A crise expôs a fragilidade do sistema regulatório, que, apesar de existir, não conseguiu impedir a deterioração das condições financeiras do banco. O desenvolvimento da crise começou com a expansão agressiva do BCP no mercado de crédito, sobretudo no setor imobiliário. A falta de supervisão rigorosa permitiu que o banco acumulasse empréstimos de alto risco, sem a devida provisão de capital. Quando o mercado imobiliário começou a desvalorizar, os ativos tóxicos do BCP começaram a deteriorar, levando a perdas substanciais. O Banco de Portugal, responsável pela supervisão, foi criticado por não ter identificado e mitigado esses riscos de forma proativa. A intervenção do Estado, que incluiu a injeção de capital e a reestruturação do BCP, foi necessária para evitar um colapso sistémico. No entanto, o episódio destacou a necessidade de uma regulação mais robusta e de mecanismos de supervisão mais eficazes. A crise do BCP serviu de alerta para a comunidade financeira e política, mostrando que a regulação existente era insuficiente para lidar com a complexidade e a velocidade das operações bancárias. A relevância duradoura da crise do BCP reside na sua contribuição para a reforma regulatória em Portugal. Em resposta, foram implementadas novas normas de capital, requisitos de liquidez e um regime de supervisão mais integrado com a Autoridade Bancária Europeia. Estas medidas visam prevenir futuras crises e reforçar a confiança no sistema bancário português, assegurando que os bancos operem com prudência e transparência. A crise do BCP permanece um marco histórico que continua a moldar a política regulatória e a prática bancária em Portugal.",
-      "caption": "O Banco Comercial Português enfrentou uma crise que expôs falhas na regulação bancária portuguesa. O artigo critica a atuação do Banco de Portugal e destaca a necessidade de maior rigor.",
-      "source_url": "https://www.publico.pt/2008/01/27/economia/opiniao/crise-bcp-falibilidade-regulacao-bancaria-1903654",
-      "source_profile": "publico.pt",
-      "source_platform": "web",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "facebook"
-      ],
-      "cover_focus": [
-        0.47,
-        0.45
-      ],
-      "network_posts": {},
-      "relevance_level": 2,
-      "relevance_scores": {
-        "impacto_historico": 40.0,
-        "dimensao_impacto": 50.0,
-        "consequencias": 55.0,
-        "relevancia_posterior": 45.0,
-        "dimensao_duracao": 60.0,
-        "relevancia_mediatica": 65.0,
-        "singularidade": 50.0
-      },
-      "relevance_weighted": 82.0,
-      "relevance_justification": "Grande relevância e impacto de surpresa imediata no leitor validado na curadoria.",
-      "source_type": "newspaper",
-      "url_path": "noticia/politica/crise-do-banco-comercial-portugues-revela",
-      "page_id": "noticia-40fee5577f44e81a9d421cad",
-      "detail_image": "assets/banners/2026-01-27-2-crise-do-banco-comercial-portugus-revela-falhas-regulatrias-banner.jpg",
-      "snapshot_url": ""
-    },
-    {
       "id": "pt_2026-01-25_2",
       "lang": "pt",
       "date": "2026-01-25",
@@ -1863,7 +1765,7 @@
       "slot": 1,
       "status": "approved",
       "category": "DESPORTO",
-      "title": "Sporting vence Porto 1-0 com Gyökeres",
+      "title": "Sporting vence FC Porto em clássico decisivo",
       "title_en": "Sporting Defeats Porto 1-0 Thanks to Gyökeres Goal",
       "summary": "Golo decisivo leva os leões à final da Taça da Liga.",
       "summary_en": "Gyökeres' decisive goal sends Sporting to the League Cup final against Porto.",
@@ -1880,76 +1782,29 @@
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
-        "instagram"
+        "instagram",
+        "facebook",
+        "x"
       ],
       "cover_focus": null,
       "network_posts": {},
-      "relevance_level": 5,
+      "relevance_level": 2,
       "relevance_scores": {
-        "impacto_historico": 20.0,
-        "dimensao_impacto": 30.0,
-        "consequencias": 10.0,
-        "relevancia_posterior": 10.0,
-        "dimensao_duracao": 15.0,
-        "relevancia_mediatica": 40.0,
-        "singularidade": 25.0
+        "impacto_historico": 75.0,
+        "dimensao_impacto": 70.0,
+        "consequencias": 70.0,
+        "relevancia_posterior": 70.0,
+        "dimensao_duracao": 70.0,
+        "relevancia_mediatica": 85.0,
+        "singularidade": 70.0
       },
-      "relevance_weighted": 19.8,
-      "relevance_justification": "Vitória importante para o Sporting, mas sem efeitos além da competição.",
+      "relevance_weighted": 72.5,
+      "relevance_justification": "Grande clássico do futebol português com impacto decisivo nas contas do título.",
       "source_type": "archive",
-      "url_path": "noticia/desporto/sporting-vence-porto-1-0-com",
+      "url_path": "noticia/desporto/sporting-vence-fc-porto-em-classico",
       "page_id": "noticia-dfd0c43b22cd2583dfbf0778",
       "detail_image": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20250101023720%2Fhttps%3A%2F%2Fobservador.pt%2F2024%2F12%2F29%2Fo-dia-que-mudou-uma-era-e-pode-mudar-o-trajeto-da-liga-outra-vez-a-cronica-do-sporting-benfica",
       "snapshot_url": "https://arquivo.pt/screenshot?url=https%3A%2F%2Farquivo.pt%2Fwayback%2F20250101023720%2Fhttps%3A%2F%2Fobservador.pt%2F2024%2F12%2F29%2Fo-dia-que-mudou-uma-era-e-pode-mudar-o-trajeto-da-liga-outra-vez-a-cronica-do-sporting-benfica"
-    },
-    {
-      "id": "pt_2026-01-06_2",
-      "lang": "pt",
-      "date": "2026-01-06",
-      "slot": 2,
-      "status": "approved",
-      "category": "DESPORTO",
-      "title": "Sporting e Benfica perdem pontos, favorecendo FC Porto",
-      "title_en": "Sporting and Benfica Lose Points, Favoring FC Porto",
-      "summary": "Sporting e Benfica perdem pontos",
-      "summary_en": "Sporting and Benfica’s point losses shift the competitive landscape, potentially benefiting FC Porto in the league standings.",
-      "original_year": "2008",
-      "image": "assets/posts/2026-01-06-2-sporting-e-benfica-perdem-pontos-favorecendo-fc-porto.jpg",
-      "banner_image": "assets/banners/2026-01-06-2-sporting-e-benfica-perdem-pontos-favorecendo-fc-porto-banner.jpg",
-      "body": "Em 2008, a Liga Portuguesa de Futebol viu um desvio inesperado na dinâmica da competição quando Sporting e Benfica perderam pontos em partidas cruciais, favorecendo o FC Porto na liderança do campeonato. O contexto se situa no meio da temporada, quando os três clubes tradicionais competem de forma acirrada pela primeira posição. O Sporting, que vinha a mostrar consistência, sofreu uma derrota que lhe arrancou pontos essenciais, enquanto o Benfica, em outra partida decisiva, também viu o seu saldo de pontos reduzir. O FC Porto, por sua vez, aproveitou a oportunidade, mantendo o seu desempenho sólido e consolidando a sua vantagem num momento em que a competição parecia ainda equilibrada. O desenvolvimento do episódio foi marcado por reações intensas dos torcedores e das equipas. Os dirigentes do Sporting e do Benfica expressaram preocupação com a forma como as partidas foram conduzidas, enquanto o FC Porto recebeu elogios pela sua capacidade de capitalizar a situação. A relevância duradoura deste acontecimento reside no facto de ter alterado a dinâmica da liga, gerando discussões sobre a justiça e a consistência das regras aplicadas nas partidas. Além disso, a situação reforçou a importância de cada ponto na corrida pelo título, influenciando estratégias futuras e a forma como os clubes abordam jogos de alto impacto. O episódio permanece como um marco na história do futebol português, lembrado por fãs e analistas como um momento em que a liderança foi decisivamente alterada por resultados inesperados de dois dos maiores clubes do país.",
-      "caption": "Em 2008, Sporting e Benfica perderam pontos em partidas importantes, favorecendo o FC Porto na liderança do campeonato. O resultado alterou a dinâmica da liga e gerou discussões entre torcedores.",
-      "source_url": "https://www.publico.pt/2008/01/06/portugal/noticia/revista-de-imprensa-destaques-do-jornal-de-noticias-1315752",
-      "source_profile": "publico.pt",
-      "source_platform": "web",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "facebook"
-      ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
-      "network_posts": {},
-      "relevance_level": 3,
-      "relevance_scores": {
-        "impacto_historico": 10.0,
-        "dimensao_impacto": 15.0,
-        "consequencias": 10.0,
-        "relevancia_posterior": 10.0,
-        "dimensao_duracao": 5.0,
-        "relevancia_mediatica": 15.0,
-        "singularidade": 5.0
-      },
-      "relevance_weighted": 60.0,
-      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
-      "source_type": "newspaper",
-      "url_path": "noticia/desporto/sporting-e-benfica-perdem-pontos-favorecendo",
-      "page_id": "noticia-80cd13038ea0d49e1098a697",
-      "detail_image": "assets/banners/2026-01-06-2-sporting-e-benfica-perdem-pontos-favorecendo-fc-porto-banner.jpg",
-      "snapshot_url": ""
     },
     {
       "id": "pt_2026-01-05_1",
@@ -2050,55 +1905,6 @@
       "snapshot_url": ""
     },
     {
-      "id": "pt_2026-01-02_1",
-      "lang": "pt",
-      "date": "2026-01-02",
-      "slot": 1,
-      "status": "approved",
-      "category": "CULTURA",
-      "title": "Velório de Pelé no Vila Belmiro: a última homenagem ao Rei do Futebol",
-      "title_en": "Pele’s Farewell Service at Vila Belmiro: The Final Tribute to the King of Football",
-      "summary": "Um estádio inteiro em silêncio e emoção",
-      "summary_en": "A stadium‑wide silence and emotion as fans honor Pele’s legacy, a moment that resonates with sports and culture lovers on Instagram.",
-      "original_year": "2023",
-      "image": "assets/posts/2026-01-02-1-velrio-de-pel-no-vila-belmiro-a-ltima-homenagem-ao-rei-do-futebol.jpg",
-      "banner_image": "assets/banners/2026-01-02-1-velrio-de-pel-no-vila-belmiro-a-ltima-homenagem-ao-rei-do-futebol-banner.jpg",
-      "body": "No dia 12 de dezembro de 2023, o estádio do Estádio do Maracanã, em São Paulo, transformou-se num palco de silêncio e emoção quando o mundo inteiro se reuniu para prestar a última homenagem ao Rei do Futebol, Pelé. O velório, realizado no Vila Belmiro, palco da história do clube, foi marcado por uma atmosfera de reverência que atravessou fronteiras e gerações. O contexto do evento remonta à morte de Pelé, que ocorreu no dia 29 de janeiro de 2023, aos 82 anos, após uma batalha contra o câncer. A notícia espalhou-se rapidamente, provocando uma onda de luto em todo o planeta. Em resposta, a Federação Internacional de Futebol (FIFA) e a Federação Brasileira de Futebol (CBF) convocaram um velório no estádio do clube onde Pelé iniciou a sua carreira profissional, o Santos Futebol Clube, no Vila Belmiro, em São Paulo. O local, conhecido por ter sido palco de inúmeros triunfos do jogador, tornou-se o cenário de uma cerimónia que uniu a comunidade do futebol e o público em geral. Durante o velório, milhares de fãs, ex-jogadores, dirigentes e celebridades se reuniram para assistir ao desvelamento de Pelé. O estádio, normalmente palco de partidas de futebol, foi convertido num espaço de memória coletiva. A plateia, composta por jogadores que tiveram a oportunidade de jogar ao lado do ícone, ex-jogadores que o consideravam mentor e fãs que o viam como símbolo de inspiração, permanecia em silêncio enquanto o corpo era apresentado. A atmosfera era de profunda reverência, com cânticos e aplausos que ecoaram pelo estádio. O desenvolvimento da cerimónia incluiu discursos de personalidades do mundo do desporto e da cultura. O presidente do Santos, Jorge Sampaio, falou sobre a contribuição de Pelé para o clube e para o futebol mundial. O ex‑selecionador da Seleção Brasileira, Luiz Felipe Scolari, destacou a importância de Pelé como símbolo de superação e talento. A presença de celebridades internacionais, como o ex‑futebolista espanhol Xavi e a atriz britânica Emma Thompson, evidenciou o alcance global da influência de Pelé. A relevância duradoura deste velório reside na forma como ele consolidou a memória de Pelé como um dos maiores atletas da história. A cerimónia, que contou com a participação de milhares de pessoas, reforçou a ideia de que o legado de Pelé transcende o futebol, tornando‑se um símbolo de excelência, humildade e paixão. O evento também serviu como um lembrete da importância de preservar a história do desporto e de honrar aqueles que a moldaram. Em suma, o velório de Pelé no Vila Belmiro foi um momento de profunda emoção que uniu a comunidade do futebol e o público em geral. A cerimónia, marcada por discursos e homenagens, reforçou a relevância duradoura do legado de Pelé, que continua a inspirar gerações de jogadores e fãs em todo o mundo. O evento deixou um legado de respeito, memória e inspiração que perdurará na história do desporto e da cultura.",
-      "caption": "O mundo inteiro se reuniu no Vila Belmiro para prestar a última homenagem ao ícone do futebol. Milhares de fãs, ex-jogadores e celebridades compareceram para assistir ao velório de Pelé, marcando o fim de uma era e a memória de um dos maiores atletas da história.",
-      "source_url": "https://www.instagram.com/p/Cm6AGC5MZOS/",
-      "source_profile": "renascenca",
-      "source_platform": "",
-      "instagram_url": "",
-      "instagram_id": "",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram"
-      ],
-      "cover_focus": [
-        0.5,
-        0.45
-      ],
-      "network_posts": {},
-      "relevance_level": 3,
-      "relevance_scores": {
-        "impacto_historico": 60.0,
-        "dimensao_impacto": 70.0,
-        "consequencias": 65.0,
-        "relevancia_posterior": 75.0,
-        "dimensao_duracao": 55.0,
-        "relevancia_mediatica": 80.0,
-        "singularidade": 70.0
-      },
-      "relevance_weighted": 60.0,
-      "relevance_justification": "Relevância temática ou desportiva secundária/condicional avaliada na curadoria.",
-      "source_type": "newspaper",
-      "url_path": "noticia/cultura/velorio-de-pele-no-vila-belmiro",
-      "page_id": "noticia-a5332420433cfd3e31363db4",
-      "detail_image": "assets/banners/2026-01-02-1-velrio-de-pel-no-vila-belmiro-a-ltima-homenagem-ao-rei-do-futebol-banner.jpg",
-      "snapshot_url": ""
-    },
-    {
       "id": "pt_2026-01-01_1",
       "lang": "pt",
       "date": "2026-01-01",
@@ -2151,10 +1957,8 @@
   "calendar": {
     "post_dates": [
       "2026-01-01",
-      "2026-01-02",
       "2026-01-04",
       "2026-01-05",
-      "2026-01-06",
       "2026-01-07",
       "2026-01-08",
       "2026-01-10",
@@ -2164,7 +1968,6 @@
       "2026-01-21",
       "2026-01-24",
       "2026-01-25",
-      "2026-01-27",
       "2026-01-30",
       "2026-02-01",
       "2026-02-02",
