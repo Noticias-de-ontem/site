@@ -144,21 +144,8 @@ function relevanceLevelInfo(item) {
 }
 
 function relevanceBadge(item, options = {}) {
-  const info = relevanceLevelInfo(item);
-  if (!info) return "";
-  const aria = t("relevanceHelpAria");
-  const icon = RELEVANCE_ICONS[info.level] || "";
-  const size = options.compact ? " relevance-badge-compact" : "";
-  // Na página individual o badge transporta a pontuação completa: a tooltip
-  // global mostra notas por critério + soma ponderada + justificação.
-  const scoreData = options.scores && Object.keys(options.scores).length
-    ? ` data-scores='${escapeHtml(JSON.stringify({ scores: options.scores, weighted: options.weighted, justification: options.justification, level: info.level, name: info.name }))}'`
-    : "";
-  return (
-    `<span class="relevance-badge relevance-level-${info.level}${size}" data-relevance-level="${info.level}"${scoreData} ` +
-    `tabindex="0" role="button" aria-describedby="relevance-tooltip" aria-label="${aria}">` +
-    `${icon}<span class="relevance-badge-name">${info.name}</span></span>`
-  );
+  // Critério de impacto mantido estritamente no backend (curadoria e ordenação interna).
+  return "";
 }
 
 function sourceTypeChip(item) {
@@ -243,28 +230,28 @@ const i18n = {
     scoreDuration: "Dimensão e duração",
     scoreMedia: "Relevância mediática",
     scoreUniqueness: "Singularidade",
-    relevanceDefaultNote: "Classificação provisória: pontuação detalhada ainda não calculada para esta notícia.",
-    relevanceEyebrow: "Níveis de relevância histórica",
-    relevanceDocTitle: "Como distinguimos a relevância das notícias",
-    relevanceDocLead: "Cada notícia recebe um badge que indica o seu grau de importância histórica. O nível resulta de uma pontuação objetiva — e não de uma opinião solta da inteligência artificial.",
-    relevanceDocHow: "Como o nível é atribuído",
-    relevanceDocHowBody: "Cada critério recebe uma nota de 0 a 100. A pontuação final é a média ponderada dos sete critérios e é ela que define o nível: 85 ou mais é Marco Histórico, 70 a 84 é Grande Relevância, 55 a 69 é Relevância Regional, 40 a 54 é Interesse Público e abaixo de 40 é Contexto Histórico. A inteligência artificial propõe as notas, mas o nível é sempre recalculado pelo sistema a partir delas.",
-    relevanceDocMedia: "Relevância mediática não é importância histórica",
-    relevanceDocMediaBody: "Uma notícia pode ter sido extremamente popular durante uma semana e hoje ter pouca importância histórica. O contrário também acontece. Por isso, a relevância mediática pesa apenas 5% e nunca determina o nível sozinha.",
-    relevanceDocLandmark: "Regra do Marco Histórico",
-    relevanceDocLandmarkBody: "Uma notícia nunca recebe Marco Histórico só porque a IA a considera importante. Para esse nível exige-se pontuação mínima de 90 nos quatro critérios substantivos e uma justificação explícita das consequências posteriores do acontecimento.",
-    relevanceDocCuration: "Os badges como curadoria",
-    relevanceDocCurationBody: "Os destaques do site — notícia principal e carrossel — são escolhidos apenas entre notícias de Marco Histórico ou Grande Relevância. No calendário, as publicações do projeto aparecem primeiro (até seis por período, por nível de badge), seguidas das restantes notícias ordenadas da mesma forma.",
-    relevanceDocCriteriaTitle: "Critérios de atribuição",
-    relevanceDocExampleTitle: "Exemplo de uma notícia",
-    relevanceDocExampleBadge: "Marco Histórico",
-    relevanceDocExampleHeadline: "25 de Abril de 1974: o fim da ditadura e o início da democracia em Portugal",
-    relevanceDocExampleBody: "A revolução dos cravos é um acontecimento fundamental na história de Portugal e da Europa, com impacto político, social e cultural duradouro — pontuações altas em impacto, consequências e relevância posterior.",
-    relevanceDocScoresNote: "No site, a pontuação completa de cada notícia aparece na respetiva página individual.",
+    relevanceDefaultNote: "",
+    relevanceEyebrow: "Arquivo Histórico",
+    relevanceDocTitle: "Arquivo e Curadoria Histórica",
+    relevanceDocLead: "Preservação e contextualização de notícias históricas a partir do Arquivo.pt.",
+    relevanceDocHow: "",
+    relevanceDocHowBody: "",
+    relevanceDocMedia: "",
+    relevanceDocMediaBody: "",
+    relevanceDocLandmark: "",
+    relevanceDocLandmarkBody: "",
+    relevanceDocCuration: "",
+    relevanceDocCurationBody: "",
+    relevanceDocCriteriaTitle: "",
+    relevanceDocExampleTitle: "",
+    relevanceDocExampleBadge: "",
+    relevanceDocExampleHeadline: "",
+    relevanceDocExampleBody: "",
+    relevanceDocScoresNote: "",
     homeHighlightsEyebrow: "Agora no projeto",
     homeHighlightsTitle: "Destaques",
-    homeLevel1Title: "Marcos Históricos",
-    homeLevel1Lead: "Acontecimentos que mudaram o rumo da História.",
+    homeLevel1Title: "Destaques",
+    homeLevel1Lead: "Os acontecimentos mais marcantes preservados no arquivo.",
     homeLevel2Title: "Grande Relevância",
     homeLevel2Lead: "Momentos decisivos de grande impacto nacional ou internacional.",
     homeMoreTitle: "Mais notícias",
@@ -3391,140 +3378,11 @@ function renderDocs() {
   if (githubLink) githubLink.href = state.data?.github_url || "https://github.com/Noticias-de-ontem/site";
 }
 
-// Secção detalhada "Níveis de relevância histórica" na Documentação:
-// níveis, critérios com pesos, exemplo pontuado e regras de curadoria.
+// Critério de impacto mantido estritamente no backend (curadoria e ordenação interna).
 function renderRelevanceDocs() {
   const container = document.getElementById("relevance-doc");
-  if (!container) return;
-  const lang = state.lang === "en" ? "en" : "pt";
-  const levels = RELEVANCE_LEVELS[lang];
-  const examplesByLevel = {
-    1: {
-      pt: { title: "25 de Abril de 1974: o fim da ditadura e o início da democracia em Portugal", body: "A revolução dos cravos é um acontecimento fundamental na história de Portugal e da Europa, com impacto político, social e cultural duradouro." },
-      en: { title: "April 25, 1974: the end of the dictatorship and the beginning of democracy in Portugal", body: "The Carnation Revolution is a foundational event in Portuguese and European history, with lasting political, social and cultural impact." },
-    },
-    2: {
-      pt: { title: "Portugal entra na moeda única: o euro chega às carteiras em 2002", body: "A adoção do euro teve consequências económicas e sociais profundas para o país e para a Europa, sem ser uma revolução." },
-      en: { title: "Portugal adopts the single currency: the euro reaches wallets in 2002", body: "Adopting the euro had deep economic and social consequences for the country and Europe, though not a revolution." },
-    },
-    3: {
-      pt: { title: "Incêndio na Serra da Estrela atinge vila turística", body: "Um grande incêndio florestal com forte impacto regional, mas sem consequências nacionais duradouras." },
-      en: { title: "Serra da Estrela fire hits tourist village", body: "A major wildfire with strong regional impact, but without lasting national consequences." },
-    },
-    4: {
-      pt: { title: "Meryl Streep imita jornalista deficiente nos Globos de Ouro", body: "Grande atenção mediática na época, com impacto histórico de longo prazo limitado." },
-      en: { title: "Meryl Streep imitates disabled journalist at the Golden Globes", body: "Major media attention at the time, with limited long-term historical impact." },
-    },
-    5: {
-      pt: { title: "Moda anos 2000: o regresso das botas platform", body: "Não foi determinante por si, mas ajuda a compreender a cultura e a estética da época." },
-      en: { title: "2000s fashion: the return of platform boots", body: "Not decisive on its own, but useful for understanding the era's culture and aesthetics." },
-    },
-  };
-  // Exemplos REAIS: a melhor notícia de cada nível presente no site.
-  const realExamples = {};
-  for (const item of state.data?.all || []) {
-    const level = Number(item.relevance_level) || 4;
-    if (!realExamples[level] || (Number(item.relevance_weighted) || 0) > (Number(realExamples[level].relevance_weighted) || 0)) {
-      realExamples[level] = item;
-    }
-  }
-  const currentExample = { level: 1 };
-  const criteria = lang === "en"
-    ? [
-        ["Historical impact", "30%", "How much the event influenced the course of history, nationally or internationally."],
-        ["Scope of impact", "20%", "From local to global reach."],
-        ["Consequences", "15%", "Political, social, or economic consequences."],
-        ["Influence on later events", "15%", "How much it helps explain what came after."],
-        ["Scale and duration", "10%", "Size of the event and how long it lasted."],
-        ["Media attention", "5%", "Coverage it received at the time — never decisive."],
-        ["Uniqueness", "5%", "A one-of-a-kind event versus a recurring one."],
-      ]
-    : [
-        ["Impacto histórico", "30%", "Grau de influência no curso da História, a nível nacional ou internacional."],
-        ["Dimensão do impacto", "20%", "Do impacto local ao impacto internacional."],
-        ["Consequências", "15%", "Consequências políticas, sociais ou económicas."],
-        ["Relevância posterior", "15%", "O quanto ajuda a compreender os acontecimentos seguintes."],
-        ["Dimensão e duração", "10%", "Dimensão do acontecimento e quanto durou."],
-        ["Relevância mediática", "5%", "Cobertura que recebeu na época — nunca decisiva."],
-        ["Singularidade", "5%", "Acontecimento único em vez de recorrente."],
-      ];
-  container.innerHTML = `
-    <div class="relevance-doc-head">
-      <p class="eyebrow">${escapeHtml(t("relevanceEyebrow"))}</p>
-      <h2>${escapeHtml(t("relevanceDocTitle"))}</h2>
-      <p>${escapeHtml(t("relevanceDocLead"))}</p>
-    </div>
-    <div class="relevance-doc-grid">
-      <div class="relevance-doc-card">
-        <h3>${escapeHtml(t("relevanceDocCriteriaTitle"))}</h3>
-        <table class="relevance-criteria">
-          <tbody>
-            ${criteria.map(([label, weight, description]) => `
-              <tr>
-                <th scope="row">${escapeHtml(label)}</th>
-                <td class="weight">${escapeHtml(weight)}</td>
-                <td class="description">${escapeHtml(description)}</td>
-              </tr>
-            `).join("")}
-          </tbody>
-        </table>
-        <h3>${escapeHtml(t("relevanceDocHow"))}</h3>
-        <p>${escapeHtml(t("relevanceDocHowBody"))}</p>
-        <h3>${escapeHtml(t("relevanceDocMedia"))}</h3>
-        <p>${escapeHtml(t("relevanceDocMediaBody"))}</p>
-        <h3>${escapeHtml(t("relevanceDocLandmark"))}</h3>
-        <p>${escapeHtml(t("relevanceDocLandmarkBody"))}</p>
-        <h3>${escapeHtml(t("relevanceDocCuration"))}</h3>
-        <p>${escapeHtml(t("relevanceDocCurationBody"))}</p>
-      </div>
-      <div class="relevance-doc-card example">
-        <h3>${escapeHtml(t("relevanceDocExampleTitle"))}</h3>
-        <div class="relevance-example">
-          ${relevanceBadge({ relevance_level: 1 })}
-          <h4>${escapeHtml(t("relevanceDocExampleHeadline"))}</h4>
-          <p>${escapeHtml(t("relevanceDocExampleBody"))}</p>
-        </div>
-        <p class="relevance-scores-note">${escapeHtml(t("relevanceDocScoresNote"))}</p>
-        <div class="relevance-level-legend">
-          ${levels.map((info) => `
-            <span class="relevance-badge relevance-level-${info.level}${info.level === 1 ? " active" : ""}" data-doc-level="${info.level}" tabindex="0" role="button" aria-describedby="relevance-tooltip">
-              ${RELEVANCE_ICONS[info.level]}<span class="relevance-badge-name">${escapeHtml(info.name)}</span>
-            </span>
-          `).join("")}
-        </div>
-      </div>
-    </div>`;
-    // Tornar os badges da legenda clicáveis para mudar o exemplo
-    container.querySelectorAll("[data-doc-level]").forEach((badge) => {
-      badge.addEventListener("click", () => {
-        const level = Number(badge.dataset.docLevel);
-        const example = examplesByLevel[level];
-        const real = realExamples[level];
-        const exampleEl = container.querySelector(".relevance-example");
-        if (!example || !exampleEl) return;
-        const badgeColor = { 1: "#a8203c", 2: "#d66a15", 3: "#c4940c", 4: "#10609b", 5: "#56626a" }[level] || "#56626a";
-        exampleEl.style.borderLeftColor = badgeColor;
-        exampleEl.querySelector(".relevance-badge").outerHTML = relevanceBadge({ relevance_level: level });
-        const heading = exampleEl.querySelector("h4");
-        const body = exampleEl.querySelector("p");
-        if (real) {
-          // Exemplo real: título, justificação e link da notícia do site.
-          if (heading) {
-            heading.innerHTML = `<a href="${escapeHtml(newsPageUrl(real))}" data-news-id="${escapeHtml(real.page_id)}" style="color:inherit;text-decoration:none">${escapeHtml(cleanTitle(real))}</a>`;
-          }
-          if (body) {
-            body.textContent = real.relevance_justification || localized(real, "summary") || "";
-          }
-        } else {
-          if (heading && example && lang === "pt") heading.textContent = example.pt?.title || heading.textContent;
-          if (heading && example && lang === "en") heading.textContent = example.en?.title || heading.textContent;
-          if (body && example && lang === "pt") body.textContent = example.pt?.body || body.textContent;
-          if (body && example && lang === "en") body.textContent = example.en?.body || body.textContent;
-        }
-        container.querySelectorAll("[data-doc-level]").forEach((b) => b.classList.toggle("active", Number(b.dataset.docLevel) === level));
-      });
-    });
-  }
+  if (container) container.innerHTML = "";
+}
 
 function renderStaticText() {
   document.documentElement.lang = state.lang;
