@@ -3210,5 +3210,110 @@
    "reason": "Fotografia de uma partida de râguebi, perfeitamente adequada para ilustrar o evento desportivo da notícia."
   },
   "_model": "gemini-3.6-flash"
+ },
+ "2026-01-01_01_1986_portugal-e-espanha-aderem-a-comunidade-economica-europeia-fundo.jpg:422115": {
+  "_final": {
+   "subject": "Edifício histórico de esquina com arquitetura clássica em cidade portuguesa",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "Edifício urbano genérico sem ligação histórica ou direta com a adesão de Portugal à CEE."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-02_01_1959_luna-1-primeira-nave-a-alcancar-a-lua-fundo.jpg:188927": {
+  "_final": {
+   "subject": "Lançamento de foguetão espacial com rasto de fumo e torre",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.54,
+    0.25
+   ],
+   "cover_focus": [
+    0.54,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra o tema da exploração espacial e tecnologia de lançamento de foguetões para missões espaciais."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-01-02_01_2010_alqueva-atinge-91-de-capacidade-maxima-fundo.jpg:123773": {
+  "_final": {
+   "subject": "Vista aérea de grande albufeira com água abundante e margens verdes",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra perfeitamente uma vasta albufeira com elevado volume de água, condizente com a notícia do Alqueva."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-01-04_01_2025_squid-game-quebra-recorde-de-estreia-na-netflix-fundo.jpg:264751": {
+  "_final": {
+   "subject": "Wednesday Addams em ecrã da interface da Netflix",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.44,
+     0.4
+    ]
+   ],
+   "banner_focus": [
+    0.44,
+    0.4
+   ],
+   "cover_focus": [
+    0.44,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "A imagem mostra a série Wednesday e elementos de interface, não estando relacionada com Squid Game."
+  },
+  "_model": "gemini-3.7-flash"
+ },
+ "2026-01-05_01_2014_india-lanca-primeiro-satelite-com-motor-criogenico-bem-sucedido-fundo.jpg:74080": {
+  "_final": {
+   "subject": "Foguete indiano a descolar com rasto de propulsão",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.49,
+    0.35
+   ],
+   "cover_focus": [
+    0.49,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra diretamente o lançamento de um foguete espacial indiano, enquadrando-se no tema da notícia."
+  },
+  "_model": "gemini-3.6-flash"
  }
 }
