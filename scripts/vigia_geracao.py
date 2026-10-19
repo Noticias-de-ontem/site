@@ -63,7 +63,7 @@ def progresso():
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--horas", type=float, default=5.0)
+    parser.add_argument("--horas", type=float, default=48.0)
     args = parser.parse_args()
 
     deadline = time.time() + args.horas * 3600
@@ -79,7 +79,7 @@ def main():
         try:
             process = subprocess.Popen(
                 [sys.executable, "-u", str(ROOT / "popular_site.py"),
-                 "--tudo-ano", "--source-mode", "arquivo-first", "--limite", "50"],
+                 "--tudo-ano", "--source-mode", "arquivo-first", "--limite", "0"],
                 cwd=str(ROOT),
             )
             # Aguardar pelo fim do processo ou pelo prazo, o que chegar primeiro.
@@ -108,8 +108,8 @@ def main():
             time.sleep(120)
 
     posts, completos = progresso()
-    log(f"VIGIA TERMINADO. Estado final: {posts} posts, {completos}/50 dias completos.")
-    print(f"VIGIA TERMINADO. Estado final: {posts} posts, {completos}/50 dias completos.")
+    log(f"VIGIA TERMINADO. Estado final: {posts} posts, {completos}/365 dias completos.")
+    print(f"VIGIA TERMINADO. Estado final: {posts} posts, {completos}/365 dias completos.")
 
 
 if __name__ == "__main__":
