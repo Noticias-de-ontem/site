@@ -96,6 +96,11 @@ def main():
                 break
             posts, completos = progresso()
             log(f" ciclo {round_number}: geração saiu (código {process.returncode}); posts {posts}, dias completos {completos}")
+            try:
+                subprocess.run([sys.executable, str(ROOT / "build_site.py")], cwd=str(ROOT), timeout=120)
+                log(" site reconstruído com sucesso após ciclo de geração")
+            except Exception as b_exc:
+                log(f" aviso ao reconstruir site: {b_exc}")
             ensure_server()
             time.sleep(60)
         except Exception as exc:
