@@ -3315,5 +3315,5848 @@
    "reason": "Ilustra diretamente o lançamento de um foguete espacial indiano, enquadrando-se no tema da notícia."
   },
   "_model": "gemini-3.6-flash"
+ },
+ "2026-01-06_01_2025_partido-liberal-canadense-busca-novo-lider-apos-trudeau-fundo.jpg:348620": {
+  "_final": {
+   "subject": "Justin Trudeau, ex-líder do Partido Liberal canadense",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.52,
+     0.31
+    ]
+   ],
+   "banner_focus": [
+    0.52,
+    0.31
+   ],
+   "cover_focus": [
+    0.52,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Justin Trudeau, diretamente ligado à notícia sobre a sucessão na liderança do Partido Liberal."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-07_01_2022_debate-entre-il-e-pan-nas-legislativas-2022-fundo.jpg:359682": {
+  "_final": {
+   "subject": "Retrato em plano aproximado de homem com cabelo grisalho",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.5,
+     0.43
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.42
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de figura política adequado para ilustrar notícias sobre debates e intervenientes políticos nas legislativas."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-01-09_01_2025_lisboa-aeroporto-obras-suspensas-por-falta-de-estudo-de-impacto-fundo.jpg:419718": {
+  "_final": {
+   "subject": "Fachada exterior moderna de um aeroporto com veículos estacionados",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra a infraestrutura de um aeroporto, adequado para ilustrar notícias sobre obras e projetos."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-10_01_2025_trump-condenado-por-pagamentos-a-stormy-daniels-fundo.jpg:329421": {
+  "_final": {
+   "subject": "Stormy Daniels num evento promocional",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.498,
+     0.328
+    ]
+   ],
+   "banner_focus": [
+    0.498,
+    0.28
+   ],
+   "cover_focus": [
+    0.498,
+    0.328
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A fotografia mostra Stormy Daniels, figura central na notícia judicial envolvendo Donald Trump."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-11_01_2023_joe-biden-apresenta-lady-gaga-nos-oscares-fundo.jpg:288475": {
+  "_final": {
+   "subject": "Retrato oficial de Joe Biden com fato e gravata azul",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.505,
+     0.312
+    ]
+   ],
+   "banner_focus": [
+    0.505,
+    0.28
+   ],
+   "cover_focus": [
+    0.505,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato oficial de Joe Biden, adequado para ilustrar notícias sobre o mesmo."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-11_01_2021_portugal-enfrenta-pior-fase-da-pandemia-fundo.jpg:401808": {
+  "_final": {
+   "subject": "Pessoas à entrada de um monumento histórico em Portugal",
+   "embedded_text": false,
+   "faces": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "banner_focus": [
+    0.5,
+    0.65
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra pessoas reunidas à entrada de um monumento, enquadrando-se no contexto social da notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-12_01_2025_benfica-vence-taca-da-liga-nos-penaltis-fundo.jpg:427940": {
+  "_final": {
+   "subject": "Jogadores do Benfica em rinque de hóquei",
+   "embedded_text": false,
+   "faces": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "banner_focus": [
+    0.45,
+    0.35
+   ],
+   "cover_focus": [
+    0.45,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra jogadores de hóquei do Benfica em campo, contextualizando a modalidade da notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-12_01_2019_pedro-marques-cogitado-para-cabeca-de-lista-ps-fundo.jpg:296204": {
+  "_final": {
+   "subject": "D. Pedro II, Imperador do Brasil",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.467,
+     0.315
+    ]
+   ],
+   "banner_focus": [
+    0.467,
+    0.28
+   ],
+   "cover_focus": [
+    0.467,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "Fotografia histórica de D. Pedro II, sem relação com Pedro Marques ou o PS."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-13_01_2018_rui-rio-e-eleito-novo-lider-do-psd-fundo.jpg:222957": {
+  "_final": {
+   "subject": "Rui Rio sorri de fato e gravata em retrato formal",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.485,
+     0.384
+    ]
+   ],
+   "banner_focus": [
+    0.485,
+    0.35
+   ],
+   "cover_focus": [
+    0.485,
+    0.384
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A fotografia mostra Rui Costa e não Rui Rio, tornando-se incorreta para a notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-15_01_2015_site-de-tecnologia-em-portugues-ganha-destaque-internacional-fundo.jpg:640726": {
+  "_final": {
+   "subject": "Bandeira de Portugal com brasão nacional em detalhe",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A bandeira simboliza Portugal, ligando-se tematicamente ao contexto de um site de tecnologia em português."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-15_01_2023_benfica-e-sporting-empatam-no-derbi-de-lisboa-fundo.jpg:380618": {
+  "_final": {
+   "subject": "Estádio de futebol iluminado à noite com bancadas e relvado",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra um estádio de futebol, adequado para ilustrar notícias sobre desporto e partidas de futebol."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-16_01_2025_ministro-montenegro-em-maputo-apoia-posse-de-chapo-fundo.jpg:213222": {
+  "_final": {
+   "subject": "Mãos a segurar e a utilizar um telemóvel.",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra apenas mãos a usar um telemóvel, sem relação direta com o Ministro Montenegro ou Chapo."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-16_01_2020_juizes-conselheiros-podem-ganhar-mais-que-o-pm-fundo.jpg:376649": {
+  "_final": {
+   "subject": "Homem de fato a falar ao microfone",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.218,
+     0.354
+    ]
+   ],
+   "banner_focus": [
+    0.245,
+    0.28
+   ],
+   "cover_focus": [
+    0.25,
+    0.3
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de um homem adequado para ilustrar um artigo sobre titulares de cargos públicos."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-17_01_2007_teste-nuclear-coreano-dispara-relogio-do-juizo-final-fundo.jpg:501446": {
+  "_final": {
+   "subject": "Cartaz de propaganda norte-coreano sobre eleições com um homem a votar",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.315,
+     0.252
+    ]
+   ],
+   "banner_focus": [
+    0.35,
+    0.35
+   ],
+   "cover_focus": [
+    0.45,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O cartaz de propaganda retrata o contexto sociopolítico da Coreia do Norte associado à notícia nuclear."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-17_01_2018_roger-torrent-assume-presidencia-do-parlamento-da-catalunha-fundo.jpg:354140": {
+  "_final": {
+   "subject": "Parlamento Austríaco iluminado à noite",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "O Parlamento austríaco não está relacionado com a presidência do Parlamento da Catalunha."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-18_01_1936_salazar-inicia-terceiro-governo-consecutivo-do-estado-novo-fundo.jpg:298894": {
+  "_final": {
+   "subject": "António de Oliveira Salazar, presidente do Conselho de Ministros",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.551,
+     0.354
+    ]
+   ],
+   "banner_focus": [
+    0.551,
+    0.31
+   ],
+   "cover_focus": [
+    0.551,
+    0.354
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato oficial de António de Oliveira Salazar, perfeitamente adequado para ilustrar notícia sobre o seu governo."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-19_01_2025_pedro-nuno-santos-acusa-governo-de-mentir-sobre-impostos-em-2025-fundo.jpg:266695": {
+  "_final": {
+   "subject": "Homem com fato e gravata olhando para a câmara",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.499,
+     0.231
+    ]
+   ],
+   "banner_focus": [
+    0.499,
+    0.28
+   ],
+   "cover_focus": [
+    0.499,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra um homem desconhecido que não é Pedro Nuno Santos, tornando-a irrelevante para a notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-19_01_2020_rui-rio-vence-eleicoes-diretas-e-e-reeleito-presidente-do-psd-fundo.jpg:505777": {
+  "_final": {
+   "subject": "Rui Rio, político português e ex-presidente do PSD",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.601,
+     0.312
+    ]
+   ],
+   "banner_focus": [
+    0.6,
+    0.28
+   ],
+   "cover_focus": [
+    0.601,
+    0.312
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Rui Rio, figura central da notícia sobre a sua reeleição no PSD."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-20_01_2014_rosetta-desperta-apos-31-meses-no-espaco-fundo.jpg:308888": {
+  "_final": {
+   "subject": "Sonda espacial Rosetta com antena parabólica montada em laboratório",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.49,
+    0.35
+   ],
+   "cover_focus": [
+    0.49,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra a sonda espacial Rosetta, diretamente ligada ao tema histórico do seu despertar."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-21_01_2024_portas-critica-lideranca-de-pedro-nuno-como-mais-radical-desde-1976-fundo.jpg:269139": {
+  "_final": {
+   "subject": "Homem jovem sorri ao lado de outros num encontro desportivo",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.375,
+     0.384
+    ],
+    [
+     0.725,
+     0.395
+    ]
+   ],
+   "banner_focus": [
+    0.55,
+    0.45
+   ],
+   "cover_focus": [
+    0.55,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra uma fotografia informal de arquivo que não está diretamente relacionada com a liderança política de Pedro Nuno."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-23_01_1961_cruzeiro-santa-maria-sequestrado-por-opositores-do-salazar-fundo.jpg:675292": {
+  "_final": {
+   "subject": "Cruzeiro em pedra localizado numa encosta arborizada",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.36,
+    0.41
+   ],
+   "cover_focus": [
+    0.36,
+    0.41
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra o cruzeiro histórico associado à notícia sobre o sequestro por opositores de Salazar."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-23_01_2010_tribunal-de-contas-restringe-concessoes-das-estradas-de-portugal-fundo.jpg:82668": {
+  "_final": {
+   "subject": "Logótipo do jornal Público.pt",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "A imagem é apenas o logótipo de um jornal, sem relação direta ou contextual com as Estradas de Portugal."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-24_01_1986_voyager-2-faz-aproximacao-historica-a-urano-fundo.jpg:115130": {
+  "_final": {
+   "subject": "Sonda espacial Voyager 2 no espaço",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.45,
+    0.35
+   ],
+   "cover_focus": [
+    0.45,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra a sonda espacial Voyager 2, objeto central da notícia histórica."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-25_01_2025_joana-vasconcelos-e-primeira-mulher-homenageada-na-brafa-fundo.jpg:269599": {
+  "_final": {
+   "subject": "Joana Vasconcelos de perfil a sorrir com blusa plissada verde",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.47,
+     0.28
+    ]
+   ],
+   "banner_focus": [
+    0.47,
+    0.25
+   ],
+   "cover_focus": [
+    0.47,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato em primeiro plano de Joana Vasconcelos, perfeito para ilustrar a homenagem."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-26_01_2025_tim-cook-lanca-video-com-64-iphones-e-banda-ok-go-fundo.jpg:188492": {
+  "_final": {
+   "subject": "Tim Cook sorri usando óculos de massa escura",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.724,
+     0.354
+    ],
+    [
+     0.362,
+     0.771
+    ]
+   ],
+   "banner_focus": [
+    0.65,
+    0.35
+   ],
+   "cover_focus": [
+    0.65,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A fotografia mostra Tim Cook, figura central na notícia associada a lançamentos da Apple."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-26_01_2019_final-da-taca-da-liga-fc-porto-vs-sporting-em-braga-fundo.jpg:309679": {
+  "_final": {
+   "subject": "Homem com fato escuro, camisa branca e gravata azul",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.485,
+     0.323
+    ],
+    [
+     0.117,
+     0.407
+    ]
+   ],
+   "banner_focus": [
+    0.485,
+    0.28
+   ],
+   "cover_focus": [
+    0.485,
+    0.323
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra uma figura não identificada num contexto formal, não relacionada com o jogo de futebol."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-27_01_2013_eric-schmidt-alerta-coreia-do-norte-sobre-abertura-de-internet-fundo.jpg:273721": {
+  "_final": {
+   "subject": "Retrato de Eric Schmidt de óculos",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.551,
+     0.385
+    ]
+   ],
+   "banner_focus": [
+    0.551,
+    0.28
+   ],
+   "cover_focus": [
+    0.551,
+    0.385
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Eric Schmidt, figura central mencionada na notícia sobre tecnologia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-28_01_1986_onibus-espacial-challenger-explode-no-lancamento-fundo.jpg:481267": {
+  "_final": {
+   "subject": "A explosão do ônibus espacial Challenger no céu",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fotografia histórica original e direta do desastre do Challenger."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-28_01_2022_portugal-promulga-direito-ao-esquecimento-para-sobreviventes-fundo.jpg:353868": {
+  "_final": {
+   "subject": "Retrato do Príncipe Regente D. João de Portugal",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.557,
+     0.174
+    ]
+   ],
+   "banner_focus": [
+    0.557,
+    0.25
+   ],
+   "cover_focus": [
+    0.557,
+    0.42
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato histórico inadequado para ilustrar uma notícia contemporânea sobre direito ao esquecimento."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-29_01_1886_karl-benz-patenteia-o-primeiro-automovel-a-gasolina-fundo.jpg:155384": {
+  "_final": {
+   "subject": "Brinquedo em forma de automóvel vermelho",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.55
+   ],
+   "cover_focus": [
+    0.5,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O automóvel de brinquedo ilustra o tema dos carros e da invenção de Karl Benz."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-30_01_1974_queda-do-voo-pan-am-806-perto-de-pago-pago-fundo.jpg:239026": {
+  "_final": {
+   "subject": "Restos da fuselagem da aeronave do voo Pan Am 806",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.45,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.4
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra destroços associados ao acidente do voo Pan Am 806."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-31_01_2021_ambulancias-a-porta-dos-hospitais-sinalizam-luta-da-pandemia-fundo.jpg:233150": {
+  "_final": {
+   "subject": "Entrada do hospital Holby City",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.3
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A entrada do hospital ilustra o contexto de atendimento médico durante a pandemia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-31_01_2016_google-paga-mil-milhoes-a-apple-por-busca-no-iphone-fundo.jpg:218896": {
+  "_final": {
+   "subject": "Homem de fato e gravata a caminhar ao ar livre",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.347,
+     0.231
+    ]
+   ],
+   "banner_focus": [
+    0.347,
+    0.231
+   ],
+   "cover_focus": [
+    0.347,
+    0.292
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra um homem de fato, mas não é identificável nem diretamente relevante para a Google ou Apple."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-02_01_1922_e-publicado-o-romance-ulisses-de-james-joyce-fundo.jpg:358445": {
+  "_final": {
+   "subject": "Capa de livro de Daniel Pennac com ilustração de sala de aula",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.34,
+     0.54
+    ],
+    [
+     0.44,
+     0.53
+    ],
+    [
+     0.53,
+     0.57
+    ],
+    [
+     0.87,
+     0.41
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "Trata-se da capa de um livro de Daniel Pennac, sem ligação direta a James Joyce."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-03_01_2014_pete-carroll-leva-banho-de-gatorade-apos-vitoria-no-super-bowl-fundo.jpg:284227": {
+  "_final": {
+   "subject": "Logótipo e lemas motivacionais dos Seattle Seahawks",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.21
+   ],
+   "cover_focus": [
+    0.5,
+    0.21
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "A imagem mostra apenas o logótipo e lemas da equipa e não o Pete Carroll a receber o banho de Gatorade."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-04_01_2020_cate-blanchett-presidira-ao-juri-do-festival-de-veneza-fundo.jpg:293184": {
+  "_final": {
+   "subject": "Retrato de mulher com cabelo molhado e vestido preto",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.505,
+     0.316
+    ]
+   ],
+   "banner_focus": [
+    0.505,
+    0.28
+   ],
+   "cover_focus": [
+    0.505,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato adequado da figura pública ligada ao festival."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-05_01_1963_tribunal-eu-estabelece-principio-do-efeito-direto-fundo.jpg:62942": {
+  "_final": {
+   "subject": "torneira com gota de água suspensa",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.43,
+    0.35
+   ],
+   "cover_focus": [
+    0.43,
+    0.41
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A gota de água ilustra o conceito de recurso natural em notícia científica."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-06_01_2024_tribunal-dos-eua-nega-imunidade-a-trump-no-caso-das-eleicoes-de-2020-fundo.jpg:158669": {
+  "_final": {
+   "subject": "Fotografia policial de Donald Trump",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.612,
+     0.443
+    ]
+   ],
+   "banner_focus": [
+    0.612,
+    0.35
+   ],
+   "cover_focus": [
+    0.612,
+    0.443
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato oficial de Donald Trump, diretamente associado aos seus processos judiciais eleitorais."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-08_01_1989_voio-da-independent-air-cai-nos-acores-fundo.jpg:201722": {
+  "_final": {
+   "subject": "Montanha do Pico coberta de neve nos Açores",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.57
+   ],
+   "cover_focus": [
+    0.5,
+    0.57
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra a ilha do Pico nos Açores, contexto geográfico do acidente aéreo."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-08_01_2008_investigacao-da-fundacao-champalimaud-destacada-fundo.jpg:103744": {
+  "_final": {
+   "subject": "Logótipo do jornal Público em vermelho com texto branco",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "A imagem mostra apenas o logótipo de um jornal e não está relacionada com a Fundação Champalimaud."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-09_01_1964_the-beatles-debutam-na-tv-americana-fundo.jpg:406721": {
+  "_final": {
+   "subject": "The Beatles tocam instrumentos musicais ao vivo",
+   "embedded_text": false,
+   "faces": [
+    null,
+    null
+   ],
+   "banner_focus": [
+    0.65,
+    0.5
+   ],
+   "cover_focus": [
+    0.7,
+    0.6
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A fotografia mostra a banda The Beatles em atuação musical, adequada à estreia histórica."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-09_01_1986_cometa-halley-visita-sistema-solar-fundo.jpg:323578": {
+  "_final": {
+   "subject": "Fotografia histórica do Cometa Halley no céu noturno",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fotografia histórica do cometa Halley a atravessar o espaço."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-10_01_2014_equipa-feminina-suica-de-hoquei-no-gelo-fundo.jpg:363694": {
+  "_final": {
+   "subject": "Jogadora da equipa feminina suíça de hóquei no gelo a patinar",
+   "embedded_text": false,
+   "faces": [
+    null
+   ],
+   "banner_focus": [
+    0.598,
+    0.3
+   ],
+   "cover_focus": [
+    0.598,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra claramente uma jogadora da seleção suíça de hóquei no gelo em ação."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-12_01_2025_montenegro-promove-primeira-remodelacao-do-governo-ad-fundo.jpg:179834": {
+  "_final": {
+   "subject": "Luís Montenegro a sorrir de fato e gravata",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.485,
+     0.178
+    ]
+   ],
+   "banner_focus": [
+    0.485,
+    0.15
+   ],
+   "cover_focus": [
+    0.485,
+    0.25
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato do primeiro-ministro Luís Montenegro, ideal para ilustrar uma notícia sobre remodelação governamental."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-13_01_2023_marcelo-autorizado-a-ir-ao-qatar-ver-estreia-da-selecao-fundo.jpg:448272": {
+  "_final": {
+   "subject": "Marcelo Rebelo de Sousa abraça mulher",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.342,
+     0.354
+    ],
+    [
+     0.722,
+     0.509
+    ]
+   ],
+   "banner_focus": [
+    0.53,
+    0.39
+   ],
+   "cover_focus": [
+    0.53,
+    0.48
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato do Presidente Marcelo Rebelo de Sousa, relevante para notícias sobre as suas deslocações."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-13_01_2025_marcelo-veta-diploma-da-reposicao-de-freguesias-fundo.jpg:448272": {
+  "_final": {
+   "subject": "Marcelo Rebelo de Sousa a cumprimentar uma jovem mulher",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.342,
+     0.354
+    ],
+    [
+     0.722,
+     0.519
+    ]
+   ],
+   "banner_focus": [
+    0.53,
+    0.45
+   ],
+   "cover_focus": [
+    0.53,
+    0.55
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato do Presidente Marcelo Rebelo de Sousa adequado para ilustrar notícias políticas."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-14_01_2025_iuri-leitao-conquista-titulo-europeu-de-scratch-em-2022-fundo.jpg:206125": {
+  "_final": {
+   "subject": "Iúri Leitão celebra a vitória com a bandeira de Portugal",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.51,
+     0.18
+    ]
+   ],
+   "banner_focus": [
+    0.51,
+    0.28
+   ],
+   "cover_focus": [
+    0.51,
+    0.42
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Iúri Leitão celebra o título europeu de ciclismo com a bandeira portuguesa."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-15_01_2025_chanceler-alemao-acusa-vance-de-interferir-nas-eleicoes-fundo.jpg:162126": {
+  "_final": {
+   "subject": "JD Vance a discursar num pódio de campanha",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.443,
+     0.231
+    ],
+    [
+     0.655,
+     0.125
+    ],
+    [
+     0.822,
+     0.21
+    ],
+    null
+   ],
+   "banner_focus": [
+    0.443,
+    0.22
+   ],
+   "cover_focus": [
+    0.443,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de JD Vance num comício, relevante para ilustrar a notícia sobre interferência eleitoral."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-15_01_2017_escultura-inspirada-no-rei-leao-no-lemon-festival-de-menton-fundo.jpg:633169": {
+  "_final": {
+   "subject": "Escultura monumental de elefante feita de limões no Lemon Festival de Menton",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra uma escultura monumental do festival de limões de Menton, relevante para o evento cultural."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-16_01_2023_governo-lanca-programa-mais-habitacao-para-aumentar-oferta-fundo.jpg:305142": {
+  "_final": {
+   "subject": "Edifício residencial moderno com varandas e painéis solares",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.4
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A fachada moderna ilustra o tema da habitação e do aumento da oferta imobiliária."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-17_01_2002_cavaco-silva-nega-coincidencia-entre-livro-e-eleicoes-fundo.jpg:140430": {
+  "_final": {
+   "subject": "Capa de jornal com a palavra Diário",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.4
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Capa de jornal relacionada com notícias políticas e editoriais."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-18_01_1977_veiculo-enterprise-do-onibus-espacial-faz-primeiro-voo-sobre-boeing-747-fundo.jpg:121064": {
+  "_final": {
+   "subject": "Space Shuttle Enterprise montado no Boeing 747 da NASA",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.39,
+    0.54
+   ],
+   "cover_focus": [
+    0.39,
+    0.54
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra o ônibus espacial Enterprise em voo sobre o Boeing 747, correspondendo perfeitamente à notícia histórica."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-19_01_2025_barbara-bandeira-lanca-projeto-lusa-com-raizes-luso-brasileiras-fundo.jpg:393458": {
+  "_final": {
+   "subject": "Retrato de mulher ruiva de cabelo encaracolado com casaco preto",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.551,
+     0.283
+    ]
+   ],
+   "banner_focus": [
+    0.551,
+    0.28
+   ],
+   "cover_focus": [
+    0.551,
+    0.283
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra um retrato adequado para ilustrar uma notícia sobre a artista."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-20_01_2020_parlamento-aprova-primeiro-passo-para-eutanasia-fundo.jpg:229862": {
+  "_final": {
+   "subject": "Jovens a interagir com ecrãs táteis numa exposição",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.06,
+     0.45
+    ],
+    [
+     0.91,
+     0.42
+    ]
+   ],
+   "banner_focus": [
+    0.45,
+    0.38
+   ],
+   "cover_focus": [
+    0.55,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra jovens a usar ecrãs táteis, sem relação direta com a votação da eutanásia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-20_01_2003_festival-de-guitarra-de-coimbra-homenageia-carlos-paredes-fundo.jpg:58757": {
+  "_final": {
+   "subject": "Logótipo do jornal Público",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra apenas o logótipo do jornal Público, sendo inadequada para ilustrar um festival de guitarra."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-21_01_2025_montenegro-e-empresa-familiar-sob-investigacao-fundo.jpg:146798": {
+  "_final": {
+   "subject": "Retrato de Luís Montenegro a falar em conferência de imprensa",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.21,
+     0.28
+    ]
+   ],
+   "banner_focus": [
+    0.26,
+    0.32
+   ],
+   "cover_focus": [
+    0.25,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato frontal de Luís Montenegro adequado para ilustrar notícia política sobre investigação."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-21_01_2020_capa-do-inimigo-publico-destaca-momento-do-fc-porto-fundo.jpg:309679": {
+  "_final": {
+   "subject": "Homem de fato e gravata azul com óculos",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.485,
+     0.283
+    ],
+    [
+     0.116,
+     0.403
+    ]
+   ],
+   "banner_focus": [
+    0.485,
+    0.3
+   ],
+   "cover_focus": [
+    0.485,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato adequado para acompanhar notícias de desporto ou figuras públicas."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-22_01_2025_alemanha-vota-para-novo-chanceler-em-cenario-global-incerto-fundo.jpg:322431": {
+  "_final": {
+   "subject": "Retrato de Friedrich Merz, candidato a chanceler alemão",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.499,
+     0.354
+    ]
+   ],
+   "banner_focus": [
+    0.499,
+    0.28
+   ],
+   "cover_focus": [
+    0.499,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra Friedrich Merz, relevante para uma notícia sobre as eleições para chanceler na Alemanha."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-22_01_2018_tradicao-escocesa-fastern-eve-handba-revive-jogo-centenario-nas-ruas-de-jedburgh-fundo.jpg:426386": {
+  "_final": {
+   "subject": "paisagem rural com campo verde e céu azul com nuvens",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra uma paisagem rural genérica que não está relacionada com a tradição escocesa mencionada."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-23_01_1987_supernova-1987a-ilumina-a-grande-nuvem-de-magalhaes-fundo.jpg:468792": {
+  "_final": {
+   "subject": "Supernova brilhante na Grande Nuvem de Magalhães com nebulosa",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.58,
+    0.28
+   ],
+   "cover_focus": [
+    0.58,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fotografia astronómica ideal para ilustrar a notícia sobre a Supernova 1987A."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-23_01_1944_deportacao-de-chechenos-e-inguches-pela-uniao-sovietica-fundo.jpg:123159": {
+  "_final": {
+   "subject": "O chanceler alemão Olaf Scholz em discurso oficial.",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.325,
+     0.366
+    ]
+   ],
+   "banner_focus": [
+    0.325,
+    0.32
+   ],
+   "cover_focus": [
+    0.325,
+    0.366
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra Olaf Scholz, que não está diretamente relacionado com a deportação soviética de chechenos e inguches."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-24_01_2025_antonio-costa-pede-paz-duradoura-na-ucrania-no-terceiro-ano-da-guerra-fundo.jpg:290783": {
+  "_final": {
+   "subject": "António Costa e Donald Tusk apertam as mãos",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.244,
+     0.354
+    ],
+    [
+     0.767,
+     0.385
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.36
+   ],
+   "cover_focus": [
+    0.5,
+    0.38
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "António Costa aparece na fotografia, ilustrando perfeitamente a notícia sobre a sua atividade política europeia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-24_01_2002_observadores-internacionais-atacados-no-zimbabwe-durante-eleicoes-fundo.jpg:58757": {
+  "_final": {
+   "subject": "Logótipo do jornal Público",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "O logótipo do jornal não é relevante para ilustrar o ataque a observadores internacionais no Zimbabwe."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-25_01_1991_pacto-de-varsovia-e-oficialmente-abolido-fundo.jpg:322153": {
+  "_final": {
+   "subject": "Mapa político da Europa no ano de 1919",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "O mapa histórico de 1919 não está diretamente relacionado com o Pacto de Varsóvia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-26_01_1909_primeiro-filme-a-cores-exibido-ao-publico-fundo.jpg:253496": {
+  "_final": {
+   "subject": "Antigo projetor cinematográfico analógico",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.55,
+    0.45
+   ],
+   "cover_focus": [
+    0.55,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O antigo projetor cinematográfico ilustra perfeitamente a exibição pública de filmes históricos."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-26_01_2003_ue-propoe-regras-para-aviacao-pos-litigio-eua-fundo.jpg:96652": {
+  "_final": {
+   "subject": "Avião comercial na pista de descolagem",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.53,
+    0.48
+   ],
+   "cover_focus": [
+    0.53,
+    0.48
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra diretamente o setor da aviação associado ao litígio tecnológico."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-27_01_1976_saara-ocidental-declara-independencia-como-republica-arabe-saaraui-fundo.jpg:249333": {
+  "_final": {
+   "subject": "Mulher com máscara branca falando ao microfone",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.72,
+     0.35
+    ],
+    [
+     0.19,
+     0.44
+    ],
+    [
+     0.49,
+     0.28
+    ],
+    [
+     0.08,
+     0.32
+    ]
+   ],
+   "banner_focus": [
+    0.65,
+    0.35
+   ],
+   "cover_focus": [
+    0.65,
+    0.48
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra uma mulher a falar ao microfone num evento local, sem ligação à notícia internacional sobre Saara Ocidental."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-02-27_01_1984_brasil-lanca-plano-cruzado-medida-economica-que-leva-a-escassez-fundo.jpg:597164": {
+  "_final": {
+   "subject": "Prateleiras de supermercado completamente vazias devido a escassez nacional",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra perfeitamente a escassez de produtos provocada por uma crise económica."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-02_01_2020_plataforma-de-apoio-aos-refugiados-oferece-acolhimento-a-sirios-na-turquia-fundo.jpg:350025": {
+  "_final": {
+   "subject": "Retrato de um jovem rapaz sírio",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.498,
+     0.435
+    ]
+   ],
+   "banner_focus": [
+    0.498,
+    0.35
+   ],
+   "cover_focus": [
+    0.498,
+    0.435
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O retrato de uma criança síria ilustra diretamente o impacto humano da crise de refugiados na Turquia."
+  },
+  "_model": "gemini-3.1-flash-lite"
+ },
+ "2026-03-02_01_2004_coliseu-do-porto-prepara-estreia-de-madame-butterfly-e-festival-internacional-de-fundo.jpg:58757": {
+  "_final": {
+   "subject": "Logótipo do jornal Público em fundo vermelho",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "O logótipo do Público é irrelevante para ilustrar a notícia sobre o Coliseu do Porto."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-03_01_2024_portugal-vence-espanha-no-raguebi-e-vai-a-final-fundo.jpg:229633": {
+  "_final": {
+   "subject": "Mulher a pentear o cabelo numa casa de banho.",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.855,
+     0.207
+    ]
+   ],
+   "banner_focus": [
+    0.855,
+    0.207
+   ],
+   "cover_focus": [
+    0.855,
+    0.3
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra uma mulher a pentear o cabelo, não tendo qualquer relação com râguebi ou desporto."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-04_01_2025_montenegro-declara-tudo-o-que-tinha-a-declarar-fundo.jpg:242059": {
+  "_final": {
+   "subject": "Homem a discursar num púlpito de madeira",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.231,
+     0.239
+    ]
+   ],
+   "banner_focus": [
+    0.26,
+    0.32
+   ],
+   "cover_focus": [
+    0.26,
+    0.42
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Figura política em discurso parlamentar relevante para o tema da notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-04_01_2018_taylor-swift-homenageia-ed-sheeran-fundo.jpg:297024": {
+  "_final": {
+   "subject": "Taylor Swift e Ed Sheeran a cantar em palco",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.43,
+     0.47
+    ],
+    [
+     0.49,
+     0.48
+    ]
+   ],
+   "banner_focus": [
+    0.46,
+    0.48
+   ],
+   "cover_focus": [
+    0.46,
+    0.51
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra Taylor Swift e Ed Sheeran juntos no palco, adequado para ilustrar a notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-05_01_2020_ato-do-livre-para-com-joacine-foi-miopia-historica-fundo.jpg:178233": {
+  "_final": {
+   "subject": "Joacine Katar Moreira a discursar num púlpito",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.536,
+     0.329
+    ]
+   ],
+   "banner_focus": [
+    0.536,
+    0.28
+   ],
+   "cover_focus": [
+    0.536,
+    0.329
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A fotografia retrata Joacine Katar Moreira, a figura central mencionada na notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-05_01_2009_universidade-hope-lanca-mestrado-sobre-os-beatles-fundo.jpg:273543": {
+  "_final": {
+   "subject": "Os Beatles com o corte de cabelo icónico",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.24,
+     0.22
+    ],
+    [
+     0.8,
+     0.23
+    ],
+    [
+     0.22,
+     0.67
+    ],
+    [
+     0.7,
+     0.69
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A fotografia mostra os Beatles, tema central do mestrado lançado pela Universidade Hope."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-06_01_1820_compromisso-do-missouri-torna-se-lei-nos-eua-fundo.jpg:175316": {
+  "_final": {
+   "subject": "Retrato de James Monroe, 5º presidente dos EUA",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.54,
+     0.32
+    ]
+   ],
+   "banner_focus": [
+    0.54,
+    0.35
+   ],
+   "cover_focus": [
+    0.54,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "James Monroe foi o presidente dos EUA durante a aprovação do Compromisso do Missouri."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-07_01_1928_primeira-edicao-do-jornal-estado-de-minas-e-publicada-fundo.jpg:302246": {
+  "_final": {
+   "subject": "Homem idoso a segurar um jornal comunitário com fotografia",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.536,
+     0.231
+    ]
+   ],
+   "banner_focus": [
+    0.536,
+    0.231
+   ],
+   "cover_focus": [
+    0.536,
+    0.385
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra um jornal local contemporâneo, não tendo relação com o jornal histórico Estado de Minas."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-08_01_1917_revolucao-russa-comeca-com-greve-de-tecelas-fundo.jpg:259880": {
+  "_final": {
+   "subject": "Vladmir Lenin a discursar perante uma multidão durante a Revolução Russa.",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.725,
+     0.425
+    ]
+   ],
+   "banner_focus": [
+    0.725,
+    0.38
+   ],
+   "cover_focus": [
+    0.725,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato histórico de Lenin, figura central da Revolução Russa, contextualizando perfeitamente a notícia política."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-08_01_2010_alice-no-pais-das-maravilhas-supera-avatar-em-portugal-fundo.jpg:305274": {
+  "_final": {
+   "subject": "Mia Wasikowska como Alice num cenário de jardim fantástico",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.342,
+     0.231
+    ]
+   ],
+   "banner_focus": [
+    0.42,
+    0.35
+   ],
+   "cover_focus": [
+    0.42,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato da protagonista do filme Alice no País das Maravilhas, ilustrando diretamente a notícia cultural."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-09_01_1974_sonda-sovietica-marte-7-falha-ao-chegar-a-marte-fundo.jpg:496680": {
+  "_final": {
+   "subject": "Ilustração artística de um planeta, sol e órbita espacial",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.55
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem ilustra de forma artística o tema espacial da exploração de Marte."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-09_01_2011_onibus-espacial-discovery-encerra-missoes-fundo.jpg:234516": {
+  "_final": {
+   "subject": "Ônibus espacial Challenger a descolar no céu",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.41,
+    0.28
+   ],
+   "cover_focus": [
+    0.41,
+    0.28
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra o lançamento de um ônibus espacial, adequado para ilustrar a notícia sobre missões espaciais."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-10_01_2023_chris-pine-envolvido-em-polemica-viral-do-filme-com-harry-styles-fundo.jpg:406438": {
+  "_final": {
+   "subject": "Retrato de Chris Pine",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.485,
+     0.354
+    ]
+   ],
+   "banner_focus": [
+    0.485,
+    0.28
+   ],
+   "cover_focus": [
+    0.485,
+    0.354
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato em primeiro plano de Chris Pine, perfeito para ilustrar a notícia sobre o ator."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-10_01_2019_portugal-conquista-dez-medalhas-nos-europeus-de-atletismo-de-deficiencia-fundo.jpg:366511": {
+  "_final": {
+   "subject": "Cavaleiro montado a cavalo numa pista de areia",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.422,
+     0.231
+    ]
+   ],
+   "banner_focus": [
+    0.422,
+    0.23
+   ],
+   "cover_focus": [
+    0.422,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra um cavaleiro equestre, não estando relacionada com atletismo adaptado."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-11_01_2011_terremoto-e-tsunami-atingem-o-japao-e-causam-desastre-nuclear-em-fukushima-fundo.jpg:543255": {
+  "_final": {
+   "subject": "Vista aérea da Central Nuclear de Fukushima Daiichi no Japão",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.6
+   ],
+   "cover_focus": [
+    0.5,
+    0.6
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra a central nuclear de Fukushima, o local exato do desastre referido na notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-11_01_2003_catherine-zeta-jones-e-premiada-por-atores-dos-eua-por-papel-em-chicago-fundo.jpg:140430": {
+  "_final": {
+   "subject": "Logótipo do Diário",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "A imagem mostra apenas o logótipo de um jornal e não está diretamente relacionada com a atriz Catherine Zeta-Jones."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-12_01_1989_tim-berners-lee-apresenta-a-primeira-proposta-da-world-wide-web-fundo.jpg:421284": {
+  "_final": {
+   "subject": "Retrato de a co-criadora ou figura chave associada à web",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.435,
+     0.444
+    ]
+   ],
+   "banner_focus": [
+    0.435,
+    0.35
+   ],
+   "cover_focus": [
+    0.435,
+    0.444
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra uma pessoa não identificada ou não diretamente relacionada com a invenção da World Wide Web."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-12_01_2024_robert-de-niro-recebe-o-gotham-historical-icon-tribute-fundo.jpg:221475": {
+  "_final": {
+   "subject": "Homem com boné escuro segurando um microfone",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.744,
+     0.169
+    ]
+   ],
+   "banner_focus": [
+    0.744,
+    0.2
+   ],
+   "cover_focus": [
+    0.744,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra outro homem e não o ator Robert De Niro, tornando-a inadequada para a notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-13_01_2023_oscar-primeira-atriz-asiatica-vence-melhor-atriz-fundo.jpg:379285": {
+  "_final": {
+   "subject": "mulher loira com casaco de cabedal a falar ao microfone",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.533,
+     0.31
+    ],
+    [
+     0.975,
+     0.54
+    ]
+   ],
+   "banner_focus": [
+    0.533,
+    0.28
+   ],
+   "cover_focus": [
+    0.533,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra uma mulher a falar num microfone num contexto de prémios cinematográficos."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-13_01_2008_ministra-maria-de-lurdes-propoe-simplificacao-no-processo-de-avaliacao-docente-fundo.jpg:55045": {
+  "_final": {
+   "subject": "Logótipo do Diário de Notícias cortado",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "A imagem mostra apenas o logótipo cortado e não ilustra adequadamente a notícia sobre avaliação docente."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-14_01_2025_governo-cai-eleicoes-antecipadas-decretadas-fundo.jpg:383631": {
+  "_final": {
+   "subject": "edifício histórico amarelo com janelas azuis",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O edifício histórico pode contextualizar notícias institucionais ou governamentais, embora sem ligação direta específica."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-14_01_2019_benfica-enfrenta-dinamo-de-zagreb-na-europa-league-fundo.jpg:458790": {
+  "_final": {
+   "subject": "Estádio do Sport Lisboa e Benfica",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.55,
+    0.6
+   ],
+   "cover_focus": [
+    0.55,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O Estádio do Benfica ilustra perfeitamente o contexto europeu do clube na Liga Europa."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-15_01_2020_trump-fecha-voos-da-europa-para-os-eua-por-covid-fundo.jpg:380069": {
+  "_final": {
+   "subject": "Aeroporto com painéis de voos e avisos sobre o coronavírus",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.282,
+     0.553
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.28,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra o ambiente aeroportuário e avisos de coronavírus associados a restrições de voos."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-15_01_2009_aquele-querido-mes-de-agosto-vence-premio-em-las-palmas-fundo.jpg:143558": {
+  "_final": {
+   "subject": "mulher jovem a olhar com binóculos para a paisagem",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.65,
+     0.28
+    ]
+   ],
+   "banner_focus": [
+    0.6,
+    0.35
+   ],
+   "cover_focus": [
+    0.65,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fotografia de mulher a observar o horizonte, evocando o ambiente visual do filme em destaque."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-17_01_2009_8-1-2-festa-do-cinema-italiano-chega-ao-porto-fundo.jpg:166925": {
+  "_final": {
+   "subject": "Grupo de pessoas idosas e um homem à mesa",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.21,
+     0.44
+    ],
+    [
+     0.59,
+     0.35
+    ],
+    [
+     0.94,
+     0.38
+    ],
+    [
+     0.18,
+     0.31
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.4
+   ],
+   "cover_focus": [
+    0.55,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Cena de jantar cinematográfica evocando ambiente de filme italiano, adequada para ilustrar notícia de cinema."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-17_01_1992_atentado-na-embaixada-de-israel-em-buenos-aires-fundo.jpg:294508": {
+  "_final": {
+   "subject": "Sobreviventes do atentado à Embaixada de Israel em Buenos Aires",
+   "embedded_text": true,
+   "faces": [
+    null,
+    null
+   ],
+   "banner_focus": [
+    0.6,
+    0.45
+   ],
+   "cover_focus": [
+    0.55,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de sobreviventes associados ao atentado histórico."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-18_01_1974_opep-encerra-embargo-ao-petroleo-fundo.jpg:217163": {
+  "_final": {
+   "subject": "Homem e mulher segurando uma bandeira saaráui",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.17,
+     0.35
+    ],
+    [
+     0.44,
+     0.25
+    ]
+   ],
+   "banner_focus": [
+    0.35,
+    0.35
+   ],
+   "cover_focus": [
+    0.35,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra pessoas com uma bandeira, sem relação direta com a OPEP ou embargo petrolífero."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-19_01_2018_especulacao-aumenta-sobre-possivel-demissao-de-robert-muller-por-trump-fundo.jpg:271514": {
+  "_final": {
+   "subject": "Donald Trump a discursar",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.589,
+     0.231
+    ]
+   ],
+   "banner_focus": [
+    0.589,
+    0.28
+   ],
+   "cover_focus": [
+    0.589,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Donald Trump, figura central da notícia política sobre demissões e investigações."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-20_01_2025_lara-marques-pereira-destaca-estreia-do-filme-sobre-charles-aznavour-fundo.jpg:347590": {
+  "_final": {
+   "subject": "Cartaz com nomes de intervenientes num evento cultural",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O texto menciona nomes relevantes ligados à cultura e ao evento noticiado."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-20_01_2019_dia-mundial-da-saude-oral-explicado-pelo-dr-hugo-madeira-fundo.jpg:386292": {
+  "_final": {
+   "subject": "Insuflável em formato de sanita junto à sede da ONU",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.35,
+    0.5
+   ],
+   "cover_focus": [
+    0.35,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O insuflável lembra instalações sanitárias, contextualizando o Dia Mundial da Saúde Oral ligado a saneamento e higiene."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-21_01_2025_fernanda-montenegro-encerra-carreira-de-80-anos-no-cinema-fundo.jpg:477510": {
+  "_final": {
+   "subject": "chacho de um animal marinho com textura e tentáculos",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.3
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A fotografia mostra um animal marinho, totalmente irrelevante para a notícia sobre Fernanda Montenegro."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-21_01_2018_pescador-artesanal-fica-longe-do-mar-por-agitacao-no-inverno-fundo.jpg:497622": {
+  "_final": {
+   "subject": "Milhares de peixes mortos na margem com pescador",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.7,
+    0.2
+   ],
+   "cover_focus": [
+    0.7,
+    0.3
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra um pescador e os impactos ambientais relacionados com o estado do mar."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-22_01_1995_cosmonauta-bate-recorde-de-438-dias-no-espaco-fundo.jpg:202219": {
+  "_final": {
+   "subject": "calendário filosófico com frase em italiano",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra um calendário filosófico e não um cosmonauta ou tema espacial."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-22_01_2010_cineclube-do-porto-renova-divida-com-ica-fundo.jpg:148844": {
+  "_final": {
+   "subject": "Revistas e materiais de cinema numa mesa",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.76,
+     0.65
+    ],
+    [
+     0.72,
+     0.61
+    ]
+   ],
+   "banner_focus": [
+    0.6,
+    0.5
+   ],
+   "cover_focus": [
+    0.65,
+    0.55
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra publicações de cinema, relacionando-se diretamente com o tema do Cineclube do Porto."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-23_01_2025_albuquerque-celebra-vitoria-do-psd-nas-madeirenses-fundo.jpg:397017": {
+  "_final": {
+   "subject": "Antigo mapa histórico da ilha da Madeira",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.4
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O mapa histórico da ilha da Madeira enquadra simbolicamente a temática regional das eleições."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-23_01_2020_islandia-exemplo-na-luta-contra-pandemia-com-testes-fundo.jpg:376460": {
+  "_final": {
+   "subject": "Interior de um aeroporto com pessoas a caminhar e lojas",
+   "embedded_text": false,
+   "faces": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "banner_focus": [
+    0.65,
+    0.54
+   ],
+   "cover_focus": [
+    0.65,
+    0.54
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A foto mostra um aeroporto geral e não está diretamente relacionada com a temática da pandemia na Islândia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-24_01_1991_ayrton-senna-vence-gp-do-brasil-pela-1a-vez-fundo.jpg:344418": {
+  "_final": {
+   "subject": "Ayrton Senna a erguer o troféu no GP do Brasil",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.564,
+     0.492
+    ]
+   ],
+   "banner_focus": [
+    0.55,
+    0.45
+   ],
+   "cover_focus": [
+    0.55,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato clássico de Ayrton Senna a celebrar a sua primeira vitória no GP do Brasil."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-24_01_2006_papa-bento-xvi-cria-quinze-novos-cardeais-fundo.jpg:299321": {
+  "_final": {
+   "subject": "Papa Bento XVI em traje papal",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.485,
+     0.283
+    ]
+   ],
+   "banner_focus": [
+    0.485,
+    0.28
+   ],
+   "cover_focus": [
+    0.485,
+    0.283
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato do Papa Bento XVI, figura central da notícia sobre a criação de cardeais."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-25_01_2024_comissao-europa-investiga-alphabet-apple-e-meta-por-lei-dos-mercados-digitais-fundo.jpg:138968": {
+  "_final": {
+   "subject": "Responsável da Comissão Europeia a gesticular junto a púlpito",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.0,
+     0.45
+    ]
+   ],
+   "banner_focus": [
+    0.4,
+    0.4
+   ],
+   "cover_focus": [
+    0.45,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato adequado da Comissão Europeia a ilustrar investigação antitrust a tecnológicas."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-26_01_2005_taiwaneses-manifestam-contra-lei-chinesa-fundo.jpg:139054": {
+  "_final": {
+   "subject": "Bandeiras de Taiwan alinhadas contra um céu nublado",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.3,
+    0.6
+   ],
+   "cover_focus": [
+    0.3,
+    0.6
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra bandeiras de Taiwan, ligando-se diretamente ao tema de Taiwan na notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-27_01_2025_portugal-aprova-200-milhoes-para-apoio-militar-a-ucrania-fundo.jpg:118373": {
+  "_final": {
+   "subject": "Bandeira de Portugal a ondular",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.48,
+    0.35
+   ],
+   "cover_focus": [
+    0.48,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A bandeira nacional simboliza o Estado português, associando-se adequadamente a uma decisão de apoio militar governamental."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-27_01_2019_governo-mantem-mudanca-sazonal-de-hora-apesar-de-voto-europeu-fundo.jpg:408335": {
+  "_final": {
+   "subject": "Capa de livro antiga intitulada Sunwise Turn",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.15
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "Capa de livro irrelevante para a notícia sobre a mudança de hora."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-28_01_2023_cheirar-suor-ajuda-no-tratamento-de-ansiedade-social-fundo.jpg:273514": {
+  "_final": {
+   "subject": "mulher cientista a trabalhar com microscópio em laboratório",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.435,
+     0.3
+    ]
+   ],
+   "banner_focus": [
+    0.435,
+    0.35
+   ],
+   "cover_focus": [
+    0.435,
+    0.4
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato histórico de uma cientista em laboratório, adequado para ilustrar uma notícia de ciência."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-29_01_2017_aeroporto-da-madeira-recebe-nome-de-cristiano-ronaldo-fundo.jpg:536112": {
+  "_final": {
+   "subject": "Vista aérea da pista e viaduto do Aeroporto da Madeira",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.45,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra o Aeroporto da Madeira, local associado à notícia sobre o nome de Cristiano Ronaldo."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-29_01_2003_chirac-e-blair-conversam-sobre-onu-apos-camp-david-fundo.jpg:140855": {
+  "_final": {
+   "subject": "Jacques Chirac a falar num púlpito com microfones",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.53,
+     0.28
+    ]
+   ],
+   "banner_focus": [
+    0.53,
+    0.28
+   ],
+   "cover_focus": [
+    0.53,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A fotografia mostra Jacques Chirac, líder político mencionado diretamente no título da notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-30_01_2023_trump-acusado-de-pagar-130-mil-dolares-a-ex-atriz-pornografica-fundo.jpg:499949": {
+  "_final": {
+   "subject": "Cartaz no chão com anúncio de serviços de fila",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.6,
+    0.5
+   ],
+   "cover_focus": [
+    0.6,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra um cartaz promocional irrelevante para a notícia sobre Donald Trump."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-03-31_01_1966_luna-10-entra-em-orbita-lunar-primeira-sonda-a-orbitar-a-lua-fundo.jpg:70664": {
+  "_final": {
+   "subject": "Fotografia soviética da Lua tirada pela sonda Luna 10",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra um registo histórico obtido pela sonda Luna 10 em órbita lunar."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-01_01_2002_peres-critica-estrategia-israelita-em-meio-a-tensoes-palestinas-fundo.jpg:125911": {
+  "_final": {
+   "subject": "Shimon Peres",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.45,
+     0.45
+    ]
+   ],
+   "banner_focus": [
+    0.45,
+    0.35
+   ],
+   "cover_focus": [
+    0.45,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Shimon Peres, figura central da notícia política sobre Israel."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-01_01_1969_harrier-entra-em-servico-caca-com-decolagem-vertical-fundo.jpg:340835": {
+  "_final": {
+   "subject": "Cockpit e mecanismo de ejeção do caça Harrier",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.46,
+    0.48
+   ],
+   "cover_focus": [
+    0.46,
+    0.48
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra o interior do cockpit do caça Harrier, destacando controlos de segurança e ejeção."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-02_01_2024_presidente-assume-novo-governo-apos-vitoria-estreita-fundo.jpg:383631": {
+  "_final": {
+   "subject": "Edifício histórico de arquitetura colonial amarela e branca",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O edifício histórico pode contextualizar visualmente reportagens sobre política e sedes governamentais."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-02_01_2012_voo-utair-120-cai-em-tiumen-russia-33-mortos-fundo.jpg:408709": {
+  "_final": {
+   "subject": "Bombeiros com fatos refletores combatendo incêndio com mangueira",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.65
+   ],
+   "cover_focus": [
+    0.5,
+    0.65
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra equipes de combate a incêndio de emergência, contexto relevante para investigações de acidentes aéreos."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-03_01_2007_tgv-frances-quebra-recorde-mundial-com-574-8-km-h-fundo.jpg:465376": {
+  "_final": {
+   "subject": "Linha ferroviária de alta velocidade francesa",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra uma linha férrea de alta velocidade, adequada para ilustrar recordes do TGV."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-04_01_1983_challenger-primeira-missao-espacial-que-terminou-em-desastre-fundo.jpg:407106": {
+  "_final": {
+   "subject": "Space Shuttle on launch pad with reflection in water puddle",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.65,
+    0.3
+   ],
+   "cover_focus": [
+    0.6,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra o vaivém espacial na plataforma, adequado para ilustrar notícias de missões espaciais."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-04_01_1965_saab-apresenta-o-caca-viggen-novo-modelo-de-aviacao-fundo.jpg:219912": {
+  "_final": {
+   "subject": "Caça militar a voar entre as nuvens",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A fotografia mostra um caça militar, adequado para ilustrar a notícia sobre um novo modelo de aviação."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-05_01_2025_manifestantes-em-lisboa-denunciam-donald-trump-como-monstro-fundo.jpg:464849": {
+  "_final": {
+   "subject": "Retrato oficial de Donald Trump",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.485,
+     0.362
+    ]
+   ],
+   "banner_focus": [
+    0.485,
+    0.362
+   ],
+   "cover_focus": [
+    0.485,
+    0.362
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato oficial de Donald Trump, figura central visada na notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-06_01_2001_mori-anuncia-sua-demissao-como-primeiro-ministro-japones-fundo.jpg:155998": {
+  "_final": {
+   "subject": "Primeiro-ministro japonês Yoshiro Mori",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.505,
+     0.435
+    ]
+   ],
+   "banner_focus": [
+    0.505,
+    0.35
+   ],
+   "cover_focus": [
+    0.505,
+    0.435
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Yoshiro Mori adequado para ilustrar o anúncio da sua demissão."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-07_01_1969_nasce-simbolicamente-a-internet-com-o-rfc-1-fundo.jpg:240252": {
+  "_final": {
+   "subject": "mulher de cabelo curto castanho a olhar para a câmara",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.551,
+     0.316
+    ]
+   ],
+   "banner_focus": [
+    0.551,
+    0.28
+   ],
+   "cover_focus": [
+    0.551,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "Retrato genérico de uma mulher, sem relação direta com a criação da Internet."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-07_01_2011_israel-intercepta-missil-com-cupula-de-ferro-pela-primeira-vez-fundo.jpg:415980": {
+  "_final": {
+   "subject": "Lançamento de míssil do sistema de defesa antimíssil Cúpula de Ferro de Israel",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.55,
+    0.45
+   ],
+   "cover_focus": [
+    0.55,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A fotografia mostra o sistema Cúpula de Ferro de Israel a efetuar um lançamento."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-08_01_1954_queda-do-aviao-comet-1-da-south-african-airways-fundo.jpg:322116": {
+  "_final": {
+   "subject": "Rescaldo e investigação da queda do avião Comet 1",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fotografia histórica original do local do acidente do avião Comet 1 da South African Airways."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-09_01_1991_georgia-declara-independencia-da-uniao-sovietica-fundo.jpg:144565": {
+  "_final": {
+   "subject": "Bandeira da Geórgia ondulada",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A bandeira nacional da Geórgia ilustra de forma adequada a notícia sobre a sua independência."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-09_01_1994_onibus-espacial-endeavour-lancado-na-sts-59-fundo.jpg:334503": {
+  "_final": {
+   "subject": "Ônibus espacial na plataforma de lançamento com arco-íris",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.43,
+    0.62
+   ],
+   "cover_focus": [
+    0.43,
+    0.62
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra o ônibus espacial na plataforma de lançamento, ilustrando diretamente a missão STS-59."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-10_01_1826_saida-de-mesolongi-durante-cerco-turco-fundo.jpg:252193": {
+  "_final": {
+   "subject": "Saída de Mesolóngi durante o cerco turco com figuras heroicas e divinas",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.49,
+     0.53
+    ],
+    [
+     0.65,
+     0.52
+    ],
+    [
+     0.37,
+     0.54
+    ],
+    [
+     0.59,
+     0.59
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.52
+   ],
+   "cover_focus": [
+    0.5,
+    0.52
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata perfeitamente a heroica Saída de Mesolóngi durante o cerco otomano."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-11_01_2025_governo-dos-eua-cancela-programa-de-divulgacao-cultural-com-o-ist-fundo.jpg:380074": {
+  "_final": {
+   "subject": "Fachada do edifício do ISCTE em Lisboa",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.7,
+    0.45
+   ],
+   "cover_focus": [
+    0.6,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra o edifício do ISCTE, estando o local associado ao contexto da notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-11_01_2018_trump-alerta-russia-para-ataque-iminente-na-siria-fundo.jpg:367500": {
+  "_final": {
+   "subject": "Donald Trump sorri de fato e gravata azul com bandeira",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.485,
+     0.354
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.4
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato oficial de Donald Trump, figura central da notícia geopolítica sobre a Síria."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-12_01_2019_joao-felix-bate-recorde-de-eusebio-com-hat-trick-fundo.jpg:222693": {
+  "_final": {
+   "subject": "João Félix a festejar um golo com a camisola do Benfica",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.573,
+     0.203
+    ]
+   ],
+   "banner_focus": [
+    0.573,
+    0.28
+   ],
+   "cover_focus": [
+    0.573,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fotografia de João Félix ao serviço do Benfica, perfeita para ilustrar a notícia sobre o recorde."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-12_01_1955_vacina-contra-poliomielite-declarada-segura-e-eficaz-fundo.jpg:449998": {
+  "_final": {
+   "subject": "Placa histórica da vacina contra poliomielite de Salk em Pittsburgh",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.35,
+    0.38
+   ],
+   "cover_focus": [
+    0.35,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Placa histórica comemorativa da invenção da vacina contra a poliomielite por Jonas Salk."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-13_01_1974_lancamento-do-primeiro-satelite-comercial-geoestacionario-dos-eua-fundo.jpg:258790": {
+  "_final": {
+   "subject": "Modelo de satélite comercial geoestacionário dos EUA",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra o satélite histórico diretamente relacionado com a notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-13_01_1870_fundacao-do-museu-metropolitano-de-arte-de-nova-york-fundo.jpg:449895": {
+  "_final": {
+   "subject": "Empire State Building iluminado em verde ao entardecer em Nova York",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.3
+   ],
+   "cover_focus": [
+    0.5,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra o icónico horizonte de Nova York, cidade onde se situa o Metropolitan Museum of Art."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-14_01_2010_catarina-santos-torna-se-primeira-portuguesa-a-vencer-torneio-internacional-de-p-fundo.jpg:58757": {
+  "_final": {
+   "subject": "Logótipo do jornal Público",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "O logótipo do jornal não é adequado para ilustrar uma notícia específica sobre uma jogadora de poker."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-14_01_2002_governo-critica-comissario-europeu-pelas-contas-publicas-fundo.jpg:90647": {
+  "_final": {
+   "subject": "Letras em maiúsculas de texto impresso",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "A imagem mostra apenas texto recortado, sem relação direta com a notícia sobre contas públicas."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-15_01_2016_unbreakable-kimmy-schmidt-retorna-com-nova-temporada-fundo.jpg:324794": {
+  "_final": {
+   "subject": "Jon Hamm e Ellie Kemper em cena de Unbreakable Kimmy Schmidt",
+   "embedded_text": true,
+   "faces": [
+    null,
+    null,
+    null
+   ],
+   "banner_focus": [
+    0.65,
+    0.35
+   ],
+   "cover_focus": [
+    0.6,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato dos atores principais de Unbreakable Kimmy Schmidt, ideal para ilustrar a notícia da nova temporada."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-15_01_2010_goncalo-prazeres-lanca-album-de-jazz-nacional-inovador-fundo.jpg:58757": {
+  "_final": {
+   "subject": "Logótipo do jornal Público em fundo vermelho",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "O logótipo do jornal não é relevante nem adequado para ilustrar o álbum de Gonçalo Prazeres."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-16_01_2025_foxconn-e-tata-enviam-iphones-recorde-para-os-eua-fundo.jpg:91013": {
+  "_final": {
+   "subject": "Capa de telemóvel em couro castanho com encaixe",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.501,
+    0.501
+   ],
+   "cover_focus": [
+    0.501,
+    0.501
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra uma capa de smartphone relacionada com a produção de iPhones."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-17_01_2002_diplomata-brasileiro-sauda-vitoria-de-xanana-gusmao-nas-eleicoes-de-timor-leste-fundo.jpg:155904": {
+  "_final": {
+   "subject": "Xanana Gusmão a cumprimentar um diplomata brasileiro",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.21,
+     0.25
+    ],
+    [
+     0.78,
+     0.23
+    ],
+    [
+     0.35,
+     0.33
+    ],
+    [
+     0.64,
+     0.36
+    ]
+   ],
+   "banner_focus": [
+    0.49,
+    0.35
+   ],
+   "cover_focus": [
+    0.49,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A fotografia mostra Xanana Gusmão, figura central da notícia eleitoral de Timor-Leste."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-18_01_1912_carpathia-resgata-sobreviventes-do-titanic-fundo.jpg:632349": {
+  "_final": {
+   "subject": "Afundamento do Titanic com sobreviventes em botes salva-vidas",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.75
+   ],
+   "cover_focus": [
+    0.5,
+    0.65
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem ilustra de forma dramática o resgate dos sobreviventes do naufrágio do Titanic."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-18_01_1954_nasser-eleito-presidente-do-egito-fundo.jpg:356970": {
+  "_final": {
+   "subject": "Gamal Abdel Nasser a sorrir de fato e gravata",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.468,
+     0.264
+    ]
+   ],
+   "banner_focus": [
+    0.468,
+    0.28
+   ],
+   "cover_focus": [
+    0.468,
+    0.32
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O retrato original de Gamal Abdel Nasser ilustra diretamente a sua eleição como presidente do Egito."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-19_01_2011_fidel-castro-renuncia-ao-cargo-apos-45-anos-fundo.jpg:189942": {
+  "_final": {
+   "subject": "Gráfico de evolução da esperança de vida em Cuba",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.1
+   ],
+   "cover_focus": [
+    0.5,
+    0.1
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": true,
+   "reason": "O gráfico estatístico de Cuba é pouco adequado para ilustrar diretamente a renúncia de Fidel Castro."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-20_01_1972_apollo-16-pousa-na-lua-fundo.jpg:337766": {
+  "_final": {
+   "subject": "Astronauta Charles Duke com fato espacial e globo lunar",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.463,
+     0.177
+    ]
+   ],
+   "banner_focus": [
+    0.463,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Charles Duke foi o piloto do módulo lunar da Apollo 16, sendo ideal para ilustrar a missão."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-20_01_1946_sociedade-das-nacoes-dissolvida-fundo.jpg:346171": {
+  "_final": {
+   "subject": "Organigrama da estrutura administrativa da Sociedade das Nações",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O organigrama detalha a estrutura da Sociedade das Nações, sendo altamente relevante para ilustrar a sua história e dissolução."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-21_01_2023_mimicat-conquista-elogios-internacionais-com-ai-coracao-fundo.jpg:256271": {
+  "_final": {
+   "subject": "Retrato a preto e branco de Jackson Pollock",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.64,
+     0.45
+    ]
+   ],
+   "banner_focus": [
+    0.64,
+    0.38
+   ],
+   "cover_focus": [
+    0.64,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A fotografia retrata Jackson Pollock, não tendo relação com a cantora Mimicat ou o festival."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-22_01_1529_tratado-de-saragoca-define-zonas-de-influencia-fundo.jpg:316262": {
+  "_final": {
+   "subject": "Mapa histórico de Portugal com cidades fronteiriças espanholas",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.53,
+    0.45
+   ],
+   "cover_focus": [
+    0.55,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O mapa histórico ilustra zonas de influência e fronteiras geográficas relevantes para tratados territoriais."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-22_01_1969_knox-johnston-completa-primeira-volta-ao-mundo-solo-fundo.jpg:364412": {
+  "_final": {
+   "subject": "Veleiro Ayala içado em doca seca",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O veleiro ilustra viagens à vela à volta do mundo em solitário."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-23_01_2025_pcp-propoe-salario-minimo-de-1100-euros-para-2029-fundo.jpg:531447": {
+  "_final": {
+   "subject": "Edifício tradicional revestido a azulejos com roupa estendida e árvore em flor",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.65,
+    0.65
+   ],
+   "cover_focus": [
+    0.65,
+    0.65
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem ilustra edifícios e habitação urbana em Portugal, contextualizando a temática social e política."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-23_01_2019_televisao-local-divulga-imagens-do-suspeito-do-atentado-na-sri-lanka-fundo.jpg:113835": {
+  "_final": {
+   "subject": "Mapa do Sri Lanka com localização de cidades principais",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O mapa contextualiza geograficamente o Sri Lanka onde ocorreram os atentados noticiados."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-24_01_2018_marcelo-condecora-luisa-e-salvador-sobral-com-grau-de-comendador-fundo.jpg:448272": {
+  "_final": {
+   "subject": "Marcelo Rebelo de Sousa a abraçar uma mulher",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.342,
+     0.407
+    ],
+    [
+     0.722,
+     0.528
+    ]
+   ],
+   "banner_focus": [
+    0.53,
+    0.35
+   ],
+   "cover_focus": [
+    0.53,
+    0.48
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra o Presidente Marcelo Rebelo de Sousa em interacção pública."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-25_01_2021_comemoracoes-dos-50-anos-do-25-de-abril-comecam-em-marco-de-2022-fundo.jpg:451800": {
+  "_final": {
+   "subject": "Ponte 25 de Abril em Lisboa",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.55
+   ],
+   "cover_focus": [
+    0.5,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A Ponte 25 de Abril ilustra simbolicamente o aniversário da Revolução de Abril."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-26_01_1973_brasil-e-paraguai-assinam-tratado-de-itaipu-para-hidreletrica-fundo.jpg:157674": {
+  "_final": {
+   "subject": "Homem a assinar documentos e a apontar com um lápis.",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem ilustra o ato de assinatura de um tratado ou acordo importante."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-28_01_1969_charles-de-gaulle-renuncia-a-presidencia-francesa-fundo.jpg:711569": {
+  "_final": {
+   "subject": "Estátua em bronze de homem de fato na praça",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.46,
+     0.15
+    ]
+   ],
+   "banner_focus": [
+    0.46,
+    0.4
+   ],
+   "cover_focus": [
+    0.46,
+    0.4
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra uma estátua na rua, sem relação direta com Charles de Gaulle."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-28_01_1947_expedicao-kon-tiki-parte-do-peru-rumo-a-polinesia-fundo.jpg:600686": {
+  "_final": {
+   "subject": "Parque infantil de madeira com o nome Kon-Tiki II",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A estrutura evoca a célebre expedição Kon-Tiki, sendo relevante para ilustrar a notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-29_01_2025_viktor-gyokeres-ultrapassa-salah-na-bota-de-ouro-fundo.jpg:461936": {
+  "_final": {
+   "subject": "Viktor Gyökeres em treino",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.495,
+     0.089
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.15
+   ],
+   "cover_focus": [
+    0.5,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra o jogador Viktor Gyökeres, sendo relevante para a notícia da Bota de Ouro."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-29_01_2019_pedro-sanchez-vence-eleicoes-espanholas-fundo.jpg:409879": {
+  "_final": {
+   "subject": "Pedro Sánchez sorri de fato com a bandeira europeia",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.825,
+     0.22
+    ]
+   ],
+   "banner_focus": [
+    0.75,
+    0.3
+   ],
+   "cover_focus": [
+    0.8,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato oficial de Pedro Sánchez, perfeitamente adequado para ilustrar uma notícia política."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-30_01_2013_guilherme-alexandre-empossado-como-rei-dos-paises-baixos-fundo.jpg:512154": {
+  "_final": {
+   "subject": "Cerimónia de posse real numa igreja histórica com multidão",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.78,
+     0.7
+    ],
+    [
+     0.89,
+     0.75
+    ],
+    [
+     0.96,
+     0.78
+    ],
+    [
+     0.81,
+     0.89
+    ]
+   ],
+   "banner_focus": [
+    0.8,
+    0.72
+   ],
+   "cover_focus": [
+    0.85,
+    0.75
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem histórica ilustra uma cerimónia de tomada de posse real nos Países Baixos."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-04-30_01_1977_primeira-marcha-das-maes-da-praca-de-maio-em-buenos-aires-fundo.jpg:503795": {
+  "_final": {
+   "subject": "Duas jogadoras de críquete com equipamento completo conversando no campo",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.407,
+     0.252
+    ],
+    [
+     0.485,
+     0.231
+    ]
+   ],
+   "banner_focus": [
+    0.45,
+    0.28
+   ],
+   "cover_focus": [
+    0.45,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A foto mostra jogadoras de críquete e não tem relação com as Mães da Praça de Maio."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-01_01_2025_eleicoes-2025-portugal-decide-quem-governa-fundo.jpg:122534": {
+  "_final": {
+   "subject": "Bandeira de Portugal fundida com a bandeira do Luxemburgo",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.35,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Simboliza a comunidade portuguesa no Luxemburgo, relevante para eleições e votações no estrangeiro."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-01_01_1931_empire-state-building-inaugurado-em-nova-iorque-fundo.jpg:419148": {
+  "_final": {
+   "subject": "Vista nocturna da linha do horizonte e baía de Singapura",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A fotografia mostra Singapura à noite, sendo totalmente irrelevante para a inauguração do Empire State Building em Nova Iorque."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-02_01_2012_versao-pastel-de-o-grito-vende-por-120-milhoes-de-dolares-fundo.jpg:536615": {
+  "_final": {
+   "subject": "A pintura O Grito de Edvard Munch",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.53,
+     0.58
+    ]
+   ],
+   "banner_focus": [
+    0.53,
+    0.45
+   ],
+   "cover_focus": [
+    0.53,
+    0.6
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra a famosa pintura O Grito, diretamente relacionada com a notícia do leilão."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-02_01_1964_primeira-ascensao-do-shishapangma-decima-quarta-montanha-mais-alta-do-mundo-fundo.jpg:494578": {
+  "_final": {
+   "subject": "Mapa de satélite dos Himalaias destacando o Shishapangma",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.73,
+    0.67
+   ],
+   "cover_focus": [
+    0.73,
+    0.67
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra a localização geográfica do Shishapangma nos Himalaias."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-03_01_2007_madeleine-mccann-desaparece-na-praia-da-luz-fundo.jpg:189318": {
+  "_final": {
+   "subject": "Igreja da Luz na Praia da Luz",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Igreja na Praia da Luz, local diretamente associado ao desaparecimento de Madeleine McCann."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-03_01_2022_lavrov-acusa-zelensky-de-ser-nazista-apesar-de-origem-judaica-fundo.jpg:227703": {
+  "_final": {
+   "subject": "Sergey Lavrov",
+   "embedded_text": false,
+   "faces": [
+    null
+   ],
+   "banner_focus": [
+    0.767,
+    0.3
+   ],
+   "cover_focus": [
+    0.767,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra Sergey Lavrov, o protagonista da notícia, permitindo ilustrar o artigo adequadamente."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-04_01_2025_israel-anuncia-retaliacao-apos-ataque-aos-aeroportos-fundo.jpg:196661": {
+  "_final": {
+   "subject": "Vista aérea de uma pista de aeroporto no deserto",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.62
+   ],
+   "cover_focus": [
+    0.5,
+    0.62
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra a infraestrutura aeroportuária relevante para a notícia de ataques a aeroportos."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-04_01_2016_menina-curada-de-doenca-rara-apos-oracao-fundo.jpg:319971": {
+  "_final": {
+   "subject": "Criança sorri no hospital celebrando cura com profissionais de saúde",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.106,
+     0.407
+    ],
+    [
+     0.321,
+     0.493
+    ],
+    [
+     0.559,
+     0.258
+    ],
+    [
+     0.825,
+     0.301
+    ]
+   ],
+   "banner_focus": [
+    0.45,
+    0.4
+   ],
+   "cover_focus": [
+    0.45,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra uma criança curada num contexto hospitalar com profissionais de saúde, ilustrando a notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-05_01_1949_criacao-do-conselho-da-europa-marca-nova-era-de-cooperacao-fundo.jpg:421411": {
+  "_final": {
+   "subject": "Paisagem montanhosa escocesa enevoada com um arco-íris sobre o vale.",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.55
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra uma paisagem natural sem ligação política direta à notícia sobre o Conselho da Europa."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-06_01_2010_restaurado-o-filme-metropolis-revelando-25-minutos-perdidos-fundo.jpg:169131": {
+  "_final": {
+   "subject": "A robô Maria do filme Metropolis de Fritz Lang",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.55,
+     0.12
+    ]
+   ],
+   "banner_focus": [
+    0.55,
+    0.35
+   ],
+   "cover_focus": [
+    0.55,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra a icónica robô de Metropolis, sendo perfeitamente relevante para ilustrar a notícia da restauração do filme."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-07_01_2018_fc-porto-conquista-o-titulo-nacional-no-estadio-do-dragao-fundo.jpg:340480": {
+  "_final": {
+   "subject": "Dois adeptos em frente ao Estádio do Dragão",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.499,
+     0.697
+    ],
+    [
+     0.651,
+     0.707
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.55
+   ],
+   "cover_focus": [
+    0.575,
+    0.75
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Adepto junto ao Estádio do Dragão enquadra-se na conquista do título."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-07_01_1994_o-grito-de-munch-recuperado-intacto-apos-roubo-fundo.jpg:193921": {
+  "_final": {
+   "subject": "Quadro O Grito de Edvard Munch",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.53,
+    0.48
+   ],
+   "cover_focus": [
+    0.53,
+    0.48
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra o quadro O Grito de Edvard Munch, diretamente relacionado com a notícia de roubo e recuperação."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-09_01_2017_salvador-sobral-vence-eurovisao-para-portugal-fundo.jpg:308509": {
+  "_final": {
+   "subject": "Salvador Sobral segurando o troféu da Eurovisão",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.518,
+     0.354
+    ],
+    [
+     0.024,
+     0.392
+    ]
+   ],
+   "banner_focus": [
+    0.518,
+    0.32
+   ],
+   "cover_focus": [
+    0.518,
+    0.42
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Salvador Sobral no momento da vitória na Eurovisão."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-09_01_2024_governo-aumenta-complemento-solidario-para-idosos-em-50-euros-fundo.jpg:342919": {
+  "_final": {
+   "subject": "Idoso a comer sobremesa com chapéu Supreme e t-shirt Hurley",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.612,
+     0.334
+    ]
+   ],
+   "banner_focus": [
+    0.612,
+    0.28
+   ],
+   "cover_focus": [
+    0.612,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato expressivo de um idoso, adequado para ilustrar uma notícia sobre apoios sociais a idosos."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-10_01_2023_giulia-be-afirma-que-sera-sempre-contadora-de-historias-fundo.jpg:257063": {
+  "_final": {
+   "subject": "Mulher a tirar uma selfie ao espelho num quarto",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.298,
+     0.435
+    ]
+   ],
+   "banner_focus": [
+    0.35,
+    0.55
+   ],
+   "cover_focus": [
+    0.35,
+    0.55
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fotografia pessoal da artista Giulia Be, adequada para ilustrar um artigo sobre a sua carreira."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-10_01_2016_money-monster-estreia-com-julia-roberts-e-george-clooney-fundo.jpg:592844": {
+  "_final": {
+   "subject": "atriz Julia Roberts em evento com blusa verde",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.514,
+     0.329
+    ]
+   ],
+   "banner_focus": [
+    0.514,
+    0.32
+   ],
+   "cover_focus": [
+    0.514,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato em primeiro plano da atriz Julia Roberts, protagonista do filme da notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-11_01_1927_e-fundada-a-academia-que-da-os-oscares-fundo.jpg:264926": {
+  "_final": {
+   "subject": "uma flor de íris roxa e branca em destaque",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.43,
+    0.45
+   ],
+   "cover_focus": [
+    0.43,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra uma flor, sem qualquer ligação histórica à fundação da Academia dos Óscares."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-11_01_2014_google-vence-facebook-na-compra-de-titan-aerospace-fundo.jpg:565263": {
+  "_final": {
+   "subject": "Edifício e logotipo da Google",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.34,
+    0.41
+   ],
+   "cover_focus": [
+    0.34,
+    0.41
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra a sede da Google, empresa envolvida na notícia sobre a compra da Titan Aerospace."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-13_01_2018_israel-vence-eurovisao-com-toy-de-netta-fundo.jpg:528616": {
+  "_final": {
+   "subject": "Carro de brincar antigo cinzento com número 1",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A fotografia mostra um carrinho de brincar antigo e não tem relação com a Eurovisão ou Netta."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-13_01_2019_presidente-do-psd-acusa-ps-de-ligacao-ao-extremismo-fundo.jpg:414452": {
+  "_final": {
+   "subject": "Líderes políticos europeus reunidos em cimeira com apertos de mão",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.103,
+     0.449
+    ],
+    [
+     0.395,
+     0.449
+    ],
+    [
+     0.601,
+     0.463
+    ],
+    [
+     0.825,
+     0.468
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.4
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fotografia de grupo de líderes políticos europeus em contexto partidário."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-14_01_2004_portugal-prepara-se-para-euro-2004-e-rock-in-rio-lisboa-fundo.jpg:102598": {
+  "_final": {
+   "subject": "José Manuel Durão Barroso, Primeiro-Ministro de Portugal em 2004",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.43,
+     0.35
+    ]
+   ],
+   "banner_focus": [
+    0.43,
+    0.32
+   ],
+   "cover_focus": [
+    0.43,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Durão Barroso era Primeiro-Ministro durante os grandes eventos de 2004 como o Euro e o Rock in Rio."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-14_01_1948_david-ben-gurion-pronuncia-a-declaracao-de-independencia-de-israel-fundo.jpg:494084": {
+  "_final": {
+   "subject": "David Ben-Gurion e colaboradores examinando a Declaração de Independência de Israel",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.34,
+     0.33
+    ],
+    [
+     0.61,
+     0.32
+    ],
+    null
+   ],
+   "banner_focus": [
+    0.45,
+    0.35
+   ],
+   "cover_focus": [
+    0.45,
+    0.4
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata historicamente David Ben-Gurion com a documentação ligada à Declaração de Independência de Israel."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-16_01_2019_madonna-rejeita-boicote-a-eurovisao-em-telavive-fundo.jpg:329130": {
+  "_final": {
+   "subject": "Cantora Madonna com cabelo rosa e fato espelhado",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.551,
+     0.222
+    ]
+   ],
+   "banner_focus": [
+    0.551,
+    0.222
+   ],
+   "cover_focus": [
+    0.551,
+    0.222
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato da cantora Madonna, diretamente relacionada com a notícia sobre a sua participação na Eurovisão."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-16_01_2005_presidente-discute-constituicao-europeia-com-jovens-fundo.jpg:141811": {
+  "_final": {
+   "subject": "Homem de fato a pensar com a mão no queixo",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.485,
+     0.354
+    ]
+   ],
+   "banner_focus": [
+    0.485,
+    0.32
+   ],
+   "cover_focus": [
+    0.485,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de político adequado para ilustrar notícia de debate político europeu."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-18_01_2023_fa-portugues-sobe-ao-palco-com-os-coldplay-em-coimbra-fundo.jpg:137587": {
+  "_final": {
+   "subject": "Fã abraçado a outra pessoa num ecrã gigante dos Coldplay",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.55,
+     0.32
+    ],
+    [
+     0.55,
+     0.53
+    ]
+   ],
+   "banner_focus": [
+    0.55,
+    0.38
+   ],
+   "cover_focus": [
+    0.55,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata o momento romântico de um fã no concerto dos Coldplay em Coimbra."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-18_01_2020_liceu-camoes-retoma-aulas-presenciais-apos-desconfinamento-fundo.jpg:220432": {
+  "_final": {
+   "subject": "Sala de aula presencial com aluna em primeiro plano e professora com máscara",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.245,
+     0.525
+    ],
+    [
+     0.916,
+     0.575
+    ]
+   ],
+   "banner_focus": [
+    0.35,
+    0.45
+   ],
+   "cover_focus": [
+    0.65,
+    0.6
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra uma sala de aula e alunos/professora, ilustrando adequadamente o regresso às aulas presenciais."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-19_01_2024_pedro-henriques-brilha-na-estreia-pelo-benfica-fundo.jpg:355992": {
+  "_final": {
+   "subject": "Jogadores de futebol a celebrar num campo",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.24,
+     0.19
+    ],
+    [
+     0.52,
+     0.27
+    ],
+    null,
+    [
+     0.94,
+     0.28
+    ]
+   ],
+   "banner_focus": [
+    0.38,
+    0.35
+   ],
+   "cover_focus": [
+    0.41,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A fotografia mostra futebolistas do Manchester City, não tendo relação com Pedro Henriques ou o Benfica."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-19_01_2019_duncan-laurence-vence-eurovisao-com-arcade-fundo.jpg:330476": {
+  "_final": {
+   "subject": "Cantora em palco elevado a interpretar uma música",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.894,
+     0.387
+    ]
+   ],
+   "banner_focus": [
+    0.89,
+    0.35
+   ],
+   "cover_focus": [
+    0.85,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra uma atuação em palco evocativa da Eurovisão, adequada para ilustrar notícias de cultura."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-20_01_1964_descoberta-da-radiacao-cosmica-de-fundo-fundo.jpg:268031": {
+  "_final": {
+   "subject": "Telescópio ou instrumento astronómico no topo de um contentor",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O instrumento astronómico na imagem está diretamente relacionado com a observação da radiação cósmica."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-20_01_1956_primeira-bomba-de-hidrogenio-aerotransportada-fundo.jpg:285254": {
+  "_final": {
+   "subject": "nuvem em cogumelo de explosão termonuclear sobre o atol",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.48
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "fotografia histórica perfeita de teste nuclear para ilustrar a notícia sobre bomba de hidrogênio"
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-21_01_1911_assinam-tratado-de-ciudad-juarez-fundo.jpg:224943": {
+  "_final": {
+   "subject": "Porfírio Díaz em uniforme militar com chapéu emplumado",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.472,
+     0.354
+    ]
+   ],
+   "banner_focus": [
+    0.472,
+    0.32
+   ],
+   "cover_focus": [
+    0.48,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Porfírio Díaz assinou o Tratado de Ciudad Juárez, sendo o líder retratado."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-22_01_1968_submarino-nuclear-uss-scorpion-afunda-perto-dos-acores-fundo.jpg:266367": {
+  "_final": {
+   "subject": "Submarino nuclear USS Scorpion no mar",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.55,
+    0.65
+   ],
+   "cover_focus": [
+    0.55,
+    0.6
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A fotografia retrata diretamente o submarino nuclear USS Scorpion mencionado na notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-22_01_2023_antonio-costa-defende-ministro-das-infraestruturas-em-polemica-do-sis-fundo.jpg:391894": {
+  "_final": {
+   "subject": "Retrato de António Costa com fato e gravata",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.505,
+     0.354
+    ]
+   ],
+   "banner_focus": [
+    0.505,
+    0.28
+   ],
+   "cover_focus": [
+    0.505,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato oficial de António Costa, o protagonista da notícia política em causa."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-23_01_2005_portugueses-sao-segundos-na-ue-em-gastos-com-medicamentos-fundo.jpg:75735": {
+  "_final": {
+   "subject": "Logótipo ou texto parcial do jornal Público",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "A imagem mostra apenas parte de um logótipo, não ilustrando o tema dos gastos com medicamentos."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-24_01_2000_israel-retira-tropas-do-sul-do-libano-apos-22-anos-fundo.jpg:250023": {
+  "_final": {
+   "subject": "Homens a fugir de fumo e gás lacrimogéneo com arma.",
+   "embedded_text": false,
+   "faces": [
+    null,
+    null,
+    null
+   ],
+   "banner_focus": [
+    0.65,
+    0.45
+   ],
+   "cover_focus": [
+    0.75,
+    0.55
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra conflito armado no Sul do Líbano, sendo relevante para a notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-24_01_2009_michael-haneke-vence-palma-de-ouro-em-cannes-2009-fundo.jpg:188394": {
+  "_final": {
+   "subject": "Michael Haneke com a Palma de Ouro",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.35,
+     0.23
+    ]
+   ],
+   "banner_focus": [
+    0.35,
+    0.25
+   ],
+   "cover_focus": [
+    0.45,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O diretor Michael Haneke segura a Palma de Ouro conquistada em Cannes."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-25_01_2022_mourinho-vence-liga-conferencia-e-faz-historia-fundo.jpg:424846": {
+  "_final": {
+   "subject": "José Mourinho em audiência num pavilhão desportivo",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.485,
+     0.231
+    ],
+    null,
+    null,
+    null
+   ],
+   "banner_focus": [
+    0.485,
+    0.231
+   ],
+   "cover_focus": [
+    0.485,
+    0.28
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A fotografia mostra o treinador José Mourinho, sendo adequada para ilustrar notícias sobre a sua carreira desportiva."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-26_01_1967_the-beatles-lancam-sgt-pepper-s-lonely-hearts-club-band-fundo.jpg:516530": {
+  "_final": {
+   "subject": "Capa do álbum Sgt Pepper's Lonely Hearts Club Band dos Beatles",
+   "embedded_text": true,
+   "faces": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "banner_focus": [
+    0.49,
+    0.35
+   ],
+   "cover_focus": [
+    0.49,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra a icónica capa do álbum Sgt. Pepper's Lonely Hearts Club Band, perfeito para a notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-26_01_2002_selecao-portuguesa-de-futebol-vence-a-china-por-2-0-em-preparacao-para-o-mundial-fundo.jpg:90647": {
+  "_final": {
+   "subject": "texto parcial 'BLI'",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "A imagem mostra apenas texto truncado e não está relacionada com a seleção portuguesa de futebol."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-27_01_2021_iniciativa-liberal-abre-mao-de-entendimento-com-chega-fundo.jpg:359682": {
+  "_final": {
+   "subject": "Retrato de homem de meia-idade com cabelo grisalho e barba",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.5,
+     0.42
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.42
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato adequado para ilustrar notícia de contexto político nacional."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-27_01_2003_governo-confirma-atrasos-nos-estadios-de-braga-leiria-e-aveiro-fundo.jpg:120540": {
+  "_final": {
+   "subject": "Homem de fato a olhar para baixo",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.556,
+     0.231
+    ]
+   ],
+   "banner_focus": [
+    0.556,
+    0.28
+   ],
+   "cover_focus": [
+    0.556,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A fotografia mostra um indivíduo não identificado e não se relaciona com os estádios."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-28_01_2018_adeptos-portugueses-apoiam-selecao-em-jogo-de-preparacao-fundo.jpg:353868": {
+  "_final": {
+   "subject": "Retrato histórico de homem com farda militar e globo terrestre",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.556,
+     0.169
+    ]
+   ],
+   "banner_focus": [
+    0.55,
+    0.35
+   ],
+   "cover_focus": [
+    0.55,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra um retrato histórico descontextualizado para uma notícia de desporto atual."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-29_01_2017_benfica-conquista-a-dobradinha-pela-11-a-vez-fundo.jpg:187206": {
+  "_final": {
+   "subject": "Jogador do Benfica a celebrar num relvado",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.551,
+     0.223
+    ]
+   ],
+   "banner_focus": [
+    0.551,
+    0.223
+   ],
+   "cover_focus": [
+    0.551,
+    0.3
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fotografia válida de um jogador do Benfica, apropriada para ilustrar um título desportivo do clube."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-29_01_1987_inauguracao-da-casa-de-serralves-no-porto-fundo.jpg:725510": {
+  "_final": {
+   "subject": "Pátio exterior rústico em pedra",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A foto mostra um pátio rústico genérico sem ligação clara à Casa de Serralves."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-30_01_2010_b-b-king-canta-blues-gratis-em-sabrosa-fundo.jpg:191221": {
+  "_final": {
+   "subject": "Dois músicos a tocar guitarra junto a um cartaz de B. B. King em Sabrosa",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.26,
+     0.32
+    ],
+    [
+     0.72,
+     0.3
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Músicos de rua a tocar com cartaz promocional de B. B. King em Sabrosa."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-05-30_01_2023_lider-do-psd-rejeita-governo-sem-voto-directo-fundo.jpg:221199": {
+  "_final": {
+   "subject": "Luís Montenegro, líder do PSD, sorri",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.55,
+     0.35
+    ]
+   ],
+   "banner_focus": [
+    0.55,
+    0.32
+   ],
+   "cover_focus": [
+    0.55,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O retrato do líder do PSD ilustra perfeitamente declarações políticas sobre o partido."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-01_01_2021_portugal-apura-se-para-as-meias-finais-do-europeu-sub-21-fundo.jpg:142905": {
+  "_final": {
+   "subject": "Jogador alemão sorri após sofrer golo no Europeu sub-21",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.743,
+     0.209
+    ]
+   ],
+   "banner_focus": [
+    0.743,
+    0.209
+   ],
+   "cover_focus": [
+    0.743,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra um jogador adversário (Alemanha) e Portugal venceu, tornando a escolha descontextualizada."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-02_01_2025_socrates-critica-falta-de-acao-do-ps-apos-eleicoes-fundo.jpg:102439": {
+  "_final": {
+   "subject": "Homem de meia-idade com casaco preto",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.51,
+     0.35
+    ]
+   ],
+   "banner_focus": [
+    0.51,
+    0.3
+   ],
+   "cover_focus": [
+    0.51,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra o próprio político associado à notícia sobre declarações públicas."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-02_01_2020_federacao-hungara-permite-retorno-de-adeptos-aos-estadios-fundo.jpg:220059": {
+  "_final": {
+   "subject": "Adeptos do Benfica com tochas e fumo num estádio de futebol",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem ilustra adeptos em adeptos num estádio, contextualizando o regresso do público aos recintos desportivos."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-03_01_1900_brasileiro-testa-com-sucesso-transmissao-sem-fios-de-sons-fundo.jpg:261105": {
+  "_final": {
+   "subject": "Antigo aparelho telefónico e equipamento de transmissão de som",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.45,
+    0.45
+   ],
+   "cover_focus": [
+    0.45,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O telefone histórico ilustra a temática da transmissão de som e telecomunicações."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-03_01_2013_inicia-julgamento-de-chelsea-manning-por-vazamento-ao-wikileaks-fundo.jpg:215224": {
+  "_final": {
+   "subject": "Retrato de Chelsea Manning",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.49,
+     0.34
+    ]
+   ],
+   "banner_focus": [
+    0.49,
+    0.28
+   ],
+   "cover_focus": [
+    0.49,
+    0.34
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato direto de Chelsea Manning, a figura central do julgamento mencionado na notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-04_01_1919_eua-aprovam-sufragio-feminino-com-19a-emenda-fundo.jpg:520015": {
+  "_final": {
+   "subject": "Instalação artística sobre desigualdade salarial de género com quatro mulheres sentadas e de pé.",
+   "embedded_text": true,
+   "faces": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "banner_focus": [
+    0.6,
+    0.4
+   ],
+   "cover_focus": [
+    0.55,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem aborda a desigualdade de género e direitos das mulheres, contextualizando a luta pelo sufrágio e igualdade."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-04_01_1988_explosao-de-trem-com-rdx-na-urss-mata-91-pessoas-fundo.jpg:169406": {
+  "_final": {
+   "subject": "Colunão de fumo negro e chamas de incêndio em zona rural",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.3
+   ],
+   "cover_focus": [
+    0.5,
+    0.35
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra uma explosão e fumo, mas refere-se a um desastre ferroviário histórico diferente na URSS."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-05_01_1964_submersivel-alvin-comeca-missoes-oceanicas-fundo.jpg:221692": {
+  "_final": {
+   "subject": "crustáceo marinho translúcido",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O crustáceo ilustra a fauna oceânica explorada pelas missões do submersível Alvin."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-05_01_2003_arafat-duvida-de-promessas-de-sharon-em-aqaba-fundo.jpg:168815": {
+  "_final": {
+   "subject": "Yasser Arafat gesticulando e discursando",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.55,
+     0.35
+    ]
+   ],
+   "banner_focus": [
+    0.55,
+    0.3
+   ],
+   "cover_focus": [
+    0.55,
+    0.4
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Yasser Arafat é a figura central referida na notícia histórica."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-06_01_1975_manifestacao-de-6-de-junho-de-1975-em-ponta-delgada-fundo.jpg:303411": {
+  "_final": {
+   "subject": "Relatório datilografado da Comissão Dinamizadora de Ponta Delgada de 1975",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.15
+   ],
+   "cover_focus": [
+    0.5,
+    0.3
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Relatório oficial da Comissão Dinamizadora de Ponta Delgada referente ao período revolucionário de 1975."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-01-22_01_1984_apple-lanca-o-macintosh-com-mouse-e-interface-grafica-fundo.jpg:301228": {
+  "_final": {
+   "subject": "mouse e teclado antigos do Apple Macintosh",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Exibe o mouse e periféricos do Apple Macintosh original, diretamente relacionados ao tema da notícia."
+  },
+  "_model": "gemini-3.5-flash"
+ },
+ "2026-06-06_01_2003_rufus-wainwright-prepara-novo-album-e-atuara-em-vilar-de-mouros-fundo.jpg:126275": {
+  "_final": {
+   "subject": "Retrato em perfil a preto e branco de Rufus Wainwright",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.62,
+     0.42
+    ]
+   ],
+   "banner_focus": [
+    0.6,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Rufus Wainwright, diretamente relacionado com a notícia do seu novo álbum e concerto."
+  },
+  "_model": "gemini-3.5-flash"
+ },
+ "2026-06-07_01_2023_primavera-sound-celebra-dez-anos-no-porto-fundo.jpg:144808": {
+  "_final": {
+   "subject": "Mãos levantadas no ar num concerto de música",
+   "embedded_text": false,
+   "faces": [
+    null
+   ],
+   "banner_focus": [
+    0.5,
+    0.48
+   ],
+   "cover_focus": [
+    0.5,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem retrata o ambiente de festivais de música, adequado para ilustrar o aniversário do Primavera Sound."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-08_01_2010_franca-protesta-contra-cancelamento-de-filme-israelita-em-cinemas-fundo.jpg:155293": {
+  "_final": {
+   "subject": "Dois passageiros com auscultadores num avião com expressão preocupada",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.17,
+     0.35
+    ],
+    [
+     0.91,
+     0.38
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.4
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A fotografia mostra passageiros num avião, sem relação contextual clara com o cancelamento de um filme israelita."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-08_01_1997_gustavo-kuerten-conquista-primeiro-titulo-de-roland-garros-fundo.jpg:228770": {
+  "_final": {
+   "subject": "Gustavo Kuerten com jovem tenista com troféu em campo de terra batida",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.384,
+     0.177
+    ],
+    [
+     0.612,
+     0.198
+    ]
+   ],
+   "banner_focus": [
+    0.498,
+    0.29
+   ],
+   "cover_focus": [
+    0.498,
+    0.44
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de Gustavo Kuerten, relevante para ilustrar a conquista histórica de Roland Garros."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-09_01_2022_uniao-europeia-aprova-lei-de-equilibrio-de-genero-nas-empresas-fundo.jpg:268305": {
+  "_final": {
+   "subject": "Pessoas sentadas numa sala durante uma reunião ou conferência",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.37,
+     0.4
+    ],
+    [
+     0.6,
+     0.38
+    ],
+    [
+     0.86,
+     0.36
+    ]
+   ],
+   "banner_focus": [
+    0.6,
+    0.4
+   ],
+   "cover_focus": [
+    0.55,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de grupo em ambiente de trabalho ou reunião empresarial, enquadrado no contexto de género."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-09_01_2009_musico-portugues-tiago-miranda-prepara-novo-ep-com-dj-alemao-fundo.jpg:164693": {
+  "_final": {
+   "subject": "Tiago Miranda com óculos escuros a olhar para uma laranja",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.38,
+     0.23
+    ]
+   ],
+   "banner_focus": [
+    0.4,
+    0.3
+   ],
+   "cover_focus": [
+    0.4,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Fotografia de retrato do músico Tiago Miranda, adequada para ilustrar notícias sobre o seu trabalho."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-10_01_2010_filmes-mudos-americanos-considerados-perdidos-sao-encontrados-na-nova-zelandia-fundo.jpg:219945": {
+  "_final": {
+   "subject": "Retrato de John Ford idoso com tapa-olho",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.485,
+     0.4
+    ]
+   ],
+   "banner_focus": [
+    0.485,
+    0.35
+   ],
+   "cover_focus": [
+    0.485,
+    0.4
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de John Ford, icónico realizador de cinema cujo trabalho mudo foi redescoberto."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-10_01_1998_inicio-da-copa-do-mundo-fifa-na-franca-fundo.jpg:140018": {
+  "_final": {
+   "subject": "Logótipo oficial da Copa do Mundo de Futebol da França de 1998",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Logótipo histórico do torneio ilustra perfeitamente o início da Copa do Mundo na França."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-11_01_2023_georgina-rodriguez-celebra-golo-de-ronaldo-em-campo-fundo.jpg:330427": {
+  "_final": {
+   "subject": "Georgina Rodriguez a acenar num evento público",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.485,
+     0.224
+    ]
+   ],
+   "banner_focus": [
+    0.55,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Georgina Rodriguez é a figura mencionada na notícia desportiva."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-11_01_2010_festival-chopin-explora-dialogo-entre-jazz-e-classico-fundo.jpg:158759": {
+  "_final": {
+   "subject": "Dois músicos em retrato escuro",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.179,
+     0.446
+    ],
+    [
+     0.865,
+     0.316
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.38
+   ],
+   "cover_focus": [
+    0.5,
+    0.38
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de músicos adequado para ilustrar notícia sobre o Festival Chopin."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-12_01_2025_portugal-comemora-39-anos-da-adesao-a-cee-fundo.jpg:537372": {
+  "_final": {
+   "subject": "Mosteiro de Santa Maria da Vitória em Batalha",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mosteiro português emblemático que representa a herança cultural e histórica nacional associada às comemorações."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-12_01_2001_guterres-prepara-cimeira-de-gotemburgo-e-admite-referendo-fundo.jpg:181189": {
+  "_final": {
+   "subject": "António Guterres a pensar com a mão no queixo",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.344,
+     0.287
+    ]
+   ],
+   "banner_focus": [
+    0.45,
+    0.28
+   ],
+   "cover_focus": [
+    0.45,
+    0.32
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "António Guterres é a figura central referida diretamente na notícia política."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-13_01_1917_nossa-senhora-de-fatima-aparece-novamente-em-portugal-fundo.jpg:256841": {
+  "_final": {
+   "subject": "Pintura clássica da Virgem Maria com o Menino Jesus",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.55,
+     0.18
+    ],
+    [
+     0.39,
+     0.31
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem retrata a Virgem Maria, relevante para a temática religiosa de Fátima."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-13_01_2010_marchas-populares-celebram-espirito-republicano-em-lisboa-fundo.jpg:55045": {
+  "_final": {
+   "subject": "Logótipo de jornal em tipografia gótica",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "A imagem mostra apenas o logótipo de um jornal e não ilustra diretamente as marchas populares ou o espírito republicano."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-14_01_1962_organizacao-europeia-de-pesquisa-espacial-e-criada-fundo.jpg:499910": {
+  "_final": {
+   "subject": "Jovem sorridente com blusão de ganga à noite",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.834,
+     0.388
+    ]
+   ],
+   "banner_focus": [
+    0.834,
+    0.28
+   ],
+   "cover_focus": [
+    0.834,
+    0.388
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A foto mostra um jovem na rua à noite, sem relação com a criação da ESRO."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-15_01_2010_evolucao-cinematografica-de-abbas-kiarostami-analisada-fundo.jpg:197176": {
+  "_final": {
+   "subject": "Rosto de Abbas Kiarostami",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.48,
+     0.44
+    ]
+   ],
+   "banner_focus": [
+    0.48,
+    0.35
+   ],
+   "cover_focus": [
+    0.48,
+    0.44
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato do realizador Abbas Kiarostami, adequado para ilustrar notícia sobre a sua obra."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-16_01_2022_big-tech-combate-passwords-frageis-e-recorrentes-fundo.jpg:147894": {
+  "_final": {
+   "subject": "Router Linksys Wireless-G ADSL Gateway",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.6,
+    0.5
+   ],
+   "cover_focus": [
+    0.6,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O router ilustra o tema de redes, segurança e tecnologia associado à notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-17_01_2009_pianista-chinesa-encontra-resistencia-na-obra-de-bach-fundo.jpg:132431": {
+  "_final": {
+   "subject": "Retrato de mulher chinesa com fundo desfocado",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.725,
+     0.443
+    ]
+   ],
+   "banner_focus": [
+    0.725,
+    0.35
+   ],
+   "cover_focus": [
+    0.725,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato da pianista chinesa adequado para ilustrar a notícia cultural sobre a sua obra."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-18_01_2009_festival-materiais-diversos-une-danca-teatro-e-musica-em-alcanena-fundo.jpg:138897": {
+  "_final": {
+   "subject": "bailarino contemporâneo sentado no chão com os braços levantados",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.85,
+     0.17
+    ]
+   ],
+   "banner_focus": [
+    0.6,
+    0.35
+   ],
+   "cover_focus": [
+    0.65,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de bailarino adequado para ilustrar notícia sobre festival de dança, teatro e música."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-19_01_2025_reconhecimento-do-estado-palestiniano-em-debate-permanente-fundo.jpg:584690": {
+  "_final": {
+   "subject": "Lula da Silva a discursar num púlpito da ONU",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.495,
+     0.231
+    ]
+   ],
+   "banner_focus": [
+    0.495,
+    0.231
+   ],
+   "cover_focus": [
+    0.495,
+    0.3
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato de líder político em discurso internacional, contextualizando debates diplomáticos."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-20_01_1945_eua-aprovam-transferencia-de-cientistas-nazistas-fundo.jpg:360006": {
+  "_final": {
+   "subject": "Wernher von Braun com foguete Saturno ao fundo",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.354,
+     0.359
+    ]
+   ],
+   "banner_focus": [
+    0.354,
+    0.3
+   ],
+   "cover_focus": [
+    0.354,
+    0.359
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Wernher von Braun foi o principal cientista alemão recrutado pelos EUA após a guerra."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-20_01_1948_alemanha-ocidental-introduz-o-marco-alemao-fundo.jpg:381508": {
+  "_final": {
+   "subject": "Nota de 100 marcos alemães com retrato de Sebastian Münster",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.662,
+     0.493
+    ]
+   ],
+   "banner_focus": [
+    0.575,
+    0.52
+   ],
+   "cover_focus": [
+    0.575,
+    0.52
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A nota ilustra diretamente a introdução do marco alemão na história económica e política."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-21_01_2003_mario-sergio-contratado-pelo-sporting-ate-2007-fundo.jpg:62493": {
+  "_final": {
+   "subject": "Logótipo ou imagem com texto JOG",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "Imagem genérica com texto gráfico, sem relação com a contratação de Mário Sérgio pelo Sporting."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-22_01_2016_jose-mourinho-regressa-ao-trabalho-com-nova-conta-instagram-fundo.jpg:200725": {
+  "_final": {
+   "subject": "José Mourinho a segurar um prémio e uma caixa junto a um calendário",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.435,
+     0.42
+    ]
+   ],
+   "banner_focus": [
+    0.49,
+    0.42
+   ],
+   "cover_focus": [
+    0.49,
+    0.52
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato recente de José Mourinho no local de trabalho, adequado para ilustrar o seu regresso à atividade."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-23_01_2020_leilao-da-guitarra-mais-cara-da-historia-fundo.jpg:260236": {
+  "_final": {
+   "subject": "Baixista a tocar guitarra elétrica num concerto",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra claramente uma guitarra elétrica, encaixando perfeitamente no tema do leilão."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-24_01_1995_africa-do-sul-vence-nova-zelandia-na-final-do-mundial-de-rugbi-fundo.jpg:359323": {
+  "_final": {
+   "subject": "Pai e filho ajoelhados junto a velas em vigília",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.864,
+     0.281
+    ],
+    [
+     0.536,
+     0.446
+    ]
+   ],
+   "banner_focus": [
+    0.65,
+    0.35
+   ],
+   "cover_focus": [
+    0.63,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra uma vigília com velas e não uma vitória desportiva de rúgbi."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-06-24_01_1963_reino-unido-concede-autogoverno-interno-a-zanzibar-fundo.jpg:135889": {
+  "_final": {
+   "subject": "Presidente da Ucrânia Volodymyr Zelenskyy a discursar",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.643,
+     0.329
+    ]
+   ],
+   "banner_focus": [
+    0.643,
+    0.28
+   ],
+   "cover_focus": [
+    0.643,
+    0.35
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra Volodymyr Zelenskyy, o que não está relacionado com a notícia sobre Zanzibar."
+  },
+  "_model": "gemini-3.5-flash-lite"
  }
 }

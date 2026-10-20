@@ -38,11 +38,12 @@ DEFAULT_MODELS = [
 ]
 ANALYSIS_MAX_EDGE = 832
 ANALYSIS_JPEG_QUALITY = 82
-REQUEST_TIMEOUT = 45
+REQUEST_TIMEOUT = 12
 # O free tier limita pedidos por minuto: espaçar chamadas e esperar nos 429
 # evita que rebuilds com muitas fotos esgotam a quota a meio.
-MIN_CALL_INTERVAL = 4.0
+MIN_CALL_INTERVAL = 2.0
 _last_call_monotonic = 0.0
+_ALL_MODELS_UNAVAILABLE = False
 
 _PROMPT_BASE = """Analisa esta fotografia para um site de notícias histórico.
 Notícia a ilustrar: "{news_title}"
@@ -312,10 +313,18 @@ def analyze_photo(source, use_cache=True, verbose=True, news_title=""):
             print(f"[gemini] nao foi possivel ler {Path(source).name}: {exc}")
         return None
 
+    global _ALL_MODELS_UNAVAILABLE
+    if _ALL_MODELS_UNAVAILABLE:
+        return None
+
     available = [model for model in _active_models() if model not in _MODEL_DAILY_EXHAUSTED and model not in _MODEL_UNAVAILABLE]
+    if not available:
+        _ALL_MODELS_UNAVAILABLE = True
+        return None
+
     for attempt, model in enumerate(available):
         minute_waits = 0
-        for retry in range(3):
+        for retry in range(2):
             try:
                 _throttle()
                 text = _call_model(model, key, inline, _prompt(news_title))
@@ -335,11 +344,11 @@ def analyze_photo(source, use_cache=True, verbose=True, news_title=""):
             except urllib.error.HTTPError as exc:
                 if exc.code == 429:
                     per_minute, per_day, retry_delay = _quota_failure_info(exc)
-                    if per_minute and not per_day and minute_waits < 2:
+                    if per_minute and not per_day and minute_waits < 1:
                         minute_waits += 1
-                        wait = min(max(retry_delay, 15.0), 75.0)
+                        wait = min(max(retry_delay, 10.0), 30.0)
                         if verbose:
-                            print(f"[gemini] {model}: limite por MINUTO; a aguardar {wait:.0f}s (retry {minute_waits}/2)")
+                            print(f"[gemini] {model}: limite por MINUTO; a aguardar {wait:.0f}s (retry {minute_waits}/1)")
                         time.sleep(wait)
                         continue
                     # Quota diária é por modelo: esgota este e salta para o
@@ -349,19 +358,20 @@ def analyze_photo(source, use_cache=True, verbose=True, news_title=""):
                     if verbose:
                         print(f"[gemini] {model}: quota DIARIA esgotada; a trocar para {remaining[0] if remaining else '(nenhum)'}")
                     break
-                if exc.code == 404:
+                if exc.code in (404, 400):
                     # Modelo indisponível para esta chave: não voltar a tentar.
                     _MODEL_UNAVAILABLE.add(model)
                     if verbose:
-                        print(f"[gemini] {model}: indisponivel para esta chave (404); a trocar de modelo")
+                        print(f"[gemini] {model}: indisponivel para esta chave ({exc.code}); a trocar de modelo")
                     break
                 if verbose:
                     print(f"[gemini] {model} falhou (HTTP {exc.code}); tentativa {attempt + 1}.{retry + 1}")
-                time.sleep(3)
+                _MODEL_UNAVAILABLE.add(model)
+                break
             except (urllib.error.URLError, ValueError, OSError) as exc:
                 if verbose:
                     print(f"[gemini] {model} falhou ({exc}); tentativa {attempt + 1}.{retry + 1}")
-                time.sleep(3)
-    raise GeminiUnavailableError(
-        "nenhum modelo Gemini disponivel (quota diaria esgotada em todos ou sem rede)"
-    )
+                _MODEL_UNAVAILABLE.add(model)
+                break
+    _ALL_MODELS_UNAVAILABLE = True
+    return None
