@@ -1533,7 +1533,7 @@ def build_story_shell(source_html, prefix):
         f'href="{prefix}assets/icon.png?v={SITE_ASSET_VERSION}"',
         shell,
     )
-    for route in ("inicio", "calendario", "temas"):
+    for route in ("inicio", "calendario", "temas", "documentacao"):
         shell = shell.replace(f'href="{route}/"', f'href="{prefix}{route}/"')
     return shell
 
@@ -1601,7 +1601,7 @@ def write_route_pages(payload):
         "calendário": "calendario",
         "documentação": "documentacao",
     }
-    for route in ["inicio", "calendário", "temas", "noticia", "calendario", "newsletter"]:
+    for route in ["inicio", "calendário", "documentação", "temas", "noticia", "calendario", "documentacao", "newsletter"]:
         canonical_route = aliases.get(route, route)
         title, description, canonical_path = route_metadata[canonical_route]
         structured = route_structured_data(canonical_path, title, description)
@@ -1672,6 +1672,7 @@ def write_route_pages(payload):
         absolute_site_url("inicio/"),
         absolute_site_url("calendario/"),
         absolute_site_url("temas/"),
+        absolute_site_url("documentacao/"),
         absolute_site_url("newsletter/"),
         *indexed_story_urls,
     ]

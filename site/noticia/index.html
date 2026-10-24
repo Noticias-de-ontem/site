@@ -37,6 +37,7 @@
         <a href="../inicio/" data-route="home" data-path="inicio" data-i18n="navHome">Início</a>
         <a href="../calendario/" data-route="calendar" data-path="calendario" data-i18n="navCalendar">Calendário</a>
         <a href="../temas/" data-route="topics" data-path="temas" data-i18n="navTopics">Temas</a>
+        <a href="../documentacao/" data-route="docs" data-path="documentacao" data-i18n="navDocs">Documentação</a>
       </nav>
       <div class="language-switch" aria-label="Idioma">
         <button type="button" data-lang="pt" aria-pressed="true">PT</button>
@@ -89,6 +90,16 @@
               <span class="explore-copy">
                 <strong data-i18n="exploreTopicsTitle">Evolução de temas</strong>
                 <span data-i18n="exploreTopicsBody">Compara a presença de um assunto no índice preservado, ano a ano.</span>
+              </span>
+              <span class="explore-arrow" aria-hidden="true">→</span>
+            </a>
+                      <a class="explore-tile" href="../documentacao/">
+              <span class="explore-glyph" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.2 3.4h8.2l4.4 4.4v12.8a1.6 1.6 0 0 1-1.6 1.6H6.2a1.6 1.6 0 0 1-1.6-1.6V5a1.6 1.6 0 0 1 1.6-1.6Z"/><path d="M14 3.6V8h4.6M8 12.4h8M8 16h5.4"/></svg>
+              </span>
+              <span class="explore-copy">
+                <strong data-i18n="exploreDocsTitle">Como funciona</strong>
+                <span data-i18n="exploreDocsBody">O método, as fontes e a cobertura do projeto, em números.</span>
               </span>
               <span class="explore-arrow" aria-hidden="true">→</span>
             </a>
@@ -239,6 +250,20 @@
         <section class="topic-results" id="topic-results" aria-live="polite"></section>
       </section>
 
+      <section id="docs-view" class="view page-view" data-view="docs" aria-labelledby="docs-title">
+        <div class="page-intro">
+          <p class="eyebrow" data-i18n="docsEyebrow">Documentação</p>
+          <h1 id="docs-title" data-i18n="docsTitle">Como funciona o projeto</h1>
+          <p data-i18n="docsLead">O site mostra publicações preparadas a partir de páginas preservadas pelo Arquivo.pt, com revisão antes da publicação final.</p>
+        </div>
+        <section class="metrics-overview" id="metrics-overview" aria-labelledby="metrics-title"></section>
+        <div class="doc-grid" id="doc-grid"></div>
+        <a class="docs-github" id="docs-github" href="https://github.com/Noticias-de-ontem/site" target="_blank" rel="noreferrer">
+          <strong data-i18n="docsGithubTitle">Código e documentação técnica</strong>
+          <span data-i18n="docsGithubBody">Consulta no GitHub a metodologia completa, os dados e as instruções para executar o projeto.</span>
+        </a>
+      </section>
+
       <section id="news-view" class="view page-view news-view" data-view="news" aria-labelledby="news-detail-title">
         <article class="news-detail" id="news-detail"></article>
       </section>
@@ -255,6 +280,7 @@
           <a href="../inicio/" data-i18n="navHome">Início</a>
           <a href="../calendario/" data-i18n="navCalendar">Calendário</a>
           <a href="../temas/" data-i18n="navTopics">Temas</a>
+          <a href="../documentacao/" data-i18n="navDocs">Documentação</a>
         </nav>
         <div class="footer-links">
           <p class="footer-heading" data-i18n="footerAboutTitle">Sobre o projeto</p>

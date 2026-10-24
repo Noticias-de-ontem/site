@@ -37,7 +37,7 @@ const state = {
 // Máximo de publicações do projeto no topo de qualquer período do calendário.
 const CALENDAR_POSTS_LIMIT = 6;
 
-const ROUTE_SEGMENTS = new Set(["inicio", "calendário", "calendario", "temas", "noticia", "newsletter"]);
+const ROUTE_SEGMENTS = new Set(["inicio", "calendário", "calendario", "temas", "documentação", "documentacao", "noticia", "newsletter"]);
 const SOURCE_LABELS = {
   "publico.pt": "Público",
   "expresso.pt": "Expresso",
@@ -3512,7 +3512,7 @@ function routeFromLocation() {
   const pathname = decodeURIComponent(window.location.pathname).toLowerCase();
   if (pathname.match(/\/(calendário|calendario)(?:\/\d{4}-\d{2}-\d{2})?\/?$/)) return "calendar";
   if (pathname.match(/\/temas\/?$/)) return "topics";
-  if (pathname.match(/\/(documentação|documentacao)\/?$/)) return "home";
+  if (pathname.match(/\/(documentação|documentacao)\/?$/)) return "docs";
   if (pathname.match(/\/newsletter\/?$/)) return "newsletter";
   // URL limpo com qualquer profundidade (noticia/AAAA/MM/DD/slug-d8) ou alias.
   if (pathname.match(/\/noticia(?:\/.+)?\/?$/)) return "news";
@@ -3633,7 +3633,7 @@ function wireNavigation() {
   });
 
   // Ligações de navegação fora do menu principal (rodapé, botões internos).
-  const routePaths = { home: "inicio", calendar: "calendario", topics: "temas" };
+  const routePaths = { home: "inicio", calendar: "calendario", topics: "temas", docs: "documentacao" };
   document.querySelectorAll("[data-route-link]").forEach((element) => {
     element.addEventListener("click", (event) => {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
