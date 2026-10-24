@@ -37,7 +37,7 @@ const state = {
 // Máximo de publicações do projeto no topo de qualquer período do calendário.
 const CALENDAR_POSTS_LIMIT = 6;
 
-const ROUTE_SEGMENTS = new Set(["inicio", "calendário", "calendario", "temas", "documentação", "documentacao", "noticia", "newsletter"]);
+const ROUTE_SEGMENTS = new Set(["inicio", "calendário", "calendario", "temas", "noticia", "newsletter"]);
 const SOURCE_LABELS = {
   "publico.pt": "Público",
   "expresso.pt": "Expresso",
@@ -354,7 +354,7 @@ const i18n = {
     docsGithubBody: "Consulta no GitHub a metodologia completa, os dados e as instruções para executar o projeto.",
     footerCredit: "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
     emptyTitle: "Ainda não há notícias para mostrar",
-    emptySummary: "Quando a fila de revisão tiver posts, esta área passa a mostrar a notícia principal.",
+    emptySummary: "As notícias do dia em destaque estarão disponíveis aqui brevemente.",
     docs: [
       {
         title: "Uma janela para o passado",
@@ -571,7 +571,7 @@ const i18n = {
     docsGithubBody: "Open GitHub for the full methodology, data notes and instructions for running the project.",
     footerCredit: "Data collected and contextualized from Arquivo.pt.",
     emptyTitle: "No stories to show yet",
-    emptySummary: "When the review queue has posts, this area will show the lead story.",
+    emptySummary: "Featured news stories will be available here shortly.",
     docs: [
       {
         title: "A window into the past",
@@ -3363,6 +3363,7 @@ function relativeTime(dateValue) {
 
 function renderDocs() {
   const grid = document.getElementById("doc-grid");
+  if (!grid) return;
   renderMetrics();
   grid.innerHTML = t("docs").map((doc) => `
     <article class="doc-card">
@@ -3511,7 +3512,7 @@ function routeFromLocation() {
   const pathname = decodeURIComponent(window.location.pathname).toLowerCase();
   if (pathname.match(/\/(calendário|calendario)(?:\/\d{4}-\d{2}-\d{2})?\/?$/)) return "calendar";
   if (pathname.match(/\/temas\/?$/)) return "topics";
-  if (pathname.match(/\/(documentação|documentacao)\/?$/)) return "docs";
+  if (pathname.match(/\/(documentação|documentacao)\/?$/)) return "home";
   if (pathname.match(/\/newsletter\/?$/)) return "newsletter";
   // URL limpo com qualquer profundidade (noticia/AAAA/MM/DD/slug-d8) ou alias.
   if (pathname.match(/\/noticia(?:\/.+)?\/?$/)) return "news";
@@ -3632,7 +3633,7 @@ function wireNavigation() {
   });
 
   // Ligações de navegação fora do menu principal (rodapé, botões internos).
-  const routePaths = { home: "inicio", calendar: "calendario", topics: "temas", docs: "documentacao" };
+  const routePaths = { home: "inicio", calendar: "calendario", topics: "temas" };
   document.querySelectorAll("[data-route-link]").forEach((element) => {
     element.addEventListener("click", (event) => {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
