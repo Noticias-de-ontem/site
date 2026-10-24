@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delayed News - Review Queue (PT)</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --bg: #0f141b;
+            --panel: #161d27;
+            --panel-soft: #1e2834;
+            --text: #eef4f8;
+            --muted: #9db1bf;
+            --accent: #22c8d2;
+            --border: rgba(255,255,255,0.08);
+            --warning: #f7c14f;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: Inter, "Segoe UI", Arial, sans-serif; background: var(--bg); color: var(--text); }
+        .page { max-width: 1320px; margin: 0 auto; padding: 24px; }
+        .toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(15,20,27,0.96);
+            backdrop-filter: blur(12px);
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 20px;
+        }
+        .toolbar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .toolbar-header h1 {
+            font-size: 20px;
+            font-weight: 800;
+            margin: 0;
+        }
+        .summary {
+            display: flex;
+            gap: 8px;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        .summary-card {
+            background: var(--panel-soft);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 6px 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .summary-card strong {
+            font-size: 11px;
+            color: var(--muted);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .summary-card span {
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        .toolbar-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .toolbar-actions, .toolbar-filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        button {
+            background: var(--accent);
+            color: #081217;
+            border: 0;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+        button:hover { opacity: 0.9; }
+        button.secondary {
+            background: var(--panel-soft);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        .toolbar-filters select, .toolbar-filters input {
+            background: var(--panel-soft);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 13px;
+            font: inherit;
+        }
+        .toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--panel-soft);
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .toggle input { margin: 0; cursor: pointer; }
+        details.help-note {
+            margin-top: 10px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 12px;
+        }
+        details.help-note summary {
+            font-weight: 700;
+            color: var(--accent);
+            cursor: pointer;
+        }
+        details.help-note p {
+            margin: 6px 0 0;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+        .post-card { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; margin-bottom: 22px; overflow: hidden; }
+        .post-card.needs-refresh { border-color: rgba(247,193,79,0.55); box-shadow: 0 0 0 1px rgba(247,193,79,0.2) inset; }
+        .post-header { padding: 16px 18px; display: flex; justify-content: space-between; align-items: center; gap: 12px; background: #1a2430; border-bottom: 1px solid var(--border); }
+        .post-title { font-weight: 700; }
+        .post-status { color: var(--muted); font-size: 13px; font-weight: 700; letter-spacing: 0.06em; }
+        .post-body { display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: 22px; padding: 20px; }
+        .image-wrap { background: #0b0f14; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); align-self: start; }
+        .image-wrap img { display: block; width: 100%; height: auto; }
+        .field-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 16px; }
+        .field, .field-full { display: flex; flex-direction: column; gap: 6px; }
+        .field-full { margin-bottom: 16px; }
+        label { font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); }
+        select, input, textarea { width: 100%; background: var(--panel-soft); color: var(--text); border: 1px solid var(--border); border-radius: 10px; padding: 11px 12px; font: inherit; }
+        textarea { min-height: 96px; resize: vertical; }
+        .headline { font-size: 36px; line-height: 1.03; font-weight: 800; margin: 0 0 10px; }
+        .meta-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+        .pill { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; background: rgba(34,200,210,0.12); color: var(--accent); font-size: 12px; font-weight: 700; }
+        .pill.warning { background: rgba(247,193,79,0.14); color: var(--warning); }
+        .pill.info { background: rgba(52,152,219,0.14); color: #54a0ff; }
+        .caption { white-space: pre-wrap; color: #dce8ef; font-size: 14px; line-height: 1.55; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+        .options-list { display: grid; gap: 10px; margin-top: 18px; }
+        .option-item { display: grid; grid-template-columns: auto 74px minmax(0, 1fr); gap: 12px; align-items: center; padding: 10px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); }
+        .option-thumb img { width: 74px; height: 92px; object-fit: cover; border-radius: 8px; display: block; }
+        .option-copy { color: var(--muted); font-size: 13px; }
+        .option-copy strong { display: block; color: var(--text); font-size: 14px; margin-bottom: 3px; }
+        .json-output { margin-top: 20px; }
+        .json-output textarea { min-height: 220px; font-family: Consolas, monospace; font-size: 13px; }
+        .empty { color: var(--muted); font-style: italic; padding: 18px 0; }
+        @media (max-width: 980px) {
+            .summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .post-body { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="toolbar">
+            <div class="toolbar-header">
+                <h1>Review Queue · PT</h1>
+                <div class="summary" id="summary"></div>
+            </div>
+            <div class="toolbar-main">
+                <div class="toolbar-actions">
+                    <button onclick="downloadJson()">Descarregar JSON</button>
+                    <button class="secondary" onclick="saveDirect()">Guardar diretamente</button>
+                    <button class="secondary" onclick="copyJson()">Copiar JSON</button>
+                </div>
+                <div class="toolbar-filters">
+                    <select id="month-filter" onchange="onMonthFilter(this.value)"></select>
+                    <input id="search-filter" placeholder="Pesquisar..." oninput="onSearch(this.value)">
+                    <label class="toggle"><input type="checkbox" id="show-approved" onchange="onShowApproved(this.checked)"> Mostrar aprovados</label>
+                </div>
+            </div>
+            <details class="help-note" style="margin-bottom:8px;">
+                <summary>Bolsa de Eventos Condicionais (Clássicos / Taça / Campeonato / Eleições)</summary>
+                <div id="conditional-pool-panel" style="margin-top:10px; display:grid; gap:8px;"></div>
+            </details>
+            <details class="help-note">
+                <summary>Instruções de Edição</summary>
+                <p>
+                    Aqui podes trocar entre os 5 templates, mudar a opção escolhida, sugerir um novo tema, ver a fonte da imagem, trocar a imagem de fundo por um link teu, ou pedir uma nova imagem sem mexer no texto.
+                    Depois de guardares o pending_posts.json e correres novamente o pregenerator, só os posts marcados para refresh de imagem ou regeneração NVIDIA serão refeitos.
+                    Por defeito, a vista esconde posts já aprovados/publicados, mas podes mostrá-los e alterá-los quando quiseres.
+                </p>
+            </details>
+        </div>
+        <div id="posts-root"></div>
+        <div class="json-output">
+            <label for="json-preview">JSON atualizado</label>
+            <textarea id="json-preview" readonly></textarea>
+        </div>
+    </div>
+    <script>
+        const posts = [];
+        const conditionalPool = [];
+        const monthOptions = [];
+        const initialFocusMonth = "2026-10";
+        const fixedLang = "pt";
+        const templateOptions = [
+            ["", "Sugestao IA + legibilidade"],
+            ["template_1", "Template 1"],
+            ["template_2", "Template 2"],
+            ["template_3", "Template 3"],
+            ["template_4", "Template 4"],
+            ["breaking", "Template Especial"],
+        ];
+        const statusOptions = ["pending", "approved", "skip", "published"];
+        const reviewActionOptions = [
+            ["", "Manter como esta"],
+            ["refresh_image", "Pedir nova imagem"],
+            ["regenerate", "Regenerar com NVIDIA"],
+        ];
+        const uiState = {
+            showApproved: false,
+            monthFilter: initialFocusMonth || "",
+            search: "",
+        };
+
+        function escapeHtml(value) {
+            return String(value ?? "")
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;");
+        }
+
+        function selectedOption(post) {
+            const options = Array.isArray(post.options) ? post.options : [];
+            return options[post.selected_option] || options[0] || null;
+        }
+
+        function monthKey(post) {
+            return String(post.date || "").slice(0, 7);
+        }
+
+        function isOpenPost(post) {
+            const status = post.status || "pending";
+            return ["regenerate", "refresh_image"].includes(post.review_action || "") || !["approved", "published", "skip"].includes(status);
+        }
+
+        function matchesFilters(post, option) {
+            if ((post.lang || "") !== fixedLang) return false;
+            if (!uiState.showApproved && !isOpenPost(post)) return false;
+            if (uiState.monthFilter && monthKey(post) !== uiState.monthFilter) return false;
+            if (!uiState.search) return true;
+            const haystack = [
+                post.date,
+                post.lang,
+                post.theme_suggestion,
+                post.manual_background_url,
+                post.review_note,
+                option?.title,
+                option?.caption,
+                option?.summary,
+                option?.image_theme,
+                option?.background_source_url,
+                ...(Array.isArray(post.external_suggestions) ? post.external_suggestions.flatMap(item => [item?.title, item?.summary, item?.category, item?.year]) : []),
+            ].join(" ").toLowerCase();
+            return haystack.includes(uiState.search.toLowerCase());
+        }
+
+        function updateSummary() {
+            const counts = {
+                total: 0,
+                open: 0,
+                approved: 0,
+                regenerate: 0,
+            };
+            posts.forEach(post => {
+                if ((post.lang || "") !== fixedLang) return;
+                counts.total += 1;
+                if (isOpenPost(post)) counts.open += 1;
+                if ((post.status || "pending") === "approved") counts.approved += 1;
+                if (["regenerate", "refresh_image"].includes(post.review_action || "")) counts.regenerate += 1;
+            });
+            document.getElementById("summary").innerHTML = `
+                <div class="summary-card"><strong>Total</strong><span>${counts.total}</span></div>
+                <div class="summary-card"><strong>Em revisao</strong><span>${counts.open}</span></div>
+                <div class="summary-card"><strong>Aprovados</strong><span>${counts.approved}</span></div>
+                <div class="summary-card"><strong>Marcados para refresh</strong><span>${counts.regenerate}</span></div>
+            `;
+        }
+
+        function refreshJsonPreview() {
+            document.getElementById("json-preview").value = JSON.stringify(posts, null, 2);
+        }
+
+        function fillMonthFilter() {
+            const select = document.getElementById("month-filter");
+            select.innerHTML = [`<option value="">Todos os meses</option>`]
+                .concat(monthOptions.map(month => {
+                    const selected = uiState.monthFilter === month ? "selected" : "";
+                    return `<option value="${month}" ${selected}>${month}</option>`;
+                }))
+                .join("");
+        }
+
+        function onStatusChange(postIndex, value) {
+            posts[postIndex].status = value;
+            render();
+        }
+
+        function onSelectedOption(postIndex, value) {
+            const post = posts[postIndex];
+            const previous = Number(post.selected_option || 0);
+            const next = Number(value);
+            post.selected_option = next;
+            const selected = Array.isArray(post.options) ? post.options[next] : null;
+            if (next !== previous && (!selected || !selected.image_url)) {
+                post.review_action = "refresh_image";
+                post.status = "pending";
+            }
+            render();
+        }
+
+        function onLayoutChange(postIndex, value) {
+            posts[postIndex].layout_override = value;
+            refreshJsonPreview();
+        }
+
+        function onThemeChange(postIndex, value) {
+            posts[postIndex].theme_suggestion = value;
+            refreshJsonPreview();
+        }
+
+        function onManualBackgroundUrl(postIndex, value) {
+            posts[postIndex].manual_background_url = value;
+            refreshJsonPreview();
+        }
+
+        function onReviewAction(postIndex, value) {
+            posts[postIndex].review_action = value;
+            render();
+        }
+
+        function onReviewNote(postIndex, value) {
+            posts[postIndex].review_note = value;
+            refreshJsonPreview();
+        }
+
+        function useExternalSuggestion(postIndex, suggestionIndex) {
+            const post = posts[postIndex];
+            const sug = (post.external_suggestions || [])[suggestionIndex];
+            if (!sug) return;
+            post.review_note = `Gera opções baseadas no evento de ${sug.year}: ${sug.title} (${sug.summary})`;
+            post.review_action = "regenerate";
+            post.theme_suggestion = sug.title;
+            render();
+        }
+
+        function onMonthFilter(value) {
+            uiState.monthFilter = value;
+            render();
+        }
+
+        function onSearch(value) {
+            uiState.search = value;
+            render();
+        }
+
+        function onShowApproved(checked) {
+            uiState.showApproved = checked;
+            render();
+        }
+
+        function render() {
+            updateSummary();
+            fillMonthFilter();
+            const root = document.getElementById("posts-root");
+            const visibleCards = posts.map((post, postIndex) => {
+                const option = selectedOption(post);
+                if (!matchesFilters(post, option)) return "";
+
+                const optionCount = Array.isArray(post.options) ? post.options.length : 0;
+                const optionsMarkup = (post.options || []).map((opt, optionIndex) => {
+                    const checked = optionIndex === Number(post.selected_option || 0) ? "checked" : "";
+                    const thumb = opt.image_url ? `<div class="option-thumb"><img src="${escapeHtml(opt.image_url)}" alt=""></div>` : `<div class="option-thumb"></div>`;
+                    return `
+                        <label class="option-item">
+                            <input type="radio" name="selected-option-${postIndex}" value="${optionIndex}" ${checked} onchange="onSelectedOption(${postIndex}, this.value)">
+                            ${thumb}
+                            <div class="option-copy">
+                                <strong>Opcao ${optionIndex + 1} · ${escapeHtml(opt.year || "")}</strong>
+                                <div>${escapeHtml(opt.summary || "")}</div>
+                                <div>Layout IA: <strong>${escapeHtml(opt.layout_preference || "template_1")}</strong> · Tema: <strong>${escapeHtml(opt.image_theme || opt.title || "")}</strong></div>
+                                <div>Fonte imagem: ${opt.background_source_url ? `<a href="${escapeHtml(opt.background_source_url)}" target="_blank" rel="noreferrer">abrir origem</a>` : "sem origem guardada"}</div>
+                            </div>
+                        </label>
+                    `;
+                }).join("") || `<div class="empty">Sem opcoes.</div>`;
+
+                 const externalSuggestionsMarkup = (post.external_suggestions || []).map((suggestion, suggestionIndex) => `
+                    <div class="option-item">
+                        <div></div>
+                        <div class="option-thumb" style="display:flex; flex-direction:column; justify-content:center; align-items:center;">
+                            <button type="button" class="btn secondary" style="font-size:11px; padding:6px 10px; cursor:pointer;" onclick="useExternalSuggestion(${postIndex}, ${suggestionIndex})">Usar sugestão</button>
+                        </div>
+                        <div class="option-copy">
+                            <strong>Sugestao externa ${suggestionIndex + 1} · ${escapeHtml(suggestion.year || "")}</strong>
+                            <div>${escapeHtml(suggestion.title || "")}</div>
+                            <div>${escapeHtml(suggestion.summary || "")}</div>
+                            <div>${escapeHtml(suggestion.category || "")}</div>
+                        </div>
+                    </div>
+                `).join("") || `<div class="empty">Sem sugestoes externas guardadas.</div>`;
+
+                const layoutMarkup = templateOptions.map(([value, label]) => {
+                    const selected = (post.layout_override || "") === value ? "selected" : "";
+                    return `<option value="${value}" ${selected}>${label}</option>`;
+                }).join("");
+
+                const statusMarkup = statusOptions.map((value) => {
+                    const selected = (post.status || "pending") === value ? "selected" : "";
+                    return `<option value="${value}" ${selected}>${value}</option>`;
+                }).join("");
+
+                const reviewActionMarkup = reviewActionOptions.map(([value, label]) => {
+                    const selected = (post.review_action || "") === value ? "selected" : "";
+                    return `<option value="${value}" ${selected}>${label}</option>`;
+                }).join("");
+
+                const selectedOptionMarkup = (post.options || []).map((opt, optionIndex) => {
+                    const selected = Number(post.selected_option || 0) === optionIndex ? "selected" : "";
+                    return `<option value="${optionIndex}" ${selected}>Opcao ${optionIndex + 1} · ${escapeHtml(opt.year || "")}</option>`;
+                }).join("");
+
+                const imageMarkup = option && option.image_url
+                    ? `<div class="image-wrap"><img src="${escapeHtml(option.image_url)}" alt="preview"></div>`
+                    : `<div class="image-wrap"><div class="empty" style="padding:24px;">Sem preview</div></div>`;
+
+                const pills = [];
+                if (option?.category) pills.push(`<span class="pill">${escapeHtml(option.category)}</span>`);
+                if (option?.layout_preference) pills.push(`<span class="pill">IA layout: ${escapeHtml(option.layout_preference)}</span>`);
+                pills.push(`<span class="pill">Breaking: ${option?.breaking_candidate ? "sim" : "nao"}</span>`);
+                if (fixedLang === "pt") {
+                    const isFromArquivo = String(post.source_url || "").toLowerCase().includes("arquivo.pt") || 
+                                          String(option?.background_source_url || "").toLowerCase().includes("arquivo.pt");
+                    const sourceText = isFromArquivo ? "Arquivo.pt" : "Dados Extraídos";
+                    pills.push(`<span class="pill info">Fonte: ${sourceText}</span>`);
+                }
+                if ((post.review_action || "") === "regenerate") pills.push(`<span class="pill warning">A regenerar no proximo run</span>`);
+                if ((post.review_action || "") === "refresh_image") pills.push(`<span class="pill warning">A pedir nova imagem no proximo run</span>`);
+
+                const meta = option
+                    ? `
+                        <div class="meta-row">${pills.join("")}</div>
+                        <h2 class="headline">${escapeHtml(option.title || "")}</h2>
+                        <div class="caption">${option.background_source_url ? `Fonte da imagem: ${escapeHtml(option.background_source_url)}` : "Fonte da imagem: sem origem guardada"}</div>
+                        <div class="caption">${escapeHtml(option.caption || "")}</div>
+                    `
+                    : `<div class="empty">Sem opcao selecionada.</div>`;
+
+                const cardClass = ["regenerate", "refresh_image"].includes(post.review_action || "") ? "post-card needs-refresh" : "post-card";
+
+                return `
+                    <section class="${cardClass}">
+                        <div class="post-header">
+                            <div class="post-title">${escapeHtml(post.date || "")} · ${escapeHtml((post.lang || "").toUpperCase())} · Post ${escapeHtml(post.slot || "")}/${optionCount >= 2 ? 2 : 1}</div>
+                            <div class="post-status">${escapeHtml((post.status || "pending").toUpperCase())}</div>
+                        </div>
+                        <div class="post-body">
+                            ${imageMarkup}
+                            <div>
+                                <div class="field-grid">
+                                    <div class="field">
+                                        <label>Status</label>
+                                        <select onchange="onStatusChange(${postIndex}, this.value)">${statusMarkup}</select>
+                                    </div>
+                                    <div class="field">
+                                        <label>Opcao selecionada</label>
+                                        <select onchange="onSelectedOption(${postIndex}, this.value)">${selectedOptionMarkup}</select>
+                                    </div>
+                                    <div class="field">
+                                        <label>Template final</label>
+                                        <select onchange="onLayoutChange(${postIndex}, this.value)">${layoutMarkup}</select>
+                                    </div>
+                                    <div class="field">
+                                        <label>Acao de revisao</label>
+                                        <select onchange="onReviewAction(${postIndex}, this.value)">${reviewActionMarkup}</select>
+                                    </div>
+                                    <div class="field">
+                                        <label>Tema atual da IA</label>
+                                        <input value="${escapeHtml(option?.image_theme || option?.title || "")}" readonly>
+                                    </div>
+                                    <div class="field">
+                                        <label>Mes do lote</label>
+                                        <input value="${escapeHtml(post.generated_month || monthKey(post))}" readonly>
+                                    </div>
+                                    <div class="field">
+                                        <label>Fonte atual da imagem</label>
+                                        <input value="${escapeHtml(option?.background_source_url || "")}" readonly>
+                                    </div>
+                                </div>
+                                <div class="field-full">
+                                    <label>Sugestao manual de tema</label>
+                                    <input value="${escapeHtml(post.theme_suggestion || "")}" placeholder="Ex.: incendio urbano noturno, manifestacao em lisboa, bolsa, meme classico" oninput="onThemeChange(${postIndex}, this.value)">
+                                </div>
+                                <div class="field-full">
+                                    <label>Link manual para imagem de fundo</label>
+                                    <input value="${escapeHtml(post.manual_background_url || "")}" placeholder="https://..." oninput="onManualBackgroundUrl(${postIndex}, this.value)">
+                                </div>
+                                <div class="field-full">
+                                    <label>Nota para regeneracao seletiva</label>
+                                    <textarea placeholder="Ex.: trocar por uma historia mais pop, evitar desporto, procurar algo mais meme/viral..." oninput="onReviewNote(${postIndex}, this.value)">${escapeHtml(post.review_note || "")}</textarea>
+                                </div>
+                                ${meta}
+                                <div class="options-list">
+                                    <label>Alternativas</label>
+                                    ${optionsMarkup}
+                                </div>
+                                <div class="options-list">
+                                    <label>3 sugestoes externas da NVIDIA para este dia</label>
+                                    ${externalSuggestionsMarkup}
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                `;
+            }).filter(Boolean);
+
+            root.innerHTML = visibleCards.length
+                ? visibleCards.join("")
+                : `<div class="empty">Nenhum post corresponde aos filtros atuais.</div>`;
+            refreshJsonPreview();
+        }
+
+        function downloadJson() {
+            const blob = new Blob([JSON.stringify(posts, null, 2)], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "pending_posts.json";
+            link.click();
+            URL.revokeObjectURL(url);
+        }
+
+        async function saveDirect() {
+            const content = JSON.stringify(posts, null, 2);
+            if (window.showSaveFilePicker) {
+                try {
+                    const handle = await window.showSaveFilePicker({
+                        suggestedName: "pending_posts.json",
+                        types: [{ description: "JSON", accept: { "application/json": [".json"] } }],
+                    });
+                    const writable = await handle.createWritable();
+                    await writable.write(content);
+                    await writable.close();
+                    return;
+                } catch (error) {
+                    console.warn(error);
+                }
+            }
+            downloadJson();
+        }
+
+        async function copyJson() {
+            const content = JSON.stringify(posts, null, 2);
+            try {
+                await navigator.clipboard.writeText(content);
+            } catch (error) {
+                console.warn(error);
+            }
+        }
+
+        function renderConditionalPool() {
+            const container = document.getElementById("conditional-pool-panel");
+            if (!container) return;
+            if (!Array.isArray(conditionalPool) || !conditionalPool.length) {
+                container.innerHTML = "<div class='empty'>Sem posts na bolsa condicional.</div>";
+                return;
+            }
+            container.innerHTML = conditionalPool.map((item, idx) => `
+                <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; padding:8px 12px; background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:8px;">
+                    <div>
+                        <span class="pill info" style="margin-right:8px;">${escapeHtml(item.trigger || "condicional")}</span>
+                        <strong>(${escapeHtml(item.year)}) ${escapeHtml(item.title)}</strong>
+                        <div style="color:var(--muted); font-size:11px; margin-top:2px;">${escapeHtml(item.trigger_description || "")}</div>
+                    </div>
+                    <div style="display:flex; gap:6px; align-items:center;">
+                        <input id="cond-date-${idx}" placeholder="YYYY-MM-DD" style="width:120px; padding:6px 8px; font-size:12px;" value="${escapeHtml(item.original_date || '')}">
+                        <button class="secondary" style="padding:6px 10px; font-size:12px;" onclick="injectConditionalPost(${idx})">Ativar nesta data</button>
+                    </div>
+                </div>
+            `).join("");
+        }
+
+        function injectConditionalPost(condIdx) {
+            const item = conditionalPool[condIdx];
+            if (!item || !item.option) return;
+            const dateInput = document.getElementById(`cond-date-${condIdx}`);
+            const targetDate = (dateInput?.value || "").trim();
+            if (!targetDate) {
+                alert("Indica a data (YYYY-MM-DD) onde queres ativar este post condicional.");
+                return;
+            }
+            const targetPost = posts.find(p => p.lang === fixedLang && p.date === targetDate && p.status !== "approved") ||
+                               posts.find(p => p.lang === fixedLang && p.date === targetDate);
+            if (!targetPost) {
+                alert(`Não foi encontrado nenhum slot para a data ${targetDate} no JSON atual.`);
+                return;
+            }
+            targetPost.options.unshift(JSON.parse(JSON.stringify(item.option)));
+            targetPost.selected_option = 0;
+            targetPost.status = "approved";
+            targetPost.review_action = "";
+            targetPost.editorial_mode = "conditional_activated";
+            uiState.showApproved = true;
+            const chk = document.getElementById("show-approved");
+            if (chk) chk.checked = true;
+            render();
+            alert(`Post condicional "${item.title}" ativado e aprovado em ${targetDate} (${targetPost.id})!`);
+        }
+
+        renderConditionalPool();
+        render();
+    </script>
+</body>
+</html>

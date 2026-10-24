@@ -286,19 +286,74 @@ INTERNET_PROFILE_HANDLES = {
     "insidertech",
 }
 
-# Ano no fim do título (a IA às vezes embute-o; o site compõe "Título, em ANO").
-TRAILING_YEAR_PATTERN = re.compile(
-    r"[,\s]*(?:\(|\[)?\s*(?:em|in|anno)?\s*(?:19|20)\d{2}\s*(?:\)|\])?\s*[.,;:!]?\s*$",
+# Ano embutido no título (a IA às vezes embute-o; o site compõe "Título, em ANO").
+# Nunca remover anos precedidos de 'desde', 'para', 'até', 'após', 'entre' nem deixar
+# preposições/artigos pendurados no fim da frase.
+LEADING_EVENT_YEAR_PATTERN = re.compile(
+    r"^(?:Elei[cç][oõ]es|Mundial|Euro|Europeu|Or[cç]amento(?:\s+do\s+Estado)?)\s+(?:de\s+)?(?:19|20)\d{2}\s*[:\-–—]\s*",
     re.IGNORECASE,
 )
+MID_EVENT_YEAR_PATTERN = re.compile(
+    r"\b(Sismo|Terramoto|Terremoto|Elei[cç][oõ]es|Copa do Mundo|Mundial|Euro|Europeu|Revolu[cç][aã]o)\s+de\s+((?:19|20)\d{2})\b",
+    re.IGNORECASE,
+)
+PAREN_OR_COMMA_YEAR_PATTERN = re.compile(
+    r"(?:[,\s]+(?:\(|\[)\s*(?:19|20)\d{2}\s*(?:\)|\])|,\s*(?:em|in|anno)?\s*(?:19|20)\d{2})\s*[.,;:!]?\s*$",
+    re.IGNORECASE,
+)
+PREP_EVENT_YEAR_END_PATTERN = re.compile(
+    r"\s+(?:em\s+[a-zçãõáéíóú]+\s+de|em|de|in|anno)\s+((?:19|20)\d{2})\s*[.,;:!]?\s*$",
+    re.IGNORECASE,
+)
+BARE_EVENT_YEAR_END_PATTERN = re.compile(
+    r"\s+((?:19|20)\d{2})\s*[.,;:!]?\s*$",
+    re.IGNORECASE,
+)
+PROTECTED_YEAR_PREPOSITIONS = {"desde", "para", "até", "ate", "após", "apos", "entre", "contra", "rumo", "meta"}
+DANGLING_TITLE_END_WORDS = {
+    "de", "do", "da", "dos", "das", "em", "no", "na", "nos", "nas",
+    "para", "até", "ate", "desde", "após", "apos", "com", "sem", "por",
+    "pelo", "pela", "a", "o", "os", "as", "um", "uma", "e", "ou", "que",
+    "como", "mais", "menos", "muito", "irão", "irá", "ira", "será", "sera",
+    "começam", "começa",
+}
 
 
-def strip_title_year(title):
+def strip_title_year(title, original_year=""):
     title = clean_text(title)
-    previous = None
-    while previous != title:
-        previous = title
-        title = TRAILING_YEAR_PATTERN.sub("", title).strip()
+    orig_y = clean_text(original_year)[:4]
+    title = LEADING_EVENT_YEAR_PATTERN.sub("", title).strip()
+
+    def _mid_repl(match):
+        noun, y = match.group(1), match.group(2)
+        if not orig_y or y == orig_y:
+            return noun
+        return match.group(0)
+
+    title = MID_EVENT_YEAR_PATTERN.sub(_mid_repl, title)
+    title = PAREN_OR_COMMA_YEAR_PATTERN.sub("", title).strip()
+
+    m_prep = PREP_EVENT_YEAR_END_PATTERN.search(title)
+    if m_prep:
+        y = m_prep.group(1)
+        candidate = title[: m_prep.start()].strip().rstrip(",;:.")
+        last_word = candidate.split()[-1].lower() if candidate.split() else ""
+        if candidate and last_word not in DANGLING_TITLE_END_WORDS and (not orig_y or y == orig_y):
+            title = candidate
+
+    m_bare = BARE_EVENT_YEAR_END_PATTERN.search(title)
+    if m_bare:
+        y = m_bare.group(1)
+        candidate = title[: m_bare.start()].strip().rstrip(",;:.")
+        last_word = candidate.split()[-1].lower() if candidate.split() else ""
+        if (
+            candidate
+            and last_word not in PROTECTED_YEAR_PREPOSITIONS
+            and last_word not in DANGLING_TITLE_END_WORDS
+            and (not orig_y or y == orig_y)
+        ):
+            title = candidate
+
     title = title.rstrip(",;:.").strip()
     # O banner tem 4 linhas máx — títulos longos demais são truncados com
     # limitação de palavras (nunca a meio de uma palavra).
@@ -943,7 +998,7 @@ def post_to_site_item(post, registry_by_post_id):
     )
     instagram_id = clean_text(post.get("instagram_id") or registry_record.get("instagram_id"))
     # Título sem ano embutido (o site compõe "Título, em ANO" no UI).
-    title = strip_title_year(title)
+    title = strip_title_year(title, original_year)
     if not title:
         return None
     # Texto da página da notícia: artigo longo gerado por nível (200-800

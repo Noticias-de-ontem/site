@@ -92,7 +92,13 @@ class NvidiaModelError(Exception):
     pass
 
 
-DEFAULT_NVIDIA_MODEL = "nvidia/nemotron-3-super-120b-a12b"
+DEFAULT_NVIDIA_MODEL = "minimaxai/minimax-m3.1-flash"
+LEGACY_NVIDIA_MODELS = {
+    "nvidia/nemotron-3-super-120b-a12b",
+    "nvidia/nemotron-3.5-super-vl-120b-a12b",
+    "nvidia/nemotron-3.5-lightning-30b-a3b",
+    "openai/gpt-oss-20b",
+}
 NVIDIA_API_URL = "https://integrate.api.nvidia.com/v1/chat/completions"
 NVIDIA_KEY_FILE = "nvidia_api_key.local.txt"
 
@@ -131,9 +137,12 @@ class NvidiaKeyPool:
         self.exhausted = [False] * len(self.api_keys)
         self.current_index = 0
         default_models = [
-            "nvidia/nemotron-3-super-120b-a12b",
-            "openai/gpt-oss-20b"
+            "minimaxai/minimax-m3.1-flash",
+            "nvidia/nemotron-3.5-lightning-30b-a3b",
+            "nvidia/nemotron-3.5-super-vl-120b-a12b",
         ]
+        if starting_model in LEGACY_NVIDIA_MODELS:
+            starting_model = DEFAULT_NVIDIA_MODEL
         if starting_model and starting_model in default_models:
             idx = default_models.index(starting_model)
             self.models = default_models[idx:] + default_models[:idx]
@@ -195,7 +204,7 @@ class NvidiaKeyPool:
         import time
         max_retries = 12
         
-        use_pool_models = (model is None or model == DEFAULT_NVIDIA_MODEL)
+        use_pool_models = (model is None or model == DEFAULT_NVIDIA_MODEL or model in LEGACY_NVIDIA_MODELS)
         
         while True:
             if use_pool_models:
@@ -231,7 +240,7 @@ class NvidiaKeyPool:
                                 "Content-Type": "application/json",
                             },
                             json=req_json,
-                            timeout=min(timeout, 60),
+                            timeout=min(timeout, 45),
                         )
                     except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as net_err:
                         print(f"\n[NVIDIA] Erro de rede/timeout ({net_err}) para {model_to_use} na chave #{self.current_index + 1}.")
@@ -239,6 +248,9 @@ class NvidiaKeyPool:
 
                     if response.status_code >= 500:
                         print(f"\n[NVIDIA] Erro de servidor ({response.status_code}) para {model_to_use} na chave #{self.current_index + 1}.")
+                        if attempt == 0:
+                            time.sleep(2.0)
+                            continue
                         raise NvidiaModelError(f"HTTP {response.status_code}")
 
                     if response.status_code == 429:
@@ -251,9 +263,7 @@ class NvidiaKeyPool:
                         
                         is_daily = any(marker in err_msg for marker in ("requests per day", "tokens per day", "rpd", "tpd", "daily", "quota", "credit"))
                         if is_daily:
-
                             raise NvidiaQuotaExceeded(f"NVIDIA API quota exceeded: {err_msg}")
-
 
                         import random
                         jitter = random.uniform(3.0, 8.0)
@@ -263,9 +273,9 @@ class NvidiaKeyPool:
                         backoff = min(backoff * 2.0, 60.0)
                         continue
 
-                    if response.status_code == 422:
-                        print(f"\n[NVIDIA] Modelo {model_to_use} nao suporta response_format (HTTP 422).")
-                        raise NvidiaModelError("HTTP 422: response_format not supported")
+                    if response.status_code in (404, 422):
+                        print(f"\n[NVIDIA] Modelo {model_to_use} indisponivel (HTTP {response.status_code}).")
+                        raise NvidiaModelError(f"HTTP {response.status_code}: model unavailable")
 
                     if response.status_code >= 400:
                         err_msg = ""

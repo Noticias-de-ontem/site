@@ -216,45 +216,81 @@ def score_arquivo_candidate(item):
     domain = normalize_text(item.get("domain", "")).lower()
     score = 0
 
+    news_domains = {
+        "publico.pt", "dn.pt", "jn.pt", "observador.pt", "sicnoticias.pt",
+        "rtp.pt", "expresso.pt", "noticiasaominuto.com", "abola.pt",
+        "record.pt", "ojogo.pt",
+    }
     magazine_domains = {
         "caras.pt", "flash.pt", "tv7dias.pt", "holofote.pt", "selfie.iol.pt",
         "lux.iol.pt", "nit.pt", "timeout.pt", "blitz.pt", "mag.sapo.pt",
         "activa.pt", "maxima.pt", "exameinformatica.pt",
     }
-    strong_terms = [
-        "ronaldo", "messi", "mourinho", "madonna", "britney", "beyonce",
-        "rihanna", "lady gaga", "swift", "festival", "eurovisao", "cinema",
-        "televisao", "famos", "celebr", "ator", "atriz", "cantor", "musica",
-        "internet", "tecnologia", "iphone", "google", "apple", "facebook",
-        "youtube", "instagram", "viral", "curioso", "bizarro", "insolito",
-    ]
-    civic_terms = [
-        "eleicoes", "governo", "primeiro-ministro", "presidente", "partido",
-        "ps ", "psd", "cds", "lei", "referendo", "parlamento", "ministro",
-    ]
     weak_terms = [
         "agenda", "programacao", "horoscopo", "meteorologia", "farmacias",
-        "transito", "obituario", "classificados", "opiniao",
-        "saldos", "promocao", "promoção", "desconto", "descontos", "liquidacao",
-        "liquidação", "loja", "lojas", "compras", "shopping", "mango", "zara",
-        "primark", "outlet", "catalogo", "catálogo",
+        "transito", "obituario", "classificados", "opiniao", "artigo de opiniao",
+        "cronica", "saldos", "promocao", "promoção", "desconto", "descontos",
+        "liquidacao", "liquidação", "loja", "lojas", "compras", "shopping",
+        "outlet", "catalogo", "catálogo", "festival", "concerto", "cinema",
+        "filme", "serie", "album", "cancao", "oscar", "globo de ouro",
+        "famosos", "celebridades", "locais habituais", "nas bancas", "debate",
+        "duelo", "entrevista", "comentario", "sondagem", "intencao de voto",
+        "convencao", "secretariado", "sair das listas", "apura-se", "apurado",
+        "meias-finais", "quartos-de-final", "oitavos-de-final", "terceiro lugar",
+        "fase de grupos", "gemeos", "filhos", "gravida", "casamento", "ferias",
+        "podcast", "video-opiniao", "galeria", "fotos da semana",
+        # Rotina administrativa, burocracia menor e notas processuais recorrentes
+        "renova estado de emergencia", "renovacao do estado de emergencia",
+        "tabela taxas", "taxas de entrega", "mefedrona", "adia extincao",
+        "adia por seis meses", "evita encerramento do governo", "orcamento parcial",
+        "orcamento provisorio", "revogacao de decretos", "edificios mais eficientes",
+        "alimentacao saudavel nas escolas", "derrame de petroleo", "inspecao do sef",
     ]
 
-    if domain in magazine_domains:
+    if domain in news_domains:
         score += 4
-    for term in strong_terms:
-        if term in text:
-            score += 4
-    for term in civic_terms:
-        if term in text:
-            score += 3
+    elif domain in magazine_domains:
+        score -= 6
+
     for term in weak_terms:
         if term in text:
             score -= 6
-    if re.search(r"\b[A-Z][\w-]+(?:\s+[A-Z][\w-]+){1,3}\b", normalize_text(item.get("title", ""))):
+
+    title_clean = normalize_text(item.get("title", ""))
+    words = title_clean.split()
+    if 5 <= len(words) <= 18:
+        score += 2
+    if re.search(r"\b[A-Z][\w-]+(?:\s+[A-Z][\w-]+){1,3}\b", title_clean):
         score += 2
     if "/tag/" in text or "/autor/" in text or "/opiniao/" in text:
         score -= 8
+
+    # Prioritize major domestic/national news sections over routine sub-feeds
+    if any(p in text for p in ["/pais/", "/nacional/", "/sociedade/", "/politica/"]):
+        score += 6
+    elif any(p in text for p in ["/economia/", "/mundo/"]):
+        score += 3
+    if "/lusa/" in text or "/comunicados/" in text or "/fugas." in text or "/cinecartaz." in text:
+        score -= 8
+    if any(p in text for p in ["estudo conclui", "cientistas estudam", "investigadores de", "laboratorio pioneiro"]):
+        score -= 6
+    if any(p in text for p in ["esqueleto", "ossadas", "tumulo", "túmulo", "fossil", "fóssil", "arqueolog", "milenares", "adega"]):
+        score -= 10
+    if any(p in text for p in ["venezuela", "maduro", "peru", "bolivia", "guatemala", "nicaragua"]):
+        score -= 4
+
+    # Structural impact keywords: executive decisions, emergencies, collective measures, major trials
+    structural_terms = [
+        "governo", "estado", "supremo", "tribunal", "parlamento", "lei", "decreto", "decreta",
+        "aprova", "encerra", "encerramento", "fecha", "fecho", "suspende", "suspensao",
+        "escola", "escolas", "aulas", "ensino", "universidade", "universidades",
+        "alerta", "emergencia", "emergência", "quarentena", "confinamento", "saude publica", "saúde pública",
+        "hospitais", "pandemia", "condena", "prisao", "prisão", "fraude",
+        "acordo", "tratado", "soberania", "fronteira", "fronteiras", "europa", "uniao europeia"
+    ]
+    for st in structural_terms:
+        if st in text:
+            score += 4
     return score
 
 
@@ -263,15 +299,21 @@ def select_arquivo_candidate_pool(candidate_articles, max_total=ARQUIVO_AI_MAX_C
     if len(indexed) <= max_total:
         return indexed
 
-    ranked = sorted(
-        indexed,
-        key=lambda pair: (
-            score_arquivo_candidate(pair[1]),
-            str(pair[1].get("timestamp", "")),
-            str(pair[1].get("title", "")),
-        ),
-        reverse=True,
-    )
+    # Group by year first so 2000-2017 get equal representation alongside 2018-2025
+    by_year = {}
+    for pair in indexed:
+        _idx, item = pair
+        year = str(item.get("year") or item.get("timestamp") or "")[:4] or "0000"
+        by_year.setdefault(year, []).append(pair)
+
+    for year, items in by_year.items():
+        items.sort(
+            key=lambda pair: (
+                score_arquivo_candidate(pair[1]),
+                str(pair[1].get("title", "")),
+            ),
+            reverse=True,
+        )
 
     selected = []
     selected_indexes = set()
@@ -283,25 +325,15 @@ def select_arquivo_candidate_pool(candidate_articles, max_total=ARQUIVO_AI_MAX_C
         selected.append(pair)
         selected_indexes.add(idx)
 
-    for pair in ranked[: max(40, max_total // 3)]:
-        add(pair)
-
-    best_by_year = {}
-    best_by_domain = {}
-    for pair in ranked:
-        _idx, item = pair
-        year = str(item.get("year") or item.get("timestamp") or "")[:4] or "0000"
-        domain = normalize_text(item.get("domain", "")).lower()
-        best_by_year.setdefault(year, pair)
-        if domain:
-            best_by_domain.setdefault(domain, pair)
-
-    for pair in sorted(best_by_year.values(), key=lambda p: score_arquivo_candidate(p[1]), reverse=True):
-        add(pair)
-    for pair in sorted(best_by_domain.values(), key=lambda p: score_arquivo_candidate(p[1]), reverse=True):
-        add(pair)
-    for pair in ranked:
-        add(pair)
+    # Round-robin across all available years (oldest and newest interleaved)
+    sorted_years = sorted(by_year.keys())
+    max_rounds = max((len(v) for v in by_year.values()), default=0)
+    for r in range(max_rounds):
+        if len(selected) >= max_total:
+            break
+        for y in sorted_years:
+            if r < len(by_year[y]):
+                add(by_year[y][r])
 
     return selected
 
@@ -346,14 +378,27 @@ def arquivo_cdxj_paths_for_day(year, month, day):
     return paths
 
 
+_CDXJ_SKIP_MARKERS = (
+    "/tag/", "/tags/", "/opiniao/", "/opinion/", "/autor/", "/author/",
+    "/feed/", "/wp-json/", "/wp-admin/", "/comments/", "/comentarios/",
+    ".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".css", ".js",
+    ".woff", ".mp4", ".mp3", ".pdf", ".xml", ".json", ".rss",
+    '"status": "30', '"status": "40', '"status": "50',
+    '"mime": "image/', '"mime": "application/javascript', '"mime": "text/css',
+)
+
+
 def iter_cdxj_records(path):
     opener = gzip.open if str(path).lower().endswith(".gz") else open
     try:
         with opener(path, "rt", encoding="utf-8", errors="ignore") as f:
             for line in f:
-                line = line.strip()
-                if not line or line.startswith("#"):
+                if not line or line[0] == "#":
                     continue
+                line_low = line.lower()
+                if any(m in line_low for m in _CDXJ_SKIP_MARKERS):
+                    continue
+                line = line.strip()
                 timestamp = ""
                 payload = None
                 if line.startswith("{"):
@@ -379,12 +424,16 @@ def iter_cdxj_records(path):
 def title_from_url(url):
     parsed = urlparse(url)
     path = unquote(parsed.path or "").strip("/")
-    slug = path.split("/")[-1] if path else parsed.netloc
+    segments = [seg for seg in path.split("/") if seg and not seg.isdigit()]
+    slug = segments[-1] if segments else ""
     slug = re.sub(r"\.[a-z0-9]{2,6}$", "", slug, flags=re.IGNORECASE)
+    slug = re.sub(r"^(?:19|20)\d{2}[-_/]\d{1,2}[-_/]\d{1,2}[-_/]*", "", slug)
+    slug = re.sub(r"[-_/]+(?:v?\d{5,}|\d{1,2})$", "", slug, flags=re.IGNORECASE)
     slug = re.sub(r"[-_]+", " ", slug)
     slug = re.sub(r"\s+", " ", slug).strip(" -_/")
-    if not slug or len(slug) < 8:
-        return f"Pagina arquivada em {parsed.netloc}".strip()
+    alpha_words = [w for w in slug.split() if re.search(r"[a-zA-ZÀ-ÿ]{3,}", w)]
+    if not slug or len(slug) < 14 or len(alpha_words) < 3:
+        return ""
     return slug[:1].upper() + slug[1:]
 
 
@@ -437,6 +486,7 @@ def load_arquivo_cdxj_candidates_for_day(year, month, day, sources, seen_urls):
 
     candidates = []
     local_seen = set()
+    local_seen_titles = set()
     for path in paths:
         for record in iter_cdxj_records(path):
             timestamp = str(
@@ -480,10 +530,31 @@ def load_arquivo_cdxj_candidates_for_day(year, month, day, sources, seen_urls):
             if not is_probable_article_url(url):
                 continue
 
+            # Reject non-news subdomains and foreign portals
+            url_low = url.lower()
+            if any(bad in url_low for bad in [
+                "fugas.publico.pt", "cinecartaz.publico.pt", "blogues.publico.pt",
+                "comunique.publico.pt", "acervo.publico.pt", "fazemosbem.jn.pt",
+                "noticiasaominuto.com.br", ".dgrdn.pt", "/opiniao/", "/editorial/",
+                "/horoscopo", "/classificados", "/newsletter", "/passatempos/"
+            ]):
+                continue
+
+            # Enforce year coherence: if URL contains an explicit year segment, it must match current year
+            m_year_seg = re.search(r"/(19\d\d|20\d\d)[-_/]", url)
+            if m_year_seg and int(m_year_seg.group(1)) != int(year):
+                continue
+
             title = normalize_text(record.get("title") or record.get("metadata", {}).get("title") or "")
             if not title or len(title) < 8:
                 title = title_from_url(url)
+            if not title or "pagina arquivada em" in title.lower():
+                continue
 
+            norm_title_key = re.sub(r"[^a-z0-9]+", "", title.lower())
+            if len(norm_title_key) >= 12 and norm_title_key in local_seen_titles:
+                continue
+            local_seen_titles.add(norm_title_key)
             candidates.append(
                 {
                     "url": url,
@@ -495,6 +566,21 @@ def load_arquivo_cdxj_candidates_for_day(year, month, day, sources, seen_urls):
                 }
             )
             local_seen.add(url)
+
+    if len(candidates) > 35:
+        candidates.sort(key=score_arquivo_candidate, reverse=True)
+        # Keep top candidates while preserving domain diversity
+        diverse = []
+        domain_counts = {}
+        for c in candidates:
+            d = c.get("domain", "")
+            if domain_counts.get(d, 0) >= 6:
+                continue
+            diverse.append(c)
+            domain_counts[d] = domain_counts.get(d, 0) + 1
+            if len(diverse) >= 30:
+                break
+        candidates = diverse
 
     return candidates
 
@@ -596,20 +682,33 @@ def filter_headlines_with_ai(candidate_articles, lang, max_items=15):
     for prompt_idx, (_original_idx, art) in enumerate(candidate_pool):
         headlines_text += f"{prompt_idx}: {art['title']} (Fonte: {art['domain']})\n"
 
-    prompt = f"""You are an expert social media editor and journalist managing a high-engagement Instagram page dedicated to nostalgic look-backs, historical ironies, and curious news.
-Look at the following list of news headlines from this day in the past. Your task is to select up to {max_items} distinct index numbers of headlines (covering diverse years and topics) that align with our global editorial philosophy:
+    prompt = f"""You are the editorial director selecting archival news headlines from this calendar day across different years.
+Your task is to select up to {max_items} distinct index numbers of headlines (covering diverse years and topics) strictly following these objective editorial standards:
 
-GLOBAL EDITORIAL PHILOSOPHY:
-1. NOSTALGIA & RECOGNITION: The headline MUST refer to personalities, brands, organizations, political parties, or concepts that are still highly famous, active, or widely recognized by the general public TODAY (e.g. major political parties like PS/PSD, globally famous athletes/celebrities, or active major politicians).
-   * PRIORITIZE: Global pandemics, finals of major international sports competitions, general election victories of major political parties, opening of high-profile judicial investigations against political leaders, landmark controversial laws, and major cultural/technological milestones that remain widely discussed today.
-   * TITLE-ONLY OFFICE HOOK: If a past political/social scandal or law is highly interesting/controversial but the person involved is NO LONGER widely famous or popular today, we CAN still select it. The post will refer to them ONLY by their official title/office instead of their name, creating a hook where it looks like the current title-holder did it!
-2. HISTORICAL IRONIES & POLITICAL/SOCIAL MILESTONES: Choose major milestones that shaped the political or social landscape, or controversial laws and election results that remain highly discussable, ironic, or interesting when looked back at from a modern perspective.
-3. CURIOUS & BIZARRE NEWS: Select human-interest stories, funny occurrences, local oddities, or bizarre happenings that are universally amusing, strange, or relatable. Avoid obscure historical records or dry trivia.
-4. SOURCE PREFERENCE when two headlines cover THE SAME story/event: prefer the source with (a) NO paywall (publico.pt, rtp.pt, sicnoticias.pt, dn.pt, jn.pt, observador.pt, noticiasaominuto.com are free; expresso.pt, sabado.pt, visao.pt, activa.pt, maxima.pt, exameinformatica.pt are paywalled), and (b) MORE content/detail. When both are equivalent, prefer the national wide-reach outlet.
-5. STRICT EXCLUSIONS:
-   - Absolutely NO routine administrative bureaucracy (minor ministerial meetings, budget statistics, normal policy updates).
-   - Absolutely NO minor sports transactions (loans, transfers, or line-ups of ordinary players/coaches who are no longer relevant today).
-   - Absolutely NO heavy, tragic, or depressing stories (deaths, fatal accidents, violence, kidnappings, crimes, abuse).
+1. FACTUAL IMPORTANCE & COLLECTIVE SCALE (HIGHEST PRIORITY):
+   - Prioritize events of broad collective scale that directly alter, restrict, or condition daily life, public services, education, health, institutional functioning, or free movement of the population and nation.
+   - ABSOLUTE TOP PRIORITY: official executive decisions, declarations of emergency or alert states, nationwide suspensions or closures of public facilities/schools/universities/services, major judicial sentences of national significance, landmark international treaties or conflicts.
+   - GEOGRAPHICAL & CIVIL FOCUS: For this Portuguese-language publication, prioritize national-scope events (Portugal/EU) and major global geopolitical milestones over remote domestic/internal news of distant third countries (e.g. local state declarations or dispatches from Latin America, Africa, or Asia).
+   - STRICTLY DOWNGRADE/REJECT: minor sectoral curiosities, incremental scientific studies without immediate civil consequence, instrument calibrations, archaeological discoveries (fossils, bones, ancient tombs/cellars), celebrity leisure, routine administrative notices.
+
+2. TEMPORAL PLAUSIBILITY (NO ANACHRONISMS WHEN READ TODAY):
+   - When the archival year is not shown, the headline should read like a factual event happening today.
+   - INSTITUTIONAL ROLE PRINCIPLE: If a past formal action was carried out by someone who no longer holds that office today, the headline must be framed around the institutional office/entity rather than the former officeholder's personal name.
+   - Exclude stories centered on personal statements, candidacies, or political maneuvers by retired, inactive, or detained individuals whose situation today contradicts the news.
+
+3. STRICT NEGATIVE EXCLUSIONS:
+   - REJECT declarative noise: personal opinions, mutual verbal accusations, praise, warnings, hypothetical musings, or demands for clarification between public figures.
+   - REJECT routine administrative/procedural items: periodic decree renewals (e.g. routine 15-day renewals of states of emergency), procedural deadline extensions (e.g. postponing agency extinctions by six months), minor platform/delivery fee caps, technical drug schedule updates, foreign government budget shutdown avoidance votes, routine EU directives (building energy efficiency, fruit/milk distribution in schools), administrative revocation of obsolete laws, or remote minor local environmental incidents.
+   - REJECT internal organic politics: party conventions, leadership races, list dispute dramas, or electoral polling projections.
+   - REJECT personal/family life of celebrities or public figures.
+   - REJECT entertainment, cinema, music awards, concerts, festivals, commercial promotions, and tragic deaths/funerals.
+   - In tournament sports, reject preliminary or intermediate stages (qualifications, quarter-finals, semi-finals, third-place matches); only final championship title victories are eligible.
+
+4. THEMATIC CADENCE & SATURATION LIMITS:
+   - Strictly avoid topic saturation: At least 3 days of interval between news of the same macro-theme (e.g. Covid-19/pandemia, repeated judicial cases, recurring disputes).
+   - Maximum 8 stories on the same macro-theme per 30-day window. Even during high-intensity years (like 2020-2021 with the pandemic), do not oversaturate the feed with repetitive pandemic news; diversify into other historical milestones of the era.
+   - Maximize chronological diversity across all available years (from 1996 to 2025). Do not cluster around a single year or a single theme.
+   - Do not select multiple headlines about the same entity or topic on the same day.
 
 Return a JSON object with exactly this key:
 selected_indexes (a list of integers representing the chosen indexes, maximum {max_items} items)
@@ -631,7 +730,19 @@ Headlines list:
                 orig_idx = candidate_pool[prompt_idx][0]
                 if orig_idx not in selected:
                     selected.append(orig_idx)
-        if len(selected) < min(10, max_items):
+        # Guarantee historical year diversity (2000-2019) alongside recent years
+        pre2020_selected = [
+            idx for idx in selected
+            if str(candidate_articles[idx].get("year", "9999"))[:4] < "2020"
+        ]
+        if len(pre2020_selected) < 6:
+            for orig_idx, art in candidate_pool:
+                if str(art.get("year", "9999"))[:4] < "2020" and orig_idx not in selected:
+                    selected.append(orig_idx)
+                    pre2020_selected.append(orig_idx)
+                    if len(pre2020_selected) >= 6:
+                        break
+        if len(selected) < min(12, max_items):
             for fallback_idx in select_arquivo_fallback_indexes(candidate_articles, max_total=max_items):
                 if fallback_idx not in selected:
                     selected.append(fallback_idx)
@@ -777,9 +888,9 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
                         heavy_words = [
                             "morre", "morto", "morte", "rapto", "raptado", "abuso", "abusa", "viola", 
                             "violada", "violador", "assassina", "homicídio", "crime", "suicídio", 
-                            "tragédia", "pedofilia", "guerra", "falece", "falecimento", "assassina",
+                            "tragédia", "pedofilia", "falece", "falecimento", "assassina",
                             "dies", "died", "death", "kidnap", "kidnapped", "abuse", "rape", "murder", 
-                            "murdered", "homicide", "suicide", "tragedy", "pedophilia", "war", "fatal"
+                            "murdered", "homicide", "suicide", "tragedy", "pedophilia", "fatal"
                         ]
                         if any(w in title_lower for w in heavy_words):
                             continue
@@ -878,9 +989,9 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
                         heavy_words = [
                             "morre", "morto", "morte", "rapto", "raptado", "abuso", "abusa", "viola",
                             "violada", "violador", "assassina", "homicídio", "crime", "suicídio",
-                            "tragédia", "pedofilia", "guerra", "falece", "falecimento",
+                            "tragédia", "pedofilia", "falece", "falecimento",
                             "dies", "died", "death", "kidnap", "kidnapped", "abuse", "rape", "murder",
-                            "murdered", "homicide", "suicide", "tragedy", "pedophilia", "war", "fatal"
+                            "murdered", "homicide", "suicide", "tragedy", "pedophilia", "fatal"
                         ]
                         if any(w in title_lower for w in heavy_words):
                             continue
@@ -955,19 +1066,18 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
         "arquivo.pt",
     )
 
-    matching_news = []
-    for idx in selected_indices:
-        if idx >= len(candidate_articles):
-            continue
-        art = candidate_articles[idx]
+    from concurrent.futures import ThreadPoolExecutor
 
+    def _fetch_one_selected(idx):
+        if idx >= len(candidate_articles):
+            return None
+        art = candidate_articles[idx]
         replay_url = f"https://arquivo.pt/noFrame/replay/{art['timestamp']}/{art['url']}"
         wayback_url = f"https://arquivo.pt/wayback/{art['timestamp']}/{art['url']}"
-        print(f"[{lang}][Arquivo.pt] A descarregar corpo do artigo ({art['year']}): {replay_url}...")
         body_text = ""
         page_title = ""
         try:
-            art_res = cached_get(replay_url, timeout=15)
+            art_res = cached_get(replay_url, timeout=6)
             if art_res.status_code == 200:
                 art_soup = BeautifulSoup(art_res.content, "html.parser")
 
@@ -994,6 +1104,32 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
                     and not any(m in p.get_text(" ", strip=True).lower() for m in boilerplate_markers)
                 ]
                 body_text = " ".join(paragraphs[:8])
+
+                # Extrair ano real de publicacao original a partir dos metadados HTML
+                # (evita atribuir o ano do crawl do Arquivo.pt a uma noticia de ano anterior)
+                real_year = None
+                for meta_prop in [
+                    "article:published_time", "article:modified_time", "datePublished",
+                    "pubdate", "publishdate", "dc.date", "sailthru.date", "parsely-pub-date"
+                ]:
+                    m_tag = art_soup.find("meta", attrs={"property": re.compile(meta_prop, re.I)}) or art_soup.find(
+                        "meta", attrs={"name": re.compile(meta_prop, re.I)}
+                    )
+                    if m_tag and m_tag.get("content"):
+                        m_val = m_tag.get("content").strip()
+                        m_match = re.search(r"(19\d\d|20\d\d)", m_val)
+                        if m_match:
+                            real_year = int(m_match.group(1))
+                            break
+                if not real_year:
+                    t_tag = art_soup.find("time")
+                    if t_tag:
+                        t_val = t_tag.get("datetime") or t_tag.get_text()
+                        m_match = re.search(r"(19\d\d|20\d\d)", t_val)
+                        if m_match:
+                            real_year = int(m_match.group(1))
+                if real_year and 1990 <= real_year <= 2026:
+                    art["year"] = real_year
         except Exception:
             pass
 
@@ -1010,7 +1146,7 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
         )
         context = body_text if len(body_text) > 100 else fallback_context
         if len(context) > 30:
-            matching_news.append({
+            return {
                 "url": art["url"],
                 "source_url": wayback_url,
                 "date": f"{art['year']}-{month:02d}-{day:02d} 12:00:00",
@@ -1018,9 +1154,16 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
                 "global_context": context,
                 "source_profile": art["domain"],
                 "domain": art["domain"],
-                "source_platform": "newspaper",
-                "published": False
-            })
+                "source_platform": "arquivo.pt",
+                "published": False,
+            }
+        return None
+
+    matching_news = []
+    with ThreadPoolExecutor(max_workers=6) as pool_exec:
+        for item in pool_exec.map(_fetch_one_selected, selected_indices):
+            if item:
+                matching_news.append(item)
 
     return matching_news
 
@@ -1540,7 +1683,31 @@ def main():
             matching_news = []
             if event:
                 print(f"[{lang}] Evento flexivel detetado para hoje: {event['name']}!")
-                matching_news = get_event_historical_news(lang, event.get("search_keywords", []))
+                cond_trigger = event.get("conditional_trigger") or event.get("event_type") or ""
+                cond_pool_path = "conditional_posts_pool.json"
+                if cond_trigger and os.path.exists(cond_pool_path):
+                    try:
+                        with open(cond_pool_path, "r", encoding="utf-8") as cpf:
+                            cond_pool = json.load(cpf)
+                        for cond_item in cond_pool:
+                            if cond_item.get("trigger") == cond_trigger and not cond_item.get("published_at"):
+                                cond_opt = cond_item.get("option") or {}
+                                img_ref = cond_opt.get("local_image_path") or cond_opt.get("image_url") or cond_item.get("image_url")
+                                if img_ref and copy_image_reference_to_path(img_ref, output_image_path):
+                                    hashtags = "#Noticias #Atualidade #Jornalismo" if lang == "pt" else ""
+                                    raw_cap = normalize_text(cond_opt.get("caption") or cond_item.get("caption") or "")
+                                    final_caption = raw_cap if hashtags in raw_cap else normalize_text(f"{raw_cap}\n\n{hashtags}")
+                                    used_approved_post = True
+                                    is_event_mode = True
+                                    cond_item["published_at"] = datetime.now().isoformat()
+                                    with open(cond_pool_path, "w", encoding="utf-8") as cpw:
+                                        json.dump(cond_pool, cpw, ensure_ascii=False, indent=2)
+                                    print(f"[{lang}][Bolsa Condicional] Post '{cond_item.get('title')}' ativado para o evento '{event['name']}'!")
+                                    break
+                    except Exception as cond_exc:
+                        print(f"[{lang}] Erro ao ler conditional_posts_pool.json: {cond_exc}")
+                if not used_approved_post:
+                    matching_news = get_event_historical_news(lang, event.get("search_keywords", []))
                 if matching_news:
                     is_event_mode = True
                     custom_instructions = event.get("prompt_instructions")

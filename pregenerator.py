@@ -116,37 +116,153 @@ NVIDIA_HINT_KEYWORDS = [
     "primark", "outlet", "catalogo", "catálogo"
 ]
 STRONG_TOPIC_KEYWORDS = [
-    "ronaldo", "messi", "mourinho", "sporting", "benfica", "porto", "seleção", "selecao",
-    "mundial", "euro", "champions", "festival", "concerto", "cinema", "filme", "série",
-    "serie", "música", "musica", "cantor", "atriz", "ator", "actor", "beyonc", "swift",
-    "madonna", "lady gaga", "tecnologia", "iphone", "apple", "google", "spacex", "tesla",
-    "falcon heavy", "al-nassr", "globo de ouro", "óscar", "oscar", "estátua", "estatua",
-    "recorde", "estreia", "primeiro", "histórico", "historico", "vitória", "vitoria", "campeão",
-    "campeao", "liga portuguesa", "clássico", "classico", "televisão", "televisao",
-    # Notícia forte nacional/internacional — marcos estruturais e pontos de viragem
-    "eleições", "eleicoes", "presidenciais", "legislativas", "autárquicas", "autarquicas",
-    "governo", "primeiro-ministro", "primeiro ministro", "presidente", "parlamento",
-    "assembleia da república", "assembleia da republica", "cimeira", "referendo",
-    "constituição", "constituicao", "acordo", "acordo de paz", "cessar-fogo", "cessar fogo",
-    "tomada de posse", "posse presidencial", "tratado", "brexit", "corrupção", "corrupcao",
-    "alojamento turístico", "alojamento local", "habitação", "habitacao",
-    "suspensão", "suspensao", "banido", "reintegração", "julgamento", "tribunal",
-    "terramoto", "furacão", "furacao", "cheias", "incêndio", "incendio", "pandemia", "vacina",
-    "banco central", "economia", "desemprego", "atentado", "acidente", "resgatado",
-    "emergência", "emergencia", "ue", "união europeia", "uniao europeia", "nato", "onu"
+    # Decisões institucionais, legislativas, judiciais e económicas estruturais (sem nomes próprios)
+    "aprova", "aprovado", "aprovada", "veta", "veto", "chumba", "chumbado",
+    "suspende", "suspensas", "trava", "proíbe", "proibe", "decreta", "promulga",
+    "demite-se", "demissão", "demissao", "detido", "detenção", "detencao",
+    "buscas", "corrupção", "corrupcao", "fraude", "investigação", "investigacao",
+    "acusado", "condenado", "supremo", "tribunal constitucional", "parlamento",
+    "assembleia da república", "assembleia da republica", "governo",
+    "conselho de ministros", "comissão europeia", "comissao europeia",
+    "conselho europeu", "banco central", "impostos", "iva", "irs", "taxa",
+    "juros", "salário mínimo", "salario minimo", "habitação", "habitacao",
+    "arrendamento", "alojamento local", "pensões", "pensoes", "reforma",
+    "eutanásia", "eutanasia", "greve", "sns", "nacionalização", "nacionalizacao",
+    "privatização", "privatizacao", "resgate", "falência", "falencia",
+    # Geopolítica, diplomacia e segurança internacional
+    "cessar-fogo", "cessar fogo", "tratado", "cimeira", "fronteira", "sanções",
+    "sancoes", "bombardeamento", "mísseis", "misseis", "união europeia",
+    "uniao europeia", "nato", "onu",
+    # Decisões de emergência, saúde pública e funcionamento societário
+    "estado de alerta", "estado de emergência", "estado de emergencia", "alerta", "emergência", "emergencia",
+    "encerra", "encerramento", "fecha", "fecho", "confinamento", "quarentena", "escola", "escolas",
+    "ensino", "aulas", "universidade", "universidades", "hospitais", "saúde pública", "saude publica",
+    "pandemia", "prisão", "prisao",
+    # Desporto (conquistas finais, mercado estrutural, decisões disciplinares/judiciais)
+    "campeão", "campeao", "conquista", "troféu", "trofeu", "título", "titulo",
+    "pré-acordo", "pre-acordo", "transferência", "transferencia", "recorde",
+    # Fenómenos extremos e sociedade
+    "sismo", "terramoto", "tsunami", "incêndio", "incendio", "cheias", "apagão",
 ]
+ICONIC_MILESTONE_KEYWORDS = [
+    # Marcos históricos ultra-conhecidos ("Piada / Vem atrasado")
+    "25 de abril", "revolução dos cravos", "revolucao dos cravos", "salazar",
+    "estado novo", "chernobil", "chernobyl", "fukushima", "madeleine mccann",
+    "maddie", "praia da luz", "nossa senhora de fátima", "nossa senhora de fatima",
+    "sismo de 1969", "terramoto de 1755", "fidel castro", "11 de setembro",
+    "muro de berlim", "apollo 11", "homem na lua",
+]
+def extract_macro_topic(title, summary="", category=""):
+    """
+    Identifica macro-temas para controlo estrito de cadencia e saturacao:
+    - covid: Covid-19, SARS-CoV-2, coronavirus, pandemia, confinamento, quarentena, etc.
+    - sef: Servico de Estrangeiros e Fronteiras / SEF
+    - bpp_rendeiro: Caso BPP / Joao Rendeiro
+    - bes_salgado: Caso BES / Ricardo Salgado / Espirito Santo
+    - eutanasia: Morte medicamente assistida / eutanasia
+    - guerra_ucrania: Invasao russa / guerra na Ucrania
+    - conflito_oriente: Israel, Gaza, Palestina
+    """
+    text = f"{title} {summary}".lower()
+    norm = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("ascii")
+    if any(k in norm for k in ["covid", "coronavirus", "pandemia", "confinamento", "quarentena", "sars-cov"]):
+        return "covid"
+    if "estado de emergencia" in norm and any(k in norm for k in ["pandemia", "virus", "contagio", "restricoes", "mascaras", "sanitaria", "covid"]):
+        return "covid"
+    if any(k in norm for k in ["fecha escolas", "fecho de escolas", "suspende cantinas", "aulas presenciais"]) and any(k in norm for k in ["pandemia", "coronavirus", "covid", "confinamento", "novo coronavirus", "contagio", "2020", "2021"]):
+        return "covid"
+    if re.search(r"\bsef\b", norm) or ("fronteiras" in norm and "estrangeiros" in norm):
+        return "sef"
+    if "rendeiro" in norm or "bpp" in norm:
+        return "bpp_rendeiro"
+    if "salgado" in norm or "espirito santo" in norm or re.search(r"\bbes\b", norm):
+        return "bes_salgado"
+    if "eutanasia" in norm or "medicamente assistida" in norm:
+        return "eutanasia"
+    if any(k in norm for k in ["ucrania", "zelensky", "zaporizhzhia", "invasao russa"]):
+        return "guerra_ucrania"
+    if any(k in norm for k in ["israel", "palestin", "gaza", "cisjordania", "netanyahu"]):
+        return "conflito_oriente"
+    return None
+
+
 WEAK_TOPIC_KEYWORDS = [
     "segundo a ap", "durante a reunião", "reunião pública", "executivo municipal",
-    "orçamento", "orcamento", "relatório", "relatorio", "plano nacional",
-    "secretário de estado", "secretario de estado", "comunicado",
-    "conferência de imprensa", "conferencia de imprensa", "fonte oficial",
-    "ministério", "ministerio", "processo administrativo",
-    # Ruído efémero, memes e curiosidades anedóticas penalizados
+    "relatório", "relatorio", "plano nacional", "secretário de estado",
+    "secretario de estado", "comunicado", "conferência de imprensa",
+    "conferencia de imprensa", "fonte oficial", "processo administrativo",
+    # Ruído efémero, cultura de nicho, cinema/música/prémios e efemérides enciclopédicas
     "meme", "viral", "curioso", "insólito", "insolito", "bizarro",
-    "velório", "velorio", "funeral", "tiktok", "filtro de ia", "filtro ia",
-    "perdem pontos", "perde pontos", "empata com", "jornada da liga",
-    "sondagem autárquica", "sondagem municipal", "concelhia", "concelhias",
-    "meias criativas", "sem dentes"
+    "velório", "velorio", "funeral", "tiktok", "perdem pontos", "perde pontos",
+    "jornada da liga", "sondagem autárquica", "sondagem municipal", "concelhia",
+    "concelhias", "meias criativas", "sem dentes",
+    "festival", "concerto", "cinema", "filme", "série", "serie", "álbum", "album",
+    "canção", "cancao", "banda sonora", "óscar", "oscar", "globo de ouro",
+    "grammy", "guinness", "box office", "bilheteira", "teatro", "exposição",
+    "exposicao", "museu", "sonda espacial", "telescópio", "telescopio", "asteroide",
+    "fóssil", "fossil", "tratado de", "batalha de", "império romano", "cônsules",
+    "dinastia", "hóquei no gelo", "hoquei no gelo", "torneio de poker",
+    "saúde oral", "saude oral", "estátua", "estatua",
+    "esqueleto", "esqueletos", "arqueologia", "arqueológico", "arqueologico", "fóssil", "fossil",
+    "adega", "túmulo", "tumulo", "restos mortais", "turismo espacial", "telescópio webb", "sonda dawn",
+    # Rotina administrativa, burocracia menor e notas processuais recorrentes
+    "renova estado de emergencia", "renovacao do estado de emergencia",
+    "tabela taxas", "taxas de entrega", "mefedrona", "adia extincao",
+    "adia por seis meses", "evita encerramento do governo", "orcamento parcial",
+    "orcamento provisorio", "revogacao de decretos", "edificios mais eficientes",
+    "alimentacao saudavel nas escolas", "derrame de petroleo", "inspecao do sef",
+]
+NICHE_OR_PROMO_PATTERNS = [
+    r"\bj[aá]\s+est[aá]\s+dispon[ií]vel\s+nos\s+locais\s+habituais\b",
+    r"\bj[aá]\s+tem\s+o\s+seu\?",
+    r"\bnas\s+bancas\b",
+    r"\bedi[cç][aã]o\s+desta\s+semana\b",
+    r"\bdebate\s+entre\b.{0,40}\bnas\s+legislativas\b",
+    r"\bmomentos\s+antes\s+do\s+in[ií]cio\s+do\s+jogo\b",
+    r"\bequipa\s+feminina\s+su[ií][cç]a\s+de\s+h[oó]quei\b",
+    r"\bjo[aã]o\s+f[eé]lix\b.{0,50}\bbenfica\b",
+    r"\bbenfica\b.{0,50}\bjo[aã]o\s+f[eé]lix\b",
+    r"\bronaldo\b.{0,40}\bsexto\s+europeu\b",
+    r"\brecompensa\s+por\s+captura\s+de\s+maduro\b",
+    r"\boferecem\b.{0,30}\bcaptura\s+de\s+maduro\b",
+    r"\brevista\s+de\s+imprensa\b",
+    r"\bdestaques\s+d[eo]\s+p[u\u00fa]blico\b",
+    r"^cr[i\u00ed]tica\s+a[os]?\b",
+    r"\bapura[- ]se\b",
+    r"\bapurado\s+para\b",
+    r"\bmeias[- ]finais\b",
+    r"\bquartos[- ]de[- ]final\b",
+    r"\boitavos[- ]de[- ]final\b",
+    r"\bduelo\s+televisivo\b",
+    r"\b[uú]nico\s+candidato\s+[aà]\s+lideran[cç]a\b",
+    r"\bdeixa\s+secretariado\b",
+    r"\bpedem\s+para\s+sair\s+das\s+listas\b",
+    r"\bglobo\s+de\s+ouro\b",
+    r"\bhackers\s+brancos\b",
+    r"\bataques\s+inform[aá]ticos\s+globais\b",
+    r"\bmaduro\s+declara\s+apoio\b",
+    r"\bbiden\b.{0,30}\bcorrida\s+[aà]s\s+presidenciais\b",
+    r"\bdur[aã]o\s+barroso\b",
+    r"\bschr[oö]der\b",
+    r"\bcostas\s+simitis\b",
+    r"\bcarla\s+alves\b",
+    r"\bterceiro\s+lugar\b",
+    r"\b3\.?[º°]\s+lugar\b",
+    r"\bteve\s+g[eé]meos\b",
+    r"\bconhecer\s+os\s+filhos\b",
+    r"\bpode\s+crescer\s+para\b",
+    r"\bfam[ií]lia\s+coxi\b",
+    r"\bmuro\s+de\s+drones\b",
+    r"\bconven[cç][aã]o\s+nacional\b",
+    r"\bdisputa\s+lideran[cç]a\b",
+    r"\bpede\s+clarifica[cç][oõ]es\b",
+    r"\bquestiona\s+condi[cç][oõ]es\b",
+    r"\badmite\s+rever\b",
+    r"\bcenariza\b",
+    r"\bexige\s+final\s+da\s+champions\b",
+    r"\belogia\b.{0,30}\bseguro\s+de\s+vida\b",
+    r"\bdesafia\b.{0,30}\bacordo\b",
+    r"\bchega\s+a\s+washington\b",
 ]
 
 WEAK_TOPIC_KEYWORDS.extend([
@@ -186,11 +302,30 @@ def compact_text(value, limit=MAX_NVIDIA_CONTEXT_CHARS):
     return text[: max(limit - 1, 0)].rstrip() + "..."
 
 
+def extract_item_headline(item):
+    if not isinstance(item, dict):
+        return ""
+    direct = normalize_text(item.get("title", ""))
+    if direct and not direct.endswith("..."):
+        return re.sub(r"^\[\d{3,4}\]\s*", "", direct).strip()
+    opts = item.get("options")
+    if isinstance(opts, list) and opts and isinstance(opts[0], dict):
+        opt_title = normalize_text(opts[0].get("title", ""))
+        if opt_title and not opt_title.endswith("..."):
+            return re.sub(r"^\[\d{3,4}\]\s*", "", opt_title).strip()
+    return ""
+
+
 def strip_publicity_text(value):
     text = re.sub(r"\s+", " ", normalize_text(value)).strip()
     if not text:
         return ""
-    text = re.sub(r"#\w+", "", text)
+    # Remove trailing hashtag blocks at the end, but keep inline #words as words so sentences don't lose their subject
+    text = re.sub(r"(?:\s+#[\wÀ-ÿ]+)+\s*$", "", text)
+    text = re.sub(r"#([\wÀ-ÿ]+)", r"\1", text)
+    text = re.sub(r"@([\w.]+)", r"\1", text)
+    # Remove leading flag emojis or decorative symbols
+    text = re.sub(r"^[\U0001F1E6-\U0001F1FF\U0001F300-\U0001FAFF\u2600-\u27BF\s]+", "", text)
     for pattern in CTA_PATTERNS:
         text = re.sub(pattern, "", text, flags=re.IGNORECASE)
     return re.sub(r"\s+", " ", text).strip(" -:;,.!")
@@ -198,110 +333,172 @@ def strip_publicity_text(value):
 
 def is_low_value_anniversary(item):
     text = normalize_text(
-        item.get("enriched_context")
-        or item.get("global_context")
-        or item.get("caption")
-        or item.get("raw_caption")
-        or item.get("title")
-        or ""
+        f"{extract_item_headline(item)} "
+        f"{item.get('enriched_context') or item.get('global_context') or item.get('caption') or item.get('raw_caption') or ''}"
     ).lower()
+    if any(re.search(pattern, text, flags=re.IGNORECASE) for pattern in NICHE_OR_PROMO_PATTERNS):
+        return True
     if not any(re.search(pattern, text, flags=re.IGNORECASE) for pattern in LOW_VALUE_ANNIVERSARY_PATTERNS):
         return False
     return not any(marker in text for marker in SUBSTANTIVE_ANNIVERSARY_MARKERS)
 
 
-def score_nvidia_candidate(item):
+def is_iconic_historical_milestone(item):
     text = normalize_text(build_editorial_context(item)).lower()
+    return any(keyword in text for keyword in ICONIC_MILESTONE_KEYWORDS)
+
+
+def score_nvidia_candidate(item):
+    context_text = build_editorial_context(item)
+    text = normalize_text(context_text).lower()
     score = 0
-    for keyword in NVIDIA_HINT_KEYWORDS:
-        if keyword in text:
-            score += 1
     for keyword in STRONG_TOPIC_KEYWORDS:
         if keyword in text:
-            score += 3
+            score += 4
+    for keyword in ICONIC_MILESTONE_KEYWORDS:
+        if keyword in text:
+            score += 4
     for keyword in WEAK_TOPIC_KEYWORDS:
         if keyword in text:
-            score -= 3
+            score -= 6
     for keyword in COMMERCIAL_TOPIC_KEYWORDS:
         if keyword in text:
-            score -= 8
+            score -= 10
     if is_low_value_anniversary(item):
-        score -= 20
-    if re.search(r"\b[A-ZÁÉÍÓÚÂÊÔÃÕÇ][\wÁÉÍÓÚÂÊÔÃÕÇáéíóúâêôãõç]+(?:\s+[A-ZÁÉÍÓÚÂÊÔÃÕÇ][\wÁÉÍÓÚÂÊÔÃÕÇáéíóúâêôãõç]+){1,3}\b", build_editorial_context(item)):
+        score -= 25
+    if extract_item_headline(item):
+        score += 3
+    if re.search(r"\b[A-ZÁÉÍÓÚÂÊÔÃÕÇ][\wÁÉÍÓÚÂÊÔÃÕÇáéíóúâêôãõç]+(?:\s+[A-ZÁÉÍÓÚÂÊÔÃÕÇ][\wÁÉÍÓÚÂÊÔÃÕÇáéíóúâêôãõç]+){1,3}\b", context_text):
         score += 2
+    if any(p in text for p in ["/pais/", "/nacional/", "/sociedade/", "/politica/", "portugal", "governo"]):
+        score += 3
+    if any(p in text for p in ["venezuela", "maduro", "peru", "guatemala", "nicaragua"]):
+        score -= 4
     if 80 <= len(text) <= 900:
-        score += 1
+        score += 2
     if len(text) > 1600:
         score -= 2
     return score
 
 
-def select_nvidia_candidates(news_items, max_total=MAX_NVIDIA_INPUT_ITEMS, max_per_year=2):
-    grouped = {}
+def select_nvidia_candidates(news_items, max_total=MAX_NVIDIA_INPUT_ITEMS, max_per_year=3):
+    """Seleciona candidatos priorizando notícias reais de jornais/media (1996-2025).
+
+    Evita que os ~40 anos distintos da Wikipédia ocupem os slots todos e impeçam
+    a seleção das melhores notícias de cada ano do Arquivo.pt/jornais/Instagram.
+    """
+    media_by_year = {}
+    wiki_milestones = []
     for item in news_items:
+        if is_low_value_anniversary(item):
+            continue
+        platform = normalize_text(item.get("source_platform", "")).lower()
         year = str(item.get("date", ""))[:4] or "0000"
-        grouped.setdefault(year, []).append(item)
+        if platform == "wikipedia":
+            if is_iconic_historical_milestone(item):
+                wiki_milestones.append(item)
+            continue
+        media_by_year.setdefault(year, []).append(item)
 
     def selection_score(item):
-        # Jornais/perfis primeiro: eventos da Wikipédia não têm página de
-        # jornal preservada para ancorar a notícia.
         platform = normalize_text(item.get("source_platform", "")).lower()
-        if platform == "arquivo.pt":
+        if platform in {"arquivo.pt", "web"}:
             priority = 2
         elif platform != "wikipedia":
             priority = 1
         else:
             priority = 0
-        return (priority, score_nvidia_candidate(item), item.get("date", ""))
+        # Sem enviesamento por ano recente: prioridade igual entre 2000-2014 e 2015-2025 (1A)
+        return (score_nvidia_candidate(item), priority)
+
+    # Reserve at most 2 slots for iconic historical milestones ("Piada / Vem atrasado")
+    wiki_milestones.sort(key=selection_score, reverse=True)
+    reserved_wiki = wiki_milestones[:2]
+    media_budget = max(max_total - len(reserved_wiki), 1)
+
+    # Intercalar anos recentes (2015-2025) e anos do arquivo clássico (2000-2014) com igual prioridade
+    recent_years = sorted([y for y in media_by_year.keys() if y >= "2015"], reverse=True)
+    classic_years = sorted([y for y in media_by_year.keys() if y < "2015"], reverse=True)
+    interleaved_years = []
+    for idx in range(max(len(recent_years), len(classic_years))):
+        if idx < len(recent_years):
+            interleaved_years.append(recent_years[idx])
+        if idx < len(classic_years):
+            interleaved_years.append(classic_years[idx])
 
     selected = []
-    years = sorted(grouped.keys(), reverse=True)
-    # First pass: one strong item per year keeps July-like month runs from being dominated
-    # by only the latest archived posts.
-    for year in years:
-        year_items = sorted(grouped[year], key=selection_score, reverse=True)
+    # 1st pass: best news stories from each interleaved media year (allows 2 if 2nd also has high structural score)
+    for year in interleaved_years:
+        year_items = sorted(media_by_year[year], key=selection_score, reverse=True)
         if year_items:
             selected.append(year_items[0])
-        if len(selected) >= max_total:
+            if len(year_items) > 1 and selection_score(year_items[1])[0] >= 6 and len(selected) < media_budget:
+                selected.append(year_items[1])
+        if len(selected) >= media_budget:
             break
 
-    if len(selected) < max_total and max_per_year > 1:
+    # 2nd pass: fill remaining media slots with top-scoring 2nd/3rd stories balanced across all years
+    if len(selected) < media_budget and max_per_year > 1:
         selected_ids = {id(item) for item in selected}
         remaining = []
-        for year in years:
-            year_items = sorted(grouped[year], key=selection_score, reverse=True)
+        for year in interleaved_years:
+            year_items = sorted(media_by_year[year], key=selection_score, reverse=True)
             remaining.extend(item for item in year_items[1:max_per_year] if id(item) not in selected_ids)
         remaining.sort(key=selection_score, reverse=True)
-        selected.extend(remaining[: max_total - len(selected)])
+        selected.extend(remaining[: media_budget - len(selected)])
 
+    selected.extend(reserved_wiki)
     return selected[:max_total]
 
 
 def infer_category_from_text(text, lang):
     normalized = normalize_text(text).lower()
     category_rules = [
-        ("DESPORTO" if lang == "pt" else "SPORTS", ["futebol", "football", "sport", "desporto", "ronaldo", "messi"]),
-        ("POLITICA" if lang == "pt" else "POLITICS", ["polit", "elei", "govern", "parliament", "presid", "prime minister"]),
-        ("CRIME", ["polici", "crime", "morte", "death", "attack", "ataque", "investig", "assass"]),
-        ("TECNOLOGIA" if lang == "pt" else "TECHNOLOGY", ["tech", "tecnolog", "iphone", "apple", "google", "spacex", "tesla", "app"]),
-        ("ENTRETENIMENTO" if lang == "pt" else "ENTERTAINMENT", ["meme", "viral", "celebr", "cantor", "atriz", "actor", "music", "festival", "gaga", "rihanna", "swift", "kardashian", "beyonc"]),
+        ("DESPORTO" if lang == "pt" else "SPORTS", ["futebol", "football", "sport", "desporto", "ronaldo", "messi", "benfica", "sporting", "fc porto", "mourinho", "gyökeres"]),
+        ("POLÍTICA" if lang == "pt" else "POLITICS", ["polit", "elei", "govern", "parliament", "presid", "prime minister", "montenegro", "costa", "ventura", "chega", "ps ", "psd", "pcp", "sánchez", "trump", "lula"]),
+        ("MUNDIAL" if lang == "pt" else "WORLD", ["war", "guerra", "ukraine", "ucrani", "russia", "israel", "palestin", "gaza", "nato", "onu"]),
+        ("TECNOLOGIA" if lang == "pt" else "TECHNOLOGY", ["tech", "tecnolog", "iphone", "apple", "google", "inteligência artificial", "cibersegurança"]),
+        ("SOCIEDADE" if lang == "pt" else "SOCIETY", ["habitação", "habitacao", "salário", "salario", "hospital", "sns", "sismo", "terramoto", "incêndio", "eutanásia"]),
         ("CULTURA" if lang == "pt" else "CULTURE", ["cultura", "book", "livr", "art", "museum", "teatro"]),
-        ("MUNDO" if lang == "pt" else "WORLD", ["war", "guerra", "ukraine", "ucrani", "russia", "israel", "palestin", "world"]),
     ]
     for category, keywords in category_rules:
         if any(keyword in normalized for keyword in keywords):
             return category
-    return "ATUALIDADE" if lang == "pt" else "NEWS"
+    return "SOCIEDADE" if lang == "pt" else "NEWS"
 
 
-def build_fallback_title(text, lang):
+_DANGLING_FALLBACK_WORDS = {
+    "de", "do", "da", "dos", "das", "em", "no", "na", "nos", "nas",
+    "para", "até", "ate", "desde", "após", "apos", "com", "sem", "por",
+    "pelo", "pela", "a", "o", "os", "as", "um", "uma", "e", "ou", "que",
+    "como", "mais", "menos", "muito", "irão", "irá", "ira", "será", "sera",
+    "foi", "estava", "está", "esta", "este", "esse", "essa", "quando", "onde",
+}
+
+
+def build_fallback_title(text, lang, item=None):
+    headline = extract_item_headline(item) if item else ""
+    if headline:
+        return headline[:78].rstrip(" ,;:-")
     cleaned = strip_publicity_text(text)
     if not cleaned:
         return "Atualidade" if lang == "pt" else "News"
-    words = cleaned.split()
-    if len(words) > 12:
-        cleaned = " ".join(words[:12])
-    return compact_text(cleaned, limit=84)
+    # Prefer the first complete sentence if it is concise
+    first_sentence = re.split(r"(?<=[.!?])\s+", cleaned)[0].strip()
+    if 18 <= len(first_sentence) <= 78 and not first_sentence.endswith("..."):
+        candidate = first_sentence.rstrip(".!? ")
+    else:
+        words = cleaned.split()
+        candidate = " ".join(words[:11])
+    # Trim trailing dangling prepositions/articles/conjunctions so it never looks cut mid-phrase
+    cand_words = candidate.rstrip(" ,;:-").split()
+    while len(cand_words) > 4 and cand_words[-1].lower().strip(",;:.!?'\"“”") in _DANGLING_FALLBACK_WORDS:
+        cand_words.pop()
+    result = " ".join(cand_words).rstrip(" ,;:-.")
+    # Close or remove unmatched quotes
+    if result.count('"') % 2 == 1:
+        result = result.replace('"', "")
+    return result
 
 
 def build_fallback_options(news_items, lang, limit=5):
@@ -311,18 +508,18 @@ def build_fallback_options(news_items, lang, limit=5):
 
     options = []
     for item in fallback_items:
-        source_text = item.get("global_context") or item.get("caption") or item.get("raw_caption") or ""
+        source_text = item.get("ai_summary") or item.get("global_context") or item.get("caption") or item.get("raw_caption") or ""
         cleaned_text = strip_publicity_text(source_text) or normalize_text(source_text)
-        title = build_fallback_title(cleaned_text, lang)
+        title = build_fallback_title(cleaned_text, lang, item=item)
         caption = compact_text(cleaned_text or title, limit=600)
         options.append(
             {
                 "article_url": normalize_text(item.get("source_url") or item.get("url") or ""),
                 "year": normalize_text(item.get("date", "")[:4]),
-                "category": infer_category_from_text(cleaned_text or title, lang),
+                "category": infer_category_from_text(f"{title} {cleaned_text}", lang),
                 "title": title,
                 "highlight_text": "",
-                "overlay_description": compact_text(title, limit=120),
+                "overlay_description": compact_text(cleaned_text or title, limit=110),
                 "image_theme": title,
                 "layout_preference": "template_1",
                 "breaking_candidate": False,
@@ -334,6 +531,8 @@ def build_fallback_options(news_items, lang, limit=5):
 
 
 def build_editorial_context(item):
+    headline = extract_item_headline(item)
+    ai_summary = normalize_text(item.get("ai_summary", ""))
     primary_context = compact_text(
         item.get("enriched_context")
         or item.get("global_context")
@@ -356,6 +555,10 @@ def build_editorial_context(item):
         parts.append(f"Media count: {media_count}")
     if flags:
         parts.append(f"Signals: {', '.join(flags)}")
+    if headline:
+        parts.append(f"Original Headline: {headline}")
+    if ai_summary and ai_summary != primary_context:
+        parts.append(f"Summary: {ai_summary}")
     if primary_context:
         parts.append(f"Context: {primary_context}")
 
@@ -390,10 +593,10 @@ def get_historical_news_for_date(date_obj, lang):
     matching = []
     heavy_words = [
         "morre", "morto", "morte", "rapto", "raptado", "abuso", "abusa", "viola", 
-        "violada", "violador", "assassina", "homicídio", "crime", "suicídio", 
-        "tragédia", "pedofilia", "guerra", "falece", "falecimento", "assassina",
+        "violada", "violador", "assassina", "homicídio", "suicídio", 
+        "pedofilia", "falece", "falecimento",
         "dies", "died", "death", "kidnap", "kidnapped", "abuse", "rape", "murder", 
-        "murdered", "homicide", "suicide", "tragedy", "pedophilia", "war", "fatal"
+        "murdered", "homicide", "suicide", "pedophilia", "fatal"
     ]
     for item in posts:
         if item.get("published", False):
@@ -665,6 +868,11 @@ def resolve_wayback_capture(url, year, title=""):
     url = normalize_text(url)
     if not url or not url.startswith(("http://", "https://")):
         return ""
+    url_lower = url.lower()
+    if "/wayback/" in url_lower:
+        return url
+    if any(host in url_lower for host in ("instagram.com/", "facebook.com/", "fb.com/", "wikipedia.org/")):
+        return ""
     cache_key = f"{url}|{year}"
     if cache_key in _WAYBACK_RESOLUTION_CACHE:
         return _WAYBACK_RESOLUTION_CACHE[cache_key]
@@ -673,20 +881,25 @@ def resolve_wayback_capture(url, year, title=""):
         year_int = int(str(year)[:4] or 0)
     except ValueError:
         year_int = 0
+    if year_int >= 2023:
+        return url
     if year_int:
-        response = requests.get(
-            "https://arquivo.pt/wayback/cdx",
-            params={
-                "url": url,
-                "output": "json",
-                "from": str(year_int),
-                "to": str(year_int + 1),
-                "limit": "60",
-            },
-            timeout=45,
-        )
+        try:
+            response = requests.get(
+                "https://arquivo.pt/wayback/cdx",
+                params={
+                    "url": url,
+                    "output": "json",
+                    "from": str(year_int),
+                    "to": str(year_int + 1),
+                    "limit": "60",
+                },
+                timeout=4,
+            )
+        except requests.RequestException:
+            response = None
         rows = []
-        if response.status_code == 200:
+        if response is not None and response.status_code == 200:
             # O CDX responde em JSONL (um objeto JSON por linha) ou num único
             # array — aceitar os dois formatos.
             text = response.text or ""
@@ -739,7 +952,7 @@ def resolve_wayback_capture(url, year, title=""):
         try:
             timemap = requests.get(
                 f"https://arquivo.pt/wayback/timemap/link/{url}",
-                timeout=40,
+                timeout=4,
             )
             for line in (timemap.text or "").splitlines():
                 line = line.strip()
@@ -772,7 +985,7 @@ def resolve_wayback_capture(url, year, title=""):
                 }
                 if domain:
                     search_params["siteSearch"] = domain
-                search = requests.get("https://arquivo.pt/textsearch", params=search_params, timeout=60)
+                search = requests.get("https://arquivo.pt/textsearch", params=search_params, timeout=4)
                 items = (search.json() or {}).get("response_items", []) if search.status_code == 200 else []
                 for item in items:
                     archive_link = normalize_text(item.get("linkToArchive"))
@@ -843,6 +1056,52 @@ def resolve_wayback_by_title(title, year):
     return ""
 
 
+CONDITIONAL_POOL_FILE = "conditional_posts_pool.json"
+
+
+def save_new_conditional_options(cond_options, lang):
+    if not cond_options:
+        return
+    pool = load_json(CONDITIONAL_POOL_FILE, [])
+    existing_keys = {
+        (normalize_text(item.get("year", "")), normalize_text(item.get("title", "")).lower())
+        for item in pool
+        if isinstance(item, dict)
+    }
+    added = 0
+    for opt in cond_options:
+        key = (normalize_text(opt.get("year", "")), normalize_text(opt.get("title", "")).lower())
+        if not key[1] or key in existing_keys:
+            continue
+        trig = normalize_text(opt.get("conditional_trigger", ""))
+        pool.append(
+            {
+                "id": f"cond_auto_{opt.get('year', '0000')}_{len(pool) + 1}",
+                "original_post_id": "",
+                "original_date": "",
+                "lang": lang,
+                "trigger": trig,
+                "trigger_description": f"Evento condicional ({trig})",
+                "curadoria_note": "auto_detected_by_ai",
+                "year": opt.get("year", ""),
+                "category": opt.get("category", ""),
+                "title": opt.get("title", ""),
+                "overlay_description": opt.get("overlay_description", ""),
+                "caption": opt.get("caption", ""),
+                "summary": opt.get("summary", ""),
+                "article_url": opt.get("article_url", ""),
+                "image_url": opt.get("image_url", ""),
+                "local_image_path": opt.get("local_image_path", ""),
+                "option": dict(opt),
+            }
+        )
+        existing_keys.add(key)
+        added += 1
+    if added:
+        save_json(CONDITIONAL_POOL_FILE, pool)
+        print(f"[{lang}][Bolsa Condicional] +{added} notícia(s) condicional(is) guardada(s) em {CONDITIONAL_POOL_FILE}.")
+
+
 def rank_all_stories_for_day(news_items, lang, feedback_note=""):
     global NVIDIA_DISABLED
 
@@ -863,77 +1122,75 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
     normalized_feedback = normalize_text(feedback_note)
 
     prompt = f"""
-    You are an expert social editor for a 'Delayed News' project.
-    I will provide you with a filtered list of raw news captions from previous years that happened exactly on today's day and month.
+    You are the chief editorial director for an archival news publication.
+    I will provide you with historical news records from previous years that took place on this exact calendar day and month.
 
     Language required for the output: {lang.upper()}
 
-    CRITICAL RULES:
-    1. CATEGORY DISCIPLINE (PORTUGUESE):
-       - Since the language is {lang.upper()}, you MUST output the "category" field STRICTLY in Portuguese!
-       - Valid categories: POLÍTICA, DESPORTO, CULTURA, SOCIEDADE, CIÊNCIA, TECNOLOGIA, NACIONAL, MUNDIAL.
-       - NEVER use ESTRELA or CURIOSO for serious achievements:
-         * Cinema, acting awards (Golden Globes, Oscars), music milestones, statues/monuments -> CULTURA
-         * Space launches, rockets, astronomy, physics -> CIÊNCIA
-         * AI, cyber, tech platforms, software -> TECNOLOGIA
-         * Landmark personal birthdays/milestones -> SOCIEDADE
-    2. NO DATES IN OVERLAY DESCRIPTION:
-       - The "overlay_description" field will be drawn directly onto the Instagram post image. It MUST NOT contain any dates, years, months, or days (e.g., absolutely NO 'em 2005', 'em 1974', 'em Julho', 'no dia 1', etc.). Keep it strictly timeless.
-    3. NO DEATHS & NO FUNERAL WAKES:
-       - Do NOT select, write options about, or mention any stories involving deaths, passings, murders, suicides, violent tragedies, or funeral wakes (velórios).
-    4. HISTORICAL ACCURACY (PORTUGAL):
-       - The dictatorship in Portugal (Estado Novo) lasted from 1933 until the Carnation Revolution on April 25, 1974. Never refer to 1960 or any other year as the end of the dictatorship.
-    5. USER EDITORIAL CRITERIA (SHOCK & LASTING IMPACT):
-       - SURPRISE & DOUBLE-TAKE: Prefer events that make a modern reader pause and exclaim: "Did this really happen on this day?!", "Was that so long ago?", "A major turning point happened here!".
-       - DO NOT choose facts so universally known and mundane that they cause zero surprise today (e.g., introducing the euro currency in 2002 — everyone knows Portugal uses the euro).
-       - STRICTLY REJECT EPHEMERAL INTERNET NOISE: internet memes (e.g. photoshopped celebrities, funny faces), viral TikTok dances, AI face filters, celebrity private trivia (funny socks, minor gaffes, tabloid rumors).
-       - STRICTLY REJECT ROUTINE NOISE: minor party press releases, municipal polls that expired years ago, routine parliamentary committee debates, routine diplomatic travels with no historic treaties.
-       - SPORTS RULES (NO SPOILERS):
-         * YES: Historic generational transfers (Ronaldo to Al-Nassr), peak rivalries (Messi vs Ronaldo), monumental title triumphs (league/Euro championships), historic big classics (Sporting vs FC Porto, Benfica vs Porto).
-         * NO SPOILERS IN HEADLINES: In football classics, NEVER reveal who scored in the title! Use clean, compelling headlines: "Sporting vence FC Porto em clássico decisivo" (NEVER "Sporting vence Porto 1-0 com golo de X aos 85'").
-         * NO: Routine weekly league matches where teams merely lose or gain points during regular season.
-         * NO: Preliminary tennis tournament rounds, minor rally stages, or routine friendly games.
-       - POLITICS & WORLD:
-         * YES: Historic peace accords / ceasefires, landmark elections of heads of state/government, sweeping structural decisions impacting citizens (housing restrictions, social network bans/reversals).
-       - CIÊNCIA & TECNOLOGIA:
-         * YES: Groundbreaking space milestones (SpaceX Falcon Heavy with Tesla in space), critical AI and digital safety alerts.
+    OBJECTIVE EDITORIAL STANDARDS (ZERO EXAMPLES — APPLY ABSTRACT CRITERIA STRICTLY):
 
-    YOUR TASK:
-    1. Read all the provided historical news items.
-    2. Group similar stories to find distinct events.
-    3. Rank the distinct events by surprise/shock value ("double-take") and lasting historical resonance today, strictly filtering out memes, trivia, and routine noise.
-    4. Prefer stories that a Portuguese audience finds truly fascinating: historic turning points, landmark sports moments without spoilers, culture breakthroughs, and science wonders.
-    5. Penalize routine bureaucracy, municipal meeting notes, generic agency copy, budget/process updates, minor appointments, ceremonial anniversaries, and stories whose hook depends on knowing an obscure name.
-    6. Return a JSON object with an "options" array containing exactly 10 distinct, non-repeating objects (ordered from highest impact/shock to lowest).
-    7. The first 5 options will be used for Slot 1 of the day, and the remaining 5 options will be used for Slot 2. Ensure the two slot groups do not overlap in theme, year, public figure, or framing.
-    8. GROUNDING: only propose events that actually correspond to one of the RAW DATA items provided. Never invent or mix up people, years, clubs or facts. If you are not certain the event matches a raw item, skip it.
-    9. DATE ACCURACY (critical): the "year" field MUST be the year of the event itself as reported in the raw data. Prefer completed, time-boxed events (a match that ended, an announcement that was made, a release that happened) over ongoing states.
-    10. ONE OPTION PER EVENT: two options must never describe the SAME event/story even from different sources. Group duplicates and keep the single best version.
-    11. RECURRING THEMES vs THE SAME EVENT: similar topics in different years are DIFFERENT stories and both are valid.
+    1. TEMPORAL COHERENCE AND PLAUSIBILITY:
+       - The post must read like factual breaking news happening today when the archival year is shown only in small print.
+       - INSTITUTIONAL ROLE PRINCIPLE:
+         * If a news item concerns an official institutional act (such as an executive decision, legislative vote, governmental measure, or judicial ruling) carried out by an officeholder who no longer holds that position today, the `title`, `overlay_description`, and `caption` must refer to the institutional office (e.g. "Governo", "Presidente da República", "Tribunal", "Parlamento") rather than attributing the action to the former officeholder by their personal name.
+         * If a news item is a personal opinion, diplomatic tour, speech, warning, challenge, or political declaration by someone who is retired, out of active leadership, playing for a different club, or detained/incapacitated today, STRICTLY REJECT IT.
+         * For sports transfers or club memberships: reject placing an athlete at a club they no longer represent today, unless it concerns a lasting regulatory rule or market transaction.
+
+    2. FACTUAL ACTIONS vs. DECLARATIVE / EPHEMERAL NOISE:
+       - Select only events where a concrete action, official decision, structural development, or historic turning point actually occurred.
+       - STRICTLY REJECT:
+         * Declarative noise: verbal opinions, praise, accusations, criticisms, warnings, challenges, or hypothetical speculations between public figures;
+         * Internal party disputes, organic leadership races, party conventions, candidate list controversies, or polling projections;
+         * Private life, family matters, relationships, or personal milestones of public figures;
+         * Routine service statistics, periodic percentage variations, or administrative reports lacking a definitive decision;
+         * Intermediate phases in tournaments (qualifications, quarter-finals, semi-finals, third-place matches) — only final tournament championship victories are eligible;
+         * Cultural/cinema/music awards, festivals, concerts, commercial promotions, and tragic deaths/funerals.;
+         * Routine administrative/procedural items: periodic decree renewals (e.g. routine 15-day renewals of states of emergency), procedural deadline extensions (e.g. postponing agency extinctions by six months), minor platform/delivery fee caps, technical drug schedule updates, foreign government budget shutdown avoidance votes, routine EU directives (building energy efficiency, fruit/milk distribution in schools), administrative revocation of obsolete laws, or remote minor local environmental incidents.
+
+    3. TWO-TIER RELEVANCE HIERARCHY (`editorial_tier`):
+       - Classify every option in `"editorial_tier"` as either `"high"` or `"lower_relevance"`:
+         * `"high"` (TOP PRIORITY): Events of broad collective scale that affect the daily life, rights, health, public services, institutional functioning, or free movement of the general population or nation (such as official emergency or alert declarations, broad suspensions or closures of public facilities/schools/universities/services, major judicial sentences of national significance, landmark international agreements or geopolitical shifts, final championship titles, or universally known historical turning points).
+           - GEOGRAPHICAL & SOCIETAL PROXIMITY: Prioritize national and European-scale events directly touching the population, public institutions, and collective life over remote domestic/internal decisions of distant foreign countries.
+           - QUOTIDIAN DISRUPTION AS PEAK PRIORITY: Official measures that disrupt, shut down, or suspend normal societal functioning (educational system, transportation, health, public circulation) must ALWAYS be ranked at the very top of "high".
+         * `"lower_relevance"` (FALLBACK ONLY / STRICTLY SECONDARY): Factual events of narrower, local, incremental, or sectoral scope (routine administrative orders, incremental scientific studies, instrument calibrations, archaeological curiosities, ancient fossils/bones, isolated domestic match results without a trophy).
+           - Under no circumstances choose a "lower_relevance" curiosity (archaeological finds, space telemetry, routine meetings) if there are valid "high" collective events available in the raw data.
+       - Always rank `"high"` tier options ahead of `"lower_relevance"` options. `"lower_relevance"` options must only be selected if the raw data lacks sufficient valid `"high"` tier options.
+
+    4. CONDITIONAL POOL (`conditional_trigger`):
+       - If a major event is tied to an event that only recurs on specific political or athletic calendar dates (such as presidential inaugurations, national election cycles, or cup finals), mark `"conditional_trigger"` accordingly. Otherwise, set `"conditional_trigger"` to `""`.
+
+    5. FORMATTING & DIVERSITY:
+       - Valid Portuguese categories: POLÍTICA, DESPORTO, CULTURA, SOCIEDADE, CIÊNCIA, TECNOLOGIA, NACIONAL, MUNDIAL.
+       - NEVER include any year, month, or day in `title` or `overlay_description`.
+       - `title` must be a complete, self-contained journalistic headline (max 70 chars).
+       - Maximize chronological diversity across 1996-2025: at most 2 options from the same year, and ensure representation across different eras.
+       - Ground every option strictly in one of the provided RAW DATA items (matching its exact `year`). Never invent facts.
+
+    6. THEMATIC CADENCE & SATURATION LIMITS:
+       - Strictly avoid topic saturation: At least 3 days of interval between news of the same macro-theme (e.g. Covid-19/pandemia, repeated judicial cases, recurring disputes).
+       - Maximum 8 stories on the same macro-theme within any 30-day window. Even during high-intensity years (like 2020-2021 with the pandemic), do not oversaturate the publication with repetitive pandemic news; diversify into other historical milestones of the era.
+       - Prevent Redundant Near-Duplicates: Never select near-duplicate measures, procedural delays, or identical headlines in consecutive or adjacent days.
+       - Do not select multiple headlines about the same entity or topic on the same day.
 
     Format:
     {{
       "options": [
         {{
           "year": "YYYY",
-          "category": "ONE WORD CATEGORY IN PORTUGUESE (e.g., POLÍTICA, DESPORTO, CULTURA, SOCIEDADE)",
-          "title": "A short, punchy headline summarizing the event. HARD LIMIT 70 CHARACTERS (count them). Never truncate, never use ellipsis, never leave incomplete sentences",
-          "highlight_text": "Either an empty string or 1 to 3 words that appear exactly in the title. Prefer just 1 word.",
-          "overlay_description": "A short sentence for the image overlay. NO hashtags, NO call to action, and absolutely NO dates or years.",
-          "image_theme": "A short visual search query, ideally 2 to 5 words, for the background image.",
-          "layout_preference": "One of template_1, template_2, template_3. Only used when breaking_candidate is false.",
+          "category": "ONE WORD CATEGORY IN PORTUGUESE",
+          "editorial_tier": "high or lower_relevance",
+          "title": "Complete journalistic headline (max 70 chars, no year/date, institutional role if ex-officeholder)",
+          "highlight_text": "Empty string or 1-3 words from title",
+          "overlay_description": "Timeless 1-sentence context for image overlay (no dates/years/hashtags)",
+          "image_theme": "2 to 5 word visual search query",
+          "layout_preference": "template_1, template_2, or template_3",
           "breaking_candidate": false,
-          "caption": "A concise paragraph for Instagram. No hashtags. It can feel lively and socially native when appropriate.",
-          "summary": "A 1-sentence internal summary for editorial review focused on why this could work well as a post."
+          "conditional_trigger": "Empty string '' or specific trigger",
+          "caption": "Concise paragraph for social post (no hashtags)",
+          "summary": "1-sentence editorial rationale"
         }}
       ]
     }}
-
-    Layout guidance:
-    - template_1: strongest default for longer titles and lower-left text with description
-    - template_2: cleaner centered composition near the top half
-    - template_3: photo-led composition with centered lower title
-    - breaking_candidate is the main editorial decision: use true only when the post should become the special breaking layout, otherwise false and choose among the normal templates
 
     Editorial review feedback from the human reviewer:
     {normalized_feedback or "No extra feedback provided."}
@@ -1008,23 +1265,15 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
                                     best = candidate
                                     best_domain = c_domain
                                     break
-                        candidate_url = normalize_text(best.get("source_url") or best.get("url") or "")
+                        best_opts = best.get("options") if isinstance(best.get("options"), list) else []
+                        opt0_url = best_opts[0].get("article_url") or best_opts[0].get("url") if best_opts and isinstance(best_opts[0], dict) else ""
+                        candidate_url = normalize_text(best.get("source_url") or opt0_url or best.get("url") or "")
                         if "/noFrame/replay/" in candidate_url:
                             candidate_url = candidate_url.replace("/noFrame/replay/", "/wayback/")
                         # Âncora a um candidato REAL (impede alucinações); a
                         # captura wayback é procurada mas é best-effort — sem
                         # captura mantém-se o artigo original como fonte.
-                        if "/wayback/" in candidate_url:
-                            option["article_url"] = candidate_url
-                        else:
-                            option["article_url"] = (
-                                resolve_wayback_capture(
-                                    candidate_url,
-                                    option["year"][:4],
-                                    title=normalize_text(best.get("title") or option.get("title", "")),
-                                )
-                                or candidate_url
-                            )
+                        option["article_url"] = candidate_url
                         # Proveniência do candidato (chip Jornal/Perfil/Wikipédia).
                         option["source_platform"] = normalize_text(best.get("source_platform"))
                         option["source_profile"] = normalize_text(best.get("source_profile"))
@@ -1032,6 +1281,25 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
                     else:
                         print(f"[pregen] opção desancorada descartada: {option['title'][:60]} ({option['year']})")
                 options = enrich_options_with_ai(grounded_options, lang) if grounded_options else []
+                if options:
+                    regular_options = []
+                    cond_options = []
+                    for opt in options:
+                        trig = normalize_text(opt.get("conditional_trigger", "")).lower()
+                        if trig and trig not in {"none", "null", "false"}:
+                            opt["conditional_trigger"] = trig
+                            cond_options.append(opt)
+                        else:
+                            opt["conditional_trigger"] = ""
+                            regular_options.append(opt)
+                    if cond_options:
+                        save_new_conditional_options(cond_options, lang)
+                    if regular_options:
+                        regular_options.sort(
+                            key=lambda o: 0 if str(o.get("editorial_tier", "high")).lower() == "high" else 1
+                        )
+                    if len(regular_options) >= 2:
+                        options = regular_options
             return options if isinstance(options, list) and options else []
         except Exception as e:
             err_msg = str(e).lower()
@@ -1484,19 +1752,24 @@ def tag_source_origin(items, origin):
 
 
 def get_news_with_arquivo_first(date_obj, lang):
+    """Regra 1B: Usa a pasta D:\arquivo_cdxj como fonte principal e recorre a pt/*.json apenas como fallback."""
     arquivo_news = []
     try:
         from publisher import get_today_news_from_arquivo
-        print(f"[{lang}][Arquivo.pt] A procurar notícias do dia no Arquivo.pt...")
-        arquivo_news = get_today_news_from_arquivo(lang, date_obj.month, date_obj.day)
+        print(f"[{lang}][Arquivo.pt/CDXJ] A procurar notícias do dia em D:\\arquivo_cdxj...")
+        arquivo_news = get_today_news_from_arquivo(lang, date_obj.month, date_obj.day, max_items=24)
         if arquivo_news:
-            print(f"[{lang}][Arquivo.pt] Obtidos {len(arquivo_news)} artigos com sucesso do Arquivo.pt.")
+            print(f"[{lang}][Arquivo.pt/CDXJ] Obtidos {len(arquivo_news)} artigos a partir de D:\\arquivo_cdxj.")
         else:
-            print(f"[{lang}][Arquivo.pt] Sem resultados ao buscar no Arquivo.pt. A usar dados locais como fallback...")
+            print(f"[{lang}][Arquivo.pt/CDXJ] Sem resultados em D:\\arquivo_cdxj. A usar pt/*.json como fallback...")
     except Exception as e:
-        print(f"[{lang}][Arquivo.pt] Erro ao aceder ao Arquivo.pt ({e}). A usar dados locais como fallback...")
+        print(f"[{lang}][Arquivo.pt/CDXJ] Erro ao ler D:\\arquivo_cdxj ({e}). A usar pt/*.json como fallback...")
 
     local_news = get_historical_news_for_date(date_obj, lang)
+    if len(arquivo_news) >= 8:
+        # Mantém apenas marcos históricos icónicos ("Piada / Vem atrasado") do arquivo local e usa D:rquivo_cdxj como fonte principal
+        iconic_local = [item for item in local_news if is_iconic_historical_milestone(item)]
+        return tag_source_origin(arquivo_news, "arquivo.pt") + tag_source_origin(iconic_local, "local_fallback")
     if arquivo_news:
         return tag_source_origin(arquivo_news, "arquivo.pt") + tag_source_origin(local_news, "local_fallback")
     return tag_source_origin(local_news, "local_fallback")
@@ -1566,17 +1839,29 @@ def regenerate_marked_posts(pending_posts):
             print(f"[{lang}] Sem noticias historicas para regenerar {date_str}.")
             continue
 
+        siblings = [
+            post for post in pending_posts
+            if post.get("lang", "pt") == lang and post.get("date", "") == date_str
+        ]
+        approved_siblings = [
+            s for s in siblings
+            if s.get("status") == "approved" and s.get("review_action") != "regenerate"
+        ]
+        avoid_notes = []
+        for app_sib in approved_siblings:
+            app_opts = app_sib.get("options") or []
+            app_sel = int(app_sib.get("selected_option", 0) or 0)
+            if app_sel < len(app_opts):
+                app_opt = app_opts[app_sel]
+                avoid_notes.append(f"DO NOT duplicate this already-approved story on this day: {app_opt.get('title')} ({app_opt.get('year')})")
+
         feedback_note = "\n".join(
-            note for note in [post.get("review_note", "") for post in grouped_targets] if note
+            note for note in ([post.get("review_note", "") for post in grouped_targets] + avoid_notes) if note
         )
         manual_background_url = next(
             (normalize_text(post.get("manual_background_url", "")) for post in grouped_targets if normalize_text(post.get("manual_background_url", ""))),
             "",
         )
-        siblings = [
-            post for post in pending_posts
-            if post.get("lang", "pt") == lang and post.get("date", "") == date_str
-        ]
 
         print(f"[{lang}] A regenerar {date_str} com {len(matching_news)} noticias.")
         options_list = rank_all_stories_for_day(
@@ -1593,6 +1878,8 @@ def regenerate_marked_posts(pending_posts):
         slot2_base_options = options_list[5:10] if len(options_list) > 5 else options_list
 
         for sibling in siblings:
+            if sibling.get("status") == "approved" and sibling.get("review_action") != "regenerate":
+                continue
             slot = int(sibling.get("slot", 1))
             base_options = slot1_base_options if slot == 1 else slot2_base_options
             default_selected = 1 if slot == 2 and len(base_options) > 1 else 0
@@ -1620,6 +1907,7 @@ def regenerate_marked_posts(pending_posts):
 
 def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
     embedded_posts = json.dumps(pending_posts, ensure_ascii=False)
+    conditional_pool_data = json.dumps(load_json(CONDITIONAL_POOL_FILE, []), ensure_ascii=False)
     month_options = json.dumps(
         sorted({post.get("date", "")[:7] for post in pending_posts if post.get("date") and post.get("lang") == lang_filter})
     )
@@ -1817,6 +2105,10 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
                     <label class="toggle"><input type="checkbox" id="show-approved" onchange="onShowApproved(this.checked)"> Mostrar aprovados</label>
                 </div>
             </div>
+            <details class="help-note" style="margin-bottom:8px;">
+                <summary>Bolsa de Eventos Condicionais (Clássicos / Taça / Campeonato / Eleições)</summary>
+                <div id="conditional-pool-panel" style="margin-top:10px; display:grid; gap:8px;"></div>
+            </details>
             <details class="help-note">
                 <summary>Instruções de Edição</summary>
                 <p>
@@ -1834,6 +2126,7 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
     </div>
     <script>
         const posts = {embedded_posts};
+        const conditionalPool = {conditional_pool_data};
         const monthOptions = {month_options};
         const initialFocusMonth = {json.dumps(initial_focus_month)};
         const fixedLang = {json.dumps(lang_filter)};
@@ -2204,6 +2497,56 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
             }}
         }}
 
+        function renderConditionalPool() {{
+            const container = document.getElementById("conditional-pool-panel");
+            if (!container) return;
+            if (!Array.isArray(conditionalPool) || !conditionalPool.length) {{
+                container.innerHTML = "<div class='empty'>Sem posts na bolsa condicional.</div>";
+                return;
+            }}
+            container.innerHTML = conditionalPool.map((item, idx) => `
+                <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; padding:8px 12px; background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:8px;">
+                    <div>
+                        <span class="pill info" style="margin-right:8px;">${{escapeHtml(item.trigger || "condicional")}}</span>
+                        <strong>(${{escapeHtml(item.year)}}) ${{escapeHtml(item.title)}}</strong>
+                        <div style="color:var(--muted); font-size:11px; margin-top:2px;">${{escapeHtml(item.trigger_description || "")}}</div>
+                    </div>
+                    <div style="display:flex; gap:6px; align-items:center;">
+                        <input id="cond-date-${{idx}}" placeholder="YYYY-MM-DD" style="width:120px; padding:6px 8px; font-size:12px;" value="${{escapeHtml(item.original_date || '')}}">
+                        <button class="secondary" style="padding:6px 10px; font-size:12px;" onclick="injectConditionalPost(${{idx}})">Ativar nesta data</button>
+                    </div>
+                </div>
+            `).join("");
+        }}
+
+        function injectConditionalPost(condIdx) {{
+            const item = conditionalPool[condIdx];
+            if (!item || !item.option) return;
+            const dateInput = document.getElementById(`cond-date-${{condIdx}}`);
+            const targetDate = (dateInput?.value || "").trim();
+            if (!targetDate) {{
+                alert("Indica a data (YYYY-MM-DD) onde queres ativar este post condicional.");
+                return;
+            }}
+            const targetPost = posts.find(p => p.lang === fixedLang && p.date === targetDate && p.status !== "approved") ||
+                               posts.find(p => p.lang === fixedLang && p.date === targetDate);
+            if (!targetPost) {{
+                alert(`Não foi encontrado nenhum slot para a data ${{targetDate}} no JSON atual.`);
+                return;
+            }}
+            targetPost.options.unshift(JSON.parse(JSON.stringify(item.option)));
+            targetPost.selected_option = 0;
+            targetPost.status = "approved";
+            targetPost.review_action = "";
+            targetPost.editorial_mode = "conditional_activated";
+            uiState.showApproved = true;
+            const chk = document.getElementById("show-approved");
+            if (chk) chk.checked = true;
+            render();
+            alert(`Post condicional "${{item.title}}" ativado e aprovado em ${{targetDate}} (${{targetPost.id}})!`);
+        }}
+
+        renderConditionalPool();
         render();
     </script>
 </body>
@@ -2269,48 +2612,156 @@ def generate_pending_posts_for_interval(pending_posts, lang, start_date, end_dat
         external_suggestions = generate_external_day_suggestions(current_date, lang, options_list)
 
         def _story_tokens(text):
-            return set(re.findall(r"[a-záâãéêíóôõúç]{4,}", normalize_text(text).lower()))
+            norm = unicodedata.normalize("NFKD", text or "").encode("ascii", "ignore").decode("ascii").lower()
+            return set(re.findall(r"[a-z0-9]{4,}", norm))
 
-        used_selected_tokens = []
-        for existing_post in pending_posts:
-            opts = existing_post.get("options") or []
-            sel_idx = int(existing_post.get("selected_option", 0) or 0)
-            if 0 <= sel_idx < len(opts):
-                sel_opt = opts[sel_idx]
-                toks = _story_tokens(sel_opt.get("title", ""))
-                if toks:
-                    used_selected_tokens.append((str(sel_opt.get("year", ""))[:4], toks))
+        # Reconstruir historico acumulado de selecoes para controlo de cadencia e saturacao
+        all_selected_history = []
+        for p in pending_posts:
+            opts = p.get("options") or []
+            sel = int(p.get("selected_option", 0) or 0)
+            if 0 <= sel < len(opts):
+                c_opt = opts[sel]
+                try:
+                    p_date = datetime.strptime(p.get("date", ""), "%Y-%m-%d").date()
+                except Exception:
+                    continue
+                p_topic = extract_macro_topic(c_opt.get("title", ""), c_opt.get("summary", ""), c_opt.get("category", ""))
+                p_toks = _story_tokens(c_opt.get("title", ""))
+                all_selected_history.append({
+                    "date": p_date,
+                    "slot": int(p.get("slot", 1) or 1),
+                    "year": str(c_opt.get("year", ""))[:4],
+                    "topic": p_topic,
+                    "tokens": p_toks,
+                    "title": c_opt.get("title", ""),
+                })
 
-        def _is_duplicate_of_existing(opt):
-            opt_year = str(opt.get("year", ""))[:4]
-            opt_toks = _story_tokens(opt.get("title", ""))
-            if not opt_toks:
-                return False
-            for used_year, used_toks in used_selected_tokens:
-                overlap = len(opt_toks & used_toks)
-                if overlap >= 3 or (opt_year == used_year and overlap >= 2):
-                    return True
-            return False
+        day_selected_topics = set()
+        day_selected_tokens = []
+        day_selected_years = set()
 
-        deduped_options = [opt for opt in options_list if not _is_duplicate_of_existing(opt)]
-        if len(deduped_options) >= 2:
-            options_list = deduped_options
+        def _evaluate_candidate(cand, slot_num):
+            """
+            Avalia a elegibilidade de um candidato segundo os criterios:
+            1. Intervalo minimo de 3 dias entre noticias do mesmo tema (diff >= 4)
+            2. Limite maximo de 8 noticias do mesmo macro-tema por cada 30 dias
+            3. Sem repeticao de tema ou sobreposicao de tokens entre slot 1 e slot 2 no mesmo dia
+            4. Sem sobreposicao de tokens (>= 3 palavras) com noticias dos ultimos 15 dias
+            5. Rejeicao de burocracia / rotina administrativa menor
+            """
+            c_title = cand.get("title", "")
+            c_summary = cand.get("summary", "")
+            c_cat = cand.get("category", "")
+            c_year = str(cand.get("year", ""))[:4]
+            c_tier = str(cand.get("editorial_tier", "high")).lower()
+            c_toks = _story_tokens(c_title)
+            c_topic = extract_macro_topic(c_title, c_summary, c_cat)
 
-        if slot1_exists and not slot2_exists:
-            slot1_base_options = []
-            slot2_base_options = options_list[:5]
-            slots_to_create = [2] if len(slot2_base_options) >= 1 else []
-        else:
-            slot1_base_options = options_list[:5]
-            slot2_base_options = options_list[5:10] if len(options_list) >= 7 else options_list[len(options_list) // 2 :]
-            slots_to_create = [1, 2] if len(options_list) >= 2 and len(slot2_base_options) >= 1 else [1]
+            c_norm = unicodedata.normalize("NFKD", f"{c_title} {c_summary}".lower()).encode("ascii", "ignore").decode("ascii")
+            if any(bad in c_norm for bad in [
+                "renova estado de emergencia", "renovacao do estado de emergencia",
+                "tabela taxas", "taxas de entrega", "mefedrona", "adia extincao",
+                "adia por seis meses", "evita encerramento do governo", "orcamento parcial",
+                "orcamento provisorio", "revogacao de decretos", "edificios mais eficientes",
+                "alimentacao saudavel nas escolas", "derrame de petroleo", "inspecao do sef",
+            ]):
+                return -1, "minor_routine"
+
+            # No proprio dia:
+            if c_topic and c_topic in day_selected_topics:
+                return 0, f"topic '{c_topic}' used today"
+            for prev_toks in day_selected_tokens:
+                if len(c_toks & prev_toks) >= 2:
+                    return 0, "headline overlaps with other slot today"
+            penalty_same_year = (c_year in day_selected_years)
+
+            # Historico recente:
+            if c_topic:
+                # 1. Cadencia: pelo menos 3 dias de intervalo (diff >= 4)
+                for item in all_selected_history:
+                    if item.get("topic") == c_topic:
+                        diff = abs((current_date - item["date"]).days)
+                        if diff <= 3:
+                            return 0, f"topic '{c_topic}' interval < 3"
+                # 2. Teto de 8 noticias por 30 dias
+                count_30 = sum(
+                    1 for item in all_selected_history
+                    if item.get("topic") == c_topic and abs((current_date - item["date"]).days) <= 30
+                )
+                if count_30 >= 8:
+                    return 0, f"topic '{c_topic}' 30d cap reached"
+
+            # 3. Sobreposicao semantica nos ultimos 15 dias
+            for item in all_selected_history:
+                if abs((current_date - item["date"]).days) <= 15:
+                    ov = len(c_toks & item.get("tokens", set()))
+                    if ov >= 3 or (c_year == item.get("year") and ov >= 2):
+                        return 0, f"overlap with {item['date']}"
+
+            score = 100
+            if c_tier == "high":
+                score += 50
+            if not penalty_same_year:
+                score += 20
+            return score, "ok"
+
+        # Construcao inteligente das opcoes para Slot 1 e Slot 2
+        # Prioriza o melhor candidato elegivel na posicao 0
+        deduped_candidates = []
+        seen_cand_titles = set()
+        for cand in options_list:
+            ct = cand.get("title", "")
+            if ct not in seen_cand_titles:
+                seen_cand_titles.add(ct)
+                deduped_candidates.append(cand)
+
+        slots_to_create = []
+        if not slot1_exists:
+            slots_to_create.append(1)
+        if not slot2_exists and len(deduped_candidates) >= 2:
+            slots_to_create.append(2)
+
+        slot_options_map = {}
+        for slot in slots_to_create:
+            scored_candidates = []
+            for cand in deduped_candidates:
+                s, r = _evaluate_candidate(cand, slot)
+                scored_candidates.append((s, cand, r))
+            scored_candidates.sort(key=lambda x: x[0], reverse=True)
+
+            chosen_primary = scored_candidates[0][1] if scored_candidates and scored_candidates[0][0] > 0 else (deduped_candidates[0] if deduped_candidates else None)
+            if chosen_primary:
+                cp_top = extract_macro_topic(chosen_primary.get("title", ""), chosen_primary.get("summary", ""), chosen_primary.get("category", ""))
+                cp_toks = _story_tokens(chosen_primary.get("title", ""))
+                cp_yr = str(chosen_primary.get("year", ""))[:4]
+                if cp_top:
+                    day_selected_topics.add(cp_top)
+                day_selected_tokens.append(cp_toks)
+                day_selected_years.add(cp_yr)
+                all_selected_history.append({
+                    "date": current_date,
+                    "slot": slot,
+                    "year": cp_yr,
+                    "topic": cp_top,
+                    "tokens": cp_toks,
+                    "title": chosen_primary.get("title", "")
+                })
+                # Reorganizar as opcoes do slot: primary em 0, seguido dos restantes alternativos
+                remaining_for_slot = [c for c in deduped_candidates if c is not chosen_primary]
+                slot_base = [chosen_primary] + remaining_for_slot[:4]
+                slot_options_map[slot] = slot_base
+                # Remover o primary escolhido para nao repetir no slot seguinte
+                deduped_candidates = [c for c in deduped_candidates if c is not chosen_primary]
 
         for slot in slots_to_create:
             post_id = f"{lang}_{date_str}_{slot}"
             if post_id in existing_ids:
                 continue
+            base_options = slot_options_map.get(slot, [])
+            if not base_options:
+                continue
             selected_option = 0
-            base_options = slot1_base_options if slot == 1 else slot2_base_options
             slot_options = prepare_options_for_review(
                 base_options,
                 lang,

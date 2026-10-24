@@ -949,9 +949,18 @@ def _fit_title(draw, title_text, highlight_text, max_width, max_height, max_line
         if len(lines) <= max_lines and total_height <= max_height:
             return font, lines, line_height, spacing
 
-    fallback_font = get_font("black", smallest)
+    for extra_size in range(smallest - 2, 36, -2):
+        font = get_font("black", extra_size)
+        lines = _wrap_tokens(draw, tokens, font, max_width)
+        line_height = _measure_text(draw, "ÁQ", font)[1]
+        spacing = max(3, int(extra_size * 0.08))
+        total_height = line_height * len(lines) + spacing * max(0, len(lines) - 1)
+        if len(lines) <= max_lines + 1 and total_height <= max_height * 1.15:
+            return font, lines, line_height, spacing
+
+    fallback_font = get_font("black", 38)
     fallback_lines = _wrap_tokens(draw, tokens, fallback_font, max_width)
-    return fallback_font, fallback_lines[:max_lines], _measure_text(draw, "ÁQ", fallback_font)[1], 6
+    return fallback_font, fallback_lines[: max_lines + 1], _measure_text(draw, "ÁQ", fallback_font)[1], 4
 
 
 def _fit_paragraph(draw, text, font_key, max_width, max_height, max_lines, largest, smallest):
