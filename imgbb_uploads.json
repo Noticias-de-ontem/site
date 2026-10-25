@@ -6992,5 +6992,83 @@
         "created_at": "2026-10-25T19:56:14+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-02",
+        "option_index": 0,
+        "title": "Professores realizam greve nacional contra o Orçamento do Estado",
+        "year": "2022",
+        "image_url": "https://i.ibb.co/bMHk8f88/2026-11-02-01-2022-professores-realizam-greve-nacional-contra-o-orcamento-do-estado.jpg",
+        "delete_url": "https://ibb.co/39fnLJLL/5efb58abc004e4a5be00d3b06784f5a9",
+        "created_at": "2026-10-25T23:28:17+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-02",
+        "option_index": 0,
+        "title": "Governo aprova novas regras para professores estagiários",
+        "year": "2023",
+        "image_url": "https://i.ibb.co/kg7Ys7tn/2026-11-02-01-2023-governo-aprova-novas-regras-para-professores-estagiarios.jpg",
+        "delete_url": "https://ibb.co/gM2sL2x1/db130c32ca20c7c50606e49d8d984c82",
+        "created_at": "2026-10-25T23:28:31+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-03",
+        "option_index": 0,
+        "title": "Tempestade Ciarán fecha escolas, aeroportos e serviços ferroviários",
+        "year": "2023",
+        "image_url": "https://i.ibb.co/bM683m5T/2026-11-03-01-2023-tempestade-ciaran-fecha-escolas-aeroportos-e-servicos-ferroviarios.jpg",
+        "delete_url": "https://ibb.co/XrWv4Lx1/b72e4062c55f8f7ef559db19edead772",
+        "created_at": "2026-10-25T23:29:58+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-03",
+        "option_index": 0,
+        "title": "Novas medidas anticovid entram em vigor em Portugal",
+        "year": "2020",
+        "image_url": "https://i.ibb.co/qM3wSMZH/2026-11-03-01-2020-novas-medidas-anticovid-entram-em-vigor-em-portugal.jpg",
+        "delete_url": "https://ibb.co/JRwP1RhY/ef6d431356175832c4c0833e56057ec8",
+        "created_at": "2026-10-25T23:30:09+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-04",
+        "option_index": 0,
+        "title": "Grande parada militar marca o centenário do armistício em Lisboa",
+        "year": "2018",
+        "image_url": "https://i.ibb.co/JwSnRYdQ/2026-11-04-01-2018-grande-parada-militar-marca-o-centenario-do-armisticio-em-lisboa.jpg",
+        "delete_url": "https://ibb.co/ycx0nzRS/3b6f2b72471915ed0715aba2a4632f35",
+        "created_at": "2026-10-25T23:31:24+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-04",
+        "option_index": 0,
+        "title": "Professores mobilizam-se para greve e manifestação nacionais",
+        "year": "2005",
+        "image_url": "https://i.ibb.co/tM9pD3z6/2026-11-04-01-2005-professores-mobilizam-se-para-greve-e-manifestacao-nacionais.jpg",
+        "delete_url": "https://ibb.co/ccjhQxw9/e2040dc2aa505b59c9eff9741ab2204d",
+        "created_at": "2026-10-25T23:32:28+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]

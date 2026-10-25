@@ -836,7 +836,7 @@
             "relevancia_mediatica": 60.0,
             "singularidade": 65.0
           },
-          "weighted_score": 71.0,
+          "weighted_score": 72.0,
           "justification": "Acordo histórico de esquerda viabiliza governo e muda ciclo político português.",
           "lang": "pt"
         },
@@ -845,7 +845,10 @@
           "facebook"
         ],
         "caption_instagram": "Contra quase todas as previsões da época, as forças partidárias de esquerda concluíram as negociações bilaterais no Parlamento para viabilizar uma maioria governativa em 2015, dando origem ao histórico entendimento político que ficaria conhecido como a \"Geringonça\".\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "caption_facebook": "Contra quase todas as previsões da época, as forças partidárias de esquerda concluíram as negociações bilaterais no Parlamento para viabilizar uma maioria governativa em 2015, dando origem ao histórico entendimento político que ficaria conhecido como a \"Geringonça\".\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica"
+        "caption_facebook": "Contra quase todas as previsões da época, as forças partidárias de esquerda concluíram as negociações bilaterais no Parlamento para viabilizar uma maioria governativa em 2015, dando origem ao histórico entendimento político que ficaria conhecido como a \"Geringonça\".\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "title_en": "",
+        "summary_en": "",
+        "article_url": ""
       },
       {
         "year": "1856",
@@ -868,7 +871,25 @@
         "networks": [
           "instagram",
           "facebook"
-        ]
+        ],
+        "title_en": "",
+        "summary_en": "",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 45.0,
+            "dimensao_impacto": 40.0,
+            "consequencias": 40.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 30.0,
+            "relevancia_mediatica": 35.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 40.0,
+          "justification": "Acontecimento de interesse público documentado na época.",
+          "lang": "pt"
+        },
+        "article_url": ""
       },
       {
         "year": "2016",
@@ -890,7 +911,26 @@
         "networks": [
           "instagram",
           "facebook"
-        ]
+        ],
+        "title_en": "",
+        "summary_en": "",
+        "body": "",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 45.0,
+            "dimensao_impacto": 40.0,
+            "consequencias": 40.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 30.0,
+            "relevancia_mediatica": 35.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 40.0,
+          "justification": "Acontecimento de interesse público documentado na época.",
+          "lang": "pt"
+        },
+        "article_url": ""
       },
       {
         "year": "2024",
@@ -912,7 +952,26 @@
         "networks": [
           "instagram",
           "facebook"
-        ]
+        ],
+        "title_en": "",
+        "summary_en": "",
+        "body": "",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 45.0,
+            "dimensao_impacto": 40.0,
+            "consequencias": 40.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 30.0,
+            "relevancia_mediatica": 35.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 40.0,
+          "justification": "Acontecimento de interesse público documentado na época.",
+          "lang": "pt"
+        },
+        "article_url": ""
       },
       {
         "year": "1520",
@@ -934,7 +993,26 @@
         "networks": [
           "instagram",
           "facebook"
-        ]
+        ],
+        "title_en": "",
+        "summary_en": "",
+        "body": "",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 45.0,
+            "dimensao_impacto": 40.0,
+            "consequencias": 40.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 30.0,
+            "relevancia_mediatica": 35.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 40.0,
+          "justification": "Acontecimento de interesse público documentado na época.",
+          "lang": "pt"
+        },
+        "article_url": ""
       }
     ]
   },
@@ -1259,7 +1337,7 @@
             "relevancia_mediatica": 45.0,
             "singularidade": 65.0
           },
-          "weighted_score": 59.5,
+          "weighted_score": 59.0,
           "justification": "Primeira transmissão experimental de rádio em Portugal; marco da radiodifusão nacional.",
           "lang": "pt"
         },
@@ -1268,7 +1346,10 @@
           "facebook"
         ],
         "caption_instagram": "Os pioneiros da radiodifusão nacional alcançaram um marco histórico no desenvolvimento das telecomunicações em 1929, ao realizarem em Portugal a primeira emissão experimental de rádio que abriu as portas às transmissões regulares no país.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1929.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
-        "caption_facebook": "Os pioneiros da radiodifusão nacional alcançaram um marco histórico no desenvolvimento das telecomunicações em 1929, ao realizarem em Portugal a primeira emissão experimental de rádio que abriu as portas às transmissões regulares no país.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1929.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Cultura"
+        "caption_facebook": "Os pioneiros da radiodifusão nacional alcançaram um marco histórico no desenvolvimento das telecomunicações em 1929, ao realizarem em Portugal a primeira emissão experimental de rádio que abriu as portas às transmissões regulares no país.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1929.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
+        "title_en": "",
+        "summary_en": "",
+        "article_url": ""
       },
       {
         "year": "2025",
@@ -1291,7 +1372,25 @@
         "networks": [
           "instagram",
           "facebook"
-        ]
+        ],
+        "title_en": "",
+        "summary_en": "",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 45.0,
+            "dimensao_impacto": 40.0,
+            "consequencias": 40.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 30.0,
+            "relevancia_mediatica": 35.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 40.0,
+          "justification": "Acontecimento de interesse público documentado na época.",
+          "lang": "pt"
+        },
+        "article_url": ""
       },
       {
         "year": "2016",
@@ -1313,7 +1412,26 @@
         "networks": [
           "instagram",
           "facebook"
-        ]
+        ],
+        "title_en": "",
+        "summary_en": "",
+        "body": "",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 45.0,
+            "dimensao_impacto": 40.0,
+            "consequencias": 40.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 30.0,
+            "relevancia_mediatica": 35.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 40.0,
+          "justification": "Acontecimento de interesse público documentado na época.",
+          "lang": "pt"
+        },
+        "article_url": ""
       },
       {
         "year": "2013",
@@ -1335,7 +1453,26 @@
         "networks": [
           "instagram",
           "facebook"
-        ]
+        ],
+        "title_en": "",
+        "summary_en": "",
+        "body": "",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 45.0,
+            "dimensao_impacto": 40.0,
+            "consequencias": 40.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 30.0,
+            "relevancia_mediatica": 35.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 40.0,
+          "justification": "Acontecimento de interesse público documentado na época.",
+          "lang": "pt"
+        },
+        "article_url": ""
       },
       {
         "year": "2023",
@@ -1357,7 +1494,26 @@
         "networks": [
           "instagram",
           "facebook"
-        ]
+        ],
+        "title_en": "",
+        "summary_en": "",
+        "body": "",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 45.0,
+            "dimensao_impacto": 40.0,
+            "consequencias": 40.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 30.0,
+            "relevancia_mediatica": 35.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 40.0,
+          "justification": "Acontecimento de interesse público documentado na época.",
+          "lang": "pt"
+        },
+        "article_url": ""
       }
     ]
   },
@@ -2207,7 +2363,10 @@
           "facebook"
         ],
         "caption_instagram": "A cidade do Porto foi o epicentro de uma sublevação armada que desafiou abertamente a autoridade da ditadura militar em 1926, marcando um dos episódios de resistência militar mais tensos dos anos que se seguiram ao golpe do 28 de Maio.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1926.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Historia",
-        "caption_facebook": "A cidade do Porto foi o epicentro de uma sublevação armada que desafiou abertamente a autoridade da ditadura militar em 1926, marcando um dos episódios de resistência militar mais tensos dos anos que se seguiram ao golpe do 28 de Maio.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1926.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Historia"
+        "caption_facebook": "A cidade do Porto foi o epicentro de uma sublevação armada que desafiou abertamente a autoridade da ditadura militar em 1926, marcando um dos episódios de resistência militar mais tensos dos anos que se seguiram ao golpe do 28 de Maio.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1926.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Historia",
+        "title_en": "",
+        "summary_en": "",
+        "article_url": ""
       },
       {
         "year": "2021",
@@ -2450,7 +2609,7 @@
             "relevancia_mediatica": 50.0,
             "singularidade": 65.0
           },
-          "weighted_score": 72.0,
+          "weighted_score": 72.2,
           "justification": "Crise política e agitação militar precipitam rutura na Primeira República.",
           "lang": "pt"
         },
@@ -2459,7 +2618,10 @@
           "facebook"
         ],
         "caption_instagram": "O regime republicano enfrentou um período de profunda instabilidade institucional e contestação nos quartéis em 1918, precipitando uma rutura política que acentuou o clima de agitação militar durante a presidência de Sidónio Pais.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1918.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Historia",
-        "caption_facebook": "O regime republicano enfrentou um período de profunda instabilidade institucional e contestação nos quartéis em 1918, precipitando uma rutura política que acentuou o clima de agitação militar durante a presidência de Sidónio Pais.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1918.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Historia"
+        "caption_facebook": "O regime republicano enfrentou um período de profunda instabilidade institucional e contestação nos quartéis em 1918, precipitando uma rutura política que acentuou o clima de agitação militar durante a presidência de Sidónio Pais.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1918.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Historia",
+        "title_en": "",
+        "summary_en": "",
+        "article_url": ""
       },
       {
         "year": "1755",
@@ -2481,7 +2643,26 @@
         "networks": [
           "instagram",
           "facebook"
-        ]
+        ],
+        "title_en": "",
+        "summary_en": "",
+        "body": "",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 45.0,
+            "dimensao_impacto": 40.0,
+            "consequencias": 40.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 30.0,
+            "relevancia_mediatica": 35.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 40.0,
+          "justification": "Acontecimento de interesse público documentado na época.",
+          "lang": "pt"
+        },
+        "article_url": ""
       },
       {
         "year": "2025",
@@ -2871,6 +3052,1556 @@
         "local_image_path": "",
         "background_source_url": "",
         "local_background_path": "",
+        "body": ""
+      }
+    ]
+  },
+  {
+    "id": "pt_2026-11-02_1",
+    "date": "2026-11-02",
+    "slot": 1,
+    "lang": "pt",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "external_suggestions": [
+      {
+        "year": "1917",
+        "category": "MUNDIAL",
+        "title": "Revolução Russa começa com a tomada do poder pelos bolcheviques",
+        "summary": "A data assinala o início da Bolshevik Revolution, um acontecimento que transformou a história mundial e o debate político do século XX."
+      },
+      {
+        "year": "1960",
+        "category": "NACIONAL",
+        "title": "Portugal integra a Organização de Estados Africanos e Malagasy",
+        "summary": "A adesão de Portugal a esta organização intergovernamental reforçou a sua posição diplomática no espaço africano em plena Guerra Fria."
+      },
+      {
+        "year": "1984",
+        "category": "DESPORTO",
+        "title": "Maradona marca o gol dos séculos no Estádio do Dragão",
+        "summary": "O argentino Diego Maradona assinou um dos golos mais celebéridos da história ao driblar vários adversários e terminar a balização no Porto, numa noite que se tornou inseparável do Dragão."
+      }
+    ],
+    "options": [
+      {
+        "year": "2022",
+        "category": "SOCIEDADE",
+        "editorial_tier": "high",
+        "title": "Professores realizam greve nacional contra o Orçamento do Estado",
+        "highlight_text": "Greve nacional",
+        "overlay_description": "Escolas fechadas e forte adesão a uma greve nacional da educação contra o orçamento e a falta de investimento.",
+        "image_theme": "Escola portuguesa greve Manifestação Lisboa",
+        "layout_preference": "template_1",
+        "breaking_candidate": true,
+        "conditional_trigger": "",
+        "caption": "Com uma adesão a rondar os 90% e centenas de escolas encerradas pelo país, os professores cumpriram uma greve nacional em 2022 para contestar o Orçamento do Estado e reivindicar investimento na Educação pública.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2022.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "summary": "A paralisação nacional da escola perturba diretamente o funcionamento do sistema educativo e a vida das famílias.",
+        "title_en": "Teachers Stage a National Strike Over the State Budget",
+        "summary_en": "Schools closed as teachers mounted a highly supported national strike over budget cuts and inadequate investment in education.",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 48.0,
+            "dimensao_impacto": 68.0,
+            "consequencias": 58.0,
+            "relevancia_posterior": 42.0,
+            "dimensao_duracao": 35.0,
+            "relevancia_mediatica": 72.0,
+            "singularidade": 45.0
+          },
+          "weighted_score": 52.4,
+          "justification": "A greve fechou escolas e perturbou famílias e aulas, mas o resumo não documenta mudanças estruturais posteriores no sistema educativo.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "background_source_url": "https://arquivo.pt/wayback/20180302191319/https://www.noticiasaominuto.com/politica/966522/governo-esta-a-deixar-de-fora-alunos-carenciados-no-particular-diz-cds",
+        "body": "A educação pública portuguesaViviu, em 2022, um dos seus momentos de maior contestação. Os professores realizaram uma greve nacional contra o Orçamento do Estado,封闭式 escolas em várias regiões e registaram uma adesão próxima dos 90%. A paralisão foi promovida em resposta ao orçamento governamental e à falta de investimento na Educação, segundo a síntese da notícia.\n\nA greve nacional deu origem a um largo movimento de encerramento de escolas, com um forte impacto na comunidade educativa. A adesão elevada às três horas de greve significou que muitos estabelecimentos ficaram sem aulas, disruptando o funcionamento regular das turmas e a relação entre alunos, professores e famílias. A magnitude da participação transformou a contestação numa das principais respostas da sociedade civil à política orçamental do Estado.\n\nO conflito和陈spl placed aEducation no centro da discussão pública. A principal exigência foi a revisão do orçamento, acompanhada do combate à falta de investimento no setor. A paralisão não se limitou a uma expressão pontual de-mal-estar: a dimensão da adesão e o número de escolas encerradas evidenciaram a amplitude dabases dissatisfied.\n\nA relevance duradoura deste evento reside na capacidade de工会ização e mobilisation dos professores para defender condições de trabalho e uma Education properly financed. A greve de 2022 mostrou que a questão orçamental é determinante para o sistema educativo e que a resposta dos profissionais da ensino pode assumir uma dimensão nacional. Ao mesmo tempo, reforçou a importância de garantir a continuidade das aulas e o diálogo entre governantes, representantes dos professores e comunidade educativa.",
+        "image_url": "https://i.ibb.co/bMHk8f88/2026-11-02-01-2022-professores-realizam-greve-nacional-contra-o-orcamento-do-estado.jpg",
+        "image_delete_url": "https://ibb.co/39fnLJLL/5efb58abc004e4a5be00d3b06784f5a9",
+        "local_image_path": "images/review/pt/2026-11-02_01_2022_professores-realizam-greve-nacional-contra-o-orcamento-do-estado.jpg",
+        "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-02_01_2022_professores-realizam-greve-nacional-contra-o-orcamento-do-estado-fundo.jpg",
+        "caption_instagram": "Com uma adesão a rondar os 90% e centenas de escolas encerradas pelo país, os professores cumpriram uma greve nacional em 2022 para contestar o Orçamento do Estado e reivindicar investimento na Educação pública.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2022.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "caption_facebook": "Com uma adesão a rondar os 90% e centenas de escolas encerradas pelo país, os professores cumpriram uma greve nacional em 2022 para contestar o Orçamento do Estado e reivindicar investimento na Educação pública.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2022.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade"
+      },
+      {
+        "year": "2020",
+        "category": "NACIONAL",
+        "editorial_tier": "high",
+        "title": "Estado de emergência aprovado para combate à pandemia",
+        "highlight_text": "Estado de emergência",
+        "overlay_description": "Medidas de emergência para limitar a circulação e reforçar o combate à pandemia em Portugal.",
+        "image_theme": "Palácio de Belém Lisboa",
+        "layout_preference": "template_1",
+        "breaking_candidate": true,
+        "conditional_trigger": "",
+        "caption": "O Presidente da República autorizou o estado de emergência, preparando medidas de contenção da pandemia, incluindo restrições à circulação e mobilização de meios de saúde.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Nacional",
+        "summary": "Decisão institucional com efeitos imediatos na circulação, saúde e funcionamento do país.",
+        "title_en": "Portugal Declares a COVID-19 Emergency",
+        "summary_en": "The government approved emergency measures to restrict movement and strengthen Portugal's pandemic response.",
+        "relevance": {
+          "level": 2,
+          "scores": {
+            "impacto_historico": 82.0,
+            "dimensao_impacto": 92.0,
+            "consequencias": 88.0,
+            "relevancia_posterior": 85.0,
+            "dimensao_duracao": 90.0,
+            "relevancia_mediatica": 95.0,
+            "singularidade": 78.0
+          },
+          "weighted_score": 86.6,
+          "justification": "A declaração de emergência restringiu circulação e reorganizou serviços durante a pandemia, com efeitos duradouros na gestão sanitária e na vida portuguesa.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "O Presidente da República autorizou o estado de emergência, preparando medidas de contenção da pandemia, incluindo restrições à circulação e mobilização de meios de saúde.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Nacional",
+        "caption_facebook": "O Presidente da República autorizou o estado de emergência, preparando medidas de contenção da pandemia, incluindo restrições à circulação e mobilização de meios de saúde.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Nacional",
+        "body": ""
+      },
+      {
+        "year": "2023",
+        "category": "SOCIEDADE",
+        "editorial_tier": "high",
+        "title": "Governo aprova novas regras para professores estagiários",
+        "highlight_text": "Professores estagiários",
+        "overlay_description": "O Governo atribui turmas aos professores estagiários e prevê a respetiva remuneração nos ensinos básico e secundário.",
+        "image_theme": "Governo de Portugal São Bento",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "As novas regras preveem a atribuição de turmas aos professores estagiários e a remuneração destes futuros docentes no básico e no secundário.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "summary": "Aprovação governamental com impacto na organização das escolas e no acesso à profissão docente.",
+        "title_en": "Government Approves New Rules for Trainee Teachers",
+        "summary_en": "The government assigned classes to trainee teachers and provided for their pay in basic and secondary education.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 32.0,
+            "dimensao_impacto": 42.0,
+            "consequencias": 38.0,
+            "relevancia_posterior": 35.0,
+            "dimensao_duracao": 42.0,
+            "relevancia_mediatica": 38.0,
+            "singularidade": 30.0
+          },
+          "weighted_score": 36.5,
+          "justification": "A medida alterou a organização escolar e o acesso à profissão docente, mas o resumo não identifica consequências documentadas de longo prazo.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "As novas regras preveem a atribuição de turmas aos professores estagiários e a remuneração destes futuros docentes no básico e no secundário.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "caption_facebook": "As novas regras preveem a atribuição de turmas aos professores estagiários e a remuneração destes futuros docentes no básico e no secundário.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "body": ""
+      },
+      {
+        "year": "2004",
+        "category": "POLÍTICA",
+        "editorial_tier": "high",
+        "title": "Porto reduz taxas de compensação em operações urbanísticas",
+        "highlight_text": "Taxas urbanísticas",
+        "overlay_description": "A Câmara do Porto reduziu as taxas de compensação urbanística para reduzir custos e reanimar o mercado imobiliário.",
+        "image_theme": "Câmara Municipal do Porto",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "A autarquia reduziu em até 80% as taxas de compensação em operações urbanísticas, com impacto esperado nos custos de habitação e na atividade imobiliária.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "summary": "Medida municipal de grande alcance sobre custos de habitação e investimento urbanístico no Porto.",
+        "title_en": "Porto Cuts Urban Development Compensation Fees",
+        "summary_en": "The Porto City Council reduced urban compensation fees to lower costs and revive the property market.",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 38.0,
+            "dimensao_impacto": 55.0,
+            "consequencias": 48.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 45.0,
+            "relevancia_mediatica": 45.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 44.1,
+          "justification": "A redução das taxas buscava reanimar o mercado imobiliário, mas o resumo não documenta resultados concretos ou mudanças duradouras.",
+          "lang": "pt"
+        },
+        "article_url": "https://www.publico.pt/2004/11/02/local/noticia/porto-reduz-taxas-de-compensacao-em-operacoes-urbanisticas-ate-80-por-cento-1207362",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "A autarquia reduziu em até 80% as taxas de compensação em operações urbanísticas, com impacto esperado nos custos de habitação e na atividade imobiliária.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "caption_facebook": "A autarquia reduziu em até 80% as taxas de compensação em operações urbanísticas, com impacto esperado nos custos de habitação e na atividade imobiliária.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "body": ""
+      },
+      {
+        "year": "2018",
+        "category": "DESPORTO",
+        "editorial_tier": "high",
+        "title": "Simone Biles conquista décimo terceiro título mundial de ginástica",
+        "highlight_text": "Título mundial",
+        "overlay_description": "A ginástica norte-americana renovou um recorde mundial ao conquistar o décimo terceiro título mundial.",
+        "image_theme": "Ginástica artística competição mundial Doha",
+        "layout_preference": "template_3",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "Simone Biles conquistou o décimo terceiro título mundial de ginástica, renovando um recorde que perdurava desde 1996.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Desporto",
+        "summary": "Vitória num campeonato mundial, com alcance internacional e reconhecimento de um recorde histórico da modalidade.",
+        "title_en": "Simone Biles Wins Her 13th World Gymnastics Title",
+        "summary_en": "Biles extended her world record with a 13th world gymnastics championship title for the United States.",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 52.0,
+            "dimensao_impacto": 48.0,
+            "consequencias": 35.0,
+            "relevancia_posterior": 45.0,
+            "dimensao_duracao": 40.0,
+            "relevancia_mediatica": 78.0,
+            "singularidade": 62.0
+          },
+          "weighted_score": 48.2,
+          "justification": "A vitória consolidou o domínio internacional de Biles e um recorde histórico da ginástica, sem consequências institucionais documentadas.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "Simone Biles conquistou o décimo terceiro título mundial de ginástica, renovando um recorde que perdurava desde 1996.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Desporto",
+        "caption_facebook": "Simone Biles conquistou o décimo terceiro título mundial de ginástica, renovando um recorde que perdurava desde 1996.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Desporto",
+        "body": ""
+      }
+    ]
+  },
+  {
+    "id": "pt_2026-11-02_2",
+    "date": "2026-11-02",
+    "slot": 2,
+    "lang": "pt",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "external_suggestions": [
+      {
+        "year": "1917",
+        "category": "MUNDIAL",
+        "title": "Revolução Russa começa com a tomada do poder pelos bolcheviques",
+        "summary": "A data assinala o início da Bolshevik Revolution, um acontecimento que transformou a história mundial e o debate político do século XX."
+      },
+      {
+        "year": "1960",
+        "category": "NACIONAL",
+        "title": "Portugal integra a Organização de Estados Africanos e Malagasy",
+        "summary": "A adesão de Portugal a esta organização intergovernamental reforçou a sua posição diplomática no espaço africano em plena Guerra Fria."
+      },
+      {
+        "year": "1984",
+        "category": "DESPORTO",
+        "title": "Maradona marca o gol dos séculos no Estádio do Dragão",
+        "summary": "O argentino Diego Maradona assinou um dos golos mais celebéridos da história ao driblar vários adversários e terminar a balização no Porto, numa noite que se tornou inseparável do Dragão."
+      }
+    ],
+    "options": [
+      {
+        "year": "2023",
+        "category": "SOCIEDADE",
+        "editorial_tier": "high",
+        "title": "Governo aprova novas regras para professores estagiários",
+        "highlight_text": "Professores estagiários",
+        "overlay_description": "O Governo atribui turmas aos professores estagiários e prevê a respetiva remuneração nos ensinos básico e secundário.",
+        "image_theme": "Governo de Portugal São Bento",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "Com o objetivo de responder à escassez de docentes nas escolas, o Conselho de Ministros aprovou em 2023 o novo regime de estágio com remuneração e turmas atribuídas aos professores estagiários.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "summary": "Aprovação governamental com impacto na organização das escolas e no acesso à profissão docente.",
+        "title_en": "Government Approves New Rules for Trainee Teachers",
+        "summary_en": "The government assigned classes to trainee teachers and provided for their pay in basic and secondary education.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 32.0,
+            "dimensao_impacto": 42.0,
+            "consequencias": 38.0,
+            "relevancia_posterior": 35.0,
+            "dimensao_duracao": 42.0,
+            "relevancia_mediatica": 38.0,
+            "singularidade": 30.0
+          },
+          "weighted_score": 36.5,
+          "justification": "A medida alterou a organização escolar e o acesso à profissão docente, mas o resumo não identifica consequências documentadas de longo prazo.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "background_source_url": "https://commons.wikimedia.org/wiki/File:O_pal%C3%A1cio_do_Congresso_em_S%C3%A3o_Bento_cercado_por_for%C3%A7as_da_pol%C3%ADcia_e_infantaria_da_guarda_Nacional_Republicana_que,_por_ordem_do_governo,_impediu_a_reuni%C3%A3o_dos_parlamentares.png",
+        "body": "O Governo aprovou em 2023 novas regras para a atribuição de turmas aos professores estagiários, durante o período de estágio, e para a respetiva remuneração nos ensinos básico e secundário. A medida insere-se na organização do trabalho dos futuros docentes, garantindo que os estagiários acompanhem o funcionamento de turmas nos dois níveis de ensino.\n\nA aprovação passa a prever expressamente a atribuição de turmas aos professores estagiários, além da remuneração destes durante a formação prática. Com esta regra, o estágio passa a ter uma componente mais concreta, com os estagiários responsáveis por grupos de alunos, enquanto exercem as funções pedagógicas próprias do seu futuro perfil docente.\n\nA novidade abrange o básico e o secundário e procura tornar o período de estágio mais consistente, independentemente do nível de ensino em que os candidatos se destinam a lecionar. A atribuição de turmas e a remuneração constituem, assim, aspetos centrais das novas regras.\n\nA aprovação tem relevância duradoura para a formação inicial de professores e para a organização das escolas. Ao definir como os estagiários devem acompanhar as turmas e como são remunerados, o Governo estabelece um quadro mais claro para a integração dos futuros docentes na prática letiva, com efeitos na continuidade pedagógica e na preparação dos alunos.",
+        "image_url": "https://i.ibb.co/kg7Ys7tn/2026-11-02-01-2023-governo-aprova-novas-regras-para-professores-estagiarios.jpg",
+        "image_delete_url": "https://ibb.co/gM2sL2x1/db130c32ca20c7c50606e49d8d984c82",
+        "local_image_path": "images/review/pt/2026-11-02_01_2023_governo-aprova-novas-regras-para-professores-estagiarios.jpg",
+        "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-02_01_2023_governo-aprova-novas-regras-para-professores-estagiarios-fundo.jpg",
+        "caption_instagram": "Com o objetivo de responder à escassez de docentes nas escolas, o Conselho de Ministros aprovou em 2023 o novo regime de estágio com remuneração e turmas atribuídas aos professores estagiários.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "caption_facebook": "Com o objetivo de responder à escassez de docentes nas escolas, o Conselho de Ministros aprovou em 2023 o novo regime de estágio com remuneração e turmas atribuídas aos professores estagiários.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade"
+      },
+      {
+        "year": "2020",
+        "category": "NACIONAL",
+        "editorial_tier": "high",
+        "title": "Estado de emergência aprovado para combate à pandemia",
+        "highlight_text": "Estado de emergência",
+        "overlay_description": "Medidas de emergência para limitar a circulação e reforçar o combate à pandemia em Portugal.",
+        "image_theme": "Palácio de Belém Lisboa",
+        "layout_preference": "template_1",
+        "breaking_candidate": true,
+        "conditional_trigger": "",
+        "caption": "O Presidente da República autorizou o estado de emergência, preparando medidas de contenção da pandemia, incluindo restrições à circulação e mobilização de meios de saúde.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Nacional",
+        "summary": "Decisão institucional com efeitos imediatos na circulação, saúde e funcionamento do país.",
+        "title_en": "Portugal Declares a COVID-19 Emergency",
+        "summary_en": "The government approved emergency measures to restrict movement and strengthen Portugal's pandemic response.",
+        "relevance": {
+          "level": 2,
+          "scores": {
+            "impacto_historico": 82.0,
+            "dimensao_impacto": 92.0,
+            "consequencias": 88.0,
+            "relevancia_posterior": 85.0,
+            "dimensao_duracao": 90.0,
+            "relevancia_mediatica": 95.0,
+            "singularidade": 78.0
+          },
+          "weighted_score": 86.6,
+          "justification": "A declaração de emergência restringiu circulação e reorganizou serviços durante a pandemia, com efeitos duradouros na gestão sanitária e na vida portuguesa.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "O Presidente da República autorizou o estado de emergência, preparando medidas de contenção da pandemia, incluindo restrições à circulação e mobilização de meios de saúde.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Nacional",
+        "caption_facebook": "O Presidente da República autorizou o estado de emergência, preparando medidas de contenção da pandemia, incluindo restrições à circulação e mobilização de meios de saúde.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Nacional",
+        "body": ""
+      },
+      {
+        "year": "2004",
+        "category": "POLÍTICA",
+        "editorial_tier": "high",
+        "title": "Porto reduz taxas de compensação em operações urbanísticas",
+        "highlight_text": "Taxas urbanísticas",
+        "overlay_description": "A Câmara do Porto reduziu as taxas de compensação urbanística para reduzir custos e reanimar o mercado imobiliário.",
+        "image_theme": "Câmara Municipal do Porto",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "A autarquia reduziu em até 80% as taxas de compensação em operações urbanísticas, com impacto esperado nos custos de habitação e na atividade imobiliária.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "summary": "Medida municipal de grande alcance sobre custos de habitação e investimento urbanístico no Porto.",
+        "title_en": "Porto Cuts Urban Development Compensation Fees",
+        "summary_en": "The Porto City Council reduced urban compensation fees to lower costs and revive the property market.",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 38.0,
+            "dimensao_impacto": 55.0,
+            "consequencias": 48.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 45.0,
+            "relevancia_mediatica": 45.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 44.1,
+          "justification": "A redução das taxas buscava reanimar o mercado imobiliário, mas o resumo não documenta resultados concretos ou mudanças duradouras.",
+          "lang": "pt"
+        },
+        "article_url": "https://www.publico.pt/2004/11/02/local/noticia/porto-reduz-taxas-de-compensacao-em-operacoes-urbanisticas-ate-80-por-cento-1207362",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "A autarquia reduziu em até 80% as taxas de compensação em operações urbanísticas, com impacto esperado nos custos de habitação e na atividade imobiliária.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "caption_facebook": "A autarquia reduziu em até 80% as taxas de compensação em operações urbanísticas, com impacto esperado nos custos de habitação e na atividade imobiliária.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "body": ""
+      },
+      {
+        "year": "2018",
+        "category": "DESPORTO",
+        "editorial_tier": "high",
+        "title": "Simone Biles conquista décimo terceiro título mundial de ginástica",
+        "highlight_text": "Título mundial",
+        "overlay_description": "A ginástica norte-americana renovou um recorde mundial ao conquistar o décimo terceiro título mundial.",
+        "image_theme": "Ginástica artística competição mundial Doha",
+        "layout_preference": "template_3",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "Simone Biles conquistou o décimo terceiro título mundial de ginástica, renovando um recorde que perdurava desde 1996.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Desporto",
+        "summary": "Vitória num campeonato mundial, com alcance internacional e reconhecimento de um recorde histórico da modalidade.",
+        "title_en": "Simone Biles Wins Her 13th World Gymnastics Title",
+        "summary_en": "Biles extended her world record with a 13th world gymnastics championship title for the United States.",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 52.0,
+            "dimensao_impacto": 48.0,
+            "consequencias": 35.0,
+            "relevancia_posterior": 45.0,
+            "dimensao_duracao": 40.0,
+            "relevancia_mediatica": 78.0,
+            "singularidade": 62.0
+          },
+          "weighted_score": 48.2,
+          "justification": "A vitória consolidou o domínio internacional de Biles e um recorde histórico da ginástica, sem consequências institucionais documentadas.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "Simone Biles conquistou o décimo terceiro título mundial de ginástica, renovando um recorde que perdurava desde 1996.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Desporto",
+        "caption_facebook": "Simone Biles conquistou o décimo terceiro título mundial de ginástica, renovando um recorde que perdurava desde 1996.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Desporto",
+        "body": ""
+      },
+      {
+        "year": "2002",
+        "category": "MUNDIAL",
+        "editorial_tier": "high",
+        "title": "ONU debate reestruturação dos centros de informação na Europa",
+        "highlight_text": "Centros de informação",
+        "overlay_description": "A ONU debate o encerramento e a regionalização de centros de informação europeus para tornar a organização mais eficiente.",
+        "image_theme": "Organização das Nações Unidas Genebra",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "A ONU discutiu o fecho de centros de informação na Europa e a regionalização das suas funções, com posição apresentada pela representação dinamarquesa.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
+        "summary": "Reestruturação institucional internacional com efeitos sobre a presença e o funcionamento da ONU na Europa.",
+        "title_en": "UN Debates Restructuring European Information Centers",
+        "summary_en": "The UN considered closing and regionalizing European information centers to improve organizational efficiency.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 28.0,
+            "dimensao_impacto": 35.0,
+            "consequencias": 30.0,
+            "relevancia_posterior": 28.0,
+            "dimensao_duracao": 35.0,
+            "relevancia_mediatica": 30.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 30.8,
+          "justification": "A debate buscava tornar a ONU mais eficiente na Europa, mas o resumo não registra decisões finais nem efeitos posteriores.",
+          "lang": "pt"
+        },
+        "article_url": "https://www.publico.pt/2002/11/02/mundo/noticia/onu-debate-fecho-da-sua-missao-em-lisboa-193465",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "A ONU discutiu o fecho de centros de informação na Europa e a regionalização das suas funções, com posição apresentada pela representação dinamarquesa.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
+        "caption_facebook": "A ONU discutiu o fecho de centros de informação na Europa e a regionalização das suas funções, com posição apresentada pela representação dinamarquesa.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
+        "body": ""
+      }
+    ]
+  },
+  {
+    "id": "pt_2026-11-03_1",
+    "date": "2026-11-03",
+    "slot": 1,
+    "lang": "pt",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "external_suggestions": [
+      {
+        "year": "1906",
+        "category": "CIÊNCIA",
+        "title": "Albert Einstein apresenta a teoria da relatividade restrita",
+        "summary": "A apresentação da teoria da relatividade restrita, feita por Albert Einstein em 3 de novembro de 1906, marca um dos momentos mais decisivos da física moderna."
+      },
+      {
+        "year": "1957",
+        "category": "CIÊNCIA",
+        "title": "Lançado o primeiro satélite artificial, o Sputnik 1",
+        "summary": "O Sputnik 1, lançado pela União Soviética em 3 de novembro de 1957, inaugurou a era espacial e alterou profundamente a ciência, a tecnologia e a competição internacional."
+      },
+      {
+        "year": "1990",
+        "category": "DESPORTO",
+        "title": "A seleção portuguesa conquista o título mundial de sub-20",
+        "summary": "A vitória por 4-0 sobre a Polónia, em 3 de novembro de 1990, permitiu a Portugal conquistar o primeiro Mundial da FIFA sub-20, uma referência do desporto nacional."
+      }
+    ],
+    "options": [
+      {
+        "year": "2023",
+        "category": "MUNDIAL",
+        "editorial_tier": "high",
+        "title": "Tempestade Ciarán fecha escolas, aeroportos e serviços ferroviários",
+        "highlight_text": "Tempestade Ciarán",
+        "overlay_description": "Raios-volta e chuva intensa provocamShutdowns generalizados na Europa Ocidental.",
+        "image_theme": "Tempestade Europa Ocidental",
+        "layout_preference": "template_1",
+        "breaking_candidate": true,
+        "conditional_trigger": "",
+        "caption": "Com rajadas de vento destruidoras e chuvas torrenciais, a tempestade Ciarán atingiu com violência o oeste europeu em 2023, paralisando transportes, encerrando escolas e causando vítimas mortais.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
+        "summary": "Uma tempestade com impacto amplo na circulação, na aviation e na educação, com forte potencial de perturbação quotidiana.",
+        "title_en": "Storm Ciarán Shuts Down Schools, Airports and Rail Services",
+        "summary_en": "Thunderstorms and heavy rain triggered widespread shutdowns across Western Europe, disrupting transportation, aviation and education.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 15.0,
+            "dimensao_impacto": 55.0,
+            "consequencias": 35.0,
+            "relevancia_posterior": 20.0,
+            "dimensao_duracao": 25.0,
+            "relevancia_mediatica": 55.0,
+            "singularidade": 20.0
+          },
+          "weighted_score": 30.0,
+          "justification": "A tempestade causou interrupções generalizadas, mas a fonte não documenta consequências duradouras além da perturbação operacional.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "background_source_url": "https://arquivo.pt/wayback/20220802215436/https://franciscolucinda.blogspot.com/2020/04/mapa-da-europa-ocidental.html",
+        "body": "A tempestade Ciarán, que afetou a Europa Ocidental em 2023, provocou seis mortos e obrigou ao encerramento de escolas, aeroportos e serviços ferroviários em vários países da região. O fenómeno meteorológico foi caracterizado por raios-volta e chuva intensa, com consequências generalizadas eminfraestruturas e serviços públicos.\n\nNa sequencing dos impactos, os encerramentos de escolas, aeroportos e serviços ferroviários evidenciaram a dimensão da perturbação causada pela tempestade. A intensidade da chuva e a ocorrência de raios-volta obrigaram à suspensão de atividades e serviços em diferentes pontos da Europa Ocidental, afetando a circulação de passageiros e a operação de infraestruturas essenciais.\n\nA tempestade Ciarán ficou marcada pelas consequências humanas e materiais dos seus efeitos. A ocorrência de seis mortos e a interrupção de serviços em vários países revelam a vulnerabilidade das sociedades europeias face a eventos meteorológicos extremos. A sua relevância duradoura reside na necessidade de reforçar a preparação para fenómenos climáticos severos, assegurando a continuidade de serviços essenciais e a proteção das populações.",
+        "image_url": "https://i.ibb.co/bM683m5T/2026-11-03-01-2023-tempestade-ciaran-fecha-escolas-aeroportos-e-servicos-ferroviarios.jpg",
+        "image_delete_url": "https://ibb.co/XrWv4Lx1/b72e4062c55f8f7ef559db19edead772",
+        "local_image_path": "images/review/pt/2026-11-03_01_2023_tempestade-ciaran-fecha-escolas-aeroportos-e-servicos-ferroviarios.jpg",
+        "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-03_01_2023_tempestade-ciaran-fecha-escolas-aeroportos-e-servicos-ferroviarios-fundo.jpg",
+        "caption_instagram": "Com rajadas de vento destruidoras e chuvas torrenciais, a tempestade Ciarán atingiu com violência o oeste europeu em 2023, paralisando transportes, encerrando escolas e causando vítimas mortais.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
+        "caption_facebook": "Com rajadas de vento destruidoras e chuvas torrenciais, a tempestade Ciarán atingiu com violência o oeste europeu em 2023, paralisando transportes, encerrando escolas e causando vítimas mortais.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Mundo"
+      },
+      {
+        "year": "2020",
+        "category": "NACIONAL",
+        "editorial_tier": "high",
+        "title": "Novas medidas anticovid entram em vigor em Portugal",
+        "highlight_text": "Medidas anticovid",
+        "overlay_description": "O Governo aplica medidas anticovid e mantém a situação de calamidade em todo o território continental.",
+        "image_theme": "Governo de Portugal São Bento",
+        "layout_preference": "template_2",
+        "breaking_candidate": true,
+        "conditional_trigger": "",
+        "caption": "Entraram em vigor novas medidas anticovid, com a situação de calamidade mantida em todo o território continental e regras especiais em 121 concelhos.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Nacional",
+        "summary": "A entrada em vigor de medidas nacionais de contenção da pandemia afetou diretamente a circulação e a organização dos serviços no país.",
+        "title_en": "New COVID-19 Measures Take Effect in Portugal",
+        "summary_en": "The government introduced national containment measures while keeping the mainland under a state of calamity.",
+        "relevance": {
+          "level": 3,
+          "scores": {
+            "impacto_historico": 55.0,
+            "dimensao_impacto": 75.0,
+            "consequencias": 65.0,
+            "relevancia_posterior": 55.0,
+            "dimensao_duracao": 65.0,
+            "relevancia_mediatica": 65.0,
+            "singularidade": 30.0
+          },
+          "weighted_score": 60.8,
+          "justification": "As medidas alteraram diretamente circulação e serviços em Portugal, mas a fonte não detalha efeitos posteriores específicos que sustentem pontuação elevada.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "Entraram em vigor novas medidas anticovid, com a situação de calamidade mantida em todo o território continental e regras especiais em 121 concelhos.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Nacional",
+        "caption_facebook": "Entraram em vigor novas medidas anticovid, com a situação de calamidade mantida em todo o território continental e regras especiais em 121 concelhos.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Nacional",
+        "body": ""
+      },
+      {
+        "year": "2005",
+        "category": "MUNDIAL",
+        "editorial_tier": "high",
+        "title": "Parlamento espanhol aprova revisão do estatuto da Catalunha",
+        "highlight_text": "Estatuto da Catalunha",
+        "overlay_description": "A assembleia espanhola aprova uma revisão do estatuto catalão que atribui amplos poderes fiscais à região.",
+        "image_theme": "Parlamento Espanha Madrid",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "O Parlamento espanhol aprovou a revisão do estatuto da Catalunha, que concede à região amplos poderes fiscais,的决定 que foi depois objeto de recurso no Tribunal Constitucional.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2005.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
+        "summary": "A aprovaçãoParlamentar alterou o enquadramento institucional e fiscal de uma região europeia e foi objeto de contestação constitucional.",
+        "title_en": "Spanish Parliament Approves Revision of Catalonia's Statute",
+        "summary_en": "The Spanish assembly approved a statute revision granting Catalonia broad fiscal powers, provoking constitutional objections.",
+        "relevance": {
+          "level": 3,
+          "scores": {
+            "impacto_historico": 65.0,
+            "dimensao_impacto": 70.0,
+            "consequencias": 65.0,
+            "relevancia_posterior": 65.0,
+            "dimensao_duracao": 65.0,
+            "relevancia_mediatica": 60.0,
+            "singularidade": 55.0
+          },
+          "weighted_score": 65.2,
+          "justification": "A revisão alterou o enquadramento fiscal catalão e gerou contestação constitucional, mas a fonte não documenta consequências duradouras suficientes para uma pontuação superior.",
+          "lang": "pt"
+        },
+        "article_url": "https://www.publico.pt/2005/11/03/mundo/noticia/parlamento-espanhol-aprova-discussao-sobre-revisao-do-estatuto-da-catalunha-1237689",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "O Parlamento espanhol aprovou a revisão do estatuto da Catalunha, que concede à região amplos poderes fiscais,的决定 que foi depois objeto de recurso no Tribunal Constitucional.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2005.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
+        "caption_facebook": "O Parlamento espanhol aprovou a revisão do estatuto da Catalunha, que concede à região amplos poderes fiscais,的决定 que foi depois objeto de recurso no Tribunal Constitucional.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2005.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
+        "body": ""
+      },
+      {
+        "year": "2004",
+        "category": "SOCIEDADE",
+        "editorial_tier": "high",
+        "title": "Pais impedem aulas por falta de auxiliares na escola de Barreiro",
+        "highlight_text": "Falta de auxiliares",
+        "overlay_description": "Pais de alunos de uma escola de Barreiro bloqueiam as aulas em protesto pela falta de auxiliares educativos.",
+        "image_theme": "Escola Conde Ferreira Barreiro",
+        "layout_preference": "template_3",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "Os pais de alunos da escola Conde Ferreira, no Barreiro, impediram o prosseguimento das aulas em protesto pela falta de auxiliares educativos.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "summary": "A interrupção das aulas por escassez de pessoal põe em causa o funcionamento de uma escola e a resposta educativa às crianças.",
+        "title_en": "Parents Halt Classes Over Lack of School Support Staff in Barreiro",
+        "summary_en": "Parents blocked classes at a Barreiro school to protest the shortage of educational support workers.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 10.0,
+            "dimensao_impacto": 20.0,
+            "consequencias": 20.0,
+            "relevancia_posterior": 15.0,
+            "dimensao_duracao": 15.0,
+            "relevancia_mediatica": 25.0,
+            "singularidade": 20.0
+          },
+          "weighted_score": 16.0,
+          "justification": "A protestação afetou uma única escola e expôs a falta de auxiliares, sem consequências documentadas de alcance ou duração relevantes.",
+          "lang": "pt"
+        },
+        "article_url": "https://www.publico.pt/2004/11/03/portugal/noticia/barreiro-pais-protestam-contra-falta-de-auxiliares-educativas-na-escola-conde-ferreira-1207490",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "Os pais de alunos da escola Conde Ferreira, no Barreiro, impediram o prosseguimento das aulas em protesto pela falta de auxiliares educativos.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "caption_facebook": "Os pais de alunos da escola Conde Ferreira, no Barreiro, impediram o prosseguimento das aulas em protesto pela falta de auxiliares educativos.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "body": ""
+      },
+      {
+        "year": "2002",
+        "category": "SOCIEDADE",
+        "editorial_tier": "high",
+        "title": "Docentes do ensino particular e cooperativo aderem a greve nacional",
+        "highlight_text": "Greve nacional",
+        "overlay_description": "A Federação dos Profissionais de Educação do Ensino Privado e Cooperativo convoca uma greve nacional de docentes.",
+        "image_theme": "Greve docentes Portugal",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "Os docentes do ensino particular e cooperativo aderiram a uma greve nacional, em resposta ao que consideram uma regressão dos seus direitos e condições de trabalho.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "summary": "A greve nacional de docentes constitui uma ação coletiva concreta com impacto direto na continuidade das aulas.",
+        "title_en": "Private and Cooperative School Teachers Join National Strike",
+        "summary_en": "The federation representing private and cooperative education workers called a national strike among teachers.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 30.0,
+            "dimensao_impacto": 45.0,
+            "consequencias": 40.0,
+            "relevancia_posterior": 30.0,
+            "dimensao_duracao": 30.0,
+            "relevancia_mediatica": 45.0,
+            "singularidade": 30.0
+          },
+          "weighted_score": 35.2,
+          "justification": "A greve afetou diretamente a continuidade das aulas em escolas privadas e cooperativas, mas a fonte não documenta consequências duradouras.",
+          "lang": "pt"
+        },
+        "article_url": "https://www.publico.pt/2002/11/03/portugal/noticia/docentes-do-ensino-particular-e-cooperativo-aderem-a-greve-geral-193720",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "Os docentes do ensino particular e cooperativo aderiram a uma greve nacional, em resposta ao que consideram uma regressão dos seus direitos e condições de trabalho.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "caption_facebook": "Os docentes do ensino particular e cooperativo aderiram a uma greve nacional, em resposta ao que consideram uma regressão dos seus direitos e condições de trabalho.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "body": ""
+      }
+    ]
+  },
+  {
+    "id": "pt_2026-11-03_2",
+    "date": "2026-11-03",
+    "slot": 2,
+    "lang": "pt",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "external_suggestions": [
+      {
+        "year": "1906",
+        "category": "CIÊNCIA",
+        "title": "Albert Einstein apresenta a teoria da relatividade restrita",
+        "summary": "A apresentação da teoria da relatividade restrita, feita por Albert Einstein em 3 de novembro de 1906, marca um dos momentos mais decisivos da física moderna."
+      },
+      {
+        "year": "1957",
+        "category": "CIÊNCIA",
+        "title": "Lançado o primeiro satélite artificial, o Sputnik 1",
+        "summary": "O Sputnik 1, lançado pela União Soviética em 3 de novembro de 1957, inaugurou a era espacial e alterou profundamente a ciência, a tecnologia e a competição internacional."
+      },
+      {
+        "year": "1990",
+        "category": "DESPORTO",
+        "title": "A seleção portuguesa conquista o título mundial de sub-20",
+        "summary": "A vitória por 4-0 sobre a Polónia, em 3 de novembro de 1990, permitiu a Portugal conquistar o primeiro Mundial da FIFA sub-20, uma referência do desporto nacional."
+      }
+    ],
+    "options": [
+      {
+        "year": "2020",
+        "category": "NACIONAL",
+        "editorial_tier": "high",
+        "title": "Novas medidas anticovid entram em vigor em Portugal",
+        "highlight_text": "Medidas anticovid",
+        "overlay_description": "O Governo aplica medidas anticovid e mantém a situação de calamidade em todo o território continental.",
+        "image_theme": "Governo de Portugal São Bento",
+        "layout_preference": "template_2",
+        "breaking_candidate": true,
+        "conditional_trigger": "",
+        "caption": "Num momento crítico de combate à pandemia, entraram em vigor em 2020 novas medidas restritivas que impuseram regras especiais de confinamento e dever cívico em 121 concelhos do país.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Portugal",
+        "summary": "A entrada em vigor de medidas nacionais de contenção da pandemia afetou diretamente a circulação e a organização dos serviços no país.",
+        "title_en": "New COVID-19 Measures Take Effect in Portugal",
+        "summary_en": "The government introduced national containment measures while keeping the mainland under a state of calamity.",
+        "relevance": {
+          "level": 3,
+          "scores": {
+            "impacto_historico": 55.0,
+            "dimensao_impacto": 75.0,
+            "consequencias": 65.0,
+            "relevancia_posterior": 55.0,
+            "dimensao_duracao": 65.0,
+            "relevancia_mediatica": 65.0,
+            "singularidade": 30.0
+          },
+          "weighted_score": 60.8,
+          "justification": "As medidas alteraram diretamente circulação e serviços em Portugal, mas a fonte não detalha efeitos posteriores específicos que sustentem pontuação elevada.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "background_source_url": "https://commons.wikimedia.org/wiki/File:O_pal%C3%A1cio_do_Congresso_em_S%C3%A3o_Bento_cercado_por_for%C3%A7as_da_pol%C3%ADcia_e_infantaria_da_guarda_Nacional_Republicana_que,_por_ordem_do_governo,_impediu_a_reuni%C3%A3o_dos_parlamentares.png",
+        "body": "O Governo de Portugal entrou em vigor em 2020 novas medidas de combate à pandemia de covid-19, mantendo a situação de calamidade em todo o território continental. A decisão, apresentada como uma resposta à evolução da疫情 e à necessidade de controlar a transmissão do novo Coronavírus, introduce regras adicionais de circulação e convivência, sem que o país registe, no período, uma mudança de regime que dispensasse a manutenção do estado de calamidade.\n\nAs novas medidas assumem particular relevo em 121 concelhos, onde foram definidas regras especiais. Estas disposições locais acrescentam restrições e obrigações específicas ao regime geral, mostrando que a resposta do Governo combinou uma política de alcance nacional com uma adaptação às diferenças registadas entre municípios. A manutenção da calamidade em todo o território continental significa que as autoridades mantiveram um quadro jurídico de exceção e mecanismos de coordenação para enfrentar a crise sanitária.\n\nA entrada em vigor das medidas marca mais uma etapa do combate à pandemia em Portugal, iniciado em 2020 com a suspensão de atividades e a limitação da circulação de pessoas. Ao longo do ano, o Governo foi recorrendo a ajustes do estado de emergência, da situação de calamidade e das regras de funcionamento de espaços e serviços, de acordo com a evolução da疫情 e com a pressão sobre o sistema de saúde.\n\nA relevância duradoura destas medidas reside na consolidação de uma resposta de saúde pública baseada em restrições coordenadas e na definição de regras diferenciadas para os concelhos. A experiência de 2020 tornou-se um teste à capacidade institucional do país para comunicar e aplicar decisões em tempo útil, proteger a população e gerir as consequências económicas e sociais da pandemia. Embora a situação de calamidade e as regras especiais nos 121 concelhos tenham caráter temporário, o período deixou registos importantes sobre a gestão de crises sanitárias e sobre o papel das autoridades locais na execução das políticas de contenção da covid-19.",
+        "image_url": "https://i.ibb.co/qM3wSMZH/2026-11-03-01-2020-novas-medidas-anticovid-entram-em-vigor-em-portugal.jpg",
+        "image_delete_url": "https://ibb.co/JRwP1RhY/ef6d431356175832c4c0833e56057ec8",
+        "local_image_path": "images/review/pt/2026-11-03_01_2020_novas-medidas-anticovid-entram-em-vigor-em-portugal.jpg",
+        "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-03_01_2020_novas-medidas-anticovid-entram-em-vigor-em-portugal-fundo.jpg",
+        "caption_instagram": "Num momento crítico de combate à pandemia, entraram em vigor em 2020 novas medidas restritivas que impuseram regras especiais de confinamento e dever cívico em 121 concelhos do país.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Portugal",
+        "caption_facebook": "Num momento crítico de combate à pandemia, entraram em vigor em 2020 novas medidas restritivas que impuseram regras especiais de confinamento e dever cívico em 121 concelhos do país.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Portugal"
+      },
+      {
+        "year": "2005",
+        "category": "MUNDIAL",
+        "editorial_tier": "high",
+        "title": "Parlamento espanhol aprova revisão do estatuto da Catalunha",
+        "highlight_text": "Estatuto da Catalunha",
+        "overlay_description": "A assembleia espanhola aprova uma revisão do estatuto catalão que atribui amplos poderes fiscais à região.",
+        "image_theme": "Parlamento Espanha Madrid",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "O Parlamento espanhol aprovou a revisão do estatuto da Catalunha, que concede à região amplos poderes fiscais,的决定 que foi depois objeto de recurso no Tribunal Constitucional.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2005.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
+        "summary": "A aprovaçãoParlamentar alterou o enquadramento institucional e fiscal de uma região europeia e foi objeto de contestação constitucional.",
+        "title_en": "Spanish Parliament Approves Revision of Catalonia's Statute",
+        "summary_en": "The Spanish assembly approved a statute revision granting Catalonia broad fiscal powers, provoking constitutional objections.",
+        "relevance": {
+          "level": 3,
+          "scores": {
+            "impacto_historico": 65.0,
+            "dimensao_impacto": 70.0,
+            "consequencias": 65.0,
+            "relevancia_posterior": 65.0,
+            "dimensao_duracao": 65.0,
+            "relevancia_mediatica": 60.0,
+            "singularidade": 55.0
+          },
+          "weighted_score": 65.2,
+          "justification": "A revisão alterou o enquadramento fiscal catalão e gerou contestação constitucional, mas a fonte não documenta consequências duradouras suficientes para uma pontuação superior.",
+          "lang": "pt"
+        },
+        "article_url": "https://www.publico.pt/2005/11/03/mundo/noticia/parlamento-espanhol-aprova-discussao-sobre-revisao-do-estatuto-da-catalunha-1237689",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "O Parlamento espanhol aprovou a revisão do estatuto da Catalunha, que concede à região amplos poderes fiscais,的决定 que foi depois objeto de recurso no Tribunal Constitucional.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2005.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
+        "caption_facebook": "O Parlamento espanhol aprovou a revisão do estatuto da Catalunha, que concede à região amplos poderes fiscais,的决定 que foi depois objeto de recurso no Tribunal Constitucional.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2005.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
+        "body": ""
+      },
+      {
+        "year": "2004",
+        "category": "SOCIEDADE",
+        "editorial_tier": "high",
+        "title": "Pais impedem aulas por falta de auxiliares na escola de Barreiro",
+        "highlight_text": "Falta de auxiliares",
+        "overlay_description": "Pais de alunos de uma escola de Barreiro bloqueiam as aulas em protesto pela falta de auxiliares educativos.",
+        "image_theme": "Escola Conde Ferreira Barreiro",
+        "layout_preference": "template_3",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "Os pais de alunos da escola Conde Ferreira, no Barreiro, impediram o prosseguimento das aulas em protesto pela falta de auxiliares educativos.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "summary": "A interrupção das aulas por escassez de pessoal põe em causa o funcionamento de uma escola e a resposta educativa às crianças.",
+        "title_en": "Parents Halt Classes Over Lack of School Support Staff in Barreiro",
+        "summary_en": "Parents blocked classes at a Barreiro school to protest the shortage of educational support workers.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 10.0,
+            "dimensao_impacto": 20.0,
+            "consequencias": 20.0,
+            "relevancia_posterior": 15.0,
+            "dimensao_duracao": 15.0,
+            "relevancia_mediatica": 25.0,
+            "singularidade": 20.0
+          },
+          "weighted_score": 16.0,
+          "justification": "A protestação afetou uma única escola e expôs a falta de auxiliares, sem consequências documentadas de alcance ou duração relevantes.",
+          "lang": "pt"
+        },
+        "article_url": "https://www.publico.pt/2004/11/03/portugal/noticia/barreiro-pais-protestam-contra-falta-de-auxiliares-educativas-na-escola-conde-ferreira-1207490",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "Os pais de alunos da escola Conde Ferreira, no Barreiro, impediram o prosseguimento das aulas em protesto pela falta de auxiliares educativos.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "caption_facebook": "Os pais de alunos da escola Conde Ferreira, no Barreiro, impediram o prosseguimento das aulas em protesto pela falta de auxiliares educativos.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "body": ""
+      },
+      {
+        "year": "2002",
+        "category": "SOCIEDADE",
+        "editorial_tier": "high",
+        "title": "Docentes do ensino particular e cooperativo aderem a greve nacional",
+        "highlight_text": "Greve nacional",
+        "overlay_description": "A Federação dos Profissionais de Educação do Ensino Privado e Cooperativo convoca uma greve nacional de docentes.",
+        "image_theme": "Greve docentes Portugal",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "Os docentes do ensino particular e cooperativo aderiram a uma greve nacional, em resposta ao que consideram uma regressão dos seus direitos e condições de trabalho.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "summary": "A greve nacional de docentes constitui uma ação coletiva concreta com impacto direto na continuidade das aulas.",
+        "title_en": "Private and Cooperative School Teachers Join National Strike",
+        "summary_en": "The federation representing private and cooperative education workers called a national strike among teachers.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 30.0,
+            "dimensao_impacto": 45.0,
+            "consequencias": 40.0,
+            "relevancia_posterior": 30.0,
+            "dimensao_duracao": 30.0,
+            "relevancia_mediatica": 45.0,
+            "singularidade": 30.0
+          },
+          "weighted_score": 35.2,
+          "justification": "A greve afetou diretamente a continuidade das aulas em escolas privadas e cooperativas, mas a fonte não documenta consequências duradouras.",
+          "lang": "pt"
+        },
+        "article_url": "https://www.publico.pt/2002/11/03/portugal/noticia/docentes-do-ensino-particular-e-cooperativo-aderem-a-greve-geral-193720",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "Os docentes do ensino particular e cooperativo aderiram a uma greve nacional, em resposta ao que consideram uma regressão dos seus direitos e condições de trabalho.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "caption_facebook": "Os docentes do ensino particular e cooperativo aderiram a uma greve nacional, em resposta ao que consideram uma regressão dos seus direitos e condições de trabalho.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "body": ""
+      }
+    ]
+  },
+  {
+    "id": "pt_2026-11-04_1",
+    "date": "2026-11-04",
+    "slot": 1,
+    "lang": "pt",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "external_suggestions": [
+      {
+        "year": "1910",
+        "category": "POLÍTICA",
+        "title": "Proclamação da República Portuguesa em Lisboa",
+        "summary": "A queda da monarquia e a proclamação da República abriram um novo ciclo político em Portugal, com efeitos duradouros na soberania, na cidadania e na memória nacional."
+      },
+      {
+        "year": "1989",
+        "category": "MUNDIAL",
+        "title": "Queda do Muro de Berlim",
+        "summary": "O colapso do muro que dividia a cidade e simbolizava a Guerra Fria tornou-se um marco decisivo para a reunificação alemã e para a transformação do sistema internacional."
+      },
+      {
+        "year": "2016",
+        "category": "DESPORTO",
+        "title": "Vitória do FC Porto em Munique",
+        "summary": "A equipa do FC Porto venceu o Bayern de Munique por 2-1 no Allianz Arena, consolidando uma das maiores vitórias europeias da história do futebol português."
+      }
+    ],
+    "options": [
+      {
+        "year": "2018",
+        "category": "NACIONAL",
+        "editorial_tier": "high",
+        "title": "Grande parada militar marca o centenário do armistício em Lisboa",
+        "highlight_text": "Parada militar",
+        "overlay_description": "Parada militarahm occur na Avenida da Liberdade para assinalar o centenário do fim da Primeira Guerra Mundial.",
+        "image_theme": "Avenida da Liberdade Lisboa",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "Numa solene demonstração de memória histórica, as Forças Armadas portuguesas desfilaram em plena Avenida da Liberdade em 2018, assinalando com uma imponente parada militar o centenário do Armistício da Primeira Guerra Mundial.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Portugal",
+        "summary": "Cerimónia nacional de grande escala com participação institucional e forte expressão pública, commemorando um marco histórico universal.",
+        "title_en": "Grand Military Parade Marks Armistice Centenary in Lisbon",
+        "summary_en": "A large military parade on Avenida da Liberdade commemorated the centenary of the end of World War I.",
+        "relevance": {
+          "level": 3,
+          "scores": {
+            "impacto_historico": 68.0,
+            "dimensao_impacto": 60.0,
+            "consequencias": 42.0,
+            "relevancia_posterior": 58.0,
+            "dimensao_duracao": 55.0,
+            "relevancia_mediatica": 72.0,
+            "singularidade": 58.0
+          },
+          "weighted_score": 59.4,
+          "justification": "A cerimônia reforçou a memória pública da Primeira Guerra Mundial, mas foi principalmente simbólica, sem mudanças estruturais documentadas.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "background_source_url": "https://commons.wikimedia.org/wiki/File:Avenida_da_Liberdade,_Lisboa_-_Avenida_da_Liberdade_(Lisbon)_-_Tagzania_-_1775471196778.jpg",
+        "body": "A Avenida da Liberdade, em Lisboa, acolheu uma grande parada militar para assinalar o centenário do armistício que encerrou a Primeira Guerra Mundial. A iniciativa, realizada em 2018, reuniu formações militares em uma das maiores paradasportingas realizadas em Portugal, segundo a legenda da notícia.\n\nA parada constituiu o ponto central das cerimónias commemorateivas do centenário do armistício. A data é associada ao fim dos combates da Primeira Guerra Mundial, conflito que marcou profundamente a história europeia e deixou um legado duradouro nas fronteiras, na política e na memória coletiva do continente.\n\nA escolha da Avenida da Liberdade para acolher o evento confere-lhe uma dimensão simbólica e nacional. A principal avenida de Lisboa tornou-se assim palco de uma manifestação de memória institucional e militar, reunindo troops e autoridades num espaço público de grande visibilidade. A grandiosidade da parada, descrita como uma das maiores realizadas em Portugal, sublinhou a importância atribuída à>data comemorativa.\n\nA ocorrência integra-se, ainda, na evocação mais ampla do centenário do fim da Grande Guerra. A memória do conflito é mantida através de cerimónias oficiais, parades militares e其它Efemérides que permitem às gerações seguintes conhecer e recordar um acontecimento histórico de alcance mundial.\n\nA relevância duradoura deste evento reside na forma como articula memória, identidade nacional e espaço público. Ao celebrar o armistício através de uma grande parada militar na Avenida da Liberdade, a iniciativa ultrapassa a dimensão pontual da efeméride e reforça a ligação entre a história reciente e a cidade de Lisboa. A data do centenário提供了 uma oportunidade para renovar a reflexão sobre os efeitos da guerra e sobre o valor da paz, consolidando uma tradição de lembrança institucional em torno de um dos marcos mais importantes da história contemporânea.",
+        "image_url": "https://i.ibb.co/JwSnRYdQ/2026-11-04-01-2018-grande-parada-militar-marca-o-centenario-do-armisticio-em-lisboa.jpg",
+        "image_delete_url": "https://ibb.co/ycx0nzRS/3b6f2b72471915ed0715aba2a4632f35",
+        "local_image_path": "images/review/pt/2026-11-04_01_2018_grande-parada-militar-marca-o-centenario-do-armisticio-em-lisboa.jpg",
+        "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-04_01_2018_grande-parada-militar-marca-o-centenario-do-armisticio-em-lisboa-fundo.jpg",
+        "caption_instagram": "Numa solene demonstração de memória histórica, as Forças Armadas portuguesas desfilaram em plena Avenida da Liberdade em 2018, assinalando com uma imponente parada militar o centenário do Armistício da Primeira Guerra Mundial.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Portugal",
+        "caption_facebook": "Numa solene demonstração de memória histórica, as Forças Armadas portuguesas desfilaram em plena Avenida da Liberdade em 2018, assinalando com uma imponente parada militar o centenário do Armistício da Primeira Guerra Mundial.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Portugal"
+      },
+      {
+        "year": "2020",
+        "category": "NACIONAL",
+        "editorial_tier": "high",
+        "title": "Presidente da República promulga novas restrições contra a Covid-19",
+        "highlight_text": "Novas restrições",
+        "overlay_description": "Decreto presidencial promulga medidas de contenção da pandemia em Portugal.",
+        "image_theme": "Palácio de Belém Lisboa",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "O Presidente da República promulgou o diploma do Governo que estabelece novas restrições para conter a propagação da Covid-19 em Portugal.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Nacional",
+        "summary": "Medida institucional de grande alcance que alterou o funcionamento da sociedade e os direitos dos cidadãos durante a pandemia.",
+        "title_en": "Portugal's President Promulgates New COVID-19 Restrictions",
+        "summary_en": "A presidential decree introduced containment measures during the COVID-19 pandemic, changing daily life and temporarily limiting citizens' rights.",
+        "relevance": {
+          "level": 2,
+          "scores": {
+            "impacto_historico": 72.0,
+            "dimensao_impacto": 78.0,
+            "consequencias": 76.0,
+            "relevancia_posterior": 70.0,
+            "dimensao_duracao": 82.0,
+            "relevancia_mediatica": 88.0,
+            "singularidade": 62.0
+          },
+          "weighted_score": 74.8,
+          "justification": "As restrições alteraram profundamente a vida portuguesa e os direitos durante a pandemia, com efeitos prolongados sobre mobility, schools, and work.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "O Presidente da República promulgou o diploma do Governo que estabelece novas restrições para conter a propagação da Covid-19 em Portugal.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Nacional",
+        "caption_facebook": "O Presidente da República promulgou o diploma do Governo que estabelece novas restrições para conter a propagação da Covid-19 em Portugal.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Nacional",
+        "body": ""
+      },
+      {
+        "year": "2005",
+        "category": "SOCIEDADE",
+        "editorial_tier": "high",
+        "title": "Professores mobilizam-se para greve e manifestação nacionais",
+        "highlight_text": "Greve nacional",
+        "overlay_description": "Sindicatos de professores convocam greve e manifestação nacional contra medidas do Governo para a educação.",
+        "image_theme": "Manifestação professores Portugal",
+        "layout_preference": "template_3",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "Os professores mobilizam-se para uma greve e uma manifestação nacionais, em resposta a medidas do Governo que afetam a qualidade do ensino e a dignidade profissional dos docentes.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2005.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "summary": "Mobilização nacional com impacto direto na continuidade das aulas e nas condições de trabalho na escola pública.",
+        "title_en": "Teachers Mobilize for National Strike and Protest",
+        "summary_en": "Teachers' unions called a national strike and protest against government education policies, directly affecting classes and working conditions in public schools.",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 48.0,
+            "dimensao_impacto": 58.0,
+            "consequencias": 55.0,
+            "relevancia_posterior": 45.0,
+            "dimensao_duracao": 42.0,
+            "relevancia_mediatica": 62.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 50.1,
+          "justification": "A mobilização afetou aulas e condições de trabalho, mas o resumo não documenta mudançaseducativas duradouras após a greve.",
+          "lang": "pt"
+        },
+        "article_url": "https://www.publico.pt/2005/11/04/portugal/noticia/fenprof-assegura-mobilizacao-de-professores-para-protesto-de-dia-18-1237837",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "Os professores mobilizam-se para uma greve e uma manifestação nacionais, em resposta a medidas do Governo que afetam a qualidade do ensino e a dignidade profissional dos docentes.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2005.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "caption_facebook": "Os professores mobilizam-se para uma greve e uma manifestação nacionais, em resposta a medidas do Governo que afetam a qualidade do ensino e a dignidade profissional dos docentes.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2005.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "body": ""
+      },
+      {
+        "year": "2004",
+        "category": "SOCIEDADE",
+        "editorial_tier": "high",
+        "title": "Milhares de estudantes protestam em frente ao Parlamento",
+        "highlight_text": "Protesta estudantil",
+        "overlay_description": "Estudantes do ensino superior público concentram-se em Lisboa contra políticas educativas do Governo.",
+        "image_theme": "Assembleia da República Lisboa",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "Milhares de estudantes do ensino superior público reuniram-se em frente ao Parlamento de Portugal para protestar contra as políticas educativas do Governo.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "summary": "Manifestação nacional de grande dimensão contra políticas com efeitos sobre os estudantes e a gestão das instituições de ensino.",
+        "title_en": "Thousands of Students Protest Outside Parliament",
+        "summary_en": "Public university students gathered in Lisbon to oppose government education policies affecting students and higher education institutions.",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 42.0,
+            "dimensao_impacto": 55.0,
+            "consequencias": 48.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 35.0,
+            "relevancia_mediatica": 60.0,
+            "singularidade": 32.0
+          },
+          "weighted_score": 44.9,
+          "justification": "A manifestação expôs tensões sobre políticas educativas, embora o resumo não registre consequências institucionais duradouras.",
+          "lang": "pt"
+        },
+        "article_url": "https://www.publico.pt/2004/11/04/portugal/noticia/estudantes-do-ensino-superior-publico-manifestamse-contra-as-politicas-educativas-1207532",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "Milhares de estudantes do ensino superior público reuniram-se em frente ao Parlamento de Portugal para protestar contra as políticas educativas do Governo.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "caption_facebook": "Milhares de estudantes do ensino superior público reuniram-se em frente ao Parlamento de Portugal para protestar contra as políticas educativas do Governo.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "body": ""
+      },
+      {
+        "year": "2003",
+        "category": "POLÍTICA",
+        "editorial_tier": "high",
+        "title": "Governo anuncia obras urgentes para substituir a Docapesca",
+        "highlight_text": "Obras na Trafaria",
+        "overlay_description": "Governo determina obras imediatas na Trafaria e Alcântara para responder ao encerramento da Docapesca.",
+        "image_theme": "Governo de Portugal São Bento",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "O Governo anunciou a realização imediata de obras na Trafaria e em Alcântara para responder ao encerramento da Docapesca, em Pedrouços.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2003.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "summary": "Decisão governamental concreta para garantir uma alternativa à infraestrutura portuária encerrada.",
+        "title_en": "Government Announces Urgent Works to Replace Docapesca",
+        "summary_en": "The government ordered immediate works at Trafaria and Alcântara to provide an alternative to the closed Docapesca port facility.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 35.0,
+            "dimensao_impacto": 42.0,
+            "consequencias": 48.0,
+            "relevancia_posterior": 38.0,
+            "dimensao_duracao": 45.0,
+            "relevancia_mediatica": 35.0,
+            "singularidade": 30.0
+          },
+          "weighted_score": 39.5,
+          "justification": "A obra buscava preservar a atividade portuária após o encerramento, mas o resumo não detalha resultados posteriores ou impactos duradouros.",
+          "lang": "pt"
+        },
+        "article_url": "https://www.publico.pt/2003/11/04/politica/noticia/trafaria-e-doca-do-espanhol-sao-alternativas-a-docapesca-1173894",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "O Governo anunciou a realização imediata de obras na Trafaria e em Alcântara para responder ao encerramento da Docapesca, em Pedrouços.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2003.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "caption_facebook": "O Governo anunciou a realização imediata de obras na Trafaria e em Alcântara para responder ao encerramento da Docapesca, em Pedrouços.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2003.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "body": ""
+      }
+    ]
+  },
+  {
+    "id": "pt_2026-11-04_2",
+    "date": "2026-11-04",
+    "slot": 2,
+    "lang": "pt",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "external_suggestions": [
+      {
+        "year": "1910",
+        "category": "POLÍTICA",
+        "title": "Proclamação da República Portuguesa em Lisboa",
+        "summary": "A queda da monarquia e a proclamação da República abriram um novo ciclo político em Portugal, com efeitos duradouros na soberania, na cidadania e na memória nacional."
+      },
+      {
+        "year": "1989",
+        "category": "MUNDIAL",
+        "title": "Queda do Muro de Berlim",
+        "summary": "O colapso do muro que dividia a cidade e simbolizava a Guerra Fria tornou-se um marco decisivo para a reunificação alemã e para a transformação do sistema internacional."
+      },
+      {
+        "year": "2016",
+        "category": "DESPORTO",
+        "title": "Vitória do FC Porto em Munique",
+        "summary": "A equipa do FC Porto venceu o Bayern de Munique por 2-1 no Allianz Arena, consolidando uma das maiores vitórias europeias da história do futebol português."
+      }
+    ],
+    "options": [
+      {
+        "year": "2005",
+        "category": "SOCIEDADE",
+        "editorial_tier": "high",
+        "title": "Professores mobilizam-se para greve e manifestação nacionais",
+        "highlight_text": "Greve nacional",
+        "overlay_description": "Sindicatos de professores convocam greve e manifestação nacional contra medidas do Governo para a educação.",
+        "image_theme": "Manifestação professores Portugal",
+        "layout_preference": "template_3",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "Em protesto contra o pacote de reformas e alterações ao estatuto da carreira docente, as estruturas sindicais convocaram em 2005 uma forte mobilização e greve nacional de professores em Lisboa.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2005.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "summary": "Mobilização nacional com impacto direto na continuidade das aulas e nas condições de trabalho na escola pública.",
+        "title_en": "Teachers Mobilize for National Strike and Protest",
+        "summary_en": "Teachers' unions called a national strike and protest against government education policies, directly affecting classes and working conditions in public schools.",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 48.0,
+            "dimensao_impacto": 58.0,
+            "consequencias": 55.0,
+            "relevancia_posterior": 45.0,
+            "dimensao_duracao": 42.0,
+            "relevancia_mediatica": 62.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 50.1,
+          "justification": "A mobilização afetou aulas e condições de trabalho, mas o resumo não documenta mudançaseducativas duradouras após a greve.",
+          "lang": "pt"
+        },
+        "article_url": "https://www.publico.pt/2005/11/04/portugal/noticia/fenprof-assegura-mobilizacao-de-professores-para-protesto-de-dia-18-1237837",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "background_source_url": "https://imagens.publico.pt/imagens.aspx/148589?tp=UH&db=IMAGENS&type=JPG&share=1&o=BarraFacebook_Publico.png",
+        "body": "Em 2005, o cenário educativo português viveu um dos momentos de maior tensão dos últimos anos. Os sindicatos de professores anunciaram uma greve nacional e uma manifestação massiva, reagindo a um conjunto de medidas governamentais que consideravam atentatórias da qualidade do ensino e da dignidade profissional dos docentes. O ponto de partida do conflito centrava-se nas propostas de alteração ao estatuto carreirista, nomeadamente o congelamento dos tempos de serviço e a revisão dos índices de progressão, que os docentes viam como um retrocesso após anos de negociações salariais.\n\nO contexto de greve não surgiu isoladamente. O ano de 2005 encontrava-se marcado por um ambiente de precarização dos serviços públicos, com o setor da educação a sentir o peso de recortes orçamentais e de uma política de recursos humanos que, segundo os sindicatos, ignorava a realidade das salas de aula. As manifestações, que reuniram milhares de professores em Lisboa e noutros centros urbanos, tiveram como lema a defesa do direito à educação pública de qualidade e a rejeição do que os docentes classificavam de \"ataque sistemático\" ao seu percurso profissional.\n\nA relevância duradoura deste evento reside no impacto que teve no diálogo social no sector da educação. As negociações que se seguiram forçaram o Governo a recuar em algumas propostas e a abrir espaço para novas discussões sobre o futuro do magistério. Mais importante ainda, a greve de 2005 consolidou uma cultura de mobilização entre os professores, servindo de precedente para futuros conflitos laborais e reforçando o papel dos sindicatos como interlocutores essenciais na definição de políticas educativas sustentáveis.",
+        "image_url": "https://i.ibb.co/tM9pD3z6/2026-11-04-01-2005-professores-mobilizam-se-para-greve-e-manifestacao-nacionais.jpg",
+        "image_delete_url": "https://ibb.co/ccjhQxw9/e2040dc2aa505b59c9eff9741ab2204d",
+        "local_image_path": "images/review/pt/2026-11-04_01_2005_professores-mobilizam-se-para-greve-e-manifestacao-nacionais.jpg",
+        "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-04_01_2005_professores-mobilizam-se-para-greve-e-manifestacao-nacionais-fundo.jpg",
+        "caption_instagram": "Em protesto contra o pacote de reformas e alterações ao estatuto da carreira docente, as estruturas sindicais convocaram em 2005 uma forte mobilização e greve nacional de professores em Lisboa.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2005.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "caption_facebook": "Em protesto contra o pacote de reformas e alterações ao estatuto da carreira docente, as estruturas sindicais convocaram em 2005 uma forte mobilização e greve nacional de professores em Lisboa.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2005.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade"
+      },
+      {
+        "year": "2020",
+        "category": "NACIONAL",
+        "editorial_tier": "high",
+        "title": "Presidente da República promulga novas restrições contra a Covid-19",
+        "highlight_text": "Novas restrições",
+        "overlay_description": "Decreto presidencial promulga medidas de contenção da pandemia em Portugal.",
+        "image_theme": "Palácio de Belém Lisboa",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "O Presidente da República promulgou o diploma do Governo que estabelece novas restrições para conter a propagação da Covid-19 em Portugal.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Nacional",
+        "summary": "Medida institucional de grande alcance que alterou o funcionamento da sociedade e os direitos dos cidadãos durante a pandemia.",
+        "title_en": "Portugal's President Promulgates New COVID-19 Restrictions",
+        "summary_en": "A presidential decree introduced containment measures during the COVID-19 pandemic, changing daily life and temporarily limiting citizens' rights.",
+        "relevance": {
+          "level": 2,
+          "scores": {
+            "impacto_historico": 72.0,
+            "dimensao_impacto": 78.0,
+            "consequencias": 76.0,
+            "relevancia_posterior": 70.0,
+            "dimensao_duracao": 82.0,
+            "relevancia_mediatica": 88.0,
+            "singularidade": 62.0
+          },
+          "weighted_score": 74.8,
+          "justification": "As restrições alteraram profundamente a vida portuguesa e os direitos durante a pandemia, com efeitos prolongados sobre mobility, schools, and work.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "O Presidente da República promulgou o diploma do Governo que estabelece novas restrições para conter a propagação da Covid-19 em Portugal.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Nacional",
+        "caption_facebook": "O Presidente da República promulgou o diploma do Governo que estabelece novas restrições para conter a propagação da Covid-19 em Portugal.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Nacional",
+        "body": ""
+      },
+      {
+        "year": "2004",
+        "category": "SOCIEDADE",
+        "editorial_tier": "high",
+        "title": "Milhares de estudantes protestam em frente ao Parlamento",
+        "highlight_text": "Protesta estudantil",
+        "overlay_description": "Estudantes do ensino superior público concentram-se em Lisboa contra políticas educativas do Governo.",
+        "image_theme": "Assembleia da República Lisboa",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "Milhares de estudantes do ensino superior público reuniram-se em frente ao Parlamento de Portugal para protestar contra as políticas educativas do Governo.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "summary": "Manifestação nacional de grande dimensão contra políticas com efeitos sobre os estudantes e a gestão das instituições de ensino.",
+        "title_en": "Thousands of Students Protest Outside Parliament",
+        "summary_en": "Public university students gathered in Lisbon to oppose government education policies affecting students and higher education institutions.",
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 42.0,
+            "dimensao_impacto": 55.0,
+            "consequencias": 48.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 35.0,
+            "relevancia_mediatica": 60.0,
+            "singularidade": 32.0
+          },
+          "weighted_score": 44.9,
+          "justification": "A manifestação expôs tensões sobre políticas educativas, embora o resumo não registre consequências institucionais duradouras.",
+          "lang": "pt"
+        },
+        "article_url": "https://www.publico.pt/2004/11/04/portugal/noticia/estudantes-do-ensino-superior-publico-manifestamse-contra-as-politicas-educativas-1207532",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "Milhares de estudantes do ensino superior público reuniram-se em frente ao Parlamento de Portugal para protestar contra as políticas educativas do Governo.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "caption_facebook": "Milhares de estudantes do ensino superior público reuniram-se em frente ao Parlamento de Portugal para protestar contra as políticas educativas do Governo.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "body": ""
+      },
+      {
+        "year": "2003",
+        "category": "POLÍTICA",
+        "editorial_tier": "high",
+        "title": "Governo anuncia obras urgentes para substituir a Docapesca",
+        "highlight_text": "Obras na Trafaria",
+        "overlay_description": "Governo determina obras imediatas na Trafaria e Alcântara para responder ao encerramento da Docapesca.",
+        "image_theme": "Governo de Portugal São Bento",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "O Governo anunciou a realização imediata de obras na Trafaria e em Alcântara para responder ao encerramento da Docapesca, em Pedrouços.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2003.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "summary": "Decisão governamental concreta para garantir uma alternativa à infraestrutura portuária encerrada.",
+        "title_en": "Government Announces Urgent Works to Replace Docapesca",
+        "summary_en": "The government ordered immediate works at Trafaria and Alcântara to provide an alternative to the closed Docapesca port facility.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 35.0,
+            "dimensao_impacto": 42.0,
+            "consequencias": 48.0,
+            "relevancia_posterior": 38.0,
+            "dimensao_duracao": 45.0,
+            "relevancia_mediatica": 35.0,
+            "singularidade": 30.0
+          },
+          "weighted_score": 39.5,
+          "justification": "A obra buscava preservar a atividade portuária após o encerramento, mas o resumo não detalha resultados posteriores ou impactos duradouros.",
+          "lang": "pt"
+        },
+        "article_url": "https://www.publico.pt/2003/11/04/politica/noticia/trafaria-e-doca-do-espanhol-sao-alternativas-a-docapesca-1173894",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "O Governo anunciou a realização imediata de obras na Trafaria e em Alcântara para responder ao encerramento da Docapesca, em Pedrouços.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2003.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "caption_facebook": "O Governo anunciou a realização imediata de obras na Trafaria e em Alcântara para responder ao encerramento da Docapesca, em Pedrouços.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2003.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "body": ""
+      },
+      {
+        "year": "2016",
+        "category": "MUNDIAL",
+        "editorial_tier": "high",
+        "title": "Acordo de Paris entra em vigor com compromissos de redução das emissões",
+        "highlight_text": "Acordo de Paris",
+        "overlay_description": "Acordo internacional sobre clima entra em vigor com metas de redução das emissões de gases com efeito estufa.",
+        "image_theme": "Acordo de Paris conferência clima",
+        "layout_preference": "template_3",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "O Acordo de Paris entrou em vigor, estabelecendo compromissos internacionais para limitar o aquecimento global e reduzir as emissões de gases com efeito estufa.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2016.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
+        "summary": "Marco internacional vinculativo com efeitos globais sobre política climática, energia e economia.",
+        "title_en": "Paris Agreement Enters Into Force With Emissions-Reduction Commitments",
+        "summary_en": "The international climate agreement entered into force with binding greenhouse-gas reduction targets, influencing climate, energy, and economic policies worldwide.",
+        "relevance": {
+          "level": 2,
+          "scores": {
+            "impacto_historico": 88.0,
+            "dimensao_impacto": 92.0,
+            "consequencias": 86.0,
+            "relevancia_posterior": 90.0,
+            "dimensao_duracao": 95.0,
+            "relevancia_mediatica": 85.0,
+            "singularidade": 78.0
+          },
+          "weighted_score": 88.8,
+          "justification": "O acordo vinculou metas globais de emissões e moldou políticas climáticas e energéticas, permanecendo central nas negociações internacionais.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "O Acordo de Paris entrou em vigor, estabelecendo compromissos internacionais para limitar o aquecimento global e reduzir as emissões de gases com efeito estufa.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2016.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
+        "caption_facebook": "O Acordo de Paris entrou em vigor, estabelecendo compromissos internacionais para limitar o aquecimento global e reduzir as emissões de gases com efeito estufa.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2016.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
         "body": ""
       }
     ]
