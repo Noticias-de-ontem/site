@@ -2,7 +2,6 @@ instaloader==4.15.5
 Pillow==12.3.0
 numpy==2.5.4
 requests==2.34.2
-requests-oauthlib==2.0.0
 tzdata==2026.5; sys_platform == 'win32'
 opencv-python-headless==5.0.0.93
 boto3==1.43.118

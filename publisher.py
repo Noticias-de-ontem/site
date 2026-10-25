@@ -1470,13 +1470,11 @@ def load_publish_state(filepath="publish_state.json"):
             "date": "",
             "instagram": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
             "facebook": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
-            "x": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
         },
         "en": {
             "date": "",
             "instagram": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
             "facebook": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
-            "x": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
         },
     }
     if not os.path.exists(filepath):
@@ -1502,12 +1500,6 @@ def load_publish_state(filepath="publish_state.json"):
             }
         if "facebook" not in lang_state:
             lang_state["facebook"] = {
-                "morning_posted": bool(lang_state.get("morning_posted", False)),
-                "evening_posted": bool(lang_state.get("afternoon_posted", False)),
-                "last_post_time": lang_state.get("last_post_time"),
-            }
-        if "x" not in lang_state:
-            lang_state["x"] = {
                 "morning_posted": bool(lang_state.get("morning_posted", False)),
                 "evening_posted": bool(lang_state.get("afternoon_posted", False)),
                 "last_post_time": lang_state.get("last_post_time"),
@@ -1635,7 +1627,6 @@ def main():
                 "date": local_date_str,
                 "instagram": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
                 "facebook": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
-                "x": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
             })
             save_publish_state(state)
 
@@ -1647,7 +1638,7 @@ def main():
         platforms_to_post = []
 
         # Todas as redes: janela 1 = 8-14h, janela 2 = 17-22h
-        for pname in ("instagram", "facebook", "x"):
+        for pname in ("instagram", "facebook"):
             pstate = lang_state.get(pname, {})
             if 8 <= local_hour < 14 and not pstate.get("morning_posted", False):
                 platforms_to_post.append((pname, "morning", 1))
@@ -1675,7 +1666,6 @@ def main():
         networks = ["instagram"]
         caption_instagram = ""
         caption_facebook = ""
-        caption_x = ""
         category = "ATUALIDADE"
         short_title = ""
         overlay_description = ""
@@ -1851,8 +1841,6 @@ def main():
                 final_caption = caption_instagram or short_title
             elif pname == "facebook":
                 final_caption = caption_facebook or short_title
-            elif pname == "x":
-                final_caption = caption_x or short_title
             final_caption = normalize_text(final_caption)
 
             # Publish to the platform
@@ -1865,9 +1853,6 @@ def main():
             elif pname == "facebook":
                 link_url = "https://www.noticiasdeontem.pt/"
                 publish_result = publish_to_facebook(final_caption, link_url)
-                publish_success = publish_result is not None
-            elif pname == "x":
-                publish_result = publish_to_x(final_caption)
                 publish_success = publish_result is not None
 
             if publish_success:
@@ -1933,32 +1918,5 @@ def publish_to_facebook(message, link_url):
         print("Erro Facebook:", data)
     except Exception as exc:
         print("Erro Facebook:", exc)
-    return None
-
-
-def publish_to_x(message):
-    """Publica no X via API v2 (OAuth 1.0a). Requer X_API_KEY + X_API_SECRET + X_ACCESS_TOKEN + X_ACCESS_TOKEN_SECRET."""
-    api_key = os.environ.get("X_API_KEY", "")
-    api_secret = os.environ.get("X_API_SECRET", "")
-    access_token = os.environ.get("X_ACCESS_TOKEN", "")
-    access_secret = os.environ.get("X_ACCESS_TOKEN_SECRET", "")
-    if not all([api_key, api_secret, access_token, access_secret]):
-        return None
-    try:
-        from requests_oauthlib import OAuth1
-        auth = OAuth1(api_key, api_secret, access_token, access_secret)
-        res = requests.post(
-            "https://api.twitter.com/2/tweets",
-            json={"text": message[:280]},
-            auth=auth,
-            timeout=30,
-        )
-        data = res.json()
-        tweet_id = data.get("data", {}).get("id")
-        if tweet_id:
-            return f"https://x.com/i/status/{tweet_id}"
-        print("Erro X:", data)
-    except Exception as exc:
-        print("Erro X:", exc)
     return None
 
