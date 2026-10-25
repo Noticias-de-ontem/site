@@ -88,7 +88,6 @@ jobs:
 
           imgbb_key = os.environ.get('IMGBB_API_KEY')
           caption = "🧪 Smoke test - Este post foi gerado automaticamente para testar o pipeline.\n\n#teste #smoketest"
-          link_url = "https://www.noticiasdeontem.pt/"
 
           # Upload imagem uma vez (comum a todas as redes)
           image_url = None
@@ -116,7 +115,7 @@ jobs:
           page_id = os.environ.get('FB_PAGE_ID')
           page_token = os.environ.get('FB_PAGE_ACCESS_TOKEN')
           if page_id and page_token:
-              fb_caption = caption + f"\n\nLink: https://www.noticiasdeontem.pt/"
+              fb_caption = caption
               publish_facebook(fb_caption, image_url, page_id, page_token, 'pt')
           else:
               print("[pt] Facebook ignorado - credenciais não configuradas")
