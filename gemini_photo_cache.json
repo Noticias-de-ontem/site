@@ -9825,5 +9825,25 @@
    "reason": "Retrata alunos com smartphones, ilustrando perfeitamente a proibição do uso destes dispositivos na escola."
   },
   "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-28_01_2015_partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-fundo.jpg:465508": {
+  "_final": {
+   "subject": "Hemiciclo da Assembleia da República com pintura histórica e tribuna",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.32
+   ],
+   "cover_focus": [
+    0.5,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Interior da Assembleia da República, palco central dos acordos políticos parlamentares para a formação de Governo."
+  },
+  "_model": "gemini-3.8-flash"
  }
 }

@@ -423,6 +423,15 @@ select:focus-visible {
   background: linear-gradient(120deg, #0b8a95 0%, #06b4c3 100%);
 }
 
+.button.primary.facebook {
+  background: linear-gradient(120deg, #1256b8 0%, #1877f2 100%);
+  box-shadow: 0 6px 18px rgba(24, 119, 242, 0.32);
+}
+
+.button.primary.facebook:hover {
+  background: linear-gradient(120deg, #0e4494 0%, #166fe5 100%);
+}
+
 .button.secondary {
   border-color: rgba(255, 255, 255, 0.55);
   color: white;

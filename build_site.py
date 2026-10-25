@@ -723,7 +723,19 @@ def copy_site_image(source_path, fallback_name):
 def local_source_path(source_path):
     if not source_path:
         return None
-    normalized = str(source_path).replace("/", os.sep)
+    raw = str(source_path).replace("\\", "/")
+    p = Path(raw)
+    if p.is_file():
+        return p
+    cand = ROOT / raw
+    if cand.is_file():
+        return cand
+    if "images/" in raw:
+        rel = raw[raw.index("images/"):]
+        cand = ROOT / rel
+        if cand.is_file():
+            return cand
+    normalized = str(source_path).replace("/", os.sep).replace("\\", os.sep)
     path = ROOT / normalized
     return path if path.exists() else None
 
@@ -997,6 +1009,12 @@ def post_to_site_item(post, registry_by_post_id):
         or registry_record.get("permalink")
     )
     instagram_id = clean_text(post.get("instagram_id") or registry_record.get("instagram_id"))
+    facebook_url = clean_text(
+        post.get("facebook_url")
+        or option.get("facebook_url")
+        or registry_record.get("facebook_url")
+    )
+    facebook_id = clean_text(post.get("facebook_id") or registry_record.get("facebook_id"))
     # Título sem ano embutido (o site compõe "Título, em ANO" no UI).
     title = strip_title_year(title, original_year)
     if not title:
@@ -1031,16 +1049,20 @@ def post_to_site_item(post, registry_by_post_id):
         "source_platform": clean_text(option.get("source_platform")),
         "instagram_url": instagram_url,
         "instagram_id": instagram_id,
+        "facebook_url": facebook_url,
+        "facebook_id": facebook_id,
         "archive_credit": "Arquivo.pt",
         # Foto real validada para banner + cartão (usada na rotação do carrossel).
         "banner_ready": banner_ready,
-        # Redes sociais direcionadas (Instagram/Facebook/X) e links publicados.
-        # Sem escolha da IA (posts antigos), aplica a regra por categoria/nível
-        # para os badges ficarem equitativos durante a qualificação visual.
-        "networks": option.get("networks") or networks_for_option(category, relevance.get("level")),
+        # Os badges no site devem ser sempre instagram e facebook nesta ordem:
+        "networks": ["instagram", "facebook"],
         # Ponto focal da capa (análise Gemini) para object-position no site.
         "cover_focus": (photo_analysis or {}).get("cover_focus"),
-        "network_posts": post.get("network_posts") or {},
+        "network_posts": {
+            **({"instagram": instagram_url} if instagram_url else {}),
+            **({"facebook": facebook_url} if facebook_url else {}),
+            **(post.get("network_posts") or {}),
+        },
         # Relevância histórica (níveis calculados em historical_relevance.py).
         "relevance_level": relevance.get("level"),
         "relevance_scores": relevance.get("scores") or {},
@@ -1336,9 +1358,14 @@ def build_payload():
     registry = load_json(IMGBB_UPLOADS_FILE, [])
     registry_by_post_id = build_registry_lookup(registry if isinstance(registry, list) else [])
 
+    include_unpublished = str(os.environ.get("SITE_INCLUDE_UNPUBLISHED", "")).strip().lower() in {"1", "true", "yes"}
+
     items = []
     seen_titles_build = {}
     for post in pending_posts if isinstance(pending_posts, list) else []:
+        post_status = clean_text(post.get("status") or "pending").lower()
+        if not include_unpublished and post_status != "published":
+            continue
         item = post_to_site_item(post, registry_by_post_id)
         if not item:
             continue
@@ -1357,12 +1384,16 @@ def build_payload():
 
     items.sort(key=lambda item: (item.get("date", ""), int(item.get("slot") or 0)), reverse=True)
     published = [item for item in items if item.get("status") == "published"]
-    approved = [item for item in items if item.get("status") == "approved"]
-    editorial_items = [item for item in items if has_enduring_editorial_value(item)]
-    editorial_published = [item for item in published if has_enduring_editorial_value(item)]
-    editorial_approved = [item for item in approved if has_enduring_editorial_value(item)]
-    public_items = editorial_published or editorial_approved or editorial_items or published or approved or items
-    carousel_items = select_carousel_with_tenure(public_items)
+    if include_unpublished:
+        approved = [item for item in items if item.get("status") == "approved"]
+        editorial_items = [item for item in items if has_enduring_editorial_value(item)]
+        editorial_published = [item for item in published if has_enduring_editorial_value(item)]
+        editorial_approved = [item for item in approved if has_enduring_editorial_value(item)]
+        public_items = editorial_published or editorial_approved or editorial_items or published or approved or items
+    else:
+        editorial_published = [item for item in published if has_enduring_editorial_value(item)]
+        public_items = editorial_published or published
+    carousel_items = select_carousel_with_tenure(public_items) if public_items else []
     metrics = build_project_metrics(items)
     today = datetime.now().date()
     coverage_end_date = f"{metrics['coverage_end_year']}-12-31"
@@ -1418,7 +1449,9 @@ def build_payload():
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "default_lang": "pt",
         "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
-        "instagram_profile_url": os.environ.get("INSTAGRAM_PROFILE_URL", "https://www.instagram.com/"),
+        "instagram_profile_url": os.environ.get("INSTAGRAM_PROFILE_URL", "https://www.instagram.com/noticiasdeontempt/"),
+        "facebook_profile_url": os.environ.get("FB_PROFILE_URL", "https://www.facebook.com/noticiasdeontempt"),
+        "has_published_posts": bool(published),
         "newsletter": {
             "form_url": os.environ.get("NEWSLETTER_FORM_URL", ""),
             "enabled": True,

@@ -101,12 +101,12 @@ const RELEVANCE_ICONS = {
 const SOCIAL_NETWORKS = {
   instagram: {
     label: "Instagram",
-    url: "https://www.instagram.com/",
+    url: "https://www.instagram.com/noticiasdeontempt/",
     logo: "assets/logos/networks/instagram.svg",
   },
   facebook: {
     label: "Facebook",
-    url: "https://www.facebook.com/",
+    url: "https://www.facebook.com/noticiasdeontempt",
     logo: "assets/logos/networks/facebook.svg",
   },
   x: {
@@ -116,14 +116,13 @@ const SOCIAL_NETWORKS = {
   },
 };
 
-// Badge da rede com link para a publicação (ou URL padrão em testes).
+// Os badges no site devem ser sempre instagram e facebook nesta ordem:
 function networkBadgesHtml(item) {
-  const networks = Array.isArray(item?.networks) ? item.networks : [];
-  if (!networks.length) return "";
-  return networks.map((network) => {
+  const ORDER = ["instagram", "facebook"];
+  return ORDER.map((network) => {
     const meta = SOCIAL_NETWORKS[network];
     if (!meta) return "";
-    const href = item?.network_posts?.[network] || meta.url;
+    const href = item?.network_posts?.[network] || (network === "instagram" ? (item?.instagram_url || meta.url) : (item?.facebook_url || meta.url));
     const logo = assetPath(meta.logo);
     return `<a class="network-badge network-${network}" href="${escapeHtml(href)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(meta.label)}" title="${escapeHtml(meta.label)}"><img src="${escapeHtml(logo)}" alt="" loading="lazy"></a>`;
   }).join("");
@@ -179,10 +178,12 @@ const i18n = {
     footerInstagram: "Instagram",
     latestEyebrow: "Arquivo social",
     latestTitle: "Últimas notícias publicadas",
-    latestPreviewNote: "Ainda sem posts marcados como publicados; mostramos a fila preparada para revisão.",
+    latestPreviewNote: "Ainda não existem notícias publicadas. As publicações surgirão aqui automaticamente após a sua partilha nas redes sociais.",
     latestPublishedNote: "Atualiza automaticamente quando o publisher marca um post como publicado.",
     openInstagram: "Ver no Instagram",
+    openFacebook: "Ver no Facebook",
     openArquivo: "Abrir no Arquivo.pt",
+    unavailableFacebook: "Facebook por atualizar",
     unavailableInstagram: "Instagram por atualizar",
     unavailableSource: "Fonte por atualizar",
     watermark: "Dados recolhidos via Arquivo.pt",
@@ -328,6 +329,7 @@ const i18n = {
     newsEyebrow: "Notícia preservada",
     newsOpenArquivo: "Abrir notícia no Arquivo.pt",
     newsOpenInstagram: "Abrir publicação no Instagram",
+    newsOpenFacebook: "Abrir publicação no Facebook",
     newsNotFound: "Notícia não encontrada",
     newsNotFoundBody: "Este endereço já não corresponde a uma notícia disponível.",
     newsBack: "Voltar ao calendário",
@@ -396,10 +398,12 @@ const i18n = {
     footerInstagram: "Instagram",
     latestEyebrow: "Social archive",
     latestTitle: "Latest published stories",
-    latestPreviewNote: "No posts are marked as published yet; showing the prepared review queue.",
+    latestPreviewNote: "No stories published yet. Published stories will appear here automatically once released on social media.",
     latestPublishedNote: "Updates automatically when the publisher marks a post as published.",
     openInstagram: "View on Instagram",
+    openFacebook: "View on Facebook",
     openArquivo: "Open on Arquivo.pt",
+    unavailableFacebook: "Facebook link pending",
     unavailableInstagram: "Instagram link pending",
     unavailableSource: "Source pending",
     watermark: "Data collected via Arquivo.pt",
@@ -545,6 +549,7 @@ const i18n = {
     newsEyebrow: "Preserved story",
     newsOpenArquivo: "Open story on Arquivo.pt",
     newsOpenInstagram: "Open Instagram post",
+    newsOpenFacebook: "Open Facebook post",
     newsNotFound: "Story not found",
     newsNotFoundBody: "This address no longer matches an available story.",
     newsBack: "Back to the calendar",
@@ -912,6 +917,7 @@ function renderHero() {
   const item = heroItems.length ? heroItems[state.slide % heroItems.length] : null;
   const hero = document.getElementById("hero");
   const instagram = document.getElementById("hero-instagram");
+  const facebook = document.getElementById("hero-facebook");
   const source = document.getElementById("hero-source");
   const detail = document.getElementById("hero-detail");
   renderHeroDots(heroItems);
@@ -926,8 +932,10 @@ function renderHero() {
     setText("#hero-year", "");
     setText("#hero-summary", t("emptySummary"));
     setLink(instagram, "", t("openInstagram"), t("unavailableInstagram"));
+    if (facebook) setLink(facebook, "", t("openFacebook"), t("unavailableFacebook"));
     setLink(source, "", t("openArquivo"), t("unavailableSource"));
     if (instagram) instagram.hidden = true;
+    if (facebook) facebook.hidden = true;
     if (source) source.hidden = true;
     return;
   }
@@ -951,10 +959,15 @@ function renderHero() {
     detail.dataset.newsId = item.page_id;
   }
   setText("#hero-summary", localized(item, "summary"));
-  setLink(instagram, item.instagram_url, t("openInstagram"), t("unavailableInstagram"));
+  const igUrl = item.instagram_url || item.network_posts?.instagram || state.data?.instagram_profile_url || "https://www.instagram.com/noticiasdeontempt/";
+  setLink(instagram, igUrl, t("openInstagram"), t("unavailableInstagram"));
+  if (facebook) {
+    const fbUrl = item.facebook_url || item.network_posts?.facebook || state.data?.facebook_profile_url || "https://www.facebook.com/noticiasdeontempt";
+    setLink(facebook, fbUrl, t("openFacebook"), t("unavailableFacebook"));
+    facebook.hidden = !fbUrl;
+  }
   setLink(source, item.source_url, t("openArquivo"), t("unavailableSource"));
-  // Um botão sem destino sai do hero em vez de aparecer desativado.
-  if (instagram) instagram.hidden = !item.instagram_url;
+  if (instagram) instagram.hidden = !igUrl;
   if (source) source.hidden = !item.source_url;
 }
 
@@ -989,6 +1002,7 @@ function renderCarousel() {
           <p>${escapeHtml(localized(item, "summary"))}</p>
           <div class="card-actions">
             ${item.instagram_url ? `<a class="text-link" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openInstagram"))}</a>` : ""}
+            ${item.facebook_url || item.network_posts?.facebook ? `<a class="text-link" href="${escapeHtml(item.facebook_url || item.network_posts?.facebook)}" target="_blank" rel="noreferrer">${escapeHtml(t("openFacebook"))}</a>` : ""}
             ${item.source_url ? `<a class="text-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openArquivo"))}</a>` : ""}
           </div>
         </div>
@@ -1002,6 +1016,10 @@ function renderLatest() {
   const grid = document.getElementById("latest-grid");
   const note = state.data?.has_published_posts ? t("latestPublishedNote") : t("latestPreviewNote");
   setText("#latest-note", note);
+  if (!items.length) {
+    grid.innerHTML = `<p class="empty-feed" style="grid-column: 1 / -1; color: var(--muted); padding: 2rem 0; text-align: center;">${escapeHtml(state.lang === 'pt' ? 'Brevemente disponíveis aqui as notícias publicadas.' : 'Published stories will be available here shortly.')}</p>`;
+    return;
+  }
   grid.innerHTML = items.map((item) => {
     return `
       <article class="latest-card">
@@ -1012,6 +1030,7 @@ function renderLatest() {
           <p>${escapeHtml(formatDate(item.date))}</p>
           <div class="card-actions">
             ${item.instagram_url ? `<a class="text-link" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openInstagram"))}</a>` : ""}
+            ${item.facebook_url || item.network_posts?.facebook ? `<a class="text-link" href="${escapeHtml(item.facebook_url || item.network_posts?.facebook)}" target="_blank" rel="noreferrer">${escapeHtml(t("openFacebook"))}</a>` : ""}
             ${item.source_url ? `<a class="text-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openArquivo"))}</a>` : ""}
           </div>
         </div>
@@ -1615,6 +1634,7 @@ function renderNewsDetail() {
           ${restParagraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
           <div class="news-article-actions">
             ${item.instagram_url ? `<a class="button primary" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenInstagram"))}</a>` : ""}
+            ${item.facebook_url || item.network_posts?.facebook ? `<a class="button primary facebook" href="${escapeHtml(item.facebook_url || item.network_posts?.facebook)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenFacebook"))}</a>` : ""}
             ${item.source_url ? `<a class="button secondary" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml((item.source_url || "").includes("arquivo.pt") ? t("newsOpenArquivo") : (state.lang === "pt" ? "Abrir na fonte original" : "Open original source"))}</a>` : ""}
           </div>
         </div>
@@ -4189,8 +4209,12 @@ async function init() {
   if (initialRoute === "topics" && state.topicQuery && !state.topicResultSets.length) runTopicSearch(false);
   startCarousel();
   const footerInstagram = document.getElementById("footer-instagram");
-  const profileUrl = cleanProfileUrl(state.data?.instagram_profile_url);
-  if (footerInstagram && profileUrl) footerInstagram.href = profileUrl;
+  const profileUrl = cleanProfileUrl(state.data?.instagram_profile_url) || "https://www.instagram.com/noticiasdeontempt/";
+  if (footerInstagram) footerInstagram.href = profileUrl;
+
+  const footerFacebook = document.getElementById("footer-facebook");
+  const fbProfileUrl = cleanProfileUrl(state.data?.facebook_profile_url) || "https://www.facebook.com/noticiasdeontempt";
+  if (footerFacebook) footerFacebook.href = fbProfileUrl;
 }
 
 function cleanProfileUrl(value) {
