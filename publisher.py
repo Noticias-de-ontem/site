@@ -1333,14 +1333,20 @@ Look at the following raw news publications from exactly this day in the past. Y
    - template_3: photo-led composition with centered lower title
    - template_4: same as template_1 but cleaner, with no shadow, only when the text area can stay simple
 8. Set breaking_candidate to true only if this clearly deserves the special breaking layout. Otherwise false.
-9. Rewrite the story of that specific event into an expanded, well-written mini-summary for the post caption. You must completely use your own words (to avoid copyright issues). (Use the TITLE-ONLY OFFICE HOOK if applicable).
-10. Write like a strong social editor, not a formal newspaper archive. It can feel lively and culturally aware, focusing on nostalgia and recognition, while staying accurate.
-11. Pretend you are publishing this news ON THE VERY DAY IT HAPPENED. NEVER say things like "hoje faz X anos", "neste dia", or "noticia antiga".
-12. VERY IMPORTANT: Remove any calls to action such as 'link na bio', 'lê mais', 'subscreve', and remove original hashtags.
+9. Add "networks": a JSON array choosing which of our social networks this story fits: "instagram", "facebook", "x".
+   - Instagram: visual, nostalgic, desporto, cultura, estrelas, curiosidades.
+   - Facebook: política, sociedade, economia, marcos nacionais, discussão geral (público maduro 35-65+).
+   - X: política, economia, ciência, tecnologia, mundial, debate atualizado (público instruído).
+   - Most stories belong to ONE network. Use two only when the story genuinely fits both audiences. Use all three only for historic landmark / major event stories (level 1-2).
+10. Rewrite the story of that specific event into an expanded, well-written mini-summary for the post caption. You must completely use your own words (to avoid copyright issues). (Use the TITLE-ONLY OFFICE HOOK if applicable).
+11. Write like a strong social editor, not a formal newspaper archive. It can feel lively and culturally aware, focusing on nostalgia and recognition, while staying accurate.
+12. Pretend you are publishing this news ON THE VERY DAY IT HAPPENED. NEVER say things like "hoje faz X anos", "neste dia", or "noticia antiga".
+13. VERY IMPORTANT: Remove any calls to action such as 'link na bio', 'lê mais', 'subscreve', and remove original hashtags.
+14. PLATFORM-SPECIFIC CAPTIONS: Write "caption_instagram" (visual, engaging, nostalgic tone with emojis), "caption_facebook" (discussion-oriented, invites comments), and "caption_x" (short, under 280 chars, punchy, current-events style). Each should be adapted to its platform's audience while covering the same story.
 
 Write your response in Portuguese.
 Return a JSON object with exactly these keys:
-category, title, highlight_text, overlay_description, image_theme, layout_preference, breaking_candidate, caption
+category, title, highlight_text, overlay_description, image_theme, layout_preference, breaking_candidate, networks, caption_instagram, caption_facebook, caption_x
 
 News Items:
 {context_list}"""
@@ -1366,14 +1372,20 @@ Look at the following raw news publications from exactly this day in the past. Y
    - template_3: photo-led composition with centered lower title
    - template_4: same as template_1 but cleaner, with no shadow, only when the text area can stay simple
 8. Set breaking_candidate to true only if this clearly deserves the special breaking layout. Otherwise false.
-9. Rewrite the story of that specific event into an expanded, well-written mini-summary for the post caption. You must completely use your own words (to avoid copyright issues). (Use the TITLE-ONLY OFFICE HOOK if applicable).
-10. Write like a strong social editor, not a formal newspaper archive. It can feel lively and culturally aware, focusing on nostalgia and recognition, while staying accurate.
-11. Pretend you are publishing this news ON THE VERY DAY IT HAPPENED. NEVER say things like "X years ago today", "on this day", or "old news".
-12. VERY IMPORTANT: Remove any calls to action and original hashtags.
+9. Add "networks": a JSON array choosing which of our social networks this story fits: "instagram", "facebook", "x".
+   - Instagram: visual, nostalgic, sports, culture, celebrities, curiosities.
+   - Facebook: politics, society, economy, national milestones, general discussion (mature audience 35-65+).
+   - X: politics, economy, science, technology, world news, real-time debate (informed audience).
+   - Most stories belong to ONE network. Use two only when the story genuinely fits both audiences. Use all three only for historic landmark / major event stories (level 1-2).
+10. Rewrite the story of that specific event into an expanded, well-written mini-summary for the post caption. You must completely use your own words (to avoid copyright issues). (Use the TITLE-ONLY OFFICE HOOK if applicable).
+11. Write like a strong social editor, not a formal newspaper archive. It can feel lively and culturally aware, focusing on nostalgia and recognition, while staying accurate.
+12. Pretend you are publishing this news ON THE VERY DAY IT HAPPENED. NEVER say things like "X years ago today", "on this day", or "old news".
+13. VERY IMPORTANT: Remove any calls to action and original hashtags.
+14. PLATFORM-SPECIFIC CAPTIONS: Write "caption_instagram" (visual, engaging, nostalgic tone with emojis), "caption_facebook" (discussion-oriented, invites comments), and "caption_x" (short, under 280 chars, punchy, current-events style). Each should be adapted to its platform's audience while covering the same story.
 
 Write your response in English.
 Return a JSON object with exactly these keys:
-category, title, highlight_text, overlay_description, image_theme, layout_preference, breaking_candidate, caption
+category, title, highlight_text, overlay_description, image_theme, layout_preference, breaking_candidate, networks, caption_instagram, caption_facebook, caption_x
 
 News Items:
 {context_list}"""
@@ -1393,10 +1405,19 @@ News Items:
             image_theme = normalize_text(payload.get("image_theme", ""))
             layout_preference = str(payload.get("layout_preference", "template_1")).strip().lower().replace("-", "_")
             breaking_candidate = bool(payload.get("breaking_candidate", False))
+            networks = payload.get("networks", ["instagram"])
+            if not isinstance(networks, list):
+                networks = ["instagram"]
+            networks = [str(n).strip().lower() for n in networks if str(n).strip().lower() in ("instagram", "facebook", "x")]
+            if not networks:
+                networks = ["instagram"]
+            caption_instagram = normalize_text(payload.get("caption_instagram", "") or payload.get("caption", ""))
+            caption_facebook = normalize_text(payload.get("caption_facebook", "") or payload.get("caption", ""))
+            caption_x = normalize_text(payload.get("caption_x", "") or payload.get("caption", ""))
             new_caption = normalize_text(payload.get("caption", ""))
 
             if not title or not new_caption:
-                return None, None, None, None, None, None, None, None, None
+                return None, None, None, None, None, None, None, None, None, None, None, None
 
             return (
                 category,
@@ -1408,6 +1429,10 @@ News Items:
                 image_theme,
                 layout_preference,
                 breaking_candidate,
+                networks,
+                caption_instagram,
+                caption_facebook,
+                caption_x,
             )
         except Exception as e:
             err_msg = str(e).lower()
@@ -1441,16 +1466,45 @@ def is_within_posting_hours(lang):
 
 def load_publish_state(filepath="publish_state.json"):
     default = {
-        "pt": {"date": "", "morning_posted": False, "afternoon_posted": False, "last_post_time": None},
-        "en": {"date": "", "morning_posted": False, "afternoon_posted": False, "last_post_time": None},
+        "pt": {
+            "date": "",
+            "instagram": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
+            "facebook": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
+        },
+        "en": {
+            "date": "",
+            "instagram": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
+            "facebook": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
+        },
     }
     if not os.path.exists(filepath):
         return default
     with open(filepath, "r", encoding="utf-8") as f:
         try:
-            return json.load(f)
+            state = json.load(f)
         except json.JSONDecodeError:
             return default
+    # Migrate old flat state to per-platform structure
+    for lang in ("pt", "en"):
+        if lang not in state:
+            state[lang] = default[lang]
+            continue
+        lang_state = state[lang]
+        if "date" not in lang_state:
+            lang_state["date"] = ""
+        if "instagram" not in lang_state:
+            lang_state["instagram"] = {
+                "morning_posted": bool(lang_state.get("morning_posted", False)),
+                "evening_posted": bool(lang_state.get("afternoon_posted", False)),
+                "last_post_time": lang_state.get("last_post_time"),
+            }
+        if "facebook" not in lang_state:
+            lang_state["facebook"] = {
+                "morning_posted": bool(lang_state.get("morning_posted", False)),
+                "evening_posted": bool(lang_state.get("afternoon_posted", False)),
+                "last_post_time": lang_state.get("last_post_time"),
+            }
+    return state
 
 
 def save_publish_state(state, filepath="publish_state.json"):
@@ -1559,167 +1613,144 @@ def main():
     state = load_publish_state()
 
     for lang in ["pt"]:
-        tz_name = "Europe/Lisbon" 
+        tz_name = "Europe/Lisbon"
         tz = ZoneInfo(tz_name)
         local_now = datetime.now(tz)
         local_hour = local_now.hour
         local_date_str = local_now.strftime("%Y-%m-%d")
 
-        if state.setdefault(lang, {}).get("date") != local_date_str:
-            state[lang] = {
+        # Reset state per day with new per-platform structure
+        lang_state = state.setdefault(lang, {})
+        if lang_state.get("date") != local_date_str:
+            lang_state.clear()
+            lang_state.update({
                 "date": local_date_str,
-                "morning_posted": False,
-                "afternoon_posted": False,
-                "last_post_time": state[lang].get("last_post_time"),
-            }
+                "instagram": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
+                "facebook": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
+            })
             save_publish_state(state)
 
         if not is_within_posting_hours(lang):
             print(f"[{lang}] Fora do horario permitido (08h-22h local). A saltar.")
             continue
 
-        if 8 <= local_hour < 14:
-            current_slot, slot_idx, hours_left = "morning", 1, 13 - local_hour
-        else:
-            current_slot, slot_idx, hours_left = "afternoon", 2, 21 - local_hour
+        # Determine which platforms have a posting window now
+        platforms_to_post = []
 
-        if state[lang].get(f"{current_slot}_posted", False):
-            print(f"[{lang}] Ja publicado na janela '{current_slot}'.")
+        # Todas as redes: janela 1 = 8-14h, janela 2 = 17-22h
+        for pname in ("instagram", "facebook"):
+            pstate = lang_state.get(pname, {})
+            if 8 <= local_hour < 14 and not pstate.get("morning_posted", False):
+                platforms_to_post.append((pname, "morning", 1))
+            elif 17 <= local_hour < 22 and not pstate.get("evening_posted", False):
+                platforms_to_post.append((pname, "evening", 2))
+
+        if not platforms_to_post:
+            print(f"[{lang}] Nenhuma rede com janela de publicacao agora.")
             continue
 
-        last_post_str = state[lang].get("last_post_time")
-        if last_post_str:
-            time_diff = (local_now - datetime.fromisoformat(last_post_str)).total_seconds() / 3600
-            if time_diff < 4.0:
-                print(f"[{lang}] Minimo de 4h nao cumprido ({time_diff:.1f}h). A saltar.")
-                continue
-
+        # Random delay (opcional, nao e obrigatorio publicar)
+        hours_left = 22 - local_hour
         if hours_left > 0 and random.random() > 1.0 / max(hours_left, 1):
             print(f"[{lang}] Decisao aleatoria: Adiamento.")
             continue
 
-        print(f"[{lang}] A publicar no slot '{current_slot}'...")
+        print(f"[{lang}] Plataformas a publicar agora: {[p[0] for p in platforms_to_post]}")
 
         output_image_path = f"post_{lang}.jpg"
-        final_caption = ""
         historical_news_of_chosen_day = []
-        is_event_mode = False
-        event = None
-
-        approved_entry, pending_posts = get_approved_post(lang, slot_idx, local_date_str)
         used_approved_post = False
+        approved_entry = None
+        pending_posts = []
+        option = None
+        networks = ["instagram"]
+        caption_instagram = ""
+        caption_facebook = ""
+        category = "ATUALIDADE"
+        short_title = ""
+        overlay_description = ""
+        image_theme = ""
+        layout_preference = "template_1"
+        breaking_candidate = False
+        chosen_year = ""
 
-        if approved_entry:
-            sel_idx = approved_entry.get("selected_option", 0)
-            options = approved_entry.get("options", [])
-            if options and sel_idx < len(options):
-                option = options[sel_idx]
-                final_caption = normalize_text(option.get("caption", ""))
-                year = option.get("year")
-                if year:
-                    for item in get_today_news(lang):
-                        if item["date"].startswith(year):
-                            historical_news_of_chosen_day.append(item)
+        # Try to get an approved post for the first available platform slot
+        for pname, pslot, pidx in platforms_to_post:
+            approved_entry, pending_posts = get_approved_post(lang, pidx, local_date_str)
+            if approved_entry:
+                option = None
+                sel_idx = approved_entry.get("selected_option", 0)
+                options = approved_entry.get("options", [])
+                if options and sel_idx < len(options):
+                    option = options[sel_idx]
+                    networks = option.get("networks", ["instagram"])
+                    if not isinstance(networks, list):
+                        networks = ["instagram"]
+                    caption_instagram = normalize_text(option.get("caption_instagram", "") or option.get("caption", ""))
+                    caption_facebook = normalize_text(option.get("caption_facebook", "") or option.get("caption", ""))
+                    caption_x = normalize_text(option.get("caption_x", "") or option.get("caption", ""))
+                    year = option.get("year")
+                    if year:
+                        for item in get_today_news(lang):
+                            if item["date"].startswith(year):
+                                historical_news_of_chosen_day.append(item)
 
-                layout_override = str(approved_entry.get("layout_override", "")).strip().lower().replace("-", "_")
-                theme_suggestion = normalize_text(approved_entry.get("theme_suggestion", ""))
-                manual_background_url = normalize_text(approved_entry.get("manual_background_url", ""))
-                needs_rerender = bool(layout_override or theme_suggestion or manual_background_url or not option.get("image_url"))
+                    category = normalize_text(option.get("category", "ATUALIDADE" if lang == "pt" else "NEWS"), uppercase=True)
+                    short_title = normalize_text(option.get("title", ""))
+                    overlay_description = normalize_text(option.get("overlay_description", ""))
+                    image_theme = normalize_text(option.get("image_theme", "") or option.get("title", ""))
+                    layout_preference = str(option.get("layout_preference", "template_1")).strip().lower().replace("-", "_")
+                    breaking_candidate = bool(option.get("breaking_candidate", False))
+                    chosen_year = str(year) if year else ""
 
-                if needs_rerender:
-                    try:
-                        create_image_with_text(
-                            normalize_text(option.get("category", "ATUALIDADE" if lang == "pt" else "NEWS"), uppercase=True),
-                            normalize_text(option.get("title", "")),
-                            lang,
-                            output_path=output_image_path,
-                            description_to_draw=normalize_text(option.get("overlay_description", "")),
-                            highlight_text=normalize_text(option.get("highlight_text", "")),
-                            layout_name=layout_override or "auto",
-                            layout_preference=option.get("layout_preference", "template_1"),
-                            breaking_candidate=bool(option.get("breaking_candidate", False)),
-                            background_query=normalize_text(theme_suggestion or option.get("image_theme", "") or option.get("title", "")),
-                            manual_background_url=manual_background_url,
-                            year=year,
-                        )
-                        used_approved_post = True
-                    except Exception as e:
-                        print(f"[{lang}] Erro ao re-renderizar post aprovado: {e}.")
-                        img_url = option.get("image_url")
-                        if img_url:
-                            try:
-                                if copy_image_reference_to_path(img_url, output_image_path):
-                                    used_approved_post = True
-                                    print(f"[{lang}] Fallback para preview já aprovada após falha de re-render.")
-                            except Exception as fallback_exc:
-                                print(f"[{lang}] Também falhou o fallback da preview aprovada: {fallback_exc}.")
-                else:
-                    img_url = option.get("image_url")
-                    try:
-                        if copy_image_reference_to_path(img_url, output_image_path):
+                    layout_override = str(approved_entry.get("layout_override", "")).strip().lower().replace("-", "_")
+                    theme_suggestion = normalize_text(approved_entry.get("theme_suggestion", ""))
+                    manual_background_url = normalize_text(approved_entry.get("manual_background_url", ""))
+                    needs_rerender = bool(layout_override or theme_suggestion or manual_background_url or not option.get("image_url"))
+
+                    if needs_rerender:
+                        try:
+                            create_image_with_text(
+                                category,
+                                short_title,
+                                lang,
+                                output_path=output_image_path,
+                                description_to_draw=overlay_description,
+                                highlight_text=normalize_text(option.get("highlight_text", "")),
+                                layout_name=layout_override or "auto",
+                                layout_preference=option.get("layout_preference", "template_1"),
+                                breaking_candidate=breaking_candidate,
+                                background_query=normalize_text(theme_suggestion or option.get("image_theme", "") or option.get("title", "")),
+                                manual_background_url=manual_background_url,
+                                year=year,
+                            )
                             used_approved_post = True
-                    except Exception as e:
-                        print(f"[{lang}] Erro imagem pre-aprovada: {e}. Fallback Live AI.")
+                        except Exception as e:
+                            print(f"[{lang}] Erro ao re-renderizar post aprovado: {e}.")
+                            img_url = option.get("image_url")
+                            if img_url:
+                                try:
+                                    if copy_image_reference_to_path(img_url, output_image_path):
+                                        used_approved_post = True
+                                        print(f"[{lang}] Fallback para preview ja aprovada apos falha de re-render.")
+                                except Exception as fallback_exc:
+                                    print(f"[{lang}] Tambem falhou o fallback da preview aprovada: {fallback_exc}.")
+                    else:
+                        img_url = option.get("image_url")
+                        try:
+                            if copy_image_reference_to_path(img_url, output_image_path):
+                                used_approved_post = True
+                        except Exception as e:
+                            print(f"[{lang}] Erro imagem pre-aprovada: {e}. Fallback Live AI.")
+                break
+                break
 
         if not used_approved_post:
-
-            calendar_path = "flexible_events_calendar.json"
-            if os.path.exists(calendar_path):
-                try:
-                    with open(calendar_path, "r", encoding="utf-8") as f:
-                        calendar_events = json.load(f)
-                    for ev in calendar_events:
-                        if ev.get("date") == local_date_str:
-                            if current_slot in ev.get("slots", []):
-                                if lang in ev.get("langs", ["pt", "en"]):
-                                    event_posted_key = f"event_{ev['id']}_posted"
-                                    if not state[lang].get(event_posted_key, False):
-                                        event = ev
-                                        break
-                except Exception as ev_err:
-                    print(f"[{lang}] Erro ao ler calendario de eventos flexiveis: {ev_err}")
-
-            custom_instructions = None
-            matching_news = []
-            if event:
-                print(f"[{lang}] Evento flexivel detetado para hoje: {event['name']}!")
-                cond_trigger = event.get("conditional_trigger") or event.get("event_type") or ""
-                cond_pool_path = "conditional_posts_pool.json"
-                if cond_trigger and os.path.exists(cond_pool_path):
-                    try:
-                        with open(cond_pool_path, "r", encoding="utf-8") as cpf:
-                            cond_pool = json.load(cpf)
-                        for cond_item in cond_pool:
-                            if cond_item.get("trigger") == cond_trigger and not cond_item.get("published_at"):
-                                cond_opt = cond_item.get("option") or {}
-                                img_ref = cond_opt.get("local_image_path") or cond_opt.get("image_url") or cond_item.get("image_url")
-                                if img_ref and copy_image_reference_to_path(img_ref, output_image_path):
-                                    hashtags = "#Noticias #Atualidade #Jornalismo" if lang == "pt" else ""
-                                    raw_cap = normalize_text(cond_opt.get("caption") or cond_item.get("caption") or "")
-                                    final_caption = raw_cap if hashtags in raw_cap else normalize_text(f"{raw_cap}\n\n{hashtags}")
-                                    used_approved_post = True
-                                    is_event_mode = True
-                                    cond_item["published_at"] = datetime.now().isoformat()
-                                    with open(cond_pool_path, "w", encoding="utf-8") as cpw:
-                                        json.dump(cond_pool, cpw, ensure_ascii=False, indent=2)
-                                    print(f"[{lang}][Bolsa Condicional] Post '{cond_item.get('title')}' ativado para o evento '{event['name']}'!")
-                                    break
-                    except Exception as cond_exc:
-                        print(f"[{lang}] Erro ao ler conditional_posts_pool.json: {cond_exc}")
-                if not used_approved_post:
-                    matching_news = get_event_historical_news(lang, event.get("search_keywords", []))
-                if matching_news:
-                    is_event_mode = True
-                    custom_instructions = event.get("prompt_instructions")
-                    print(f"[{lang}] Encontrados {len(matching_news)} artigos historicos relacionados.")
-                else:
-                    print(f"[{lang}] Nenhum artigo historico encontrado para o evento. Usando fluxo diario normal.")
-
-            if not is_event_mode:
-                matching_news = get_today_news(lang)
-                if not matching_news:
-                    print(f"[{lang}] Sem noticias para hoje.")
-                    continue
+            # AI generation path
+            matching_news = get_today_news(lang)
+            if not matching_news:
+                print(f"[{lang}] Sem noticias para hoje.")
+                continue
 
             news_by_year = {}
             for item in matching_news:
@@ -1734,14 +1765,17 @@ def main():
                 category,
                 short_title,
                 rewritten_caption,
-                actual_date,
+                _actual_date,
                 highlight_text,
                 overlay_description,
                 image_theme,
                 layout_preference,
                 breaking_candidate,
-            ) = process_daily_news_with_ai(historical_news_of_chosen_day, lang, custom_prompt_instructions=custom_instructions)
-            del actual_date
+                networks,
+                caption_instagram,
+                caption_facebook,
+                caption_x,
+            ) = process_daily_news_with_ai(historical_news_of_chosen_day, lang, custom_prompt_instructions=None)
 
             if not short_title or not rewritten_caption:
                 print(f"[{lang}] IA falhou. Publicacao cancelada.")
@@ -1759,10 +1793,18 @@ def main():
                 background_query=normalize_text(image_theme or short_title),
                 year=chosen_year,
             )
-            hashtags = "#Noticias #Atualidade #Jornalismo" if lang == "pt" else ""
-            final_caption = normalize_text(f"{rewritten_caption}\n\n{hashtags}")
+            used_approved_post = False
+            approved_entry = None
 
+        # Upload image to ImgBB (once, shared across platforms)
         imgbb_api_key = os.environ.get("IMGBB_API_KEY")
+        public_image_url = None
+        delete_url = ""
+
+        if not os.path.exists(output_image_path):
+            print(f"[{lang}] Imagem nao encontrada em {output_image_path}. A saltar todas as redes.")
+            continue
+
         if imgbb_api_key:
             try:
                 with open(output_image_path, "rb") as img_file:
@@ -1773,47 +1815,10 @@ def main():
                         timeout=60,
                     )
                 imgbb_data = imgbb_res.json()
-
                 if imgbb_data.get("success"):
                     upload_data = imgbb_data.get("data", {})
                     public_image_url = upload_data["url"]
                     delete_url = upload_data.get("delete_url", "")
-                    publish_result = publish_to_instagram(public_image_url, final_caption, lang)
-                    success = bool(publish_result.get("success")) if isinstance(publish_result, dict) else bool(publish_result)
-
-                    if success:
-                        instagram_id = publish_result.get("id", "") if isinstance(publish_result, dict) else ""
-                        instagram_url = publish_result.get("permalink", "") if isinstance(publish_result, dict) else ""
-                        register_imgbb_upload(
-                            {
-                                "kind": "published_post",
-                                "lang": lang,
-                                "date": local_date_str,
-                                "slot": current_slot,
-                                "post_id": approved_entry.get("id", "") if approved_entry else "",
-                                "image_url": public_image_url,
-                                "delete_url": delete_url,
-                                "instagram_id": instagram_id,
-                                "instagram_url": instagram_url,
-                                "published_at": datetime.now().isoformat(),
-                            }
-                        )
-                        mark_items_as_published(lang, historical_news_of_chosen_day)
-
-                        if is_event_mode and event:
-                            state[lang][f"event_{event['id']}_posted"] = True
-
-                        if used_approved_post and approved_entry:
-                            approved_entry["status"] = "published"
-                            approved_entry["instagram_id"] = instagram_id
-                            approved_entry["instagram_url"] = instagram_url
-                            approved_entry["published_at"] = datetime.now().isoformat()
-                            with open("pending_posts.json", "w", encoding="utf-8") as pf:
-                                json.dump(pending_posts, pf, ensure_ascii=False, indent=4)
-
-                        state[lang][f"{current_slot}_posted"] = True
-                        state[lang]["last_post_time"] = local_now.isoformat()
-                        save_publish_state(state)
                 else:
                     print(f"[{lang}] Erro IMGBB: {imgbb_data}")
             except Exception as e:
@@ -1821,13 +1826,79 @@ def main():
         else:
             print(f"[{lang}] IMGBB_API_KEY nao configurado. Imagem guardada localmente.")
 
+        if not public_image_url:
+            print(f"[{lang}] Nao foi possivel obter URL publica da imagem. A saltar todas as redes.")
+            continue
+
+        # Publish to each platform that has a window now and is in the post's networks
+        for pname, pslot, pidx in platforms_to_post:
+            if pname not in networks:
+                print(f"[{lang}] {pname}: Nao esta nas networks desta noticia ({networks}).")
+                continue
+
+            # Select platform-specific caption
+            if pname == "instagram":
+                final_caption = caption_instagram or short_title
+            elif pname == "facebook":
+                final_caption = caption_facebook or short_title
+            final_caption = normalize_text(final_caption)
+
+            # Publish to the platform
+            publish_success = False
+            publish_result = {}
+
+            if pname == "instagram":
+                publish_result = publish_to_instagram(public_image_url, final_caption, lang)
+                publish_success = bool(publish_result.get("success")) if isinstance(publish_result, dict) else bool(publish_result)
+            elif pname == "facebook":
+                publish_result = publish_to_facebook(final_caption, public_image_url)
+                publish_success = publish_result is not None
+
+            if publish_success:
+                post_id_str = publish_result.get("id", "") if isinstance(publish_result, dict) else ""
+                post_url_str = publish_result.get("permalink", "") if isinstance(publish_result, dict) else str(publish_result) if publish_result else ""
+
+                register_imgbb_upload({
+                    "kind": "published_post",
+                    "lang": lang,
+                    "date": local_date_str,
+                    "slot": pslot,
+                    "platform": pname,
+                    "post_id": approved_entry.get("id", "") if approved_entry else "",
+                    "image_url": public_image_url,
+                    "delete_url": delete_url,
+                    "platform_post_id": post_id_str,
+                    "platform_post_url": post_url_str,
+                    "published_at": datetime.now().isoformat(),
+                })
+
+                mark_items_as_published(lang, historical_news_of_chosen_day)
+
+                if approved_entry:
+                    approved_entry["status"] = "published"
+                    approved_entry[f"{pname}_id"] = post_id_str
+                    approved_entry[f"{pname}_url"] = post_url_str
+                    approved_entry["published_at"] = datetime.now().isoformat()
+                    with open("pending_posts.json", "w", encoding="utf-8") as pf:
+                        json.dump(pending_posts, pf, ensure_ascii=False, indent=4)
+
+                # Update per-platform state
+                pstate = lang_state[pname]
+                pstate[f"{pslot}_posted"] = True
+                pstate["last_post_time"] = local_now.isoformat()
+                save_publish_state(state)
+
+                print(f"[{lang}] {pname}: Publicado com sucesso!")
+            else:
+                print(f"[{lang}] {pname}: Falha na publicacao.")
+
 
 if __name__ == "__main__":
     main()
 
 
-def publish_to_facebook(message, link_url):
-    """Publica no Facebook Page via Graph API. Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN."""
+def publish_to_facebook(message, image_url):
+    """Publica uma foto no Facebook Page via Graph API. Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN."""
     page_id = os.environ.get("FB_PAGE_ID", "")
     page_token = os.environ.get("FB_PAGE_ACCESS_TOKEN", "")
     if not page_id or not page_token:
@@ -1835,8 +1906,8 @@ def publish_to_facebook(message, link_url):
     import requests as _r
     try:
         res = _r.post(
-            f"https://graph.facebook.com/v25.0/{page_id}/feed",
-            data={"message": message, "link": link_url, "access_token": page_token},
+            f"https://graph.facebook.com/v25.0/{page_id}/photos",
+            data={"url": image_url, "caption": message, "access_token": page_token},
             timeout=60,
         )
         data = res.json()
@@ -1846,32 +1917,5 @@ def publish_to_facebook(message, link_url):
         print("Erro Facebook:", data)
     except Exception as exc:
         print("Erro Facebook:", exc)
-    return None
-
-
-def publish_to_x(message):
-    """Publica no X via API v2 (OAuth 1.0a). Requer X_API_KEY + X_API_SECRET + X_ACCESS_TOKEN + X_ACCESS_TOKEN_SECRET."""
-    api_key = os.environ.get("X_API_KEY", "")
-    api_secret = os.environ.get("X_API_SECRET", "")
-    access_token = os.environ.get("X_ACCESS_TOKEN", "")
-    access_secret = os.environ.get("X_ACCESS_TOKEN_SECRET", "")
-    if not all([api_key, api_secret, access_token, access_secret]):
-        return None
-    try:
-        from requests_oauthlib import OAuth1
-        auth = OAuth1(api_key, api_secret, access_token, access_secret)
-        res = requests.post(
-            "https://api.twitter.com/2/tweets",
-            json={"text": message[:280]},
-            auth=auth,
-            timeout=30,
-        )
-        data = res.json()
-        tweet_id = data.get("data", {}).get("id")
-        if tweet_id:
-            return f"https://x.com/i/status/{tweet_id}"
-        print("Erro X:", data)
-    except Exception as exc:
-        print("Erro X:", exc)
     return None
 

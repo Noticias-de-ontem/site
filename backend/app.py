@@ -36,7 +36,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SITE_DIR = ROOT / "site"
 # Manter em sincronia com build_site.py SITE_ASSET_VERSION.
 SITE_ASSET_VERSION = "20260913o"
-DEFAULT_PUBLIC_URL = "https://luisflmaximo.github.io/Noticias-de-ontem-pt"
+DEFAULT_PUBLIC_URL = "https://www.noticiasdeontem.pt/"
 TOPIC_MAX_ACTIVE_JOBS = positive_int("TOPIC_MAX_ACTIVE_JOBS", 8)
 TOPIC_JOB_SLOT_TTL_SECONDS = positive_int("TOPIC_JOB_SLOT_TTL_SECONDS", 7200)
 TOPIC_JOB_STALE_SECONDS = positive_int("TOPIC_JOB_STALE_SECONDS", 7200)

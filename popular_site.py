@@ -23,6 +23,7 @@ import time
 from datetime import date as date_type
 from datetime import datetime, timedelta
 from pathlib import Path
+from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
@@ -297,7 +298,8 @@ Responde APENAS JSON: {{"body": "artigo completo"}}""",
             art_url = option["article_url"]
             option_changed = True
 
-        if (not art_url or ("/wayback/" not in art_url and "wikipedia.org" in art_url)) and option.get("year"):
+        art_host = (urlparse(art_url).hostname or "").lower()
+        if (not art_url or ("/wayback/" not in art_url and (art_host == "wikipedia.org" or art_host.endswith(".wikipedia.org")))) and option.get("year"):
             source_candidate = option.get("background_source_url") or option.get("source_url") or ""
             if "/noFrame/replay/" in source_candidate:
                 source_candidate = source_candidate.replace("/noFrame/replay/", "/wayback/")

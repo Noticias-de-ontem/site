@@ -354,7 +354,7 @@ const i18n = {
     docsGithubBody: "Consulta no GitHub a metodologia completa, os dados e as instruções para executar o projeto.",
     footerCredit: "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
     emptyTitle: "Ainda não há notícias para mostrar",
-    emptySummary: "Quando a fila de revisão tiver posts, esta área passa a mostrar a notícia principal.",
+    emptySummary: "As notícias do dia em destaque estarão disponíveis aqui brevemente.",
     docs: [
       {
         title: "Uma janela para o passado",
@@ -571,7 +571,7 @@ const i18n = {
     docsGithubBody: "Open GitHub for the full methodology, data notes and instructions for running the project.",
     footerCredit: "Data collected and contextualized from Arquivo.pt.",
     emptyTitle: "No stories to show yet",
-    emptySummary: "When the review queue has posts, this area will show the lead story.",
+    emptySummary: "Featured news stories will be available here shortly.",
     docs: [
       {
         title: "A window into the past",
@@ -3363,6 +3363,7 @@ function relativeTime(dateValue) {
 
 function renderDocs() {
   const grid = document.getElementById("doc-grid");
+  if (!grid) return;
   renderMetrics();
   grid.innerHTML = t("docs").map((doc) => `
     <article class="doc-card">

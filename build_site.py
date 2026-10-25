@@ -32,7 +32,7 @@ CDXJ_BUILDER_FILE = ROOT / "build_arquivo_cdxj_index.py"
 INSTAGRAM_SCRAPER_FILE = ROOT / "scraper.py"
 ICON_SOURCE = ROOT / "images" / "noticias_de_ontem_icon.png"
 ICON_ASSET = "icon.png"
-SITE_ASSET_VERSION = "20260913o"
+SITE_ASSET_VERSION = "20261024a"
 SITE_FONTS = [
     "Montserrat-Regular.ttf",
     "Montserrat-Medium.ttf",
@@ -40,7 +40,7 @@ SITE_FONTS = [
     "Montserrat-Bold.ttf",
     "Montserrat-ExtraBold.ttf",
 ]
-DEFAULT_PUBLIC_URL = "https://noticias-de-ontem.github.io/site"
+DEFAULT_PUBLIC_URL = "https://www.noticiasdeontem.pt/"
 WHITE = (255, 255, 255)
 SOURCE_CREATED_YEARS = {
     "publico.pt": 1990,

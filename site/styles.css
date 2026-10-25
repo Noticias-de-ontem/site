@@ -3390,7 +3390,7 @@ html {
 /* ==== Rodapé melhorado ====================================================== */
 .footer-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) auto auto minmax(0, 1.5fr);
+  grid-template-columns: minmax(0, 1.4fr) auto auto;
   gap: 24px 44px;
   align-items: start;
   width: 100%;
