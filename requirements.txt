@@ -1,5 +1,5 @@
 instaloader==4.15.5
-Pillow==12.3.0
+Pillow==13.0.0
 numpy==2.5.4
 requests==2.34.2
 tzdata==2026.5; sys_platform == 'win32'
