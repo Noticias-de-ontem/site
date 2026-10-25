@@ -281,7 +281,7 @@ def selecionar_para_perfil(recentes, categorias, termos):
 
 def email_html(perfil_categorias, items):
     sender_name = os.environ.get("NEWSLETTER_REMETENTE_NOME", "Notícias de Ontem")
-    site_url = (os.environ.get("NEWSLETTER_URL_SITE") or "https://noticias-de-ontem.github.io/site/").rstrip("/")
+    site_url = (os.environ.get("NEWSLETTER_URL_SITE") or "https://www.noticiasdeontem.pt/").rstrip("/")
     rows = []
     for item in items:
         year = str(item.get("original_year") or "")

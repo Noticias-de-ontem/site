@@ -40,7 +40,7 @@ SITE_FONTS = [
     "Montserrat-Bold.ttf",
     "Montserrat-ExtraBold.ttf",
 ]
-DEFAULT_PUBLIC_URL = "https://noticias-de-ontem.github.io/site"
+DEFAULT_PUBLIC_URL = "https://www.noticiasdeontem.pt/"
 WHITE = (255, 255, 255)
 SOURCE_CREATED_YEARS = {
     "publico.pt": 1990,

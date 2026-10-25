@@ -16,12 +16,18 @@ jobs:
         with:
           python-version: '3.14.6'
 
-      - run: python -m pip install "Pillow==12.3.0" "requests==2.34.2"
+      - run: python -m pip install "Pillow==12.3.0" "requests==2.34.2" "requests-oauthlib==2.0.0"
 
       - name: Run smoke test
         env:
           IG_ACCESS_TOKEN_PT: ${{ secrets.IG_ACCESS_TOKEN_PT }}
           IG_USER_ID_PT: ${{ secrets.IG_USER_ID_PT }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_TOKEN_SECRET: ${{ secrets.X_ACCESS_TOKEN_SECRET }}
           IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
         run: |
           python - << 'EOF'
@@ -51,39 +57,104 @@ jobs:
               print("IMGBB error:", d)
               return None
 
-          def publish(image_url, caption, token, user_id, lang):
+          def publish_instagram(image_url, caption, token, user_id, lang):
               r1 = requests.post(
                   f"https://graph.facebook.com/v25.0/{user_id}/media",
                   data={'image_url': image_url, 'caption': caption, 'access_token': token}
               )
               d1 = r1.json()
               if 'id' not in d1:
-                  print(f"[{lang}] Container error:", d1)
-                  return
+                  print(f"[{lang}] Instagram container error:", d1)
+                  return False
               r2 = requests.post(
                   f"https://graph.facebook.com/v25.0/{user_id}/media_publish",
                   data={'creation_id': d1['id'], 'access_token': token}
               )
               d2 = r2.json()
               if 'id' in d2:
-                  print(f"[{lang}] ✅ Published! Post ID: {d2['id']}")
-              else:
-                  print(f"[{lang}] ❌ Publish error:", d2)
+                  print(f"[{lang}] ✅ Instagram published! Post ID: {d2['id']}")
+                  return True
+              print(f"[{lang}] ❌ Instagram publish error:", d2)
+              return False
+
+          def publish_facebook(message, link_url, page_id, page_token, lang):
+              r = requests.post(
+                  f"https://graph.facebook.com/v25.0/{page_id}/feed",
+                  data={'message': message, 'link': link_url, 'access_token': page_token},
+                  timeout=60,
+              )
+              d = r.json()
+              if d.get('id'):
+                  print(f"[{lang}] ✅ Facebook published! Post ID: {d['id']}")
+                  return True
+              print(f"[{lang}] ❌ Facebook publish error:", d)
+              return False
+
+          def publish_x(message, api_key, api_secret, access_token, access_secret, lang):
+              try:
+                  from requests_oauthlib import OAuth1
+                  auth = OAuth1(api_key, api_secret, access_token, access_secret)
+                  r = requests.post(
+                      "https://api.twitter.com/2/tweets",
+                      json={"text": message[:280]},
+                      auth=auth,
+                      timeout=30,
+                  )
+                  d = r.json()
+                  if d.get('data', {}).get('id'):
+                      print(f"[{lang}] ✅ X published! Tweet ID: {d['data']['id']}")
+                      return True
+                  print(f"[{lang}] ❌ X publish error:", d)
+                  return False
+              except Exception as e:
+                  print(f"[{lang}] ❌ X exception: {e}")
+                  return False
 
           imgbb_key = os.environ.get('IMGBB_API_KEY')
+          caption = "🧪 Smoke test - Este post foi gerado automaticamente para testar o pipeline.\n\n#teste #smoketest"
+          link_url = "https://www.noticiasdeontem.pt/"
+
+          # Upload imagem uma vez (comum a todas as redes)
+          image_url = None
+          if imgbb_key:
+              path = "smoke_test.jpg"
+              make_test_image("Smoke test - Notícias de Ontem", path)
+              image_url = upload_imgbb(path, imgbb_key)
+              if not image_url:
+                  print("IMGBB upload falhou - a testar apenas redes sem imagem")
+          else:
+              print("IMGBB_API_KEY não configurado")
+
+          # ── Instagram ──
           token = os.environ.get('IG_ACCESS_TOKEN_PT')
           user_id = os.environ.get('IG_USER_ID_PT')
-          lang = 'pt'
-
-          if not token or not user_id:
-              print(f"[{lang}] Skipping - credentials not set")
-          else:
-              path = f"smoke_{lang}.jpg"
-              make_test_image(f"Lang: {lang.upper()}", path)
-              url = upload_imgbb(path, imgbb_key)
-              if not url:
-                  print(f"[{lang}] IMGBB failed")
+          if token and user_id:
+              if image_url:
+                  publish_instagram(image_url, caption, token, user_id, 'pt')
               else:
-                  caption = f"🧪 Smoke test - {lang.upper()}\nEste post foi gerado automaticamente para testar o pipeline.\n\n#teste #smoketest"
-                  publish(url, caption, token, user_id, lang)
+                  print("[pt] Instagram ignorado - sem imagem")
+          else:
+              print("[pt] Instagram ignorado - credenciais não configuradas")
+
+          # ── Facebook ──
+          page_id = os.environ.get('FB_PAGE_ID')
+          page_token = os.environ.get('FB_PAGE_ACCESS_TOKEN')
+          if page_id and page_token:
+              fb_caption = caption + f"\n\nLink: {link_url}"
+              publish_facebook(fb_caption, link_url, page_id, page_token, 'pt')
+          else:
+              print("[pt] Facebook ignorado - credenciais não configuradas")
+
+          # ── X ──
+          x_key = os.environ.get('X_API_KEY')
+          x_secret = os.environ.get('X_API_SECRET')
+          x_token = os.environ.get('X_ACCESS_TOKEN')
+          x_secret2 = os.environ.get('X_ACCESS_TOKEN_SECRET')
+          if all([x_key, x_secret, x_token, x_secret2]):
+              x_caption = caption.replace("\n", " ")
+              publish_x(x_caption, x_key, x_secret, x_token, x_secret2, 'pt')
+          else:
+              print("[pt] X ignorado - credenciais não configuradas")
+
+          print("\nSmoke test concluído.")
           EOF

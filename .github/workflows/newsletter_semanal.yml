@@ -46,7 +46,7 @@ jobs:
           BREVO_LISTA_BASE_ID: ${{ secrets.BREVO_LISTA_BASE_ID }}
           NEWSLETTER_REMETENTE_EMAIL: ${{ secrets.NEWSLETTER_REMETENTE_EMAIL }}
           NEWSLETTER_REMETENTE_NOME: "Notícias de Ontem"
-          NEWSLETTER_URL_SITE: ${{ vars.NEWSLETTER_URL_SITE || 'https://noticias-de-ontem.github.io/site/' }}
+          NEWSLETTER_URL_SITE: ${{ vars.NEWSLETTER_URL_SITE || 'https://www.noticiasdeontem.pt/' }}
         run: |
           if [ "${{ inputs.seco }}" = "true" ]; then
             python -u scripts/newsletter.py --seco
