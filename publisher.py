@@ -1851,8 +1851,7 @@ def main():
                 publish_result = publish_to_instagram(public_image_url, final_caption, lang)
                 publish_success = bool(publish_result.get("success")) if isinstance(publish_result, dict) else bool(publish_result)
             elif pname == "facebook":
-                link_url = "https://www.noticiasdeontem.pt/"
-                publish_result = publish_to_facebook(final_caption, link_url)
+                publish_result = publish_to_facebook(final_caption, public_image_url)
                 publish_success = publish_result is not None
 
             if publish_success:
@@ -1898,8 +1897,8 @@ if __name__ == "__main__":
     main()
 
 
-def publish_to_facebook(message, link_url):
-    """Publica no Facebook Page via Graph API. Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN."""
+def publish_to_facebook(message, image_url):
+    """Publica uma foto no Facebook Page via Graph API. Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN."""
     page_id = os.environ.get("FB_PAGE_ID", "")
     page_token = os.environ.get("FB_PAGE_ACCESS_TOKEN", "")
     if not page_id or not page_token:
@@ -1907,8 +1906,8 @@ def publish_to_facebook(message, link_url):
     import requests as _r
     try:
         res = _r.post(
-            f"https://graph.facebook.com/v25.0/{page_id}/feed",
-            data={"message": message, "link": link_url, "access_token": page_token},
+            f"https://graph.facebook.com/v25.0/{page_id}/photos",
+            data={"url": image_url, "caption": message, "access_token": page_token},
             timeout=60,
         )
         data = res.json()

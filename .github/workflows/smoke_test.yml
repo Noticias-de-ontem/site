@@ -73,10 +73,10 @@ jobs:
               print(f"[{lang}] ❌ Instagram publish error:", d2)
               return False
 
-          def publish_facebook(message, link_url, page_id, page_token, lang):
+          def publish_facebook(message, image_url, page_id, page_token, lang):
               r = requests.post(
-                  f"https://graph.facebook.com/v25.0/{page_id}/feed",
-                  data={'message': message, 'link': link_url, 'access_token': page_token},
+                  f"https://graph.facebook.com/v25.0/{page_id}/photos",
+                  data={'url': image_url, 'caption': message, 'access_token': page_token},
                   timeout=60,
               )
               d = r.json()
@@ -116,8 +116,8 @@ jobs:
           page_id = os.environ.get('FB_PAGE_ID')
           page_token = os.environ.get('FB_PAGE_ACCESS_TOKEN')
           if page_id and page_token:
-              fb_caption = caption + f"\n\nLink: {link_url}"
-              publish_facebook(fb_caption, link_url, page_id, page_token, 'pt')
+              fb_caption = caption + f"\n\nLink: https://www.noticiasdeontem.pt/"
+              publish_facebook(fb_caption, image_url, page_id, page_token, 'pt')
           else:
               print("[pt] Facebook ignorado - credenciais não configuradas")
 
