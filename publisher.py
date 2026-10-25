@@ -1342,7 +1342,11 @@ Look at the following raw news publications from exactly this day in the past. Y
 11. Write like a strong social editor, not a formal newspaper archive. It can feel lively and culturally aware, focusing on nostalgia and recognition, while staying accurate.
 12. Pretend you are publishing this news ON THE VERY DAY IT HAPPENED. NEVER say things like "hoje faz X anos", "neste dia", or "noticia antiga".
 13. VERY IMPORTANT: Remove any calls to action such as 'link na bio', 'lê mais', 'subscreve', and remove original hashtags.
-14. PLATFORM-SPECIFIC CAPTIONS: Write "caption_instagram" (visual, engaging, nostalgic tone with emojis), "caption_facebook" (discussion-oriented, invites comments), and "caption_x" (short, under 280 chars, punchy, current-events style). Each should be adapted to its platform's audience while covering the same story.
+14. PLATFORM-SPECIFIC CAPTIONS:
+- Do NOT start the caption with the year (e.g. NEVER start with "Em 2015," or "No ano de 2021,"). Integrate the year naturally inside or towards the end of the narrative phrase (e.g. "A Assembleia da República viveu um momento inédito na democracia em 2021: ...").
+- Standard disclaimer MUST follow: "Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de [ANO]."
+- For "caption_instagram": include link phrase "🔗 Lê a notícia completa no link da bio." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]" (e.g. #Politica, #Mundo, #Sociedade). NEVER use #atualidade.
+- For "caption_facebook": include link phrase "🔗 Lê a notícia completa no link do sobre do perfil." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]". NEVER use #atualidade.
 
 Write your response in Portuguese.
 Return a JSON object with exactly these keys:

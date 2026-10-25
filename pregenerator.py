@@ -1615,10 +1615,37 @@ def match_option_to_article(option, articles):
     return best_match
 
 
-def append_review_hashtags(caption, lang):
-    caption = normalize_text(caption)
-    hashtags = "#Noticias #Atualidade #Jornalismo" if lang == "pt" else "#News #BreakingNews #CurrentEvents"
-    return caption if hashtags in caption else normalize_text(f"{caption}\n\n{hashtags}")
+def format_standard_caption(caption, year, category, platform="instagram", lang="pt"):
+    clean_text = normalize_text(caption)
+    # Remove older generic hashtags if present
+    clean_text = re.sub(r"#\w+", "", clean_text).strip()
+    year_str = str(year or "").strip()
+    
+    if lang == "pt":
+        import unicodedata
+        cat_tag = re.sub(r"[^a-zA-Z0-9]", "", unicodedata.normalize("NFKD", str(category or "")).encode("ASCII", "ignore").decode("utf-8")).capitalize()
+        if not cat_tag or cat_tag.lower() in ("atualidade", "noticia", "noticias"):
+            cat_tag = "Portugal"
+        elif cat_tag.lower() == "mundial":
+            cat_tag = "Mundo"
+
+        alert = f"Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de {year_str}."
+        if platform == "facebook":
+            link_cta = "🔗 Lê a notícia completa no link do sobre do perfil."
+        else:
+            link_cta = "🔗 Lê a notícia completa no link da bio."
+        hashtags = f"#NoticiasDeOntem #ArquivoPT #{cat_tag}"
+    else:
+        cat_tag = re.sub(r"[^a-zA-Z0-9]", "", str(category or "")).capitalize() or "World"
+        alert = f"This post is intended solely to recall past events in history, never representing current events. This story is from {year_str}."
+        link_cta = "🔗 Read the full story via the link in our bio/about section."
+        hashtags = f"#YesterdayNews #ArquivoPT #{cat_tag}"
+
+    return f"{clean_text}\n\n{alert}\n\n{link_cta}\n\n{hashtags}"
+
+
+def append_review_hashtags(caption, lang, year="", category="", platform="instagram"):
+    return format_standard_caption(caption, year, category, platform=platform, lang=lang)
 
 
 def prepare_options_for_review(
@@ -1706,7 +1733,11 @@ def prepare_options_for_review(
         option["image_theme"] = normalize_text(option.get("image_theme", ""))
         option["layout_preference"] = str(option.get("layout_preference", "template_1")).strip().lower().replace("-", "_")
         option["breaking_candidate"] = bool(option.get("breaking_candidate", False))
-        option["caption"] = append_review_hashtags(option.get("caption", ""), lang)
+        year = option.get("year", "")
+        cat = option.get("category", "")
+        option["caption_instagram"] = format_standard_caption(option.get("caption", ""), year, cat, platform="instagram", lang=lang)
+        option["caption_facebook"] = format_standard_caption(option.get("caption", ""), year, cat, platform="facebook", lang=lang)
+        option["caption"] = option["caption_instagram"]
         prepared_options.append(option)
     return prepared_options
 
