@@ -688,7 +688,7 @@ Your task is to select up to {max_items} distinct index numbers of headlines (co
 1. FACTUAL IMPORTANCE & COLLECTIVE SCALE (HIGHEST PRIORITY):
    - Prioritize events of broad collective scale that directly alter, restrict, or condition daily life, public services, education, health, institutional functioning, or free movement of the population and nation.
    - ABSOLUTE TOP PRIORITY: official executive decisions, declarations of emergency or alert states, nationwide suspensions or closures of public facilities/schools/universities/services, major judicial sentences of national significance, landmark international treaties or conflicts.
-   - GEOGRAPHICAL & CIVIL FOCUS: For this Portuguese-language publication, prioritize national-scope events (Portugal/EU) and major global geopolitical milestones over remote domestic/internal news of distant third countries (e.g. local state declarations or dispatches from Latin America, Africa, or Asia).
+   - GEOGRAPHICAL & CIVIL FOCUS: For this Portuguese-language publication, prioritize national-scope events (Portugal/EU) and major global geopolitical milestones. STRICTLY REJECT remote domestic news of third countries (e.g. municipal/local health decrees in Liberia, smog in Beijing, provincial decrees in Latin America/Asia/Africa) whenever Portuguese or European events exist.
    - STRICTLY DOWNGRADE/REJECT: minor sectoral curiosities, incremental scientific studies without immediate civil consequence, instrument calibrations, archaeological discoveries (fossils, bones, ancient tombs/cellars), celebrity leisure, routine administrative notices.
 
 2. TEMPORAL PLAUSIBILITY (NO ANACHRONISMS WHEN READ TODAY):
@@ -1545,6 +1545,9 @@ def create_image_with_text(
     breaking_candidate=False,
     background_query="",
     manual_background_url="",
+    year=None,
+    relevance_level=None,
+    **kwargs,
 ):
     result = render_post_image(
         category_to_draw,
@@ -1560,6 +1563,9 @@ def create_image_with_text(
         breaking_candidate=breaking_candidate,
         background_query=background_query,
         manual_background_url=manual_background_url,
+        year=year,
+        relevance_level=relevance_level,
+        **kwargs,
     )
     print(f"[{lang}] Imagem guardada: {output_path}")
     return result
@@ -1723,6 +1729,7 @@ def main():
                                 background_query=normalize_text(theme_suggestion or option.get("image_theme", "") or option.get("title", "")),
                                 manual_background_url=manual_background_url,
                                 year=year,
+                                relevance_level=(option.get("relevance") or {}).get("level"),
                             )
                             used_approved_post = True
                         except Exception as e:

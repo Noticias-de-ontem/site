@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 import requests
 
 from archive_storage import load_posts_for_date
-from historical_relevance import normalize_relevance, relevance_json_shape, relevance_prompt_rules
+from historical_relevance import DEFAULT_LEVEL, default_relevance, normalize_relevance, relevance_json_shape, relevance_prompt_rules
 from social_networks import networks_prompt_rules, normalize_networks
 from imgbb_registry import register_imgbb_upload
 from nvidia_client import DEFAULT_NVIDIA_MODEL, NvidiaKeyPool, load_nvidia_api_keys
@@ -670,6 +670,8 @@ def create_image_with_text(
     return_details=False,
     year=None,
     relevance_level=None,
+    background_image=None,
+    **kwargs,
 ):
     return render_post_image(
         category_to_draw,
@@ -689,6 +691,8 @@ def create_image_with_text(
         return_details=return_details,
         year=year,
         relevance_level=relevance_level,
+        background_image=background_image,
+        **kwargs,
     )
 
 
@@ -1131,6 +1135,10 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
 
     1. TEMPORAL COHERENCE AND PLAUSIBILITY:
        - The post must read like factual breaking news happening today when the archival year is shown only in small print.
+       - NEVER include any year, month, or day in 	itle, overlay_description, caption, or summary. Stories must be written completely timelessly for delayed/historical publication (e.g. write 'Orçamento do Estado chumbado na Assembleia da República', NEVER 'Orçamento do Estado para 2022 chumbado').
+       - NEVER use absolute or sensationalist historical claims like 'inédito', 'primeira vez na história', or 'acontecimento sem precedentes desde...'.
+       - For lang='pt', STRICTLY REJECT domestic news of remote third countries (e.g. municipal/local health decrees in Liberia, smog in Beijing, provincial decrees in Latin America/Asia/Africa) whenever Portuguese or European stories exist. Prioritize Portugal, Portuguese institutions, society, and European events.
+       - IMAGE THEME GUIDELINE: When the news concerns Portuguese institutional acts, government, or state organs (e.g. Presidente da República, Governo, Parlamento, São Bento, Belém), the image_theme query MUST explicitly specify Portuguese context (e.g. 'Palácio de Belém Lisboa', 'Assembleia da República Lisboa', 'Governo de Portugal São Bento'), NEVER generic words like 'posse governamental cerimonia' that could return images of Donald Trump or foreign leaders.
        - INSTITUTIONAL ROLE PRINCIPLE:
          * If a news item concerns an official institutional act (such as an executive decision, legislative vote, governmental measure, or judicial ruling) carried out by an officeholder who no longer holds that position today, the `title`, `overlay_description`, and `caption` must refer to the institutional office (e.g. "Governo", "Presidente da República", "Tribunal", "Parlamento") rather than attributing the action to the former officeholder by their personal name.
          * If a news item is a personal opinion, diplomatic tour, speech, warning, challenge, or political declaration by someone who is retired, out of active leadership, playing for a different club, or detained/incapacitated today, STRICTLY REJECT IT.
@@ -1234,7 +1242,7 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
                     option["summary"] = normalize_text(option.get("summary", ""))
                     option["summary_en"] = normalize_text(option.get("summary_en", ""))
                     relevance = normalize_relevance(option.get("relevance"))
-                    option["relevance"] = relevance or {}
+                    option["relevance"] = relevance or default_relevance(lang)
                     if not option["title"] or not option["year"]:
                         continue
                     # Ligar a opção à notícia candidata correspondente (ano +
@@ -1354,8 +1362,9 @@ def generate_external_day_suggestions(date_obj, lang, existing_options=None):
     1. STRICT CALENDAR DATE MATCHING:
        - You MUST only suggest events that actually happened on this exact day: {date_obj.day} of {date_obj.strftime('%B')}.
        - Do NOT suggest events from other dates. For example, if today is in July, do NOT suggest the Carnation Revolution (which happened on April 25th), do NOT suggest Christmas, and do NOT suggest any other off-season events.
-    2. CATEGORY LANGUAGE:
-       - Since the language is {lang.upper()}, the "category" field MUST be in Portuguese!
+    2. CATEGORY AND CONTENT LANGUAGE (STRICTLY PORTUGUESE):
+       - Since the language is {lang.upper()}, ALL fields ("title", "summary", "category") MUST be written 100% in European Portuguese!
+       - NEVER use English titles or phrasing (e.g. write 'Estreia de Morte e Vida de Fernando Pessoa', NEVER 'Premiere of...').
        - Use categories like: POLÍTICA, DESPORTO, CULTURA, SOCIEDADE, CIÊNCIA, NACIONAL, MUNDIAL, ESTRELA, CURIOSO. Never use English words.
     3. NO DEATHS:
        - Do NOT suggest any events about deaths, passings, murders, violence, or violent tragedies.
@@ -1512,7 +1521,7 @@ def normalize_pending_post(post):
         normalized_option["local_image_path"] = normalize_text(normalized_option.get("local_image_path", ""))
         normalized_option["image_delete_url"] = normalize_text(normalized_option.get("image_delete_url", ""))
         relevance = normalize_relevance(normalized_option.get("relevance"))
-        normalized_option["relevance"] = relevance or {}
+        normalized_option["relevance"] = relevance or default_relevance(post.get("lang", "pt"))
         normalized_option["article_url"] = normalize_text(normalized_option.get("article_url", ""))
         options.append(normalized_option)
     post["options"] = options

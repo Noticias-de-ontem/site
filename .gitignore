@@ -41,3 +41,5 @@ geracao_100.log
 # Ficheiros locais grandes/artefactos de sessão
 .zcode/
 arquivo_cache.db
+
+images/review/

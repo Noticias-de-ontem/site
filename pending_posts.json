@@ -1,1 +1,2803 @@
-[]
+[
+    {
+        "id": "pt_2026-10-27_1",
+        "date": "2026-10-27",
+        "slot": 1,
+        "lang": "pt",
+        "selected_option": 3,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "",
+        "status": "approved",
+        "generated_month": "2026-10",
+        "external_suggestions": [
+            {
+                "year": "1962",
+                "category": "CULTURA",
+                "title": "Primeiro disco de ouro de um grupo português",
+                "summary": "Lançamento do primeiro álbum a obter disco de ouro em Portugal, marcando um marco na indústria cultural nacional."
+            },
+            {
+                "year": "1989",
+                "category": "DESPORTO",
+                "title": "Vitória histórica do Benfica na Taça dos Clubes Campeões",
+                "summary": "Conquista da primeira Taça dos Clubes Campeões europeia pelo Sport Lisboa e Benfica, um dos maiores títulos do futebol português."
+            },
+            {
+                "year": "1994",
+                "category": "SOCIEDADE",
+                "title": "Primeiro casamento homossexual em Portugal",
+                "summary": "Celebração do primeiro casamento entre pessoas do mesmo sexo no país, um marco de avanço social e direitos civis."
+            }
+        ],
+        "options": [
+            {
+                "year": "2025",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Governo lança desafio às universidades com menos candidatos",
+                "highlight_text": "Desafio universidades",
+                "overlay_description": "Governo reorienta oferta formativa e aposta na formação para adultos",
+                "image_theme": "universidade adultos formacao",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Iniciativa governamental visa reorientar a oferta formativa universitária com foco em adultos.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Governo lança desafio às universidades com menos candidatos, reorientando oferta formativa e apostando na formação para adultos.",
+                "title_en": "Government challenges universities with few applicants",
+                "summary_en": "Government reallocates academic offerings and bets on adult education programs.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 40.0,
+                        "dimensao_impacto": 35.0,
+                        "consequencias": 30.0,
+                        "relevancia_posterior": 35.0,
+                        "dimensao_duracao": 25.0,
+                        "relevancia_mediatica": 20.0,
+                        "singularidade": 25.0
+                    },
+                    "weighted_score": 33.5,
+                    "justification": "Desafio reorienta oferta formativa; aposta em adultos reduz desigualdade de acesso.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20251027213324/https://expresso.pt/sociedade/ensino/2025-10-15-reorientar-a-oferta-formativa-e-apostar-mais-na-formacao-para-adultos-governo-lanca-desafio-as-universidades-com-menos-candidatos-c29cdfd7",
+                "source_platform": "arquivo.pt",
+                "source_profile": "expresso.pt",
+                "networks": [
+                    "facebook"
+                ],
+                "background_source_url": "",
+                "body": "O Governo lançou hoje um desafio inédito às universidades portuguesas, exigindo uma reorientação da oferta formativa para responder às novas dinâmicas demográficas. A medida, anunciada pelo Ministério da Ciência, Tecnologia e Ensino Superior, visa reduzir o número de vagas em cursos com baixa procura e redirecionar recursos para áreas críticas e para a formação de adultos.\n\nO contexto assenta no contínuo descenso do número de estudantes recém-licenciados, um fenómeno já previsto pelos dados demográficos. Segundo o Instituto Nacional de Estatística, o universo de jovens aptos a ingressar no ensino superior diminuiu significativamente nas últimas décadas. Face a este cenário, o executivo decidiu adoptar uma abordagem proativa, em vez de manter o modelo tradicional de expansão indiscriminada.\n\nNo desenvolvimento da iniciativa, o Governo propõe um modelo de “flexibilidade curricular”, permitindo que instituições convertam vagas ociosas em pós-graduações, mestrados ou cursos de qualificação profissional direcionados a trabalhadores. A aposta na formação ao longo da vida é o eixo central, visando qualificar quem já está no mercado de trabalho e reduzir o desemprego juvenil.\n\nA relevância duradoura desta medida reside na sua capacidade de adaptar o sistema universitário à realidade do século XXI. Ao deixar de priorizar o número de matrículas em favor da qualidade e da empregabilidade, o Estado reconhece a necessidade de um ensino superior mais ágil e alinhado com as exigências do mercado, garantindo a sustentabilidade do setor a longo prazo.",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2025",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Governo dá autonomia às escolas para alargar proibição de smartphones",
+                "highlight_text": "proibição smartphones",
+                "overlay_description": "Ministério da Educação admite alargamento da proibição do uso de smartphones a alunos do 3.º ciclo",
+                "image_theme": "escola smartphone proibido",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Medida afeta alunos do 3.º ciclo que partilham espaços com colegas do 2.º ciclo no próximo ano letivo.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Governo dá autonomia às escolas para alargar proibição de smartphones a alunos do 3.º ciclo.",
+                "title_en": "Government gives schools autonomy to expand smartphone ban",
+                "summary_en": "Ministry of Education allows extension of smartphone prohibition to 3rd cycle students.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 30.0,
+                        "dimensao_impacto": 30.0,
+                        "consequencias": 25.0,
+                        "relevancia_posterior": 25.0,
+                        "dimensao_duracao": 20.0,
+                        "relevancia_mediatica": 15.0,
+                        "singularidade": 20.0
+                    },
+                    "weighted_score": 26.2,
+                    "justification": "Autonomia escolar amplia proibição; impacto direto na rotina estudantil e foco em distracções.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20251027204200/https://www.dn.pt/sociedade/governo-d%C3%A1-autonomia-%C3%A0s-escolas-para-alargar-proibi%C3%A7%C3%A3o-de-smartphones-a-alunos-do-3%C2%BA-ciclo",
+                "source_platform": "arquivo.pt",
+                "source_profile": "dn.pt",
+                "networks": [
+                    "facebook",
+                    "instagram"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2024",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Presidente da República dá posse aos 41 secretários de Estado",
+                "highlight_text": "posse secretários",
+                "overlay_description": "Marcelo Rebelo de Sousa completa executivo minoritário do XXIV Governo Constitucional",
+                "image_theme": "posse governamental cerimonia",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Posse ocorre no Palácio Nacional da Ajuda, completando o executivo minoritário formado por PSD e CDS-PP.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Presidente da República dá posse aos 41 secretários de Estado do XXIV Governo Constitucional.",
+                "title_en": "President appoints 41 State Secretaries",
+                "summary_en": "President Marcelo appoints state secretaries for the XXIV Constitutional Government.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 50.0,
+                        "dimensao_impacto": 40.0,
+                        "consequencias": 35.0,
+                        "relevancia_posterior": 30.0,
+                        "dimensao_duracao": 25.0,
+                        "relevancia_mediatica": 20.0,
+                        "singularidade": 30.0
+                    },
+                    "weighted_score": 37.8,
+                    "justification": "Nomeação completa executivo minoritário; afeta funcionamento governo e estabilidade política.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20241027234517/https://madeira.rtp.pt/politica/governo-presidente-deu-posse-aos-41-secretarios-de-estado-do-xxiv-governo-constitucional/",
+                "source_platform": "arquivo.pt",
+                "source_profile": "rtp.pt",
+                "networks": [
+                    "x"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2021",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Orçamento do Estado chumbado na Assembleia da República",
+                "highlight_text": "Orçamento chumbado",
+                "overlay_description": "Chumbo da proposta do Orçamento do Estado abre cenário de crise política",
+                "image_theme": "Assembleia da Republica",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "A proposta orçamental contou apenas com o voto favorável do Governo e o chumbo parlamentar abre um cenário de crise política.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "A Assembleia da República rejeitou a proposta do Orçamento do Estado na votação na generalidade.",
+                "title_en": "State Budget for 2022 rejected in Parliament",
+                "summary_en": "State Budget for 2022 rejected for the first time since the 25th of April revolution.",
+                "relevance": {
+                    "level": 2,
+                    "scores": {
+                        "impacto_historico": 85.0,
+                        "dimensao_impacto": 70.0,
+                        "consequencias": 75.0,
+                        "relevancia_posterior": 70.0,
+                        "dimensao_duracao": 60.0,
+                        "relevancia_mediatica": 40.0,
+                        "singularidade": 50.0
+                    },
+                    "weighted_score": 71.8,
+                    "justification": "Orçamento chumbado inédito desde 25 de Abril; afeta estado e gera crise política.",
+                    "lang": "pt"
+                },
+                "article_url": "",
+                "source_platform": "",
+                "source_profile": "",
+                "networks": [
+                    "x",
+                    "facebook",
+                    "instagram"
+                ],
+                "image_url": "https://i.ibb.co/Zz4vx51s/2026-10-27-04-2021-orcamento-do-estado-chumbado-na-assembleia-da-republica.jpg",
+                "image_delete_url": "https://ibb.co/VcJ9wJpg/5dd64bca5301aa450ba90898dbda7f48",
+                "local_image_path": "images\\review\\pt\\2026-10-27_04_2021_orcamento-do-estado-chumbado-na-assembleia-da-republica.jpg",
+                "background_source_url": "https://commons.wikimedia.org/wiki/File:Pal%C3%A1cio_de_S%C3%A3o_Bento_Lissabon_September_2014.jpg",
+                "local_background_path": "c:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-10-27_04_2021_orcamento-do-estado-chumbado-na-assembleia-da-republica-fundo.jpg",
+                "body": "A proposta do Orçamento do Estado para 2021 foi chumbada na Assembleia da República,Abrindo um cenário de crise política. A decisão parliamentar põe em causa a aprovação do documento orçamental e reforça as tensões entre o Governo e as forças de oposição.\n\nA votação traduziu uma ruptura no apoio parlamentar à proposta do Executivo. De acordo com a informação disponível, a proposta orçamental contou apenas com o voto favorável do Governo, enquanto os restantes votos não permitiram a sua aprovação. O chumbo parliamentar significa que o orçamento não foi aprovado nesta fase, deixando em aberto o caminho para a sua reapreciação ou a adopção de medidas orçamentais alternativas.\n\nO resultado coloca o Executivo perante um desafio político imediato: obter o apoio necessário para garantir a aprovação do Orçamento do Estado. A ausência de uma maioria parliamentar favorável à proposta obriga o Governo a negociar com os grupos que votaram contra ela ou a apresentar uma solução diferente. A questão central passa, assim, a ser a forma de garantir a viabilidade orçamental do Estado.\n\nO chumbo não encerra, por si só, o processo orçamental. A Assembleia da República pode voltar a considerar a proposta, e o Governo pode recorrer a outros mecanismos constitucionais previstos para a aprovação de um orçamento. No entanto, qualquer nova fase será marcada pelo diálogo político e pela necessidade de construir um consenso mais alargado.\n\nA rejeição da proposta também evidencia a profundidade da crise política. O documento orçamental é um instrumento central para a definição das prioridades do Estado e para a afectação de recursos a diferentes áreas. A sua não aprovação prolonga a incerteza sobre as decisões públicas e sobre a capacidade do Governo para executar as suas políticas.\n\nConsequências posteriores: o chumbo parliamentary abriu um cenário de crise política, com a proposta do Orçamento do Estado de 2021 a ficar sem aprovação e o Governo confrontado com a necessidade de garantir a sua viabilidade através de nova negociação ou reapreciação. A decisão reforçou a ruptura entre o Executivo e as forças de oposição e deixou em aberto o processo de aprovação do documento orçamental."
+            },
+            {
+                "year": "2016",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Primeiro-ministro afirma que dúvidas de Bruxelas são de poucas décimas",
+                "highlight_text": "dúvidas Bruxelas",
+                "overlay_description": "Governo decide remeter à Assembleia da República o Acordo de Paris para ratificação",
+                "image_theme": "primeiro-ministro parlamento acordo",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Ministro do Ambiente anuncia remessa do Acordo de Paris à ratificação parlamentar.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Primeiro-ministro afirma que dúvidas de Bruxelas são de poucas décimas, após proposta do Ministério dos Negócios Estrangeiros.",
+                "title_en": "Prime Minister says Brussels doubts are minor",
+                "summary_en": "Prime Minister states Brussels doubts are minor, government sends Paris Agreement to Parliament for ratification.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 35.0,
+                        "dimensao_impacto": 30.0,
+                        "consequencias": 25.0,
+                        "relevancia_posterior": 30.0,
+                        "dimensao_duracao": 20.0,
+                        "relevancia_mediatica": 15.0,
+                        "singularidade": 20.0
+                    },
+                    "weighted_score": 28.5,
+                    "justification": "Dúvidas consideradas menores; acordo Paris enviado para ratificação parlamentar.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20161027205318/https://www.publico.pt/politica/noticia/governo-propos-oficialmente-a-aceitacao-do-acordo-de-paris-ao-parlamento-1739005",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "x"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            }
+        ]
+    },
+    {
+        "id": "pt_2026-10-27_2",
+        "date": "2026-10-27",
+        "slot": 2,
+        "lang": "pt",
+        "selected_option": 4,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "",
+        "status": "approved",
+        "generated_month": "2026-10",
+        "external_suggestions": [
+            {
+                "year": "1962",
+                "category": "CULTURA",
+                "title": "Primeiro disco de ouro de um grupo português",
+                "summary": "Lançamento do primeiro álbum a obter disco de ouro em Portugal, marcando um marco na indústria cultural nacional."
+            },
+            {
+                "year": "1989",
+                "category": "DESPORTO",
+                "title": "Vitória histórica do Benfica na Taça dos Clubes Campeões",
+                "summary": "Conquista da primeira Taça dos Clubes Campeões europeia pelo Sport Lisboa e Benfica, um dos maiores títulos do futebol português."
+            },
+            {
+                "year": "1994",
+                "category": "SOCIEDADE",
+                "title": "Primeiro casamento homossexual em Portugal",
+                "summary": "Celebração do primeiro casamento entre pessoas do mesmo sexo no país, um marco de avanço social e direitos civis."
+            }
+        ],
+        "options": [
+            {
+                "year": "2024",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Presidente da República dá posse aos 41 secretários de Estado",
+                "highlight_text": "posse secretários",
+                "overlay_description": "Marcelo Rebelo de Sousa completa executivo minoritário do XXIV Governo Constitucional",
+                "image_theme": "posse governamental cerimonia",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Posse ocorre no Palácio Nacional da Ajuda, completando o executivo minoritário formado por PSD e CDS-PP.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Presidente da República dá posse aos 41 secretários de Estado do XXIV Governo Constitucional.",
+                "title_en": "President appoints 41 State Secretaries",
+                "summary_en": "President Marcelo appoints state secretaries for the XXIV Constitutional Government.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 50.0,
+                        "dimensao_impacto": 40.0,
+                        "consequencias": 35.0,
+                        "relevancia_posterior": 30.0,
+                        "dimensao_duracao": 25.0,
+                        "relevancia_mediatica": 20.0,
+                        "singularidade": 30.0
+                    },
+                    "weighted_score": 37.8,
+                    "justification": "Nomeação completa executivo minoritário; afeta funcionamento governo e estabilidade política.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20241027234517/https://madeira.rtp.pt/politica/governo-presidente-deu-posse-aos-41-secretarios-de-estado-do-xxiv-governo-constitucional/",
+                "source_platform": "arquivo.pt",
+                "source_profile": "rtp.pt",
+                "networks": [
+                    "x"
+                ],
+                "background_source_url": "",
+                "body": "Em 2024, o XXIV Governo Constitucional, liderado por Luís Montenegro, deu os seus primeiros passos formais ao completar o executivo minoritário. A cerimónia de posse decorreu no Palácio Nacional da Ajuda, em Lisboa, onde o Presidente da República, Marcelo Rebelo de Sousa, empossou os 41 secretários de Estado. Este ato marca a conclusão da estrutura governativa, após a nomeação dos ministros e a aprovação do programa pelo Parlamento. O executivo, resultado de um acordo entre PSD e CDS-PP, assume o desafio de governar sem maioria absoluta, dependendo do apoio de outros partidos para aprovar leis e o Orçamento do Estado. A composição do Governo reflete a atual configuração política parlamentar, onde a coligação de centro-direita tenta estabilizar a gestão pública num contexto de fragmentação política. A posse dos secretários de Estado representa, assim, um passo crucial para a operacionalização da máquina administrativa, garantindo que o novo executivo está pronto para enfrentar as principais questões nacionais, desde a economia e saúde até à segurança e ambiente, num período marcado por incertezas globais e necessidades de reformas estruturais.",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2025",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Governo dá autonomia às escolas para alargar proibição de smartphones",
+                "highlight_text": "proibição smartphones",
+                "overlay_description": "Ministério da Educação admite alargamento da proibição do uso de smartphones a alunos do 3.º ciclo",
+                "image_theme": "escola smartphone proibido",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Medida afeta alunos do 3.º ciclo que partilham espaços com colegas do 2.º ciclo no próximo ano letivo.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Governo dá autonomia às escolas para alargar proibição de smartphones a alunos do 3.º ciclo.",
+                "title_en": "Government gives schools autonomy to expand smartphone ban",
+                "summary_en": "Ministry of Education allows extension of smartphone prohibition to 3rd cycle students.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 30.0,
+                        "dimensao_impacto": 30.0,
+                        "consequencias": 25.0,
+                        "relevancia_posterior": 25.0,
+                        "dimensao_duracao": 20.0,
+                        "relevancia_mediatica": 15.0,
+                        "singularidade": 20.0
+                    },
+                    "weighted_score": 26.2,
+                    "justification": "Autonomia escolar amplia proibição; impacto direto na rotina estudantil e foco em distracções.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20251027204200/https://www.dn.pt/sociedade/governo-d%C3%A1-autonomia-%C3%A0s-escolas-para-alargar-proibi%C3%A7%C3%A3o-de-smartphones-a-alunos-do-3%C2%BA-ciclo",
+                "source_platform": "arquivo.pt",
+                "source_profile": "dn.pt",
+                "networks": [
+                    "facebook",
+                    "instagram"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2021",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Orçamento do Estado para 2022 chumbado na Assembleia da República",
+                "highlight_text": "Orçamento chumbado",
+                "overlay_description": "Proposta de Orçamento do Estado para 2022 chumbada pela primeira vez desde o 25 de Abril",
+                "image_theme": "parlamento orçamento documento",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "OE2022 contou apenas com o voto a favor do PS e abstenção de outros partidos.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Orçamento do Estado para 2022 chumbado na Assembleia da República, acontecimento inédito desde o 25 de Abril.",
+                "title_en": "State Budget for 2022 rejected in Parliament",
+                "summary_en": "State Budget for 2022 rejected for the first time since the 25th of April revolution.",
+                "relevance": {
+                    "level": 2,
+                    "scores": {
+                        "impacto_historico": 85.0,
+                        "dimensao_impacto": 70.0,
+                        "consequencias": 75.0,
+                        "relevancia_posterior": 70.0,
+                        "dimensao_duracao": 60.0,
+                        "relevancia_mediatica": 40.0,
+                        "singularidade": 50.0
+                    },
+                    "weighted_score": 71.8,
+                    "justification": "Orçamento chumbado inédito desde 25 de Abril; afeta estado e gera crise política.",
+                    "lang": "pt"
+                },
+                "article_url": "",
+                "source_platform": "",
+                "source_profile": "",
+                "networks": [
+                    "x",
+                    "facebook"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2016",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Primeiro-ministro afirma que dúvidas de Bruxelas são de poucas décimas",
+                "highlight_text": "dúvidas Bruxelas",
+                "overlay_description": "Governo decide remeter à Assembleia da República o Acordo de Paris para ratificação",
+                "image_theme": "primeiro-ministro parlamento acordo",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Ministro do Ambiente anuncia remessa do Acordo de Paris à ratificação parlamentar.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Primeiro-ministro afirma que dúvidas de Bruxelas são de poucas décimas, após proposta do Ministério dos Negócios Estrangeiros.",
+                "title_en": "Prime Minister says Brussels doubts are minor",
+                "summary_en": "Prime Minister states Brussels doubts are minor, government sends Paris Agreement to Parliament for ratification.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 35.0,
+                        "dimensao_impacto": 30.0,
+                        "consequencias": 25.0,
+                        "relevancia_posterior": 30.0,
+                        "dimensao_duracao": 20.0,
+                        "relevancia_mediatica": 15.0,
+                        "singularidade": 20.0
+                    },
+                    "weighted_score": 28.5,
+                    "justification": "Dúvidas consideradas menores; acordo Paris enviado para ratificação parlamentar.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20161027205318/https://www.publico.pt/politica/noticia/governo-propos-oficialmente-a-aceitacao-do-acordo-de-paris-ao-parlamento-1739005",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "x"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2014",
+                "category": "MUNDIAL",
+                "editorial_tier": "high",
+                "title": "Governo da Libéria decreta estado de emergência por risco de epidemia de ébola",
+                "highlight_text": "estado emergência",
+                "overlay_description": "Governo mobiliza Exército para travar éxodo rural descontrolado diante risco epidémico",
+                "image_theme": "Ebola",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Estado de emergência mobiliza forças de segurança para conter propagação do vírus e proteger populações.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Declaração de emergência internacional na África Ocidental para conter a crise sanitária do Ébola.",
+                "title_en": "Liberia government declares state of emergency over Ebola epidemic risk",
+                "summary_en": "Liberia government declares state of emergency over Ebola epidemic risk, mobilizing army.",
+                "relevance": {
+                    "level": 4,
+                    "scores": {
+                        "impacto_historico": 60.0,
+                        "dimensao_impacto": 50.0,
+                        "consequencias": 55.0,
+                        "relevancia_posterior": 50.0,
+                        "dimensao_duracao": 40.0,
+                        "relevancia_mediatica": 30.0,
+                        "singularidade": 45.0
+                    },
+                    "weighted_score": 51.5,
+                    "justification": "Estado emergência combate epidemia; mobilização militar travou éxodo rural descontrolado.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20141027041412/http://www.publico.pt/mundo/noticia/liberia-decreta-estado-de-emergencia-por-causa-de-epidemia-de-ebola-1665748",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "instagram",
+                    "facebook"
+                ],
+                "image_url": "https://i.ibb.co/fGvThd0d/2026-10-27-05-2014-governo-da-liberia-decreta-estado-de-emergencia-por-risco-de-epidemia-de-ebola.jpg",
+                "image_delete_url": "https://ibb.co/PZKPbzSr/ae0b41cddf05906f29d01bca80a1c1be",
+                "local_image_path": "images\\review\\pt\\2026-10-27_05_2014_governo-da-liberia-decreta-estado-de-emergencia-por-risco-de-epidemia-de-ebola.jpg",
+                "background_source_url": "https://pt.wikipedia.org/wiki/V%C3%ADrus_Ebola",
+                "local_background_path": "c:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-10-27_05_2014_governo-da-liberia-decreta-estado-de-emergencia-por-risco-de-epidemia-de-ebola-fundo.jpg",
+                "body": "O governo da Libéria decretou estado de emergência em 2014, face ao risco de propagação da epidemia de ébola no país. A decisão faz parte de um conjunto de medidas de segurança adoptadas para tentar travar o êxodo de populações rurais e proteger as comunidades mais expostas ao vírus. A crise sanitária ocorre num país onde a instabilidade política e as condições de vida da população dificultam a resposta das autoridades.\n\nA mobilização do Exército libério integra a estratégia de contenção da doença. Segundo o resumo da notícia, as forças de segurança foram empregadas para conter a propagação do vírus e proteger populações, numa tentativa de impedir deslocações massivas e descontroladas. A legenda da imagem refere-se precisamente à utilização de meios de segurança para limitar a propagação da epidemia.\n\nA informação foi inserida na categoria «Mundial», sublinhando o alcance internacional do problema. A emergência na Libéria和陈 reflects a dimensão regional e global da crise: o combate à propagação da ébola exige capacidade logística, coordenação institucional e presença das autoridades junto das comunidades afetadas. A mobilização militar revela a gravidade do risco epidémico e a necessidade de garantir a ordem pública durante a resposta sanitária.\n\nA relevância duradoura deste caso reside na forma como uma emergência sanitária pode transformar-se num desafio de segurança. A contenção de deslocações, a proteção de populações e a presença do Exército mostram como a resposta a epidemias envolve não apenas serviços de saúde, mas também capacidade institucional e força pública. A experiência libériaia de 2014 became um marco na resposta internacional à ébola, evidences a importância de agir cedo e de articular medidas de saúde pública com mecanismos de proteção civil e segurança."
+            }
+        ]
+    },
+    {
+        "id": "pt_2026-10-28_1",
+        "date": "2026-10-28",
+        "slot": 1,
+        "lang": "pt",
+        "selected_option": 0,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "",
+        "status": "approved",
+        "generated_month": "2026-10",
+        "external_suggestions": [
+            {
+                "year": "1918",
+                "category": "CULTURA",
+                "title": "Premiere of \"Morte e Vida\" by Fernando Pessoa",
+                "summary": "Lançamento da obra poética que consolidou o modernismo em Portugal, marcando uma nova era literária."
+            },
+            {
+                "year": "1972",
+                "category": "DESPORTO",
+                "title": "Portugal vence a Irlanda do Norte no apuramento para o Europeu",
+                "summary": "Vitória importante da seleção nacional que manteve vivos os sonhos de qualificação para o Campeonato Europeu de 1972."
+            },
+            {
+                "year": "1995",
+                "category": "CIÊNCIA",
+                "title": "Lançamento do satélite PoSat-1",
+                "summary": "Primeiro satélite português colocado em órbita, simbolizando o início da era espacial nacional."
+            }
+        ],
+        "options": [
+            {
+                "year": "2025",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Governo alarga proibição de smartphones a alunos do 3.º ciclo em espaços partilhados",
+                "highlight_text": "proibição smartphones",
+                "overlay_description": "Medida educativa afeta rotina escolar em todo o país",
+                "image_theme": "alunos smartphones escola",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Executivo autoriza escolas a proibir telemóveis em alunos do 3.º ciclo que partilham espaços com do 2.º ciclo\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Alargamento da proibição de telemóveis escolares para o 3.º ciclo do ensino básico, medida que afeta a rotina diária de estudantes e docentes.",
+                "title_en": "Government extends smartphone ban to 3rd cycle students in shared spaces",
+                "summary_en": "Extension of school mobile phone prohibition to lower secondary education, affecting daily routines of students and teachers nationwide",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 35.0,
+                        "dimensao_impacto": 25.0,
+                        "consequencias": 20.0,
+                        "relevancia_posterior": 25.0,
+                        "dimensao_duracao": 15.0,
+                        "relevancia_mediatica": 10.0,
+                        "singularidade": 15.0
+                    },
+                    "weighted_score": 25.0,
+                    "justification": "Medida educacional afeta rotina escolar nacional; proíbe uso em espaços partilhados durante período letivo.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20251028195815/https://www.dn.pt/sociedade/governo-d%C3%A1-autonomia-%C3%A0s-escolas-para-alargar-proibi%C3%A7%C3%A3o-de-smartphones-a-alunos-do-3%C2%BA-ciclo",
+                "source_platform": "arquivo.pt",
+                "source_profile": "dn.pt",
+                "networks": [
+                    "facebook",
+                    "instagram"
+                ],
+                "background_source_url": "https://arquivo.pt/wayback/20230709214237/https://www.contacto.lu/",
+                "body": "O Governo aprovou hoje a alargada proibição de smartphones a alunos do 3.º ciclo nos espaços partilhados das escolas, numa medida que visa reforçar o ambiente educativo e reduzir as perturbações disciplinares. A nova diretiva estende a restrição, já em vigor no 1.º ciclo, aos alunos dos 7.º, 8.º e 9.º anos quando estes partilham instalações com o 2.º ciclo, como bibliotecas, refeitórios e áreas de recreio comuns. Segundo o Ministério da Educação, a decisão responde a pedidos de professores e pais preocupados com o impacto do uso excessivo de ecrãs no desempenho escolar e na saúde mental dos jovens. A medida permite às escolas autonomia para definir os horários e zonas específicas onde o equipamento deve ficar guardado, privilegiando o uso de cabines de depósito ou levantamento pelos encarregados de educação no início do dia letivo. A proibição entra em vigor no próximo período letivo e já gerou debate nas comunidades educativas, com alguns diretores a elogiar a clareza da norma e outros a questionar a viabilidade logística em escolas com infraestruturas antigas. Independentemente das críticas, o executivo mantém que a iniciativa representa um passo importante para a recuperação dos hábitos de estudo e para a promoção de interações sociais mais saudáveis no ambiente escolar.",
+                "image_url": "https://i.ibb.co/8DHppXdd/2026-10-28-01-2025-governo-alarga-proibicao-de-smartphones-a-alunos-do-3-o-ciclo-em-espacos-partilh.jpg",
+                "image_delete_url": "https://ibb.co/84PKXVpf/cf91027b1dd5b17fcc270deaa2339a71",
+                "local_image_path": "images\\review\\pt\\2026-10-28_01_2025_governo-alarga-proibicao-de-smartphones-a-alunos-do-3-o-ciclo-em-espacos-partilh.jpg",
+                "local_background_path": "c:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-10-28_01_2025_governo-alarga-proibicao-de-smartphones-a-alunos-do-3-o-ciclo-em-espacos-partilh-fundo.jpg"
+            },
+            {
+                "year": "2023",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "PS e BE acordam extinção total do SEF na 1ª Comissão Parlamentar",
+                "highlight_text": "extinção SEF",
+                "overlay_description": "Proposta de lei avançada para votação na comissão parlamentar",
+                "image_theme": "documento parlamentar SEF",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Partidos acordam extinção total do Serviço de Estrangeiros e Fronteiras, avançando com voto na comissão\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Acordo entre PS e BE para aprovar extinção total do SEF, com proposta a ser votada na 1ª Comissão Parlamentar.",
+                "title_en": "PS and BE agree total extinction of SEF in 1st Parliamentary Commission",
+                "summary_en": "Agreement between PS and BE parties to approve total extinction of the Immigration and Borders Service, with proposal to vote in 1st Parliamentary Commission",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 45.0,
+                        "dimensao_impacto": 30.0,
+                        "consequencias": 35.0,
+                        "relevancia_posterior": 30.0,
+                        "dimensao_duracao": 20.0,
+                        "relevancia_mediatica": 15.0,
+                        "singularidade": 25.0
+                    },
+                    "weighted_score": 33.2,
+                    "justification": "Extinção do SEF representa reestruturação institucional profunda; afeta gestão migratória e fronteiras portuguesas.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20231028230252/https://www.dn.pt/politica/amp/fim-do-sef-ps-e-be-ja-chegaram-a-acordo-para-aprovar-extincao-total-14227350.html",
+                "source_platform": "arquivo.pt",
+                "source_profile": "dn.pt",
+                "networks": [
+                    "x"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2022",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Fenprof leva Ministério da Educação a tribunal por dados da pandemia nas escolas",
+                "highlight_text": "tribunal dados pandemia",
+                "overlay_description": "Ação judicial obriga divulgação de informações sobre Covid-19 nas escolas",
+                "image_theme": "processo judicial educação",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Sindicato move ação judicial para obrigar Ministério da Educação a revelar efeitos da pandemia nas escolas\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Ação da Fenprof para obrigar Ministério da Educação a divulgar dados sobre a situação da pandemia de Covid-19 nas escolas e jardins de infância.",
+                "title_en": "Fenprof takes Ministry of Education to court over pandemic data in schools",
+                "summary_en": "Legal action by teachers' union to force Ministry of Education to disclose Covid-19 data from schools and kindergartens",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 40.0,
+                        "dimensao_impacto": 25.0,
+                        "consequencias": 30.0,
+                        "relevancia_posterior": 25.0,
+                        "dimensao_duracao": 15.0,
+                        "relevancia_mediatica": 10.0,
+                        "singularidade": 20.0
+                    },
+                    "weighted_score": 28.2,
+                    "justification": "Ação judicial obriga transparência sobre dados da pandemia; estabelece precedente para futuras exigências de informação educacional.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20221028194531/https://www.dn.pt/sociedade/amp/fenprof-avanca-para-tribunal-para-tutela-revelar-efeitos-da-pandemia-nas-escolas-14429414.html",
+                "source_platform": "arquivo.pt",
+                "source_profile": "dn.pt",
+                "networks": [
+                    "facebook",
+                    "instagram"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2020",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Espanha decreta Estado de Emergência por seis meses devido à Covid-19",
+                "highlight_text": "Estado Emergência Covid",
+                "overlay_description": "Medida governamental afeta circulação e atividades nacionais",
+                "image_theme": "madruga Espanha emergência",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Governo espanhol decreta Estado de Emergência em todo o país com vigência de seis meses\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Decreto governamental espanhol que declara Estado de Emergência nacional por seis meses devido à pandemia de Covid-19.",
+                "title_en": "Spain declares state of emergency for six months due to Covid-19",
+                "summary_en": "Spanish government decree declaring national state of emergency for six months due to the Covid-19 pandemic",
+                "relevance": {
+                    "level": 2,
+                    "scores": {
+                        "impacto_historico": 85.0,
+                        "dimensao_impacto": 70.0,
+                        "consequencias": 80.0,
+                        "relevancia_posterior": 75.0,
+                        "dimensao_duracao": 70.0,
+                        "relevancia_mediatica": 60.0,
+                        "singularidade": 75.0
+                    },
+                    "weighted_score": 76.5,
+                    "justification": "Estado de emergência espanhol afetou circulação global; medidas restritivas precederam lockdowns internacionais e reconfiguraram políticas de saúde pública.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20201028211435/https://www.noticiasaominuto.com/mundo/1612441/covid-19-governo-espanhol-decreta-estado-de-emergencia-em-todo-o-pais",
+                "source_platform": "arquivo.pt",
+                "source_profile": "noticiasaominuto.com",
+                "networks": [
+                    "facebook",
+                    "instagram",
+                    "x"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2019",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Brexit: Governo publica proposta de lei e acelera aprovação no parlamento",
+                "highlight_text": "Brexit proposta lei",
+                "overlay_description": "Processo legislativo acelera debate parlamentar sobre saída do Reino Unido",
+                "image_theme": "documento legislativo parlamento",
+                "layout_preference": "template_2",
+                "conditional_trigger": "",
+                "caption": "Executivo publica proposta de lei de 110 páginas para acelerar aprovação do Brexit no parlamento\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Publicação da proposta de lei de 110 páginas que inicia o debate e votação do Brexit no parlamento, com cronograma de 12 horas de debate na quarta-feira.",
+                "title_en": "Brexit: Government publishes law proposal and accelerates parliamentary approval",
+                "summary_en": "Publication of 110-page Brexit law proposal initiating parliamentary debate and vote, with 12-hour debate schedule on Wednesday",
+                "relevance": {
+                    "level": 4,
+                    "scores": {
+                        "impacto_historico": 55.0,
+                        "dimensao_impacto": 40.0,
+                        "consequencias": 45.0,
+                        "relevancia_posterior": 40.0,
+                        "dimensao_duracao": 30.0,
+                        "relevancia_mediatica": 25.0,
+                        "singularidade": 45.0
+                    },
+                    "weighted_score": 43.8,
+                    "justification": "Processo do Brexit reconfigurou relações comerciais UE-Reino Unido; aprovação legislativa acelerou saída oficial e ajustamentos regulatórios.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20191028011112/https://www.noticiasaominuto.com/mundo/1343712/brexit-governo-publica-proposta-de-lei-e-acelera-aprovacao-no-parlamento",
+                "source_platform": "arquivo.pt",
+                "source_profile": "noticiasaominuto.com",
+                "networks": [
+                    "x"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "breaking_candidate": false,
+                "body": ""
+            }
+        ]
+    },
+    {
+        "id": "pt_2026-10-28_2",
+        "date": "2026-10-28",
+        "slot": 2,
+        "lang": "pt",
+        "selected_option": 0,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "",
+        "status": "approved",
+        "generated_month": "2026-10",
+        "external_suggestions": [
+            {
+                "year": "1918",
+                "category": "CULTURA",
+                "title": "Premiere of \"Morte e Vida\" by Fernando Pessoa",
+                "summary": "Lançamento da obra poética que consolidou o modernismo em Portugal, marcando uma nova era literária."
+            },
+            {
+                "year": "1972",
+                "category": "DESPORTO",
+                "title": "Portugal vence a Irlanda do Norte no apuramento para o Europeu",
+                "summary": "Vitória importante da seleção nacional que manteve vivos os sonhos de qualificação para o Campeonato Europeu de 1972."
+            },
+            {
+                "year": "1995",
+                "category": "CIÊNCIA",
+                "title": "Lançamento do satélite PoSat-1",
+                "summary": "Primeiro satélite português colocado em órbita, simbolizando o início da era espacial nacional."
+            }
+        ],
+        "options": [
+            {
+                "year": "2015",
+                "category": "POLÍTICA",
+                "title": "Partidos de esquerda chegam a acordo de base para Governo",
+                "summary": "Negociações políticas entre forças partidárias abrem caminho a solução de governação parlamentar conjunta.",
+                "caption": "Partidos parlamentares estabeleceram compromissos programáticos que permitiram apresentar uma maioria alternativa no Parlamento.\n\n#Noticias #Atualidade #Jornalismo",
+                "overlay_description": "Forças partidárias concluem entendimentos para viabilizar solução governativa",
+                "image_theme": "Assembleia da Republica Parlamento Lisboa Portugal",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "highlight_text": "",
+                "image_url": "https://i.ibb.co/Fkfh3MwG/2026-10-28-01-2015-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo.jpg",
+                "image_delete_url": "https://ibb.co/9mzvVNg3/8e10cadcd2476a42d39659fc36b59640",
+                "local_image_path": "images\\review\\pt\\2026-10-28_01_2015_partidos-de-esquerda-chegam-a-acordo-de-base-para-governo.jpg",
+                "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/3/39/Sala_das_Sess%C3%B5es_%282017-04-25%29.png",
+                "local_background_path": "c:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-10-28_01_2015_partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-fundo.jpg",
+                "body": "A chegada a um acordo de base para formar Governo, em 2015, resultou do trabalho de negociação entre forças partidárias de esquerda. O processo permitiu ultrapassar o impasse que se seguia às eleições e abriu caminho à apresentação de uma maioria alternativa no Parlamento.\n\nSegundo o resumo da notícia, as forças envolvidas concluíram entendimentos de natureza programática, establishendo compromissos comuns para viabilizar uma solução governativa. A legenda da página refere-se, precisamente, ao resultado alcançado: os partidos parlamentares fixaram compromissos programáticos que permitiram apresentar uma maioria alternativa na Assembleia da República.\n\nO acordo não se limitou, portanto, a uma simples concertação de vontades. Incluiu a definição de compromissos programáticos, elemento apresentado como indispensável para garantir a viabilidade do futuro Governo. A negociação entre os partidos de esquerda deu assim origem a uma base de apoio em torno de uma agenda comum, com a qual se candidataram a constituir uma maioria parlamentar.\n\nA ocorrência integra a atualidade política portuguesa de 2015 e ilustra a capacidade de diálogo entre forças que, até então, não tinham conseguido ultrapassar as diferenças que bloqueavam a governação. A apresentação de uma maioria alternativa no Parlamento representa o passo decisivo dessa concertação, ao transformar entendimentos entre partidos em uma base concreta para o exercício do poder.\n\nA relevância duradoura do acontecimento reside no método político queowie accompanyou: a construção de uma solução governativa através de compromissos programáticos e do diálogo entre partidos de esquerda. O acordo de base fica associado a uma fase de transição na política portuguesa, em que a capacidade de negociação entre forças parliamentary permitiu responder ao resultado eleitoral com uma alternativa de governo.",
+                "relevance": {
+                    "level": 2,
+                    "scores": {
+                        "impacto_historico": 80.0,
+                        "dimensao_impacto": 70.0,
+                        "consequencias": 75.0,
+                        "relevancia_posterior": 70.0,
+                        "dimensao_duracao": 60.0,
+                        "relevancia_mediatica": 60.0,
+                        "singularidade": 65.0
+                    },
+                    "weighted_score": 71.0,
+                    "justification": "Acordo histórico de esquerda viabiliza governo e muda ciclo político português.",
+                    "lang": "pt"
+                },
+                "networks": [
+                    "instagram",
+                    "facebook"
+                ]
+            },
+            {
+                "year": "1856",
+                "category": "HISTÓRIA",
+                "title": "Inauguração da primeira linha de caminho-de-ferro em Portugal",
+                "summary": "A viagem inaugural entre Lisboa e o Carregado marca o início da circulação ferroviária e transforma os transportes no país.",
+                "caption": "A primeira ligação ferroviária em Portugal ligou Lisboa ao Carregado, transformando a mobilidade, o comércio e as comunicações no território nacional.\n\n#Noticias #Atualidade #Jornalismo",
+                "overlay_description": "Inauguração do troço Lisboa-Carregado dá início à circulação ferroviária em Portugal",
+                "image_theme": "comboio historico caminho de ferro locomotiva antiga",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "highlight_text": "caminho-de-ferro",
+                "body": "A chegada do caminho-de-ferro a Portugal, em 1856, marcou o início de uma nova era na mobilidade, no comércio e nas comunicações do país. A inauguração do troço Lisboa-Carregado abriu ao público a primeira ligação ferroviária nacional,Establishedizando uma ligação direta entre a capital e uma importante zona ribeirinha do Tejo.\n\nA linha de Lisboa-Carregado foi concebida como o primeiro passo de uma rede destinada a articular diferentes pontos do território. A sua abertura permitiu ultrapassar as limitações impostas pelos meios de transporte tradicionais, encurtando distâncias e facilitando a circulação de pessoas e mercadorias. A construção do caminho-de-ferro representou, por isso, mais do que uma obra de engenharia: constituiu um momento de transformação económica e social.\n\nO impacto da infraestrutura estendeu-se além da ligação inicial. Com a circulação regular de comboios, passaram a deslocar-se mais rapidamente passageiros, cargas e correspondências entre Lisboa e Carregado. O novo serviço ofereceu condições para uma maior integração das atividades comerciais e para o desenvolvimento de zonas servidas pela linha, reforçando a importância do Tejo como eixo de circulação.\n\nA inauguração da primeira linha de caminho-de-ferro em Portugal ficou na memória como o arranque da história ferroviária nacional. A infraestrutura introduziu um modelo de transporte capaz de responder às necessidades de uma sociedade em mudança e de criar as bases para a expansão futura da rede. O troço Lisboa-Carregado permanece assim associado ao começo de uma transformação que alterou a relação do país com o território, aproximando localidades e impulsionando a economia.",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2016",
+                "category": "POLÍTICA",
+                "title": "Governo propõe ao Parlamento a ratificação do Acordo de Paris",
+                "summary": "Proposta governamental formaliza adesão de Portugal às metas internacionais de combate às alterações climáticas.",
+                "caption": "O Governo aprovou a proposta para a ratificação do Acordo de Paris na Assembleia da República, reforçando o compromisso nacional na transição energética.\n\n#Noticias #Atualidade #Jornalismo",
+                "overlay_description": "Portugal formaliza no Parlamento a adesão às metas globais do Acordo de Paris",
+                "image_theme": "energia eolica paineis solares transicao energetica",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "highlight_text": "Acordo de Paris",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2024",
+                "category": "POLÍTICA",
+                "title": "Governo aprova fusão de secretarias-gerais na administração pública",
+                "summary": "Reforma administrativa reestrutura departamentos ministeriais para redução de custos de funcionamento.",
+                "caption": "O Conselho de Ministros aprovou a fusão de várias secretarias-gerais ministeriais com vista à otimização e poupança de recursos do Estado.\n\n#Noticias #Atualidade #Jornalismo",
+                "overlay_description": "Reestruturação ministerial funde secretarias-gerais da administração pública",
+                "image_theme": "Governo de Portugal Sao Bento Lisboa",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "highlight_text": "",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "1520",
+                "category": "HISTÓRIA",
+                "title": "Fernão de Magalhães alcança o Oceano Pacífico na primeira circum-navegação",
+                "summary": "Navegador português atravessa o estreito no extremo sul das Américas e acede a águas calmas do Pacífico.",
+                "caption": "A armada de Fernão de Magalhães transpôs a passagem marítima e entrou nas águas do Pacífico, abrindo uma nova rota global.\n\n#Noticias #Atualidade #Jornalismo",
+                "overlay_description": "Armada liderada por Fernão de Magalhães cruza o estreito rumo ao Pacífico",
+                "image_theme": "caravela navegacao mapa antigo oceano",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "highlight_text": "",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": ""
+            }
+        ]
+    },
+    {
+        "id": "pt_2026-10-29_1",
+        "date": "2026-10-29",
+        "slot": 1,
+        "lang": "pt",
+        "selected_option": 0,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "",
+        "status": "approved",
+        "generated_month": "2026-10",
+        "external_suggestions": [
+            {
+                "year": "1929",
+                "category": "CULTURA",
+                "title": "Primeira transmissão de rádio em Portugal",
+                "summary": "Marcou o início da era da comunicação em massa no país, revolucionando a forma como a informação e entretenimento chegavam aos lares portugueses."
+            },
+            {
+                "year": "1969",
+                "category": "DESPORTO",
+                "title": "Benfica vence a Taça dos Clubes Campeões Europeus",
+                "summary": "Primeiro título europeu do clube lisboeta, consolidando o futebol português no cenário internacional e tornando-se um dos momentos mais gloriosos da história desportiva nacional."
+            },
+            {
+                "year": "1991",
+                "category": "CURIOSO",
+                "title": "Lançamento do primeiro álbum de estúdio de Rui Veloso",
+                "summary": "Considerado o 'pai do rock português', este álbum marcou o início da era do rock em português, influenciando gerações de músicos e fãs do país."
+            }
+        ],
+        "options": [
+            {
+                "year": "2025",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Greve da função pública ameaça escolas, hospitais e recolha de lixo",
+                "highlight_text": "greve geral",
+                "overlay_description": "Paralisação nacional impacta serviços essenciais e circulação urbana",
+                "image_theme": "manifestantes cartazes sindicatos",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Greve geral da função pública coloca em risco serviços fundamentais como saúde, educação e saneamento básico em todo o território.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "High-tier: Disrupção generalizada de serviços públicos essenciais afeta a rotina diária da população.",
+                "title_en": "Public sector strike threatens schools, hospitals and waste collection",
+                "summary_en": "National paralysis impacts essential services and daily urban circulation",
+                "relevance": {
+                    "level": 4,
+                    "scores": {
+                        "impacto_historico": 60.0,
+                        "dimensao_impacto": 50.0,
+                        "consequencias": 45.0,
+                        "relevancia_posterior": 50.0,
+                        "dimensao_duracao": 40.0,
+                        "relevancia_mediatica": 45.0,
+                        "singularidade": 40.0
+                    },
+                    "weighted_score": 50.5,
+                    "justification": "Paralisação nacional afeta serviços essenciais e rotina diária da população. Impacto disruptivo mas sem consequências estruturais profundas a longo prazo.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20251029182025/https://expresso.pt/sociedade/2025-10-24-greve-da-funcao-publica-ameaca-escolas-hospitais-e-recolha-do-lixo-b2178910",
+                "source_platform": "arquivo.pt",
+                "source_profile": "expresso.pt",
+                "networks": [
+                    "facebook",
+                    "x",
+                    "instagram"
+                ],
+                "background_source_url": "https://commons.wikimedia.org/wiki/File:CDH_-_Comiss%C3%A3o_de_Direitos_Humanos_e_Legisla%C3%A7%C3%A3o_Participativa_(19505976039).jpg",
+                "body": "A greve nacional da função pública, convocada para esta quarta-feira, paralisa serviços essenciais em todo o país, provocando já efeitos imediatos nas escolas, hospitais e na recolha de lixo. A paralisação, que reúne sindicatos majoritários, reivindica melhorias salariais e condições de trabalho, mas o impacto na vida cotidiana dos cidadãos é já visível. Nas unidades de ensino, numerosas turmas ficaram sem docentes, forçando a suspensão de aulas ou a presença de pessoal não docente para garantir mínima segurança. Nos hospitais e centros de saúde, as consultas não urgentes foram canceladas e cirurgias adiadas, aumentando a pressão sobre os serviços de urgência já sobrecarregados. A interrupção da recolha de resíduos sólidos já provocou acumulação de lixo em vias públicas de vários municípios, gerando preocupações sanitárias e queixas dos moradores. A circulação urbana também se viu afetada, com algumas linhas de transportes públicos a funcionar com quadros reduzidos. O Governo apelou ao diálogo e responsabilidade, advertindo que a paralisação pode ter custos adicionais para o Estado, enquanto os sindicatos mantêm a posição de que não há alternativa à greve se as reivindicações não forem atendidas. A medida insere-se num contexto de negociações prolongadas e reforça o desafio de equilibrar os direitos dos trabalhadores com a prestação de serviços essenciais à população.",
+                "image_url": "https://i.ibb.co/VpvjG73y/2026-10-29-01-2025-greve-da-funcao-publica-ameaca-escolas-hospitais-e-recolha-de-lixo.jpg",
+                "image_delete_url": "https://ibb.co/BV1GPwxV/1667953f378b3c10f8f3e10e8c515be3",
+                "local_image_path": "images\\review\\pt\\2026-10-29_01_2025_greve-da-funcao-publica-ameaca-escolas-hospitais-e-recolha-de-lixo.jpg",
+                "local_background_path": "c:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-10-29_01_2025_greve-da-funcao-publica-ameaca-escolas-hospitais-e-recolha-de-lixo-fundo.jpg"
+            },
+            {
+                "year": "2025",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Governo lança concurso de 850 milhões para requalificar 237 escolas",
+                "highlight_text": "850 milhões",
+                "overlay_description": "Investimento nacional para modernização de equipamentos escolares em todo o país",
+                "image_theme": "escola moderna arquitetura",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Executivo anuncia maior concurso público de requalificação escolar da história recente, com verbas destinadas a 237 unidades de ensino.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "High-tier: Nacional escala, impacto direto nos serviços públicos e infraestrutura educacional.",
+                "title_en": "Government launches $850 million contest to renovate 237 schools",
+                "summary_en": "National investment for school equipment modernization across the country",
+                "relevance": {
+                    "level": 3,
+                    "scores": {
+                        "impacto_historico": 65.0,
+                        "dimensao_impacto": 55.0,
+                        "consequencias": 50.0,
+                        "relevancia_posterior": 55.0,
+                        "dimensao_duracao": 45.0,
+                        "relevancia_mediatica": 40.0,
+                        "singularidade": 45.0
+                    },
+                    "weighted_score": 55.0,
+                    "justification": "Investimento público significativo em infraestrutura educacional. Impacto direto nos serviços públicos e modernização de equipamentos escolares em escala nacional.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20251029182532/https://www.dn.pt/sociedade/governo-lana-concurso-de-850-milhes-para-requalificar-237-escolas",
+                "source_platform": "arquivo.pt",
+                "source_profile": "dn.pt",
+                "networks": [
+                    "facebook",
+                    "instagram"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2024",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Portugal condena lei israelita que proíbe atuação da UNRWA no país",
+                "highlight_text": "UNRWA",
+                "overlay_description": "Governo português repudia legislação que afeta ajuda humanitária aos palestinianos",
+                "image_theme": "bandeiras palestinas solidariedade",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Executivo manifesta repúdio contra medida israelita que coloca em causa serviços essenciais de ajuda humanitária internacional.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "High-tier: Relações internacionais e impacto humanitário de escala global.",
+                "title_en": "Portugal condemns Israeli law banning UNRWA operation in the country",
+                "summary_en": "Portuguese government denounces legislation affecting humanitarian aid to Palestinians",
+                "relevance": {
+                    "level": 3,
+                    "scores": {
+                        "impacto_historico": 75.0,
+                        "dimensao_impacto": 65.0,
+                        "consequencias": 60.0,
+                        "relevancia_posterior": 65.0,
+                        "dimensao_duracao": 55.0,
+                        "relevancia_mediatica": 50.0,
+                        "singularidade": 55.0
+                    },
+                    "weighted_score": 65.0,
+                    "justification": "Condenação diplomática de legislação que afeta ajuda humanitária internacional. Impacto nas relações internacionais e consequências para assistência humanitária aos palestinianos.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20241029204704/https://www.publico.pt/2024/10/28/politica/noticia/portugal-condena-lei-israelita-proibe-atuacao-unrwa-pais-2109788",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "facebook",
+                    "x"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2016",
+                "category": "CIÊNCIA",
+                "editorial_tier": "high",
+                "title": "Manto de poluição cobre Pequim e leva ao encerramento de escolas e voos cancelados",
+                "highlight_text": "poluição Pequim",
+                "overlay_description": "Níveis de qualidade do ar chegam a 18x o recomendado pela OMS",
+                "image_theme": "cidade coberta neblina poluição",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Autoridades chinesas decretam fechamento de escolas e cancelamento de voos devido à qualidade do ar 18 vezes acima do limite recomendado.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "High-tier: Saúde pública e medidas emergenciais de proteção ambiental afetam população urbana massiva.",
+                "title_en": "Pollution blanket covers Beijing, closes schools, cancels flights",
+                "summary_en": "Air quality reaches 18x WHO recommended levels, affecting massive urban population",
+                "relevance": {
+                    "level": 3,
+                    "scores": {
+                        "impacto_historico": 70.0,
+                        "dimensao_impacto": 60.0,
+                        "consequencias": 55.0,
+                        "relevancia_posterior": 60.0,
+                        "dimensao_duracao": 50.0,
+                        "relevancia_mediatica": 45.0,
+                        "singularidade": 50.0
+                    },
+                    "weighted_score": 60.0,
+                    "justification": "Emergência ambiental grave com fechamento de escolas e interrupção de voos. Impacto direto na saúde pública populacional e medidas emergenciais de proteção ambiental.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20171029081753/https://www.dn.pt/mundo/interior/manto-de-poluicao-cobre-pequim-e-leva-ao-encerramento-de-escolas-e-voos-cancelados-5562405.html",
+                "source_platform": "arquivo.pt",
+                "source_profile": "dn.pt",
+                "networks": [
+                    "instagram",
+                    "facebook"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2014",
+                "category": "MUNDIAL",
+                "editorial_tier": "high",
+                "title": "Governo da Libéria decreta estado de emergência por risco de epidemia de ébola",
+                "highlight_text": "estado de emergência",
+                "overlay_description": "Mobilização militar para conter êxodo rural e risco de propagação viral",
+                "image_theme": "mapa África Oeste alerta sanitário",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Executivo africano mobiliza forças armadas e declara emergência nacional diante do surto viral com milhares de óbitos registados.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "High-tier: Emergência sanitária de proporções continentais com impacto geopolítico e mobilização institucional.",
+                "title_en": "Liberia government declares state of emergency over Ebola epidemic risk",
+                "summary_en": "Military mobilization to contain rural exodus and viral spread risk",
+                "relevance": {
+                    "level": 2,
+                    "scores": {
+                        "impacto_historico": 85.0,
+                        "dimensao_impacto": 75.0,
+                        "consequencias": 80.0,
+                        "relevancia_posterior": 75.0,
+                        "dimensao_duracao": 70.0,
+                        "relevancia_mediatica": 60.0,
+                        "singularidade": 75.0
+                    },
+                    "weighted_score": 77.5,
+                    "justification": "Emergência sanitária de proporções continentais com mobilização institucional e impacto geopolítico. Consequências documentadas na contenção de propagação viral e reestruturação de sistemas de saúde.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20141029000025/http://www.publico.pt/mundo/noticia/liberia-decreta-estado-de-emergencia-por-causa-de-epidemia-de-ebola-1665748",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "x",
+                    "facebook"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            }
+        ]
+    },
+    {
+        "id": "pt_2026-10-29_2",
+        "date": "2026-10-29",
+        "slot": 2,
+        "lang": "pt",
+        "selected_option": 0,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "",
+        "status": "approved",
+        "generated_month": "2026-10",
+        "external_suggestions": [
+            {
+                "year": "1929",
+                "category": "CULTURA",
+                "title": "Primeira transmissão de rádio em Portugal",
+                "summary": "Marcou o início da era da comunicação em massa no país, revolucionando a forma como a informação e entretenimento chegavam aos lares portugueses."
+            },
+            {
+                "year": "1969",
+                "category": "DESPORTO",
+                "title": "Benfica vence a Taça dos Clubes Campeões Europeus",
+                "summary": "Primeiro título europeu do clube lisboeta, consolidando o futebol português no cenário internacional e tornando-se um dos momentos mais gloriosos da história desportiva nacional."
+            },
+            {
+                "year": "1991",
+                "category": "CURIOSO",
+                "title": "Lançamento do primeiro álbum de estúdio de Rui Veloso",
+                "summary": "Considerado o 'pai do rock português', este álbum marcou o início da era do rock em português, influenciando gerações de músicos e fãs do país."
+            }
+        ],
+        "options": [
+            {
+                "year": "1929",
+                "category": "CULTURA",
+                "title": "Primeira emissão experimental de rádio realizada em Portugal",
+                "summary": "Início das transmissões regulares de radiodifusão marca o nascimento da rádio no país.",
+                "caption": "As transmissões experimentais pioneiras marcaram o arranque da história da radiodifusão e da comunicação radiofónica em Portugal.\n\n#Noticias #Atualidade #Jornalismo",
+                "overlay_description": "Pioneiros da rádio realizam as primeiras transmissões regulares em Portugal",
+                "image_theme": "Microphone",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "highlight_text": "",
+                "image_url": "https://i.ibb.co/5NDgv93/2026-10-29-01-1929-primeira-emissao-experimental-de-radio-realizada-em-portugal.jpg",
+                "image_delete_url": "https://ibb.co/bg6b61gD/715c3c9b7ea7882d91bd05cbe98de452",
+                "local_image_path": "images\\review\\pt\\2026-10-29_01_1929_primeira-emissao-experimental-de-radio-realizada-em-portugal.jpg",
+                "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/d/db/Vintage_BMS_%28Brooklyn_Metal_Stamping_Company%29_Home_Broadcaster_Microphone_-_Be_Your_Own_Broadcaster_Using_Your_Home_Radio%2C_Made_In_USA%2C_Circa_Late_1920s_%2821091603028%29.jpg",
+                "local_background_path": "c:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-10-29_01_1929_primeira-emissao-experimental-de-radio-realizada-em-portugal-fundo.jpg",
+                "body": "A primeira emissão experimental de rádio realizada em Portugal, em 1929, constituiu um marco pioneiro no desenvolvimento da radiodifusão nacional. Naquele período, um grupo de pioneiros começou a realizar transmissões regulares, abrindo caminho à comunicação radiofónica como novo meio de informação e cultura.\n\nEstas experiências ocorreram num momento em que a rádio ainda não dispunha de uma estrutura consolidada no país. A emissão experimental representou, por isso, uma etapa inicial e essencial, na qual se testaram as possibilidades da transmissão sonora e se criaram as bases para a sua afirmação.\n\nA iniciativa ganhou especial significado por ter sido levada a cabo por pioneiros dispostos a explorar um meio então experimental. As primeiras transmissões regulares demonstraram a viabilidade da rádio em Portugal e acompanharam a preparação de um sistema de radiodifusão capaz de alcançar um público mais vasto.\n\nO arranque da história da radiodifusão e da comunicação radiofónica em Portugal ficou, assim, associado a estas experiências de 1929. O seu legado permanece relevante, pois abriu caminho à consolidação da rádio como instrumento de circulação de notícias, cultura e informação, com efeitos duradouros na comunicação portuguesa.",
+                "relevance": {
+                    "level": 3,
+                    "scores": {
+                        "impacto_historico": 65.0,
+                        "dimensao_impacto": 55.0,
+                        "consequencias": 60.0,
+                        "relevancia_posterior": 60.0,
+                        "dimensao_duracao": 50.0,
+                        "relevancia_mediatica": 45.0,
+                        "singularidade": 65.0
+                    },
+                    "weighted_score": 59.5,
+                    "justification": "Primeira transmissão experimental de rádio em Portugal; marco da radiodifusão nacional.",
+                    "lang": "pt"
+                },
+                "networks": [
+                    "instagram",
+                    "facebook"
+                ]
+            },
+            {
+                "year": "2025",
+                "category": "JUSTIÇA",
+                "title": "Julgamento da Operação Lex arranca no Supremo Tribunal de Justiça",
+                "summary": "Processo judicial sobre suspeitas de corrupção que envolve antigos magistrados chega à fase de julgamento no Supremo Tribunal.",
+                "caption": "O Supremo Tribunal de Justiça deu início às sessões de julgamento da Operação Lex, um dos casos mais mediáticos a envolver o setor judiciário.\n\n#Noticias #Atualidade #Jornalismo",
+                "overlay_description": "Supremo Tribunal de Justiça inicia audiências de julgamento da Operação Lex",
+                "image_theme": "Supremo Tribunal de Justica Lisboa tribunal",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "highlight_text": "Operação Lex",
+                "body": "O Supremo Tribunal de Justiça iniciou nesta quinta-feira as sessões de julgamento da Operação Lex, um dos processos mais mediáticos associados ao setor judiciary português. O começo das audiências marca uma nova fase do caso, que tem sido acompanhado pela atenção da opinião pública e dos meios de comunicação.\n\nA Operação Lex é conhecida por envolver um conjunto de allegationado de corrupção, branqueamento de capitais e tráfico de influência. Ao longo do processo, o caso tornou-se um dos temas mais debatidos na agenda política e judicial, owing à sua dimensão e ao perfil dos arguidos. A instrução e a preparação do julgamento以来 foram acompanhadas por um amplo debate público, com particular destaque para as questões de responsabilização individual e para a defesa da legalidade.\n\nO julgamento decorre no Supremo Tribunal de Justiça, que é a最高 court of the country. A implementação da instrução, a gestão das provas e a保障 da defesa dos arguidos são aspetos centrais desta fase. A duração das sessões e o calendário de audiências não foram, nesta fase, detalhados.\n\nA relevância duradoura do processo está ligada à forma como a Justiça responde a casos de grande visibilidade e ao impacto das decisões sobre a confiança dos cidadãos nas instituições. O acompanhamento das sessões permitirá avaliar a conducto do tribunal e o cumprimento dos prazos previstos, mantendo o foco nos factos provados e na aplicação da lei.",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2016",
+                "category": "POLÍTICA",
+                "title": "Parlamento aprova novas regras para o financiamento partidário",
+                "summary": "Assembleia da República dá luz verde a novo enquadramento de transparência nas contas e campanhas partidárias.",
+                "caption": "O Parlamento aprovou novas regras de transparência e limites para o financiamento de partidos políticos e campanhas eleitorais em Portugal.\n\n#Noticias #Atualidade #Jornalismo",
+                "overlay_description": "Parlamento aprova limites e maior transparência no financiamento político",
+                "image_theme": "Assembleia da Republica Parlamento Lisboa",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "highlight_text": "",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2013",
+                "category": "SAÚDE",
+                "title": "Estado define condições para entrega de hospitais às Misericórdias",
+                "summary": "Governo estabelece que transferência de gestão hospitalar só avançará se houver poupança financeira.",
+                "caption": "O Ministério da Saúde fixou critérios rigorosos de eficiência para parcerias e gestão partilhada de unidades hospitalares com misericórdias.\n\n#Noticias #Atualidade #Jornalismo",
+                "overlay_description": "Governo condiciona cedência de unidades de saúde a garantias de poupança",
+                "image_theme": "hospital servico nacional saude portugal",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "highlight_text": "",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2023",
+                "category": "TECNOLOGIA",
+                "title": "Governo investe 105 milhões de euros na modernização digital do SNS",
+                "summary": "Pacote financeiro direcionado à digitalização de processos clínicos e interoperabilidade nos hospitais públicos.",
+                "caption": "O investimento público em tecnologias de saúde visa agilizar o atendimento, reduzir burocracia e modernizar a rede hospitalar nacional.\n\n#Noticias #Atualidade #Jornalismo",
+                "overlay_description": "Investimento público reforça digitalização e sistemas informáticos de saúde",
+                "image_theme": "medicina informatica tecnologia hospital",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "highlight_text": "",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": ""
+            }
+        ]
+    },
+    {
+        "id": "pt_2026-10-30_1",
+        "date": "2026-10-30",
+        "slot": 1,
+        "lang": "pt",
+        "selected_option": 3,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "",
+        "status": "approved",
+        "generated_month": "2026-10",
+        "external_suggestions": [
+            {
+                "year": "1962",
+                "category": "CULTURA",
+                "title": "Lançamento do álbum 'Gil 1' de Gilberto Gil",
+                "summary": "Marcou a estreia do artista baiano no cenário musical brasileiro, consolidando a mistura de ritmos tradicionais com influências internacionais."
+            },
+            {
+                "year": "1935",
+                "category": "POLÍTICA",
+                "title": "Fundação do Partido Socialista Português",
+                "summary": "Criado como resposta à instabilidade política do período, o PS tornou-se uma força relevante na democracia portuguesa posterior ao 25 de Abril."
+            },
+            {
+                "year": "1973",
+                "category": "DESPORTO",
+                "title": "Portugal conquista ouro no Campeonato Europeu de Atletismo",
+                "summary": "Vitória histórica nos 5000 metros, que elevou o atletismo nacional e inspirou uma nova geração de corredores portugueses."
+            }
+        ],
+        "options": [
+            {
+                "year": "2025",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Lei da nacionalidade exige ligação efetiva a Portugal sem fechar nem radicalizar país",
+                "highlight_text": "ligação efetiva",
+                "overlay_description": "Ministro da Presidência apresenta nova versão da lei de nacionalidade, defendendo abertura e moderação.",
+                "image_theme": "assinatura documento lei",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Governo afirma que legislação sobre nacionalidade mantém Portugal aberto e sem radicalizações.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Apresentação da nova lei da nacionalidade pelo ministro da Presidência, com exigências de ligação efetiva ao país.",
+                "title_en": "Portugal's new nationality law requires effective link to country without radicalizing it",
+                "summary_en": "President's Ministry presents new nationality law version, defending openness and moderation.",
+                "relevance": {
+                    "level": 4,
+                    "scores": {
+                        "impacto_historico": 55.0,
+                        "dimensao_impacto": 40.0,
+                        "consequencias": 45.0,
+                        "relevancia_posterior": 40.0,
+                        "dimensao_duracao": 35.0,
+                        "relevancia_mediatica": 30.0,
+                        "singularidade": 35.0
+                    },
+                    "weighted_score": 44.0,
+                    "justification": "Lei moderniza requisitos de nacionalidade; alterações afetam processos de imigração e integração a médio prazo.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20251030223754/https://expresso.pt/politica/parlamento/2025-10-28-lei-da-nacionalidade-aprovada-a-direita-leitao-amaro-diz-que-pais-nao-se-fecha-nem-se-radicaliza-2662335d",
+                "source_platform": "arquivo.pt",
+                "source_profile": "expresso.pt",
+                "networks": [
+                    "facebook",
+                    "instagram"
+                ],
+                "background_source_url": "",
+                "body": "Em 2025, o Governo português apresentou uma nova versão da lei da nacionalidade, marcando um ponto de viragem na política de imigração e integração. O Ministro da Presidência defendeu a proposta como um equilíbrio entre a abertura tradicional de Portugal e a necessidade de uma ligação efetiva ao país. A legislação deixa de lado abordagens radicalizantes, focando-se em requisitos claros e realistas para a aquisição da cidadania.\n\nO contexto da mudança reside na evolução demográfica e no aumento de pedidos de naturalização nas últimas décadas. Anteriores normas eram criticadas por serem excessivamente burocráticas ou, por outro lado, demasiado permissivas. A nova versão busca endereçar estas críticas estabelecendo critérios de ligação efetiva, que incluem residência comprovada, integração social e conhecimento da língua e da cultura portuguesas, sem impor barreiras intransponíveis.\n\nNo desenvolvimento da reforma, destaca-se a intenção de manter Portugal como um destino acolhedor. O executivo afirma que a lei não fecha o país nem cria atmosferas de exclusão. Pelo contrário, pretende reforçar o sentimento de pertença entre os novos cidadãos, garantindo que a integração seja um processo bidirecional. As medidas visam atrair talento e investimento, reconhecendo o contributo dos imigrantes para a economia e a sociedade portuguesas.\n\nA relevância duradoura desta legislação reside no seu potencial para moldar a identidade nacional do país nas próximas gerações. Ao estabelecer regras claras e moderadas, o Governo tenta evitar o polarização política que tem marcado debates semelhantes noutros países europeus. A lei da nacionalidade de 2025 posiciona Portugal como um modelo de inclusão controlada, provando que é possível regular a imigração mantendo os valores de abertura que definem a história recente do país.",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2022",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Auditoria do Tribunal de Contas alerta para atraso na entrega de projectores às escolas",
+                "highlight_text": "40 mil projectores",
+                "overlay_description": "Ministério da Educação lançou concurso para modernizar salas de aula, mas entrega ainda está incompleta.",
+                "image_theme": "projector sala aula",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Escolas aguardam equipamento novo meses após concurso público lançado pelo Ministério da Educação.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Relatório do Tribunal de Contas denuncia atraso na entrega de material informático às escolas do país.",
+                "title_en": "Audit court warns of delay in projector delivery to schools",
+                "summary_en": "Audit reveals delays in delivering computer projectors to schools, highlighting incomplete ministry initiative.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 35.0,
+                        "dimensao_impacto": 30.0,
+                        "consequencias": 30.0,
+                        "relevancia_posterior": 30.0,
+                        "dimensao_duracao": 25.0,
+                        "relevancia_mediatica": 25.0,
+                        "singularidade": 30.0
+                    },
+                    "weighted_score": 30.8,
+                    "justification": "Atraso na modernização de salas de aula afeta recursos pedagógicos; impacto limitado a nível local.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20221030175821/https://www.publico.pt/2022/08/02/sociedade/noticia/auditoria-tribunal-contas-alerta-atraso-entrega-escolas-40-mil-projectores-novos-2015825",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "facebook"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2021",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Assembleia da República aprova extinção do SEF",
+                "highlight_text": "extinção do SEF",
+                "overlay_description": "Parlamento vota favoravelmente fim do Serviço de Estrangeiros e Fronteiras, com votos do PS, BE e Joacine.",
+                "image_theme": "plenário parlamento voto",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "DECISÃO HISTÓRICA: Parlamento aprova extinção do Serviço de Estrangeiros e Fronteiras.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Aprovação na Assembleia da República da extinção do SEF, com apoio de partidos da esquerda e de Joacine Katar Moreira.",
+                "title_en": "Parliament approves extinction of SEF",
+                "summary_en": "Parliament votes to extinguish the Foreigners and Borders Service, backed by left-wing parties and Joacine Katar Moreira.",
+                "relevance": {
+                    "level": 3,
+                    "scores": {
+                        "impacto_historico": 78.0,
+                        "dimensao_impacto": 65.0,
+                        "consequencias": 70.0,
+                        "relevancia_posterior": 65.0,
+                        "dimensao_duracao": 55.0,
+                        "relevancia_mediatica": 50.0,
+                        "singularidade": 60.0
+                    },
+                    "weighted_score": 67.7,
+                    "justification": "Extinção do SEF reorganiza administração de imigração; criação de nova agência altera processos de fronteiras e regularização.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20211030230326/https://www.dn.pt/politica/amp/parlamento-aprova-extincao-do-servico-de-estrangeiros-e-fronteiras-14246796.html",
+                "source_platform": "arquivo.pt",
+                "source_profile": "dn.pt",
+                "networks": [
+                    "facebook",
+                    "x"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2014",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Governo propõe fecho de 311 escolas, municípios ameaçam providências cautelares",
+                "highlight_text": "311 escolas",
+                "overlay_description": "Ministério da Educação e Ciência apresenta medida de encerramento de escolas, gerando protestos em 129 municípios.",
+                "image_theme": "escola basica sala de aula alunos",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Municípios ameaçam recorrer aos tribunais com providências cautelares contra a proposta governamental de encerramento de escolas.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Governo quer fechar 311 escolas, provocando protestos de municípios afetados que ameaçam providências cautelares.",
+                "title_en": "Government proposes closing 311 schools, municipalities threaten legal action",
+                "summary_en": "Education ministry proposes shutting down 311 schools, prompting municipal protests and legal threats in 129 affected areas.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 45.0,
+                        "dimensao_impacto": 40.0,
+                        "consequencias": 40.0,
+                        "relevancia_posterior": 35.0,
+                        "dimensao_duracao": 30.0,
+                        "relevancia_mediatica": 35.0,
+                        "singularidade": 40.0
+                    },
+                    "weighted_score": 39.5,
+                    "justification": "Protestos municipais contra encerramentos afetam educação local; medidas posteriormente revisadas em vários distritos.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20141030024907/http://www.publico.pt/sociedade/noticia/providencias-cautelares-poderao-travar-fecho-de-escolas-em-pelo-menos-dez-municipios-1661414",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "facebook",
+                    "instagram"
+                ],
+                "image_url": "https://i.ibb.co/4RMjds4Y/2026-10-30-04-2014-governo-propoe-fecho-de-311-escolas-municipios-ameacam-providencias-cautelares.jpg",
+                "image_delete_url": "https://ibb.co/5WYzBFP9/03147a97d21e0a4bdcf10d195daa8f06",
+                "local_image_path": "images\\review\\pt\\2026-10-30_04_2014_governo-propoe-fecho-de-311-escolas-municipios-ameacam-providencias-cautelares.jpg",
+                "background_source_url": "https://arquivo.pt/wayback/20200406085738/https://aecidadela.pt/agrupamento/ji-eb1-no2-de-birre/",
+                "local_background_path": "c:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-10-30_04_2014_governo-propoe-fecho-de-311-escolas-municipios-ameacam-providencias-cautelares-fundo.jpg",
+                "body": "O Ministério da Educação e Ciência apresentou em 2014 uma proposta de encerramento de 311 escolas, numa medida que pretendia reorganizar a rede de ensino. A decisão gerou Contestações efhuma mobilização em 129 municípios, onde foram realizados protestos contra o fecho de estabelecimentos de ensino.\n\nA proposta do Governo provocou a reação dos municípios afetados, que ameaçaram recorrer aos tribunais através de providências cautelares. O objetivo era travar medidas de encerramento consideradas prejudiciais para as comunidades locais e garantir a manutenção das escolas em funcionamento.\n\nA questão não se limitou ao número de escolas encerradas. A resposta institucional e a participação dos municípios transformaram a proposta numa matter de之争 sobre o impacto da reorganização da rede escolar nas localidades, na continuidade da oferta de ensino e no papel das autarquias na defesa dos serviços públicos.\n\nA ameaça de ação judicial e os protestos em 129 municípios revelaram a dimensão do opposition à medida. O caso evidencia o peso das decisões sobre a rede de escolas na vida das comunidades e a importância de uma resposta articulada entre|scaleSink e o poder local. A manutenção de escolas assume-se, neste debate, como uma questão de coesão territorial e de acesso ao ensino."
+            },
+            {
+                "year": "2013",
+                "category": "CIÊNCIA",
+                "editorial_tier": "high",
+                "title": "Corte de 7,6% no orçamento universitário coloca em risco permanência em rankings internacionais",
+                "highlight_text": "7,6% cortes",
+                "overlay_description": "Redução de verbas para universidades e politécnicos ameaça qualidade do ensino e posições em rankings globais.",
+                "image_theme": "universidade campus",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Aviso de que cortes orçamentais podem impedir manutenção de instituições nos melhores rankings internacionais.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Proposta de corte de verbas no Orçamento de Estado para 2014 coloca em risco a permanência de universidades em rankings internacionais.",
+                "title_en": "7.6% university budget cut risks international rankings",
+                "summary_en": "Proposed education budget cut threatens university positions in global rankings and teaching quality.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 40.0,
+                        "dimensao_impacto": 35.0,
+                        "consequencias": 35.0,
+                        "relevancia_posterior": 30.0,
+                        "dimensao_duracao": 25.0,
+                        "relevancia_mediatica": 20.0,
+                        "singularidade": 30.0
+                    },
+                    "weighted_score": 33.8,
+                    "justification": "Corte de verbas coloca em risco posições em rankings internacionais; debate sobre financiamento universitário continua.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20131030111903/http://www.publico.pt/sociedade/noticia/cortes-propostos-no-orcamento-de-estado-vao-tiraruniversidades-portuguesas-dos-rankings-internacionais-1609573",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "facebook",
+                    "instagram"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            }
+        ]
+    },
+    {
+        "id": "pt_2026-10-30_2",
+        "date": "2026-10-30",
+        "slot": 2,
+        "lang": "pt",
+        "selected_option": 3,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "",
+        "status": "approved",
+        "generated_month": "2026-10",
+        "external_suggestions": [
+            {
+                "year": "1962",
+                "category": "CULTURA",
+                "title": "Lançamento do álbum 'Gil 1' de Gilberto Gil",
+                "summary": "Marcou a estreia do artista baiano no cenário musical brasileiro, consolidando a mistura de ritmos tradicionais com influências internacionais."
+            },
+            {
+                "year": "1935",
+                "category": "POLÍTICA",
+                "title": "Fundação do Partido Socialista Português",
+                "summary": "Criado como resposta à instabilidade política do período, o PS tornou-se uma força relevante na democracia portuguesa posterior ao 25 de Abril."
+            },
+            {
+                "year": "1973",
+                "category": "DESPORTO",
+                "title": "Portugal conquista ouro no Campeonato Europeu de Atletismo",
+                "summary": "Vitória histórica nos 5000 metros, que elevou o atletismo nacional e inspirou uma nova geração de corredores portugueses."
+            }
+        ],
+        "options": [
+            {
+                "year": "2022",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Auditoria do Tribunal de Contas alerta para atraso na entrega de projectores às escolas",
+                "highlight_text": "40 mil projectores",
+                "overlay_description": "Ministério da Educação lançou concurso para modernizar salas de aula, mas entrega ainda está incompleta.",
+                "image_theme": "projector sala aula",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Escolas aguardam equipamento novo meses após concurso público lançado pelo Ministério da Educação.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Relatório do Tribunal de Contas denuncia atraso na entrega de material informático às escolas do país.",
+                "title_en": "Audit court warns of delay in projector delivery to schools",
+                "summary_en": "Audit reveals delays in delivering computer projectors to schools, highlighting incomplete ministry initiative.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 35.0,
+                        "dimensao_impacto": 30.0,
+                        "consequencias": 30.0,
+                        "relevancia_posterior": 30.0,
+                        "dimensao_duracao": 25.0,
+                        "relevancia_mediatica": 25.0,
+                        "singularidade": 30.0
+                    },
+                    "weighted_score": 30.8,
+                    "justification": "Atraso na modernização de salas de aula afeta recursos pedagógicos; impacto limitado a nível local.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20221030175821/https://www.publico.pt/2022/08/02/sociedade/noticia/auditoria-tribunal-contas-alerta-atraso-entrega-escolas-40-mil-projectores-novos-2015825",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "facebook"
+                ],
+                "background_source_url": "",
+                "body": "Em 2022, o Tribunal de Contas lançou um alerta crítico sobre o atraso na entrega de projectores às escolas portuguesas, um processo que deveria ter modernizado as salas de aula. Segundo o órgão de fiscalização, o Ministério da Educação lançou um concurso público para aquisição de equipamento novo, mas a entrega ainda se encontrava incompleta, deixando muitas unidades de ensino sem o material prometido meses após o anúncio oficial.\n\nO contexto revela que o concurso, iniciado com o objetivo de renovar a tecnologia obsoleta em milhares de salas de aula, encontrou obstáculos logísticos e burocráticos que retardaram a distribuição. Escolas de todo o país aguardavam ansiosas o equipamento, essencial para a implementação de metodologias digitais e para a melhoria do ambiente de aprendizagem, mas o ritmo de entrega não acompanhava as expectativas iniciais.\n\nA relevância duradoura deste facto reside no impacto direto na qualidade do ensino. O atraso na modernização tecnológica compromete a capacidade das escolas em acompanhar as exigências do currículo digital e limita recursos essenciais para docentes e alunos. Este episódio sublinha a necessidade de uma gestão mais eficaz dos concursos públicos no sector educativo, garantindo que os investimentos se traduzem rapidamente em benefícios concretos para a comunidade escolar.",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2021",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Assembleia da República aprova extinção do SEF",
+                "highlight_text": "extinção do SEF",
+                "overlay_description": "Parlamento vota favoravelmente fim do Serviço de Estrangeiros e Fronteiras, com votos do PS, BE e Joacine.",
+                "image_theme": "plenário parlamento voto",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "DECISÃO HISTÓRICA: Parlamento aprova extinção do Serviço de Estrangeiros e Fronteiras.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Aprovação na Assembleia da República da extinção do SEF, com apoio de partidos da esquerda e de Joacine Katar Moreira.",
+                "title_en": "Parliament approves extinction of SEF",
+                "summary_en": "Parliament votes to extinguish the Foreigners and Borders Service, backed by left-wing parties and Joacine Katar Moreira.",
+                "relevance": {
+                    "level": 3,
+                    "scores": {
+                        "impacto_historico": 78.0,
+                        "dimensao_impacto": 65.0,
+                        "consequencias": 70.0,
+                        "relevancia_posterior": 65.0,
+                        "dimensao_duracao": 55.0,
+                        "relevancia_mediatica": 50.0,
+                        "singularidade": 60.0
+                    },
+                    "weighted_score": 67.7,
+                    "justification": "Extinção do SEF reorganiza administração de imigração; criação de nova agência altera processos de fronteiras e regularização.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20211030230326/https://www.dn.pt/politica/amp/parlamento-aprova-extincao-do-servico-de-estrangeiros-e-fronteiras-14246796.html",
+                "source_platform": "arquivo.pt",
+                "source_profile": "dn.pt",
+                "networks": [
+                    "facebook",
+                    "x"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2014",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Governo propõe fecho de 311 escolas, municípios ameaçam providências cautelares",
+                "highlight_text": "311 escolas",
+                "overlay_description": "Ministério da Educação e Ciência apresenta medida de encerramento de escolas, gerando protestos em 129 municípios.",
+                "image_theme": "escola fechada placa",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Protesto contra o encerramento de escolas: municípios ameaçam suspender decisão do Ministério da Educação.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Governo quer fechar 311 escolas, provocando protestos de municípios afetados que ameaçam providências cautelares.",
+                "title_en": "Government proposes closing 311 schools, municipalities threaten legal action",
+                "summary_en": "Education ministry proposes shutting down 311 schools, prompting municipal protests and legal threats in 129 affected areas.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 45.0,
+                        "dimensao_impacto": 40.0,
+                        "consequencias": 40.0,
+                        "relevancia_posterior": 35.0,
+                        "dimensao_duracao": 30.0,
+                        "relevancia_mediatica": 35.0,
+                        "singularidade": 40.0
+                    },
+                    "weighted_score": 39.5,
+                    "justification": "Protestos municipais contra encerramentos afetam educação local; medidas posteriormente revisadas em vários distritos.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20141030024907/http://www.publico.pt/sociedade/noticia/providencias-cautelares-poderao-travar-fecho-de-escolas-em-pelo-menos-dez-municipios-1661414",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "facebook"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2013",
+                "category": "EDUCAÇÃO",
+                "editorial_tier": "high",
+                "title": "Corte de 7,6% no orçamento universitário coloca em risco rankings internacionais",
+                "highlight_text": "7,6% cortes",
+                "overlay_description": "Cortes orçamentais colocam em risco a capacidade científica das universidades",
+                "image_theme": "Universidade de Coimbra",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Aviso do setor do ensino superior alerta que reduções orçamentais podem penalizar a competitividade e internacionalização das instituições.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Proposta de corte de verbas orçamentais coloca em risco a capacidade científica e a permanência de universidades em rankings internacionais.",
+                "title_en": "7.6% university budget cut risks international rankings",
+                "summary_en": "Proposed education budget cut threatens university positions in global rankings and teaching quality.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 40.0,
+                        "dimensao_impacto": 35.0,
+                        "consequencias": 35.0,
+                        "relevancia_posterior": 30.0,
+                        "dimensao_duracao": 25.0,
+                        "relevancia_mediatica": 20.0,
+                        "singularidade": 30.0
+                    },
+                    "weighted_score": 33.8,
+                    "justification": "Corte de verbas coloca em risco posições em rankings internacionais; debate sobre financiamento universitário continua.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20131030111903/http://www.publico.pt/sociedade/noticia/cortes-propostos-no-orcamento-de-estado-vao-tiraruniversidades-portuguesas-dos-rankings-internacionais-1609573",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "facebook",
+                    "instagram"
+                ],
+                "image_url": "https://i.ibb.co/8LTQFG9d/2026-10-30-04-2013-corte-de-7-6-no-orcamento-universitario-coloca-em-risco-rankings-internacionais.jpg",
+                "image_delete_url": "https://ibb.co/hJpwSB7z/ff3c78b2ee7661733f58e88e9a603b4f",
+                "local_image_path": "images\\review\\pt\\2026-10-30_04_2013_corte-de-7-6-no-orcamento-universitario-coloca-em-risco-rankings-internacionais.jpg",
+                "background_source_url": "https://en.wikipedia.org/wiki/Hospitais_da_Universidade_de_Coimbra",
+                "local_background_path": "c:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-10-30_04_2013_corte-de-7-6-no-orcamento-universitario-coloca-em-risco-rankings-internacionais-fundo.jpg",
+                "body": "A redução de 7,6% no orçamento universitário, em 2013, levantou alertas sobre o impacto das restrições financeiras na competitividade científica das instituições de ensino superior. O aviso do setor aponta para o risco de que os cortes comprometam a capacidade das universidades para manter e melhorar a sua posição nos rankings internacionais.\n\nA medida orçamental ocorre num período em que a internacionalização e a produção científica assumem um papel central na avaliação das instituições. A legenda do aviso sublinha que as reduções orçamentais podem penalizar precisamente esses dois fatores, afetando a capacidade de investigação, a projeção internacional e a atratividade das universidades perante parceiros e estudantes.\n\nO problema exige atenção porque a posição das instituições nos rankings internacionais depende de recursos para investigação, docência, infraestrutura e cooperação académica. Sem esses meios, a capacidade científica pode ficar limitada,削弱 a visibilidade das universidades e o seu desempenho em avaliações externas.\n\nA questão assume relevância duradoura: a estabilidade do financiamento universitário condiciona a competitividade e a internacionalização do sistema de ensino superior. O alerta de 2013 mantém-se atual como reflexão sobre a relação entre orçamento, capacidade científica e reconhecimento internacional das instituições, além de constituent um aviso sobre os efeitos de restrições financeiras na qualidade do ensino superior."
+            },
+            {
+                "year": "2012",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Governo suspende emissão de novos cheques-dentista a crianças e jovens",
+                "highlight_text": "cheques-dentista",
+                "overlay_description": "Medida orçamentais suspende nova atribuição de cheques-dentista às crianças e jovens de sete, dez e 13 anos.",
+                "image_theme": "cheque dentista documento",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Decisão do Governo suspende emissão de cheques-dentista: medida tem efeitos imediatos desde a comunicação.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Governo suspende emissão de novos cheques-dentista às crianças e jovens por razões orçamentais, com efeitos imediatos.",
+                "title_en": "Government suspends issuance of new dentist cheques to children and youth",
+                "summary_en": "Budget measures suspend new dentist check issuance for children and youth at ages 7, 10 and 13.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 30.0,
+                        "dimensao_impacto": 25.0,
+                        "consequencias": 25.0,
+                        "relevancia_posterior": 20.0,
+                        "dimensao_duracao": 15.0,
+                        "relevancia_mediatica": 15.0,
+                        "singularidade": 20.0
+                    },
+                    "weighted_score": 24.0,
+                    "justification": "Suspensão temporária de programa de cheques-dentista; impacto direto na saúde oral de crianças afetadas.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20121030193028/http://www.publico.pt/Sociedade/governo-suspende-novos-chequesdentista-a-criancas-e-jovens-1569041",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "facebook"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            }
+        ]
+    },
+    {
+        "id": "pt_2026-10-31_1",
+        "date": "2026-10-31",
+        "slot": 1,
+        "lang": "pt",
+        "selected_option": 0,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "",
+        "status": "approved",
+        "generated_month": "2026-10",
+        "external_suggestions": [
+            {
+                "year": "1926",
+                "category": "POLÍTICA",
+                "title": "Revolta de 31 de Outubro de 1926",
+                "summary": "Golpe militar que marcou o início da Ditadura Militar, antecedendo o Estado Novo e alterando a estrutura política de Portugal."
+            },
+            {
+                "year": "1995",
+                "category": "CULTURA",
+                "title": "Lançamento do álbum 'Infinito' de Rui Veloso",
+                "summary": "Disco fundamental do rock português que consolidou o cantor como referência da música popular, estreando em outubro."
+            },
+            {
+                "year": "1908",
+                "category": "SOCIEDADE",
+                "title": "Incêndio do Chiado em Lisboa",
+                "summary": "Grande incêndio que destruiu parte do bairro do Chiado, levando a importantes reformas urbanas e à reconstrução da área central da capital."
+            }
+        ],
+        "options": [
+            {
+                "year": "2024",
+                "category": "ECONOMIA",
+                "editorial_tier": "high",
+                "title": "Parlamento isenta IVA em cabaz alimentar de 44 produtos essenciais",
+                "highlight_text": "isenção IVA",
+                "overlay_description": "Medida aprovada com votos favoráveis de PS, Chega e Iniciativa Liberal",
+                "image_theme": "supermercado alimentos compras cabaz alimentar",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "A Assembleia da República aprovou a isenção de IVA para um conjunto alargado de bens alimentares de primeira necessidade.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Aprovação parlamentar de taxa zero de IVA para cabaz alimentar de bens essenciais com vista a conter preços.",
+                "title_en": "Parliament exempts VAT food basket 44 products",
+                "summary_en": "Approved measure reducing VAT on 44 food products with support from PS, Chega and Iniciative Liberal affecting daily consumer costs.",
+                "relevance": {
+                    "level": 4,
+                    "scores": {
+                        "impacto_historico": 50.0,
+                        "dimensao_impacto": 40.0,
+                        "consequencias": 45.0,
+                        "relevancia_posterior": 40.0,
+                        "dimensao_duracao": 35.0,
+                        "relevancia_mediatica": 30.0,
+                        "singularidade": 35.0
+                    },
+                    "weighted_score": 42.5,
+                    "justification": "Reduz custos alimentares para famílias de baixa renda; efeito imediato no orçamento doméstico e inflação alimentar.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20241031003448/https://madeira.rtp.pt/economia/parlamento-aprova-isencao-de-iva-no-cabaz-de-alimentos/",
+                "source_platform": "arquivo.pt",
+                "source_profile": "rtp.pt",
+                "networks": [
+                    "facebook",
+                    "instagram"
+                ],
+                "background_source_url": "https://arquivo.pt/wayback/20230418180029/http://www.radionova.fm/noticias/ler/58626",
+                "body": "Em 2024, o Parlamento aprovou uma medida que isenta o IVA a 44 produtos do cabaz alimentar, uma decisão que visa mitigar o impacto do aumento dos preços nos orçamentos familiares. A proposta, negociada entre os partidos com assento parlamentar, contou com o apoio do PS, do Chega e da Iniciativa Liberal, reflectindo um consenso transversalmente desejado para aliviar a pressão inflacionista.\n\nO diploma, agora em fase de implementação, prevê a redução do imposto para uma taxa reduzida ou isenção total, dependendo da classificação dos produtos, que incluem itens essenciais como pão, leite, ovos e alguns géneros alimentícios básicos. A mudança surge num contexto de elevada volatilidade dos preços nos mercados internacionais e de custos de produção internos que têm pressionado o custo de vida.\n\nA medida entrará em vigor a 18 de abril, data em que os consumidores poderão começar a observar a diferença nos respetivos recibos. Especialistas destacam que, embora o impacto imediato seja positivo para o bolso dos agregados familiares, a isenção não resolve estruturalmente os problemas de acessibilidade alimentar, mas representa um passo importante para a proteção dos mais vulneráveis. A decisão parlamentar reforça, assim, o compromisso político de responder às necessidades imediatas dos cidadãos face ao cenário económico atual.",
+                "image_url": "https://i.ibb.co/ZRgF2Ms4/2026-10-31-01-2024-parlamento-isenta-iva-em-cabaz-alimentar-de-44-produtos-essenciais.jpg",
+                "image_delete_url": "https://ibb.co/bjcM9zXX/22ac20d4e6c20ac0bf37ece6bc88fda6",
+                "local_image_path": "images\\review\\pt\\2026-10-31_01_2024_parlamento-isenta-iva-em-cabaz-alimentar-de-44-produtos-essenciais.jpg",
+                "local_background_path": "c:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-10-31_01_2024_parlamento-isenta-iva-em-cabaz-alimentar-de-44-produtos-essenciais-fundo.jpg"
+            },
+            {
+                "year": "2025",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Lei da nacionalidade exige ligação efetiva a Portugal",
+                "highlight_text": "ligação efetiva",
+                "overlay_description": "Ministro da Presidência defende nova legislação sobre aquisição de nacionalidade",
+                "image_theme": "documento legislativo assinatura",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Governo apresenta nova versão da lei da nacionalidade com exigências reforçadas.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Regulatory update on nationality law affecting residency requirements and country perception.",
+                "title_en": "Nationality law requires effective link to Portugal",
+                "summary_en": "Presidential minister defends new legislation on nationality acquisition affecting residency requirements and country perception.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 45.0,
+                        "dimensao_impacto": 35.0,
+                        "consequencias": 30.0,
+                        "relevancia_posterior": 35.0,
+                        "dimensao_duracao": 25.0,
+                        "relevancia_mediatica": 20.0,
+                        "singularidade": 25.0
+                    },
+                    "weighted_score": 35.0,
+                    "justification": "Medida afeta residentes estrangeiros e gera debate sobre identidade nacional; discussão em curso no parlamento.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20251031180505/https://expresso.pt/politica/parlamento/2025-10-28-lei-da-nacionalidade-aprovada-a-direita-leitao-amaro-diz-que-pais-nao-se-fecha-nem-se-radicaliza-2662335d",
+                "source_platform": "arquivo.pt",
+                "source_profile": "expresso.pt",
+                "networks": [
+                    "facebook",
+                    "instagram"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2022",
+                "category": "CIÊNCIA",
+                "editorial_tier": "high",
+                "title": "Tribunal de Contas alerta atraso entrega projectores escolas",
+                "highlight_text": "40 mil projectores",
+                "overlay_description": "Ministério da Educação iniciativa modernizar equipamento escolar",
+                "image_theme": "tecnologia sala aula",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Auditoria revela que metade dos projectores adquiridos ainda não chegou às escolas.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Infrastructure gap in educational technology modernization affecting classroom equipment.",
+                "title_en": "Court of Accounts warns projector delivery delay to schools",
+                "summary_en": "Education Ministry initiative to modernize school equipment facing infrastructure gap in technological modernization.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 30.0,
+                        "dimensao_impacto": 25.0,
+                        "consequencias": 20.0,
+                        "relevancia_posterior": 25.0,
+                        "dimensao_duracao": 15.0,
+                        "relevancia_mediatica": 15.0,
+                        "singularidade": 20.0
+                    },
+                    "weighted_score": 24.0,
+                    "justification": "Atraso compromete planejamento letivo; necessidade de modernização equipamentos escolas públicas.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20221031180158/https://www.publico.pt/2022/08/02/sociedade/noticia/auditoria-tribunal-contas-alerta-atraso-entrega-escolas-40-mil-projectores-novos-2015825",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "facebook"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2021",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Estado emergência Governo controla taxas Uber Eats",
+                "highlight_text": "taxas Uber Eats",
+                "overlay_description": "Decreto presidencial enviado ao Parlamento para vigência entre 16 e 30 de janeiro",
+                "image_theme": "tecnologia entrega domicílio",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Medida de exceção durante pandemia inclui controlo de tarifas de plataformas digitais.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Emergency state measures extending price regulation to food delivery services during health crisis.",
+                "title_en": "State of emergency Government controls Uber Eats rates",
+                "summary_en": "Presidential decree extending price regulation to food delivery services during health crisis period from January 16 to 30.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 40.0,
+                        "dimensao_impacto": 35.0,
+                        "consequencias": 30.0,
+                        "relevancia_posterior": 35.0,
+                        "dimensao_duracao": 20.0,
+                        "relevancia_mediatica": 25.0,
+                        "singularidade": 30.0
+                    },
+                    "weighted_score": 33.5,
+                    "justification": "Regulação temporária taxas delivery durante pandemia; precedente para controle precário serviços digitais.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20211031225121/https://www.dn.pt/politica/amp/estado-de-emergencia-presidente-ja-enviou-decreto-para-a-ar-13223269.html",
+                "source_platform": "arquivo.pt",
+                "source_profile": "dn.pt",
+                "networks": [
+                    "x",
+                    "facebook"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2014",
+                "category": "MUNDIAL",
+                "editorial_tier": "high",
+                "title": "Mais de 300 combatentes regressam de Siria ao pais de origem",
+                "highlight_text": "300 combatentes",
+                "overlay_description": "Servicos de informacao europeus monitorizam regresso de ex-filEI",
+                "image_theme": "mapa Europa retorno combatentes",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Servicos de inteligencia de quatro paises europeus acompanham retorno de combatentes do Estado Islâmico.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Geopolitical development concerning returning foreign fighters from conflict zone with European implications.",
+                "title_en": "Over 300 fighters return from Syria to home country",
+                "summary_en": "European intelligence services monitor return of former ISIS fighters from conflict zone with European implications.",
+                "relevance": {
+                    "level": 2,
+                    "scores": {
+                        "impacto_historico": 85.0,
+                        "dimensao_impacto": 70.0,
+                        "consequencias": 80.0,
+                        "relevancia_posterior": 75.0,
+                        "dimensao_duracao": 65.0,
+                        "relevancia_mediatica": 40.0,
+                        "singularidade": 75.0
+                    },
+                    "weighted_score": 75.0,
+                    "justification": "Retorno combatentes estrangeiros gera preocupação segurança europeia; políticas imigração endurecidas consequência direta.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20141031210218/http://www.publico.pt/mundo/noticia/regressaram-a-europa-mais-de-300-combatentes-das-fileiras-do-estado-islamico-1674072",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "x"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            }
+        ]
+    },
+    {
+        "id": "pt_2026-10-31_2",
+        "date": "2026-10-31",
+        "slot": 2,
+        "lang": "pt",
+        "selected_option": 0,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "",
+        "status": "approved",
+        "generated_month": "2026-10",
+        "external_suggestions": [
+            {
+                "year": "1926",
+                "category": "POLÍTICA",
+                "title": "Revolta de 31 de Outubro de 1926",
+                "summary": "Golpe militar que marcou o início da Ditadura Militar, antecedendo o Estado Novo e alterando a estrutura política de Portugal."
+            },
+            {
+                "year": "1995",
+                "category": "CULTURA",
+                "title": "Lançamento do álbum 'Infinito' de Rui Veloso",
+                "summary": "Disco fundamental do rock português que consolidou o cantor como referência da música popular, estreando em outubro."
+            },
+            {
+                "year": "1908",
+                "category": "SOCIEDADE",
+                "title": "Incêndio do Chiado em Lisboa",
+                "summary": "Grande incêndio que destruiu parte do bairro do Chiado, levando a importantes reformas urbanas e à reconstrução da área central da capital."
+            }
+        ],
+        "options": [
+            {
+                "year": "1926",
+                "category": "HISTÓRIA",
+                "title": "Revolta militar de 31 de Outubro desafia poder governamental no Porto",
+                "summary": "Levantamento militar eclode no Porto em protesto contra a liderança política e o regime instalado no país.",
+                "caption": "No Porto, forças militares sublevaram-se na Revolta de 31 de Outubro, protagonizando confrontos e agitação política que marcaram a época.\n\n#Noticias #Atualidade #Jornalismo",
+                "overlay_description": "Sublevação militar eclode na cidade do Porto em desafio à governação",
+                "image_theme": "Porto praca da liberdade historia militar Portugal",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "highlight_text": "31 de Outubro",
+                "body": "No Porto, a madrugada de 31 de outubro de 1926 foi palco de uma das mais significativas agitações políticas e militares da Primeira República. Por volta das 04h00, um grupo de oficiais do Exército, liderado por figuras como General Gomes da Costa, ocupou pontos estratégicos da cidade, incluindo o quartel da Praça da República e o forte de S. João Baptista. A ação surgiu como resposta direta ao governo provisório liderado por José Domingues dos Santos, acusado de fraude eleitoral e de manter uma política de estabilidade que ignorava as crescentes tensões sociais e militares.\n\nO levante rapidamente ganhou adesão de tropas estacionadas na cidade, transformando-se em confrontos armados nas ruas. A artilharia do forte bombardeou o quartel do Carmo, enquanto grupos de civis apoiantes e opositores cruzavam-se em manifestações espontâneas. O clima de instabilidade era exacerbado pela crise econômica e pela desilusão generalizada com o regime republicano, que há anos lutava para consolidar o poder após a implantação da República em 1910.\n\nA relevância deste evento transcende o imediato confronto armado. A Revolta do 31 de Outubro funcionou como um catalisador para o golpe de Estado de 28 de maio de 1926, que culminaria na instalação da Ditadura Nacional. Ao desafiar abertamente a legitimidade do governo civil e demonstrar a capacidade dos militares para reorganizar o poder estatal, preparou o terreno para o fim da Primeira República. Hoje, marca-se o aniversário deste episódio como um ponto de viragem decisivo na história política portuguesa, simbolizando a transição de um regime parlamentar frágil para um Estado autoritário que duraria quase quatro décadas.",
+                "image_url": "https://i.ibb.co/Lhrh6j7c/2026-10-31-01-1926-revolta-militar-de-31-de-outubro-desafia-poder-governamental-no-porto.jpg",
+                "image_delete_url": "https://ibb.co/dwDpbqj6/e1b7c1639aa728bd97c1456052fc4075",
+                "local_image_path": "images\\review\\pt\\2026-10-31_01_1926_revolta-militar-de-31-de-outubro-desafia-poder-governamental-no-porto.jpg",
+                "background_source_url": "https://commons.wikimedia.org/wiki/File:Pra%C3%A7a_da_Rep%C3%BAblica_Porto_Web.jpg",
+                "local_background_path": "c:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-10-31_01_1926_revolta-militar-de-31-de-outubro-desafia-poder-governamental-no-porto-fundo.jpg",
+                "relevance": {
+                    "level": 3,
+                    "scores": {
+                        "impacto_historico": 65.0,
+                        "dimensao_impacto": 55.0,
+                        "consequencias": 55.0,
+                        "relevancia_posterior": 55.0,
+                        "dimensao_duracao": 45.0,
+                        "relevancia_mediatica": 50.0,
+                        "singularidade": 60.0
+                    },
+                    "weighted_score": 57.0,
+                    "justification": "Revolta militar de 31 de Outubro no Porto desafia a ditadura militar instalada.",
+                    "lang": "pt"
+                },
+                "networks": [
+                    "instagram",
+                    "facebook"
+                ]
+            },
+            {
+                "year": "2021",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Estado emergência Governo controla taxas Uber Eats",
+                "highlight_text": "taxas Uber Eats",
+                "overlay_description": "Decreto presidencial enviado ao Parlamento para vigência entre 16 e 30 de janeiro",
+                "image_theme": "tecnologia entrega domicílio",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Medida de exceção durante pandemia inclui controlo de tarifas de plataformas digitais.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Emergency state measures extending price regulation to food delivery services during health crisis.",
+                "title_en": "State of emergency Government controls Uber Eats rates",
+                "summary_en": "Presidential decree extending price regulation to food delivery services during health crisis period from January 16 to 30.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 40.0,
+                        "dimensao_impacto": 35.0,
+                        "consequencias": 30.0,
+                        "relevancia_posterior": 35.0,
+                        "dimensao_duracao": 20.0,
+                        "relevancia_mediatica": 25.0,
+                        "singularidade": 30.0
+                    },
+                    "weighted_score": 33.5,
+                    "justification": "Regulação temporária taxas delivery durante pandemia; precedente para controle precário serviços digitais.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20211031225121/https://www.dn.pt/politica/amp/estado-de-emergencia-presidente-ja-enviou-decreto-para-a-ar-13223269.html",
+                "source_platform": "arquivo.pt",
+                "source_profile": "dn.pt",
+                "networks": [
+                    "x",
+                    "facebook"
+                ],
+                "background_source_url": "",
+                "body": "Em janeiro de 2021, o Governo português decretou o estado de emergência para conter a pandemia de covid-19, medida que vigorou entre 16 e 30 do mês. O decreto, enviado ao Parlamento, trouxe um aspeto inédito para o sector dos serviços de entrega: o controlo das tarifas praticadas pelas plataformas digitais, nomeadamente a Uber Eats. A medida surgiu no contexto de aumento dos custos de vida e de pressão sobre os rendimentos das famílias, justificando-se a intervenção estatal para garantir preços mais justos e transparentes nos serviços de delivery. Segundo o executivo, a regulamentação visava impedir aumentos abusivos que pudessem penalizar os consumidores num período de grande instabilidade económica. A decisão marcou o primeiro caso em que o Estado português exercia um controlo directo sobre as taxas de uma plataforma de origem estrangeira, estabelecendo um precedente significativo para a regulação da economia plataforma no país. A medida manteve-se temporária, alinhada com o período de estado de emergência, mas abriu caminho para futuras discussões sobre a proteção do consumidor e os direitos dos trabalhadores independentes no sector da entrega à domicílio.",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2025",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Lei da nacionalidade exige ligação efetiva a Portugal",
+                "highlight_text": "ligação efetiva",
+                "overlay_description": "Ministro da Presidência defende nova legislação sobre aquisição de nacionalidade",
+                "image_theme": "documento legislativo assinatura",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Governo apresenta nova versão da lei da nacionalidade com exigências reforçadas.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Regulatory update on nationality law affecting residency requirements and country perception.",
+                "title_en": "Nationality law requires effective link to Portugal",
+                "summary_en": "Presidential minister defends new legislation on nationality acquisition affecting residency requirements and country perception.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 45.0,
+                        "dimensao_impacto": 35.0,
+                        "consequencias": 30.0,
+                        "relevancia_posterior": 35.0,
+                        "dimensao_duracao": 25.0,
+                        "relevancia_mediatica": 20.0,
+                        "singularidade": 25.0
+                    },
+                    "weighted_score": 35.0,
+                    "justification": "Medida afeta residentes estrangeiros e gera debate sobre identidade nacional; discussão em curso no parlamento.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20251031180505/https://expresso.pt/politica/parlamento/2025-10-28-lei-da-nacionalidade-aprovada-a-direita-leitao-amaro-diz-que-pais-nao-se-fecha-nem-se-radicaliza-2662335d",
+                "source_platform": "arquivo.pt",
+                "source_profile": "expresso.pt",
+                "networks": [
+                    "facebook",
+                    "instagram"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2022",
+                "category": "CIÊNCIA",
+                "editorial_tier": "high",
+                "title": "Tribunal de Contas alerta atraso entrega projectores escolas",
+                "highlight_text": "40 mil projectores",
+                "overlay_description": "Ministério da Educação iniciativa modernizar equipamento escolar",
+                "image_theme": "tecnologia sala aula",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Auditoria revela que metade dos projectores adquiridos ainda não chegou às escolas.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Infrastructure gap in educational technology modernization affecting classroom equipment.",
+                "title_en": "Court of Accounts warns projector delivery delay to schools",
+                "summary_en": "Education Ministry initiative to modernize school equipment facing infrastructure gap in technological modernization.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 30.0,
+                        "dimensao_impacto": 25.0,
+                        "consequencias": 20.0,
+                        "relevancia_posterior": 25.0,
+                        "dimensao_duracao": 15.0,
+                        "relevancia_mediatica": 15.0,
+                        "singularidade": 20.0
+                    },
+                    "weighted_score": 24.0,
+                    "justification": "Atraso compromete planejamento letivo; necessidade de modernização equipamentos escolas públicas.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20221031180158/https://www.publico.pt/2022/08/02/sociedade/noticia/auditoria-tribunal-contas-alerta-atraso-entrega-escolas-40-mil-projectores-novos-2015825",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "facebook"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2014",
+                "category": "MUNDIAL",
+                "editorial_tier": "high",
+                "title": "Mais de 300 combatentes regressam de Siria ao pais de origem",
+                "highlight_text": "300 combatentes",
+                "overlay_description": "Servicos de informacao europeus monitorizam regresso de ex-filEI",
+                "image_theme": "mapa Europa retorno combatentes",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Servicos de inteligencia de quatro paises europeus acompanham retorno de combatentes do Estado Islâmico.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Geopolitical development concerning returning foreign fighters from conflict zone with European implications.",
+                "title_en": "Over 300 fighters return from Syria to home country",
+                "summary_en": "European intelligence services monitor return of former ISIS fighters from conflict zone with European implications.",
+                "relevance": {
+                    "level": 2,
+                    "scores": {
+                        "impacto_historico": 85.0,
+                        "dimensao_impacto": 70.0,
+                        "consequencias": 80.0,
+                        "relevancia_posterior": 75.0,
+                        "dimensao_duracao": 65.0,
+                        "relevancia_mediatica": 40.0,
+                        "singularidade": 75.0
+                    },
+                    "weighted_score": 75.0,
+                    "justification": "Retorno combatentes estrangeiros gera preocupação segurança europeia; políticas imigração endurecidas consequência direta.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20141031210218/http://www.publico.pt/mundo/noticia/regressaram-a-europa-mais-de-300-combatentes-das-fileiras-do-estado-islamico-1674072",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "x"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            }
+        ]
+    },
+    {
+        "id": "pt_2026-11-01_1",
+        "date": "2026-11-01",
+        "slot": 1,
+        "lang": "pt",
+        "selected_option": 0,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "",
+        "status": "approved",
+        "generated_month": "2026-11",
+        "external_suggestions": [
+            {
+                "year": "1918",
+                "category": "CURIOSO",
+                "title": "Fim da Primeira República em Portugal",
+                "summary": "Marcou o início da instabilidade política que levou à Ditadura Militar e posterior Estado Novo."
+            },
+            {
+                "year": "1954",
+                "category": "CIÊNCIA",
+                "title": "Primeiro transplante renal bem-sucedido em humanos",
+                "summary": "Realizado por uma equipa médica em Paris, representou um marco na cirurgia moderna e salvou inúmeras vidas."
+            },
+            {
+                "year": "1993",
+                "category": "DESPORTO",
+                "title": "Futebol: Portugal vence a Inglaterra no Estádio da Luz",
+                "summary": "Vitória histórica por 1-0 num jogo amistoso que reforçou a identidade nacional e a confiança da equipa."
+            }
+        ],
+        "options": [
+            {
+                "year": "1918",
+                "category": "HISTÓRIA",
+                "title": "Crise política e agitação militar precipitam rutura na Primeira República",
+                "summary": "Instabilidade governativa e golpes militares aceleram a crise institucional do regime republicano em Portugal.",
+                "caption": "A agudização das tensões militares e políticas colocou a Primeira República sob forte pressão, abrindo caminho a períodos de exceção governativa.\n\n#Noticias #Atualidade #Jornalismo",
+                "overlay_description": "Agravamento da instabilidade militar e governativa precipita crise na Primeira República",
+                "image_theme": "republica historia portugal documentos arquivo",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "highlight_text": "Primeira República",
+                "body": "Em 1918, a Primeira República atravessava uma das suas fases mais críticas, marcada por uma aguda crise política e agitação militar que abalou as estruturas do regime. O final da Primeira Guerra Mundial trouxe expectativas de estabilidade, mas o país mergulhou num cenário de profunda incerteza. O esforço de guerra havia exaurido os recursos nacionais, provocando escassez de géneros alimentícios e um aumento significativo do custo de vida, o que alimentou o descontentamento popular.\n\nNo plano interno, o governo liberal, liderado por Afonso Costa, enfrentava uma oposição cada vez mais forte e dividida. As greves operárias e as manifestações agrícolas tornaram-se frequentes, denunciando a incapacidade do executivo para gerir a economia de guerra e as reivindicações sociais. Paralelamente, o Exército vivia um momento de fratura. A recusa de oficiais em obedecer ordens e a propagação de ideias republicanas dentro das fileiras criaram um ambiente de desobediência crescente. O caso mais emblemático ocorreu em novembro, quando unidades do Exército manifestaram-se contra a política de intervenção governamental, exigindo reformas profundas e maior participação nos destinos nacionais.\n\nEsta confluência de factores — a fadiga da população, a incapacidade governativa e a insubordinação militar — culminou num período de exceção. A instabilidade precipitou a queda de vários ministros e enfraqueceu a credibilidade do regime republicano, que até então se afirmara como a única alternativa política possível após a implosão monárquica. A crise de 1918 funcionou como um ponto de viragem, evidenciando as fissuras latentes da República e preparando o terreno para as transformações políticas que se seguiriam nos anos subsequentes, incluindo a instabilidade que levaria ao Estado Novo. A agudização das tensões militares e políticas colocou a Primeira República sob forte pressão, abrindo caminho a períodos de exceção governativa.",
+                "image_url": "https://i.ibb.co/4RFY23CF/2026-11-01-01-1918-crise-politica-e-agitacao-militar-precipitam-rutura-na-primeira-republica.jpg",
+                "image_delete_url": "https://ibb.co/j9y8pyMx/e2fdcee6e1a361b23ccc779ac17a816c",
+                "local_image_path": "images\\review\\pt\\2026-11-01_01_1918_crise-politica-e-agitacao-militar-precipitam-rutura-na-primeira-republica.jpg",
+                "background_source_url": "https://pt.wikipedia.org/wiki/Proclama%C3%A7%C3%A3o_da_Rep%C3%BAblica_do_Brasil",
+                "local_background_path": "c:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-01_01_1918_crise-politica-e-agitacao-militar-precipitam-rutura-na-primeira-republica-fundo.jpg",
+                "relevance": {
+                    "level": 2,
+                    "scores": {
+                        "impacto_historico": 80.0,
+                        "dimensao_impacto": 75.0,
+                        "consequencias": 70.0,
+                        "relevancia_posterior": 70.0,
+                        "dimensao_duracao": 65.0,
+                        "relevancia_mediatica": 50.0,
+                        "singularidade": 65.0
+                    },
+                    "weighted_score": 72.0,
+                    "justification": "Crise política e agitação militar precipitam rutura na Primeira República.",
+                    "lang": "pt"
+                },
+                "networks": [
+                    "instagram",
+                    "facebook"
+                ]
+            },
+            {
+                "year": "1755",
+                "category": "HISTÓRIA",
+                "title": "Grande Terramoto de Lisboa destrói a capital e altera história do país",
+                "summary": "Sismo devastador seguido de maremoto e incêndios arrasa a cidade de Lisboa, provocando profunda reconstrução pombalina.",
+                "caption": "O Grande Terramoto de 1755 devastou a capital portuguesa, desencadeando um dos maiores processos de reconstrução e transformação urbanística da Europa.\n\n#Noticias #Atualidade #Jornalismo",
+                "overlay_description": "Catástrofe sísmica destrói Lisboa e dá origem à reconstrução pombalina da cidade",
+                "image_theme": "terramoto lisboa ruinas historia pombal",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "highlight_text": "Terramoto de Lisboa",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2025",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Governo falha meta para controlo de fronteiras nos aeroportos",
+                "highlight_text": "Governo falha",
+                "overlay_description": "Autoridades enfrentam desafios no cumprimento de metas de segurança aeroportuária",
+                "image_theme": "fronteira aeroporto controle",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "O Governo anunciou que não atingiu as metas esperadas para o controlo de fronteiras nos aeroportos, levantando questões sobre a eficácia das medidas implementadas.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Registo de falha governamental nas fronteiras aeroportuárias, evento de relevância nacional que afeta a segurança e o funcionamento dos serviços públicos.",
+                "title_en": "Government fails border control target at airports",
+                "summary_en": "Authorities face challenges meeting airport security target goals, affecting public safety and service operations.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 40.0,
+                        "dimensao_impacto": 30.0,
+                        "consequencias": 35.0,
+                        "relevancia_posterior": 30.0,
+                        "dimensao_duracao": 25.0,
+                        "relevancia_mediatica": 20.0,
+                        "singularidade": 25.0
+                    },
+                    "weighted_score": 32.5,
+                    "justification": "Evento de relevância moderada com consequências limitadas ao contexto operacional imediato; não gerou mudanças estruturais duradouras na política de fronteiras.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20251101181349/https://www.dn.pt/sociedade/governo-falha-meta-para-controlo-de-fronteiras-nos-aeroportos",
+                "source_platform": "arquivo.pt",
+                "source_profile": "dn.pt",
+                "networks": [
+                    "x"
+                ],
+                "background_source_url": "",
+                "body": "O Governo português anunciou esta quinta-feira que não atingiu as metas previstas para o controlo de fronteiras nos aeroportos, num relatório que revela lacunas na implementação das medidas de segurança. O documento, divulgado pelo Ministério da Administração Interna, indica que os recursos humanos e tecnológicos não acompanharam o ritmo de crescimento do tráfego aéreo registado nos últimos meses. As autoridades reconhecem atrasos na integração de novos sistemas de leitura biométrica e na formação de pessoal adicional, fatores que comprometeram a eficiência esperada nos pontos de entrada. Especialistas ouvidos pela Lusa alertam que o incumprimento das metas pode ter implicações nas relações com parceiros internacionais e no fluxo de passageiros durante a alta temporada de verão. O Executivo promete um plano de ação corretivo ainda este mês, focado na reatribuição de efetivos e na aceleração de projetos de modernização já em curso. A falha coloca em destaque a necessidade de equilibrar a agilidade no atendimento ao público com os rigorosos padrões de segurança exigidos nas fronteiras externas da União Europeia.",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2025",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Lei da nacionalidade aprovada à direita: Leitão Amaro diz que país “não se fecha nem se radicaliza”",
+                "highlight_text": "Leitão Amaro",
+                "overlay_description": "Debate sobre a nova legislação de nacionalidade e as suas implicações para a imigração e integração",
+                "image_theme": "lei nacionalidade parlamento",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "O ministro da Presidência defende a nova versão da lei de nacionalidade, afirmando que o país não se fecha nem se radicaliza, enquanto o PS critica a linguagem utilizada pelo Governo.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Aprovação de lei controversial sobre nacionalidade que divide opiniões políticas sobre imigração e identidade nacional.",
+                "title_en": "Nationality law approved by right: Leitão Amaro says country 'does not close nor radicalize'",
+                "summary_en": "Controversial nationality legislation approved, dividing political opinions on immigration and national identity.",
+                "relevance": {
+                    "level": 4,
+                    "scores": {
+                        "impacto_historico": 55.0,
+                        "dimensao_impacto": 45.0,
+                        "consequencias": 40.0,
+                        "relevancia_posterior": 45.0,
+                        "dimensao_duracao": 35.0,
+                        "relevancia_mediatica": 30.0,
+                        "singularidade": 40.0
+                    },
+                    "weighted_score": 45.2,
+                    "justification": "Lei de nacionalidade aprovada gera debate político contínuo sobre imigração e identidade nacional; impacta discussões legislativas futuras e percepção pública, mas ainda não produziu mudanças estruturais definitivas.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20251101203339/https://expresso.pt/politica/parlamento/2025-10-28-lei-da-nacionalidade-aprovada-a-direita-leitao-amaro-diz-que-pais-nao-se-fecha-nem-se-radicaliza-2662335d",
+                "source_platform": "arquivo.pt",
+                "source_profile": "expresso.pt",
+                "networks": [
+                    "facebook",
+                    "x"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2014",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Liberia decreta estado de emergencia por causa de epidemia de ebola",
+                "highlight_text": "estado de emergencia",
+                "overlay_description": "Medidas drásticas tomadas para conter a propagação do vírus Ebola no país",
+                "image_theme": "epidemia liberia saude",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "O governo da Libéria declarou estado de emergência nacional face à epidemia de Ebola, implementando restrições severas para controlar o surto.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Evento de saúde pública internacional com declaração de emergência estatal em resposta à epidemia de Ebola.",
+                "title_en": "Liberia declares state of emergency due to Ebola epidemic",
+                "summary_en": "Drastic measures taken to contain Ebola virus spread within the country.",
+                "relevance": {
+                    "level": 3,
+                    "scores": {
+                        "impacto_historico": 75.0,
+                        "dimensao_impacto": 65.0,
+                        "consequencias": 70.0,
+                        "relevancia_posterior": 65.0,
+                        "dimensao_duracao": 55.0,
+                        "relevancia_mediatica": 45.0,
+                        "singularidade": 60.0
+                    },
+                    "weighted_score": 66.5,
+                    "justification": "Declaração de emergência estatal em resposta à epidemia de Ebola causou consequências significativas: reforço de sistemas de saúde internacional, protocolos de segurança sanitária global e impacto duradouro na resposta a crises de saúde pública na região.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20141101042215/http://www.publico.pt/mundo/noticia/liberia-decreta-estado-de-emergencia-por-causa-de-epidemia-de-ebola-1665748",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "facebook"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            }
+        ]
+    },
+    {
+        "id": "pt_2026-11-01_2",
+        "date": "2026-11-01",
+        "slot": 2,
+        "lang": "pt",
+        "selected_option": 0,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "",
+        "status": "approved",
+        "generated_month": "2026-11",
+        "external_suggestions": [
+            {
+                "year": "1918",
+                "category": "CURIOSO",
+                "title": "Fim da Primeira República em Portugal",
+                "summary": "Marcou o início da instabilidade política que levou à Ditadura Militar e posterior Estado Novo."
+            },
+            {
+                "year": "1954",
+                "category": "CIÊNCIA",
+                "title": "Primeiro transplante renal bem-sucedido em humanos",
+                "summary": "Realizado por uma equipa médica em Paris, representou um marco na cirurgia moderna e salvou inúmeras vidas."
+            },
+            {
+                "year": "1993",
+                "category": "DESPORTO",
+                "title": "Futebol: Portugal vence a Inglaterra no Estádio da Luz",
+                "summary": "Vitória histórica por 1-0 num jogo amistoso que reforçou a identidade nacional e a confiança da equipa."
+            }
+        ],
+        "options": [
+            {
+                "year": "2020",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Presidente da República envia decreto do estado de emergência ao Parlamento",
+                "highlight_text": "estado de emergencia",
+                "overlay_description": "Presidente da República submete decreto do estado de emergência para votação parlamentar",
+                "image_theme": "Palacio de Belem Lisboa Presidente da Republica",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "O Presidente da República enviou ao Parlamento a proposta de decreto para o estado de emergência, fixando as medidas excecionais de contingência nacional.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "O Chefe de Estado submete à Assembleia da República a proposta de declaração de estado de emergência para votação dos deputados.",
+                "title_en": "President declares state of emergency, decree sent to archives or implementation",
+                "summary_en": "Presidential decree of state of emergency sent for archiving or implementation, exceptional measure affecting institutional functioning.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 35.0,
+                        "dimensao_impacto": 30.0,
+                        "consequencias": 30.0,
+                        "relevancia_posterior": 25.0,
+                        "dimensao_duracao": 20.0,
+                        "relevancia_mediatica": 25.0,
+                        "singularidade": 25.0
+                    },
+                    "weighted_score": 29.2,
+                    "justification": "Declaração de estado de emergência sem consequências documentadas específicas; medida excepcional cuja implementação e impactos variam conforme contexto político, sem legado histórico comprovado.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20231101234542/https://www.dn.pt/politica/estado-de-emergencia-presidente-ja-enviou-decreto-para-a-ar-13223269.html",
+                "source_platform": "arquivo.pt",
+                "source_profile": "dn.pt",
+                "networks": [
+                    "x",
+                    "instagram",
+                    "facebook"
+                ],
+                "image_url": "https://i.ibb.co/20gXXFVx/2026-11-01-01-2020-presidente-da-republica-envia-decreto-do-estado-de-emergencia-ao-parlamento.jpg",
+                "image_delete_url": "https://ibb.co/cSDZsRGF/d0d58687b2671b12bf6a3174aa60ac8e",
+                "local_image_path": "images\\review\\pt\\2026-11-01_01_2020_presidente-da-republica-envia-decreto-do-estado-de-emergencia-ao-parlamento.jpg",
+                "background_source_url": "https://pt.wikipedia.org/wiki/Torre_de_Bel%C3%A9m",
+                "local_background_path": "c:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-01_01_2020_presidente-da-republica-envia-decreto-do-estado-de-emergencia-ao-parlamento-fundo.jpg",
+                "body": "Em 18 de março de 2020, o Presidente da República, Marcelo Rebelo de Sousa, enviou ao Parlamento a proposta de decreto que declarava o estado de emergência em Portugal, medida inédita desde a adesão do país à União Europeia. O decreto, aprovado pelo Conselho de Ministros dois dias antes, conferia ao Governo poderes excepcionais para conter a propagação do novo coronavírus, nomeadamente o encerramento de estabelecimentos comerciais não essenciais, a limitação da circulação de pessoas e o confinamento obrigatório. A iniciativa surgia num contexto de rápida escalada da pandemia na Europa e após o Estado de Sítio ter sido considerado inapropriado pela Assembleia da República. A votação parlamentar, ocorrida no dia seguinte, aprovou o diploma por maioria absoluta, legitimando um regime que duraria inicialmente 15 dias, podendo ser prorrogado. A decisão marcou o início de uma nova fase na resposta nacional à covid-19, substituindo recomendações voluntárias por obrigações legais de âmbito nacional. A relevância duradoura deste acto reside no precedente estabelecido para futuras crises sanitárias e na demonstração de capacidade de resposta rápida das instituições democráticas perante uma ameaça global sem precedentes nas últimas décadas."
+            },
+            {
+                "year": "2014",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Liberia decreta estado de emergencia por causa de epidemia de ebola",
+                "highlight_text": "estado de emergencia",
+                "overlay_description": "Medidas drásticas tomadas para conter a propagação do vírus Ebola no país",
+                "image_theme": "epidemia liberia saude",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "O governo da Libéria declarou estado de emergência nacional face à epidemia de Ebola, implementando restrições severas para controlar o surto.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Evento de saúde pública internacional com declaração de emergência estatal em resposta à epidemia de Ebola.",
+                "title_en": "Liberia declares state of emergency due to Ebola epidemic",
+                "summary_en": "Drastic measures taken to contain Ebola virus spread within the country.",
+                "relevance": {
+                    "level": 3,
+                    "scores": {
+                        "impacto_historico": 75.0,
+                        "dimensao_impacto": 65.0,
+                        "consequencias": 70.0,
+                        "relevancia_posterior": 65.0,
+                        "dimensao_duracao": 55.0,
+                        "relevancia_mediatica": 45.0,
+                        "singularidade": 60.0
+                    },
+                    "weighted_score": 66.5,
+                    "justification": "Declaração de emergência estatal em resposta à epidemia de Ebola causou consequências significativas: reforço de sistemas de saúde internacional, protocolos de segurança sanitária global e impacto duradouro na resposta a crises de saúde pública na região.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20141101042215/http://www.publico.pt/mundo/noticia/liberia-decreta-estado-de-emergencia-por-causa-de-epidemia-de-ebola-1665748",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "facebook"
+                ],
+                "background_source_url": "",
+                "body": "Em 5 de agosto de 2014, o governo da Libéria declarou estado de emergência nacional para fazer face à epidemia de Ebola que assolava o país. A medida, anunciada pela presidente Ellen Johnson Sirleaf, visava conter a propagação do vírus, que já tinha provocado centenas de infeções e dezenas de óbitos, sobretudo nas áreas urbanas de Monróvia e no condado de Montserrado. O estado de emergência conferiu ao executivo poderes excepcionais, incluindo a possibilidade de impor toques de recolher, restringir a livre circulação de pessoas e fechar fronteiras terrestres com vizinhos afetados, como Guiné e Serra Leoa.\n\nAs autoridades sanitarais reportavam, nessa altura, mais de mil casos confirmados e prováveis, com a taxa de mortalidade a rondar os 70 por cento. Para responder ao surto, foram decretadas quarentenas obrigatórias em bairros considerados focos de infeção, sendo o acesso a estes limitado a equipas de saúde e bens essenciais. O sector saúde, já deficitário, viu-se sobrecarregado, levando o governo a solicitar assistência internacional para reforçar os centros de tratamento e fornecer equipamento de proteção individual ao pessoal médico.\n\nAlém das restrições de movimento, o decreto impôs multas pesadas a quem violasse as medidas de isolamento e proibiu grandes concentrações públicas, incluindo cerimónias fúnebres, que tradicionalmente envolvem contacto directo com o corpo do defunto, um dos principais vetores de transmissão do vírus. A comunidade internacional respondeu rapidamente, com a Organização Mundial da Saúde e diversos países a enviar equipas de epidemiologistas, material médico e apoio logístico.\n\nA declaração de estado de emergência marcou um ponto de viragem na resposta nacional, permitindo uma coordenação mais eficaz entre os diferentes ministérios e a mobilização de recursos anteriormente reservados para outras emergências. Embora o surto tenha durado vários meses, as medidas drásticas implementadas naquele agosto foram essenciais para frear a taxa de contágio e evitar um colapso total do sistema de saúde libério, constituindo um dos capítulos mais críticos da história recente do país.",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "local_background_path": ""
+            },
+            {
+                "year": "2025",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Lei da nacionalidade aprovada à direita: Leitão Amaro diz que país “não se fecha nem se radicaliza”",
+                "highlight_text": "Leitão Amaro",
+                "overlay_description": "Debate sobre a nova legislação de nacionalidade e as suas implicações para a imigração e integração",
+                "image_theme": "lei nacionalidade parlamento",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "O ministro da Presidência defende a nova versão da lei de nacionalidade, afirmando que o país não se fecha nem se radicaliza, enquanto o PS critica a linguagem utilizada pelo Governo.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Aprovação de lei controversial sobre nacionalidade que divide opiniões políticas sobre imigração e identidade nacional.",
+                "title_en": "Nationality law approved by right: Leitão Amaro says country 'does not close nor radicalize'",
+                "summary_en": "Controversial nationality legislation approved, dividing political opinions on immigration and national identity.",
+                "relevance": {
+                    "level": 4,
+                    "scores": {
+                        "impacto_historico": 55.0,
+                        "dimensao_impacto": 45.0,
+                        "consequencias": 40.0,
+                        "relevancia_posterior": 45.0,
+                        "dimensao_duracao": 35.0,
+                        "relevancia_mediatica": 30.0,
+                        "singularidade": 40.0
+                    },
+                    "weighted_score": 45.2,
+                    "justification": "Lei de nacionalidade aprovada gera debate político contínuo sobre imigração e identidade nacional; impacta discussões legislativas futuras e percepção pública, mas ainda não produziu mudanças estruturais definitivas.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20251101203339/https://expresso.pt/politica/parlamento/2025-10-28-lei-da-nacionalidade-aprovada-a-direita-leitao-amaro-diz-que-pais-nao-se-fecha-nem-se-radicaliza-2662335d",
+                "source_platform": "arquivo.pt",
+                "source_profile": "expresso.pt",
+                "networks": [
+                    "facebook",
+                    "x"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2014",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Ministra das Finanças entrega proposta de Orçamento do Estado para 2015 no Parlamento",
+                "highlight_text": "Orçamento do Estado",
+                "overlay_description": "Apresentação da proposta orçamental anual no órgão legislativo",
+                "image_theme": "financas orçamento parlamento",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "A ministra das Finanças entregou a proposta do Orçamento do Estado para 2015, iniciando o processo legislativo anual de aprovação financeira.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Entrega da proposta orçamental no Parlamento, marco procedimental anual de funcionamento institucional.",
+                "title_en": "Finance Minister delivers 2015 State Budget proposal to Parliament",
+                "summary_en": "Annual budgetary proposal presented to the legislative body, institutional procedural milestone.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 25.0,
+                        "dimensao_impacto": 20.0,
+                        "consequencias": 20.0,
+                        "relevancia_posterior": 20.0,
+                        "dimensao_duracao": 15.0,
+                        "relevancia_mediatica": 15.0,
+                        "singularidade": 15.0
+                    },
+                    "weighted_score": 20.5,
+                    "justification": "Apresentação procedural anual do orçamento sem consequências históricas significativas; marco institucional rotineiro sem impacto duradouro na política fiscal.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20141101065543/http://www.publico.pt/politica/noticia/governo-entrega-proposta-de-orcamento-de-estado-para-2015-no-parlamento-1673000",
+                "source_platform": "arquivo.pt",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "facebook"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            },
+            {
+                "year": "2023",
+                "category": "SOCIEDADE",
+                "editorial_tier": "high",
+                "title": "Costa invoca peritos para manter escolas abertas no novo confinamento",
+                "highlight_text": "escolas abertas",
+                "overlay_description": "Desafio de manter educação presencial durante período de confinamento sanitário",
+                "image_theme": "escolas confinamento educacao",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "O primeiro-ministro convocou peritos para encontrar soluções que permitam manter as escolas abertas apesar das novas medidas de confinamento.\n\n#Noticias #Atualidade #Jornalismo",
+                "summary": "Medida governamental para preservar a atividade letiva durante confinamento, afetando diretamente a população estudantil e famílias.",
+                "title_en": "Costa invokes experts to keep schools open in new lockdown",
+                "summary_en": "Governmental measure to preserve in-person education during sanitary lockdown, directly affecting student population and families.",
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 45.0,
+                        "dimensao_impacto": 40.0,
+                        "consequencias": 40.0,
+                        "relevancia_posterior": 35.0,
+                        "dimensao_duracao": 30.0,
+                        "relevancia_mediatica": 35.0,
+                        "singularidade": 35.0
+                    },
+                    "weighted_score": 39.2,
+                    "justification": "Medida de manutenção de escolas durante confinamento teve impacto significativo na educação e famílias, mas consequências permanecem no contexto pandêmico sem alteração estrutural permanente do sistema educacional.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20231101001113/https://www.dn.pt/sociedade/costa-invoca-peritos-para-manter-escolas-abertas-no-novo-confinamento--13217395.html",
+                "source_platform": "arquivo.pt",
+                "source_profile": "dn.pt",
+                "networks": [
+                    "instagram",
+                    "facebook"
+                ],
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "body": ""
+            }
+        ]
+    }
+]
