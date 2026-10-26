@@ -1883,10 +1883,9 @@ def render_breaking_template(category, title, description, highlight_text, lang,
 
     total_badges_width = break_width + (badge_gap + main_width if show_main_category else 0)
     badges_left = (TARGET_SIZE[0] - total_badges_width) // 2
-    badge_top = 336
+    badge_top = 308 if relevance_level else 336
 
     canvas = _draw_breaking_badge(canvas, breaking_text, badges_left, badge_top)
-    relevance_x = badges_left + break_width
     if show_main_category:
         canvas = _draw_brand_badge(
             canvas,
@@ -1898,16 +1897,27 @@ def render_breaking_template(category, title, description, highlight_text, lang,
             compact=True,
             font_size=24,
         )
-        relevance_x = badges_left + break_width + badge_gap + main_width + badge_gap
+
+    title_start_y = 424
     if relevance_level:
-        canvas = _draw_relevance_badge(canvas, relevance_level, lang, relevance_x, badge_top, align="left", use_shadow=False)
+        relevance_y = badge_top + 56
+        canvas = _draw_relevance_badge(
+            canvas,
+            relevance_level,
+            lang,
+            TARGET_SIZE[0] // 2,
+            relevance_y,
+            align="center",
+            use_shadow=False,
+        )
+        title_start_y = relevance_y + 46 + 20
 
     canvas, title_height = _draw_title(
         canvas,
         title,
         highlight_text,
         92,
-        424,
+        title_start_y,
         896,
         730,
         align="center",
@@ -1919,7 +1929,7 @@ def render_breaking_template(category, title, description, highlight_text, lang,
         max_lines=7,
     )
     if year:
-        canvas, _ = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 424 + title_height + 18, align="center", use_shadow=False)
+        canvas, _ = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, title_start_y + title_height + 18, align="center", use_shadow=False)
     return canvas
 
 
