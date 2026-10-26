@@ -666,11 +666,10 @@ def resolve_wayback_for_build(title, year, fallback_url=""):
 
 def arquivo_screenshot_url(source_url):
     source_url = clean_text(source_url)
-    # A API de screenshots recebe apenas URLs preservados (wayback) — nunca
-    # páginas de pesquisa ou outras do próprio arquivo.
-    if not source_url or "arquivo.pt/wayback/" not in source_url:
+    if not source_url or ("arquivo.pt/wayback/" not in source_url and "arquivo.pt/noFrame/replay/" not in source_url):
         return ""
-    return f"https://arquivo.pt/screenshot?url={quote(source_url, safe='')}"
+    replay_url = source_url.replace("/wayback/", "/noFrame/replay/")
+    return f"https://arquivo.pt/screenshot/?url={quote(replay_url, safe='')}"
 
 
 def has_enduring_editorial_value(item):
@@ -1364,7 +1363,7 @@ def build_payload():
     seen_titles_build = {}
     for post in pending_posts if isinstance(pending_posts, list) else []:
         post_status = clean_text(post.get("status") or "pending").lower()
-        if not include_unpublished and post_status != "published":
+        if not include_unpublished and post_status not in {"published", "approved"}:
             continue
         item = post_to_site_item(post, registry_by_post_id)
         if not item:

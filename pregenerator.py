@@ -183,6 +183,12 @@ def extract_macro_topic(title, summary="", category=""):
         return "guerra_ucrania"
     if any(k in norm for k in ["israel", "palestin", "gaza", "cisjordania", "netanyahu"]):
         return "conflito_oriente"
+    if any(k in norm for k in ["greve de professor", "greve dos professor", "greve dos docentes", "docentes do ensino particular", "fenprof", "fne", "fecho de escolas"]) and not any(k in norm for k in ["covid", "pandemia"]):
+        return "greve_educacao"
+    if any(k in norm for k in ["orcamento do estado", "beneficios fiscais", "beneficio fiscal", "chumbo do orcamento", "chumbado na generalidade", "divida publica", "defice"]):
+        return "orcamento_financas"
+    if any(k in norm for k in ["eleicoes legislativas", "eleicao presidencial", "eleicoes presidenciais", "eleicoes autarquicas", "eleito presidente dos estados unidos"]):
+        return "eleicoes"
     return None
 
 
@@ -454,12 +460,16 @@ def select_nvidia_candidates(news_items, max_total=MAX_NVIDIA_INPUT_ITEMS, max_p
 def infer_category_from_text(text, lang):
     normalized = normalize_text(text).lower()
     category_rules = [
-        ("DESPORTO" if lang == "pt" else "SPORTS", ["futebol", "football", "sport", "desporto", "ronaldo", "messi", "benfica", "sporting", "fc porto", "mourinho", "gyökeres"]),
-        ("POLÍTICA" if lang == "pt" else "POLITICS", ["polit", "elei", "govern", "parliament", "presid", "prime minister", "montenegro", "costa", "ventura", "chega", "ps ", "psd", "pcp", "sánchez", "trump", "lula"]),
-        ("MUNDIAL" if lang == "pt" else "WORLD", ["war", "guerra", "ukraine", "ucrani", "russia", "israel", "palestin", "gaza", "nato", "onu"]),
-        ("TECNOLOGIA" if lang == "pt" else "TECHNOLOGY", ["tech", "tecnolog", "iphone", "apple", "google", "inteligência artificial", "cibersegurança"]),
-        ("SOCIEDADE" if lang == "pt" else "SOCIETY", ["habitação", "habitacao", "salário", "salario", "hospital", "sns", "sismo", "terramoto", "incêndio", "eutanásia"]),
-        ("CULTURA" if lang == "pt" else "CULTURE", ["cultura", "book", "livr", "art", "museum", "teatro"]),
+        ("EDUCAÇÃO" if lang == "pt" else "EDUCATION", ["professor", "professores", "docente", "docentes", "escola", "escolas", "universidade", "universidades", "aluno", "alunos", "estudante", "estudantes", "ensino", "fenprof", "fne", "propinas", "ministério da educação", "ministerio da educacao", "3º ciclo", "secundário", "secundario"]),
+        ("ECONOMIA" if lang == "pt" else "ECONOMY", ["orçamento do estado", "orcamento do estado", "benefício fiscal", "beneficio fiscal", "benefícios fiscais", "beneficios fiscais", "imposto", "impostos", "iva", "irs", "irc", "pib", "inflação", "inflacao", "banco de portugal", "bce", "fmi", "troika", "défice", "defice", "dívida pública", "divida publica"]),
+        ("SAÚDE" if lang == "pt" else "HEALTH", ["hospital", "hospitais", "médico", "medico", "médicos", "medicos", "médica", "medica", "enfermeiro", "enfermeiros", "sns", "serviço nacional de saúde", "vacinação", "vacinacao", "epidemia", "pandemia", "surto"]),
+        ("JUSTIÇA" if lang == "pt" else "JUSTICE", ["tribunal", "juiz", "juízes", "juizes", "magistrado", "magistrados", "ministério público", "ministerio publico", "polícia judiciária", "policia judiciaria", "condenação", "condenacao", "julgamento", "acórdão", "acordao"]),
+        ("DESPORTO" if lang == "pt" else "SPORTS", ["futebol", "football", "sport", "desporto", "ronaldo", "messi", "benfica", "sporting", "fc porto", "mourinho", "gyökeres", "campeonato", "taça", "liga"]),
+        ("POLÍTICA" if lang == "pt" else "POLITICS", ["polit", "elei", "govern", "parliament", "presid", "prime minister", "assembleia da república", "são bento", "palácio de belém", "palacio de belem", "montenegro", "costa", "ventura", "chega", "ps ", "psd", "pcp", "cds", "bloco de esquerda", "sánchez", "trump", "lula"]),
+        ("MUNDIAL" if lang == "pt" else "WORLD", ["war", "guerra", "ukraine", "ucrani", "russia", "israel", "palestin", "gaza", "nato", "onu", "estados unidos", "união europeia", "uniao europeia", "casa branca", "vaticano", "papa"]),
+        ("TECNOLOGIA" if lang == "pt" else "TECHNOLOGY", ["tech", "tecnolog", "iphone", "apple", "google", "inteligência artificial", "cibersegurança", "smartphone"]),
+        ("CULTURA" if lang == "pt" else "CULTURE", ["cultura", "book", "livr", "art", "museum", "teatro", "cinema", "literatura", "rádio", "radio", "música", "musica"]),
+        ("SOCIEDADE" if lang == "pt" else "SOCIETY", ["habitação", "habitacao", "salário", "salario", "sismo", "terramoto", "incêndio", "eutanásia", "greve geral", "função pública", "transportes", "metro", "cp "]),
     ]
     for category, keywords in category_rules:
         if any(keyword in normalized for keyword in keywords):
@@ -1168,7 +1178,8 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
        - If a major event is tied to an event that only recurs on specific political or athletic calendar dates (such as presidential inaugurations, national election cycles, or cup finals), mark `"conditional_trigger"` accordingly. Otherwise, set `"conditional_trigger"` to `""`.
 
     5. FORMATTING & DIVERSITY:
-       - Valid Portuguese categories: POLÍTICA, DESPORTO, CULTURA, SOCIEDADE, CIÊNCIA, TECNOLOGIA, NACIONAL, MUNDIAL.
+       - Valid Portuguese categories: EDUCAÇÃO, ECONOMIA, POLÍTICA, SAÚDE, JUSTIÇA, SOCIEDADE, CULTURA, DESPORTO, CIÊNCIA, TECNOLOGIA, MUNDIAL.
+       - STRICT CATEGORIZATION: News about schools, teachers, professors, universities, or exams MUST be categorized as 'EDUCAÇÃO' (NEVER generic 'SOCIEDADE'). News about the State Budget, taxes, public debt, or fiscal benefits MUST be categorized as 'ECONOMIA' (NEVER generic 'POLÍTICA' or 'SOCIEDADE'). News about hospitals, doctors, or epidemics MUST be 'SAÚDE'. News about courts or judicial sentences MUST be 'JUSTIÇA'.
        - NEVER include any year, month, or day in `title` or `overlay_description`.
        - `title` must be a complete, self-contained journalistic headline (max 70 chars).
        - Maximize chronological diversity across 1996-2025: at most 2 options from the same year, and ensure representation across different eras.
@@ -1178,7 +1189,9 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
        - Strictly avoid topic saturation: At least 3 days of interval between news of the same macro-theme (e.g. Covid-19/pandemia, repeated judicial cases, recurring disputes).
        - Maximum 8 stories on the same macro-theme within any 30-day window. Even during high-intensity years (like 2020-2021 with the pandemic), do not oversaturate the publication with repetitive pandemic news; diversify into other historical milestones of the era.
        - Prevent Redundant Near-Duplicates: Never select near-duplicate measures, procedural delays, or identical headlines in consecutive or adjacent days.
-       - Do not select multiple headlines about the same entity or topic on the same day.
+       - INTRA-DAY THEMATIC DIVERSITY: Do not select multiple headlines about the same entity, sector, or category on the same day. Slot 1 and Slot 2 must be thematic contrasts (e.g. if one is education/strikes, the other must be an international milestone, culture, or economy).
+       - INTER-DAY DIVERSITY: Avoid selecting the same macro-topic or sector across consecutive days (e.g. do not schedule strikes or elections two days in a row).
+       - HISTORICAL WEIGHT OF WORLD EVENTS: Any world event ('MUNDIAL') must be a landmark historical turning point that impacted world history (e.g. Barack Obama elected first African-American president, fall of the Berlin Wall) rather than foreign local news.
 
     Format:
     {{
@@ -2680,6 +2693,7 @@ def generate_pending_posts_for_interval(pending_posts, lang, start_date, end_dat
         day_selected_topics = set()
         day_selected_tokens = []
         day_selected_years = set()
+        day_selected_categories = set()
 
         def _evaluate_candidate(cand, slot_num):
             """
@@ -2714,6 +2728,7 @@ def generate_pending_posts_for_interval(pending_posts, lang, start_date, end_dat
             for prev_toks in day_selected_tokens:
                 if len(c_toks & prev_toks) >= 2:
                     return 0, "headline overlaps with other slot today"
+            penalty_same_category = (c_cat and c_cat in day_selected_categories)
             penalty_same_year = (c_year in day_selected_years)
 
             # Historico recente:
@@ -2744,6 +2759,8 @@ def generate_pending_posts_for_interval(pending_posts, lang, start_date, end_dat
                 score += 50
             if not penalty_same_year:
                 score += 20
+            if penalty_same_category:
+                score -= 60  # Penalizar fortemente categorias repetidas no mesmo dia
             return score, "ok"
 
         # Construcao inteligente das opcoes para Slot 1 e Slot 2
@@ -2777,6 +2794,8 @@ def generate_pending_posts_for_interval(pending_posts, lang, start_date, end_dat
                 cp_yr = str(chosen_primary.get("year", ""))[:4]
                 if cp_top:
                     day_selected_topics.add(cp_top)
+                if chosen_primary.get("category"):
+                    day_selected_categories.add(chosen_primary.get("category"))
                 day_selected_tokens.append(cp_toks)
                 day_selected_years.add(cp_yr)
                 all_selected_history.append({

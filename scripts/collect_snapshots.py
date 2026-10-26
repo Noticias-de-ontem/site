@@ -41,7 +41,8 @@ def collect(limit=None):
         if target.exists() and target.stat().st_size > 1024:
             skipped += 1
             continue
-        url = f"https://arquivo.pt/screenshot?url={requests.utils.quote(item['source_url'], safe='')}"
+        replay_url = item["source_url"].replace("/wayback/", "/noFrame/replay/")
+        url = f"https://arquivo.pt/screenshot/?url={requests.utils.quote(replay_url, safe='')}"
         try:
             response = requests.get(url, timeout=180, headers={"User-Agent": "NoticiasDeOntem/1.0"})
             if response.ok and response.headers.get("content-type", "").startswith(("image/", "application/octet-stream")) and len(response.content) > 1024:
