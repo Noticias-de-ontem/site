@@ -1363,7 +1363,7 @@ def build_payload():
     seen_titles_build = {}
     for post in pending_posts if isinstance(pending_posts, list) else []:
         post_status = clean_text(post.get("status") or "pending").lower()
-        if not include_unpublished and post_status not in {"published", "approved"}:
+        if not include_unpublished and post_status != "published":
             continue
         item = post_to_site_item(post, registry_by_post_id)
         if not item:
