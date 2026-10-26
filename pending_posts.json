@@ -4,6 +4,61 @@
     "date": "2026-10-27",
     "slot": 1,
     "lang": "pt",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "",
+    "status": "approved",
+    "generated_month": "2026-10",
+    "external_suggestions": [
+      {
+        "year": "2005",
+        "category": "CULTURA",
+        "title": "UNESCO proclama o Dia Mundial do Património Audiovisual",
+        "summary": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual."
+      }
+    ],
+    "options": [
+      {
+        "year": "2005",
+        "category": "CULTURA",
+        "editorial_tier": "high",
+        "title": "UNESCO proclama o dia 27 de outubro como Dia Mundial do Património Audiovisual",
+        "highlight_text": "Proclamação UNESCO",
+        "overlay_description": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual",
+        "image_theme": "arquivo audiovisual histórico",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.\n\n#Noticias #Atualidade #Jornalismo",
+        "summary": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual.",
+        "title_en": "UNESCO proclaims 27 October as World Day for Audiovisual Heritage",
+        "summary_en": "In 2005, UNESCO proclaimed 27 October as the World Day for Audiovisual Heritage.",
+        "article_url": "https://arquivo.pt/wayback/20240511194613/https://blogue.rbe.mec.pt/dia-mundial-do-patrimonio-audiovisual-2655124",
+        "source_platform": "arquivo.pt",
+        "source_profile": "blogue.rbe.mec.pt",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "body": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, na 21.ª sessão da Conferência Geral da UNESCO, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.",
+        "caption_instagram": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.\n\n#Noticias #Atualidade #Jornalismo",
+        "caption_facebook": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.\n\n#Noticias #Atualidade #Jornalismo"
+      }
+    ]
+  },
+  {
+    "id": "pt_2026-10-27_2",
+    "date": "2026-10-27",
+    "slot": 2,
+    "lang": "pt",
     "selected_option": 3,
     "layout_override": "",
     "theme_suggestion": "",
@@ -254,264 +309,6 @@
         "background_source_url": "",
         "local_background_path": "",
         "body": ""
-      }
-    ]
-  },
-  {
-    "id": "pt_2026-10-27_2",
-    "date": "2026-10-27",
-    "slot": 2,
-    "lang": "pt",
-    "selected_option": 4,
-    "layout_override": "",
-    "theme_suggestion": "",
-    "manual_background_url": "",
-    "review_action": "",
-    "review_note": "",
-    "status": "approved",
-    "generated_month": "2026-10",
-    "external_suggestions": [
-      {
-        "year": "1962",
-        "category": "CULTURA",
-        "title": "Primeiro disco de ouro de um grupo português",
-        "summary": "Lançamento do primeiro álbum a obter disco de ouro em Portugal, marcando um marco na indústria cultural nacional."
-      },
-      {
-        "year": "1989",
-        "category": "DESPORTO",
-        "title": "Vitória histórica do Benfica na Taça dos Clubes Campeões",
-        "summary": "Conquista da primeira Taça dos Clubes Campeões europeia pelo Sport Lisboa e Benfica, um dos maiores títulos do futebol português."
-      },
-      {
-        "year": "1994",
-        "category": "SOCIEDADE",
-        "title": "Primeiro casamento homossexual em Portugal",
-        "summary": "Celebração do primeiro casamento entre pessoas do mesmo sexo no país, um marco de avanço social e direitos civis."
-      }
-    ],
-    "options": [
-      {
-        "year": "2024",
-        "category": "POLÍTICA",
-        "editorial_tier": "high",
-        "title": "Presidente da República dá posse aos 41 secretários de Estado",
-        "highlight_text": "posse secretários",
-        "overlay_description": "Marcelo Rebelo de Sousa completa executivo minoritário do XXIV Governo Constitucional",
-        "image_theme": "posse governamental cerimonia",
-        "layout_preference": "template_3",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "Posse ocorre no Palácio Nacional da Ajuda, completando o executivo minoritário formado por PSD e CDS-PP.\n\n#Noticias #Atualidade #Jornalismo",
-        "summary": "Presidente da República dá posse aos 41 secretários de Estado do XXIV Governo Constitucional.",
-        "title_en": "President appoints 41 State Secretaries",
-        "summary_en": "President Marcelo appoints state secretaries for the XXIV Constitutional Government.",
-        "relevance": {
-          "level": 5,
-          "scores": {
-            "impacto_historico": 50.0,
-            "dimensao_impacto": 40.0,
-            "consequencias": 35.0,
-            "relevancia_posterior": 30.0,
-            "dimensao_duracao": 25.0,
-            "relevancia_mediatica": 20.0,
-            "singularidade": 30.0
-          },
-          "weighted_score": 37.8,
-          "justification": "Nomeação completa executivo minoritário; afeta funcionamento governo e estabilidade política.",
-          "lang": "pt"
-        },
-        "article_url": "https://arquivo.pt/wayback/20241027234517/https://madeira.rtp.pt/politica/governo-presidente-deu-posse-aos-41-secretarios-de-estado-do-xxiv-governo-constitucional/",
-        "source_platform": "arquivo.pt",
-        "source_profile": "rtp.pt",
-        "networks": [
-          "instagram",
-          "facebook"
-        ],
-        "background_source_url": "",
-        "body": "Em 2024, o XXIV Governo Constitucional, liderado por Luís Montenegro, deu os seus primeiros passos formais ao completar o executivo minoritário. A cerimónia de posse decorreu no Palácio Nacional da Ajuda, em Lisboa, onde o Presidente da República, Marcelo Rebelo de Sousa, empossou os 41 secretários de Estado. Este ato marca a conclusão da estrutura governativa, após a nomeação dos ministros e a aprovação do programa pelo Parlamento. O executivo, resultado de um acordo entre PSD e CDS-PP, assume o desafio de governar sem maioria absoluta, dependendo do apoio de outros partidos para aprovar leis e o Orçamento do Estado. A composição do Governo reflete a atual configuração política parlamentar, onde a coligação de centro-direita tenta estabilizar a gestão pública num contexto de fragmentação política. A posse dos secretários de Estado representa, assim, um passo crucial para a operacionalização da máquina administrativa, garantindo que o novo executivo está pronto para enfrentar as principais questões nacionais, desde a economia e saúde até à segurança e ambiente, num período marcado por incertezas globais e necessidades de reformas estruturais.",
-        "image_url": "",
-        "image_delete_url": "",
-        "local_image_path": "",
-        "local_background_path": ""
-      },
-      {
-        "year": "2025",
-        "category": "SOCIEDADE",
-        "editorial_tier": "high",
-        "title": "Governo dá autonomia às escolas para alargar proibição de smartphones",
-        "highlight_text": "proibição smartphones",
-        "overlay_description": "Ministério da Educação admite alargamento da proibição do uso de smartphones a alunos do 3.º ciclo",
-        "image_theme": "escola smartphone proibido",
-        "layout_preference": "template_2",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "Medida afeta alunos do 3.º ciclo que partilham espaços com colegas do 2.º ciclo no próximo ano letivo.\n\n#Noticias #Atualidade #Jornalismo",
-        "summary": "Governo dá autonomia às escolas para alargar proibição de smartphones a alunos do 3.º ciclo.",
-        "title_en": "Government gives schools autonomy to expand smartphone ban",
-        "summary_en": "Ministry of Education allows extension of smartphone prohibition to 3rd cycle students.",
-        "relevance": {
-          "level": 5,
-          "scores": {
-            "impacto_historico": 30.0,
-            "dimensao_impacto": 30.0,
-            "consequencias": 25.0,
-            "relevancia_posterior": 25.0,
-            "dimensao_duracao": 20.0,
-            "relevancia_mediatica": 15.0,
-            "singularidade": 20.0
-          },
-          "weighted_score": 26.2,
-          "justification": "Autonomia escolar amplia proibição; impacto direto na rotina estudantil e foco em distracções.",
-          "lang": "pt"
-        },
-        "article_url": "https://arquivo.pt/wayback/20251027204200/https://www.dn.pt/sociedade/governo-d%C3%A1-autonomia-%C3%A0s-escolas-para-alargar-proibi%C3%A7%C3%A3o-de-smartphones-a-alunos-do-3%C2%BA-ciclo",
-        "source_platform": "arquivo.pt",
-        "source_profile": "dn.pt",
-        "networks": [
-          "instagram",
-          "facebook"
-        ],
-        "image_url": "",
-        "image_delete_url": "",
-        "local_image_path": "",
-        "background_source_url": "",
-        "local_background_path": "",
-        "body": ""
-      },
-      {
-        "year": "2021",
-        "category": "POLÍTICA",
-        "editorial_tier": "high",
-        "title": "Orçamento do Estado para 2022 chumbado na Assembleia da República",
-        "highlight_text": "Orçamento chumbado",
-        "overlay_description": "Proposta de Orçamento do Estado para 2022 chumbada pela primeira vez desde o 25 de Abril",
-        "image_theme": "parlamento orçamento documento",
-        "layout_preference": "template_2",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "OE2022 contou apenas com o voto a favor do PS e abstenção de outros partidos.\n\n#Noticias #Atualidade #Jornalismo",
-        "summary": "Orçamento do Estado para 2022 chumbado na Assembleia da República, acontecimento inédito desde o 25 de Abril.",
-        "title_en": "State Budget for 2022 rejected in Parliament",
-        "summary_en": "State Budget for 2022 rejected for the first time since the 25th of April revolution.",
-        "relevance": {
-          "level": 2,
-          "scores": {
-            "impacto_historico": 85.0,
-            "dimensao_impacto": 70.0,
-            "consequencias": 75.0,
-            "relevancia_posterior": 70.0,
-            "dimensao_duracao": 60.0,
-            "relevancia_mediatica": 40.0,
-            "singularidade": 50.0
-          },
-          "weighted_score": 71.8,
-          "justification": "Orçamento chumbado inédito desde 25 de Abril; afeta estado e gera crise política.",
-          "lang": "pt"
-        },
-        "article_url": "",
-        "source_platform": "",
-        "source_profile": "",
-        "networks": [
-          "instagram",
-          "facebook"
-        ],
-        "image_url": "",
-        "image_delete_url": "",
-        "local_image_path": "",
-        "background_source_url": "",
-        "local_background_path": "",
-        "body": ""
-      },
-      {
-        "year": "2016",
-        "category": "POLÍTICA",
-        "editorial_tier": "high",
-        "title": "Primeiro-ministro afirma que dúvidas de Bruxelas são de poucas décimas",
-        "highlight_text": "dúvidas Bruxelas",
-        "overlay_description": "Governo decide remeter à Assembleia da República o Acordo de Paris para ratificação",
-        "image_theme": "primeiro-ministro parlamento acordo",
-        "layout_preference": "template_1",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "Ministro do Ambiente anuncia remessa do Acordo de Paris à ratificação parlamentar.\n\n#Noticias #Atualidade #Jornalismo",
-        "summary": "Primeiro-ministro afirma que dúvidas de Bruxelas são de poucas décimas, após proposta do Ministério dos Negócios Estrangeiros.",
-        "title_en": "Prime Minister says Brussels doubts are minor",
-        "summary_en": "Prime Minister states Brussels doubts are minor, government sends Paris Agreement to Parliament for ratification.",
-        "relevance": {
-          "level": 5,
-          "scores": {
-            "impacto_historico": 35.0,
-            "dimensao_impacto": 30.0,
-            "consequencias": 25.0,
-            "relevancia_posterior": 30.0,
-            "dimensao_duracao": 20.0,
-            "relevancia_mediatica": 15.0,
-            "singularidade": 20.0
-          },
-          "weighted_score": 28.5,
-          "justification": "Dúvidas consideradas menores; acordo Paris enviado para ratificação parlamentar.",
-          "lang": "pt"
-        },
-        "article_url": "https://arquivo.pt/wayback/20161027205318/https://www.publico.pt/politica/noticia/governo-propos-oficialmente-a-aceitacao-do-acordo-de-paris-ao-parlamento-1739005",
-        "source_platform": "arquivo.pt",
-        "source_profile": "publico.pt",
-        "networks": [
-          "instagram",
-          "facebook"
-        ],
-        "image_url": "",
-        "image_delete_url": "",
-        "local_image_path": "",
-        "background_source_url": "",
-        "local_background_path": "",
-        "body": ""
-      },
-      {
-        "year": "2014",
-        "category": "MUNDIAL",
-        "editorial_tier": "high",
-        "title": "Governo da Libéria decreta estado de emergência por risco de epidemia de ébola",
-        "highlight_text": "estado emergência",
-        "overlay_description": "Governo mobiliza Exército para travar éxodo rural descontrolado diante risco epidémico",
-        "image_theme": "Ebola",
-        "layout_preference": "template_2",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "Perante o avanço alarmante do vírus do Ébola na África Ocidental, o governo da Libéria decretou o estado de emergência nacional em 2014 e mobilizou as forças armadas para travar o êxodo de populações e conter a propagação da epidemia.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
-        "summary": "Declaração de emergência internacional na África Ocidental para conter a crise sanitária do Ébola.",
-        "title_en": "Liberia government declares state of emergency over Ebola epidemic risk",
-        "summary_en": "Liberia government declares state of emergency over Ebola epidemic risk, mobilizing army.",
-        "relevance": {
-          "level": 4,
-          "scores": {
-            "impacto_historico": 60.0,
-            "dimensao_impacto": 50.0,
-            "consequencias": 55.0,
-            "relevancia_posterior": 50.0,
-            "dimensao_duracao": 40.0,
-            "relevancia_mediatica": 30.0,
-            "singularidade": 45.0
-          },
-          "weighted_score": 51.5,
-          "justification": "Estado emergência combate epidemia; mobilização militar travou éxodo rural descontrolado.",
-          "lang": "pt"
-        },
-        "article_url": "https://arquivo.pt/wayback/20141027041412/http://www.publico.pt/mundo/noticia/liberia-decreta-estado-de-emergencia-por-causa-de-epidemia-de-ebola-1665748",
-        "source_platform": "arquivo.pt",
-        "source_profile": "publico.pt",
-        "networks": [
-          "instagram",
-          "facebook"
-        ],
-        "image_url": "https://i.ibb.co/fGvThd0d/2026-10-27-05-2014-governo-da-liberia-decreta-estado-de-emergencia-por-risco-de-epidemia-de-ebola.jpg",
-        "image_delete_url": "https://ibb.co/PZKPbzSr/ae0b41cddf05906f29d01bca80a1c1be",
-        "local_image_path": "images/review/pt/2026-10-27_05_2014_governo-da-liberia-decreta-estado-de-emergencia-por-risco-de-epidemia-de-ebola.jpg",
-        "background_source_url": "https://pt.wikipedia.org/wiki/V%C3%ADrus_Ebola",
-        "local_background_path": "images/backgrounds/2026-10-27_05_2014_governo-da-liberia-decreta-estado-de-emergencia-por-risco-de-epidemia-de-ebola-fundo.jpg",
-        "body": "O governo da Libéria decretou estado de emergência em 2014, face ao risco de propagação da epidemia de ébola no país. A decisão faz parte de um conjunto de medidas de segurança adoptadas para tentar travar o êxodo de populações rurais e proteger as comunidades mais expostas ao vírus. A crise sanitária ocorre num país onde a instabilidade política e as condições de vida da população dificultam a resposta das autoridades.\n\nA mobilização do Exército libério integra a estratégia de contenção da doença. Segundo o resumo da notícia, as forças de segurança foram empregadas para conter a propagação do vírus e proteger populações, numa tentativa de impedir deslocações massivas e descontroladas. A legenda da imagem refere-se precisamente à utilização de meios de segurança para limitar a propagação da epidemia.\n\nA informação foi inserida na categoria «Mundial», sublinhando o alcance internacional do problema. A emergência na Libéria和陈 reflects a dimensão regional e global da crise: o combate à propagação da ébola exige capacidade logística, coordenação institucional e presença das autoridades junto das comunidades afetadas. A mobilização militar revela a gravidade do risco epidémico e a necessidade de garantir a ordem pública durante a resposta sanitária.\n\nA relevância duradoura deste caso reside na forma como uma emergência sanitária pode transformar-se num desafio de segurança. A contenção de deslocações, a proteção de populações e a presença do Exército mostram como a resposta a epidemias envolve não apenas serviços de saúde, mas também capacidade institucional e força pública. A experiência libériaia de 2014 became um marco na resposta internacional à ébola, evidences a importância de agir cedo e de articular medidas de saúde pública com mecanismos de proteção civil e segurança.",
-        "caption_instagram": "Perante o avanço alarmante do vírus do Ébola na África Ocidental, o governo da Libéria decretou o estado de emergência nacional em 2014 e mobilizou as forças armadas para travar o êxodo de populações e conter a propagação da epidemia.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
-        "caption_facebook": "Perante o avanço alarmante do vírus do Ébola na África Ocidental, o governo da Libéria decretou o estado de emergência nacional em 2014 e mobilizou as forças armadas para travar o êxodo de populações e conter a propagação da epidemia.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no link do sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Mundo"
       }
     ]
   },
