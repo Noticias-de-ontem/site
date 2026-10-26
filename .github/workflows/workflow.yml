@@ -71,7 +71,8 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add pt/*.json publish_state.json pending_posts.json pregeneration_state.json
+          git add pt/*.json publish_state.json pending_posts.json
+          [ -f pregeneration_state.json ] && git add pregeneration_state.json || true
           [ -f imgbb_uploads.json ] && git add imgbb_uploads.json || true
           [ -f social_metrics.json ] && git add social_metrics.json || true
           [ -d site ] && git add site || true
