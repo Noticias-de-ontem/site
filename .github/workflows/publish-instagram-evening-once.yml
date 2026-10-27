@@ -1,0 +1,143 @@
+name: Publish Instagram Evening Once (temp)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish-instagram-evening:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Publish approved evening post to Instagram
+        env:
+          IG_USER_ID_PT: ${{ secrets.IG_USER_ID_PT }}
+          IG_ACCESS_TOKEN_PT: ${{ secrets.IG_ACCESS_TOKEN_PT }}
+          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
+        run: |
+          python3 - <<'PYEOF'
+          import base64
+          import json
+          import os
+          import subprocess
+          import sys
+          import urllib.parse
+          import urllib.request
+          import urllib.error
+          from datetime import datetime, timezone
+
+          with open('pending_posts.json', 'r', encoding='utf-8') as f:
+              posts = json.load(f)
+          entry = next((p for p in posts if p.get('id') == 'pt_2026-10-27_2'), None)
+          if entry is None:
+              print('ERRO: post pt_2026-10-27_2 nao encontrado em pending_posts.json')
+              sys.exit(1)
+          if entry.get('instagram_url'):
+              print(f"Ja publicado no Instagram: {entry.get('instagram_url')} - a nao republicar.")
+              sys.exit(0)
+          option = entry['options'][entry.get('selected_option', 0)]
+          caption = option.get('caption_instagram') or option.get('caption', '')
+          image_url = option.get('image_url', '')
+          if not caption or not image_url:
+              print('ERRO: legenda ou image_url em falta no post aprovado')
+              sys.exit(1)
+
+          user_id = os.environ.get('IG_USER_ID_PT', '')
+          token = os.environ.get('IG_ACCESS_TOKEN_PT', '')
+          if not user_id or not token:
+              print('ERRO: IG_USER_ID_PT ou IG_ACCESS_TOKEN_PT em falta')
+              sys.exit(1)
+
+          public_image_url = image_url
+          imgbb_key = os.environ.get('IMGBB_API_KEY', '')
+          if imgbb_key:
+              try:
+                  req_img = urllib.request.Request(image_url, headers={'User-Agent': 'Mozilla/5.0'})
+                  with urllib.request.urlopen(req_img, timeout=60) as resp:
+                      img_bytes = resp.read()
+                  boundary = '----MuseBoundary1234'
+                  body = (
+                      f'--{boundary}\r\nContent-Disposition: form-data; name="key"\r\n\r\n{imgbb_key}\r\n'
+                      f'--{boundary}\r\nContent-Disposition: form-data; name="image"; filename="post.jpg"\r\nContent-Type: image/jpeg\r\n\r\n'
+                  ).encode() + img_bytes + f'\r\n--{boundary}--\r\n'.encode()
+                  req_up = urllib.request.Request(
+                      'https://api.imgbb.com/1/upload',
+                      data=body, method='POST',
+                      headers={'Content-Type': f'multipart/form-data; boundary={boundary}'},
+                  )
+                  with urllib.request.urlopen(req_up, timeout=120) as resp:
+                      up = json.loads(resp.read().decode())
+                  if up.get('success'):
+                      public_image_url = up['data']['url']
+                      print(f'ImgBB URL: {public_image_url}')
+                  else:
+                      print(f'Aviso ImgBB falhou, a usar image_url direta: {up}')
+              except Exception as e:
+                  print(f'Aviso ImgBB falhou, a usar image_url direta: {e}')
+
+          def post_form(url, fields):
+              data = urllib.parse.urlencode(fields).encode()
+              req = urllib.request.Request(url, data=data, method='POST')
+              try:
+                  with urllib.request.urlopen(req, timeout=120) as resp:
+                      return json.loads(resp.read().decode())
+              except urllib.error.HTTPError as e:
+                  print(f'ERRO Graph: {e.read().decode()}')
+                  sys.exit(1)
+
+          media = post_form(f'https://graph.facebook.com/v25.0/{user_id}/media', {
+              'image_url': public_image_url,
+              'caption': caption,
+              'access_token': token,
+          })
+          creation_id = media.get('id', '')
+          if not creation_id:
+              print(f'ERRO: resposta media sem id: {media}')
+              sys.exit(1)
+          print(f'Media container: {creation_id}')
+          pub = post_form(f'https://graph.facebook.com/v25.0/{user_id}/media_publish', {
+              'creation_id': creation_id,
+              'access_token': token,
+          })
+          post_id = pub.get('id', '')
+          if not post_id:
+              print(f'ERRO: resposta publish sem id: {pub}')
+              sys.exit(1)
+          permalink = ''
+          try:
+              q = urllib.parse.urlencode({'fields': 'permalink', 'access_token': token})
+              with urllib.request.urlopen(f'https://graph.facebook.com/v25.0/{post_id}?{q}', timeout=60) as resp:
+                  permalink = json.loads(resp.read().decode()).get('permalink', '')
+          except Exception as e:
+              print(f'Aviso: nao foi possivel obter permalink: {e}')
+          print(f'Instagram publicado! ID: {post_id} URL: {permalink}')
+          entry['instagram_id'] = post_id
+          entry['instagram_url'] = permalink
+          with open('pending_posts.json', 'w', encoding='utf-8') as f:
+              json.dump(posts, f, ensure_ascii=False, indent=2)
+
+          with open('publish_state.json', 'r', encoding='utf-8') as f:
+              state = json.load(f)
+          pt = state.setdefault('pt', {})
+          pt['date'] = '2026-10-27'
+          ig = pt.setdefault('instagram', {})
+          ig['evening_posted'] = True
+          ig['last_post_time'] = datetime.now(timezone.utc).isoformat()
+          with open('publish_state.json', 'w', encoding='utf-8') as f:
+              json.dump(state, f, ensure_ascii=False, indent=4)
+
+          subprocess.run(['git', 'config', 'user.name', 'github-actions[bot]'], check=True)
+          subprocess.run(['git', 'config', 'user.email', 'github-actions[bot]@users.noreply.github.com'], check=True)
+          subprocess.run(['git', 'add', 'pending_posts.json', 'publish_state.json'], check=True)
+          subprocess.run(['git', 'commit', '-m', 'Noticias de Ontem: publicar post da tarde de 27 out no Instagram (retry aprovado)'], check=True)
+          subprocess.run(['git', 'push'], check=True)
+          print('pending_posts.json e publish_state.json atualizados')
+          PYEOF
