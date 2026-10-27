@@ -1,0 +1,93 @@
+name: Fix Facebook Morning Post Once (temp)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fix-facebook-morning:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Republish morning post natively and delete two-step post
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+        run: |
+          python3 - <<'PYEOF'
+          import json
+          import os
+          import sys
+          import urllib.parse
+          import urllib.request
+          import urllib.error
+
+          page_id = os.environ.get('FB_PAGE_ID', '')
+          token = os.environ.get('FB_PAGE_ACCESS_TOKEN', '')
+          if not page_id or not token:
+              print('ERRO: FB_PAGE_ID ou FB_PAGE_ACCESS_TOKEN em falta')
+              sys.exit(1)
+
+          OLD_POST_ID = '1030669413467151_122136346004824703'
+          IMAGE_URL = 'https://i.ibb.co/GvFhBqrC/post-pt.jpg'
+
+          with open('pending_posts.json', 'r', encoding='utf-8') as f:
+              posts = json.load(f)
+          entry = next((p for p in posts if p.get('id') == 'pt_2026-10-27_1'), None)
+          if entry is None:
+              print('ERRO: post pt_2026-10-27_1 nao encontrado')
+              sys.exit(1)
+          option = entry['options'][entry.get('selected_option', 0)]
+          caption = option.get('caption_facebook') or option.get('caption', '')
+          if not caption:
+              print('ERRO: legenda em falta')
+              sys.exit(1)
+
+          def fb_post(path, fields):
+              data = urllib.parse.urlencode(fields).encode()
+              req = urllib.request.Request(
+                  f'https://graph.facebook.com/v25.0/{path}',
+                  data=data, method='POST',
+              )
+              try:
+                  with urllib.request.urlopen(req, timeout=120) as resp:
+                      return json.loads(resp.read().decode()), None
+              except urllib.error.HTTPError as e:
+                  return None, e.read().decode()
+
+          # 1. Publicar novo post nativo com foto (antes de apagar o antigo)
+          result, err = fb_post(f'{page_id}/photos', {
+              'url': IMAGE_URL,
+              'caption': caption,
+              'access_token': token,
+          })
+          new_id = result.get('id', '') if result else ''
+          if not new_id:
+              print(f'ERRO publicar novo: {err}')
+              sys.exit(1)
+          print(f'NOVO_POST_ID={new_id}')
+          print(f'NOVO_POST_URL=https://www.facebook.com/{new_id}')
+
+          # 2. Apagar o post antigo (só depois do novo estar publicado)
+          req = urllib.request.Request(
+              f'https://graph.facebook.com/v25.0/{OLD_POST_ID}?access_token={token}',
+              method='DELETE',
+          )
+          try:
+              with urllib.request.urlopen(req, timeout=120) as resp:
+                  del_result = json.loads(resp.read().decode())
+              if del_result.get('success'):
+                  print('POST_ANTIGO_APAGADO=true')
+              else:
+                  print(f'AVISO apagar antigo: {del_result} (novo post ja existe)')
+          except urllib.error.HTTPError as e:
+              print(f'AVISO apagar antigo falhou: {e.read().decode()} (novo post ja existe)')
+          PYEOF
