@@ -306,7 +306,7 @@ select:focus-visible {
 .hero-content {
   position: relative;
   z-index: 2;
-  width: min(790px, calc(100% - 56px));
+  width: min(1080px, calc(100% - 56px));
 }
 
 .eyebrow {
@@ -323,17 +323,17 @@ select:focus-visible {
 }
 
 .hero h1 {
-  max-width: 780px;
+  max-width: 1080px;
   margin: 0;
   font-size: clamp(2rem, 3.7vw, 3.3rem);
   font-weight: 800;
   letter-spacing: -0.015em;
   line-height: 1.06;
   text-wrap: balance;
-  /* Altura fixa do hero: até 4 linhas com letra menor — nunca cortar. */
+  /* Altura fixa do hero: até 5 linhas com letra menor — nunca cortar. */
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 5;
   overflow: hidden;
 }
 
@@ -363,7 +363,7 @@ select:focus-visible {
 }
 
 .hero-summary {
-  max-width: 650px;
+  max-width: 900px;
   margin: 16px 0 0;
   color: rgba(255, 255, 255, 0.92);
   font-size: 1.02rem;
