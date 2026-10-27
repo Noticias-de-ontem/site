@@ -78,4 +78,4 @@ jobs:
           [ -d site ] && git add site || true
 
           # Apenas commita se existirem alterações nos ficheiros (marcados como publicados e estado de slot)
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update publish state [skip ci]" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update publish state" && git push)
