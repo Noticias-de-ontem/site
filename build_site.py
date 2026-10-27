@@ -94,9 +94,6 @@ def public_site_url():
     configured = clean_text(os.environ.get("SITE_PUBLIC_URL"))
     if configured:
         return configured
-    space_id = clean_text(os.environ.get("HF_SPACE_ID"))
-    if "/" in space_id and "utilizador" not in space_id:
-        return f"https://{space_id.replace('/', '-')}.hf.space"
     return DEFAULT_PUBLIC_URL
 
 
