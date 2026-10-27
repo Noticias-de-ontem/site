@@ -7070,5 +7070,21 @@
         "created_at": "2026-10-25T23:32:28+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "published_post",
+        "lang": "pt",
+        "date": "2026-10-27",
+        "slot": "morning",
+        "platform": "instagram",
+        "post_id": "pt_2026-10-27_1",
+        "image_url": "https://i.ibb.co/GvFhBqrC/post-pt.jpg",
+        "delete_url": "https://ibb.co/TBrCpsNP/3abc71e2f167eba41ea6272f0466ae09",
+        "platform_post_id": "18174809590400840",
+        "platform_post_url": "https://www.instagram.com/p/DfAAVuLly5s/",
+        "published_at": "2026-10-27T13:51:01.409473",
+        "created_at": "2026-10-27T13:51:01+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
