@@ -4208,16 +4208,31 @@ function showBetaNotice() {
   notice.setAttribute("role", "note");
   notice.innerHTML = `
     <p data-i18n="betaNotice">Este site está em versão beta e podem existir alguns problemas.</p>
-    <button type="button" class="beta-notice-dismiss" data-i18n="betaDismiss">Ignorar</button>`;
-  notice.querySelector(".beta-notice-dismiss").addEventListener("click", () => {
+    <button type="button" class="beta-notice-dismiss" data-i18n-aria-label="betaDismiss" aria-label="Ignorar">×</button>`;
+  const dismiss = notice.querySelector(".beta-notice-dismiss");
+  let noticeObserver = null;
+  dismiss.addEventListener("click", () => {
     try {
       localStorage.setItem("noticiasdeontem-beta-dismissed", "1");
     } catch {
       /* Sem acesso a localStorage, o aviso volta a aparecer. */
     }
+    if (noticeObserver) noticeObserver.disconnect();
     notice.remove();
   });
   header.insertAdjacentElement("afterend", notice);
+  /* O cabeçalho muda de altura conforme a largura (navegação em 2 linhas no
+     telemóvel), por isso a distância do aviso mede-se em vez de se fixar. */
+  const syncNoticeTop = () => {
+    notice.style.top = `${header.offsetHeight}px`;
+  };
+  syncNoticeTop();
+  if (typeof ResizeObserver !== "undefined") {
+    noticeObserver = new ResizeObserver(syncNoticeTop);
+    noticeObserver.observe(header);
+  } else {
+    window.addEventListener("resize", syncNoticeTop);
+  }
 }
 
 async function init() {
