@@ -1703,10 +1703,11 @@ def main():
                     caption_facebook = normalize_text(option.get("caption_facebook", "") or option.get("caption", ""))
                     caption_x = normalize_text(option.get("caption_x", "") or option.get("caption", ""))
                     year = option.get("year")
-                    if year:
-                        for item in get_today_news(lang):
-                            if item["date"].startswith(year):
-                                historical_news_of_chosen_day.append(item)
+                    # Post aprovado ja traz tudo (legenda, titulo, ano, imagem):
+                    # nao ir buscar candidatos ao Arquivo aqui. O get_today_news
+                    # e lento no runner (sem indice local, pesquisas online) e
+                    # so servia para marcar itens como publicados, o que nao e
+                    # preciso no caminho do post aprovado.
 
                     category = normalize_text(option.get("category", "ATUALIDADE" if lang == "pt" else "NEWS"), uppercase=True)
                     short_title = normalize_text(option.get("title", ""))
