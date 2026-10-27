@@ -93,6 +93,18 @@ jobs:
                   print(f'ERRO Graph: {e.read().decode()}')
                   sys.exit(1)
 
+          def post_form_noexit(url, fields):
+              data = urllib.parse.urlencode(fields).encode()
+              req = urllib.request.Request(url, data=data, method='POST')
+              try:
+                  with urllib.request.urlopen(req, timeout=120) as resp:
+                      return json.loads(resp.read().decode())
+              except urllib.error.HTTPError as e:
+                  try:
+                      return json.loads(e.read().decode())
+                  except Exception:
+                      return {'error': {'message': 'HTTP error sem corpo'}}
+
           media = post_form(f'https://graph.facebook.com/v25.0/{user_id}/media', {
               'image_url': public_image_url,
               'caption': caption,
@@ -103,14 +115,24 @@ jobs:
               print(f'ERRO: resposta media sem id: {media}')
               sys.exit(1)
           print(f'Media container: {creation_id}')
-          pub = post_form(f'https://graph.facebook.com/v25.0/{user_id}/media_publish', {
-              'creation_id': creation_id,
-              'access_token': token,
-          })
-          post_id = pub.get('id', '')
-          if not post_id:
-              print(f'ERRO: resposta publish sem id: {pub}')
+          pub = None
+          for attempt in range(6):
+              pub = post_form_noexit(f'https://graph.facebook.com/v25.0/{user_id}/media_publish', {
+                  'creation_id': creation_id,
+                  'access_token': token,
+              })
+              if pub.get('id'):
+                  break
+              err = str(pub.get('error', {}))
+              print(f'Tentativa publish {attempt + 1}/6 falhou: {pub}')
+              if 'not available' not in err.lower() and 'ainda n' not in err.lower():
+                  break
+              import time as _time
+              _time.sleep(20)
+          if not pub or not pub.get('id'):
+              print(f'ERRO: publish sem id apos retries: {pub}')
               sys.exit(1)
+          post_id = pub.get('id', '')
           permalink = ''
           try:
               q = urllib.parse.urlencode({'fields': 'permalink', 'access_token': token})
