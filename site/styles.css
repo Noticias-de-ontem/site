@@ -3581,6 +3581,17 @@ html {
   }
 }
 
+@media (max-width: 720px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-nav,
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Grelha de fontes na Documentação */
 .doc-sources {
   padding: 10px var(--page-padding);
