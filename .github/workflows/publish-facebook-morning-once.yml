@@ -1,0 +1,96 @@
+name: Publish Facebook Morning Once (temp)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish-facebook-morning:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Publish approved morning post to Facebook
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+        run: |
+          python3 - <<'PYEOF'
+          import json
+          import os
+          import sys
+          import urllib.parse
+          import urllib.request
+          import urllib.error
+          from datetime import datetime, timezone
+
+          with open('pending_posts.json', 'r', encoding='utf-8') as f:
+              posts = json.load(f)
+          entry = next((p for p in posts if p.get('id') == 'pt_2026-10-27_1'), None)
+          if entry is None:
+              print('ERRO: post pt_2026-10-27_1 nao encontrado em pending_posts.json')
+              sys.exit(1)
+          option = entry['options'][entry.get('selected_option', 0)]
+          caption = option.get('caption_facebook') or option.get('caption', '')
+          image_url = option.get('image_url', '')
+          if not caption or not image_url:
+              print('ERRO: legenda ou imagem em falta no post aprovado')
+              sys.exit(1)
+
+          page_id = os.environ.get('FB_PAGE_ID', '')
+          page_token = os.environ.get('FB_PAGE_ACCESS_TOKEN', '')
+          if not page_id or not page_token:
+              print('ERRO: FB_PAGE_ID ou FB_PAGE_ACCESS_TOKEN em falta')
+              sys.exit(1)
+
+          data = urllib.parse.urlencode({
+              'url': image_url,
+              'caption': caption,
+              'access_token': page_token,
+          }).encode()
+          req = urllib.request.Request(
+              f'https://graph.facebook.com/v25.0/{page_id}/photos',
+              data=data, method='POST',
+          )
+          try:
+              with urllib.request.urlopen(req, timeout=60) as resp:
+                  result = json.loads(resp.read().decode())
+          except urllib.error.HTTPError as e:
+              print('ERRO Facebook:', e.read().decode())
+              sys.exit(1)
+          post_id = result.get('id')
+          if not post_id:
+              print('ERRO Facebook:', result)
+              sys.exit(1)
+          fb_url = f'https://www.facebook.com/{post_id}'
+          print(f'Facebook publicado: {fb_url}')
+
+          with open('publish_state.json', 'r', encoding='utf-8') as f:
+              state = json.load(f)
+          fb_state = state['pt']['facebook']
+          fb_state['morning_posted'] = True
+          fb_state['last_post_time'] = datetime.now(timezone.utc).isoformat()
+          with open('publish_state.json', 'w', encoding='utf-8') as f:
+              json.dump(state, f, ensure_ascii=False, indent=4)
+
+          entry['facebook_id'] = post_id
+          entry['facebook_url'] = fb_url
+          with open('pending_posts.json', 'w', encoding='utf-8') as f:
+              json.dump(posts, f, ensure_ascii=False, indent=4)
+          print('Estado atualizado: facebook morning_posted=true')
+          PYEOF
+
+      - name: Commit and Push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add publish_state.json pending_posts.json
+          git commit -m "Facebook: publicar post da manha de 2026-10-27 (UNESCO)"
+          git push
