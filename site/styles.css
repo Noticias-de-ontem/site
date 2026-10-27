@@ -3583,7 +3583,7 @@ html {
 
 @media (max-width: 720px) {
   .footer-grid {
-    grid-template-columns: 1fr;
+    gap: 24px 20px;
   }
 
   .footer-nav,
