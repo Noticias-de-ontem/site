@@ -177,6 +177,8 @@ const i18n = {
     exploreDocsBody: "O método, as fontes e a cobertura do projeto, em números.",
     footerInstagram: "Instagram",
     footerFacebook: "Facebook",
+    betaNotice: "Este site está em versão beta e podem existir alguns problemas.",
+    betaDismiss: "Ignorar",
     latestEyebrow: "Arquivo social",
     latestTitle: "Últimas notícias publicadas",
     latestPreviewNote: "Ainda não existem notícias publicadas. As publicações surgirão aqui automaticamente após a sua partilha nas redes sociais.",
@@ -398,6 +400,8 @@ const i18n = {
     exploreDocsBody: "The method, the sources and the project's coverage, in numbers.",
     footerInstagram: "Instagram",
     footerFacebook: "Facebook",
+    betaNotice: "This site is in beta and some issues may occur.",
+    betaDismiss: "Dismiss",
     latestEyebrow: "Social archive",
     latestTitle: "Latest published stories",
     latestPreviewNote: "No stories published yet. Published stories will appear here automatically once released on social media.",
@@ -4189,6 +4193,33 @@ function wireFooter() {
   updateVisibility();
 }
 
+// Aviso beta por baixo do cabeçalho, dispensável (a escolha persiste em localStorage).
+function showBetaNotice() {
+  try {
+    if (window.localStorage && localStorage.getItem("noticiasdeontem-beta-dismissed") === "1") return;
+  } catch {
+    /* Sem acesso a localStorage, mostra sempre. */
+  }
+  const header = document.querySelector(".site-header");
+  if (!header || document.getElementById("beta-notice")) return;
+  const notice = document.createElement("div");
+  notice.id = "beta-notice";
+  notice.className = "beta-notice";
+  notice.setAttribute("role", "note");
+  notice.innerHTML = `
+    <p data-i18n="betaNotice">Este site está em versão beta e podem existir alguns problemas.</p>
+    <button type="button" class="beta-notice-dismiss" data-i18n="betaDismiss">Ignorar</button>`;
+  notice.querySelector(".beta-notice-dismiss").addEventListener("click", () => {
+    try {
+      localStorage.setItem("noticiasdeontem-beta-dismissed", "1");
+    } catch {
+      /* Sem acesso a localStorage, o aviso volta a aparecer. */
+    }
+    notice.remove();
+  });
+  header.insertAdjacentElement("afterend", notice);
+}
+
 async function init() {
   wireNavigation();
   wireCalendar();
@@ -4197,6 +4228,7 @@ async function init() {
   wireTopics();
   wireRelevanceTooltips();
   wireFooter();
+  showBetaNotice();
   try {
     const response = await fetch(assetPath("data/news.json"), { cache: "no-store" });
     state.data = await response.json();
