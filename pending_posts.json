@@ -70,7 +70,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-10",
         "external_suggestions": [
             {
@@ -315,7 +315,10 @@
                 "local_background_path": "",
                 "body": ""
             }
-        ]
+        ],
+        "facebook_id": "",
+        "facebook_url": "https://www.facebook.com/122136372566824703",
+        "published_at": "2026-10-27T20:59:24.231255"
     },
     {
         "id": "pt_2026-10-28_1",

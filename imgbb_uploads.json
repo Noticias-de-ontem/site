@@ -7086,5 +7086,21 @@
         "created_at": "2026-10-27T13:51:01+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "published_post",
+        "lang": "pt",
+        "date": "2026-10-27",
+        "slot": "evening",
+        "platform": "facebook",
+        "post_id": "pt_2026-10-27_2",
+        "image_url": "https://i.ibb.co/tThqtfBf/post-pt.jpg",
+        "delete_url": "https://ibb.co/Hf2tsv7v/d8bc783b94060c7be6a8a5a39219ae59",
+        "platform_post_id": "",
+        "platform_post_url": "https://www.facebook.com/122136372566824703",
+        "published_at": "2026-10-27T20:59:24.222572",
+        "created_at": "2026-10-27T20:59:24+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
