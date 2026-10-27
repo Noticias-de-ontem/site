@@ -1,0 +1,84 @@
+name: Publish Facebook Feed Post Once (temp)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish-facebook-feed-post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: Create feed post with approved morning photo
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+        run: |
+          python3 - <<'PYEOF'
+          import json
+          import os
+          import sys
+          import urllib.parse
+          import urllib.request
+          import urllib.error
+
+          with open('pending_posts.json', 'r', encoding='utf-8') as f:
+              posts = json.load(f)
+          entry = next((p for p in posts if p.get('id') == 'pt_2026-10-27_1'), None)
+          if entry is None:
+              print('ERRO: post pt_2026-10-27_1 nao encontrado em pending_posts.json')
+              sys.exit(1)
+          option = entry['options'][entry.get('selected_option', 0)]
+          caption = option.get('caption_facebook') or option.get('caption', '')
+          photo_id = entry.get('facebook_id', '')
+          photo_url = entry.get('facebook_url', '')
+          if not caption or not photo_id:
+              print('ERRO: legenda ou facebook_id em falta no post aprovado')
+              sys.exit(1)
+
+          page_id = os.environ.get('FB_PAGE_ID', '')
+          page_token = os.environ.get('FB_PAGE_ACCESS_TOKEN', '')
+          if not page_id or not page_token:
+              print('ERRO: FB_PAGE_ID ou FB_PAGE_ACCESS_TOKEN em falta')
+              sys.exit(1)
+
+          def fb_post(fields):
+              data = urllib.parse.urlencode(fields).encode()
+              req = urllib.request.Request(
+                  f'https://graph.facebook.com/v25.0/{page_id}/feed',
+                  data=data, method='POST',
+              )
+              try:
+                  with urllib.request.urlopen(req, timeout=60) as resp:
+                      return json.loads(resp.read().decode()), None
+              except urllib.error.HTTPError as e:
+                  return None, e.read().decode()
+
+          result, err = fb_post({
+              'message': caption,
+              'object_attachment': photo_id,
+              'access_token': page_token,
+          })
+          if result and result.get('id'):
+              print(f"Feed post criado (foto anexada): https://www.facebook.com/{result['id']}")
+              sys.exit(0)
+          print(f"Anexo da foto falhou ({err}); a tentar como ligacao...")
+          result, err = fb_post({
+              'message': caption,
+              'link': photo_url,
+              'access_token': page_token,
+          })
+          if result and result.get('id'):
+              print(f"Feed post criado (ligacao): https://www.facebook.com/{result['id']}")
+              sys.exit(0)
+          print(f'ERRO Facebook: {err}')
+          sys.exit(1)
+          PYEOF
