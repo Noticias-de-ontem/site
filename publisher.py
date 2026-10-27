@@ -1908,10 +1908,6 @@ def main():
                 print(f"[{lang}] {pname}: Falha na publicacao.")
 
 
-if __name__ == "__main__":
-    main()
-
-
 def publish_to_facebook(message, image_url):
     """Publica uma foto no Facebook Page via Graph API. Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN."""
     page_id = os.environ.get("FB_PAGE_ID", "")
@@ -1934,3 +1930,6 @@ def publish_to_facebook(message, image_url):
         print("Erro Facebook:", exc)
     return None
 
+
+if __name__ == "__main__":
+    main()
