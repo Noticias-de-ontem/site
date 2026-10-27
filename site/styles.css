@@ -3592,14 +3592,17 @@ html {
   }
 }
 
-/* Aviso beta por baixo do cabeçalho */
+/* Aviso beta por baixo do cabeçalho (acompanha o scroll, colado ao cabeçalho) */
 .beta-notice {
+  position: sticky;
+  top: 88px;
+  z-index: 19;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
-  padding: 10px var(--page-padding);
+  padding: 10px 44px 10px var(--page-padding);
   background: var(--brand-soft);
   color: var(--ink);
   font-size: 0.86rem;
@@ -3611,20 +3614,26 @@ html {
 }
 
 .beta-notice-dismiss {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
   flex-shrink: 0;
-  padding: 6px 14px;
-  border: 1px solid var(--brand-deep);
-  border-radius: 999px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
   background: transparent;
   color: var(--brand-deep);
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1;
   cursor: pointer;
 }
 
 .beta-notice-dismiss:hover {
-  background: var(--brand-deep);
-  color: #fff;
+  background: var(--brand-faint);
+  color: var(--ink);
 }
 
 /* Grelha de fontes na Documentação */
