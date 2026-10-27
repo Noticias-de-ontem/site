@@ -1688,9 +1688,11 @@ def main():
         chosen_year = ""
 
         # Try to get an approved post for the first available platform slot
+        approved_entry_found = False
         for pname, pslot, pidx in platforms_to_post:
             approved_entry, pending_posts = get_approved_post(lang, pidx, local_date_str)
             if approved_entry:
+                approved_entry_found = True
                 option = None
                 sel_idx = approved_entry.get("selected_option", 0)
                 options = approved_entry.get("options", [])
@@ -1759,6 +1761,13 @@ def main():
                             print(f"[{lang}] Erro imagem pre-aprovada: {e}. Fallback Live AI.")
                 break
                 break
+
+        if approved_entry_found and not used_approved_post:
+            # Post aprovado existe mas a imagem nao ficou pronta (download
+            # da preview falhou ou re-render falhou): abortar em vez de cair
+            # no caminho da IA, que publicaria um post diferente do aprovado.
+            print(f"[{lang}] ERRO: post aprovado sem imagem utilizavel. A abortar publicacao (sem fallback para IA).")
+            continue
 
         if not used_approved_post:
             # AI generation path
