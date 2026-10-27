@@ -614,7 +614,7 @@ def build_fallback_title(text, lang):
 
 def build_fallback_publication(news_items, lang):
     if not news_items:
-        return None, None, None, None, None, None, None, None, None
+        return None, None, None, None, None, None, None, None, None, None, None, None, None
 
     selected_item = select_nvidia_news_items(news_items, max_total=1)[0]
     source_text = selected_item.get("global_context") or selected_item.get("caption") or selected_item.get("raw_caption") or ""
@@ -635,6 +635,10 @@ def build_fallback_publication(news_items, lang):
         image_theme,
         "template_1",
         False,
+        ["instagram"],
+        caption,
+        caption,
+        caption,
     )
 
 
@@ -1263,7 +1267,7 @@ def process_daily_news_with_ai(news_items, lang, custom_prompt_instructions=None
     global NVIDIA_DISABLED
 
     if not news_items:
-        return None, None, None, None, None, None, None, None, None
+        return None, None, None, None, None, None, None, None, None, None, None, None, None
 
     if NVIDIA_DISABLED or not nvidia_pool.has_keys():
         return build_fallback_publication(news_items, lang)
@@ -1421,7 +1425,7 @@ News Items:
             new_caption = normalize_text(payload.get("caption", ""))
 
             if not title or not new_caption:
-                return None, None, None, None, None, None, None, None, None, None, None, None
+                return None, None, None, None, None, None, None, None, None, None, None, None, None
 
             return (
                 category,
@@ -1526,9 +1530,17 @@ def get_approved_post(lang, slot_idx, date_str, filepath="pending_posts.json"):
             return None, []
     target_id = f"{lang}_{date_str}_{slot_idx}"
     for post in pending_posts:
+        # Um post aprovado que ja foi publicado numa rede mas falhou noutra
+        # fica com status "published" e sem URL nessa rede: tem de voltar a
+        # ser devolvido para a rede em falta voltar a tenta-lo, em vez de
+        # cair no caminho da IA, que geraria um post diferente.
+        status_ok = post.get("status") == "approved" or (
+            post.get("status") == "published"
+            and (not post.get("instagram_url") or not post.get("facebook_url"))
+        )
         if (
             post.get("id") == target_id
-            and post.get("status") == "approved"
+            and status_ok
             and not post.get("review_action")
         ):
             return post, pending_posts
