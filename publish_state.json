@@ -1,7 +1,28 @@
 {
-  "pt": {
-    "date": "",
-    "instagram": { "morning_posted": false, "evening_posted": false, "last_post_time": null },
-    "facebook": { "morning_posted": false, "evening_posted": false, "last_post_time": null }
-  }
+    "pt": {
+        "date": "2026-10-27",
+        "instagram": {
+            "morning_posted": false,
+            "evening_posted": false,
+            "last_post_time": null
+        },
+        "facebook": {
+            "morning_posted": false,
+            "evening_posted": false,
+            "last_post_time": null
+        }
+    },
+    "en": {
+        "date": "",
+        "instagram": {
+            "morning_posted": false,
+            "evening_posted": false,
+            "last_post_time": null
+        },
+        "facebook": {
+            "morning_posted": false,
+            "evening_posted": false,
+            "last_post_time": null
+        }
+    }
 }
