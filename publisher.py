@@ -1659,9 +1659,12 @@ def main():
             print(f"[{lang}] Nenhuma rede com janela de publicacao agora.")
             continue
 
-        # Random delay (opcional, nao e obrigatorio publicar)
+        # Random delay (opcional, nao e obrigatorio publicar).
+        # Excecao: a ultima run de cada janela publica sempre, sem sorteio.
+        # Janela da manha 8-14h -> ultima hora 13; janela da tarde 17-22h -> ultima hora 21.
+        last_hour_of_window = 13 if local_hour < 14 else 21
         hours_left = 22 - local_hour
-        if hours_left > 0 and random.random() > 1.0 / max(hours_left, 1):
+        if local_hour != last_hour_of_window and hours_left > 0 and random.random() > 1.0 / max(hours_left, 1):
             print(f"[{lang}] Decisao aleatoria: Adiamento.")
             continue
 
