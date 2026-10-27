@@ -3592,6 +3592,41 @@ html {
   }
 }
 
+/* Aviso beta por baixo do cabeçalho */
+.beta-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px var(--page-padding);
+  background: var(--brand-soft);
+  color: var(--ink);
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+.beta-notice p {
+  margin: 0;
+}
+
+.beta-notice-dismiss {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border: 1px solid var(--brand-deep);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--brand-deep);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.beta-notice-dismiss:hover {
+  background: var(--brand-deep);
+  color: #fff;
+}
+
 /* Grelha de fontes na Documentação */
 .doc-sources {
   padding: 10px var(--page-padding);
