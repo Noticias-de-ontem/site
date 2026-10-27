@@ -1603,12 +1603,28 @@ def publish_to_instagram(image_url, caption, lang):
         if "id" not in res_data:
             print("Erro Media Container:", res_data)
             return False
-        pub = requests.post(
-            f"https://graph.facebook.com/v25.0/{user_id}/media_publish",
-            data={"creation_id": res_data["id"], "access_token": token},
-            timeout=60,
-        )
-        pub_data = pub.json()
+        # O Instagram pode demorar a processar a imagem: o primeiro
+        # media_publish falha muitas vezes com 9007 "Media ID is not
+        # available". Foi o que aconteceu na run das 20:58 de 27 out
+        # (Instagram falhou, Facebook publicou). Voltar a tentar com
+        # espera, em vez de marcar logo a publicacao como falhada.
+        pub_data = {}
+        for _attempt in range(6):
+            pub = requests.post(
+                f"https://graph.facebook.com/v25.0/{user_id}/media_publish",
+                data={"creation_id": res_data["id"], "access_token": token},
+                timeout=60,
+            )
+            pub_data = pub.json()
+            if "id" in pub_data:
+                break
+            err = pub_data.get("error", {}) if isinstance(pub_data, dict) else {}
+            if err.get("code") == 9007 or "not available" in str(err.get("message", "")).lower():
+                print(f"[{lang}] Instagram ainda a processar a imagem, a voltar a tentar publicar...")
+                import time as _time
+                _time.sleep(20)
+                continue
+            break
         if "id" in pub_data:
             instagram_id = pub_data["id"]
             permalink = ""
@@ -1782,55 +1798,14 @@ def main():
             continue
 
         if not used_approved_post:
-            # AI generation path
-            matching_news = get_today_news(lang)
-            if not matching_news:
-                print(f"[{lang}] Sem noticias para hoje.")
-                continue
-
-            news_by_year = {}
-            for item in matching_news:
-                year = item["date"][:4]
-                news_by_year.setdefault(year, []).append(item)
-
-            chosen_year = random.choice(list(news_by_year.keys()))
-            historical_news_of_chosen_day = news_by_year[chosen_year]
-            print(f"[{lang}] {len(historical_news_of_chosen_day)} publicacoes do ano {chosen_year}...")
-
-            (
-                category,
-                short_title,
-                rewritten_caption,
-                _actual_date,
-                highlight_text,
-                overlay_description,
-                image_theme,
-                layout_preference,
-                breaking_candidate,
-                networks,
-                caption_instagram,
-                caption_facebook,
-                caption_x,
-            ) = process_daily_news_with_ai(historical_news_of_chosen_day, lang, custom_prompt_instructions=None)
-
-            if not short_title or not rewritten_caption:
-                print(f"[{lang}] IA falhou. Publicacao cancelada.")
-                continue
-
-            create_image_with_text(
-                category,
-                short_title,
-                lang,
-                output_path=output_image_path,
-                description_to_draw=overlay_description,
-                highlight_text=highlight_text,
-                layout_preference=layout_preference,
-                breaking_candidate=breaking_candidate,
-                background_query=normalize_text(image_theme or short_title),
-                year=chosen_year,
-            )
-            used_approved_post = False
-            approved_entry = None
+            # Sem post aprovado utilizavel para este slot: abortar sem
+            # fallback para IA. A aprovacao manual e obrigatoria e o
+            # caminho da IA listava candidatos de todos os anos no
+            # Arquivo.pt (lento, e publicaria um post nao aprovado).
+            # As funcoes get_today_news / process_daily_news_with_ai
+            # continuam no ficheiro, mas ja nao sao chamadas daqui.
+            print(f"[{lang}] ERRO: sem post aprovado utilizavel para este slot. A abortar sem fallback para IA (sem listagem de candidatos).")
+            continue
 
         # Upload image to ImgBB (once, shared across platforms)
         imgbb_api_key = os.environ.get("IMGBB_API_KEY")
