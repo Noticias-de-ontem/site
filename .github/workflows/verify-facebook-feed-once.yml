@@ -1,0 +1,74 @@
+name: Verify Facebook Feed Once (temp)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  verify-facebook-feed:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+
+      - name: List recent page feed posts
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+        run: |
+          python3 - <<'PYEOF'
+          import json
+          import os
+          import sys
+          import urllib.parse
+          import urllib.request
+          import urllib.error
+
+          page_id = os.environ.get('FB_PAGE_ID', '')
+          page_token = os.environ.get('FB_PAGE_ACCESS_TOKEN', '')
+          if not page_id or not page_token:
+              print('ERRO: FB_PAGE_ID ou FB_PAGE_ACCESS_TOKEN em falta')
+              sys.exit(1)
+
+          def fb_get(path, params):
+              qs = urllib.parse.urlencode(params)
+              req = urllib.request.Request(f'https://graph.facebook.com/v25.0/{path}?{qs}', method='GET')
+              try:
+                  with urllib.request.urlopen(req, timeout=60) as resp:
+                      return json.loads(resp.read().decode()), None
+              except urllib.error.HTTPError as e:
+                  return None, e.read().decode()
+
+          feed, err = fb_get(f'{page_id}/feed', {
+              'fields': 'id,created_time,message,object_id',
+              'limit': 10,
+              'access_token': page_token,
+          })
+          if feed is None:
+              print(f'ERRO feed: {err}')
+              sys.exit(1)
+          print('FEED_RECENTE:')
+          for post in feed.get('data', []):
+              msg = (post.get('message') or '')[:100].replace('\n', ' ')
+              print(f"- id={post.get('id')} created={post.get('created_time')} object_id={post.get('object_id')} msg={msg}")
+
+          with open('pending_posts.json', 'r', encoding='utf-8') as f:
+              posts = json.load(f)
+          entry = next((p for p in posts if p.get('id') == 'pt_2026-10-27_1'), None)
+          photo_id = entry.get('facebook_id', '') if entry else ''
+          if photo_id:
+              photo, err = fb_get(photo_id, {
+                  'fields': 'id,created_time',
+                  'access_token': page_token,
+              })
+              if photo is None:
+                  print(f'ERRO foto: {err}')
+              else:
+                  print(f"FOTO: id={photo.get('id')} created={photo.get('created_time')}")
+          PYEOF
