@@ -2180,30 +2180,63 @@ def main():
 
 
 def publish_to_facebook(message, image_url):
-    """Publica uma foto no Facebook Page via Graph API. Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN.
+    """Publica uma foto como publicacao genuina no Feed (Timeline de Publicacoes) da Pagina do Facebook.
+    Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN.
 
-    Retry primeiro na mesma run, como a story: ate 3 tentativas com 20 s
-    de espera, para qualquer erro. Se falharem as 3 tentativas, devolve
-    None e a proxima run volta a tentar, com novas tentativas imediatas,
-    ate ao fim da janela.
+    Usa o fluxo oficial da Meta para publicacoes com imagem no feed:
+    1. Upload da foto em modo staged/nao publicado (published=false) para obter photo_id;
+    2. POST /{page-id}/feed com attached_media=[{"media_fbid": photo_id}] e message=caption,
+       garantindo que o post aparece na aba 'Publicacoes' (Timeline do Feed) e nao apenas em 'Fotos';
+    3. Fallback para /{page-id}/photos com published=true se o feed falhar.
     """
     page_id = os.environ.get("FB_PAGE_ID", "")
     page_token = os.environ.get("FB_PAGE_ACCESS_TOKEN", "")
     if not page_id or not page_token:
         print("Credenciais Facebook nao configuradas.")
         return None
+    import json as _json
     import requests as _r
     import time as _time
     for _attempt in range(1, 4):
         try:
+            # Passo 1: Upload nao publicado da foto para a staging area da pagina
+            up = _r.post(
+                f"https://graph.facebook.com/v25.0/{page_id}/photos",
+                data={"url": image_url, "published": "false", "access_token": page_token},
+                timeout=60,
+            )
+            up_data = up.json()
+            photo_id = up_data.get("id")
+
+            if photo_id:
+                # Passo 2: Publicar no Feed (Timeline de Publicacoes) com a foto anexada
+                _time.sleep(2)
+                feed_res = _r.post(
+                    f"https://graph.facebook.com/v25.0/{page_id}/feed",
+                    data={
+                        "message": message,
+                        "attached_media": _json.dumps([{"media_fbid": str(photo_id)}]),
+                        "access_token": page_token,
+                    },
+                    timeout=60,
+                )
+                feed_data = feed_res.json()
+                post_id = feed_data.get("id")
+                if post_id:
+                    print(f"Facebook feed: publicado com sucesso no Feed de Publicacoes! ID: {post_id}")
+                    return {"success": True, "id": str(post_id), "permalink": f"https://www.facebook.com/{post_id}"}
+                print(f"Facebook feed (tentativa {_attempt}/3): Erro ao anexar foto no feed ({feed_data}), a tentar fallback...")
+
+            # Fallback (Passo 3): POST direto em /photos com published=true explicito
             res = _r.post(
                 f"https://graph.facebook.com/v25.0/{page_id}/photos",
-                data={"url": image_url, "caption": message, "access_token": page_token},
+                data={"url": image_url, "caption": message, "published": "true", "access_token": page_token},
                 timeout=60,
             )
             data = res.json()
             post_id = data.get("post_id") or data.get("id")
             if post_id:
+                print(f"Facebook feed: publicado via /photos com published=true! ID: {post_id}")
                 return {"success": True, "id": str(post_id), "permalink": f"https://www.facebook.com/{post_id}"}
             print(f"Facebook feed (tentativa {_attempt}/3): Erro:", data)
         except Exception as exc:
