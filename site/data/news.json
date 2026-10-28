@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T22:43:47+00:00",
+  "generated_at": "2026-10-28T22:56:57+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -34,12 +34,15 @@
     "facebook_url": "https://www.facebook.com/1030669413467151_122136508664824703",
     "facebook_id": "1030669413467151_122136508664824703",
     "archive_credit": "Arquivo.pt",
-    "banner_ready": false,
+    "banner_ready": true,
     "networks": [
       "instagram",
       "facebook"
     ],
-    "cover_focus": null,
+    "cover_focus": [
+      0.5,
+      0.55
+    ],
     "network_posts": {
       "instagram": "https://www.instagram.com/p/DfDIuhDGH8O/",
       "facebook": "https://www.facebook.com/1030669413467151_122136508664824703"
@@ -88,12 +91,15 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136508664824703",
       "facebook_id": "1030669413467151_122136508664824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.55
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfDIuhDGH8O/",
         "facebook": "https://www.facebook.com/1030669413467151_122136508664824703"
@@ -141,12 +147,15 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136508274824703",
       "facebook_id": "1030669413467151_122136508274824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.4
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfA9Wa6ie4u/",
         "facebook": "https://www.facebook.com/1030669413467151_122136508274824703"
@@ -199,7 +208,10 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.35,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfAAVuLly5s/",
         "facebook": "https://www.facebook.com/1030669413467151_122136507968824703"
@@ -254,7 +266,10 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.45,
+        0.38
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfCxiYWjNSh/",
         "facebook": "https://www.facebook.com/1030669413467151_122136508376824703"
@@ -304,12 +319,15 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136508664824703",
       "facebook_id": "1030669413467151_122136508664824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.55
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfDIuhDGH8O/",
         "facebook": "https://www.facebook.com/1030669413467151_122136508664824703"
@@ -362,7 +380,10 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.45,
+        0.38
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfCxiYWjNSh/",
         "facebook": "https://www.facebook.com/1030669413467151_122136508376824703"
@@ -410,12 +431,15 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136508274824703",
       "facebook_id": "1030669413467151_122136508274824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.4
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfA9Wa6ie4u/",
         "facebook": "https://www.facebook.com/1030669413467151_122136508274824703"
@@ -468,7 +492,10 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.35,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfAAVuLly5s/",
         "facebook": "https://www.facebook.com/1030669413467151_122136507968824703"

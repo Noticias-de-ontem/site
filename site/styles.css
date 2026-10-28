@@ -306,7 +306,14 @@ select:focus-visible {
 .hero-content {
   position: relative;
   z-index: 2;
-  width: min(1080px, calc(100% - 56px));
+  width: min(960px, calc(100% - 64px));
+  background: rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 24px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.28);
 }
 
 .eyebrow {
@@ -2517,7 +2524,7 @@ select:focus-visible {
 
 @media (max-width: 720px) {
   :root {
-    --page-padding: 18px;
+    --page-padding: 14px;
   }
 
   body {
@@ -2525,7 +2532,8 @@ select:focus-visible {
   }
 
   .site-header {
-    min-height: 92px;
+    padding: 8px 14px;
+    min-height: 84px;
   }
 
   .brand .brand-wordmark {
@@ -2536,10 +2544,24 @@ select:focus-visible {
     font-size: 0.95rem;
   }
 
+  .main-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    overflow: visible;
+  }
+
   .main-nav a {
-    padding-top: 7px;
-    padding-bottom: 6px;
-    font-size: 0.82rem;
+    flex: 1 1 auto;
+    padding: 6px 8px;
+    font-size: 0.80rem;
+    letter-spacing: -0.015em;
+    text-align: center;
+    white-space: nowrap;
   }
 
   .language-switch button {
@@ -2548,49 +2570,85 @@ select:focus-visible {
   }
 
   .hero {
-    height: auto;
-    min-height: 520px;
-    padding: 40px 24px 60px;
+    height: 560px;
+    padding: 24px 46px 48px;
+    align-items: flex-end;
+    overflow: hidden;
   }
 
   .hero-content {
     width: 100%;
+    background: rgba(0, 0, 0, 0.38);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 16px;
+    padding: 16px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
   }
 
   .hero h1 {
-    line-height: 1.06;
+    line-height: 1.12;
+  }
+
+  .hero-title-short {
+    font-size: clamp(1.4rem, 5.5vw, 1.85rem) !important;
+  }
+
+  .hero-title-medium {
+    font-size: clamp(1.25rem, 4.8vw, 1.65rem) !important;
+  }
+
+  .hero-title-long {
+    font-size: clamp(1.1rem, 4.2vw, 1.45rem) !important;
   }
 
   .hero-summary {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
 
   .hero-edge {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
+    z-index: 6;
   }
 
   .hero-edge svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
 
   .hero-edge.prev {
-    left: 8px;
+    left: 5px;
   }
 
   .hero-edge.next {
-    right: 8px;
+    right: 5px;
   }
 
   .hero-dots {
-    bottom: 16px;
+    bottom: 14px;
   }
 
   .watermark {
-    right: 18px;
-    bottom: 46px;
-    font-size: 0.68rem;
+    top: 14px;
+    bottom: auto;
+    right: 14px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.85);
+    z-index: 5;
   }
 
   .explore-section {
@@ -2692,23 +2750,48 @@ select:focus-visible {
 }
 
 @media (max-width: 520px) {
+  .site-header {
+    padding: 6px 10px;
+    min-height: 80px;
+  }
+
   .brand {
-    max-width: calc(100vw - 112px);
+    max-width: calc(100vw - 100px);
+  }
+
+  .main-nav {
+    gap: 2px;
+    width: 100%;
+    justify-content: space-between;
+    overflow: visible;
+  }
+
+  .main-nav a {
+    padding: 5px 6px;
+    font-size: 0.76rem;
+    letter-spacing: -0.02em;
   }
 
   .hero {
-    height: auto;
-    min-height: 500px;
-    padding: 28px 18px 52px;
+    height: 530px;
+    padding: 20px 42px 46px;
+    align-items: flex-end;
+    overflow: hidden;
   }
 
   .hero-content {
     width: 100%;
+    background: rgba(0, 0, 0, 0.38);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border-radius: 14px;
+    padding: 14px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .hero .eyebrow {
     margin: 0 0 6px;
-    font-size: 0.68rem;
+    font-size: 0.66rem;
   }
 
   .hero-badges {
@@ -2720,17 +2803,30 @@ select:focus-visible {
   }
 
   .hero h1 {
-    font-size: clamp(1.35rem, 5.8vw, 1.8rem);
+    font-size: clamp(1.2rem, 5.2vw, 1.55rem);
     line-height: 1.15;
+  }
+
+  .hero-title-short {
+    font-size: clamp(1.25rem, 5.2vw, 1.6rem) !important;
+  }
+
+  .hero-title-medium {
+    font-size: clamp(1.15rem, 4.6vw, 1.45rem) !important;
+  }
+
+  .hero-title-long {
+    font-size: clamp(1.02rem, 4vw, 1.3rem) !important;
   }
 
   .hero-year {
     margin-top: 6px;
-    font-size: 0.82rem;
+    font-size: 0.78rem;
+    padding: 3px 10px;
   }
 
   .hero-summary {
-    font-size: 0.86rem;
+    font-size: 0.85rem;
     line-height: 1.35;
     margin-top: 8px;
     display: -webkit-box;
@@ -2749,10 +2845,40 @@ select:focus-visible {
 
   .hero-actions .button {
     flex: 1 1 auto;
-    min-height: 38px;
-    padding: 8px 12px;
-    font-size: 0.82rem;
+    min-height: 36px;
+    padding: 7px 10px;
+    font-size: 0.80rem;
     width: auto;
+  }
+
+  .hero-edge {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-edge svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hero-edge.prev {
+    left: 4px;
+  }
+
+  .hero-edge.next {
+    right: 4px;
+  }
+
+  .hero-dots {
+    bottom: 12px;
+  }
+
+  .watermark {
+    top: 12px;
+    bottom: auto;
+    right: 12px;
+    font-size: 0.62rem;
+    padding: 3px 8px;
   }
 
   .explore-tile {
