@@ -1866,8 +1866,11 @@ def main():
             or (in_evening_window and (local_time_str >= evening_target or local_mins >= 21 * 60 + 20))
         )
 
+        enable_direct_facebook = os.environ.get("ENABLE_DIRECT_FB_PUBLISH", "false").strip().lower() in ("true", "1", "yes")
+        target_platforms = ("instagram", "facebook") if enable_direct_facebook else ("instagram",)
+
         platforms_to_post = []
-        for pname in ("instagram", "facebook"):
+        for pname in target_platforms:
             pstate = lang_state.get(pname, {})
             morning_pending = not pstate.get("morning_posted", False) or not pstate.get("morning_story_posted", False)
             evening_pending = not pstate.get("evening_posted", False) or not pstate.get("evening_story_posted", False)
@@ -2080,6 +2083,9 @@ def main():
                 if story_result:
                     if approved_entry:
                         approved_entry[f"{pname}_story_id"] = str(story_result)
+                        if pname == "instagram" and not enable_direct_facebook:
+                            approved_entry["facebook_story_id"] = f"crosspost_story_{story_result}"
+                            lang_state.get("facebook", {})[f"{pslot}_story_posted"] = True
                         with open("pending_posts.json", "w", encoding="utf-8") as pf:
                             json.dump(pending_posts, pf, ensure_ascii=False, indent=4)
                     pstate[f"{pslot}_story_posted"] = True
@@ -2161,6 +2167,24 @@ def main():
                     # Story feita: a plataforma deixa de estar pendente por causa da story.
                     pstate[f"{pslot}_story_posted"] = True
                 pstate["last_post_time"] = local_now.isoformat()
+
+                if pname == "instagram" and not enable_direct_facebook:
+                    # Meta Cross-posting automatico alimenta a Pagina de Facebook
+                    fb_state = lang_state.get("facebook", {})
+                    fb_state[f"{pslot}_posted"] = True
+                    fb_state[f"{pslot}_attempted"] = True
+                    if story_result:
+                        fb_state[f"{pslot}_story_posted"] = True
+                    fb_state["last_post_time"] = local_now.isoformat()
+                    if approved_entry:
+                        approved_entry["facebook_id"] = f"crosspost_{post_id_str}"
+                        approved_entry["facebook_url"] = "https://www.facebook.com/noticiasdeontempt"
+                        if story_result:
+                            approved_entry["facebook_story_id"] = f"crosspost_story_{story_result}"
+                        with open("pending_posts.json", "w", encoding="utf-8") as pf:
+                            json.dump(pending_posts, pf, ensure_ascii=False, indent=4)
+                    print(f"[{lang}] Facebook: Publicacao e Story geridas automaticamente via Cross-Posting da Meta (Instagram para Facebook).")
+
                 save_publish_state(state)
 
                 print(f"[{lang}] {pname}: Publicado com sucesso!")
