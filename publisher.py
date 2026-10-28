@@ -1665,6 +1665,54 @@ def publish_to_instagram(image_url, caption, lang):
     print(f"[{lang}] Instagram feed: falhou apos 3 tentativas na mesma run; sera retentado na proxima run.")
     return {"success": False}
 
+
+def story_image_9x16_url(image_url):
+    """Devolve uma URL 9:16 (1080x1920) da imagem do feed, sem cortar a
+    imagem original: a imagem do feed fica inteira, centrada, sobre um
+    fundo desfocado da propria imagem. Se a conversao ou o upload
+    falharem, devolve a URL original, para a story sair na mesma,
+    ainda que cortada, em vez de falhar."""
+    try:
+        import io
+        from PIL import Image, ImageFilter, ImageEnhance
+        resp = requests.get(image_url, timeout=30)
+        if resp.status_code != 200 or not resp.content:
+            return image_url
+        img = Image.open(io.BytesIO(resp.content)).convert("RGB")
+        W, H = 1080, 1920
+        bg = img.copy()
+        scale = max(W / bg.width, H / bg.height)
+        bg = bg.resize((int(bg.width * scale + 0.5), int(bg.height * scale + 0.5)), Image.LANCZOS)
+        left = (bg.width - W) // 2
+        top = (bg.height - H) // 2
+        bg = bg.crop((left, top, left + W, top + H))
+        bg = bg.filter(ImageFilter.GaussianBlur(20))
+        bg = ImageEnhance.Brightness(bg).enhance(0.6)
+        canvas = bg
+        fg = img.copy()
+        scale_fg = min(W / fg.width, H / fg.height)
+        fg = fg.resize((int(fg.width * scale_fg + 0.5), int(fg.height * scale_fg + 0.5)), Image.LANCZOS)
+        canvas.paste(fg, ((W - fg.width) // 2, (H - fg.height) // 2))
+        out_path = "story_9x16.jpg"
+        canvas.save(out_path, "JPEG", quality=92)
+        api_key = os.environ.get("IMGBB_API_KEY", "")
+        if not api_key:
+            return image_url
+        with open(out_path, "rb") as f:
+            res = requests.post(
+                "https://api.imgbb.com/1/upload",
+                data={"key": api_key},
+                files={"image": f},
+                timeout=60,
+            )
+        data = res.json()
+        if data.get("success"):
+            return data["data"]["url"]
+        return image_url
+    except Exception as e:
+        print(f"Story 9:16: conversao falhou ({e}), a usar a imagem original.")
+        return image_url
+
 def publish_instagram_story(image_url, lang):
     """Publica a mesma imagem como Story do Instagram (24h, sem legenda).
 
@@ -1676,6 +1724,7 @@ def publish_instagram_story(image_url, lang):
     excecao, para uma falha na story nao transformar um post do feed ja
     publicado num falhado.
     """
+    image_url = story_image_9x16_url(image_url)
     token = IG_CREDENTIALS.get(lang, {}).get("token")
     user_id = IG_CREDENTIALS.get(lang, {}).get("user_id")
     if not token or not user_id:
@@ -2092,6 +2141,7 @@ def publish_facebook_story(image_url):
     publicado num falhado. Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN, os
     mesmos do feed.
     """
+    image_url = story_image_9x16_url(image_url)
     page_id = os.environ.get("FB_PAGE_ID", "")
     page_token = os.environ.get("FB_PAGE_ACCESS_TOKEN", "")
     if not page_id or not page_token:
