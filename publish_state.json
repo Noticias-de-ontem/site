@@ -2,22 +2,22 @@
     "pt": {
         "date": "2026-10-28",
         "instagram": {
-            "morning_posted": false,
+            "morning_posted": true,
             "evening_posted": false,
-            "morning_attempted": false,
+            "morning_attempted": true,
             "evening_attempted": false,
-            "morning_story_posted": false,
+            "morning_story_posted": true,
             "evening_story_posted": false,
-            "last_post_time": null
+            "last_post_time": "2026-10-28T15:39:12.338234+00:00"
         },
         "facebook": {
-            "morning_posted": false,
+            "morning_posted": true,
             "evening_posted": false,
-            "morning_attempted": false,
+            "morning_attempted": true,
             "evening_attempted": false,
-            "morning_story_posted": false,
+            "morning_story_posted": true,
             "evening_story_posted": false,
-            "last_post_time": null
+            "last_post_time": "2026-10-28T15:39:12.338234+00:00"
         }
     },
     "en": {
