@@ -1476,13 +1476,13 @@ def load_publish_state(filepath="publish_state.json"):
     default = {
         "pt": {
             "date": "",
-            "instagram": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
-            "facebook": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
+            "instagram": {"morning_posted": False, "evening_posted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
+            "facebook": {"morning_posted": False, "evening_posted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
         },
         "en": {
             "date": "",
-            "instagram": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
-            "facebook": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
+            "instagram": {"morning_posted": False, "evening_posted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
+            "facebook": {"morning_posted": False, "evening_posted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
         },
     }
     if not os.path.exists(filepath):
@@ -1512,6 +1512,12 @@ def load_publish_state(filepath="publish_state.json"):
                 "evening_posted": bool(lang_state.get("afternoon_posted", False)),
                 "last_post_time": lang_state.get("last_post_time"),
             }
+    for lang in ("pt", "en"):
+        for pname in ("instagram", "facebook"):
+            pstate = state.get(lang, {}).get(pname, {})
+            if isinstance(pstate, dict):
+                pstate.setdefault("morning_story_posted", False)
+                pstate.setdefault("evening_story_posted", False)
     return state
 
 
@@ -1536,7 +1542,8 @@ def get_approved_post(lang, slot_idx, date_str, filepath="pending_posts.json"):
         # cair no caminho da IA, que geraria um post diferente.
         status_ok = post.get("status") == "approved" or (
             post.get("status") == "published"
-            and (not post.get("instagram_url") or not post.get("facebook_url"))
+            and (not post.get("instagram_url") or not post.get("facebook_url")
+                 or not post.get("instagram_story_id") or not post.get("facebook_story_id"))
         )
         if (
             post.get("id") == target_id
@@ -1713,8 +1720,8 @@ def main():
             lang_state.clear()
             lang_state.update({
                 "date": local_date_str,
-                "instagram": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
-                "facebook": {"morning_posted": False, "evening_posted": False, "last_post_time": None},
+                "instagram": {"morning_posted": False, "evening_posted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
+                "facebook": {"morning_posted": False, "evening_posted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
             })
             save_publish_state(state)
 
@@ -1728,9 +1735,11 @@ def main():
         # Todas as redes: janela 1 = 8-14h, janela 2 = 17-22h
         for pname in ("instagram", "facebook"):
             pstate = lang_state.get(pname, {})
-            if 8 <= local_hour < 14 and not pstate.get("morning_posted", False):
+            morning_pending = not pstate.get("morning_posted", False) or not pstate.get("morning_story_posted", False)
+            evening_pending = not pstate.get("evening_posted", False) or not pstate.get("evening_story_posted", False)
+            if 8 <= local_hour < 14 and morning_pending:
                 platforms_to_post.append((pname, "morning", 1))
-            elif 17 <= local_hour < 22 and not pstate.get("evening_posted", False):
+            elif 17 <= local_hour < 22 and evening_pending:
                 platforms_to_post.append((pname, "evening", 2))
 
         if not platforms_to_post:
@@ -1897,6 +1906,32 @@ def main():
                 print(f"[{lang}] {pname}: Nao esta nas networks desta noticia ({networks}).")
                 continue
 
+            pstate = lang_state[pname]
+            feed_done = bool(approved_entry and approved_entry.get(f"{pname}_url")) or bool(pstate.get(f"{pslot}_posted", False))
+            story_done = bool(approved_entry and approved_entry.get(f"{pname}_story_id")) or bool(pstate.get(f"{pslot}_story_posted", False))
+
+            if feed_done and story_done:
+                continue
+
+            if feed_done and not story_done:
+                # Retry apenas da story: o feed NAO volta a ser publicado.
+                story_result = False
+                if pname == "instagram":
+                    story_result = publish_instagram_story(public_image_url, lang)
+                elif pname == "facebook":
+                    story_result = publish_facebook_story(public_image_url)
+                if story_result:
+                    if approved_entry:
+                        approved_entry[f"{pname}_story_id"] = str(story_result)
+                        with open("pending_posts.json", "w", encoding="utf-8") as pf:
+                            json.dump(pending_posts, pf, ensure_ascii=False, indent=4)
+                    pstate[f"{pslot}_story_posted"] = True
+                    save_publish_state(state)
+                    print(f"[{lang}] {pname}: Story retentada com sucesso (feed nao republicado).")
+                else:
+                    print(f"[{lang}] {pname}: Story continua a falhar; sera retentada na proxima run, sem republicar o feed.")
+                continue
+
             # Select platform-specific caption
             if pname == "instagram":
                 final_caption = caption_instagram or short_title
@@ -1954,10 +1989,11 @@ def main():
                         story_result = publish_facebook_story(public_image_url)
                     if story_result:
                         approved_entry[f"{pname}_story_id"] = str(story_result)
+                        pstate[f"{pslot}_story_posted"] = True
                         with open("pending_posts.json", "w", encoding="utf-8") as pf:
                             json.dump(pending_posts, pf, ensure_ascii=False, indent=4)
                     else:
-                        print(f"[{lang}] {pname}: Story falhou (feed continua publicado).")
+                        print(f"[{lang}] {pname}: Story falhou (feed continua publicado; sera retentada so a story na proxima run).")
 
                 # Update per-platform state
                 pstate = lang_state[pname]
