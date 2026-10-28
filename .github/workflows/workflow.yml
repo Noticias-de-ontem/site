@@ -83,17 +83,12 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add pt/*.json publish_state.json pending_posts.json
-          [ -f pregeneration_state.json ] && git add pregeneration_state.json || true
-          [ -f imgbb_uploads.json ] && git add imgbb_uploads.json || true
-          [ -f social_metrics.json ] && git add social_metrics.json || true
-          [ -d site ] && git add site || true
+          git add -A
 
-          if ! git diff --quiet || ! git diff --staged --quiet; then
+          if ! git diff --staged --quiet; then
             git commit -m "chore: update publish state"
             for attempt in 1 2 3; do
-              git fetch origin main
-              git rebase origin/main || (git rebase --abort && git pull --no-edit origin main)
+              git pull --rebase --autostash origin main || true
               if git push origin main; then
                 echo "Push efetuado com sucesso."
                 break

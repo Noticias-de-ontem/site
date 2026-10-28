@@ -50,7 +50,22 @@
         "local_background_path": "images/backgrounds/2026-10-27_01_2005_unesco_proclama_dia_mundial_patrimonio_audiovisual-fundo.jpg",
         "body": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, na 21.ª sessão da Conferência Geral da UNESCO, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.",
         "caption_instagram": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.\n\n#Noticias #Memoria #Jornalismo",
-        "caption_facebook": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.\n\n#Noticias #Memoria #Jornalismo"
+        "caption_facebook": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.\n\n#Noticias #Memoria #Jornalismo",
+        "relevance": {
+          "level": 3,
+          "scores": {
+            "impacto_historico": 65.0,
+            "dimensao_impacto": 65.0,
+            "consequencias": 60.0,
+            "relevancia_posterior": 65.0,
+            "dimensao_duracao": 60.0,
+            "relevancia_mediatica": 50.0,
+            "singularidade": 60.0
+          },
+          "weighted_score": 62.5,
+          "justification": "Proclamação pela UNESCO de uma efeméride internacional para preservação do património audiovisual global.",
+          "lang": "pt"
+        }
       }
     ],
     "instagram_id": "18174809590400840",

@@ -970,7 +970,7 @@ function renderHero() {
   }
   setText("#hero-year", item.original_year ? `${t("yearOnly")} ${item.original_year}` : "");
   const heroBadges = document.getElementById("hero-badges");
-  if (heroBadges) heroBadges.innerHTML = `${sourceTypeChip(item)}${relevanceBadge(item)}${networkBadgesHtml(item)}`;
+  if (heroBadges) heroBadges.innerHTML = `${relevanceBadge(item)}${networkBadgesHtml(item)}`;
   if (detail && item.page_id) {
     detail.href = newsPageUrl(item);
     detail.dataset.newsId = item.page_id;
@@ -1675,8 +1675,8 @@ function renderNewsDetail() {
         <header class="news-head">
           <p class="news-article-meta">
             ${category ? `<span class="meta-pill">${escapeHtml(category)}</span>` : ""}
-            ${sourceTypeChip(item)}
             ${relevanceBadge(item, { scores: item.relevance_scores, justification: item.relevance_justification, weighted: item.relevance_weighted })}
+            ${networkBadgesHtml(item)}
           </p>
           <h1 id="news-detail-title">${escapeHtml(title)}</h1>
           ${dateLine ? `<p class="news-article-dates">${escapeHtml(dateLine)}</p>` : ""}

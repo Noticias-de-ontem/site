@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T22:09:25+00:00",
+  "generated_at": "2026-10-28T22:42:05+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -177,6 +177,62 @@
       "page_id": "noticia-7f6cc4d040d947b910e791dc",
       "detail_image": "assets/banners/2026-10-27-2-oramento-do-estado-chumbado-na-assembleia-da-repblica-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-7f6cc4d040d947b910e791dc.jpg"
+    },
+    {
+      "id": "pt_2026-10-27_1",
+      "lang": "pt",
+      "date": "2026-10-27",
+      "slot": 1,
+      "status": "published",
+      "published_at": "2026-10-27T13:51:01.419038",
+      "category": "CULTURA",
+      "title": "UNESCO proclama o dia 27 de outubro como Dia Mundial do Património Audiovisual",
+      "title_en": "UNESCO proclaims 27 October as World Day for Audiovisual Heritage",
+      "summary": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual",
+      "summary_en": "In 2005, UNESCO proclaimed 27 October as the World Day for Audiovisual Heritage.",
+      "original_year": "2005",
+      "image": "assets/posts/2026-10-27-1-unesco-proclama-o-dia-27-de-outubro-como-dia-mundial-do-patrimnio-audiovisual.jpg",
+      "banner_image": "assets/banners/2026-10-27-1-unesco-proclama-o-dia-27-de-outubro-como-dia-mundial-do-patrimnio-audiovisual-banner.jpg",
+      "body": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, na 21.ª sessão da Conferência Geral da UNESCO, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.",
+      "caption": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.",
+      "source_url": "https://arquivo.pt/wayback/20240511194613/https://blogue.rbe.mec.pt/dia-mundial-do-patrimonio-audiovisual-2655124",
+      "source_profile": "blogue.rbe.mec.pt",
+      "source_platform": "arquivo.pt",
+      "instagram_url": "https://www.instagram.com/p/DfAAVuLly5s/",
+      "instagram_id": "18174809590400840",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136507968824703",
+      "facebook_id": "1030669413467151_122136507968824703",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram",
+        "facebook"
+      ],
+      "cover_focus": [
+        0.35,
+        0.5
+      ],
+      "network_posts": {
+        "instagram": "https://www.instagram.com/p/DfAAVuLly5s/",
+        "facebook": "https://www.facebook.com/1030669413467151_122136507968824703"
+      },
+      "relevance_level": 3,
+      "relevance_scores": {
+        "impacto_historico": 65.0,
+        "dimensao_impacto": 65.0,
+        "consequencias": 60.0,
+        "relevancia_posterior": 65.0,
+        "dimensao_duracao": 60.0,
+        "relevancia_mediatica": 50.0,
+        "singularidade": 60.0
+      },
+      "relevance_weighted": 62.5,
+      "relevance_justification": "Proclamação pela UNESCO de uma efeméride internacional para preservação do património audiovisual global.",
+      "source_type": "internet_profile",
+      "url_path": "noticia/cultura/unesco-proclama-o-dia-27-de",
+      "page_id": "noticia-fdeed003efa49ffb3b6cbaca",
+      "detail_image": "assets/banners/2026-10-27-1-unesco-proclama-o-dia-27-de-outubro-como-dia-mundial-do-patrimnio-audiovisual-banner.jpg",
+      "snapshot_url": "assets/snapshots/noticia-fdeed003efa49ffb3b6cbaca.jpg"
     }
   ],
   "latest": [
@@ -235,54 +291,6 @@
       "page_id": "noticia-4855d720ad7a500b51b6c728",
       "detail_image": "assets/banners/2026-10-28-1-governo-alarga-proibio-de-smartphones-a-alunos-do-3-ciclo-em-espaos-partilhad-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-4855d720ad7a500b51b6c728.jpg"
-    },
-    {
-      "id": "pt_2026-10-27_1",
-      "lang": "pt",
-      "date": "2026-10-27",
-      "slot": 1,
-      "status": "published",
-      "published_at": "2026-10-27T13:51:01.419038",
-      "category": "CULTURA",
-      "title": "UNESCO proclama o dia 27 de outubro como Dia Mundial do Património Audiovisual",
-      "title_en": "UNESCO proclaims 27 October as World Day for Audiovisual Heritage",
-      "summary": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual",
-      "summary_en": "In 2005, UNESCO proclaimed 27 October as the World Day for Audiovisual Heritage.",
-      "original_year": "2005",
-      "image": "assets/posts/2026-10-27-1-unesco-proclama-o-dia-27-de-outubro-como-dia-mundial-do-patrimnio-audiovisual.jpg",
-      "banner_image": "assets/banners/2026-10-27-1-unesco-proclama-o-dia-27-de-outubro-como-dia-mundial-do-patrimnio-audiovisual-banner.jpg",
-      "body": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, na 21.ª sessão da Conferência Geral da UNESCO, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.",
-      "caption": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.",
-      "source_url": "https://arquivo.pt/wayback/20240511194613/https://blogue.rbe.mec.pt/dia-mundial-do-patrimonio-audiovisual-2655124",
-      "source_profile": "blogue.rbe.mec.pt",
-      "source_platform": "arquivo.pt",
-      "instagram_url": "https://www.instagram.com/p/DfAAVuLly5s/",
-      "instagram_id": "18174809590400840",
-      "facebook_url": "https://www.facebook.com/1030669413467151_122136507968824703",
-      "facebook_id": "1030669413467151_122136507968824703",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram",
-        "facebook"
-      ],
-      "cover_focus": [
-        0.35,
-        0.5
-      ],
-      "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfAAVuLly5s/",
-        "facebook": "https://www.facebook.com/1030669413467151_122136507968824703"
-      },
-      "relevance_level": null,
-      "relevance_scores": {},
-      "relevance_weighted": null,
-      "relevance_justification": "",
-      "source_type": "internet_profile",
-      "url_path": "noticia/cultura/unesco-proclama-o-dia-27-de",
-      "page_id": "noticia-fdeed003efa49ffb3b6cbaca",
-      "detail_image": "assets/banners/2026-10-27-1-unesco-proclama-o-dia-27-de-outubro-como-dia-mundial-do-patrimnio-audiovisual-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-fdeed003efa49ffb3b6cbaca.jpg"
     }
   ],
   "all": [
@@ -492,10 +500,18 @@
         "instagram": "https://www.instagram.com/p/DfAAVuLly5s/",
         "facebook": "https://www.facebook.com/1030669413467151_122136507968824703"
       },
-      "relevance_level": null,
-      "relevance_scores": {},
-      "relevance_weighted": null,
-      "relevance_justification": "",
+      "relevance_level": 3,
+      "relevance_scores": {
+        "impacto_historico": 65.0,
+        "dimensao_impacto": 65.0,
+        "consequencias": 60.0,
+        "relevancia_posterior": 65.0,
+        "dimensao_duracao": 60.0,
+        "relevancia_mediatica": 50.0,
+        "singularidade": 60.0
+      },
+      "relevance_weighted": 62.5,
+      "relevance_justification": "Proclamação pela UNESCO de uma efeméride internacional para preservação do património audiovisual global.",
       "source_type": "internet_profile",
       "url_path": "noticia/cultura/unesco-proclama-o-dia-27-de",
       "page_id": "noticia-fdeed003efa49ffb3b6cbaca",

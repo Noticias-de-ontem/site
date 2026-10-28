@@ -1039,6 +1039,12 @@ def post_to_site_item(post, registry_by_post_id):
             body = ""
     caption = strip_hashtags(option.get("caption") or "")
     relevance = option.get("relevance") if isinstance(option.get("relevance"), dict) else {}
+    if not relevance or not relevance.get("level"):
+        try:
+            import historical_relevance
+            relevance = historical_relevance.default_relevance(lang=clean_text(post.get("lang") or "pt"), level=4)
+        except Exception:
+            relevance = {"level": 4, "scores": {}, "weighted_score": 40.0, "justification": ""}
     item = {
         "id": post_id,
         "lang": clean_text(post.get("lang") or "pt"),

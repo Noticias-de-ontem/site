@@ -45,12 +45,11 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add pending_posts.json
-          if ! git diff --quiet || ! git diff --staged --quiet; then
+          git add -A
+          if ! git diff --staged --quiet; then
             git commit -m "chore: update pending_posts with facebook feed urls"
             for attempt in 1 2 3; do
-              git fetch origin main
-              git rebase origin/main || (git rebase --abort && git pull --no-edit origin main)
+              git pull --rebase --autostash origin main || true
               if git push origin main; then
                 break
               fi
