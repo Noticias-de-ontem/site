@@ -32,7 +32,7 @@ CDXJ_BUILDER_FILE = ROOT / "build_arquivo_cdxj_index.py"
 INSTAGRAM_SCRAPER_FILE = ROOT / "scraper.py"
 ICON_SOURCE = ROOT / "images" / "noticias_de_ontem_icon.png"
 ICON_ASSET = "icon.png"
-SITE_ASSET_VERSION = "20261027d"
+SITE_ASSET_VERSION = "20261028a"
 SITE_FONTS = [
     "Montserrat-Regular.ttf",
     "Montserrat-Medium.ttf",
@@ -1589,6 +1589,27 @@ def build_story_shell(source_html, prefix):
     return shell
 
 
+def _activate_view(html, view):
+    """Na shell gerada de uma rota, ativa a vista dessa rota em vez da inicial.
+
+    Sem isto, todas as páginas geradas trazem a home-view como ativa e o
+    JavaScript só troca para a vista certa depois de ir buscar os dados,
+    o que faz a página inicial aparecer visivelmente a cada refresh.
+    """
+    if view == "home":
+        return html
+    html = html.replace('id="home-view" class="view active"', 'id="home-view" class="view"')
+    tag_re = re.compile(r'<section[^>]*data-view="' + re.escape(view) + r'"[^>]*>')
+
+    def _fix(match):
+        tag = match.group(0)
+        if " active" in tag:
+            return tag
+        return re.sub(r'class="([^"]*)"', lambda c: f'class="{c.group(1)} active"', tag, count=1)
+
+    return tag_re.sub(_fix, html, count=1)
+
+
 def write_route_pages(payload):
     index_path = SITE_DIR / "index.html"
     if not index_path.exists():
@@ -1666,6 +1687,15 @@ def write_route_pages(payload):
                 index=canonical_route != "noticia",
             ),
         )
+        route_view = {
+            "inicio": "home",
+            "calendario": "calendar",
+            "temas": "topics",
+            "documentacao": "docs",
+            "noticia": "news",
+            "newsletter": "newsletter",
+        }[canonical_route]
+        route_html = _activate_view(route_html, route_view)
         route_dir = SITE_DIR / route
         route_dir.mkdir(parents=True, exist_ok=True)
         (route_dir / "index.html").write_text(route_html, encoding="utf-8")
@@ -1705,13 +1735,13 @@ def write_route_pages(payload):
         # Página canónica em URL limpo (noticia/AAAA/MM/DD/slug-d8/).
         depth = len(Path(url_path).parts)
         canonical_shell = build_story_shell(source_html, "../" * depth)
-        story_html = with_seo(canonical_shell, story_seo)
+        story_html = _activate_view(with_seo(canonical_shell, story_seo), "news")
         story_dir = SITE_DIR / url_path
         story_dir.mkdir(parents=True, exist_ok=True)
         (story_dir / "index.html").write_text(story_html, encoding="utf-8")
         # Alias pelo id interno (ligas antigas continuam a funcionar; o
         # canonical aponta para o URL limpo).
-        alias_html = with_seo(alias_shell, story_seo)
+        alias_html = _activate_view(with_seo(alias_shell, story_seo), "news")
         alias_dir = news_root / page_id
         alias_dir.mkdir(parents=True, exist_ok=True)
         (alias_dir / "index.html").write_text(alias_html, encoding="utf-8")
