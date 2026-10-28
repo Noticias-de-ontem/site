@@ -1760,11 +1760,6 @@ def main():
             evening_pending = not pstate.get("evening_posted", False) or not pstate.get("evening_story_posted", False)
             if 8 <= local_hour < 14 and morning_pending:
                 platforms_to_post.append((pname, "morning", 1))
-            elif local_date_str == "2026-10-28" and 14 <= local_hour < 17 and morning_pending:
-                # PATCH TEMPORARIO 2026-10-28, a reverter antes das 17:00:
-                # resgate do post da manha de 28 out, cuja janela fechou as
-                # 14:00 sem publicar por falha da imagem no i.ibb.co.
-                platforms_to_post.append((pname, "morning", 1))
             elif 17 <= local_hour < 22 and evening_pending:
                 platforms_to_post.append((pname, "evening", 2))
 
@@ -1777,10 +1772,7 @@ def main():
         # Janela da manha 8-14h -> ultima hora 13; janela da tarde 17-22h -> ultima hora 21.
         last_hour_of_window = 13 if local_hour < 14 else 21
         hours_left = 22 - local_hour
-        # PATCH TEMPORARIO 2026-10-28: no resgate da manha (14-17h), sem
-        # sorteio, para a run disparada publicar logo.
-        is_morning_rescue = local_date_str == "2026-10-28" and 14 <= local_hour < 17
-        if not is_morning_rescue and local_hour != last_hour_of_window and hours_left > 0 and random.random() > 1.0 / max(hours_left, 1):
+        if local_hour != last_hour_of_window and hours_left > 0 and random.random() > 1.0 / max(hours_left, 1):
             print(f"[{lang}] Decisao aleatoria: Adiamento.")
             continue
 
