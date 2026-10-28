@@ -598,7 +598,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-10",
         "external_suggestions": [
             {
@@ -828,7 +828,14 @@
                 },
                 "article_url": ""
             }
-        ]
+        ],
+        "instagram_id": "18182963707442613",
+        "instagram_url": "https://www.instagram.com/p/DfDIuhDGH8O/",
+        "published_at": "2026-10-28T19:02:30.011181",
+        "instagram_story_id": "18125839363916482",
+        "facebook_id": "",
+        "facebook_url": "https://www.facebook.com/122136501602824703",
+        "facebook_story_id": "1142678398219652"
     },
     {
         "id": "pt_2026-10-29_1",
