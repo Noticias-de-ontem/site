@@ -8,6 +8,11 @@ on:
         required: false
         default: "2026-10-27 2026-10-28"
         type: string
+      backdate:
+        description: "Manter as datas originais na Timeline da Pagina (retroativo)"
+        required: false
+        default: true
+        type: boolean
 
 jobs:
   republish:
@@ -32,6 +37,7 @@ jobs:
         env:
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          BACKDATE_POSTS: ${{ inputs.backdate }}
         run: python scripts/republish_facebook_feed.py ${{ inputs.dates }}
 
       - name: Commit and Push changes

@@ -2179,9 +2179,10 @@ def main():
                 print(f"[{lang}] {pname}: Falha na publicacao apos tentativas imediatas; sera retentado na proxima run.")
 
 
-def publish_to_facebook(message, image_url):
+def publish_to_facebook(message, image_url, backdated_time=None):
     """Publica uma foto como publicacao genuina no Feed (Timeline de Publicacoes) da Pagina do Facebook.
     Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN.
+    Suporta opcionalmente backdated_time (timestamp Unix ou string ISO) para publicacoes com data retroativa.
 
     Usa o fluxo oficial da Meta para publicacoes com imagem no feed:
     1. Upload da foto em modo staged/nao publicado (published=false) para obter photo_id;
@@ -2211,13 +2212,17 @@ def publish_to_facebook(message, image_url):
             if photo_id:
                 # Passo 2: Publicar no Feed (Timeline de Publicacoes) com a foto anexada
                 _time.sleep(2)
+                feed_payload = {
+                    "message": message,
+                    "attached_media": _json.dumps([{"media_fbid": str(photo_id)}]),
+                    "access_token": page_token,
+                }
+                if backdated_time:
+                    feed_payload["backdated_time"] = int(backdated_time) if isinstance(backdated_time, (int, float)) else str(backdated_time)
+
                 feed_res = _r.post(
                     f"https://graph.facebook.com/v25.0/{page_id}/feed",
-                    data={
-                        "message": message,
-                        "attached_media": _json.dumps([{"media_fbid": str(photo_id)}]),
-                        "access_token": page_token,
-                    },
+                    data=feed_payload,
                     timeout=60,
                 )
                 feed_data = feed_res.json()
@@ -2228,9 +2233,13 @@ def publish_to_facebook(message, image_url):
                 print(f"Facebook feed (tentativa {_attempt}/3): Erro ao anexar foto no feed ({feed_data}), a tentar fallback...")
 
             # Fallback (Passo 3): POST direto em /photos com published=true explicito
+            photo_payload = {"url": image_url, "caption": message, "published": "true", "access_token": page_token}
+            if backdated_time:
+                photo_payload["backdated_time"] = int(backdated_time) if isinstance(backdated_time, (int, float)) else str(backdated_time)
+
             res = _r.post(
                 f"https://graph.facebook.com/v25.0/{page_id}/photos",
-                data={"url": image_url, "caption": message, "published": "true", "access_token": page_token},
+                data=photo_payload,
                 timeout=60,
             )
             data = res.json()
