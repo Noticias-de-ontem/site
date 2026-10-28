@@ -1,11 +1,29 @@
 name: Daily Instagram Publisher
 
 on:
-  schedule:
-    # Corre de hora a hora entre as 07:00 e as 19:00 UTC (Ajustado para o Verão PT não exceder 22h locais)
-    - cron: '0 7-19 * * *'
-  # Permite correr manualmente
+  # O cron nativo do GitHub foi movido para o cron-job.org para garantir
+  # o cumprimento pontual do horario (o GitHub schedule sofria atrasos de varias horas).
+  # Para reativar o fallback nativo no GitHub se necessario, descomentar as linhas abaixo:
+  # schedule:
+  #   - cron: '0 7-19 * * *'
+
+  # Permite correr manualmente ou via webhook/API externa (ex: cron-job.org)
   workflow_dispatch:
+    inputs:
+      slot:
+        description: 'Slot a publicar (1=manha, 2=tarde/noite, auto=pela hora)'
+        required: false
+        default: 'auto'
+        type: choice
+        options:
+          - auto
+          - '1'
+          - '2'
+      force:
+        description: 'Forcar publicacao (ignora restricoes horarias normais)'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
   publish:
@@ -18,12 +36,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Setup WARP
-        timeout-minutes: 10
-        uses: fscarmen/warp-on-actions@v1.4
-        with:
-          stack: dual
-
       - name: Set up Python
         uses: actions/setup-python@v7
         with:
@@ -35,7 +47,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Publisher Script
-        timeout-minutes: 120
+        timeout-minutes: 15
         env:
           PYTHONUNBUFFERED: "1"
           IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
@@ -47,9 +59,9 @@ jobs:
           IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          ARQUIVO_TEXTSEARCH_TIMEOUT: "90"
-          ARQUIVO_HOMEPAGE_TIMEOUT: "60"
-          ARQUIVO_CACHE_CURL_TIMEOUT: "90"
+          TARGET_SLOT: ${{ inputs.slot || 'auto' }}
+          FORCE_PUBLISH: ${{ inputs.force || 'false' }}
+          PUBLISH_IMMEDIATE: "1"
         run: python -u publisher.py
 
       - name: Build static site
@@ -77,5 +89,16 @@ jobs:
           [ -f social_metrics.json ] && git add social_metrics.json || true
           [ -d site ] && git add site || true
 
-          # Apenas commita se existirem alterações nos ficheiros (marcados como publicados e estado de slot)
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update publish state" && git push)
+          if ! git diff --quiet || ! git diff --staged --quiet; then
+            git commit -m "chore: update publish state"
+            for attempt in 1 2 3; do
+              git fetch origin main
+              git rebase origin/main || (git rebase --abort && git pull --no-edit origin main)
+              if git push origin main; then
+                echo "Push efetuado com sucesso."
+                break
+              fi
+              echo "Tentativa $attempt falhou ao dar push; a tentar novamente..."
+              sleep 3
+            done
+          fi

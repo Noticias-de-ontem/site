@@ -1546,11 +1546,21 @@ def get_approved_post(lang, slot_idx, date_str, filepath="pending_posts.json"):
         # (funcoes publish_*). So se as 3 tentativas imediatas falharem e
         # que o post volta a ser devolvido numa run seguinte, para voltar
         # a tentar o feed ou a story em falta, ate ao fim da janela.
-        status_ok = post.get("status") == "approved" or (
-            post.get("status") == "published"
-            and (not post.get("instagram_url") or not post.get("facebook_url")
-                 or not post.get("instagram_story_id") or not post.get("facebook_story_id"))
-        )
+        sel_idx = post.get("selected_option", 0)
+        options = post.get("options", [])
+        opt = options[sel_idx] if options and sel_idx < len(options) else {}
+        networks = opt.get("networks", ["instagram", "facebook"])
+        if not isinstance(networks, list):
+            networks = ["instagram", "facebook"]
+
+        status = post.get("status")
+        status_ok = False
+        if status == "approved":
+            status_ok = True
+        elif status == "published":
+            needs_feed = any(p in networks and not post.get(f"{p}_url") for p in ("instagram", "facebook"))
+            needs_story = any(p in networks and not post.get(f"{p}_story_id") for p in ("instagram", "facebook"))
+            status_ok = bool(needs_feed or needs_story)
         if (
             post.get("id") == target_id
             and status_ok
@@ -1743,7 +1753,7 @@ def publish_instagram_story(image_url, lang):
                 print(f"[{lang}] Story Instagram (tentativa {_attempt}/3): erro no container:", res_data)
             else:
                 pub_data = {}
-                for _pub_attempt in range(3):
+                for _pub_attempt in range(6):
                     pub = requests.post(
                         f"https://graph.facebook.com/v25.0/{user_id}/media_publish",
                         data={"creation_id": res_data["id"], "access_token": token},
@@ -1773,6 +1783,10 @@ def publish_instagram_story(image_url, lang):
 def main():
     state = load_publish_state()
 
+    target_slot_env = os.environ.get("TARGET_SLOT", "auto").strip().lower()
+    force_publish = os.environ.get("FORCE_PUBLISH", "false").strip().lower() in ("true", "1", "yes")
+    publish_immediate = os.environ.get("PUBLISH_IMMEDIATE", "1").strip().lower() in ("true", "1", "yes")
+
     for lang in ["pt"]:
         tz_name = "Europe/Lisbon"
         tz = ZoneInfo(tz_name)
@@ -1791,39 +1805,48 @@ def main():
             })
             save_publish_state(state)
 
-        if not is_within_posting_hours(lang):
+        if not force_publish and not is_within_posting_hours(lang):
             print(f"[{lang}] Fora do horario permitido (08h-22h local). A saltar.")
             continue
 
         # Determine which platforms have a posting window now
         platforms_to_post = []
 
-        # Todas as redes: janela 1 = 8-14h, janela 2 = 17-22h
+        # Todas as redes: janela 1 = 8-14h, janela 2 = 17-22h (ou definida por TARGET_SLOT)
         for pname in ("instagram", "facebook"):
             pstate = lang_state.get(pname, {})
-            # Regra hibrida: primeiro 3 tentativas imediatas na mesma run.
-            # Se falharem as 3, a plataforma continua pendente e a proxima
-            # run volta a tentar (feed ou story em falta). O campo
-            # *_attempted e so registo, nao bloqueia a proxima run.
             morning_pending = not pstate.get("morning_posted", False) or not pstate.get("morning_story_posted", False)
             evening_pending = not pstate.get("evening_posted", False) or not pstate.get("evening_story_posted", False)
-            if 8 <= local_hour < 14 and morning_pending:
-                platforms_to_post.append((pname, "morning", 1))
-            elif 17 <= local_hour < 22 and evening_pending:
-                platforms_to_post.append((pname, "evening", 2))
+
+            if target_slot_env in ("1", "morning"):
+                if morning_pending or force_publish:
+                    platforms_to_post.append((pname, "morning", 1))
+            elif target_slot_env in ("2", "evening"):
+                if evening_pending or force_publish:
+                    platforms_to_post.append((pname, "evening", 2))
+            else:
+                if 8 <= local_hour < 14 and morning_pending:
+                    platforms_to_post.append((pname, "morning", 1))
+                elif 17 <= local_hour < 22 and evening_pending:
+                    platforms_to_post.append((pname, "evening", 2))
+                elif force_publish:
+                    if morning_pending:
+                        platforms_to_post.append((pname, "morning", 1))
+                    elif evening_pending:
+                        platforms_to_post.append((pname, "evening", 2))
 
         if not platforms_to_post:
             print(f"[{lang}] Nenhuma rede com janela de publicacao agora.")
             continue
 
-        # Random delay (opcional, nao e obrigatorio publicar).
-        # Excecao: a ultima run de cada janela publica sempre, sem sorteio.
-        # Janela da manha 8-14h -> ultima hora 13; janela da tarde 17-22h -> ultima hora 21.
-        last_hour_of_window = 13 if local_hour < 14 else 21
-        hours_left = 22 - local_hour
-        if local_hour != last_hour_of_window and hours_left > 0 and random.random() > 1.0 / max(hours_left, 1):
-            print(f"[{lang}] Decisao aleatoria: Adiamento.")
-            continue
+        # Random delay (opcional): se PUBLISH_IMMEDIATE estiver ativo (padrao),
+        # publica logo sem adiar aleatoriamente.
+        if not publish_immediate and not force_publish:
+            last_hour_of_window = 13 if local_hour < 14 else 21
+            hours_left = 22 - local_hour
+            if local_hour != last_hour_of_window and hours_left > 0 and random.random() > 1.0 / max(hours_left, 1):
+                print(f"[{lang}] Decisao aleatoria: Adiamento.")
+                continue
 
         print(f"[{lang}] Plataformas a publicar agora: {[p[0] for p in platforms_to_post]}")
 
@@ -1917,7 +1940,6 @@ def main():
                         except Exception as e:
                             print(f"[{lang}] Erro imagem pre-aprovada: {e}. Fallback Live AI.")
                 break
-                break
 
         if approved_entry_found and not used_approved_post:
             # Post aprovado existe mas a imagem nao ficou pronta (download
@@ -1936,35 +1958,46 @@ def main():
             print(f"[{lang}] ERRO: sem post aprovado utilizavel para este slot. A abortar sem fallback para IA (sem listagem de candidatos).")
             continue
 
-        # Upload image to ImgBB (once, shared across platforms)
+        # Obter URL publica da imagem (reutiliza se ja disponivel, senao faz upload)
         imgbb_api_key = os.environ.get("IMGBB_API_KEY")
         public_image_url = None
         delete_url = ""
 
-        if not os.path.exists(output_image_path):
-            print(f"[{lang}] Imagem nao encontrada em {output_image_path}. A saltar todas as redes.")
-            continue
-
-        if imgbb_api_key:
-            try:
-                with open(output_image_path, "rb") as img_file:
-                    imgbb_res = requests.post(
-                        "https://api.imgbb.com/1/upload",
-                        data={"key": imgbb_api_key},
-                        files={"image": img_file},
-                        timeout=60,
-                    )
-                imgbb_data = imgbb_res.json()
-                if imgbb_data.get("success"):
-                    upload_data = imgbb_data.get("data", {})
-                    public_image_url = upload_data["url"]
-                    delete_url = upload_data.get("delete_url", "")
-                else:
-                    print(f"[{lang}] Erro IMGBB: {imgbb_data}")
-            except Exception as e:
-                print(f"[{lang}] Excecao IMGBB: {e}")
+        existing_img_url = option.get("image_url", "") if option else ""
+        if not needs_rerender and existing_img_url and str(existing_img_url).startswith("http"):
+            public_image_url = existing_img_url
+            delete_url = option.get("image_delete_url", "")
+            print(f"[{lang}] A reutilizar URL publica da imagem aprovada: {public_image_url}")
         else:
-            print(f"[{lang}] IMGBB_API_KEY nao configurado. Imagem guardada localmente.")
+            if not os.path.exists(output_image_path):
+                print(f"[{lang}] Imagem nao encontrada em {output_image_path}. A saltar todas as redes.")
+                continue
+
+            if imgbb_api_key:
+                try:
+                    with open(output_image_path, "rb") as img_file:
+                        imgbb_res = requests.post(
+                            "https://api.imgbb.com/1/upload",
+                            data={"key": imgbb_api_key},
+                            files={"image": img_file},
+                            timeout=60,
+                        )
+                    imgbb_data = imgbb_res.json()
+                    if imgbb_data.get("success"):
+                        upload_data = imgbb_data.get("data", {})
+                        public_image_url = upload_data["url"]
+                        delete_url = upload_data.get("delete_url", "")
+                    else:
+                        print(f"[{lang}] Erro IMGBB: {imgbb_data}")
+                except Exception as e:
+                    print(f"[{lang}] Excecao IMGBB: {e}")
+            else:
+                print(f"[{lang}] IMGBB_API_KEY nao configurado. Imagem guardada localmente.")
+
+            if not public_image_url and existing_img_url and str(existing_img_url).startswith("http"):
+                public_image_url = existing_img_url
+                delete_url = option.get("image_delete_url", "")
+                print(f"[{lang}] Fallback para URL publica existente da preview: {public_image_url}")
 
         if not public_image_url:
             print(f"[{lang}] Nao foi possivel obter URL publica da imagem. A saltar todas as redes.")
@@ -2117,9 +2150,9 @@ def publish_to_facebook(message, image_url):
                 timeout=60,
             )
             data = res.json()
-            post_id = data.get("id")
+            post_id = data.get("post_id") or data.get("id")
             if post_id:
-                return f"https://www.facebook.com/{post_id}"
+                return {"success": True, "id": str(post_id), "permalink": f"https://www.facebook.com/{post_id}"}
             print(f"Facebook feed (tentativa {_attempt}/3): Erro:", data)
         except Exception as exc:
             print(f"Facebook feed (tentativa {_attempt}/3): Excecao:", exc)
@@ -2161,6 +2194,7 @@ def publish_facebook_story(image_url):
             if not photo_id:
                 print(f"Story Facebook (tentativa {_attempt}/3): erro no upload nao publicado:", up_data)
             else:
+                _time.sleep(2)
                 res = _r.post(
                     f"https://graph.facebook.com/v25.0/{page_id}/photo_stories",
                     data={"photo_id": photo_id, "access_token": page_token},
@@ -2168,8 +2202,9 @@ def publish_facebook_story(image_url):
                 )
                 data = res.json()
                 if data.get("success"):
-                    print(f"Story Facebook publicada! Post ID: {data.get('post_id')}")
-                    return data.get("post_id") or True
+                    story_id = str(data.get("post_id") or photo_id)
+                    print(f"Story Facebook publicada! Post ID: {story_id}")
+                    return story_id
                 print(f"Story Facebook (tentativa {_attempt}/3): erro ao publicar:", data)
         except Exception as exc:
             print(f"Story Facebook (tentativa {_attempt}/3): excecao API: {exc}")
