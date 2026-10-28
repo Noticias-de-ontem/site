@@ -1647,6 +1647,56 @@ def publish_to_instagram(image_url, caption, lang):
         return {"success": False}
 
 
+def publish_instagram_story(image_url, lang):
+    """Publica a mesma imagem como Story do Instagram (24h, sem legenda).
+
+    Fluxo Graph API igual ao do feed, mas com media_type=STORIES e sem
+    caption (o Instagram ignora legenda em Stories). Best-effort: devolve
+    o id da story ou False, nunca levanta excecao, para uma falha na
+    story nao transformar um post do feed ja publicado num falhado.
+    """
+    token = IG_CREDENTIALS.get(lang, {}).get("token")
+    user_id = IG_CREDENTIALS.get(lang, {}).get("user_id")
+    if not token or not user_id:
+        print(f"[{lang}] Story Instagram: credenciais nao configuradas.")
+        return False
+    try:
+        res = requests.post(
+            f"https://graph.facebook.com/v25.0/{user_id}/media",
+            data={"image_url": image_url, "media_type": "STORIES", "access_token": token},
+            timeout=60,
+        )
+        res_data = res.json()
+        if "id" not in res_data:
+            print(f"[{lang}] Story Instagram: erro no container:", res_data)
+            return False
+        pub_data = {}
+        for _attempt in range(3):
+            pub = requests.post(
+                f"https://graph.facebook.com/v25.0/{user_id}/media_publish",
+                data={"creation_id": res_data["id"], "access_token": token},
+                timeout=60,
+            )
+            pub_data = pub.json()
+            if "id" in pub_data:
+                break
+            err = pub_data.get("error", {}) if isinstance(pub_data, dict) else {}
+            if err.get("code") == 9007 or "not available" in str(err.get("message", "")).lower():
+                print(f"[{lang}] Story Instagram ainda a processar, a voltar a tentar...")
+                import time as _time
+                _time.sleep(10)
+                continue
+            break
+        if "id" in pub_data:
+            print(f"[{lang}] Story Instagram publicada! ID: {pub_data['id']}")
+            return pub_data["id"]
+        print(f"[{lang}] Story Instagram: erro ao publicar:", pub_data)
+        return False
+    except Exception as e:
+        print(f"[{lang}] Story Instagram: excecao API: {e}")
+        return False
+
+
 def main():
     state = load_publish_state()
 
@@ -1893,6 +1943,22 @@ def main():
                     with open("pending_posts.json", "w", encoding="utf-8") as pf:
                         json.dump(pending_posts, pf, ensure_ascii=False, indent=4)
 
+                # Story da mesma imagem, best-effort: uma falha aqui nao
+                # desfaz o post do feed nem impede a run de continuar.
+                # Se a story ja foi registada, nao volta a publicar.
+                if approved_entry and not approved_entry.get(f"{pname}_story_id"):
+                    story_result = False
+                    if pname == "instagram":
+                        story_result = publish_instagram_story(public_image_url, lang)
+                    elif pname == "facebook":
+                        story_result = publish_facebook_story(public_image_url)
+                    if story_result:
+                        approved_entry[f"{pname}_story_id"] = str(story_result)
+                        with open("pending_posts.json", "w", encoding="utf-8") as pf:
+                            json.dump(pending_posts, pf, ensure_ascii=False, indent=4)
+                    else:
+                        print(f"[{lang}] {pname}: Story falhou (feed continua publicado).")
+
                 # Update per-platform state
                 pstate = lang_state[pname]
                 pstate[f"{pslot}_posted"] = True
@@ -1925,6 +1991,47 @@ def publish_to_facebook(message, image_url):
     except Exception as exc:
         print("Erro Facebook:", exc)
     return None
+
+def publish_facebook_story(image_url):
+    """Publica a mesma imagem como Story da Pagina do Facebook (24h).
+
+    Dois passos Graph API: primeiro upload da foto como nao publicada,
+    depois POST /{page-id}/photo_stories com o photo_id. Best-effort:
+    devolve o post_id ou True/False, nunca levanta excecao, para uma
+    falha na story nao transformar um post do feed ja publicado num
+    falhado. Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN, os mesmos do feed.
+    """
+    page_id = os.environ.get("FB_PAGE_ID", "")
+    page_token = os.environ.get("FB_PAGE_ACCESS_TOKEN", "")
+    if not page_id or not page_token:
+        print("Story Facebook: credenciais nao configuradas.")
+        return False
+    import requests as _r
+    try:
+        up = _r.post(
+            f"https://graph.facebook.com/v25.0/{page_id}/photos",
+            data={"url": image_url, "published": "false", "access_token": page_token},
+            timeout=60,
+        )
+        up_data = up.json()
+        photo_id = up_data.get("id")
+        if not photo_id:
+            print("Story Facebook: erro no upload nao publicado:", up_data)
+            return False
+        res = _r.post(
+            f"https://graph.facebook.com/v25.0/{page_id}/photo_stories",
+            data={"photo_id": photo_id, "access_token": page_token},
+            timeout=60,
+        )
+        data = res.json()
+        if data.get("success"):
+            print(f"Story Facebook publicada! Post ID: {data.get('post_id')}")
+            return data.get("post_id") or True
+        print("Story Facebook: erro ao publicar:", data)
+        return False
+    except Exception as exc:
+        print("Story Facebook: excecao API:", exc)
+        return False
 
 
 if __name__ == "__main__":
