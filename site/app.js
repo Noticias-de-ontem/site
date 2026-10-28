@@ -4446,6 +4446,10 @@ function showBetaNotice() {
 }
 
 async function init() {
+  // Troca para a vista da página atual ANTES de ir buscar os dados: sem
+  // isto, a home-view (ativa por defeito na shell) fica visível durante
+  // o fetch e só depois é substituída pela vista certa.
+  setRoute(routeFromLocation());
   wireNavigation();
   wireCalendar();
   wireLanguageSwitch();
