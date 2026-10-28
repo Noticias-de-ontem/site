@@ -4,11 +4,15 @@ import sys
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
-from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-load_dotenv(ROOT / ".env")
+
+try:
+    from dotenv import load_dotenv
+    load_dotenv(ROOT / ".env")
+except ImportError:
+    pass
 
 from publisher import publish_to_facebook, normalize_text
 
