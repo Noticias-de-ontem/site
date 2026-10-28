@@ -1464,10 +1464,18 @@ News Items:
 
 
 def is_within_posting_hours(lang):
+    """Verifica se o momento atual (hora de Portugal Europe/Lisbon) esta dentro das janelas:
+    - Janela 1 (Manha): 08:00 as 13:30 (480 a 810 minutos)
+    - Janela 2 (Tarde/Noite): 17:00 as 21:30 (1020 a 1290 minutos)
+    Compativel automaticamente com horario de inverno (WET, UTC+0) e verao (WEST, UTC+1).
+    """
     try:
-        tz_name = "Europe/Lisbon" 
-        local_hour = datetime.now(ZoneInfo(tz_name)).hour
-        return 8 <= local_hour <= 22
+        tz = ZoneInfo("Europe/Lisbon")
+        local_now = datetime.now(tz)
+        current_mins = local_now.hour * 60 + local_now.minute
+        in_morning = 8 * 60 <= current_mins <= 13 * 60 + 30
+        in_evening = 17 * 60 <= current_mins <= 21 * 60 + 30
+        return in_morning or in_evening
     except Exception:
         return True
 
@@ -1476,11 +1484,15 @@ def load_publish_state(filepath="publish_state.json"):
     default = {
         "pt": {
             "date": "",
+            "morning_target_time": "10:30",
+            "evening_target_time": "19:00",
             "instagram": {"morning_posted": False, "evening_posted": False, "morning_attempted": False, "evening_attempted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
             "facebook": {"morning_posted": False, "evening_posted": False, "morning_attempted": False, "evening_attempted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
         },
         "en": {
             "date": "",
+            "morning_target_time": "10:30",
+            "evening_target_time": "19:00",
             "instagram": {"morning_posted": False, "evening_posted": False, "morning_attempted": False, "evening_attempted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
             "facebook": {"morning_posted": False, "evening_posted": False, "morning_attempted": False, "evening_attempted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
         },
@@ -1791,28 +1803,70 @@ def main():
         tz_name = "Europe/Lisbon"
         tz = ZoneInfo(tz_name)
         local_now = datetime.now(tz)
-        local_hour = local_now.hour
+        local_mins = local_now.hour * 60 + local_now.minute
+        local_time_str = f"{local_now.hour:02d}:{local_now.minute:02d}"
         local_date_str = local_now.strftime("%Y-%m-%d")
 
-        # Reset state per day with new per-platform structure
+        # Reset ou inicializacao de estado diario
         lang_state = state.setdefault(lang, {})
-        if lang_state.get("date") != local_date_str:
+        new_day = lang_state.get("date") != local_date_str
+        if new_day:
             lang_state.clear()
+            # Sorteia um minuto aleatorio para cada janela do dia:
+            # Janela 1: 08:00 (480) a 13:30 (810)
+            m_target_mins = random.randint(8 * 60, 13 * 60 + 30)
+            # Janela 2: 17:00 (1020) a 21:30 (1290)
+            e_target_mins = random.randint(17 * 60, 21 * 60 + 30)
+
             lang_state.update({
                 "date": local_date_str,
+                "morning_target_time": f"{m_target_mins // 60:02d}:{m_target_mins % 60:02d}",
+                "evening_target_time": f"{e_target_mins // 60:02d}:{e_target_mins % 60:02d}",
                 "instagram": {"morning_posted": False, "evening_posted": False, "morning_attempted": False, "evening_attempted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
                 "facebook": {"morning_posted": False, "evening_posted": False, "morning_attempted": False, "evening_attempted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
             })
             save_publish_state(state)
+        else:
+            # Garante que existem os alvos sorteados se o estado foi criado anteriormente sem eles
+            state_updated = False
+            if "morning_target_time" not in lang_state:
+                m_target_mins = random.randint(8 * 60, 13 * 60 + 30)
+                lang_state["morning_target_time"] = f"{m_target_mins // 60:02d}:{m_target_mins % 60:02d}"
+                state_updated = True
+            if "evening_target_time" not in lang_state:
+                e_target_mins = random.randint(17 * 60, 21 * 60 + 30)
+                lang_state["evening_target_time"] = f"{e_target_mins // 60:02d}:{e_target_mins % 60:02d}"
+                state_updated = True
+            if state_updated:
+                save_publish_state(state)
+
+        morning_target = lang_state.get("morning_target_time", "10:30")
+        evening_target = lang_state.get("evening_target_time", "19:00")
 
         if not force_publish and not is_within_posting_hours(lang):
-            print(f"[{lang}] Fora do horario permitido (08h-22h local). A saltar.")
+            print(f"[{lang}] Fora dos intervalos permitidos (08:00-13:30 ou 17:00-21:30 de Portugal Continental). Hora atual: {local_time_str}. A saltar.")
             continue
 
-        # Determine which platforms have a posting window now
-        platforms_to_post = []
+        # Avaliar se cada janela esta pronta para publicar com base no horario sorteado
+        # Janela 1: 08:00 a 13:30 (minutos 480 a 810)
+        in_morning_window = 8 * 60 <= local_mins <= 13 * 60 + 30
+        # Ultimos 10 min da janela (>= 13:20) forcam publicacao se ainda nao tiver saido
+        morning_ready = (
+            force_publish
+            or target_slot_env in ("1", "morning")
+            or (in_morning_window and (local_time_str >= morning_target or local_mins >= 13 * 60 + 20))
+        )
 
-        # Todas as redes: janela 1 = 8-14h, janela 2 = 17-22h (ou definida por TARGET_SLOT)
+        # Janela 2: 17:00 a 21:30 (minutos 1020 a 1290)
+        in_evening_window = 17 * 60 <= local_mins <= 21 * 60 + 30
+        # Ultimos 10 min da janela (>= 21:20) forcam publicacao se ainda nao tiver saido
+        evening_ready = (
+            force_publish
+            or target_slot_env in ("2", "evening")
+            or (in_evening_window and (local_time_str >= evening_target or local_mins >= 21 * 60 + 20))
+        )
+
+        platforms_to_post = []
         for pname in ("instagram", "facebook"):
             pstate = lang_state.get(pname, {})
             morning_pending = not pstate.get("morning_posted", False) or not pstate.get("morning_story_posted", False)
@@ -1825,10 +1879,17 @@ def main():
                 if evening_pending or force_publish:
                     platforms_to_post.append((pname, "evening", 2))
             else:
-                if 8 <= local_hour < 14 and morning_pending:
-                    platforms_to_post.append((pname, "morning", 1))
-                elif 17 <= local_hour < 22 and evening_pending:
-                    platforms_to_post.append((pname, "evening", 2))
+                # Modo automatico por janela e horario sorteado
+                if in_morning_window and morning_pending:
+                    if morning_ready:
+                        platforms_to_post.append((pname, "morning", 1))
+                    else:
+                        print(f"[{lang}] {pname}: Janela da Manha ativa, horario sorteado para hoje e {morning_target} (hora atual: {local_time_str}). Aguardando.")
+                elif in_evening_window and evening_pending:
+                    if evening_ready:
+                        platforms_to_post.append((pname, "evening", 2))
+                    else:
+                        print(f"[{lang}] {pname}: Janela da Tarde ativa, horario sorteado para hoje e {evening_target} (hora atual: {local_time_str}). Aguardando.")
                 elif force_publish:
                     if morning_pending:
                         platforms_to_post.append((pname, "morning", 1))
@@ -1836,17 +1897,8 @@ def main():
                         platforms_to_post.append((pname, "evening", 2))
 
         if not platforms_to_post:
-            print(f"[{lang}] Nenhuma rede com janela de publicacao agora.")
+            print(f"[{lang}] Nenhuma rede com publicacao a executar agora (hora de Lisboa: {local_time_str}).")
             continue
-
-        # Random delay (opcional): se PUBLISH_IMMEDIATE estiver ativo (padrao),
-        # publica logo sem adiar aleatoriamente.
-        if not publish_immediate and not force_publish:
-            last_hour_of_window = 13 if local_hour < 14 else 21
-            hours_left = 22 - local_hour
-            if local_hour != last_hour_of_window and hours_left > 0 and random.random() > 1.0 / max(hours_left, 1):
-                print(f"[{lang}] Decisao aleatoria: Adiamento.")
-                continue
 
         print(f"[{lang}] Plataformas a publicar agora: {[p[0] for p in platforms_to_post]}")
 
