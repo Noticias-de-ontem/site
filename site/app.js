@@ -143,8 +143,19 @@ function relevanceLevelInfo(item) {
 }
 
 function relevanceBadge(item, options = {}) {
-  // Critério de impacto mantido estritamente no backend (curadoria e ordenação interna).
-  return "";
+  const info = relevanceLevelInfo(item);
+  if (!info) return "";
+  const aria = t("relevanceHelpAria") || info.tooltip;
+  const icon = RELEVANCE_ICONS[info.level] || "";
+  const size = options.compact ? " relevance-badge-compact" : "";
+  const scoreData = options.scores && Object.keys(options.scores).length
+    ? ` data-scores='${escapeHtml(JSON.stringify({ scores: options.scores, weighted: options.weighted, justification: options.justification, level: info.level, name: info.name }))}'`
+    : "";
+  return (
+    `<span class="relevance-badge relevance-level-${info.level}${size}" data-relevance-level="${info.level}"${scoreData} ` +
+    `tabindex="0" role="button" aria-describedby="relevance-tooltip" aria-label="${escapeHtml(aria)}" title="${escapeHtml(info.name)}">` +
+    `${icon}<span class="relevance-badge-name">${escapeHtml(info.name)}</span></span>`
+  );
 }
 
 function sourceTypeChip(item) {
@@ -987,7 +998,6 @@ function cardImage(item, linked = false) {
 function cardMetaHtml(item) {
   const parts = [
     ...itemMeta(item).map(escapeHtml),
-    sourceTypeChip(item),
     relevanceBadge(item, { compact: true }),
     networkBadgesHtml(item),
   ].filter(Boolean);
@@ -1464,7 +1474,9 @@ function cleanArticleText(text) {
   let val = String(text);
   val = val.replace(/Este post apenas tem o objetivo de relembrar acontecimentos passados da hist[oó]ria nunca representando acontecimentos atuais\.?:?/gi, "");
   val = val.replace(/Esta not[ií]cia [eé] de \d{4}\.?/gi, "");
+  val = val.replace(/🔗?\s*L[eê] a not[ií]cia completa no link na descri[cç][aã]o do perfil\.?:?/gi, "");
   val = val.replace(/🔗?\s*L[eê] a not[ií]cia completa no link da bio\.?:?/gi, "");
+  val = val.replace(/🔗?\s*L[eê] a not[ií]cia completa no link do sobre do perfil\.?:?/gi, "");
   val = val.replace(/🔗?\s*L[eê] mais no link da bio\.?:?/gi, "");
   val = val.replace(/#\w+/g, "");
   return val.trim();
@@ -1589,8 +1601,8 @@ function adjacentNewsHtml(item) {
   if (!neighbours[0] && !neighbours[1]) return "";
   return `
     <nav class="news-article-neighbours" aria-label="${escapeHtml(t("sameDayTitle"))}">
-      ${neighbours[0] ? `<a class="neighbour prev" href="${escapeHtml(newsPageUrl(neighbours[0]))}" data-news-id="${escapeHtml(neighbours[0].page_id)}"><span>‹ ${escapeHtml(t("previousStory"))}</span><strong>${escapeHtml(cleanTitle(neighbours[0]))}</strong></a>` : "<span></span>"}
-      ${neighbours[1] ? `<a class="neighbour next" href="${escapeHtml(newsPageUrl(neighbours[1]))}" data-news-id="${escapeHtml(neighbours[1].page_id)}"><span>${escapeHtml(t("nextStory"))} ›</span><strong>${escapeHtml(cleanTitle(neighbours[1]))}</strong></a>` : "<span></span>"}
+      ${neighbours[1] ? `<a class="neighbour next" href="${escapeHtml(newsPageUrl(neighbours[1]))}" data-news-id="${escapeHtml(neighbours[1].page_id)}"><span>‹ ${escapeHtml(t("nextStory"))}</span><strong>${escapeHtml(cleanTitle(neighbours[1]))}</strong></a>` : "<span></span>"}
+      ${neighbours[0] ? `<a class="neighbour prev" href="${escapeHtml(newsPageUrl(neighbours[0]))}" data-news-id="${escapeHtml(neighbours[0].page_id)}"><span>${escapeHtml(t("previousStory"))} ›</span><strong>${escapeHtml(cleanTitle(neighbours[0]))}</strong></a>` : "<span></span>"}
     </nav>
   `;
 }
@@ -3435,14 +3447,26 @@ function relativeTime(dateValue, publishedAt) {
       }
     }
   }
-  if (!dateValue) return "";
-  const then = new Date(`${dateValue}T12:00:00`);
+  if (!dateValue && !publishedAt) return "";
+  const then = publishedAt ? new Date(publishedAt) : new Date(`${dateValue}T12:00:00`);
   const today = new Date();
   today.setHours(12, 0, 0, 0);
-  const days = Math.round((today - then) / 86400000);
-  if (days <= 0) return state.lang === "en" ? "Hoje" : "hoje";
-  if (days === 1) return state.lang === "en" ? "Yesterday" : "ontem";
-  return state.lang === "en" ? `${days} days ago` : `há ${days} dias`;
+  const thenMidnight = new Date(then);
+  thenMidnight.setHours(12, 0, 0, 0);
+  const diffDays = Math.max(0, Math.round((today.getTime() - thenMidnight.getTime()) / 86400000));
+  if (diffDays <= 0) return state.lang === "en" ? "Hoje" : "hoje";
+  if (diffDays === 1) return state.lang === "en" ? "Yesterday" : "ontem";
+  if (diffDays < 30) {
+    return state.lang === "en" ? `${diffDays} days ago` : `há ${diffDays} dias`;
+  }
+  if (diffDays < 365) {
+    const months = Math.max(1, Math.round(diffDays / 30.4375));
+    if (months <= 1) return state.lang === "en" ? "1 month ago" : "há 1 mês";
+    return state.lang === "en" ? `${months} months ago` : `há ${months} meses`;
+  }
+  const years = Math.max(1, Math.round(diffDays / 365.25));
+  if (years <= 1) return state.lang === "en" ? "1 year ago" : "há 1 ano";
+  return state.lang === "en" ? `${years} years ago` : `há ${years} anos`;
 }
 
 function renderDocs() {

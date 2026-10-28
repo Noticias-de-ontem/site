@@ -1349,8 +1349,8 @@ Look at the following raw news publications from exactly this day in the past. Y
 14. PLATFORM-SPECIFIC CAPTIONS:
 - Do NOT start the caption with the year (e.g. NEVER start with "Em 2015," or "No ano de 2021,"). Integrate the year naturally inside or towards the end of the narrative phrase (e.g. "A Assembleia da República viveu um momento inédito na democracia em 2021: ...").
 - Standard disclaimer MUST follow: "Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de [ANO]."
-- For "caption_instagram": include link phrase "🔗 Lê a notícia completa no link da bio." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]" (e.g. #Politica, #Mundo, #Sociedade). NEVER use #atualidade.
-- For "caption_facebook": include link phrase "🔗 Lê a notícia completa no link do sobre do perfil." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]". NEVER use #atualidade.
+- For "caption_instagram": include link phrase "🔗 Lê a notícia completa no link na descrição do perfil." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]" (e.g. #Politica, #Mundo, #Sociedade). NEVER use #atualidade.
+- For "caption_facebook": include link phrase "🔗 Lê a notícia completa no link na descrição do perfil." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]". NEVER use #atualidade.
 
 Write your response in Portuguese.
 Return a JSON object with exactly these keys:
@@ -2100,6 +2100,12 @@ def main():
                 final_caption = caption_instagram or short_title
             elif pname == "facebook":
                 final_caption = caption_facebook or short_title
+            final_caption = re.sub(
+                r"🔗?\s*L[eê] a not[ií]cia completa no link (?:da bio|do sobre do perfil)\.?",
+                "🔗 Lê a notícia completa no link na descrição do perfil.",
+                final_caption,
+                flags=re.IGNORECASE,
+            )
             final_caption = normalize_text(final_caption)
 
             # Publish to the platform

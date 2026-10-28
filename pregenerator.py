@@ -1643,10 +1643,7 @@ def format_standard_caption(caption, year, category, platform="instagram", lang=
             cat_tag = "Mundo"
 
         alert = f"Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de {year_str}."
-        if platform == "facebook":
-            link_cta = "🔗 Lê a notícia completa no link do sobre do perfil."
-        else:
-            link_cta = "🔗 Lê a notícia completa no link da bio."
+        link_cta = "🔗 Lê a notícia completa no link na descrição do perfil."
         hashtags = f"#NoticiasDeOntem #ArquivoPT #{cat_tag}"
     else:
         cat_tag = re.sub(r"[^a-zA-Z0-9]", "", str(category or "")).capitalize() or "World"

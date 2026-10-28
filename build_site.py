@@ -553,7 +553,9 @@ def strip_social_disclaimer(value):
     patterns = [
         r"Este post apenas tem o objetivo de relembrar acontecimentos passados da hist[oó]ria nunca representando acontecimentos atuais\.?:?",
         r"Esta not[ií]cia [eé] de \d{4}\.?",
+        r"🔗?\s*L[eê] a not[ií]cia completa no link na descri[cç][aã]o do perfil\.?:?",
         r"🔗?\s*L[eê] a not[ií]cia completa no link da bio\.?:?",
+        r"🔗?\s*L[eê] a not[ií]cia completa no link do sobre do perfil\.?:?",
         r"🔗?\s*L[eê] mais no link da bio\.?:?",
     ]
     for pattern in patterns:
