@@ -265,8 +265,8 @@ const i18n = {
     relevanceDocScoresNote: "No site, a pontuação completa de cada notícia aparece na respetiva página individual.",
     homeHighlightsEyebrow: "Agora no projeto",
     homeHighlightsTitle: "Destaques",
-    homeLevel1Title: "Destaques",
-    homeLevel1Lead: "Os acontecimentos mais marcantes preservados no arquivo.",
+    homeLevel1Title: "Notícias mais importantes",
+    homeLevel1Lead: "Os acontecimentos de maior relevância preservados no arquivo.",
     homeLevel2Title: "Grande Relevância",
     homeLevel2Lead: "Momentos decisivos de grande impacto nacional ou internacional.",
     homeMoreTitle: "Mais notícias",
@@ -488,8 +488,8 @@ const i18n = {
     relevanceDocScoresNote: "On the site, each story's full score breakdown appears on its own page.",
     homeHighlightsEyebrow: "Now on the project",
     homeHighlightsTitle: "Top stories",
-    homeLevel1Title: "Historic Landmarks",
-    homeLevel1Lead: "Events that changed the course of history.",
+    homeLevel1Title: "Most Important News",
+    homeLevel1Lead: "The most relevant historical events preserved in the archive.",
     homeLevel2Title: "Major Events",
     homeLevel2Lead: "Decisive moments with major national or international impact.",
     homeMoreTitle: "More stories",
@@ -3379,13 +3379,25 @@ function renderHomeSections() {
     `).join("");
   }
 
-  // Barra lateral: lista dos Marcos Históricos (até 6), com badge.
-  const landings = byLevel(1).slice(0, 6);
+  // Barra lateral: notícias mais importantes (Nível 1 e Nível 2, até 6), com badge.
+  const importantItems = all
+    .filter((item) => {
+      const lvl = Number(item.relevance_level) || 4;
+      return lvl === 1 || lvl === 2;
+    })
+    .sort((left, right) => {
+      const lvlA = Number(left.relevance_level) || 4;
+      const lvlB = Number(right.relevance_level) || 4;
+      if (lvlA !== lvlB) return lvlA - lvlB;
+      return `${right.date || ""}-${right.slot || 0}`.localeCompare(`${left.date || ""}-${left.slot || 0}`);
+    })
+    .slice(0, 6);
+
   const landmarksBlock = document.getElementById("home-level-1-block");
   const landmarksList = document.getElementById("home-level-1");
   if (landmarksBlock && landmarksList) {
-    landmarksBlock.hidden = landings.length === 0;
-    landmarksList.innerHTML = landings.map((item) => `
+    landmarksBlock.hidden = importantItems.length === 0;
+    landmarksList.innerHTML = importantItems.map((item) => `
       <li>
         <a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">
           <span class="feed-year">${escapeHtml(item.original_year || dateYear(item.date))}</span>
