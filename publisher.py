@@ -1542,13 +1542,14 @@ def get_approved_post(lang, slot_idx, date_str, filepath="pending_posts.json"):
         # fica com status "published" e sem URL nessa rede: tem de voltar a
         # ser devolvido para a rede em falta voltar a tenta-lo, em vez de
         # cair no caminho da IA, que geraria um post diferente.
-        # So o feed conta para voltar a devolver um post publicado: uma
-        # story em falta NAO traz o post de volta numa run seguinte, para
-        # a story nao sair desfasada do feed. O retry da story e imediato,
-        # na mesma run, nas funcoes publish_*_story.
+        # Regra hibrida: o primeiro retry e imediato, na mesma run
+        # (funcoes publish_*). So se as 3 tentativas imediatas falharem e
+        # que o post volta a ser devolvido numa run seguinte, para voltar
+        # a tentar o feed ou a story em falta, ate ao fim da janela.
         status_ok = post.get("status") == "approved" or (
             post.get("status") == "published"
-            and (not post.get("instagram_url") or not post.get("facebook_url"))
+            and (not post.get("instagram_url") or not post.get("facebook_url")
+                 or not post.get("instagram_story_id") or not post.get("facebook_story_id"))
         )
         if (
             post.get("id") == target_id
@@ -1605,9 +1606,8 @@ def publish_to_instagram(image_url, caption, lang):
     Ate 3 tentativas com 20 s de espera, para qualquer erro (contentor,
     publicacao ou excecao), alem do retry interno do 9007 no media_publish
     (ate 6 vezes com 20 s). Se falhar as 3 tentativas, devolve insucesso e
-    a run seguinte NAO volta a tentar este feed: a tentativa fica marcada
-    no estado (ver o ramo de falha no main), para as publicacoes nao
-    sairem desfasadas entre redes.
+    se falharem as 3 tentativas, a proxima run volta a tentar, com novas
+    tentativas imediatas, ate ao fim da janela.
     """
     token = IG_CREDENTIALS.get(lang, {}).get("token")
     user_id = IG_CREDENTIALS.get(lang, {}).get("user_id")
@@ -1662,7 +1662,7 @@ def publish_to_instagram(image_url, caption, lang):
         if _attempt < 3:
             print(f"[{lang}] Instagram feed: a retentar apenas o feed, na mesma run, em 20 s...")
             _time.sleep(20)
-    print(f"[{lang}] Instagram feed: falhou apos 3 tentativas na mesma run; nao sera retentado numa run seguinte.")
+    print(f"[{lang}] Instagram feed: falhou apos 3 tentativas na mesma run; sera retentado na proxima run.")
     return {"success": False}
 
 def publish_instagram_story(image_url, lang):
@@ -1671,8 +1671,8 @@ def publish_instagram_story(image_url, lang):
     Fluxo Graph API igual ao do feed, mas com media_type=STORIES e sem
     caption (o Instagram ignora legenda em Stories). Retry IMEDIATO, na
     mesma run, ate 3 tentativas com 20 s de espera, para qualquer erro:
-    a story sai junto ao feed, nunca numa run seguinte, para nao sair
-    desfasada. Best-effort: devolve o id da story ou False, nunca levanta
+    a story sai, em principio, junto ao feed, com retry imediato; so se
+    as 3 tentativas imediatas falharem e que vai para a proxima run. Best-effort: devolve o id da story ou False, nunca levanta
     excecao, para uma falha na story nao transformar um post do feed ja
     publicado num falhado.
     """
@@ -1718,7 +1718,7 @@ def publish_instagram_story(image_url, lang):
         if _attempt < 3:
             print(f"[{lang}] Story Instagram: a retentar apenas a story, na mesma run, em 20 s...")
             _time.sleep(20)
-    print(f"[{lang}] Story Instagram: falhou apos 3 tentativas na mesma run; nao sera retentada numa run seguinte.")
+    print(f"[{lang}] Story Instagram: falhou apos 3 tentativas na mesma run; sera retentada na proxima run.")
     return False
 
 def main():
@@ -1752,13 +1752,12 @@ def main():
         # Todas as redes: janela 1 = 8-14h, janela 2 = 17-22h
         for pname in ("instagram", "facebook"):
             pstate = lang_state.get(pname, {})
-            # Retry SEMPRE na mesma run, como a story: uma plataforma so
-            # esta pendente se ainda nao foi publicada E ainda nao foi
-            # tentada. Depois de tentada (com sucesso ou apos as tentativas
-            # imediatas falharem), nao volta a ser tentada numa run seguinte,
-            # para as publicacoes nao sairem desfasadas entre redes.
-            morning_pending = not pstate.get("morning_posted", False) and not pstate.get("morning_attempted", False)
-            evening_pending = not pstate.get("evening_posted", False) and not pstate.get("evening_attempted", False)
+            # Regra hibrida: primeiro 3 tentativas imediatas na mesma run.
+            # Se falharem as 3, a plataforma continua pendente e a proxima
+            # run volta a tentar (feed ou story em falta). O campo
+            # *_attempted e so registo, nao bloqueia a proxima run.
+            morning_pending = not pstate.get("morning_posted", False) or not pstate.get("morning_story_posted", False)
+            evening_pending = not pstate.get("evening_posted", False) or not pstate.get("evening_story_posted", False)
             if 8 <= local_hour < 14 and morning_pending:
                 platforms_to_post.append((pname, "morning", 1))
             elif 17 <= local_hour < 22 and evening_pending:
@@ -1928,6 +1927,34 @@ def main():
                 print(f"[{lang}] {pname}: Nao esta nas networks desta noticia ({networks}).")
                 continue
 
+            pstate = lang_state[pname]
+            feed_done = bool(approved_entry and approved_entry.get(f"{pname}_url")) or bool(pstate.get(f"{pslot}_posted", False))
+            story_done = bool(approved_entry and approved_entry.get(f"{pname}_story_id")) or bool(pstate.get(f"{pslot}_story_posted", False))
+
+            if feed_done and story_done:
+                continue
+
+            if feed_done and not story_done:
+                # Fallback apos as 3 tentativas imediatas falharem na run
+                # anterior: retenta apenas a story, sem republicar o feed.
+                # A funcao da story faz, ela propria, 3 tentativas imediatas.
+                story_result = False
+                if pname == "instagram":
+                    story_result = publish_instagram_story(public_image_url, lang)
+                elif pname == "facebook":
+                    story_result = publish_facebook_story(public_image_url)
+                if story_result:
+                    if approved_entry:
+                        approved_entry[f"{pname}_story_id"] = str(story_result)
+                        with open("pending_posts.json", "w", encoding="utf-8") as pf:
+                            json.dump(pending_posts, pf, ensure_ascii=False, indent=4)
+                    pstate[f"{pslot}_story_posted"] = True
+                    save_publish_state(state)
+                    print(f"[{lang}] {pname}: Story retentada com sucesso na proxima run (feed nao republicado).")
+                else:
+                    print(f"[{lang}] {pname}: Story continua a falhar apos as tentativas imediatas; sera retentada na proxima run, ate ao fim da janela.")
+                continue
+
             # Select platform-specific caption
             if pname == "instagram":
                 final_caption = caption_instagram or short_title
@@ -1977,7 +2004,7 @@ def main():
                 # Story da mesma imagem, best-effort: uma falha aqui nao
                 # desfaz o post do feed nem impede a run de continuar.
                 # O retry da story e imediato, dentro de publish_*_story,
-                # na mesma run: nunca numa run seguinte, para a story nao
+                # na mesma run em primeiro lugar; so se as 3 falharem e que vai para a proxima run, para a story nao
                 # sair desfasada do feed.
                 story_result = False
                 if approved_entry and not approved_entry.get(f"{pname}_story_id"):
@@ -1990,24 +2017,24 @@ def main():
                         with open("pending_posts.json", "w", encoding="utf-8") as pf:
                             json.dump(pending_posts, pf, ensure_ascii=False, indent=4)
                     else:
-                        print(f"[{lang}] {pname}: Story falhou apos as tentativas imediatas; nao sera retentada numa run seguinte.")
+                        print(f"[{lang}] {pname}: Story falhou apos as tentativas imediatas; sera retentada na proxima run.")
 
                 # Update per-platform state
                 pstate = lang_state[pname]
                 pstate[f"{pslot}_posted"] = True
                 pstate[f"{pslot}_attempted"] = True
                 if story_result:
-                    # Registo apenas: nao volta a tornar a plataforma pendente.
+                    # Story feita: a plataforma deixa de estar pendente por causa da story.
                     pstate[f"{pslot}_story_posted"] = True
                 pstate["last_post_time"] = local_now.isoformat()
                 save_publish_state(state)
 
                 print(f"[{lang}] {pname}: Publicado com sucesso!")
             else:
-                # Feed falhou apos as tentativas imediatas na mesma run:
-                # marca a tentativa para esta plataforma nao voltar a ser
-                # tentada numa run seguinte, para nao desfasar as publicacoes.
-                # O post desse slot fica por publicar nesta rede.
+                # Feed falhou apos as 3 tentativas imediatas na mesma run:
+                # regista a tentativa, mas a plataforma continua pendente,
+                # para a proxima run voltar a tentar, com novas tentativas
+                # imediatas, ate ao fim da janela.
                 pstate = lang_state[pname]
                 pstate[f"{pslot}_attempted"] = True
                 save_publish_state(state)
@@ -2015,17 +2042,16 @@ def main():
                     approved_entry[f"{pname}_attempted"] = True
                     with open("pending_posts.json", "w", encoding="utf-8") as pf:
                         json.dump(pending_posts, pf, ensure_ascii=False, indent=4)
-                print(f"[{lang}] {pname}: Falha na publicacao apos tentativas imediatas; nao sera retentado numa run seguinte.")
+                print(f"[{lang}] {pname}: Falha na publicacao apos tentativas imediatas; sera retentado na proxima run.")
 
 
 def publish_to_facebook(message, image_url):
     """Publica uma foto no Facebook Page via Graph API. Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN.
 
-    Retry SEMPRE na mesma run, como a story: ate 3 tentativas com 20 s de
-    espera, para qualquer erro. Se falhar as 3 tentativas, devolve None e
-    a run seguinte NAO volta a tentar este feed: a tentativa fica marcada
-    no estado (ver o ramo de falha no main), para as publicacoes nao
-    sairem desfasadas entre redes.
+    Retry primeiro na mesma run, como a story: ate 3 tentativas com 20 s
+    de espera, para qualquer erro. Se falharem as 3 tentativas, devolve
+    None e a proxima run volta a tentar, com novas tentativas imediatas,
+    ate ao fim da janela.
     """
     page_id = os.environ.get("FB_PAGE_ID", "")
     page_token = os.environ.get("FB_PAGE_ACCESS_TOKEN", "")
@@ -2051,7 +2077,7 @@ def publish_to_facebook(message, image_url):
         if _attempt < 3:
             print("Facebook feed: a retentar apenas o feed, na mesma run, em 20 s...")
             _time.sleep(20)
-    print("Facebook feed: falhou apos 3 tentativas na mesma run; nao sera retentado numa run seguinte.")
+    print("Facebook feed: falhou apos 3 tentativas na mesma run; sera retentado na proxima run.")
     return None
 
 def publish_facebook_story(image_url):
@@ -2060,8 +2086,8 @@ def publish_facebook_story(image_url):
     Dois passos Graph API: primeiro upload da foto como nao publicada,
     depois POST /{page-id}/photo_stories com o photo_id. Retry IMEDIATO,
     na mesma run, ate 3 tentativas com 20 s de espera, para qualquer erro:
-    a story sai junto ao feed, nunca numa run seguinte, para nao sair
-    desfasada. Best-effort: devolve o post_id ou True/False, nunca levanta
+    a story sai, em principio, junto ao feed, com retry imediato; so se
+    as 3 tentativas imediatas falharem e que vai para a proxima run. Best-effort: devolve o post_id ou True/False, nunca levanta
     excecao, para uma falha na story nao transformar um post do feed ja
     publicado num falhado. Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN, os
     mesmos do feed.
@@ -2100,7 +2126,7 @@ def publish_facebook_story(image_url):
         if _attempt < 3:
             print("Story Facebook: a retentar apenas a story, na mesma run, em 20 s...")
             _time.sleep(20)
-    print("Story Facebook: falhou apos 3 tentativas na mesma run; nao sera retentada numa run seguinte.")
+    print("Story Facebook: falhou apos 3 tentativas na mesma run; sera retentada na proxima run.")
     return False
 
 if __name__ == "__main__":
