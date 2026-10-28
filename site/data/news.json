@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-28T19:12:40+00:00",
+  "generated_at": "2026-10-28T21:55:52+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -15,6 +15,7 @@
     "date": "2026-10-28",
     "slot": 2,
     "status": "published",
+    "published_at": "2026-10-28T19:02:30.011181",
     "category": "POLÍTICA",
     "title": "Partidos de esquerda chegam a acordo de base para Governo",
     "title_en": "",
@@ -30,18 +31,21 @@
     "source_platform": "",
     "instagram_url": "https://www.instagram.com/p/DfDIuhDGH8O/",
     "instagram_id": "18182963707442613",
-    "facebook_url": "https://www.facebook.com/122136501602824703",
-    "facebook_id": "",
+    "facebook_url": "https://www.facebook.com/1030669413467151_122136508664824703",
+    "facebook_id": "1030669413467151_122136508664824703",
     "archive_credit": "Arquivo.pt",
-    "banner_ready": false,
+    "banner_ready": true,
     "networks": [
       "instagram",
       "facebook"
     ],
-    "cover_focus": null,
+    "cover_focus": [
+      0.5,
+      0.55
+    ],
     "network_posts": {
       "instagram": "https://www.instagram.com/p/DfDIuhDGH8O/",
-      "facebook": "https://www.facebook.com/122136501602824703"
+      "facebook": "https://www.facebook.com/1030669413467151_122136508664824703"
     },
     "relevance_level": 2,
     "relevance_scores": {
@@ -68,6 +72,7 @@
       "date": "2026-10-28",
       "slot": 2,
       "status": "published",
+      "published_at": "2026-10-28T19:02:30.011181",
       "category": "POLÍTICA",
       "title": "Partidos de esquerda chegam a acordo de base para Governo",
       "title_en": "",
@@ -83,18 +88,21 @@
       "source_platform": "",
       "instagram_url": "https://www.instagram.com/p/DfDIuhDGH8O/",
       "instagram_id": "18182963707442613",
-      "facebook_url": "https://www.facebook.com/122136501602824703",
-      "facebook_id": "",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136508664824703",
+      "facebook_id": "1030669413467151_122136508664824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.55
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfDIuhDGH8O/",
-        "facebook": "https://www.facebook.com/122136501602824703"
+        "facebook": "https://www.facebook.com/1030669413467151_122136508664824703"
       },
       "relevance_level": 2,
       "relevance_scores": {
@@ -120,6 +128,7 @@
       "date": "2026-10-27",
       "slot": 2,
       "status": "published",
+      "published_at": "2026-10-27T20:59:24.231255",
       "category": "POLÍTICA",
       "title": "Orçamento do Estado chumbado na Assembleia da República",
       "title_en": "State Budget for 2022 rejected in Parliament",
@@ -135,18 +144,21 @@
       "source_platform": "",
       "instagram_url": "https://www.instagram.com/p/DfA9Wa6ie4u/",
       "instagram_id": "17994294225025710",
-      "facebook_url": "https://www.facebook.com/122136372566824703",
-      "facebook_id": "",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136508274824703",
+      "facebook_id": "1030669413467151_122136508274824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.4
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfA9Wa6ie4u/",
-        "facebook": "https://www.facebook.com/122136372566824703"
+        "facebook": "https://www.facebook.com/1030669413467151_122136508274824703"
       },
       "relevance_level": 2,
       "relevance_scores": {
@@ -174,6 +186,7 @@
       "date": "2026-10-28",
       "slot": 1,
       "status": "published",
+      "published_at": "2026-10-28T15:39:34.266140",
       "category": "SOCIEDADE",
       "title": "Governo alarga proibição de smartphones a alunos do 3.º ciclo em espaços partilhados",
       "title_en": "Government extends smartphone ban to 3rd cycle students in shared spaces",
@@ -189,18 +202,21 @@
       "source_platform": "arquivo.pt",
       "instagram_url": "https://www.instagram.com/p/DfCxiYWjNSh/",
       "instagram_id": "18416169256086544",
-      "facebook_url": "https://www.facebook.com/122136480476824703",
-      "facebook_id": "",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136508376824703",
+      "facebook_id": "1030669413467151_122136508376824703",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.45,
+        0.38
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfCxiYWjNSh/",
-        "facebook": "https://www.facebook.com/122136480476824703"
+        "facebook": "https://www.facebook.com/1030669413467151_122136508376824703"
       },
       "relevance_level": 5,
       "relevance_scores": {
@@ -226,6 +242,7 @@
       "date": "2026-10-27",
       "slot": 1,
       "status": "published",
+      "published_at": "2026-10-27T13:51:01.419038",
       "category": "CULTURA",
       "title": "UNESCO proclama o dia 27 de outubro como Dia Mundial do Património Audiovisual",
       "title_en": "UNESCO proclaims 27 October as World Day for Audiovisual Heritage",
@@ -241,18 +258,21 @@
       "source_platform": "arquivo.pt",
       "instagram_url": "https://www.instagram.com/p/DfAAVuLly5s/",
       "instagram_id": "18174809590400840",
-      "facebook_url": "https://www.facebook.com/122136354890824703",
-      "facebook_id": "122136354890824703",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136507968824703",
+      "facebook_id": "1030669413467151_122136507968824703",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.35,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfAAVuLly5s/",
-        "facebook": "https://www.facebook.com/122136354890824703"
+        "facebook": "https://www.facebook.com/1030669413467151_122136507968824703"
       },
       "relevance_level": null,
       "relevance_scores": {},
@@ -262,7 +282,7 @@
       "url_path": "noticia/cultura/unesco-proclama-o-dia-27-de",
       "page_id": "noticia-fdeed003efa49ffb3b6cbaca",
       "detail_image": "assets/banners/2026-10-27-1-unesco-proclama-o-dia-27-de-outubro-como-dia-mundial-do-patrimnio-audiovisual-banner.jpg",
-      "snapshot_url": "https://arquivo.pt/screenshot/?url=https%3A%2F%2Farquivo.pt%2FnoFrame%2Freplay%2F20240511194613%2Fhttps%3A%2F%2Fblogue.rbe.mec.pt%2Fdia-mundial-do-patrimonio-audiovisual-2655124"
+      "snapshot_url": "assets/snapshots/noticia-fdeed003efa49ffb3b6cbaca.jpg"
     }
   ],
   "all": [
@@ -272,6 +292,7 @@
       "date": "2026-10-28",
       "slot": 2,
       "status": "published",
+      "published_at": "2026-10-28T19:02:30.011181",
       "category": "POLÍTICA",
       "title": "Partidos de esquerda chegam a acordo de base para Governo",
       "title_en": "",
@@ -287,18 +308,21 @@
       "source_platform": "",
       "instagram_url": "https://www.instagram.com/p/DfDIuhDGH8O/",
       "instagram_id": "18182963707442613",
-      "facebook_url": "https://www.facebook.com/122136501602824703",
-      "facebook_id": "",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136508664824703",
+      "facebook_id": "1030669413467151_122136508664824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.55
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfDIuhDGH8O/",
-        "facebook": "https://www.facebook.com/122136501602824703"
+        "facebook": "https://www.facebook.com/1030669413467151_122136508664824703"
       },
       "relevance_level": 2,
       "relevance_scores": {
@@ -324,6 +348,7 @@
       "date": "2026-10-28",
       "slot": 1,
       "status": "published",
+      "published_at": "2026-10-28T15:39:34.266140",
       "category": "SOCIEDADE",
       "title": "Governo alarga proibição de smartphones a alunos do 3.º ciclo em espaços partilhados",
       "title_en": "Government extends smartphone ban to 3rd cycle students in shared spaces",
@@ -339,18 +364,21 @@
       "source_platform": "arquivo.pt",
       "instagram_url": "https://www.instagram.com/p/DfCxiYWjNSh/",
       "instagram_id": "18416169256086544",
-      "facebook_url": "https://www.facebook.com/122136480476824703",
-      "facebook_id": "",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136508376824703",
+      "facebook_id": "1030669413467151_122136508376824703",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.45,
+        0.38
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfCxiYWjNSh/",
-        "facebook": "https://www.facebook.com/122136480476824703"
+        "facebook": "https://www.facebook.com/1030669413467151_122136508376824703"
       },
       "relevance_level": 5,
       "relevance_scores": {
@@ -376,6 +404,7 @@
       "date": "2026-10-27",
       "slot": 2,
       "status": "published",
+      "published_at": "2026-10-27T20:59:24.231255",
       "category": "POLÍTICA",
       "title": "Orçamento do Estado chumbado na Assembleia da República",
       "title_en": "State Budget for 2022 rejected in Parliament",
@@ -391,18 +420,21 @@
       "source_platform": "",
       "instagram_url": "https://www.instagram.com/p/DfA9Wa6ie4u/",
       "instagram_id": "17994294225025710",
-      "facebook_url": "https://www.facebook.com/122136372566824703",
-      "facebook_id": "",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136508274824703",
+      "facebook_id": "1030669413467151_122136508274824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.4
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfA9Wa6ie4u/",
-        "facebook": "https://www.facebook.com/122136372566824703"
+        "facebook": "https://www.facebook.com/1030669413467151_122136508274824703"
       },
       "relevance_level": 2,
       "relevance_scores": {
@@ -428,6 +460,7 @@
       "date": "2026-10-27",
       "slot": 1,
       "status": "published",
+      "published_at": "2026-10-27T13:51:01.419038",
       "category": "CULTURA",
       "title": "UNESCO proclama o dia 27 de outubro como Dia Mundial do Património Audiovisual",
       "title_en": "UNESCO proclaims 27 October as World Day for Audiovisual Heritage",
@@ -443,18 +476,21 @@
       "source_platform": "arquivo.pt",
       "instagram_url": "https://www.instagram.com/p/DfAAVuLly5s/",
       "instagram_id": "18174809590400840",
-      "facebook_url": "https://www.facebook.com/122136354890824703",
-      "facebook_id": "122136354890824703",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136507968824703",
+      "facebook_id": "1030669413467151_122136507968824703",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.35,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfAAVuLly5s/",
-        "facebook": "https://www.facebook.com/122136354890824703"
+        "facebook": "https://www.facebook.com/1030669413467151_122136507968824703"
       },
       "relevance_level": null,
       "relevance_scores": {},
@@ -464,7 +500,7 @@
       "url_path": "noticia/cultura/unesco-proclama-o-dia-27-de",
       "page_id": "noticia-fdeed003efa49ffb3b6cbaca",
       "detail_image": "assets/banners/2026-10-27-1-unesco-proclama-o-dia-27-de-outubro-como-dia-mundial-do-patrimnio-audiovisual-banner.jpg",
-      "snapshot_url": "https://arquivo.pt/screenshot/?url=https%3A%2F%2Farquivo.pt%2FnoFrame%2Freplay%2F20240511194613%2Fhttps%3A%2F%2Fblogue.rbe.mec.pt%2Fdia-mundial-do-patrimonio-audiovisual-2655124"
+      "snapshot_url": "assets/snapshots/noticia-fdeed003efa49ffb3b6cbaca.jpg"
     }
   ],
   "calendar": {

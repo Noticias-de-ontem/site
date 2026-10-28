@@ -1459,14 +1459,32 @@ async function loadDynamicNewsItem(pageId) {
   }
 }
 
+function cleanArticleText(text) {
+  if (!text) return "";
+  let val = String(text);
+  val = val.replace(/Este post apenas tem o objetivo de relembrar acontecimentos passados da hist[oó]ria nunca representando acontecimentos atuais\.?:?/gi, "");
+  val = val.replace(/Esta not[ií]cia [eé] de \d{4}\.?/gi, "");
+  val = val.replace(/🔗?\s*L[eê] a not[ií]cia completa no link da bio\.?:?/gi, "");
+  val = val.replace(/🔗?\s*L[eê] mais no link da bio\.?:?/gi, "");
+  val = val.replace(/#\w+/g, "");
+  return val.trim();
+}
+
 function articleParagraphs(item) {
   const seen = new Set();
   const paragraphs = [];
-  [localized(item, "summary"), item.body, item.caption].forEach((text) => {
-    const value = String(text || "").trim();
-    if (!value || seen.has(value)) return;
-    seen.add(value);
-    paragraphs.push(value);
+  // Usa apenas o resumo localizado e o corpo jornalístico. Nunca inclui caption (redes sociais).
+  const sources = [localized(item, "summary"), item.body];
+  sources.forEach((text) => {
+    const raw = cleanArticleText(text);
+    if (!raw) return;
+    const chunks = raw.split(/\n\s*\n|\r\n\s*\r\n/);
+    chunks.forEach((chunk) => {
+      const value = chunk.trim();
+      if (!value || seen.has(value)) return;
+      seen.add(value);
+      paragraphs.push(value);
+    });
   });
   return paragraphs;
 }
@@ -1520,12 +1538,24 @@ function relevanceScoresHtml(item) {
   `;
 }
 
+function isSameStory(a, b) {
+  if (!a || !b) return false;
+  if (a === b) return true;
+  if (a.page_id && b.page_id && a.page_id === b.page_id) return true;
+  if (a.id && b.id && a.id === b.id) return true;
+  if (a.url_path && b.url_path && a.url_path === b.url_path) return true;
+  const titleA = String(a.title || "").trim().toLowerCase();
+  const titleB = String(b.title || "").trim().toLowerCase();
+  if (titleA && titleB && titleA === titleB) return true;
+  return false;
+}
+
 // Módulo "No mesmo dia": outras notícias do projeto nesta data, noutros anos.
 function sameDayHtml(item) {
   const targetMonthDay = monthDay(item.date || "");
   if (!targetMonthDay) return "";
   const others = (state.data?.all || [])
-    .filter((other) => other.page_id !== item.page_id && monthDay(other.date) === targetMonthDay)
+    .filter((other) => !isSameStory(other, item) && monthDay(other.date) === targetMonthDay)
     .sort((left, right) => `${right.date}-${right.slot || 0}`.localeCompare(`${left.date}-${left.slot || 0}`))
     .slice(0, 4);
   if (!others.length) return "";
@@ -1603,14 +1633,19 @@ function renderNewsDetail() {
     </figure>` : "";
   const snapshotHtml = snapshotUrl ? `
     <section class="news-snapshot">
-      <h2 class="news-article-sub">${escapeHtml(t("snapshotSectionTitle"))}</h2>
+      <div class="news-snapshot-header">
+        <h2 class="news-article-sub">${escapeHtml(t("snapshotSectionTitle"))}</h2>
+        ${item.source_url ? `<a class="snapshot-external-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">Ver no Arquivo.pt ↗</a>` : ""}
+      </div>
       <figure class="news-article-snapshot-frame">
         <div class="news-article-snapshot-head">
-          <strong>arquivo.pt</strong>
-          ${capturedOn ? `<span>${escapeHtml(`${t("snapshotCaptured")} ${capturedOn}`)}</span>` : ""}
+          <span class="snapshot-domain">arquivo.pt</span>
+          ${capturedOn ? `<span class="snapshot-date">${escapeHtml(`${t("snapshotCaptured")} ${capturedOn}`)}</span>` : ""}
         </div>
-        <img src="${escapeHtml(snapshotUrl)}" alt="${escapeHtml(t("snapshotCaption"))}" loading="eager" fetchpriority="high" decoding="async">
-        <figcaption>
+        <div class="news-snapshot-viewport">
+          <img src="${escapeHtml(snapshotUrl)}" alt="${escapeHtml(t("snapshotCaption"))}" loading="eager" fetchpriority="high" decoding="async">
+        </div>
+        <figcaption class="snapshot-caption">
           <span>${escapeHtml(t("snapshotCaption"))}</span>
         </figcaption>
       </figure>
@@ -1634,7 +1669,6 @@ function renderNewsDetail() {
           <h1 id="news-detail-title">${escapeHtml(title)}</h1>
           ${dateLine ? `<p class="news-article-dates">${escapeHtml(dateLine)}</p>` : ""}
         </header>
-        ${coverHtml}
         <div class="news-text">
           ${lead ? `<p class="news-article-lead">${escapeHtml(lead)}</p>` : ""}
           ${restParagraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
@@ -1644,7 +1678,10 @@ function renderNewsDetail() {
             ${item.source_url ? `<a class="button secondary" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml((item.source_url || "").includes("arquivo.pt") ? t("newsOpenArquivo") : (state.lang === "pt" ? "Abrir na fonte original" : "Open original source"))}</a>` : ""}
           </div>
         </div>
-        ${snapshotHtml}
+        <div class="news-media">
+          ${coverHtml}
+          ${snapshotHtml}
+        </div>
       </div>
       ${sameDayHtml(item)}
       ${adjacentNewsHtml(item)}
@@ -3311,7 +3348,9 @@ function renderHomeSections() {
   const moreContainer = document.getElementById("home-more");
   const moreColumn = document.getElementById("home-more-column");
   if (moreContainer && moreColumn) {
-    const items = byLevel(2).concat(byLevel(3), byLevel(4), byLevel(5)).slice(0, 6);
+    const items = [...all].sort((left, right) =>
+      `${right.date || ""}-${right.slot || 0}`.localeCompare(`${left.date || ""}-${left.slot || 0}`)
+    ).slice(0, 12);
     moreColumn.hidden = items.length === 0;
     moreContainer.innerHTML = items.map((item) => `
       <article class="latest-card">
@@ -3365,7 +3404,7 @@ function renderHomeSections() {
     feedBlock.hidden = finalItems.length === 0;
     feed.innerHTML = finalItems.map((item) => `
       <li>
-        <span class="feed-time">${escapeHtml(relativeTime(item.date))}</span>
+        <span class="feed-time">${escapeHtml(relativeTime(item.date, item.published_at))}</span>
         <a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">
           <strong>${escapeHtml(cleanTitle(item))}</strong>
         </a>
@@ -3375,16 +3414,35 @@ function renderHomeSections() {
   }
 }
 
-// Tempo relativo para o feed ("hoje", "ontem", "há X dias").
-function relativeTime(dateValue) {
+// Tempo relativo para o feed ("há menos de um minuto", "há X horas", "ontem", "há X dias").
+function relativeTime(dateValue, publishedAt) {
+  if (publishedAt) {
+    const pub = new Date(publishedAt);
+    if (!Number.isNaN(pub.getTime())) {
+      const diffMs = Date.now() - pub.getTime();
+      if (diffMs < 24 * 3600000 && diffMs >= -60000) {
+        if (diffMs < 60000) {
+          return state.lang === "en" ? "less than a minute ago" : "há menos de um minuto";
+        }
+        const minutes = Math.floor(diffMs / 60000);
+        if (minutes < 60) {
+          if (minutes === 1) return state.lang === "en" ? "1 minute ago" : "há 1 minuto";
+          return state.lang === "en" ? `${minutes} minutes ago` : `há ${minutes} minutos`;
+        }
+        const hours = Math.floor(diffMs / 3600000);
+        if (hours === 1) return state.lang === "en" ? "1 hour ago" : "há 1 hora";
+        return state.lang === "en" ? `${hours} hours ago` : `há ${hours} horas`;
+      }
+    }
+  }
   if (!dateValue) return "";
   const then = new Date(`${dateValue}T12:00:00`);
   const today = new Date();
   today.setHours(12, 0, 0, 0);
   const days = Math.round((today - then) / 86400000);
-  if (days <= 0) return state.lang === "en" ? "Today" : "Hoje";
-  if (days === 1) return state.lang === "en" ? "Yesterday" : "Ontem";
-  return state.lang === "en" ? `${days} days ago` : `Há ${days} dias`;
+  if (days <= 0) return state.lang === "en" ? "Hoje" : "hoje";
+  if (days === 1) return state.lang === "en" ? "Yesterday" : "ontem";
+  return state.lang === "en" ? `${days} days ago` : `há ${days} dias`;
 }
 
 function renderDocs() {

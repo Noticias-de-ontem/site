@@ -548,6 +548,19 @@ def clean_text(value):
     return text
 
 
+def strip_social_disclaimer(value):
+    text = str(value or "")
+    patterns = [
+        r"Este post apenas tem o objetivo de relembrar acontecimentos passados da hist[oó]ria nunca representando acontecimentos atuais\.?:?",
+        r"Esta not[ií]cia [eé] de \d{4}\.?",
+        r"🔗?\s*L[eê] a not[ií]cia completa no link da bio\.?:?",
+        r"🔗?\s*L[eê] mais no link da bio\.?:?",
+    ]
+    for pattern in patterns:
+        text = re.sub(pattern, "", text, flags=re.IGNORECASE)
+    return clean_text(text)
+
+
 def strip_hashtags(value):
     text = re.sub(r"#\w+", "", str(value or ""))
     return clean_text(text)
@@ -1017,9 +1030,9 @@ def post_to_site_item(post, registry_by_post_id):
         return None
     # Texto da página da notícia: artigo longo gerado por nível (200-800
     # palavras); sem artigo, cai para a descrição da capa.
-    body = strip_hashtags(option.get("body") or "")
+    body = strip_hashtags(strip_social_disclaimer(option.get("body") or ""))
     if not body:
-        body = strip_hashtags(option.get("overlay_description") or option.get("description") or "")
+        body = strip_hashtags(strip_social_disclaimer(option.get("overlay_description") or option.get("description") or ""))
         if body and body == clean_text(option.get("summary") or ""):
             body = ""
     caption = strip_hashtags(option.get("caption") or "")
@@ -1030,6 +1043,7 @@ def post_to_site_item(post, registry_by_post_id):
         "date": publish_date,
         "slot": post.get("slot", 0),
         "status": status,
+        "published_at": clean_text(post.get("published_at") or registry_record.get("published_at") or ""),
         "category": category,
         "title": title,
         "title_en": clean_text(option.get("title_en")),
