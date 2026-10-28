@@ -1486,7 +1486,7 @@ function articleParagraphs(item) {
   const seen = new Set();
   const paragraphs = [];
   // Usa apenas o resumo localizado e o corpo jornalístico. Nunca inclui caption (redes sociais).
-  const sources = [localized(item, "summary"), item.body];
+  const sources = [localized(item, "summary"), localized(item, "body")];
   sources.forEach((text) => {
     const raw = cleanArticleText(text);
     if (!raw) return;

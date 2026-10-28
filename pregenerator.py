@@ -816,6 +816,7 @@ def enrich_options_with_ai(options, lang):
       "idx": 0,
       "title_en": "The headline in natural United States English (not a literal translation)",
       "summary_en": "The overlay/summary in natural United States English",
+      "body_en": "The journalistic article body in natural United States English (300-500 words)",
       "networks": ["instagram", "facebook" ou "x" — ver regras],
       "relevance": {{
         "impacto_historico": 0-100,
@@ -858,6 +859,8 @@ Options:
                 option["summary_en"] = normalize_text(item.get("summary_en"))
             if item.get("body"):
                 option["body"] = normalize_text(item.get("body"))
+            if item.get("body_en"):
+                option["body_en"] = normalize_text(item.get("body_en"))
             relevance = normalize_relevance(item.get("relevance"))
             if relevance:
                 option["relevance"] = relevance
@@ -1254,6 +1257,7 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
                     option["caption"] = normalize_text(option.get("caption", ""))
                     option["summary"] = normalize_text(option.get("summary", ""))
                     option["summary_en"] = normalize_text(option.get("summary_en", ""))
+                    option["body_en"] = normalize_text(option.get("body_en", ""))
                     relevance = normalize_relevance(option.get("relevance"))
                     option["relevance"] = relevance or default_relevance(lang)
                     if not option["title"] or not option["year"]:
@@ -1523,6 +1527,7 @@ def normalize_pending_post(post):
         normalized_option["summary"] = normalize_text(normalized_option.get("summary", ""))
         normalized_option["summary_en"] = normalize_text(normalized_option.get("summary_en", ""))
         normalized_option["body"] = normalize_text(normalized_option.get("body", ""))
+        normalized_option["body_en"] = normalize_text(normalized_option.get("body_en", ""))
         normalized_option["networks"] = normalize_networks(
             normalized_option.get("networks"),
             normalized_option.get("category", ""),

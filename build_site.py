@@ -1037,6 +1037,7 @@ def post_to_site_item(post, registry_by_post_id):
         body = strip_hashtags(strip_social_disclaimer(option.get("overlay_description") or option.get("description") or ""))
         if body and body == clean_text(option.get("summary") or ""):
             body = ""
+    body_en = strip_hashtags(strip_social_disclaimer(option.get("body_en") or ""))
     caption = strip_hashtags(option.get("caption") or "")
     relevance = option.get("relevance") if isinstance(option.get("relevance"), dict) else {}
     if not relevance or not relevance.get("level"):
@@ -1061,6 +1062,7 @@ def post_to_site_item(post, registry_by_post_id):
         "image": image,
         "banner_image": banner_image,
         "body": body,
+        "body_en": body_en,
         "caption": caption,
         "source_url": source_url,
         "source_profile": clean_text(post.get("source_profile") or option.get("source_profile")),

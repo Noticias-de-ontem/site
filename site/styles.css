@@ -284,11 +284,11 @@ select:focus-visible {
   position: relative;
   display: flex;
   width: 100%;
-  /* Altura FIXA: o carrossel nunca muda de tamanho, só o conteúdo. */
-  height: clamp(520px, 70vh, 640px);
+  /* Altura FIXA e mais compacta: sem espaço morto em cima */
+  height: clamp(440px, 56vh, 490px);
   align-items: flex-end;
   overflow: hidden;
-  padding: 64px 72px 64px;
+  padding: 38px 72px 44px;
   color: white;
   background-color: #101d23;
   background-position: center;
@@ -298,7 +298,7 @@ select:focus-visible {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.10);
+  background: rgba(0, 0, 0, 0.25);
   pointer-events: none;
 }
 
@@ -2468,9 +2468,8 @@ select:focus-visible {
   }
 
   .hero {
-    height: clamp(500px, 66vh, 600px);
-    padding-right: 56px;
-    padding-left: 56px;
+    height: 480px;
+    padding: 30px 56px 44px;
   }
 
   .hero h1 {
@@ -2566,8 +2565,8 @@ select:focus-visible {
   }
 
   .hero {
-    height: 560px;
-    padding: 24px 46px 48px;
+    height: 480px;
+    padding: 20px 44px 42px;
     align-items: flex-end;
     overflow: hidden;
   }
@@ -2580,16 +2579,10 @@ select:focus-visible {
     line-height: 1.12;
   }
 
-  .hero-title-short {
-    font-size: clamp(1.4rem, 5.5vw, 1.85rem) !important;
-  }
-
-  .hero-title-medium {
-    font-size: clamp(1.25rem, 4.8vw, 1.65rem) !important;
-  }
-
+  .hero-title-short,
+  .hero-title-medium,
   .hero-title-long {
-    font-size: clamp(1.1rem, 4.2vw, 1.45rem) !important;
+    font-size: clamp(1.3rem, 5vw, 1.7rem) !important;
   }
 
   .hero-summary {
@@ -2627,16 +2620,14 @@ select:focus-visible {
   .watermark {
     top: 14px;
     bottom: auto;
-    right: 14px;
-    font-size: 0.65rem;
+    right: 16px;
+    font-size: 0.68rem;
     font-weight: 600;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 0;
+    border: none;
+    background: transparent;
     color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
     z-index: 5;
   }
 
@@ -2762,8 +2753,8 @@ select:focus-visible {
   }
 
   .hero {
-    height: 530px;
-    padding: 20px 42px 46px;
+    height: 465px;
+    padding: 16px 40px 40px;
     align-items: flex-end;
     overflow: hidden;
   }
@@ -2790,16 +2781,10 @@ select:focus-visible {
     line-height: 1.15;
   }
 
-  .hero-title-short {
-    font-size: clamp(1.25rem, 5.2vw, 1.6rem) !important;
-  }
-
-  .hero-title-medium {
-    font-size: clamp(1.15rem, 4.6vw, 1.45rem) !important;
-  }
-
+  .hero-title-short,
+  .hero-title-medium,
   .hero-title-long {
-    font-size: clamp(1.02rem, 4vw, 1.3rem) !important;
+    font-size: clamp(1.18rem, 4.8vw, 1.5rem) !important;
   }
 
   .hero-year {
@@ -2859,9 +2844,11 @@ select:focus-visible {
   .watermark {
     top: 12px;
     bottom: auto;
-    right: 12px;
-    font-size: 0.62rem;
-    padding: 3px 8px;
+    right: 14px;
+    font-size: 0.65rem;
+    padding: 0;
+    background: transparent;
+    border: none;
   }
 
   .explore-tile {
@@ -4315,17 +4302,11 @@ html {
   outline-offset: 2px;
 }
 
-/* Hero: tamanho de letra harmonizado e consistente */
-.hero-title-short {
-  font-size: clamp(2rem, 3.4vw, 2.85rem) !important;
-}
-
-.hero-title-medium {
-  font-size: clamp(1.85rem, 3.1vw, 2.6rem) !important;
-}
-
+/* Hero: tamanho de letra rigorosamente consistente em todos os slides */
+.hero-title-short,
+.hero-title-medium,
 .hero-title-long {
-  font-size: clamp(1.7rem, 2.8vw, 2.35rem) !important;
+  font-size: clamp(1.9rem, 3.2vw, 2.75rem) !important;
 }
 
 /* Snapshot caption: apenas texto, sem link */
