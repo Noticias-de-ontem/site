@@ -6,7 +6,7 @@
         "instagram": {
             "morning_posted": false,
             "evening_posted": false,
-            "morning_attempted": false,
+            "morning_attempted": true,
             "evening_attempted": false,
             "morning_story_posted": false,
             "evening_story_posted": false,
