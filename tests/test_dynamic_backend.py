@@ -13,13 +13,18 @@ os.environ["DATABASE_URL"] = f"sqlite:///{TEST_DATABASE.as_posix()}"
 os.environ["SITE_SYNC_TOKEN"] = "test-sync-token"
 os.environ["TOPIC_TASK_ALWAYS_EAGER"] = "false"
 
-from fastapi.testclient import TestClient  # noqa: E402
-
-from backend.app import app  # noqa: E402
-from backend import calendar_service, fast_topic_service, index_update_worker  # noqa: E402
-from backend.database import SessionLocal, engine  # noqa: E402
-from backend.models import SiteSnapshot, TopicJob  # noqa: E402
-from backend.topic_service import TopicProbeBudget, period_slices, verified_interval_count  # noqa: E402
+try:
+    from fastapi.testclient import TestClient  # noqa: E402
+    from backend.app import app  # noqa: E402
+    from backend import calendar_service, fast_topic_service, index_update_worker  # noqa: E402
+    from backend.database import SessionLocal, engine  # noqa: E402
+    from backend.models import SiteSnapshot, TopicJob  # noqa: E402
+    from backend.topic_service import TopicProbeBudget, period_slices, verified_interval_count  # noqa: E402
+    HAS_BACKEND_DEPS = True
+except ImportError:
+    HAS_BACKEND_DEPS = False
+    TestClient = None
+    app = None
 
 
 TEST_SITE_DATA = {
@@ -44,6 +49,7 @@ TEST_SITE_DATA = {
 }
 
 
+@unittest.skipUnless(HAS_BACKEND_DEPS, 'FastAPI or backend dependencies not installed')
 class DynamicBackendTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

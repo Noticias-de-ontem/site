@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /*?id=
-Sitemap: https://MaNmAxImO-noticias-de-ontem.hf.space/sitemap.xml
+Sitemap: https://www.noticiasdeontem.pt/sitemap.xml

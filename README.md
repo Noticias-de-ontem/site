@@ -2,12 +2,12 @@
 
 **Português** | [English](README.en.md)
 
-O **Notícias de Ontem** recupera notícias preservadas pelo [Arquivo.pt](https://arquivo.pt), organiza-as por data e volta a apresentá-las com contexto, fonte e ano original — como uma edição de jornal sobre o passado, publicada hoje. Candidato ao [Prémio Arquivo.pt 2027](https://sobre.arquivo.pt/pt/premio-arquivo-pt/).
+O **Notícias de Ontem** recupera notícias preservadas pelo [Arquivo.pt](https://arquivo.pt), organiza-as por data e volta a apresentá-las com contexto e ano original, com ligação à captura preservada no Arquivo.pt — como uma edição de jornal sobre o passado, publicada hoje. Candidato ao [Prémio Arquivo.pt 2027](https://sobre.arquivo.pt/pt/premio-arquivo-pt/).
 
 O projeto tem duas frentes ligadas entre si:
 
 - um site bilingue (PT/EN) para explorar notícias por data e por tema, com páginas individuais em URL limpo estilo jornal;
-- um fluxo editorial que prepara posts de Instagram, classifica a relevância histórica e publica após revisão humana.
+- um fluxo editorial que prepara posts de Instagram e Facebook, classifica a relevância histórica e publica após revisão humana.
 
 A arquitetura é estática por omissão (GitHub Pages) e pode passar a dinâmica (FastAPI + PostgreSQL + Celery + OpenSearch) quando há infraestrutura disponível.
 
@@ -16,7 +16,8 @@ A arquitetura é estática por omissão (GitHub Pages) e pode passar a dinâmica
 - **Início** — notícia principal (carrossel de altura fixa), destaques por nível de relevância (Marcos Históricos, Grande Relevância, Mais notícias) e últimas publicações;
 - **Calendário** — duas vistas (**Notícias de Ontem**: notícias importantes do mesmo dia em todos os anos; **Dia exato**: só aquela data precisa) em dois formatos (**Mês** ou **Semana**, de domingo a sábado), com filtro por jornal e até 6 publicações do projeto no topo de cada período;
 - **Temas** — evolução de uma pesquisa no índice do Arquivo.pt, com gráfico progressivo, filtro por jornal e exportação PNG/SVG/CSV;
-- **Documentação** — como funciona, métricas, [níveis de relevância histórica](#relevância-histórica) explicados e grelha de fontes com logos;
+- **Documentação** — como funciona, métricas, método e [níveis de relevância histórica](#relevância-histórica) explicados;
+- **Newsletter** — subscrição por mensagem livre com os temas do leitor, com envio semanal interpretado pela IA;
 - **Notícia individual** — URL limpo estilo jornal (`/noticia/AAAA/MM/DD/slug-id/`), badge de relevância com pontuação completa, página original preservada (snapshot), módulo "No mesmo dia" e navegação anterior/seguinte.
 
 O português é o idioma predefinido; a versão inglesa usa inglês americano natural (não tradução literal).
@@ -37,27 +38,7 @@ Critérios: impacto histórico 30% · dimensão do impacto 20% · consequências
 
 ## Fontes
 
-Jornais, revistas e origens acompanhados pelo projeto:
-
-[![Arquivo.pt](site/assets/logos/arquivo.pt.png)](https://arquivo.pt/)
-[![Público](site/assets/logos/publico.pt.png)](https://www.publico.pt/)
-[![SIC Notícias](site/assets/logos/sicnoticias.pt.png)](https://sicnoticias.pt/)
-[![CNN Portugal](site/assets/logos/cnnportugal.pt.png)](https://cnnportugal.iol.pt/)
-[![RTP](site/assets/logos/rtp.pt.png)](https://www.rtp.pt/noticias)
-[![Correio da Manhã](site/assets/logos/cmjornal.pt.png)](https://www.cmjornal.pt/)
-[![Observador](site/assets/logos/observador.pt.png)](https://observador.pt/)
-[![Diário de Notícias](site/assets/logos/dn.pt.png)](https://www.dn.pt/)
-[![Jornal de Notícias](site/assets/logos/jn.pt.png)](https://www.jn.pt/)
-[![Expresso](site/assets/logos/expresso.pt.png)](https://expresso.pt/)
-[![Sábado](site/assets/logos/sabado.pt.png)](https://www.sabado.pt/)
-[![Visão](site/assets/logos/visao.pt.png)](https://visao.sapo.pt/)
-[![Notícias ao Minuto](site/assets/logos/noticiasaominuto.com.png)](https://www.noticiasaominuto.com/)
-[![Renascença](site/assets/logos/renascenca.png)](https://www.tsfdifusao.pt/)
-[![4gnews](site/assets/logos/4gnewspt.png)](https://4gnews.pt/)
-[![NiT](site/assets/logos/nit.pt.png)](https://nit.pt/)
-[![Wikipédia](site/assets/logos/wikipedia.png)](https://pt.wikipedia.org/)
-
-As mesmas fontes aparecem com logos na página de Documentação do site. Conteúdos de perfis da internet (ex.: Epa hSaiu, Hoje no Mundo Militar) são identificados com o chip "Perfil da internet", distinto do chip "Jornal".
+As origens acompanhadas (jornais, revistas e perfis da internet) ficam registadas em `pending_posts.json`, o ficheiro editorial do repositório, e não são apresentadas no site: a página de Documentação e o rodapé não têm grelha de fontes, e as páginas individuais não mostram chip de fonte. A fonte verificável apresentada ao leitor em cada notícia é a sua captura preservada no Arquivo.pt.
 
 ## Como os dados circulam
 
@@ -65,8 +46,8 @@ As mesmas fontes aparecem com logos na página de Documentação do site. Conte�
 2. O `pregenerator` procura candidatos para cada data (blocos locais `pt/MM-DD.json` e/ou Arquivo.pt), pede à IA (NVIDIA) 10 opções com categorias, títulos PT/EN, descrição e **pontuação de relevância**;
 3. **Grounding obrigatório**: cada opção tem de ficar ancorada a uma captura wayback real (CDX/textsearch do Arquivo.pt); opções desancoradas — como o antigo falso "Ronaldo lidera a I Liga" — são descartadas;
 4. As opções ficam em `pending_posts.json` para revisão (images/`review`, `review_pt.html`) e podem ser aprovadas, ignoradas ou regeneradas;
-5. O `publisher` publica apenas posts aprovados no Instagram e regista o permalink;
-6. `build_site.py` combina posts, métricas, imagens e o índice de eventos em `site/data/news.json`, gera páginas (incluindo snapshots via `collect_snapshots.py`) e analisa cada foto com a Gemini (ponto focal, caras, texto incorporado, adequação a banner/capa);
+5. O `publisher` publica apenas posts aprovados no Instagram e no Facebook (feed + stories) e regista os permalinks;
+6. `build_site.py` combina posts, métricas, imagens e o índice de eventos em `site/data/news.json`, gera páginas (incluindo snapshots via `collect_snapshots.py`) e analisa cada foto com a Gemini (ponto focal, caras, texto incorporado, adequação a banner/capa); as páginas de rota são geradas a partir da shell principal `site/index.html`, cada uma já com a sua vista ativa, para a página inicial não aparecer no refresh de outra página;
 7. O carrossel tem **tempo de permanência** (`carrossel_estado.json`): cada notícia fica ~8 dias e é depois substituída por outra — sem ser apagada do site.
 
 ## Relevância do índice CDXJ
@@ -120,7 +101,7 @@ A página de temas compara até quatro pesquisas, com filtro por fonte e cores p
 
 ## Site dinâmico e análise rápida
 
-`render.yaml` prepara: FastAPI + frontend (Web Service), Celery (worker), atualização de CDXJ/OpenSearch (segundo worker persistente), PostgreSQL, fila Valkey/Redis e OpenSearch opcional. O índice inicial é pesado (dias) e não deve correr em Actions. Manual completo: [`DYNAMIC_DEPLOYMENT.md`](docs/DYNAMIC_DEPLOYMENT.md). Versão estática no Hugging Face: [`HF_DEPLOYMENT.md`](docs/HF_DEPLOYMENT.md).
+`render.yaml` prepara: FastAPI + frontend (Web Service), Celery (worker), atualização de CDXJ/OpenSearch (segundo worker persistente), PostgreSQL, fila Valkey/Redis e OpenSearch opcional. O índice inicial é pesado (dias) e não deve correr em Actions. Manual completo: [`DYNAMIC_DEPLOYMENT.md`](docs/DYNAMIC_DEPLOYMENT.md).
 
 ## Gerar e testar o site
 
@@ -142,7 +123,7 @@ Reconstruídas em cada `build_site.py`: notícias cobertas e intervalo temporal 
 ## Workflows principais
 
 - `Pregenerate PT Review Queue` / `Pregenerate PT Interval Review Queue` — fila editorial;
-- `Daily Instagram Publisher` — publica aprovados e reconstrói o site;
+- `Daily Instagram Publisher` — publica posts aprovados no Instagram e no Facebook e reconstrói o site (disparo por cron-job.org, não pelo schedule do GitHub);
 - `Deploy Website` — gera e publica no GitHub Pages;
 - `Sync Dynamic Website` — envia o retrato público para a API;
 - `Cleanup Used ImgBB Images` — limpeza de imagens usadas;

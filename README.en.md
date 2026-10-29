@@ -2,12 +2,12 @@
 
 [Português](README.md) | **English**
 
-**Notícias de Ontem** ("Yesterday's News") brings back stories preserved by [Arquivo.pt](https://arquivo.pt), organizes them by date, and republishes them with context, source, and the original year — like a newspaper edition about the past, published today. A candidate for the [Arquivo.pt Award 2027](https://sobre.arquivo.pt/en/arquivo-pt-award/).
+**Notícias de Ontem** ("Yesterday's News") brings back stories preserved by [Arquivo.pt](https://arquivo.pt), organizes them by date, and republishes them with context and the original year, linking to the capture preserved on Arquivo.pt — like a newspaper edition about the past, published today. A candidate for the [Arquivo.pt Award 2027](https://sobre.arquivo.pt/en/arquivo-pt-award/).
 
 The project has two connected parts:
 
 - a bilingual website (PT/EN) to explore news by date and topic, with individual story pages on newspaper-style clean URLs;
-- an editorial pipeline that prepares Instagram posts, scores their historical relevance, and publishes them after human review.
+- an editorial pipeline that prepares Instagram and Facebook posts, scores their historical relevance, and publishes them after human review.
 
 The architecture is static by default (GitHub Pages) and can switch to dynamic (FastAPI + PostgreSQL + Celery + OpenSearch) when infrastructure is available.
 
@@ -16,7 +16,8 @@ The architecture is static by default (GitHub Pages) and can switch to dynamic (
 - **Home** — lead story (fixed-height carousel), highlights by relevance level (Historic Landmarks, Major Events, More stories), and the latest posts;
 - **Calendar** — two views (**On this day**: important stories from the same date across the years; **Exact date**: only that precise day) in two layouts (**Month** or **Week**, Sunday through Saturday), with a newspaper filter and up to 6 project posts pinned to the top of each period;
 - **Topics** — a phrase's evolution across the Arquivo.pt index, with a progressive chart, per-source filter, and PNG/SVG/CSV export;
-- **Documentation** — how the project works, live metrics, an explainer on the [historical relevance levels](#historical-relevance), and a sources grid with logos;
+- **Documentation** — how the project works, live metrics, the method, and an explainer on the [historical relevance levels](#historical-relevance);
+- **Newsletter** — subscribe by writing your topics freely; a weekly send interpreted by the AI;
 - **Individual story** — newspaper-style clean URL (`/noticia/YYYY/MM/DD/slug-id/`), relevance badge with the full score breakdown, the preserved original page (snapshot), an "On the same day" module, and previous/next navigation.
 
 Portuguese is the default language; the English version uses natural American English (never a literal translation).
@@ -37,27 +38,7 @@ Criteria: historical impact 30% · scope of impact 20% · consequences 15% · in
 
 ## Sources
 
-Newspapers, magazines, and origins the project follows:
-
-[![Arquivo.pt](site/assets/logos/arquivo.pt.png)](https://arquivo.pt/)
-[![Público](site/assets/logos/publico.pt.png)](https://www.publico.pt/)
-[![SIC Notícias](site/assets/logos/sicnoticias.pt.png)](https://sicnoticias.pt/)
-[![CNN Portugal](site/assets/logos/cnnportugal.pt.png)](https://cnnportugal.iol.pt/)
-[![RTP](site/assets/logos/rtp.pt.png)](https://www.rtp.pt/noticias)
-[![Correio da Manhã](site/assets/logos/cmjornal.pt.png)](https://www.cmjornal.pt/)
-[![Observador](site/assets/logos/observador.pt.png)](https://observador.pt/)
-[![Diário de Notícias](site/assets/logos/dn.pt.png)](https://www.dn.pt/)
-[![Jornal de Notícias](site/assets/logos/jn.pt.png)](https://www.jn.pt/)
-[![Expresso](site/assets/logos/expresso.pt.png)](https://expresso.pt/)
-[![Sábado](site/assets/logos/sabado.pt.png)](https://www.sabado.pt/)
-[![Visão](site/assets/logos/visao.pt.png)](https://visao.sapo.pt/)
-[![Notícias ao Minuto](site/assets/logos/noticiasaominuto.com.png)](https://www.noticiasaominuto.com/)
-[![Renascença](site/assets/logos/renascenca.png)](https://www.tsfdifusao.pt/)
-[![4gnews](site/assets/logos/4gnewspt.png)](https://4gnews.pt/)
-[![NiT](site/assets/logos/nit.pt.png)](https://nit.pt/)
-[![Wikipedia](site/assets/logos/wikipedia.png)](https://en.wikipedia.org/)
-
-The same sources appear with logos on the site's Documentation page. Content from internet profiles (e.g. Epa hSaiu, Hoje no Mundo Militar) is tagged with an "Internet profile" chip, separate from the "Newspaper" chip.
+The origins the project follows (newspapers, magazines, and internet profiles) are recorded in `pending_posts.json`, the repository's editorial file, and are not shown on the website: the Documentation page and the footer have no sources grid, and individual story pages show no source chip. The verifiable source shown to the reader for each story is its capture preserved on Arquivo.pt.
 
 ## How the data flows
 
@@ -65,8 +46,8 @@ The same sources appear with logos on the site's Documentation page. Content fro
 2. The `pregenerator` finds candidates for each date (local `pt/MM-DD.json` blocks and/or Arquivo.pt) and asks the AI (NVIDIA) for 10 options with categories, PT/EN titles, overlay copy, and a **relevance score**;
 3. **Mandatory grounding**: every option must anchor to a real wayback capture (Arquivo.pt CDX/textsearch); unanchored options — like the old fake "Ronaldo lidera a I Liga" story — are dropped;
 4. Options land in `pending_posts.json` for human review (`review_pt.html`, images under `images/review`), where they can be approved, skipped, or regenerated;
-5. The `publisher` publishes approved posts to Instagram and records the permalink;
-6. `build_site.py` combines posts, metrics, images, and the events index into `site/data/news.json`, generates pages (including snapshots via `collect_snapshots.py`), and analyzes every photo with Gemini (focus point, faces, embedded text, banner/cover suitability);
+5. The `publisher` publishes approved posts to Instagram and Facebook (feed + stories) and records the permalinks;
+6. `build_site.py` combines posts, metrics, images, and the events index into `site/data/news.json`, generates pages (including snapshots via `collect_snapshots.py`), and analyzes every photo with Gemini (focus point, faces, embedded text, banner/cover suitability); route pages are generated from the master shell `site/index.html`, each already with its own view active, so the home page does not flash on refresh of another page;
 7. The carousel has a **tenure system** (`carrossel_estado.json`): each story stays in for ~8 days and is then replaced by another one — without being removed from the site.
 
 ## The CDXJ index
@@ -120,7 +101,7 @@ The topics page compares up to four queries, each with its own source and color.
 
 ## Dynamic website and fast analysis
 
-`render.yaml` provisions: FastAPI + frontend (Web Service), Celery (worker), CDXJ/OpenSearch updates (a second persistent worker), PostgreSQL, a Valkey/Redis queue, and optional OpenSearch. The initial indexing is heavy (days) and must not run in normal Actions. Full manual: [`DYNAMIC_DEPLOYMENT.md`](docs/DYNAMIC_DEPLOYMENT.md). Static-only option on the Hugging Face: [`HF_DEPLOYMENT.md`](docs/HF_DEPLOYMENT.md).
+`render.yaml` provisions: FastAPI + frontend (Web Service), Celery (worker), CDXJ/OpenSearch updates (a second persistent worker), PostgreSQL, a Valkey/Redis queue, and optional OpenSearch. The initial indexing is heavy (days) and must not run in normal Actions. Full manual: [`DYNAMIC_DEPLOYMENT.md`](docs/DYNAMIC_DEPLOYMENT.md).
 
 ## Generating and testing the website
 
@@ -142,7 +123,7 @@ Rebuilt on every `build_site.py` run: stories covered and time range (from CDXJ 
 ## Main workflows
 
 - `Pregenerate PT Review Queue` / `Pregenerate PT Interval Review Queue` — editorial queue;
-- `Daily Instagram Publisher` — publishes approved posts and rebuilds the site;
+- `Daily Instagram Publisher` — publishes approved posts to Instagram and Facebook and rebuilds the site (triggered by cron-job.org, not by GitHub's schedule);
 - `Deploy Website` — builds and publishes to GitHub Pages;
 - `Sync Dynamic Website` — sends the public snapshot to the API;
 - `Cleanup Used ImgBB Images`;

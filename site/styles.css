@@ -284,11 +284,11 @@ select:focus-visible {
   position: relative;
   display: flex;
   width: 100%;
-  /* Altura FIXA: o carrossel nunca muda de tamanho, só o conteúdo. */
-  height: clamp(520px, 70vh, 640px);
+  /* Altura FIXA e mais compacta: sem espaço morto em cima */
+  height: clamp(440px, 56vh, 490px);
   align-items: flex-end;
   overflow: hidden;
-  padding: 64px 72px 64px;
+  padding: 38px 72px 44px;
   color: white;
   background-color: #101d23;
   background-position: center;
@@ -298,15 +298,15 @@ select:focus-visible {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(115% 90% at 82% 8%, rgba(0, 199, 214, 0.10) 0%, rgba(0, 199, 214, 0) 55%),
-    linear-gradient(180deg, rgba(8, 20, 26, 0.22) 0%, rgba(8, 20, 26, 0.58) 100%);
+  background: rgba(0, 0, 0, 0.45);
+  pointer-events: none;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
-  width: min(790px, calc(100% - 56px));
+  width: 100%;
+  max-width: 1200px;
 }
 
 .eyebrow {
@@ -320,21 +320,22 @@ select:focus-visible {
 
 .hero .eyebrow {
   color: var(--brand);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .hero h1 {
-  max-width: 780px;
+  width: 100%;
+  max-width: 1180px;
   margin: 0;
-  font-size: clamp(2rem, 3.7vw, 3.3rem);
+  font-size: clamp(1.85rem, 3.2vw, 2.8rem);
   font-weight: 800;
   letter-spacing: -0.015em;
-  line-height: 1.06;
-  text-wrap: balance;
-  /* Altura fixa do hero: até 4 linhas com letra menor — nunca cortar. */
+  line-height: 1.12;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 5;
   overflow: hidden;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75), 0 1px 3px rgba(0, 0, 0, 0.9);
 }
 
 .hero h1 a {
@@ -363,15 +364,17 @@ select:focus-visible {
 }
 
 .hero-summary {
-  max-width: 650px;
+  width: 100%;
+  max-width: 1050px;
   margin: 16px 0 0;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.95);
   font-size: 1.02rem;
   line-height: 1.55;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
 }
 
 .hero-badges {
@@ -421,6 +424,15 @@ select:focus-visible {
 
 .button.primary:hover {
   background: linear-gradient(120deg, #0b8a95 0%, #06b4c3 100%);
+}
+
+.button.primary.facebook {
+  background: linear-gradient(120deg, #1256b8 0%, #1877f2 100%);
+  box-shadow: 0 6px 18px rgba(24, 119, 242, 0.32);
+}
+
+.button.primary.facebook:hover {
+  background: linear-gradient(120deg, #0e4494 0%, #166fe5 100%);
 }
 
 .button.secondary {
@@ -568,7 +580,7 @@ select:focus-visible {
 }
 
 .explore-section {
-  padding: 34px 0 8px;
+  padding: 34px 0 28px;
 }
 
 .explore-grid {
@@ -684,6 +696,8 @@ select:focus-visible {
   border-radius: var(--radius);
   background: var(--paper);
   transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .latest-card:hover {
@@ -713,6 +727,9 @@ select:focus-visible {
 
 .latest-card .content {
   padding: 17px 17px 19px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .meta {
@@ -744,7 +761,8 @@ select:focus-visible {
 }
 
 .card-actions {
-  margin-top: 14px;
+  margin-top: auto;
+  padding-top: 16px;
 }
 
 .text-link {
@@ -1953,10 +1971,12 @@ select:focus-visible {
 
 .news-media {
   grid-column: 2;
+  grid-row: 1 / span 2;
   position: sticky;
   top: 84px;
-  display: grid;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .news-cover {
@@ -1965,6 +1985,7 @@ select:focus-visible {
   border-radius: 12px;
   overflow: hidden;
   background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .news-cover img {
@@ -1976,14 +1997,118 @@ select:focus-visible {
   object-fit: cover;
 }
 
-.news-snapshot img {
+.news-snapshot {
+  margin: 0;
+}
+
+.news-snapshot-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.news-snapshot-header .news-article-sub {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.snapshot-external-link {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--brand);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.snapshot-external-link:hover {
+  text-decoration: underline;
+}
+
+.news-article-snapshot-frame {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.news-article-snapshot-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #ffffff;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  font-size: 0.78rem;
+}
+
+.news-article-snapshot-head .snapshot-domain {
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--brand-deep);
+}
+
+.news-article-snapshot-head .snapshot-domain::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: var(--brand);
+}
+
+.news-article-snapshot-head .snapshot-date {
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.news-snapshot-viewport {
+  width: 100%;
+  max-height: 480px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #fdfdfd;
+  scrollbar-width: thin;
+}
+
+.news-snapshot-viewport::-webkit-scrollbar {
+  width: 6px;
+}
+
+.news-snapshot-viewport::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.news-snapshot-viewport img {
   display: block;
   width: 100%;
-  max-height: calc(100vh - 360px);
-  min-height: 220px;
-  object-fit: contain;
-  object-position: top;
+  height: auto;
+  min-height: 250px;
+  object-fit: cover;
+  object-position: top center;
   background: #fff;
+}
+
+.snapshot-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 600;
+  background: #fafafa;
 }
 
 @media (max-width: 1099px) {
@@ -2004,8 +2129,8 @@ select:focus-visible {
   .news-text { order: 3; }
   .news-snapshot { order: 4; }
 
-  .news-snapshot img {
-    max-height: 70vh;
+  .news-snapshot-viewport {
+    max-height: 520px;
   }
 }
 
@@ -2017,20 +2142,26 @@ select:focus-visible {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
-  margin: 22px 0 0;
+  gap: 8px;
+  margin: 18px 0 0;
 }
 
 .meta-pill {
   display: inline-block;
-  padding: 5px 14px;
+  padding: 4px 10px;
   border-radius: 999px;
   color: white;
   background: linear-gradient(120deg, var(--brand-deep) 0%, var(--brand) 100%);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+.news-article-meta .relevance-badge {
+  padding: 4px 10px 4px 7px;
+  font-size: 0.68rem;
+  gap: 5px;
 }
 
 .meta-source {
@@ -2337,9 +2468,8 @@ select:focus-visible {
   }
 
   .hero {
-    height: clamp(500px, 66vh, 600px);
-    padding-right: 56px;
-    padding-left: 56px;
+    height: 480px;
+    padding: 30px 56px 44px;
   }
 
   .hero h1 {
@@ -2389,7 +2519,7 @@ select:focus-visible {
 
 @media (max-width: 720px) {
   :root {
-    --page-padding: 18px;
+    --page-padding: 14px;
   }
 
   body {
@@ -2397,7 +2527,8 @@ select:focus-visible {
   }
 
   .site-header {
-    min-height: 92px;
+    padding: 8px 14px;
+    min-height: 84px;
   }
 
   .brand .brand-wordmark {
@@ -2408,10 +2539,24 @@ select:focus-visible {
     font-size: 0.95rem;
   }
 
+  .main-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+    overflow: visible;
+  }
+
   .main-nav a {
-    padding-top: 7px;
-    padding-bottom: 6px;
-    font-size: 0.82rem;
+    flex: 1 1 auto;
+    padding: 6px 8px;
+    font-size: 0.80rem;
+    letter-spacing: -0.015em;
+    text-align: center;
+    white-space: nowrap;
   }
 
   .language-switch button {
@@ -2420,8 +2565,10 @@ select:focus-visible {
   }
 
   .hero {
-    height: clamp(500px, 68svh, 600px);
-    padding: 56px 54px 84px;
+    height: 480px;
+    padding: 20px 44px 42px;
+    align-items: flex-end;
+    overflow: hidden;
   }
 
   .hero-content {
@@ -2429,39 +2576,59 @@ select:focus-visible {
   }
 
   .hero h1 {
-    line-height: 1.06;
+    line-height: 1.12;
+  }
+
+  .hero-title-short,
+  .hero-title-medium,
+  .hero-title-long {
+    font-size: clamp(1.3rem, 5vw, 1.7rem) !important;
   }
 
   .hero-summary {
-    font-size: 0.95rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
 
   .hero-edge {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
+    z-index: 6;
   }
 
   .hero-edge svg {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
 
   .hero-edge.prev {
-    left: 8px;
+    left: 5px;
   }
 
   .hero-edge.next {
-    right: 8px;
+    right: 5px;
   }
 
   .hero-dots {
-    bottom: 16px;
+    bottom: 14px;
   }
 
   .watermark {
-    right: 18px;
-    bottom: 46px;
+    top: 14px;
+    bottom: auto;
+    right: 16px;
     font-size: 0.68rem;
+    font-weight: 600;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    z-index: 5;
   }
 
   .explore-section {
@@ -2563,30 +2730,125 @@ select:focus-visible {
 }
 
 @media (max-width: 520px) {
+  .site-header {
+    padding: 6px 10px;
+    min-height: 80px;
+  }
+
   .brand {
-    max-width: calc(100vw - 112px);
+    max-width: calc(100vw - 100px);
+  }
+
+  .main-nav {
+    gap: 2px;
+    width: 100%;
+    justify-content: space-between;
+    overflow: visible;
+  }
+
+  .main-nav a {
+    padding: 5px 6px;
+    font-size: 0.76rem;
+    letter-spacing: -0.02em;
   }
 
   .hero {
-    height: 520px;
-    padding: 48px 42px 64px;
+    height: 465px;
+    padding: 16px 40px 40px;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero .eyebrow {
+    margin: 0 0 6px;
+    font-size: 0.66rem;
+  }
+
+  .hero-badges {
+    margin-bottom: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
   }
 
   .hero h1 {
-    font-size: 2.1rem;
+    font-size: clamp(1.2rem, 5.2vw, 1.55rem);
+    line-height: 1.15;
+  }
+
+  .hero-title-short,
+  .hero-title-medium,
+  .hero-title-long {
+    font-size: clamp(1.18rem, 4.8vw, 1.5rem) !important;
   }
 
   .hero-year {
-    margin-top: 14px;
+    margin-top: 6px;
+    font-size: 0.78rem;
+    padding: 3px 10px;
+  }
+
+  .hero-summary {
+    font-size: 0.85rem;
+    line-height: 1.35;
+    margin-top: 8px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
 
   .hero-actions {
     align-items: stretch;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
   }
 
   .hero-actions .button {
-    width: 100%;
+    flex: 1 1 auto;
+    min-height: 36px;
+    padding: 7px 10px;
+    font-size: 0.80rem;
+    width: auto;
+  }
+
+  .hero-edge {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-edge svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .hero-edge.prev {
+    left: 4px;
+  }
+
+  .hero-edge.next {
+    right: 4px;
+  }
+
+  .hero-dots {
+    bottom: 12px;
+  }
+
+  .watermark {
+    top: 12px;
+    bottom: auto;
+    right: 14px;
+    font-size: 0.65rem;
+    padding: 0;
+    background: transparent;
+    border: none;
   }
 
   .explore-tile {
@@ -2598,12 +2860,13 @@ select:focus-visible {
   }
 
   .story-card {
-    min-height: 360px;
-    padding: 24px;
+    min-height: 440px;
+    padding: 24px 18px;
   }
 
   .story-card h3 {
-    font-size: 1.9rem;
+    font-size: clamp(1.25rem, 5vw, 1.55rem);
+    line-height: 1.2;
   }
 
   .calendar-toolbar {
@@ -2761,14 +3024,15 @@ select:focus-visible {
 }
 
 .relevance-badge.relevance-badge-compact {
-  padding: 4px 10px 4px 7px;
-  font-size: 0.64rem;
-  gap: 5px;
+  padding: 3px 7px 3px 5px;
+  font-size: 0.58rem;
+  gap: 4px;
+  letter-spacing: 0.03em;
 }
 
 .relevance-badge.relevance-badge-compact svg {
-  width: 13px;
-  height: 13px;
+  width: 11px;
+  height: 11px;
 }
 
 .relevance-level-1 { background: #a8203c; color: #fff; }
@@ -2850,13 +3114,16 @@ select:focus-visible {
 .latest-card .meta,
 .story-card .meta {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
 }
 
 /* Home em colunas (estilo jornal): 66% Mais notícias | barra lateral */
 .home-columns-section {
+  margin-top: 36px;
   padding-bottom: 96px;
   margin-bottom: 32px;
 }
@@ -2873,34 +3140,71 @@ select:focus-visible {
 }
 
 .home-side {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 22px;
-  padding: 18px;
-  border: 1px solid rgba(16, 24, 29, 0.08);
-  border-left: 4px solid var(--brand);
-  border-radius: 12px;
-  background: #fff;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.home-side-block {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 22px;
+  border: 1px solid rgba(16, 24, 29, 0.09);
+  border-radius: 14px;
+  background: #ffffff;
+  box-shadow: 0 3px 12px rgba(16, 24, 29, 0.05);
 }
 
 .home-side-block[hidden] {
   display: none;
 }
 
+/* Secção 1: Notícias mais importantes - destaque âmbar/relevância histórica */
+#home-level-1-block {
+  border-left: 5px solid #d66a15;
+}
+
+#home-level-1-block .side-eyebrow {
+  color: #d66a15;
+}
+
+/* Secção 2: Últimas notícias publicadas - destaque ciano da marca */
+#home-feed-block {
+  border-left: 5px solid var(--brand);
+}
+
+#home-feed-block .side-eyebrow {
+  color: var(--brand-deep);
+}
+
+.side-eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .home-side-heading {
   margin: 0;
-  font-size: 1.02rem;
+  font-size: 1.06rem;
+  font-weight: 800;
+  letter-spacing: -0.015em;
   color: var(--ink);
 }
 
 .level-1-heading {
-  color: #a8203c;
+  color: var(--ink);
 }
 
 .home-side-lead {
-  margin: 4px 0 10px;
+  margin: 4px 0 14px;
   color: var(--muted);
   font-size: 0.82rem;
-  line-height: 1.5;
+  line-height: 1.45;
 }
 
 .home-important-list {
@@ -3340,7 +3644,7 @@ select:focus-visible {
   border-color: var(--brand);
 }
 
-.neighbour.next {
+.neighbour.prev {
   text-align: right;
 }
 
@@ -3563,13 +3867,68 @@ html {
     grid-template-columns: 1fr;
   }
 
-  .neighbour.next {
+  .neighbour.prev {
     text-align: left;
   }
 
   .relevance-score-row {
     grid-template-columns: minmax(110px, 1fr) minmax(0, 1fr) 34px;
   }
+}
+
+@media (max-width: 720px) {
+  .footer-grid {
+    gap: 24px 20px;
+  }
+
+  .footer-nav,
+  .footer-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Aviso beta por baixo do cabeçalho (acompanha o scroll, colado ao cabeçalho) */
+.beta-notice {
+  position: sticky;
+  top: 88px;
+  z-index: 19;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 44px 10px var(--page-padding);
+  background: var(--brand-soft);
+  color: var(--ink);
+  font-size: 0.86rem;
+  text-align: center;
+}
+
+.beta-notice p {
+  margin: 0;
+}
+
+.beta-notice-dismiss {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--brand-deep);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.beta-notice-dismiss:hover {
+  background: var(--brand-faint);
+  color: var(--ink);
 }
 
 /* Grelha de fontes na Documentação */
@@ -3965,8 +4324,8 @@ html {
 
 .network-badge svg,
 .network-badge img {
-  width: 17px;
-  height: 17px;
+  width: 15px;
+  height: 15px;
   object-fit: contain;
 }
 
@@ -3980,17 +4339,11 @@ html {
   outline-offset: 2px;
 }
 
-/* Hero: tamanho de letra adaptado ao comprimento do título */
-.hero-title-short {
-  font-size: clamp(2.4rem, 4.6vw, 4rem) !important;
-}
-
-.hero-title-medium {
-  font-size: clamp(2rem, 3.7vw, 3.3rem) !important;
-}
-
+/* Hero: tamanho de letra rigorosamente consistente em todos os slides */
+.hero-title-short,
+.hero-title-medium,
 .hero-title-long {
-  font-size: clamp(1.7rem, 3vw, 2.8rem) !important;
+  font-size: clamp(1.9rem, 3.2vw, 2.75rem) !important;
 }
 
 /* Snapshot caption: apenas texto, sem link */

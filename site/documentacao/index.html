@@ -9,23 +9,31 @@
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
     <meta name="author" content="Notícias de Ontem">
     <meta name="theme-color" content="#ffffff">
-    <link rel="canonical" href="https://MaNmAxImO-noticias-de-ontem.hf.space/documentacao/">
+    <link rel="canonical" href="https://www.noticiasdeontem.pt/documentacao/">
     <meta property="og:site_name" content="Notícias de Ontem">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="pt_PT">
     <meta property="og:title" content="Como funciona o projeto | Notícias de Ontem">
     <meta property="og:description" content="Conheça as fontes, a cobertura e o método usado pelo Notícias de Ontem para selecionar conteúdos preservados pelo Arquivo.pt.">
-    <meta property="og:url" content="https://MaNmAxImO-noticias-de-ontem.hf.space/documentacao/">
-    <meta property="og:image" content="https://MaNmAxImO-noticias-de-ontem.hf.space/assets/icon.png">
+    <meta property="og:url" content="https://www.noticiasdeontem.pt/documentacao/">
+    <meta property="og:image" content="https://www.noticiasdeontem.pt/assets/icon.png">
     <meta property="og:image:alt" content="Como funciona o projeto | Notícias de Ontem">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Como funciona o projeto | Notícias de Ontem">
     <meta name="twitter:description" content="Conheça as fontes, a cobertura e o método usado pelo Notícias de Ontem para selecionar conteúdos preservados pelo Arquivo.pt.">
-    <meta name="twitter:image" content="https://MaNmAxImO-noticias-de-ontem.hf.space/assets/icon.png">
-    <script type="application/ld+json" id="structured-data">{"@context":"https://schema.org","@type":"WebPage","name":"Como funciona o projeto | Notícias de Ontem","description":"Conheça as fontes, a cobertura e o método usado pelo Notícias de Ontem para selecionar conteúdos preservados pelo Arquivo.pt.","url":"https://MaNmAxImO-noticias-de-ontem.hf.space/documentacao/","inLanguage":"pt-PT","isPartOf":{"@type":"WebSite","name":"Notícias de Ontem","url":"https://MaNmAxImO-noticias-de-ontem.hf.space/"},"isBasedOn":"https://arquivo.pt/"}</script>
+    <meta name="twitter:image" content="https://www.noticiasdeontem.pt/assets/icon.png">
+    <script type="application/ld+json" id="structured-data">{"@context":"https://schema.org","@type":"WebPage","name":"Como funciona o projeto | Notícias de Ontem","description":"Conheça as fontes, a cobertura e o método usado pelo Notícias de Ontem para selecionar conteúdos preservados pelo Arquivo.pt.","url":"https://www.noticiasdeontem.pt/documentacao/","inLanguage":"pt-PT","isPartOf":{"@type":"WebSite","name":"Notícias de Ontem","url":"https://www.noticiasdeontem.pt/"},"isBasedOn":"https://arquivo.pt/"}</script>
     <!-- SEO:END -->
-    <link rel="icon" href="../assets/icon.png?v=20261024a">
-    <link rel="stylesheet" href="../styles.css?v=20261024a">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-89MEWL5VLF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-89MEWL5VLF');
+    </script>
+    <link rel="icon" href="../assets/icon.png?v=20261028a">
+    <link rel="stylesheet" href="../styles.css?v=20261028a">
   </head>
   <body>
     <a class="skip-link" href="#main">Saltar para o conteúdo</a>
@@ -46,7 +54,7 @@
     </header>
 
     <main id="main">
-      <section id="home-view" class="view active" data-view="home">
+      <section id="home-view" class="view" data-view="home">
         <article class="hero" id="hero">
           <div class="hero-overlay"></div>
           <div class="hero-content">
@@ -56,7 +64,8 @@
             <p class="hero-year" id="hero-year"></p>
             <p class="hero-summary" id="hero-summary"></p>
             <div class="hero-actions">
-              <a class="button primary" id="hero-instagram" target="_blank" rel="noreferrer" data-i18n="openInstagram">Ver no Instagram</a>
+              <a class="button primary" id="hero-instagram" href="https://www.instagram.com/noticiasdeontempt/" target="_blank" rel="noreferrer" data-i18n="openInstagram">Ver no Instagram</a>
+              <a class="button primary facebook" id="hero-facebook" href="https://www.facebook.com/noticiasdeontempt" target="_blank" rel="noreferrer" data-i18n="openFacebook">Ver no Facebook</a>
               <a class="button secondary" id="hero-source" target="_blank" rel="noreferrer" data-i18n="openArquivo">Abrir no Arquivo.pt</a>
             </div>
           </div>
@@ -120,11 +129,13 @@
             </div>
             <aside class="home-side">
               <div class="home-side-block" id="home-level-1-block" hidden>
-                <h2 class="home-side-heading level-1-heading" data-i18n="homeLevel1Title">Destaques</h2>
-                <p class="home-side-lead" data-i18n="homeLevel1Lead">Os acontecimentos mais marcantes preservados no arquivo.</p>
+                <p class="side-eyebrow" data-i18n="importantEyebrow">Destaques Históricos</p>
+                <h2 class="home-side-heading level-1-heading" data-i18n="homeLevel1Title">Notícias mais importantes</h2>
+                <p class="home-side-lead" data-i18n="homeLevel1Lead">Os acontecimentos de maior relevância preservados no arquivo.</p>
                 <ol class="home-important-list" id="home-level-1"></ol>
               </div>
               <div class="home-side-block" id="home-feed-block" hidden>
+                <p class="side-eyebrow" data-i18n="feedEyebrow">Publicações Recentes</p>
                 <h2 class="home-side-heading" data-i18n="latestTitle">Últimas notícias publicadas</h2>
                 <p class="home-side-lead" data-i18n="minuteFeedLead">As últimas publicações do nosso perfil.</p>
                 <ol class="minute-feed minute-feed-scroll" id="minute-feed"></ol>
@@ -250,7 +261,7 @@
         <section class="topic-results" id="topic-results" aria-live="polite"></section>
       </section>
 
-      <section id="docs-view" class="view page-view" data-view="docs" aria-labelledby="docs-title">
+      <section id="docs-view" class="view page-view active" data-view="docs" aria-labelledby="docs-title">
         <div class="page-intro">
           <p class="eyebrow" data-i18n="docsEyebrow">Documentação</p>
           <h1 id="docs-title" data-i18n="docsTitle">Como funciona o projeto</h1>
@@ -285,13 +296,14 @@
         </nav>
         <div class="footer-links">
           <p class="footer-heading" data-i18n="footerAboutTitle">Sobre o projeto</p>
-          <a id="footer-instagram" href="https://www.instagram.com/" target="_blank" rel="noreferrer" data-i18n="footerInstagram">Instagram</a>
+          <a id="footer-instagram" href="https://www.instagram.com/noticiasdeontempt/" target="_blank" rel="noreferrer" data-i18n="footerInstagram">Instagram</a>
+          <a id="footer-facebook" href="https://www.facebook.com/noticiasdeontempt" target="_blank" rel="noreferrer" data-i18n="footerFacebook">Facebook</a>
           <a href="https://github.com/Noticias-de-ontem/site" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://arquivo.pt/" target="_blank" rel="noreferrer">Arquivo.pt</a>
         </div>
       </div>
     </footer>
 
-    <script src="../app.js?v=20261024a"></script>
+    <script src="../app.js?v=20261028a"></script>
   </body>
 </html>

@@ -8,7 +8,7 @@ from urllib.parse import quote, unquote, urlparse
 
 import numpy as np
 import requests
-from historical_relevance import LEVEL_COLORS, level_short
+from historical_relevance import DEFAULT_LEVEL, LEVEL_COLORS, level_short
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageStat
 
 if hasattr(sys.stdout, "reconfigure"):
@@ -473,17 +473,17 @@ def _looks_like_overlay_text_or_watermark(image):
     return suspicious_large >= 1 or suspicious_corner >= 2 or coverage >= 0.045
 
 
-def _download_image_from_url(image_url, headers=None):
-    response = requests.get(image_url, headers=headers or {}, timeout=8)
-    response.raise_for_status()
-    return Image.open(BytesIO(response.content)).convert("RGBA")
-
-
 _UA_HEADERS = {
     "User-Agent": (
         "NoticiasDeOntem/1.0 (https://github.com/Noticias-de-ontem/site; background image lookup)"
     )
 }
+
+
+def _download_image_from_url(image_url, headers=None):
+    response = requests.get(image_url, headers=headers or _UA_HEADERS, timeout=8)
+    response.raise_for_status()
+    return Image.open(BytesIO(response.content)).convert("RGBA")
 
 
 def _usable_background_image(image, target_size):
@@ -1217,7 +1217,7 @@ def _draw_logo(base_image, lang, left=58, top=74, right=None, center_x=None, sca
     bottom_font = get_font("black_italic", int(66 * scale))
     measure_draw = ImageDraw.Draw(base_image)
     top_width, top_height = _measure_text(measure_draw, top_text, top_font)
-    bottom_width, _ = _measure_text(measure_draw, bottom_text, bottom_font)
+    bottom_width, bottom_height = _measure_text(measure_draw, bottom_text, bottom_font)
     clock_size = int(94 * scale)
     content_width = max(top_width + clock_size - int(20 * scale), bottom_width)
 
@@ -1320,6 +1320,36 @@ def _draw_logo(base_image, lang, left=58, top=74, right=None, center_x=None, sca
 
     draw = ImageDraw.Draw(base_image)
     draw.text((logo_left + int(2 * scale), bottom_top), bottom_text, font=bottom_font, fill=PURE_WHITE)
+
+    # Logo oficial Arquivo.pt por baixo de "DE ONTEM" com espacamento adequado
+    arquivo_logo_path = os.path.join(os.path.dirname(__file__), "images", "logos", "arquivo_pt_full.png")
+    if not os.path.exists(arquivo_logo_path):
+        arquivo_logo_path = os.path.join(os.path.dirname(__file__), "site", "assets", "logos", "arquivo_pt_full.png")
+
+    if os.path.exists(arquivo_logo_path):
+        try:
+            arquivo_img = Image.open(arquivo_logo_path).convert("RGBA")
+            target_w = int(210 * scale)
+            aspect = arquivo_img.width / max(1, arquivo_img.height)
+            target_h = int(target_w / aspect)
+            arquivo_resized = arquivo_img.resize((target_w, target_h), Image.Resampling.LANCZOS)
+
+            arquivo_x = logo_left + int(4 * scale)
+            # Espaco aumentado entre o "Noticias de Ontem" e o logo do Arquivo.pt (20px)
+            arquivo_y = bottom_top + bottom_height + int(20 * scale)
+
+            if use_shadows:
+                shadow_layer = Image.new("RGBA", base_image.size, (0, 0, 0, 0))
+                alpha = arquivo_resized.split()[3]
+                black_fill = Image.new("RGBA", arquivo_resized.size, SHADOW)
+                shadow_layer.paste(black_fill, (arquivo_x + int(3 * scale), arquivo_y + int(5 * scale)), alpha)
+                shadow_layer = shadow_layer.filter(ImageFilter.GaussianBlur(max(3, int(5 * scale))))
+                base_image = Image.alpha_composite(base_image, shadow_layer)
+
+            base_image.paste(arquivo_resized, (arquivo_x, arquivo_y), arquivo_resized)
+        except Exception as exc:
+            print(f"[{lang}] Nao foi possivel desenhar o logo do Arquivo.pt: {exc}")
+
     return base_image
 
 
@@ -1544,7 +1574,7 @@ def _safe_score(value, low, high, invert=False):
 
 TEXT_ZONES_BY_LAYOUT = {
     "template_1": [(48, 760, 1040, 1250)],
-    "template_2": [(76, 200, 1004, 690)],
+    "template_2": [(76, 270, 1004, 720)],
     "template_3": [(70, 885, 1010, 1285)],
     "breaking": [(76, 330, 1004, 1165)],
 }
@@ -1744,9 +1774,9 @@ def render_template_2(category, title, description, highlight_text, lang, backgr
         title,
         highlight_text,
         92,
-        235,
+        280,
         896,
-        370,
+        360,
         align="center",
         base_fill=OFF_BLACK,
         highlight_fill=TITLE_HIGHLIGHT,
@@ -1757,14 +1787,14 @@ def render_template_2(category, title, description, highlight_text, lang, backgr
     )
     year_height = 0
     if year:
-        canvas, year_height = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 235 + title_height + 16, align="center", use_shadow=False)
+        canvas, year_height = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 280 + title_height + 16, align="center", use_shadow=False)
     if relevance_level:
         canvas = _draw_relevance_badge(
             canvas,
             relevance_level,
             lang,
             TARGET_SIZE[0] // 2,
-            235 + title_height + 16 + year_height + 16,
+            280 + title_height + 16 + year_height + 16,
             align="center",
             use_shadow=False,
         )
@@ -1775,7 +1805,29 @@ def render_template_3(category, title, description, highlight_text, lang, backgr
     del description
     canvas = _prepare_template_3_background(background_image, template_path, TARGET_SIZE)
     canvas = _draw_logo(canvas, lang, use_shadows=True)
-    canvas = _draw_brand_badge(canvas, category, TARGET_SIZE[0] // 2, 910, align="center", use_shadow=True, compact=True, font_size=28)
+
+    rel_level = int(relevance_level) if relevance_level else 0
+    if 1 <= rel_level <= 5:
+        cat_text = _normalize_text_value(category or ("ATUALIDADE" if lang == "pt" else "NEWS"), uppercase=True)
+        measure_draw = ImageDraw.Draw(canvas)
+        cat_font = get_font("medium", 28)
+        cat_tw, _ = _measure_text(measure_draw, cat_text, cat_font)
+        cat_badge_w = min(max(140, cat_tw + 40), 340)
+
+        rel_label = level_short(rel_level, lang)
+        rel_font = get_font("bold", 22)
+        rel_tw, _ = _measure_text(measure_draw, rel_label, rel_font)
+        rel_badge_w = 26 + 8 + rel_tw + 32
+
+        badge_gap = 14
+        total_w = cat_badge_w + badge_gap + rel_badge_w
+        start_x = (TARGET_SIZE[0] - total_w) // 2
+
+        canvas = _draw_brand_badge(canvas, category, start_x, 910, align="left", use_shadow=True, compact=True, font_size=28)
+        canvas = _draw_relevance_badge(canvas, rel_level, lang, start_x + cat_badge_w + badge_gap, 910 + 6, align="left", use_shadow=True, compact=True)
+    else:
+        canvas = _draw_brand_badge(canvas, category, TARGET_SIZE[0] // 2, 910, align="center", use_shadow=True, compact=True, font_size=28)
+
     canvas, title_height = _draw_title(
         canvas,
         title,
@@ -1797,16 +1849,6 @@ def render_template_3(category, title, description, highlight_text, lang, backgr
     year_height = 0
     if year:
         canvas, year_height = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 978 + title_height + 14, align="center", use_shadow=True)
-    if relevance_level:
-        canvas = _draw_relevance_badge(
-            canvas,
-            relevance_level,
-            lang,
-            TARGET_SIZE[0] // 2,
-            978 + title_height + 14 + year_height + 14,
-            align="center",
-            use_shadow=True,
-        )
     return canvas
 
 
@@ -1841,10 +1883,9 @@ def render_breaking_template(category, title, description, highlight_text, lang,
 
     total_badges_width = break_width + (badge_gap + main_width if show_main_category else 0)
     badges_left = (TARGET_SIZE[0] - total_badges_width) // 2
-    badge_top = 336
+    badge_top = 308 if relevance_level else 336
 
     canvas = _draw_breaking_badge(canvas, breaking_text, badges_left, badge_top)
-    relevance_x = badges_left + break_width
     if show_main_category:
         canvas = _draw_brand_badge(
             canvas,
@@ -1856,16 +1897,27 @@ def render_breaking_template(category, title, description, highlight_text, lang,
             compact=True,
             font_size=24,
         )
-        relevance_x = badges_left + break_width + badge_gap + main_width + badge_gap
+
+    title_start_y = 424
     if relevance_level:
-        canvas = _draw_relevance_badge(canvas, relevance_level, lang, relevance_x, badge_top, align="left", use_shadow=False)
+        relevance_y = badge_top + 56
+        canvas = _draw_relevance_badge(
+            canvas,
+            relevance_level,
+            lang,
+            TARGET_SIZE[0] // 2,
+            relevance_y,
+            align="center",
+            use_shadow=False,
+        )
+        title_start_y = relevance_y + 46 + 20
 
     canvas, title_height = _draw_title(
         canvas,
         title,
         highlight_text,
         92,
-        424,
+        title_start_y,
         896,
         730,
         align="center",
@@ -1877,7 +1929,7 @@ def render_breaking_template(category, title, description, highlight_text, lang,
         max_lines=7,
     )
     if year:
-        canvas, _ = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 424 + title_height + 18, align="center", use_shadow=False)
+        canvas, _ = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, title_start_y + title_height + 18, align="center", use_shadow=False)
     return canvas
 
 
@@ -1914,6 +1966,16 @@ def create_image_with_text(
 
     if _is_redundant_description(title_to_draw, description_to_draw):
         description_to_draw = ""
+
+    if relevance_level is None:
+        relevance_level = DEFAULT_LEVEL
+    else:
+        try:
+            relevance_level = int(relevance_level)
+            if not (1 <= relevance_level <= 5):
+                relevance_level = DEFAULT_LEVEL
+        except (TypeError, ValueError):
+            relevance_level = DEFAULT_LEVEL
 
     # Limpar dinamicamente o ano do final do título para evitar duplicações
     if year:

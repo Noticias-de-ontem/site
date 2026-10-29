@@ -32,7 +32,7 @@ CDXJ_BUILDER_FILE = ROOT / "build_arquivo_cdxj_index.py"
 INSTAGRAM_SCRAPER_FILE = ROOT / "scraper.py"
 ICON_SOURCE = ROOT / "images" / "noticias_de_ontem_icon.png"
 ICON_ASSET = "icon.png"
-SITE_ASSET_VERSION = "20261024a"
+SITE_ASSET_VERSION = "20261028a"
 SITE_FONTS = [
     "Montserrat-Regular.ttf",
     "Montserrat-Medium.ttf",
@@ -94,9 +94,6 @@ def public_site_url():
     configured = clean_text(os.environ.get("SITE_PUBLIC_URL"))
     if configured:
         return configured
-    space_id = clean_text(os.environ.get("HF_SPACE_ID"))
-    if "/" in space_id and "utilizador" not in space_id:
-        return f"https://{space_id.replace('/', '-')}.hf.space"
     return DEFAULT_PUBLIC_URL
 
 
@@ -551,6 +548,21 @@ def clean_text(value):
     return text
 
 
+def strip_social_disclaimer(value):
+    text = str(value or "")
+    patterns = [
+        r"Este post apenas tem o objetivo de relembrar acontecimentos passados da hist[oó]ria nunca representando acontecimentos atuais\.?:?",
+        r"Esta not[ií]cia [eé] de \d{4}\.?",
+        r"🔗?\s*L[eê] a not[ií]cia completa no link na descri[cç][aã]o do perfil\.?:?",
+        r"🔗?\s*L[eê] a not[ií]cia completa no link da bio\.?:?",
+        r"🔗?\s*L[eê] a not[ií]cia completa no link do sobre do perfil\.?:?",
+        r"🔗?\s*L[eê] mais no link da bio\.?:?",
+    ]
+    for pattern in patterns:
+        text = re.sub(pattern, "", text, flags=re.IGNORECASE)
+    return clean_text(text)
+
+
 def strip_hashtags(value):
     text = re.sub(r"#\w+", "", str(value or ""))
     return clean_text(text)
@@ -666,11 +678,10 @@ def resolve_wayback_for_build(title, year, fallback_url=""):
 
 def arquivo_screenshot_url(source_url):
     source_url = clean_text(source_url)
-    # A API de screenshots recebe apenas URLs preservados (wayback) — nunca
-    # páginas de pesquisa ou outras do próprio arquivo.
-    if not source_url or "arquivo.pt/wayback/" not in source_url:
+    if not source_url or ("arquivo.pt/wayback/" not in source_url and "arquivo.pt/noFrame/replay/" not in source_url):
         return ""
-    return f"https://arquivo.pt/screenshot?url={quote(source_url, safe='')}"
+    replay_url = source_url.replace("/wayback/", "/noFrame/replay/")
+    return f"https://arquivo.pt/screenshot/?url={quote(replay_url, safe='')}"
 
 
 def has_enduring_editorial_value(item):
@@ -723,7 +734,19 @@ def copy_site_image(source_path, fallback_name):
 def local_source_path(source_path):
     if not source_path:
         return None
-    normalized = str(source_path).replace("/", os.sep)
+    raw = str(source_path).replace("\\", "/")
+    p = Path(raw)
+    if p.is_file():
+        return p
+    cand = ROOT / raw
+    if cand.is_file():
+        return cand
+    if "images/" in raw:
+        rel = raw[raw.index("images/"):]
+        cand = ROOT / rel
+        if cand.is_file():
+            return cand
+    normalized = str(source_path).replace("/", os.sep).replace("\\", os.sep)
     path = ROOT / normalized
     return path if path.exists() else None
 
@@ -997,25 +1020,39 @@ def post_to_site_item(post, registry_by_post_id):
         or registry_record.get("permalink")
     )
     instagram_id = clean_text(post.get("instagram_id") or registry_record.get("instagram_id"))
+    facebook_url = clean_text(
+        post.get("facebook_url")
+        or option.get("facebook_url")
+        or registry_record.get("facebook_url")
+    )
+    facebook_id = clean_text(post.get("facebook_id") or registry_record.get("facebook_id"))
     # Título sem ano embutido (o site compõe "Título, em ANO" no UI).
     title = strip_title_year(title, original_year)
     if not title:
         return None
     # Texto da página da notícia: artigo longo gerado por nível (200-800
     # palavras); sem artigo, cai para a descrição da capa.
-    body = strip_hashtags(option.get("body") or "")
+    body = strip_hashtags(strip_social_disclaimer(option.get("body") or ""))
     if not body:
-        body = strip_hashtags(option.get("overlay_description") or option.get("description") or "")
+        body = strip_hashtags(strip_social_disclaimer(option.get("overlay_description") or option.get("description") or ""))
         if body and body == clean_text(option.get("summary") or ""):
             body = ""
+    body_en = strip_hashtags(strip_social_disclaimer(option.get("body_en") or ""))
     caption = strip_hashtags(option.get("caption") or "")
     relevance = option.get("relevance") if isinstance(option.get("relevance"), dict) else {}
+    if not relevance or not relevance.get("level"):
+        try:
+            import historical_relevance
+            relevance = historical_relevance.default_relevance(lang=clean_text(post.get("lang") or "pt"), level=4)
+        except Exception:
+            relevance = {"level": 4, "scores": {}, "weighted_score": 40.0, "justification": ""}
     item = {
         "id": post_id,
         "lang": clean_text(post.get("lang") or "pt"),
         "date": publish_date,
         "slot": post.get("slot", 0),
         "status": status,
+        "published_at": clean_text(post.get("published_at") or registry_record.get("published_at") or ""),
         "category": category,
         "title": title,
         "title_en": clean_text(option.get("title_en")),
@@ -1025,22 +1062,27 @@ def post_to_site_item(post, registry_by_post_id):
         "image": image,
         "banner_image": banner_image,
         "body": body,
+        "body_en": body_en,
         "caption": caption,
         "source_url": source_url,
         "source_profile": clean_text(post.get("source_profile") or option.get("source_profile")),
         "source_platform": clean_text(option.get("source_platform")),
         "instagram_url": instagram_url,
         "instagram_id": instagram_id,
+        "facebook_url": facebook_url,
+        "facebook_id": facebook_id,
         "archive_credit": "Arquivo.pt",
         # Foto real validada para banner + cartão (usada na rotação do carrossel).
         "banner_ready": banner_ready,
-        # Redes sociais direcionadas (Instagram/Facebook/X) e links publicados.
-        # Sem escolha da IA (posts antigos), aplica a regra por categoria/nível
-        # para os badges ficarem equitativos durante a qualificação visual.
-        "networks": option.get("networks") or networks_for_option(category, relevance.get("level")),
+        # Os badges no site devem ser sempre instagram e facebook nesta ordem:
+        "networks": ["instagram", "facebook"],
         # Ponto focal da capa (análise Gemini) para object-position no site.
         "cover_focus": (photo_analysis or {}).get("cover_focus"),
-        "network_posts": post.get("network_posts") or {},
+        "network_posts": {
+            **({"instagram": instagram_url} if instagram_url else {}),
+            **({"facebook": facebook_url} if facebook_url else {}),
+            **(post.get("network_posts") or {}),
+        },
         # Relevância histórica (níveis calculados em historical_relevance.py).
         "relevance_level": relevance.get("level"),
         "relevance_scores": relevance.get("scores") or {},
@@ -1336,9 +1378,14 @@ def build_payload():
     registry = load_json(IMGBB_UPLOADS_FILE, [])
     registry_by_post_id = build_registry_lookup(registry if isinstance(registry, list) else [])
 
+    include_unpublished = str(os.environ.get("SITE_INCLUDE_UNPUBLISHED", "")).strip().lower() in {"1", "true", "yes"}
+
     items = []
     seen_titles_build = {}
     for post in pending_posts if isinstance(pending_posts, list) else []:
+        post_status = clean_text(post.get("status") or "pending").lower()
+        if not include_unpublished and post_status != "published":
+            continue
         item = post_to_site_item(post, registry_by_post_id)
         if not item:
             continue
@@ -1357,12 +1404,16 @@ def build_payload():
 
     items.sort(key=lambda item: (item.get("date", ""), int(item.get("slot") or 0)), reverse=True)
     published = [item for item in items if item.get("status") == "published"]
-    approved = [item for item in items if item.get("status") == "approved"]
-    editorial_items = [item for item in items if has_enduring_editorial_value(item)]
-    editorial_published = [item for item in published if has_enduring_editorial_value(item)]
-    editorial_approved = [item for item in approved if has_enduring_editorial_value(item)]
-    public_items = editorial_published or editorial_approved or editorial_items or published or approved or items
-    carousel_items = select_carousel_with_tenure(public_items)
+    if include_unpublished:
+        approved = [item for item in items if item.get("status") == "approved"]
+        editorial_items = [item for item in items if has_enduring_editorial_value(item)]
+        editorial_published = [item for item in published if has_enduring_editorial_value(item)]
+        editorial_approved = [item for item in approved if has_enduring_editorial_value(item)]
+        public_items = editorial_published or editorial_approved or editorial_items or published or approved or items
+    else:
+        editorial_published = [item for item in published if has_enduring_editorial_value(item)]
+        public_items = editorial_published or published
+    carousel_items = select_carousel_with_tenure(public_items) if public_items else []
     metrics = build_project_metrics(items)
     today = datetime.now().date()
     coverage_end_date = f"{metrics['coverage_end_year']}-12-31"
@@ -1418,7 +1469,9 @@ def build_payload():
         "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "default_lang": "pt",
         "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
-        "instagram_profile_url": os.environ.get("INSTAGRAM_PROFILE_URL", "https://www.instagram.com/"),
+        "instagram_profile_url": os.environ.get("INSTAGRAM_PROFILE_URL", "https://www.instagram.com/noticiasdeontempt/"),
+        "facebook_profile_url": os.environ.get("FB_PROFILE_URL", "https://www.facebook.com/noticiasdeontempt"),
+        "has_published_posts": bool(published),
         "newsletter": {
             "form_url": os.environ.get("NEWSLETTER_FORM_URL", ""),
             "enabled": True,
@@ -1538,6 +1591,27 @@ def build_story_shell(source_html, prefix):
     return shell
 
 
+def _activate_view(html, view):
+    """Na shell gerada de uma rota, ativa a vista dessa rota em vez da inicial.
+
+    Sem isto, todas as páginas geradas trazem a home-view como ativa e o
+    JavaScript só troca para a vista certa depois de ir buscar os dados,
+    o que faz a página inicial aparecer visivelmente a cada refresh.
+    """
+    if view == "home":
+        return html
+    html = html.replace('id="home-view" class="view active"', 'id="home-view" class="view"')
+    tag_re = re.compile(r'<section[^>]*data-view="' + re.escape(view) + r'"[^>]*>')
+
+    def _fix(match):
+        tag = match.group(0)
+        if " active" in tag:
+            return tag
+        return re.sub(r'class="([^"]*)"', lambda c: f'class="{c.group(1)} active"', tag, count=1)
+
+    return tag_re.sub(_fix, html, count=1)
+
+
 def write_route_pages(payload):
     index_path = SITE_DIR / "index.html"
     if not index_path.exists():
@@ -1615,6 +1689,15 @@ def write_route_pages(payload):
                 index=canonical_route != "noticia",
             ),
         )
+        route_view = {
+            "inicio": "home",
+            "calendario": "calendar",
+            "temas": "topics",
+            "documentacao": "docs",
+            "noticia": "news",
+            "newsletter": "newsletter",
+        }[canonical_route]
+        route_html = _activate_view(route_html, route_view)
         route_dir = SITE_DIR / route
         route_dir.mkdir(parents=True, exist_ok=True)
         (route_dir / "index.html").write_text(route_html, encoding="utf-8")
@@ -1654,13 +1737,13 @@ def write_route_pages(payload):
         # Página canónica em URL limpo (noticia/AAAA/MM/DD/slug-d8/).
         depth = len(Path(url_path).parts)
         canonical_shell = build_story_shell(source_html, "../" * depth)
-        story_html = with_seo(canonical_shell, story_seo)
+        story_html = _activate_view(with_seo(canonical_shell, story_seo), "news")
         story_dir = SITE_DIR / url_path
         story_dir.mkdir(parents=True, exist_ok=True)
         (story_dir / "index.html").write_text(story_html, encoding="utf-8")
         # Alias pelo id interno (ligas antigas continuam a funcionar; o
         # canonical aponta para o URL limpo).
-        alias_html = with_seo(alias_shell, story_seo)
+        alias_html = _activate_view(with_seo(alias_shell, story_seo), "news")
         alias_dir = news_root / page_id
         alias_dir.mkdir(parents=True, exist_ok=True)
         (alias_dir / "index.html").write_text(alias_html, encoding="utf-8")

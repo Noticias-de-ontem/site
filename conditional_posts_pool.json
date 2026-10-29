@@ -1,1 +1,169 @@
-[]
+[
+    {
+        "id": "cond_auto_2019_1",
+        "original_post_id": "",
+        "original_date": "",
+        "lang": "pt",
+        "trigger": "final do campeonato mundial de fórmula 1",
+        "trigger_description": "Evento condicional (final do campeonato mundial de fórmula 1)",
+        "curadoria_note": "auto_detected_by_ai",
+        "year": "2019",
+        "category": "DESPORTO",
+        "title": "Lewis Hamilton conquista o sexto título mundial de Fórmula 1",
+        "overlay_description": "O piloto secures o título de campeão mundial ao terminar o Grande Prémio das Américas em segundo lugar.",
+        "caption": "Lewis Hamilton assegurou o sexto título mundial de Fórmula 1, terminando o Grande Prémio das Américas em segundo lugar, atrás de Valtteri Bottas.",
+        "summary": "A conquista de um título mundial de Fórmula 1 é um marco desportivo universalmente relevante.",
+        "article_url": "",
+        "image_url": "",
+        "local_image_path": "",
+        "option": {
+            "year": "2019",
+            "category": "DESPORTO",
+            "editorial_tier": "high",
+            "title": "Lewis Hamilton conquista o sexto título mundial de Fórmula 1",
+            "highlight_text": "Sexto título mundial",
+            "overlay_description": "O piloto secures o título de campeão mundial ao terminar o Grande Prémio das Américas em segundo lugar.",
+            "image_theme": "Grande Prémio Fórmula 1",
+            "layout_preference": "template_3",
+            "breaking_candidate": false,
+            "conditional_trigger": "final do campeonato mundial de fórmula 1",
+            "caption": "Lewis Hamilton assegurou o sexto título mundial de Fórmula 1, terminando o Grande Prémio das Américas em segundo lugar, atrás de Valtteri Bottas.",
+            "summary": "A conquista de um título mundial de Fórmula 1 é um marco desportivo universalmente relevante.",
+            "title_en": "Lewis Hamilton Wins His Sixth Formula One World Championship",
+            "summary_en": "Hamilton secured the Formula One world title by finishing second at the United States Grand Prix.",
+            "relevance": {
+                "level": 4,
+                "scores": {
+                    "impacto_historico": 45.0,
+                    "dimensao_impacto": 50.0,
+                    "consequencias": 40.0,
+                    "relevancia_posterior": 55.0,
+                    "dimensao_duracao": 50.0,
+                    "relevancia_mediatica": 75.0,
+                    "singularidade": 55.0
+                },
+                "weighted_score": 49.2,
+                "justification": "O sexto título reforçou o legado esportivo de Hamilton e permanece uma referência na história da Fórmula 1, embora sem consequências documentadas além do feito.",
+                "lang": "pt"
+            },
+            "article_url": "",
+            "source_platform": "",
+            "source_profile": "",
+            "networks": [
+                "instagram"
+            ]
+        }
+    },
+    {
+        "id": "cond_auto_2014_2",
+        "original_post_id": "",
+        "original_date": "",
+        "lang": "pt",
+        "trigger": "inauguração oficial do one world trade center",
+        "trigger_description": "Evento condicional (inauguração oficial do one world trade center)",
+        "curadoria_note": "auto_detected_by_ai",
+        "year": "2014",
+        "category": "MUNDIAL",
+        "title": "One World Trade Center é inaugurado oficialmente em Nova Iorque",
+        "overlay_description": "O arranha-céu substituto das Torres Gêmeas é inaugurado oficialmente no local do World Trade Center.",
+        "caption": "O One World Trade Center foi inaugurado oficialmente em Nova Iorque, no local das Torres Gêmeas, e tornou-se o edifício mais alto do continente americano.",
+        "summary": "A inauguração do novo marco arquitetónico no local do World Trade Center constitui um turning point histórico universalmente conhecido.",
+        "article_url": "https://pt.wikipedia.org/wiki/11_03",
+        "image_url": "",
+        "local_image_path": "",
+        "option": {
+            "year": "2014",
+            "category": "MUNDIAL",
+            "editorial_tier": "high",
+            "title": "One World Trade Center é inaugurado oficialmente em Nova Iorque",
+            "highlight_text": "One World Trade Center",
+            "overlay_description": "O arranha-céu substituto das Torres Gêmeas é inaugurado oficialmente no local do World Trade Center.",
+            "image_theme": "One World Trade Center",
+            "layout_preference": "template_1",
+            "breaking_candidate": false,
+            "conditional_trigger": "inauguração oficial do one world trade center",
+            "caption": "O One World Trade Center foi inaugurado oficialmente em Nova Iorque, no local das Torres Gêmeas, e tornou-se o edifício mais alto do continente americano.",
+            "summary": "A inauguração do novo marco arquitetónico no local do World Trade Center constitui um turning point histórico universalmente conhecido.",
+            "title_en": "One World Trade Center Officially Opens in New York",
+            "summary_en": "The replacement skyscraper for the Twin Towers was officially dedicated at the World Trade Center site.",
+            "relevance": {
+                "level": 2,
+                "scores": {
+                    "impacto_historico": 90.0,
+                    "dimensao_impacto": 85.0,
+                    "consequencias": 80.0,
+                    "relevancia_posterior": 90.0,
+                    "dimensao_duracao": 90.0,
+                    "relevancia_mediatica": 85.0,
+                    "singularidade": 85.0
+                },
+                "weighted_score": 87.0,
+                "justification": "A inauguração substituiu as Torres Gêmeas por um marco permanente no local do World Trade Center, consolidando a memória do 11 de setembro e a transformação urbanística de Nova Iorque.",
+                "lang": "pt"
+            },
+            "article_url": "https://pt.wikipedia.org/wiki/11_03",
+            "source_platform": "wikipedia",
+            "source_profile": "wikipedia",
+            "networks": [
+                "instagram",
+                "facebook",
+                "x"
+            ]
+        }
+    },
+    {
+        "id": "cond_auto_2003_3",
+        "original_post_id": "",
+        "original_date": "",
+        "lang": "pt",
+        "trigger": "campeonato da europa de futebol euro 2004",
+        "trigger_description": "Evento condicional (campeonato da europa de futebol euro 2004)",
+        "curadoria_note": "auto_detected_by_ai",
+        "year": "2003",
+        "category": "POLÍTICA",
+        "title": "Governo cria comissão de saúde para o Euro 2004",
+        "overlay_description": "O Governo constitui uma comissão para acompanhar as condições de saúde e segurança durante o Campeonato da Europa.",
+        "caption": "O Governo criou uma comissão de acompanhamento da saúde para o Euro 2004, destinada a garantir a segurança dos adeptos e a coordenação das operações.",
+        "summary": "A criação de uma estrutura governamental para proteger a saúde pública durante um grande evento internacional tem alcance coletivo relevante.",
+        "article_url": "https://www.publico.pt/2003/11/03/sociedade/noticia/euro-2004-governo-cria-comissao-de-acompanhamento-para-as-questoes-de-saude-1173770",
+        "image_url": "",
+        "local_image_path": "",
+        "option": {
+            "year": "2003",
+            "category": "POLÍTICA",
+            "editorial_tier": "high",
+            "title": "Governo cria comissão de saúde para o Euro 2004",
+            "highlight_text": "Comissão Saúde Euro",
+            "overlay_description": "O Governo constitui uma comissão para acompanhar as condições de saúde e segurança durante o Campeonato da Europa.",
+            "image_theme": "Governo de Portugal São Bento",
+            "layout_preference": "template_1",
+            "breaking_candidate": false,
+            "conditional_trigger": "campeonato da europa de futebol euro 2004",
+            "caption": "O Governo criou uma comissão de acompanhamento da saúde para o Euro 2004, destinada a garantir a segurança dos adeptos e a coordenação das operações.",
+            "summary": "A criação de uma estrutura governamental para proteger a saúde pública durante um grande evento internacional tem alcance coletivo relevante.",
+            "title_en": "Government Creates Health Commission for Euro 2004",
+            "summary_en": "The government formed a commission to monitor health and safety conditions during the European Championship.",
+            "relevance": {
+                "level": 5,
+                "scores": {
+                    "impacto_historico": 25.0,
+                    "dimensao_impacto": 35.0,
+                    "consequencias": 30.0,
+                    "relevancia_posterior": 20.0,
+                    "dimensao_duracao": 25.0,
+                    "relevancia_mediatica": 35.0,
+                    "singularidade": 30.0
+                },
+                "weighted_score": 27.8,
+                "justification": "A comissão procurou proteger a saúde pública durante o torneio, mas a fonte não registra resultados ou consequências posteriores documentadas.",
+                "lang": "pt"
+            },
+            "article_url": "https://www.publico.pt/2003/11/03/sociedade/noticia/euro-2004-governo-cria-comissao-de-acompanhamento-para-as-questoes-de-saude-1173770",
+            "source_platform": "web",
+            "source_profile": "publico.pt",
+            "networks": [
+                "facebook"
+            ]
+        }
+    }
+]

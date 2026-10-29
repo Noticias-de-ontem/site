@@ -9158,5 +9158,1036 @@
    "reason": "A imagem mostra Volodymyr Zelenskyy, o que não está relacionado com a notícia sobre Zanzibar."
   },
   "_model": "gemini-3.5-flash-lite"
+ },
+ "test_gemini.jpg:824": {
+  "_final": {
+   "subject": "Fundo azul sólido sem elementos visuais",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "Trata-se de uma imagem azul sólida sem conteúdo visual relevante para ilustrar a notícia."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-10-27_01_2025_governo-lanca-desafio-as-universidades-com-menos-candidatos-fundo.jpg:79080": {
+  "_final": {
+   "subject": "ícone ilustrativo de um chapéu de graduação universitária",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Símbolo de graduação académica diretamente relacionado com o tema das universidades e do ensino superior."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-10-27_01_2024_presidente-da-republica-da-posse-aos-41-secretarios-de-estado-fundo.jpg:333300": {
+  "_final": {
+   "subject": "Donald Trump a prestar juramento com a mão levantada",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.763,
+     0.354
+    ],
+    [
+     0.21,
+     0.865
+    ]
+   ],
+   "banner_focus": [
+    0.65,
+    0.42
+   ],
+   "cover_focus": [
+    0.73,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra um ato oficial de tomada de posse, adequado para ilustrar a notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-28_01_2025_governo-alarga-proibicao-de-smartphones-a-alunos-do-3-o-ciclo-em-espacos-partilh-fundo.jpg:306471": {
+  "_final": {
+   "subject": "Dois jovens a olhar para um smartphone",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.264,
+     0.28
+    ],
+    [
+     0.912,
+     0.224
+    ]
+   ],
+   "banner_focus": [
+    0.35,
+    0.35
+   ],
+   "cover_focus": [
+    0.45,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra jovens a utilizar smartphones, ilustrando perfeitamente a temática da notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-29_01_2025_greve-da-funcao-publica-ameaca-escolas-hospitais-e-recolha-de-lixo-fundo.jpg:338603": {
+  "_final": {
+   "subject": "Duas mulheres seguram cartaz de greve da FASUBRA",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.12,
+     0.38
+    ],
+    [
+     0.86,
+     0.34
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.4
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata um protesto sindical e greve, contexto visual adequado para uma notícia sobre greves na função pública."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-29_01_2024_portugal-condena-lei-israelita-que-proibe-atuacao-da-unrwa-no-pais-fundo.jpg:614717": {
+  "_final": {
+   "subject": "Aldeias e colinas na Cisjordânia",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.55
+   ],
+   "cover_focus": [
+    0.5,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra o contexto geográfico e os colonatos na Cisjordânia, relevantes para o conflito e atuação israelita."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-30_01_2025_lei-da-nacionalidade-exige-ligacao-efetiva-a-portugal-sem-fechar-nem-radicalizar-fundo.jpg:260733": {
+  "_final": {
+   "subject": "Documento histórico impresso de lei municipal com assinaturas e carimbos",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.3
+   ],
+   "cover_focus": [
+    0.5,
+    0.4
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "O documento municipal brasileiro não tem relação com o tema da notícia sobre a lei da nacionalidade portuguesa."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-30_01_2022_auditoria-do-tribunal-de-contas-alerta-para-atraso-na-entrega-de-projectores-as--fundo.jpg:465857": {
+  "_final": {
+   "subject": "grafite de duas corujas num edificio em construcao",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra grafites de corujas num edificio, sem relacao com projectores escolares."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-31_01_2024_parlamento-isenta-iva-cabaz-alimentos-44-produtos-fundo.jpg:302395": {
+  "_final": {
+   "subject": "Pêras rocha e fruta fresca à venda num mercado",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.65
+   ],
+   "cover_focus": [
+    0.5,
+    0.65
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra fruta fresca, ilustrando diretamente o cabaz alimentar e o impacto do IVA."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-31_01_2021_estado-emergencia-governo-controla-taxas-uber-eats-fundo.jpg:75901": {
+  "_final": {
+   "subject": "Macarons coloridos dispostos sobre fundo branco",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": false,
+   "relevant": false,
+   "reason": "A imagem mostra macarons e não tem relação com regulação de taxas da Uber Eats."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-11-01_01_2025_governo-falha-meta-para-controlo-de-fronteiras-nos-aeroportos-fundo.jpg:402066": {
+  "_final": {
+   "subject": "Homem a utilizar um quiosque Global Entry de controlo de fronteiras",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.725,
+     0.285
+    ]
+   ],
+   "banner_focus": [
+    0.65,
+    0.35
+   ],
+   "cover_focus": [
+    0.65,
+    0.45
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra um passageiro num quiosque automatizado de controlo fronteiriço, encaixando no tema."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-29_01_2025_julgamento-da-operacao-lex-arranca-no-supremo-tribunal-de-justica-fundo.jpg:454716": {
+  "_final": {
+   "subject": "Edifício do Supremo Tribunal de Justiça",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.52
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra o edifício do Supremo Tribunal de Justiça, onde decorre o julgamento referido na notícia."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-10-30_04_2014_governo-propoe-fecho-de-311-escolas-municipios-ameacam-providencias-cautelares-fundo.jpg:230133": {
+  "_final": {
+   "subject": "Mural pintado e mochilas de crianças num corredor de escola",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.52,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra o ambiente de uma escola primária, contextualizando a notícia sobre o fecho de estabelecimentos de ensino."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-10-31_01_1926_revolta-militar-de-31-de-outubro-desafia-poder-governamental-no-porto-fundo.jpg:460516": {
+  "_final": {
+   "subject": "Vista aérea de praça urbana no Porto com caminhos simétricos",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Vista aérea de uma praça urbana no Porto, enquadramento geográfico e histórico relevante para a revolta."
+  },
+  "_model": "gemini-3.5-flash"
+ },
+ "2026-11-01_01_1918_crise-politica-e-agitacao-militar-precipitam-rutura-na-primeira-republica-fundo.jpg:564742": {
+  "_final": {
+   "subject": "Pintura histórica retratando revolta militar com canhões e tropas",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.473,
+     0.793
+    ],
+    [
+     0.543,
+     0.841
+    ],
+    [
+     0.627,
+     0.838
+    ],
+    [
+     0.702,
+     0.84
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra perfeitamente um momento de agitação militar e crise política na história da república."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-11-01_01_2020_presidente-da-republica-envia-decreto-do-estado-de-emergencia-ao-parlamento-fundo.jpg:411079": {
+  "_final": {
+   "subject": "Torre de Belém em Lisboa, Portugal",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra um monumento nacional português, adequado para notícias de relevo político em Portugal."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-28_01_2015_partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-fundo.jpg:337410": {
+  "_final": {
+   "subject": "Fachada do Palácio de São Bento",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O Palácio de São Bento é a sede da Assembleia da República, relevante para decisões governamentais."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-27_04_2021_orcamento-do-estado-chumbado-na-assembleia-da-republica-fundo.jpg:337410": {
+  "_final": {
+   "subject": "Fachada do Palácio de São Bento, sede da Assembleia da República",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.52,
+    0.38
+   ],
+   "cover_focus": [
+    0.5,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Edifício da Assembleia da República, local onde é debatido e votado o Orçamento do Estado."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-10-27_05_2014_governo-da-liberia-decreta-estado-de-emergencia-por-risco-de-epidemia-de-ebola-fundo.jpg:309190": {
+  "_final": {
+   "subject": "Vírus do Ébola visto ao microscópio eletrónico de transmissão",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.43,
+    0.32
+   ],
+   "cover_focus": [
+    0.45,
+    0.4
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Micrografia eletrónica do vírus do Ébola, diretamente relacionada com a notícia de emergência por epidemia de Ébola."
+  },
+  "_model": "gemini-3.5-flash"
+ },
+ "2026-10-29_01_1929_primeira-emissao-experimental-de-radio-realizada-em-portugal-fundo.jpg:262960": {
+  "_final": {
+   "subject": "Microfone profissional HyperX com suspensão elástica vermelha",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O microfone evoca o tema da rádio e das emissões sonoras."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-30_04_2013_corte-de-7-6-no-orcamento-universitario-coloca-em-risco-rankings-internacionais-fundo.jpg:411592": {
+  "_final": {
+   "subject": "Edifício universitário visto por cima de árvores verdes.",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.73,
+    0.55
+   ],
+   "cover_focus": [
+    0.73,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O edifício retrata o campus universitário afetado pelos cortes orçamentais descritos."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-27_04_2021_orcamento-do-estado-chumbado-na-assembleia-da-republica-fundo.jpg:337323": {
+  "_final": {
+   "subject": "Fachada do Palácio de São Bento, Assembleia da República",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.52,
+    0.4
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra o Palácio de São Bento, local onde é debatido e votado o Orçamento do Estado."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-10-27_05_2014_governo-da-liberia-decreta-estado-de-emergencia-por-risco-de-epidemia-de-ebola-fundo.jpg:309193": {
+  "_final": {
+   "subject": "Micrografia eletrónica do vírus Ébola em formato filamentoso característico",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.45,
+    0.35
+   ],
+   "cover_focus": [
+    0.45,
+    0.4
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra o vírus Ébola ao nível microscópico, perfeitamente relevante para a notícia sobre o risco de epidemia."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-10-28_01_2015_partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-fundo.jpg:465722": {
+  "_final": {
+   "subject": "Sala das sessões da Assembleia da República Portuguesa",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.55
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra a Assembleia da República, palco central da atividade parlamentar e da formação de Governo em Portugal."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-10-29_01_2025_greve-da-funcao-publica-ameaca-escolas-hospitais-e-recolha-de-lixo-fundo.jpg:338344": {
+  "_final": {
+   "subject": "Mulheres segurando cartaz em apoio a greve de servidores públicos",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.08,
+     0.35
+    ],
+    [
+     0.84,
+     0.33
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra diretamente o tema de greve no setor público com manifestantes e cartaz reivindicativo."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-10-29_01_1929_primeira-emissao-experimental-de-radio-realizada-em-portugal-fundo.jpg:500589": {
+  "_final": {
+   "subject": "Microfone de rádio antigo com acabamento dourado e preto",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Microfone histórico simboliza adequadamente a primeira emissão de rádio experimental em Portugal."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-31_01_2024_parlamento-isenta-iva-em-cabaz-alimentar-de-44-produtos-essenciais-fundo.jpg:302243": {
+  "_final": {
+   "subject": "Fruta numa banca de supermercado com etiqueta de preço",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra o tema dos preços e produtos alimentares essenciais abordados na notícia."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-27_04_2021_orcamento-do-estado-chumbado-na-assembleia-da-republica-fundo.jpg:337386": {
+  "_final": {
+   "subject": "Assembleia da República de Portugal",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.4
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A Assembleia da República ilustra perfeitamente a notícia sobre o Orçamento do Estado."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-27_05_2014_governo-da-liberia-decreta-estado-de-emergencia-por-risco-de-epidemia-de-ebola-fundo.jpg:309211": {
+  "_final": {
+   "subject": "Microscopia eletrónica do vírus do Ébola",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.3
+   ],
+   "cover_focus": [
+    0.5,
+    0.45
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra o vírus do Ébola, diretamente relacionado com a crise sanitária na Libéria."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-28_01_2025_governo-alarga-proibicao-de-smartphones-a-alunos-do-3-o-ciclo-em-espacos-partilh-fundo.jpg:306460": {
+  "_final": {
+   "subject": "Jovens a olhar para um smartphone",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.24,
+     0.28
+    ],
+    [
+     0.91,
+     0.24
+    ]
+   ],
+   "banner_focus": [
+    0.42,
+    0.25
+   ],
+   "cover_focus": [
+    0.45,
+    0.38
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrata alunos com smartphones, ilustrando perfeitamente a proibição do uso destes dispositivos na escola."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-28_01_2015_partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-fundo.jpg:465508": {
+  "_final": {
+   "subject": "Hemiciclo da Assembleia da República com pintura histórica e tribuna",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.32
+   ],
+   "cover_focus": [
+    0.5,
+    0.55
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Interior da Assembleia da República, palco central dos acordos políticos parlamentares para a formação de Governo."
+  },
+  "_model": "gemini-3.8-flash"
+ },
+ "2026-10-29_01_2025_greve-da-funcao-publica-ameaca-escolas-hospitais-e-recolha-de-lixo-fundo.jpg:338228": {
+  "_final": {
+   "subject": "Duas mulheres segurando um cartaz de apoio a uma greve",
+   "embedded_text": true,
+   "faces": [
+    [
+     0.1,
+     0.35
+    ],
+    [
+     0.85,
+     0.33
+    ]
+   ],
+   "banner_focus": [
+    0.5,
+    0.4
+   ],
+   "cover_focus": [
+    0.5,
+    0.55
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra manifestantes com cartaz de apoio à greve, sendo muito adequada para ilustrar greves na função pública."
+  },
+  "_model": "gemini-3.6-flash"
+ },
+ "2026-10-29_01_1929_primeira-emissao-experimental-de-radio-realizada-em-portugal-fundo.jpg:499998": {
+  "_final": {
+   "subject": "Antigo microfone de rádio estilo vintage",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.43
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Microfone histórico adequado para ilustrar uma notícia sobre a primeira emissão de rádio em Portugal."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-30_04_2014_governo-propoe-fecho-de-311-escolas-municipios-ameacam-providencias-cautelares-fundo.jpg:230207": {
+  "_final": {
+   "subject": "pinturas murais infantis numa escola",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O ambiente escolar ilustra diretamente a notícia sobre o encerramento de escolas."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-30_04_2013_corte-de-7-6-no-orcamento-universitario-coloca-em-risco-rankings-internacionais-fundo.jpg:411037": {
+  "_final": {
+   "subject": "Edifício universitário visto por cima de árvores",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.73,
+    0.57
+   ],
+   "cover_focus": [
+    0.73,
+    0.57
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra um edifício universitário relevante para a notícia sobre o orçamento da educação."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-31_01_2024_parlamento-isenta-iva-em-cabaz-alimentar-de-44-produtos-essenciais-fundo.jpg:302216": {
+  "_final": {
+   "subject": "Pêras Rocha e outros frutos frescos numa banca de mercado",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.3
+   ],
+   "cover_focus": [
+    0.5,
+    0.6
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra diretamente o cabaz alimentar e os preços associados aos produtos frescos essenciais."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-31_01_1926_revolta-militar-de-31-de-outubro-desafia-poder-governamental-no-porto-fundo.jpg:459942": {
+  "_final": {
+   "subject": "Praça da República no Porto",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra a Praça da República no Porto, local histórico central associado a revoltas e eventos militares."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-11-01_01_1918_crise-politica-e-agitacao-militar-precipitam-rutura-na-primeira-republica-fundo.jpg:564169": {
+  "_final": {
+   "subject": "Pintura histórica retratando motim militar e agitação política com canhões.",
+   "embedded_text": false,
+   "faces": [
+    null,
+    null,
+    null,
+    null
+   ],
+   "banner_focus": [
+    0.5,
+    0.55
+   ],
+   "cover_focus": [
+    0.5,
+    0.6
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Ilustra perfeitamente um momento de crise militar e agitação política na história republicana."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-11-01_01_2020_presidente-da-republica-envia-decreto-do-estado-de-emergencia-ao-parlamento-fundo.jpg:410980": {
+  "_final": {
+   "subject": "Torre de Belém em Lisboa, Portugal",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.45
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A foto mostra um monumento histórico e não tem ligação direta com a notícia política."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-11-02_01_2022_professores-realizam-greve-nacional-contra-o-orcamento-do-estado-fundo.jpg:173386": {
+  "_final": {
+   "subject": "Cartaz com notícia sobre greve nacional de professores",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O cartaz ilustra diretamente a notícia sobre a greve dos professores contra o Orçamento do Estado."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-11-02_02_2015_governo-omitiu-500-milhoes-de-euros-em-beneficios-fiscais-fundo.jpg:337386": {
+  "_final": {
+   "subject": "Palácio de São Bento, sede da Assembleia da República em Lisboa",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.35
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra a Assembleia da República, edifício central associado às decisões políticas e orçamentais."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-11-03_01_2002_docentes-ensino-particular-greve-nacional-fundo.jpg:303718": {
+  "_final": {
+   "subject": "edifício escolar com caixotes do lixo e passeio",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Mostra um edifício escolar, contextualizando uma notícia sobre a comunidade educativa e greve."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-11-03_02_2015_vaticano-diretiva-padres-homossexuais-fundo.jpg:552946": {
+  "_final": {
+   "subject": "Vista aérea da Praça de São Pedro no Vaticano",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "A imagem mostra o Vaticano, local diretamente associado à diretiva em causa."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-11-04_01_2003_obras-urgentes-docapesca-alcantara-trafaria-fundo.jpg:2262486": {
+  "_final": {
+   "subject": "Biombo japonês Namban do século XVI a retratar embarcação e figuras ocidentais.",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra um biombo histórico e não tem ligação direta combras urgentes da Docapesca."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-11-04_02_2008_barack-obama-eleito-primeiro-presidente-afro-americano-fundo.jpg:441736": {
+  "_final": {
+   "subject": "Barack Obama sorrindo com braços cruzados",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.505,
+     0.2
+    ]
+   ],
+   "banner_focus": [
+    0.505,
+    0.28
+   ],
+   "cover_focus": [
+    0.505,
+    0.38
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Retrato oficial de Barack Obama, perfeito para ilustrar a sua eleição presidencial."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-11-04_01_2003_obras-urgentes-docapesca-alcantara-trafaria-fundo.jpg:3249388": {
+  "_final": {
+   "subject": "Ponte 25 de Abril em Lisboa",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "A imagem mostra a Ponte 25 de Abril, sem ligação aparente à Docapesca ou obras portuárias anunciadas."
+  },
+  "_model": "gemini-3.5-flash-lite"
+ },
+ "2026-10-27_01_2005_unesco_proclama_dia_mundial_patrimonio_audiovisual-fundo.jpg:422575": {
+  "_final": {
+   "subject": "Harold Lloyd pendurado nos ponteiros do relógio no filme Safety Last!",
+   "embedded_text": false,
+   "faces": [
+    [
+     0.46,
+     0.59
+    ]
+   ],
+   "banner_focus": [
+    0.38,
+    0.45
+   ],
+   "cover_focus": [
+    0.35,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "Cena icónica do cinema clássico mudo que representa de forma marcante o património audiovisual histórico."
+  },
+  "_model": "gemini-3.7-flash"
  }
 }

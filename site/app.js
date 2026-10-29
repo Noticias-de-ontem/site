@@ -101,12 +101,12 @@ const RELEVANCE_ICONS = {
 const SOCIAL_NETWORKS = {
   instagram: {
     label: "Instagram",
-    url: "https://www.instagram.com/",
+    url: "https://www.instagram.com/noticiasdeontempt/",
     logo: "assets/logos/networks/instagram.svg",
   },
   facebook: {
     label: "Facebook",
-    url: "https://www.facebook.com/",
+    url: "https://www.facebook.com/noticiasdeontempt",
     logo: "assets/logos/networks/facebook.svg",
   },
   x: {
@@ -116,14 +116,13 @@ const SOCIAL_NETWORKS = {
   },
 };
 
-// Badge da rede com link para a publicação (ou URL padrão em testes).
+// Os badges no site devem ser sempre instagram e facebook nesta ordem:
 function networkBadgesHtml(item) {
-  const networks = Array.isArray(item?.networks) ? item.networks : [];
-  if (!networks.length) return "";
-  return networks.map((network) => {
+  const ORDER = ["instagram", "facebook"];
+  return ORDER.map((network) => {
     const meta = SOCIAL_NETWORKS[network];
     if (!meta) return "";
-    const href = item?.network_posts?.[network] || meta.url;
+    const href = item?.network_posts?.[network] || (network === "instagram" ? (item?.instagram_url || meta.url) : (item?.facebook_url || meta.url));
     const logo = assetPath(meta.logo);
     return `<a class="network-badge network-${network}" href="${escapeHtml(href)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(meta.label)}" title="${escapeHtml(meta.label)}"><img src="${escapeHtml(logo)}" alt="" loading="lazy"></a>`;
   }).join("");
@@ -144,8 +143,19 @@ function relevanceLevelInfo(item) {
 }
 
 function relevanceBadge(item, options = {}) {
-  // Critério de impacto mantido estritamente no backend (curadoria e ordenação interna).
-  return "";
+  const info = relevanceLevelInfo(item);
+  if (!info) return "";
+  const aria = t("relevanceHelpAria") || info.tooltip;
+  const icon = RELEVANCE_ICONS[info.level] || "";
+  const size = options.compact ? " relevance-badge-compact" : "";
+  const scoreData = options.scores && Object.keys(options.scores).length
+    ? ` data-scores='${escapeHtml(JSON.stringify({ scores: options.scores, weighted: options.weighted, justification: options.justification, level: info.level, name: info.name }))}'`
+    : "";
+  return (
+    `<span class="relevance-badge relevance-level-${info.level}${size}" data-relevance-level="${info.level}"${scoreData} ` +
+    `tabindex="0" role="button" aria-describedby="relevance-tooltip" aria-label="${escapeHtml(aria)}" title="${escapeHtml(info.name)}">` +
+    `${icon}<span class="relevance-badge-name">${escapeHtml(info.name)}</span></span>`
+  );
 }
 
 function sourceTypeChip(item) {
@@ -177,12 +187,17 @@ const i18n = {
     exploreDocsTitle: "Como funciona",
     exploreDocsBody: "O método, as fontes e a cobertura do projeto, em números.",
     footerInstagram: "Instagram",
+    footerFacebook: "Facebook",
+    betaNotice: "Este site está em versão beta e podem existir alguns problemas.",
+    betaDismiss: "Ignorar",
     latestEyebrow: "Arquivo social",
     latestTitle: "Últimas notícias publicadas",
-    latestPreviewNote: "Ainda sem posts marcados como publicados; mostramos a fila preparada para revisão.",
+    latestPreviewNote: "Ainda não existem notícias publicadas. As publicações surgirão aqui automaticamente após a sua partilha nas redes sociais.",
     latestPublishedNote: "Atualiza automaticamente quando o publisher marca um post como publicado.",
     openInstagram: "Ver no Instagram",
+    openFacebook: "Ver no Facebook",
     openArquivo: "Abrir no Arquivo.pt",
+    unavailableFacebook: "Facebook por atualizar",
     unavailableInstagram: "Instagram por atualizar",
     unavailableSource: "Fonte por atualizar",
     watermark: "Dados recolhidos via Arquivo.pt",
@@ -250,8 +265,10 @@ const i18n = {
     relevanceDocScoresNote: "No site, a pontuação completa de cada notícia aparece na respetiva página individual.",
     homeHighlightsEyebrow: "Agora no projeto",
     homeHighlightsTitle: "Destaques",
-    homeLevel1Title: "Destaques",
-    homeLevel1Lead: "Os acontecimentos mais marcantes preservados no arquivo.",
+    importantEyebrow: "Destaques Históricos",
+    feedEyebrow: "Publicações Recentes",
+    homeLevel1Title: "Notícias mais importantes",
+    homeLevel1Lead: "Os acontecimentos de maior relevância preservados no arquivo.",
     homeLevel2Title: "Grande Relevância",
     homeLevel2Lead: "Momentos decisivos de grande impacto nacional ou internacional.",
     homeMoreTitle: "Mais notícias",
@@ -328,6 +345,7 @@ const i18n = {
     newsEyebrow: "Notícia preservada",
     newsOpenArquivo: "Abrir notícia no Arquivo.pt",
     newsOpenInstagram: "Abrir publicação no Instagram",
+    newsOpenFacebook: "Abrir publicação no Facebook",
     newsNotFound: "Notícia não encontrada",
     newsNotFoundBody: "Este endereço já não corresponde a uma notícia disponível.",
     newsBack: "Voltar ao calendário",
@@ -394,12 +412,17 @@ const i18n = {
     exploreDocsTitle: "How it works",
     exploreDocsBody: "The method, the sources and the project's coverage, in numbers.",
     footerInstagram: "Instagram",
+    footerFacebook: "Facebook",
+    betaNotice: "This site is in beta and some issues may occur.",
+    betaDismiss: "Dismiss",
     latestEyebrow: "Social archive",
     latestTitle: "Latest published stories",
-    latestPreviewNote: "No posts are marked as published yet; showing the prepared review queue.",
+    latestPreviewNote: "No stories published yet. Published stories will appear here automatically once released on social media.",
     latestPublishedNote: "Updates automatically when the publisher marks a post as published.",
     openInstagram: "View on Instagram",
+    openFacebook: "View on Facebook",
     openArquivo: "Open on Arquivo.pt",
+    unavailableFacebook: "Facebook link pending",
     unavailableInstagram: "Instagram link pending",
     unavailableSource: "Source pending",
     watermark: "Data collected via Arquivo.pt",
@@ -467,8 +490,10 @@ const i18n = {
     relevanceDocScoresNote: "On the site, each story's full score breakdown appears on its own page.",
     homeHighlightsEyebrow: "Now on the project",
     homeHighlightsTitle: "Top stories",
-    homeLevel1Title: "Historic Landmarks",
-    homeLevel1Lead: "Events that changed the course of history.",
+    importantEyebrow: "Historical Highlights",
+    feedEyebrow: "Recent Posts",
+    homeLevel1Title: "Most Important News",
+    homeLevel1Lead: "The most relevant historical events preserved in the archive.",
     homeLevel2Title: "Major Events",
     homeLevel2Lead: "Decisive moments with major national or international impact.",
     homeMoreTitle: "More stories",
@@ -545,6 +570,7 @@ const i18n = {
     newsEyebrow: "Preserved story",
     newsOpenArquivo: "Open story on Arquivo.pt",
     newsOpenInstagram: "Open Instagram post",
+    newsOpenFacebook: "Open Facebook post",
     newsNotFound: "Story not found",
     newsNotFoundBody: "This address no longer matches an available story.",
     newsBack: "Back to the calendar",
@@ -912,6 +938,7 @@ function renderHero() {
   const item = heroItems.length ? heroItems[state.slide % heroItems.length] : null;
   const hero = document.getElementById("hero");
   const instagram = document.getElementById("hero-instagram");
+  const facebook = document.getElementById("hero-facebook");
   const source = document.getElementById("hero-source");
   const detail = document.getElementById("hero-detail");
   renderHeroDots(heroItems);
@@ -926,8 +953,10 @@ function renderHero() {
     setText("#hero-year", "");
     setText("#hero-summary", t("emptySummary"));
     setLink(instagram, "", t("openInstagram"), t("unavailableInstagram"));
+    if (facebook) setLink(facebook, "", t("openFacebook"), t("unavailableFacebook"));
     setLink(source, "", t("openArquivo"), t("unavailableSource"));
     if (instagram) instagram.hidden = true;
+    if (facebook) facebook.hidden = true;
     if (source) source.hidden = true;
     return;
   }
@@ -951,10 +980,15 @@ function renderHero() {
     detail.dataset.newsId = item.page_id;
   }
   setText("#hero-summary", localized(item, "summary"));
-  setLink(instagram, item.instagram_url, t("openInstagram"), t("unavailableInstagram"));
+  const igUrl = item.instagram_url || item.network_posts?.instagram || state.data?.instagram_profile_url || "https://www.instagram.com/noticiasdeontempt/";
+  setLink(instagram, igUrl, t("openInstagram"), t("unavailableInstagram"));
+  if (facebook) {
+    const fbUrl = item.facebook_url || item.network_posts?.facebook || state.data?.facebook_profile_url || "https://www.facebook.com/noticiasdeontempt";
+    setLink(facebook, fbUrl, t("openFacebook"), t("unavailableFacebook"));
+    facebook.hidden = !fbUrl;
+  }
   setLink(source, item.source_url, t("openArquivo"), t("unavailableSource"));
-  // Um botão sem destino sai do hero em vez de aparecer desativado.
-  if (instagram) instagram.hidden = !item.instagram_url;
+  if (instagram) instagram.hidden = !igUrl;
   if (source) source.hidden = !item.source_url;
 }
 
@@ -989,6 +1023,7 @@ function renderCarousel() {
           <p>${escapeHtml(localized(item, "summary"))}</p>
           <div class="card-actions">
             ${item.instagram_url ? `<a class="text-link" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openInstagram"))}</a>` : ""}
+            ${item.facebook_url || item.network_posts?.facebook ? `<a class="text-link" href="${escapeHtml(item.facebook_url || item.network_posts?.facebook)}" target="_blank" rel="noreferrer">${escapeHtml(t("openFacebook"))}</a>` : ""}
             ${item.source_url ? `<a class="text-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openArquivo"))}</a>` : ""}
           </div>
         </div>
@@ -1002,6 +1037,10 @@ function renderLatest() {
   const grid = document.getElementById("latest-grid");
   const note = state.data?.has_published_posts ? t("latestPublishedNote") : t("latestPreviewNote");
   setText("#latest-note", note);
+  if (!items.length) {
+    grid.innerHTML = `<p class="empty-feed" style="grid-column: 1 / -1; color: var(--muted); padding: 2rem 0; text-align: center;">${escapeHtml(state.lang === 'pt' ? 'Brevemente disponíveis aqui as notícias publicadas.' : 'Published stories will be available here shortly.')}</p>`;
+    return;
+  }
   grid.innerHTML = items.map((item) => {
     return `
       <article class="latest-card">
@@ -1012,6 +1051,7 @@ function renderLatest() {
           <p>${escapeHtml(formatDate(item.date))}</p>
           <div class="card-actions">
             ${item.instagram_url ? `<a class="text-link" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openInstagram"))}</a>` : ""}
+            ${item.facebook_url || item.network_posts?.facebook ? `<a class="text-link" href="${escapeHtml(item.facebook_url || item.network_posts?.facebook)}" target="_blank" rel="noreferrer">${escapeHtml(t("openFacebook"))}</a>` : ""}
             ${item.source_url ? `<a class="text-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openArquivo"))}</a>` : ""}
           </div>
         </div>
@@ -1434,14 +1474,34 @@ async function loadDynamicNewsItem(pageId) {
   }
 }
 
+function cleanArticleText(text) {
+  if (!text) return "";
+  let val = String(text);
+  val = val.replace(/Este post apenas tem o objetivo de relembrar acontecimentos passados da hist[oó]ria nunca representando acontecimentos atuais\.?:?/gi, "");
+  val = val.replace(/Esta not[ií]cia [eé] de \d{4}\.?/gi, "");
+  val = val.replace(/🔗?\s*L[eê] a not[ií]cia completa no link na descri[cç][aã]o do perfil\.?:?/gi, "");
+  val = val.replace(/🔗?\s*L[eê] a not[ií]cia completa no link da bio\.?:?/gi, "");
+  val = val.replace(/🔗?\s*L[eê] a not[ií]cia completa no link do sobre do perfil\.?:?/gi, "");
+  val = val.replace(/🔗?\s*L[eê] mais no link da bio\.?:?/gi, "");
+  val = val.replace(/#\w+/g, "");
+  return val.trim();
+}
+
 function articleParagraphs(item) {
   const seen = new Set();
   const paragraphs = [];
-  [localized(item, "summary"), item.body, item.caption].forEach((text) => {
-    const value = String(text || "").trim();
-    if (!value || seen.has(value)) return;
-    seen.add(value);
-    paragraphs.push(value);
+  // Usa apenas o resumo localizado e o corpo jornalístico. Nunca inclui caption (redes sociais).
+  const sources = [localized(item, "summary"), localized(item, "body")];
+  sources.forEach((text) => {
+    const raw = cleanArticleText(text);
+    if (!raw) return;
+    const chunks = raw.split(/\n\s*\n|\r\n\s*\r\n/);
+    chunks.forEach((chunk) => {
+      const value = chunk.trim();
+      if (!value || seen.has(value)) return;
+      seen.add(value);
+      paragraphs.push(value);
+    });
   });
   return paragraphs;
 }
@@ -1495,12 +1555,24 @@ function relevanceScoresHtml(item) {
   `;
 }
 
+function isSameStory(a, b) {
+  if (!a || !b) return false;
+  if (a === b) return true;
+  if (a.page_id && b.page_id && a.page_id === b.page_id) return true;
+  if (a.id && b.id && a.id === b.id) return true;
+  if (a.url_path && b.url_path && a.url_path === b.url_path) return true;
+  const titleA = String(a.title || "").trim().toLowerCase();
+  const titleB = String(b.title || "").trim().toLowerCase();
+  if (titleA && titleB && titleA === titleB) return true;
+  return false;
+}
+
 // Módulo "No mesmo dia": outras notícias do projeto nesta data, noutros anos.
 function sameDayHtml(item) {
   const targetMonthDay = monthDay(item.date || "");
   if (!targetMonthDay) return "";
   const others = (state.data?.all || [])
-    .filter((other) => other.page_id !== item.page_id && monthDay(other.date) === targetMonthDay)
+    .filter((other) => !isSameStory(other, item) && monthDay(other.date) === targetMonthDay)
     .sort((left, right) => `${right.date}-${right.slot || 0}`.localeCompare(`${left.date}-${left.slot || 0}`))
     .slice(0, 4);
   if (!others.length) return "";
@@ -1534,8 +1606,8 @@ function adjacentNewsHtml(item) {
   if (!neighbours[0] && !neighbours[1]) return "";
   return `
     <nav class="news-article-neighbours" aria-label="${escapeHtml(t("sameDayTitle"))}">
-      ${neighbours[0] ? `<a class="neighbour prev" href="${escapeHtml(newsPageUrl(neighbours[0]))}" data-news-id="${escapeHtml(neighbours[0].page_id)}"><span>‹ ${escapeHtml(t("previousStory"))}</span><strong>${escapeHtml(cleanTitle(neighbours[0]))}</strong></a>` : "<span></span>"}
-      ${neighbours[1] ? `<a class="neighbour next" href="${escapeHtml(newsPageUrl(neighbours[1]))}" data-news-id="${escapeHtml(neighbours[1].page_id)}"><span>${escapeHtml(t("nextStory"))} ›</span><strong>${escapeHtml(cleanTitle(neighbours[1]))}</strong></a>` : "<span></span>"}
+      ${neighbours[1] ? `<a class="neighbour next" href="${escapeHtml(newsPageUrl(neighbours[1]))}" data-news-id="${escapeHtml(neighbours[1].page_id)}"><span>‹ ${escapeHtml(t("nextStory"))}</span><strong>${escapeHtml(cleanTitle(neighbours[1]))}</strong></a>` : "<span></span>"}
+      ${neighbours[0] ? `<a class="neighbour prev" href="${escapeHtml(newsPageUrl(neighbours[0]))}" data-news-id="${escapeHtml(neighbours[0].page_id)}"><span>${escapeHtml(t("previousStory"))} ›</span><strong>${escapeHtml(cleanTitle(neighbours[0]))}</strong></a>` : "<span></span>"}
     </nav>
   `;
 }
@@ -1578,14 +1650,19 @@ function renderNewsDetail() {
     </figure>` : "";
   const snapshotHtml = snapshotUrl ? `
     <section class="news-snapshot">
-      <h2 class="news-article-sub">${escapeHtml(t("snapshotSectionTitle"))}</h2>
+      <div class="news-snapshot-header">
+        <h2 class="news-article-sub">${escapeHtml(t("snapshotSectionTitle"))}</h2>
+        ${item.source_url ? `<a class="snapshot-external-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">Ver no Arquivo.pt ↗</a>` : ""}
+      </div>
       <figure class="news-article-snapshot-frame">
         <div class="news-article-snapshot-head">
-          <strong>arquivo.pt</strong>
-          ${capturedOn ? `<span>${escapeHtml(`${t("snapshotCaptured")} ${capturedOn}`)}</span>` : ""}
+          <span class="snapshot-domain">arquivo.pt</span>
+          ${capturedOn ? `<span class="snapshot-date">${escapeHtml(`${t("snapshotCaptured")} ${capturedOn}`)}</span>` : ""}
         </div>
-        <img src="${escapeHtml(snapshotUrl)}" alt="${escapeHtml(t("snapshotCaption"))}" loading="eager" fetchpriority="high" decoding="async">
-        <figcaption>
+        <div class="news-snapshot-viewport">
+          <img src="${escapeHtml(snapshotUrl)}" alt="${escapeHtml(t("snapshotCaption"))}" loading="eager" fetchpriority="high" decoding="async">
+        </div>
+        <figcaption class="snapshot-caption">
           <span>${escapeHtml(t("snapshotCaption"))}</span>
         </figcaption>
       </figure>
@@ -1605,20 +1682,24 @@ function renderNewsDetail() {
             ${category ? `<span class="meta-pill">${escapeHtml(category)}</span>` : ""}
             ${sourceTypeChip(item)}
             ${relevanceBadge(item, { scores: item.relevance_scores, justification: item.relevance_justification, weighted: item.relevance_weighted })}
+            ${networkBadgesHtml(item)}
           </p>
           <h1 id="news-detail-title">${escapeHtml(title)}</h1>
           ${dateLine ? `<p class="news-article-dates">${escapeHtml(dateLine)}</p>` : ""}
         </header>
-        ${coverHtml}
         <div class="news-text">
           ${lead ? `<p class="news-article-lead">${escapeHtml(lead)}</p>` : ""}
           ${restParagraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
           <div class="news-article-actions">
             ${item.instagram_url ? `<a class="button primary" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenInstagram"))}</a>` : ""}
+            ${item.facebook_url || item.network_posts?.facebook ? `<a class="button primary facebook" href="${escapeHtml(item.facebook_url || item.network_posts?.facebook)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenFacebook"))}</a>` : ""}
             ${item.source_url ? `<a class="button secondary" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml((item.source_url || "").includes("arquivo.pt") ? t("newsOpenArquivo") : (state.lang === "pt" ? "Abrir na fonte original" : "Open original source"))}</a>` : ""}
           </div>
         </div>
-        ${snapshotHtml}
+        <div class="news-media">
+          ${coverHtml}
+          ${snapshotHtml}
+        </div>
       </div>
       ${sameDayHtml(item)}
       ${adjacentNewsHtml(item)}
@@ -3285,7 +3366,9 @@ function renderHomeSections() {
   const moreContainer = document.getElementById("home-more");
   const moreColumn = document.getElementById("home-more-column");
   if (moreContainer && moreColumn) {
-    const items = byLevel(2).concat(byLevel(3), byLevel(4), byLevel(5)).slice(0, 6);
+    const items = [...all].sort((left, right) =>
+      `${right.date || ""}-${right.slot || 0}`.localeCompare(`${left.date || ""}-${left.slot || 0}`)
+    ).slice(0, 12);
     moreColumn.hidden = items.length === 0;
     moreContainer.innerHTML = items.map((item) => `
       <article class="latest-card">
@@ -3302,13 +3385,25 @@ function renderHomeSections() {
     `).join("");
   }
 
-  // Barra lateral: lista dos Marcos Históricos (até 6), com badge.
-  const landings = byLevel(1).slice(0, 6);
+  // Barra lateral: notícias mais importantes (Nível 1 e Nível 2, até 6), com badge.
+  const importantItems = all
+    .filter((item) => {
+      const lvl = Number(item.relevance_level) || 4;
+      return lvl === 1 || lvl === 2;
+    })
+    .sort((left, right) => {
+      const lvlA = Number(left.relevance_level) || 4;
+      const lvlB = Number(right.relevance_level) || 4;
+      if (lvlA !== lvlB) return lvlA - lvlB;
+      return `${right.date || ""}-${right.slot || 0}`.localeCompare(`${left.date || ""}-${left.slot || 0}`);
+    })
+    .slice(0, 6);
+
   const landmarksBlock = document.getElementById("home-level-1-block");
   const landmarksList = document.getElementById("home-level-1");
   if (landmarksBlock && landmarksList) {
-    landmarksBlock.hidden = landings.length === 0;
-    landmarksList.innerHTML = landings.map((item) => `
+    landmarksBlock.hidden = importantItems.length === 0;
+    landmarksList.innerHTML = importantItems.map((item) => `
       <li>
         <a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">
           <span class="feed-year">${escapeHtml(item.original_year || dateYear(item.date))}</span>
@@ -3339,7 +3434,7 @@ function renderHomeSections() {
     feedBlock.hidden = finalItems.length === 0;
     feed.innerHTML = finalItems.map((item) => `
       <li>
-        <span class="feed-time">${escapeHtml(relativeTime(item.date))}</span>
+        <span class="feed-time">${escapeHtml(relativeTime(item.date, item.published_at))}</span>
         <a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">
           <strong>${escapeHtml(cleanTitle(item))}</strong>
         </a>
@@ -3349,16 +3444,47 @@ function renderHomeSections() {
   }
 }
 
-// Tempo relativo para o feed ("hoje", "ontem", "há X dias").
-function relativeTime(dateValue) {
-  if (!dateValue) return "";
-  const then = new Date(`${dateValue}T12:00:00`);
+// Tempo relativo para o feed ("há menos de um minuto", "há X horas", "ontem", "há X dias").
+function relativeTime(dateValue, publishedAt) {
+  if (publishedAt) {
+    const pub = new Date(publishedAt);
+    if (!Number.isNaN(pub.getTime())) {
+      const diffMs = Date.now() - pub.getTime();
+      if (diffMs < 24 * 3600000 && diffMs >= -60000) {
+        if (diffMs < 60000) {
+          return state.lang === "en" ? "less than a minute ago" : "há menos de um minuto";
+        }
+        const minutes = Math.floor(diffMs / 60000);
+        if (minutes < 60) {
+          if (minutes === 1) return state.lang === "en" ? "1 minute ago" : "há 1 minuto";
+          return state.lang === "en" ? `${minutes} minutes ago` : `há ${minutes} minutos`;
+        }
+        const hours = Math.floor(diffMs / 3600000);
+        if (hours === 1) return state.lang === "en" ? "1 hour ago" : "há 1 hora";
+        return state.lang === "en" ? `${hours} hours ago` : `há ${hours} horas`;
+      }
+    }
+  }
+  if (!dateValue && !publishedAt) return "";
+  const then = publishedAt ? new Date(publishedAt) : new Date(`${dateValue}T12:00:00`);
   const today = new Date();
   today.setHours(12, 0, 0, 0);
-  const days = Math.round((today - then) / 86400000);
-  if (days <= 0) return state.lang === "en" ? "Today" : "Hoje";
-  if (days === 1) return state.lang === "en" ? "Yesterday" : "Ontem";
-  return state.lang === "en" ? `${days} days ago` : `Há ${days} dias`;
+  const thenMidnight = new Date(then);
+  thenMidnight.setHours(12, 0, 0, 0);
+  const diffDays = Math.max(0, Math.round((today.getTime() - thenMidnight.getTime()) / 86400000));
+  if (diffDays <= 0) return state.lang === "en" ? "Hoje" : "hoje";
+  if (diffDays === 1) return state.lang === "en" ? "Yesterday" : "ontem";
+  if (diffDays < 30) {
+    return state.lang === "en" ? `${diffDays} days ago` : `há ${diffDays} dias`;
+  }
+  if (diffDays < 365) {
+    const months = Math.max(1, Math.round(diffDays / 30.4375));
+    if (months <= 1) return state.lang === "en" ? "1 month ago" : "há 1 mês";
+    return state.lang === "en" ? `${months} months ago` : `há ${months} meses`;
+  }
+  const years = Math.max(1, Math.round(diffDays / 365.25));
+  if (years <= 1) return state.lang === "en" ? "1 year ago" : "há 1 ano";
+  return state.lang === "en" ? `${years} years ago` : `há ${years} anos`;
 }
 
 function renderDocs() {
@@ -4295,7 +4421,53 @@ function wireFooter() {
   updateVisibility();
 }
 
+// Aviso beta por baixo do cabeçalho, dispensável (a escolha persiste em localStorage).
+function showBetaNotice() {
+  try {
+    if (window.localStorage && localStorage.getItem("noticiasdeontem-beta-dismissed") === "1") return;
+  } catch {
+    /* Sem acesso a localStorage, mostra sempre. */
+  }
+  const header = document.querySelector(".site-header");
+  if (!header || document.getElementById("beta-notice")) return;
+  const notice = document.createElement("div");
+  notice.id = "beta-notice";
+  notice.className = "beta-notice";
+  notice.setAttribute("role", "note");
+  notice.innerHTML = `
+    <p data-i18n="betaNotice">Este site está em versão beta e podem existir alguns problemas.</p>
+    <button type="button" class="beta-notice-dismiss" data-i18n-aria-label="betaDismiss" aria-label="Ignorar">×</button>`;
+  const dismiss = notice.querySelector(".beta-notice-dismiss");
+  let noticeObserver = null;
+  dismiss.addEventListener("click", () => {
+    try {
+      localStorage.setItem("noticiasdeontem-beta-dismissed", "1");
+    } catch {
+      /* Sem acesso a localStorage, o aviso volta a aparecer. */
+    }
+    if (noticeObserver) noticeObserver.disconnect();
+    notice.remove();
+  });
+  header.insertAdjacentElement("afterend", notice);
+  /* O cabeçalho muda de altura conforme a largura (navegação em 2 linhas no
+     telemóvel), por isso a distância do aviso mede-se em vez de se fixar. */
+  const syncNoticeTop = () => {
+    notice.style.top = `${header.offsetHeight}px`;
+  };
+  syncNoticeTop();
+  if (typeof ResizeObserver !== "undefined") {
+    noticeObserver = new ResizeObserver(syncNoticeTop);
+    noticeObserver.observe(header);
+  } else {
+    window.addEventListener("resize", syncNoticeTop);
+  }
+}
+
 async function init() {
+  // Troca para a vista da página atual ANTES de ir buscar os dados: sem
+  // isto, a home-view (ativa por defeito na shell) fica visível durante
+  // o fetch e só depois é substituída pela vista certa.
+  setRoute(routeFromLocation());
   wireNavigation();
   wireCalendar();
   wireLanguageSwitch();
@@ -4303,6 +4475,7 @@ async function init() {
   wireTopics();
   wireRelevanceTooltips();
   wireFooter();
+  showBetaNotice();
   try {
     const response = await fetch(assetPath("data/news.json"), { cache: "no-store" });
     state.data = await response.json();
@@ -4317,8 +4490,12 @@ async function init() {
   if (initialRoute === "topics" && state.topicQuery && !state.topicResultSets.length) runTopicSearch(false);
   startCarousel();
   const footerInstagram = document.getElementById("footer-instagram");
-  const profileUrl = cleanProfileUrl(state.data?.instagram_profile_url);
-  if (footerInstagram && profileUrl) footerInstagram.href = profileUrl;
+  const profileUrl = cleanProfileUrl(state.data?.instagram_profile_url) || "https://www.instagram.com/noticiasdeontempt/";
+  if (footerInstagram) footerInstagram.href = profileUrl;
+
+  const footerFacebook = document.getElementById("footer-facebook");
+  const fbProfileUrl = cleanProfileUrl(state.data?.facebook_profile_url) || "https://www.facebook.com/noticiasdeontempt";
+  if (footerFacebook) footerFacebook.href = fbProfileUrl;
 }
 
 function cleanProfileUrl(value) {

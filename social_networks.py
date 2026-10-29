@@ -26,8 +26,8 @@ NETWORK_LABELS_EN = {
 }
 
 NETWORK_DEFAULT_URLS = {
-    "instagram": "https://www.instagram.com/",
-    "facebook": "https://www.facebook.com/",
+    "instagram": "https://www.instagram.com/noticiasdeontempt/",
+    "facebook": "https://www.facebook.com/noticiasdeontempt",
     "x": "https://x.com/",
 }
 

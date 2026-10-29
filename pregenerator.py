@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 import requests
 
 from archive_storage import load_posts_for_date
-from historical_relevance import normalize_relevance, relevance_json_shape, relevance_prompt_rules
+from historical_relevance import DEFAULT_LEVEL, default_relevance, normalize_relevance, relevance_json_shape, relevance_prompt_rules
 from social_networks import networks_prompt_rules, normalize_networks
 from imgbb_registry import register_imgbb_upload
 from nvidia_client import DEFAULT_NVIDIA_MODEL, NvidiaKeyPool, load_nvidia_api_keys
@@ -183,6 +183,12 @@ def extract_macro_topic(title, summary="", category=""):
         return "guerra_ucrania"
     if any(k in norm for k in ["israel", "palestin", "gaza", "cisjordania", "netanyahu"]):
         return "conflito_oriente"
+    if any(k in norm for k in ["greve de professor", "greve dos professor", "greve dos docentes", "docentes do ensino particular", "fenprof", "fne", "fecho de escolas"]) and not any(k in norm for k in ["covid", "pandemia"]):
+        return "greve_educacao"
+    if any(k in norm for k in ["orcamento do estado", "beneficios fiscais", "beneficio fiscal", "chumbo do orcamento", "chumbado na generalidade", "divida publica", "defice"]):
+        return "orcamento_financas"
+    if any(k in norm for k in ["eleicoes legislativas", "eleicao presidencial", "eleicoes presidenciais", "eleicoes autarquicas", "eleito presidente dos estados unidos"]):
+        return "eleicoes"
     return None
 
 
@@ -454,12 +460,16 @@ def select_nvidia_candidates(news_items, max_total=MAX_NVIDIA_INPUT_ITEMS, max_p
 def infer_category_from_text(text, lang):
     normalized = normalize_text(text).lower()
     category_rules = [
-        ("DESPORTO" if lang == "pt" else "SPORTS", ["futebol", "football", "sport", "desporto", "ronaldo", "messi", "benfica", "sporting", "fc porto", "mourinho", "gyökeres"]),
-        ("POLÍTICA" if lang == "pt" else "POLITICS", ["polit", "elei", "govern", "parliament", "presid", "prime minister", "montenegro", "costa", "ventura", "chega", "ps ", "psd", "pcp", "sánchez", "trump", "lula"]),
-        ("MUNDIAL" if lang == "pt" else "WORLD", ["war", "guerra", "ukraine", "ucrani", "russia", "israel", "palestin", "gaza", "nato", "onu"]),
-        ("TECNOLOGIA" if lang == "pt" else "TECHNOLOGY", ["tech", "tecnolog", "iphone", "apple", "google", "inteligência artificial", "cibersegurança"]),
-        ("SOCIEDADE" if lang == "pt" else "SOCIETY", ["habitação", "habitacao", "salário", "salario", "hospital", "sns", "sismo", "terramoto", "incêndio", "eutanásia"]),
-        ("CULTURA" if lang == "pt" else "CULTURE", ["cultura", "book", "livr", "art", "museum", "teatro"]),
+        ("EDUCAÇÃO" if lang == "pt" else "EDUCATION", ["professor", "professores", "docente", "docentes", "escola", "escolas", "universidade", "universidades", "aluno", "alunos", "estudante", "estudantes", "ensino", "fenprof", "fne", "propinas", "ministério da educação", "ministerio da educacao", "3º ciclo", "secundário", "secundario"]),
+        ("ECONOMIA" if lang == "pt" else "ECONOMY", ["orçamento do estado", "orcamento do estado", "benefício fiscal", "beneficio fiscal", "benefícios fiscais", "beneficios fiscais", "imposto", "impostos", "iva", "irs", "irc", "pib", "inflação", "inflacao", "banco de portugal", "bce", "fmi", "troika", "défice", "defice", "dívida pública", "divida publica"]),
+        ("SAÚDE" if lang == "pt" else "HEALTH", ["hospital", "hospitais", "médico", "medico", "médicos", "medicos", "médica", "medica", "enfermeiro", "enfermeiros", "sns", "serviço nacional de saúde", "vacinação", "vacinacao", "epidemia", "pandemia", "surto"]),
+        ("JUSTIÇA" if lang == "pt" else "JUSTICE", ["tribunal", "juiz", "juízes", "juizes", "magistrado", "magistrados", "ministério público", "ministerio publico", "polícia judiciária", "policia judiciaria", "condenação", "condenacao", "julgamento", "acórdão", "acordao"]),
+        ("DESPORTO" if lang == "pt" else "SPORTS", ["futebol", "football", "sport", "desporto", "ronaldo", "messi", "benfica", "sporting", "fc porto", "mourinho", "gyökeres", "campeonato", "taça", "liga"]),
+        ("POLÍTICA" if lang == "pt" else "POLITICS", ["polit", "elei", "govern", "parliament", "presid", "prime minister", "assembleia da república", "são bento", "palácio de belém", "palacio de belem", "montenegro", "costa", "ventura", "chega", "ps ", "psd", "pcp", "cds", "bloco de esquerda", "sánchez", "trump", "lula"]),
+        ("MUNDIAL" if lang == "pt" else "WORLD", ["war", "guerra", "ukraine", "ucrani", "russia", "israel", "palestin", "gaza", "nato", "onu", "estados unidos", "união europeia", "uniao europeia", "casa branca", "vaticano", "papa"]),
+        ("TECNOLOGIA" if lang == "pt" else "TECHNOLOGY", ["tech", "tecnolog", "iphone", "apple", "google", "inteligência artificial", "cibersegurança", "smartphone"]),
+        ("CULTURA" if lang == "pt" else "CULTURE", ["cultura", "book", "livr", "art", "museum", "teatro", "cinema", "literatura", "rádio", "radio", "música", "musica"]),
+        ("SOCIEDADE" if lang == "pt" else "SOCIETY", ["habitação", "habitacao", "salário", "salario", "sismo", "terramoto", "incêndio", "eutanásia", "greve geral", "função pública", "transportes", "metro", "cp "]),
     ]
     for category, keywords in category_rules:
         if any(keyword in normalized for keyword in keywords):
@@ -670,6 +680,8 @@ def create_image_with_text(
     return_details=False,
     year=None,
     relevance_level=None,
+    background_image=None,
+    **kwargs,
 ):
     return render_post_image(
         category_to_draw,
@@ -689,6 +701,8 @@ def create_image_with_text(
         return_details=return_details,
         year=year,
         relevance_level=relevance_level,
+        background_image=background_image,
+        **kwargs,
     )
 
 
@@ -802,6 +816,7 @@ def enrich_options_with_ai(options, lang):
       "idx": 0,
       "title_en": "The headline in natural United States English (not a literal translation)",
       "summary_en": "The overlay/summary in natural United States English",
+      "body_en": "The journalistic article body in natural United States English (300-500 words)",
       "networks": ["instagram", "facebook" ou "x" — ver regras],
       "relevance": {{
         "impacto_historico": 0-100,
@@ -844,6 +859,8 @@ Options:
                 option["summary_en"] = normalize_text(item.get("summary_en"))
             if item.get("body"):
                 option["body"] = normalize_text(item.get("body"))
+            if item.get("body_en"):
+                option["body_en"] = normalize_text(item.get("body_en"))
             relevance = normalize_relevance(item.get("relevance"))
             if relevance:
                 option["relevance"] = relevance
@@ -1131,6 +1148,10 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
 
     1. TEMPORAL COHERENCE AND PLAUSIBILITY:
        - The post must read like factual breaking news happening today when the archival year is shown only in small print.
+       - NEVER include any year, month, or day in 	itle, overlay_description, caption, or summary. Stories must be written completely timelessly for delayed/historical publication (e.g. write 'Orçamento do Estado chumbado na Assembleia da República', NEVER 'Orçamento do Estado para 2022 chumbado').
+       - NEVER use absolute or sensationalist historical claims like 'inédito', 'primeira vez na história', or 'acontecimento sem precedentes desde...'.
+       - For lang='pt', STRICTLY REJECT domestic news of remote third countries (e.g. municipal/local health decrees in Liberia, smog in Beijing, provincial decrees in Latin America/Asia/Africa) whenever Portuguese or European stories exist. Prioritize Portugal, Portuguese institutions, society, and European events.
+       - IMAGE THEME GUIDELINE: When the news concerns Portuguese institutional acts, government, or state organs (e.g. Presidente da República, Governo, Parlamento, São Bento, Belém), the image_theme query MUST explicitly specify Portuguese context (e.g. 'Palácio de Belém Lisboa', 'Assembleia da República Lisboa', 'Governo de Portugal São Bento'), NEVER generic words like 'posse governamental cerimonia' that could return images of Donald Trump or foreign leaders.
        - INSTITUTIONAL ROLE PRINCIPLE:
          * If a news item concerns an official institutional act (such as an executive decision, legislative vote, governmental measure, or judicial ruling) carried out by an officeholder who no longer holds that position today, the `title`, `overlay_description`, and `caption` must refer to the institutional office (e.g. "Governo", "Presidente da República", "Tribunal", "Parlamento") rather than attributing the action to the former officeholder by their personal name.
          * If a news item is a personal opinion, diplomatic tour, speech, warning, challenge, or political declaration by someone who is retired, out of active leadership, playing for a different club, or detained/incapacitated today, STRICTLY REJECT IT.
@@ -1160,7 +1181,8 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
        - If a major event is tied to an event that only recurs on specific political or athletic calendar dates (such as presidential inaugurations, national election cycles, or cup finals), mark `"conditional_trigger"` accordingly. Otherwise, set `"conditional_trigger"` to `""`.
 
     5. FORMATTING & DIVERSITY:
-       - Valid Portuguese categories: POLÍTICA, DESPORTO, CULTURA, SOCIEDADE, CIÊNCIA, TECNOLOGIA, NACIONAL, MUNDIAL.
+       - Valid Portuguese categories: EDUCAÇÃO, ECONOMIA, POLÍTICA, SAÚDE, JUSTIÇA, SOCIEDADE, CULTURA, DESPORTO, CIÊNCIA, TECNOLOGIA, MUNDIAL.
+       - STRICT CATEGORIZATION: News about schools, teachers, professors, universities, or exams MUST be categorized as 'EDUCAÇÃO' (NEVER generic 'SOCIEDADE'). News about the State Budget, taxes, public debt, or fiscal benefits MUST be categorized as 'ECONOMIA' (NEVER generic 'POLÍTICA' or 'SOCIEDADE'). News about hospitals, doctors, or epidemics MUST be 'SAÚDE'. News about courts or judicial sentences MUST be 'JUSTIÇA'.
        - NEVER include any year, month, or day in `title` or `overlay_description`.
        - `title` must be a complete, self-contained journalistic headline (max 70 chars).
        - Maximize chronological diversity across 1996-2025: at most 2 options from the same year, and ensure representation across different eras.
@@ -1170,7 +1192,9 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
        - Strictly avoid topic saturation: At least 3 days of interval between news of the same macro-theme (e.g. Covid-19/pandemia, repeated judicial cases, recurring disputes).
        - Maximum 8 stories on the same macro-theme within any 30-day window. Even during high-intensity years (like 2020-2021 with the pandemic), do not oversaturate the publication with repetitive pandemic news; diversify into other historical milestones of the era.
        - Prevent Redundant Near-Duplicates: Never select near-duplicate measures, procedural delays, or identical headlines in consecutive or adjacent days.
-       - Do not select multiple headlines about the same entity or topic on the same day.
+       - INTRA-DAY THEMATIC DIVERSITY: Do not select multiple headlines about the same entity, sector, or category on the same day. Slot 1 and Slot 2 must be thematic contrasts (e.g. if one is education/strikes, the other must be an international milestone, culture, or economy).
+       - INTER-DAY DIVERSITY: Avoid selecting the same macro-topic or sector across consecutive days (e.g. do not schedule strikes or elections two days in a row).
+       - HISTORICAL WEIGHT OF WORLD EVENTS: Any world event ('MUNDIAL') must be a landmark historical turning point that impacted world history (e.g. Barack Obama elected first African-American president, fall of the Berlin Wall) rather than foreign local news.
 
     Format:
     {{
@@ -1233,8 +1257,9 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
                     option["caption"] = normalize_text(option.get("caption", ""))
                     option["summary"] = normalize_text(option.get("summary", ""))
                     option["summary_en"] = normalize_text(option.get("summary_en", ""))
+                    option["body_en"] = normalize_text(option.get("body_en", ""))
                     relevance = normalize_relevance(option.get("relevance"))
-                    option["relevance"] = relevance or {}
+                    option["relevance"] = relevance or default_relevance(lang)
                     if not option["title"] or not option["year"]:
                         continue
                     # Ligar a opção à notícia candidata correspondente (ano +
@@ -1354,8 +1379,9 @@ def generate_external_day_suggestions(date_obj, lang, existing_options=None):
     1. STRICT CALENDAR DATE MATCHING:
        - You MUST only suggest events that actually happened on this exact day: {date_obj.day} of {date_obj.strftime('%B')}.
        - Do NOT suggest events from other dates. For example, if today is in July, do NOT suggest the Carnation Revolution (which happened on April 25th), do NOT suggest Christmas, and do NOT suggest any other off-season events.
-    2. CATEGORY LANGUAGE:
-       - Since the language is {lang.upper()}, the "category" field MUST be in Portuguese!
+    2. CATEGORY AND CONTENT LANGUAGE (STRICTLY PORTUGUESE):
+       - Since the language is {lang.upper()}, ALL fields ("title", "summary", "category") MUST be written 100% in European Portuguese!
+       - NEVER use English titles or phrasing (e.g. write 'Estreia de Morte e Vida de Fernando Pessoa', NEVER 'Premiere of...').
        - Use categories like: POLÍTICA, DESPORTO, CULTURA, SOCIEDADE, CIÊNCIA, NACIONAL, MUNDIAL, ESTRELA, CURIOSO. Never use English words.
     3. NO DEATHS:
        - Do NOT suggest any events about deaths, passings, murders, violence, or violent tragedies.
@@ -1501,6 +1527,7 @@ def normalize_pending_post(post):
         normalized_option["summary"] = normalize_text(normalized_option.get("summary", ""))
         normalized_option["summary_en"] = normalize_text(normalized_option.get("summary_en", ""))
         normalized_option["body"] = normalize_text(normalized_option.get("body", ""))
+        normalized_option["body_en"] = normalize_text(normalized_option.get("body_en", ""))
         normalized_option["networks"] = normalize_networks(
             normalized_option.get("networks"),
             normalized_option.get("category", ""),
@@ -1512,7 +1539,7 @@ def normalize_pending_post(post):
         normalized_option["local_image_path"] = normalize_text(normalized_option.get("local_image_path", ""))
         normalized_option["image_delete_url"] = normalize_text(normalized_option.get("image_delete_url", ""))
         relevance = normalize_relevance(normalized_option.get("relevance"))
-        normalized_option["relevance"] = relevance or {}
+        normalized_option["relevance"] = relevance or default_relevance(post.get("lang", "pt"))
         normalized_option["article_url"] = normalize_text(normalized_option.get("article_url", ""))
         options.append(normalized_option)
     post["options"] = options
@@ -1606,10 +1633,34 @@ def match_option_to_article(option, articles):
     return best_match
 
 
-def append_review_hashtags(caption, lang):
-    caption = normalize_text(caption)
-    hashtags = "#Noticias #Atualidade #Jornalismo" if lang == "pt" else "#News #BreakingNews #CurrentEvents"
-    return caption if hashtags in caption else normalize_text(f"{caption}\n\n{hashtags}")
+def format_standard_caption(caption, year, category, platform="instagram", lang="pt"):
+    clean_text = normalize_text(caption)
+    # Remove older generic hashtags if present
+    clean_text = re.sub(r"#\w+", "", clean_text).strip()
+    year_str = str(year or "").strip()
+    
+    if lang == "pt":
+        import unicodedata
+        cat_tag = re.sub(r"[^a-zA-Z0-9]", "", unicodedata.normalize("NFKD", str(category or "")).encode("ASCII", "ignore").decode("utf-8")).capitalize()
+        if not cat_tag or cat_tag.lower() in ("atualidade", "noticia", "noticias"):
+            cat_tag = "Portugal"
+        elif cat_tag.lower() == "mundial":
+            cat_tag = "Mundo"
+
+        alert = f"Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de {year_str}."
+        link_cta = "🔗 Lê a notícia completa no link na descrição do perfil."
+        hashtags = f"#NoticiasDeOntem #ArquivoPT #{cat_tag}"
+    else:
+        cat_tag = re.sub(r"[^a-zA-Z0-9]", "", str(category or "")).capitalize() or "World"
+        alert = f"This post is intended solely to recall past events in history, never representing current events. This story is from {year_str}."
+        link_cta = "🔗 Read the full story via the link in our bio/about section."
+        hashtags = f"#YesterdayNews #ArquivoPT #{cat_tag}"
+
+    return f"{clean_text}\n\n{alert}\n\n{link_cta}\n\n{hashtags}"
+
+
+def append_review_hashtags(caption, lang, year="", category="", platform="instagram"):
+    return format_standard_caption(caption, year, category, platform=platform, lang=lang)
 
 
 def prepare_options_for_review(
@@ -1697,7 +1748,11 @@ def prepare_options_for_review(
         option["image_theme"] = normalize_text(option.get("image_theme", ""))
         option["layout_preference"] = str(option.get("layout_preference", "template_1")).strip().lower().replace("-", "_")
         option["breaking_candidate"] = bool(option.get("breaking_candidate", False))
-        option["caption"] = append_review_hashtags(option.get("caption", ""), lang)
+        year = option.get("year", "")
+        cat = option.get("category", "")
+        option["caption_instagram"] = format_standard_caption(option.get("caption", ""), year, cat, platform="instagram", lang=lang)
+        option["caption_facebook"] = format_standard_caption(option.get("caption", ""), year, cat, platform="facebook", lang=lang)
+        option["caption"] = option["caption_instagram"]
         prepared_options.append(option)
     return prepared_options
 
@@ -2640,6 +2695,7 @@ def generate_pending_posts_for_interval(pending_posts, lang, start_date, end_dat
         day_selected_topics = set()
         day_selected_tokens = []
         day_selected_years = set()
+        day_selected_categories = set()
 
         def _evaluate_candidate(cand, slot_num):
             """
@@ -2674,6 +2730,7 @@ def generate_pending_posts_for_interval(pending_posts, lang, start_date, end_dat
             for prev_toks in day_selected_tokens:
                 if len(c_toks & prev_toks) >= 2:
                     return 0, "headline overlaps with other slot today"
+            penalty_same_category = (c_cat and c_cat in day_selected_categories)
             penalty_same_year = (c_year in day_selected_years)
 
             # Historico recente:
@@ -2704,6 +2761,8 @@ def generate_pending_posts_for_interval(pending_posts, lang, start_date, end_dat
                 score += 50
             if not penalty_same_year:
                 score += 20
+            if penalty_same_category:
+                score -= 60  # Penalizar fortemente categorias repetidas no mesmo dia
             return score, "ok"
 
         # Construcao inteligente das opcoes para Slot 1 e Slot 2
@@ -2737,6 +2796,8 @@ def generate_pending_posts_for_interval(pending_posts, lang, start_date, end_dat
                 cp_yr = str(chosen_primary.get("year", ""))[:4]
                 if cp_top:
                     day_selected_topics.add(cp_top)
+                if chosen_primary.get("category"):
+                    day_selected_categories.add(chosen_primary.get("category"))
                 day_selected_tokens.append(cp_toks)
                 day_selected_years.add(cp_yr)
                 all_selected_history.append({
