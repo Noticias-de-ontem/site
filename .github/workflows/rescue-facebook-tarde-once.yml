@@ -1,0 +1,86 @@
+name: Rescue Facebook Tarde Once (temp)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  rescue-facebook-tarde:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14.6'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Publish evening post to Facebook feed and story
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+        run: |
+          python3 - <<'PYEOF'
+          import json
+          import sys
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+
+          sys.path.insert(0, ".")
+          from publisher import publish_to_facebook, publish_facebook_story, normalize_text
+
+          with open("pending_posts.json", encoding="utf-8") as f:
+              posts = json.load(f)
+          entry = next((p for p in posts if p.get("id") == "pt_2026-10-29_2"), None)
+          if entry is None:
+              print("ERRO: post pt_2026-10-29_2 nao encontrado")
+              sys.exit(1)
+          opt = entry["options"][entry.get("selected_option", 0)]
+          caption = normalize_text(opt.get("caption_facebook") or opt.get("caption") or "")
+          image_url = opt.get("image_url") or ""
+          if not caption or not image_url:
+              print("ERRO: legenda ou imagem em falta no post aprovado")
+              sys.exit(1)
+          ts = int(datetime.strptime("2026-10-29 18:30", "%Y-%m-%d %H:%M").replace(
+              tzinfo=ZoneInfo("Europe/Lisbon")).timestamp())
+          result = publish_to_facebook(caption, image_url, backdated_time=ts)
+          if not result or not result.get("success"):
+              print("ERRO: feed Facebook falhou")
+              sys.exit(1)
+          entry["facebook_id"] = result["id"]
+          entry["facebook_url"] = result["permalink"]
+          print("Feed Facebook:", result["permalink"])
+          story = publish_facebook_story(image_url)
+          if story:
+              entry["facebook_story_id"] = str(story)
+              print("Story Facebook:", story)
+          else:
+              print("Aviso: story Facebook falhou (best-effort, feed ja publicado)")
+          with open("pending_posts.json", "w", encoding="utf-8") as f:
+              json.dump(posts, f, ensure_ascii=False, indent=4)
+          print("pending_posts.json atualizado")
+          PYEOF
+
+      - name: Commit and Push changes
+        if: always()
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: resgate Facebook do post da tarde de 2026-10-29"
+            for attempt in 1 2 3; do
+              git pull --rebase --autostash origin main || true
+              if git push origin main; then
+                break
+              fi
+              sleep 3
+            done
+          fi
