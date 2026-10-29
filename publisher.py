@@ -63,15 +63,32 @@ def rotate_nvidia_client():
     return nvidia_pool.rotate()
 
 
-def copy_image_reference_to_path(image_url, output_path, timeout=10):
+def copy_image_reference_to_path(image_url, output_path, timeout=30, retries=3):
+    """Copia uma imagem (URL ou caminho local) para output_path.
+    URLs: timeout de 30 s por tentativa e ate `retries` tentativas, com 5 s
+    de espera entre elas. O ImgBB tem latencia variavel e o limite anterior
+    de 10 s sem retry deitou abaixo um post aprovado em 2026-10-29, pelo
+    que a falha so e definitiva depois de esgotadas as tentativas. Se a
+    ultima tentativa falhar com excecao, ela e propagada para o chamador
+    registar o erro; um estado HTTP diferente de 200 devolve False."""
     if not image_url:
         return False
     if re.match(r"^https?://", image_url, flags=re.IGNORECASE):
-        img_response = requests.get(image_url, timeout=timeout)
-        if img_response.status_code == 200:
-            with open(output_path, "wb") as f:
-                f.write(img_response.content)
-            return True
+        import time as _time
+        last_exc = None
+        for _attempt in range(1, retries + 1):
+            try:
+                img_response = requests.get(image_url, timeout=timeout)
+                if img_response.status_code == 200:
+                    with open(output_path, "wb") as f:
+                        f.write(img_response.content)
+                    return True
+            except Exception as exc:
+                last_exc = exc
+            if _attempt < retries:
+                _time.sleep(5)
+        if last_exc is not None:
+            raise last_exc
         return False
 
     local_path = image_url.replace("/", os.sep)
