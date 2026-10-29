@@ -1464,17 +1464,22 @@ News Items:
 
 
 def is_within_posting_hours(lang):
-    """Verifica se o momento atual (hora de Portugal Europe/Lisbon) esta dentro das janelas:
-    - Janela 1 (Manha): 08:00 as 13:30 (480 a 810 minutos)
-    - Janela 2 (Tarde/Noite): 17:00 as 21:30 (1020 a 1290 minutos)
+    """Verifica se o momento atual (hora de Portugal Europe/Lisbon) esta dentro das janelas,
+    com 60 minutos de tolerancia apos o fim de cada janela (ate 14:30 e 22:30):
+    a run das 13:30/21:30 so chega ao script depois do checkout e do pip install,
+    por isso comecaria quase sempre depois do fim da janela e o slot ficaria perdido.
+    Na tolerancia, o alvo e a hora de forca ja passaram sempre, por isso um slot
+    pendente publica logo nessa run.
+    - Janela 1 (Manha): 08:00 as 14:30 (480 a 870 minutos)
+    - Janela 2 (Tarde/Noite): 17:00 as 22:30 (1020 a 1350 minutos)
     Compativel automaticamente com horario de inverno (WET, UTC+0) e verao (WEST, UTC+1).
     """
     try:
         tz = ZoneInfo("Europe/Lisbon")
         local_now = datetime.now(tz)
         current_mins = local_now.hour * 60 + local_now.minute
-        in_morning = 8 * 60 <= current_mins <= 13 * 60 + 30
-        in_evening = 17 * 60 <= current_mins <= 21 * 60 + 30
+        in_morning = 8 * 60 <= current_mins <= 14 * 60 + 30
+        in_evening = 17 * 60 <= current_mins <= 22 * 60 + 30
         return in_morning or in_evening
     except Exception:
         return True
@@ -1852,12 +1857,12 @@ def main():
         evening_target = lang_state.get("evening_target_time", "19:00")
 
         if not force_publish and not is_within_posting_hours(lang):
-            print(f"[{lang}] Fora dos intervalos permitidos (08:00-13:30 ou 17:00-21:30 de Portugal Continental). Hora atual: {local_time_str}. A saltar.")
+            print(f"[{lang}] Fora dos intervalos permitidos (08:00-14:30 ou 17:00-22:30 de Portugal Continental, janelas com 60 min de tolerancia). Hora atual: {local_time_str}. A saltar.")
             continue
 
         # Avaliar se cada janela esta pronta para publicar com base no horario sorteado
-        # Janela 1: 08:00 a 13:30 (minutos 480 a 810)
-        in_morning_window = 8 * 60 <= local_mins <= 13 * 60 + 30
+        # Janela 1: 08:00 a 13:30, mais 60 min de tolerancia (ate 14:30) para a ultima run atrasada
+        in_morning_window = 8 * 60 <= local_mins <= 14 * 60 + 30
         # Ultimos 10 min da janela (>= 13:20) forcam publicacao se ainda nao tiver saido
         morning_ready = (
             force_publish
@@ -1865,8 +1870,8 @@ def main():
             or (in_morning_window and (local_time_str >= morning_target or local_mins >= 13 * 60 + 20))
         )
 
-        # Janela 2: 17:00 a 21:30 (minutos 1020 a 1290)
-        in_evening_window = 17 * 60 <= local_mins <= 21 * 60 + 30
+        # Janela 2: 17:00 a 21:30, mais 60 min de tolerancia (ate 22:30) para a ultima run atrasada
+        in_evening_window = 17 * 60 <= local_mins <= 22 * 60 + 30
         # Ultimos 10 min da janela (>= 21:20) forcam publicacao se ainda nao tiver saido
         evening_ready = (
             force_publish
