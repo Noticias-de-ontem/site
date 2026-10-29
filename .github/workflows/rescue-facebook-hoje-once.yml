@@ -1,0 +1,77 @@
+name: Rescue Facebook hoje (once)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  rescue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+      FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+      IG_ACCESS_TOKEN_PT: ${{ secrets.IG_ACCESS_TOKEN_PT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Rescue Facebook post de hoje
+        run: python3 - <<'PYEOF'
+          import json, os, sys, requests
+          sys.path.insert(0, ".")
+          from publisher import publish_to_facebook, publish_facebook_story
+
+          ITEM_ID = "pt_2026-10-29_1"
+          IG_MEDIA_ID = "18100578146561141"
+
+          with open("pending_posts.json", encoding="utf-8") as f:
+              items = json.load(f)
+          item = next(x for x in items if x["id"] == ITEM_ID)
+          assert item["facebook_id"].startswith("crosspost_"), "item ja tem ID real no Facebook"
+
+          tok = os.environ["IG_ACCESS_TOKEN_PT"]
+          r = requests.get(
+              f"https://graph.facebook.com/v25.0/{IG_MEDIA_ID}",
+              params={"fields": "media_url,caption", "access_token": tok},
+              timeout=60,
+          )
+          r.raise_for_status()
+          data = r.json()
+          media_url = data["media_url"]
+          caption = data.get("caption") or item["options"][item["selected_option"]]["caption"]
+          print("media_url obtido:", media_url[:80])
+
+          res = publish_to_facebook(caption, media_url)
+          if not res:
+              print("FALHOU publicacao Facebook")
+              sys.exit(1)
+          print("NOVO_FACEBOOK_POST_ID:", res["id"])
+          print("NOVO_FACEBOOK_URL:", res["permalink"])
+          item["facebook_id"] = res["id"]
+          item["facebook_url"] = res["permalink"]
+
+          try:
+              story = publish_facebook_story(media_url)
+              if story:
+                  item["facebook_story_id"] = str(story)
+                  print("NOVO_FACEBOOK_STORY_ID:", story)
+              else:
+                  print("Story Facebook falhou (best-effort); feed publicado na mesma.")
+          except Exception as exc:
+              print("Story Facebook excecao (best-effort):", exc)
+
+          with open("pending_posts.json", "w", encoding="utf-8") as f:
+              json.dump(items, f, ensure_ascii=False, indent=4)
+          print("pending_posts.json atualizado")
+          PYEOF
+      - name: Commit pending_posts.json
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add pending_posts.json
+          git diff --staged --quiet || git commit -m "rescue: publica post 29 out manha no Facebook (direto)"
+          git pull --rebase || true
+          git push
