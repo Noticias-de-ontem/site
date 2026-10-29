@@ -6383,17 +6383,23 @@
         "delete_status": ""
     },
     {
-        "kind": "review_preview",
+        "kind": "published_post",
         "lang": "pt",
         "date": "2026-10-29",
         "option_index": 0,
         "title": "Greve da função pública ameaça escolas, hospitais e recolha de lixo",
         "year": "2025",
-        "image_url": "https://i.ibb.co/4ZQ2fJGZ/2026-10-29-01-2025-greve-da-funcao-publica-ameaca-escolas-hospitais-e-recolha-de-lixo.jpg",
+        "image_url": "https://i.ibb.co/VpvjG73y/2026-10-29-01-2025-greve-da-funcao-publica-ameaca-escolas-hospitais-e-recolha-de-lixo.jpg",
         "delete_url": "https://ibb.co/BV1GPwxV/1667953f378b3c10f8f3e10e8c515be3",
-        "created_at": "2026-10-25T12:22:15+00:00",
+        "created_at": "2026-10-29T13:01:49+00:00",
         "deleted_at": "",
-        "delete_status": ""
+        "delete_status": "",
+        "slot": "morning",
+        "platform": "instagram",
+        "post_id": "pt_2026-10-29_1",
+        "platform_post_id": "18100578146561141",
+        "platform_post_url": "https://www.instagram.com/p/DfFERIdFGd9/",
+        "published_at": "2026-10-29T13:01:49.729878"
     },
     {
         "kind": "review_preview",
