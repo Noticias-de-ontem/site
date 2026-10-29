@@ -1792,6 +1792,14 @@ def publish_instagram_story(image_url, lang):
     print(f"[{lang}] Story Instagram: falhou apos 3 tentativas na mesma run; sera retentada na proxima run.")
     return False
 
+def weighted_target_mins(start_mins, end_mins):
+    """Sorteio do minuto-alvo com rampa linear: o peso de cada minuto cresce
+    de 1 no inicio da janela ate N no fim, por isso os alvos caem mais vezes
+    perto do fim da janela (13:30 de manha, 21:30 a tarde)."""
+    n = end_mins - start_mins + 1
+    return random.choices(range(start_mins, end_mins + 1), weights=range(1, n + 1))[0]
+
+
 def main():
     state = load_publish_state()
 
@@ -1812,11 +1820,11 @@ def main():
         new_day = lang_state.get("date") != local_date_str
         if new_day:
             lang_state.clear()
-            # Sorteia um minuto aleatorio para cada janela do dia:
+            # Sorteia um minuto-alvo para cada janela do dia (rampa linear, mais provavel perto do fim):
             # Janela 1: 08:00 (480) a 13:30 (810)
-            m_target_mins = random.randint(8 * 60, 13 * 60 + 30)
+            m_target_mins = weighted_target_mins(8 * 60, 13 * 60 + 30)
             # Janela 2: 17:00 (1020) a 21:30 (1290)
-            e_target_mins = random.randint(17 * 60, 21 * 60 + 30)
+            e_target_mins = weighted_target_mins(17 * 60, 21 * 60 + 30)
 
             lang_state.update({
                 "date": local_date_str,
@@ -1830,11 +1838,11 @@ def main():
             # Garante que existem os alvos sorteados se o estado foi criado anteriormente sem eles
             state_updated = False
             if "morning_target_time" not in lang_state:
-                m_target_mins = random.randint(8 * 60, 13 * 60 + 30)
+                m_target_mins = weighted_target_mins(8 * 60, 13 * 60 + 30)
                 lang_state["morning_target_time"] = f"{m_target_mins // 60:02d}:{m_target_mins % 60:02d}"
                 state_updated = True
             if "evening_target_time" not in lang_state:
-                e_target_mins = random.randint(17 * 60, 21 * 60 + 30)
+                e_target_mins = weighted_target_mins(17 * 60, 21 * 60 + 30)
                 lang_state["evening_target_time"] = f"{e_target_mins // 60:02d}:{e_target_mins % 60:02d}"
                 state_updated = True
             if state_updated:
