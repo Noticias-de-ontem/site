@@ -6662,17 +6662,23 @@
         "delete_status": ""
     },
     {
-        "kind": "review_preview",
+        "kind": "published_post",
         "lang": "pt",
         "date": "2026-10-29",
         "option_index": 0,
         "title": "Primeira emissão experimental de rádio realizada em Portugal",
         "year": "1929",
-        "image_url": "https://i.ibb.co/ynN4N0n7/2026-10-29-01-1929-primeira-emissao-experimental-de-radio-realizada-em-portugal.jpg",
+        "image_url": "https://www.noticiasdeontem.pt/images/rescue/2026-10-29-evening.jpg",
         "delete_url": "https://ibb.co/bg6b61gD/715c3c9b7ea7882d91bd05cbe98de452",
-        "created_at": "2026-10-25T17:32:51+00:00",
+        "created_at": "2026-10-29T23:10:09+00:00",
         "deleted_at": "",
-        "delete_status": ""
+        "delete_status": "",
+        "slot": "evening",
+        "platform": "instagram",
+        "post_id": "pt_2026-10-29_2",
+        "platform_post_id": "18332484709302759",
+        "platform_post_url": "https://www.instagram.com/p/DfGJ4rsjAvA/",
+        "published_at": "2026-10-29T23:10:09.829444"
     },
     {
         "kind": "review_preview",
