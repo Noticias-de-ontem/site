@@ -1,0 +1,57 @@
+name: Rescue Facebook Noite 30out (temp)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  rescue-facebook:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14.6'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Publicar feed + story Facebook do post da noite 2026-10-30
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+        run: |
+          python3 - <<'PYEOF'
+          import json
+          import sys
+
+          with open('pending_posts.json', 'r', encoding='utf-8') as f:
+              posts = json.load(f)
+          entry = next((p for p in posts if p.get('id') == 'pt_2026-10-30_2'), None)
+          if entry is None:
+              print('ERRO: post pt_2026-10-30_2 nao encontrado')
+              sys.exit(1)
+          option = entry['options'][entry.get('selected_option', 0)]
+          caption = option.get('caption_facebook') or option.get('caption', '')
+          image_url = option.get('image_url', '')
+          if not caption or not image_url:
+              print('ERRO: legenda ou image_url em falta no post aprovado')
+              sys.exit(1)
+          print('Imagem:', image_url)
+
+          import publisher
+          # backdate: 2026-10-30 19:39 Lisboa (alvo do slot da noite)
+          fb_id = publisher.publish_to_facebook(caption, image_url, backdated_time=1793389140)
+          print('FB feed id:', fb_id)
+          story_id = publisher.publish_facebook_story(image_url)
+          print('FB story id:', story_id)
+          if not fb_id:
+              print('ERRO: feed do Facebook nao devolveu id')
+              sys.exit(1)
+          PYEOF
