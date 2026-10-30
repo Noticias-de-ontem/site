@@ -1383,7 +1383,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-10",
         "external_suggestions": [
             {
@@ -1628,7 +1628,14 @@
                 "local_background_path": "",
                 "body": ""
             }
-        ]
+        ],
+        "instagram_id": "18096851696149000",
+        "instagram_url": "https://www.instagram.com/p/DfHpNAzIP5y/",
+        "published_at": "2026-10-30T13:03:05.780205",
+        "instagram_story_id": "18018530207956790",
+        "facebook_id": "crosspost_18096851696149000",
+        "facebook_url": "https://www.facebook.com/noticiasdeontempt",
+        "facebook_story_id": "crosspost_story_18018530207956790"
     },
     {
         "id": "pt_2026-10-30_2",
