@@ -22,6 +22,7 @@ jobs:
 
     permissions:
       contents: write
+      actions: write
 
     steps:
       - name: Checkout repository
@@ -41,6 +42,7 @@ jobs:
         run: python -u scripts/mirror_approved_images.py
 
       - name: Commit and Push changes
+        id: commit
         if: always()
         run: |
           git config --global user.name 'github-actions[bot]'
@@ -57,4 +59,17 @@ jobs:
               echo "Tentativa $attempt falhou ao dar push; a tentar novamente..."
               sleep 3
             done
+            echo "committed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "committed=false" >> "$GITHUB_OUTPUT"
           fi
+
+      # Pushes feitos com o GITHUB_TOKEN nao disparam o pages.yml, por isso o
+      # deploy tem de ser pedido aqui — senao os espelhos ficam no repo sem
+      # estarem servidos no site, e o publicador nao os consegue sacar.
+      # O workflow_dispatch e uma excecao a regra de nao-recursao do GitHub.
+      - name: Deploy site (publicar os espelhos)
+        if: steps.commit.outputs.committed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh api "repos/${{ github.repository }}/actions/workflows/pages.yml/dispatches" -X POST -f ref=main
