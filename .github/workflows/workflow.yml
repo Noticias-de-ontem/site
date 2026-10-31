@@ -56,6 +56,10 @@ jobs:
           IG_USER_ID_PT: ${{ secrets.IG_USER_ID_PT }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          # Publicacao direta no Facebook em cada run: o cross-posting da Meta
+          # nao dispara para posts feitos via API, por isso sem isto o Facebook
+          # ficava so com o marcador crosspost_<ig_id> e sem post nenhum.
+          ENABLE_DIRECT_FB_PUBLISH: "true"
           IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
