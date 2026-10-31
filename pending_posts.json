@@ -2178,7 +2178,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-10",
         "external_suggestions": [
             {
@@ -2420,7 +2420,14 @@
                 "local_background_path": "",
                 "body": ""
             }
-        ]
+        ],
+        "instagram_id": "17904527874670951",
+        "instagram_url": "https://www.instagram.com/p/DfLEzL0ox6l/",
+        "published_at": "2026-10-31T21:02:20.841314",
+        "instagram_story_id": "17963295426000386",
+        "facebook_id": "1030669413467151_122136905096824703",
+        "facebook_url": "https://www.facebook.com/1030669413467151_122136905096824703",
+        "facebook_story_id": "2739072553154748"
     },
     {
         "id": "pt_2026-11-01_1",

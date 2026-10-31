@@ -6583,17 +6583,23 @@
         "delete_status": ""
     },
     {
-        "kind": "review_preview",
+        "kind": "published_post",
         "lang": "pt",
         "date": "2026-10-31",
         "option_index": 0,
         "title": "Revolta militar de 31 de Outubro desafia poder governamental no Porto",
         "year": "1926",
-        "image_url": "https://i.ibb.co/21dM8QWP/2026-10-31-01-1926-revolta-militar-de-31-de-outubro-desafia-poder-governamental-no-porto.jpg",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-10-31_2.jpg",
         "delete_url": "https://ibb.co/dwDpbqj6/e1b7c1639aa728bd97c1456052fc4075",
-        "created_at": "2026-10-25T17:15:32+00:00",
+        "created_at": "2026-10-31T21:02:20+00:00",
         "deleted_at": "",
-        "delete_status": ""
+        "delete_status": "",
+        "slot": "evening",
+        "platform": "facebook",
+        "post_id": "pt_2026-10-31_2",
+        "platform_post_id": "1030669413467151_122136905096824703",
+        "platform_post_url": "https://www.facebook.com/1030669413467151_122136905096824703",
+        "published_at": "2026-10-31T21:02:20.834491"
     },
     {
         "kind": "review_preview",
