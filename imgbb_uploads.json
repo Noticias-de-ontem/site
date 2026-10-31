@@ -6441,17 +6441,23 @@
         "delete_status": ""
     },
     {
-        "kind": "review_preview",
+        "kind": "published_post",
         "lang": "pt",
         "date": "2026-10-31",
         "option_index": 0,
         "title": "Parlamento isenta IVA cabaz alimentos 44 produtos",
         "year": "2024",
-        "image_url": "https://i.ibb.co/BH05MqBB/2026-10-31-01-2024-parlamento-isenta-iva-cabaz-alimentos-44-produtos.jpg",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-10-31_1.jpg",
         "delete_url": "https://ibb.co/bjcM9zXX/22ac20d4e6c20ac0bf37ece6bc88fda6",
-        "created_at": "2026-10-25T12:26:14+00:00",
+        "created_at": "2026-10-31T10:31:17+00:00",
         "deleted_at": "",
-        "delete_status": ""
+        "delete_status": "",
+        "slot": "morning",
+        "platform": "instagram",
+        "post_id": "pt_2026-10-31_1",
+        "platform_post_id": "18092318021236997",
+        "platform_post_url": "https://www.instagram.com/p/DfJ8qcil2sv/",
+        "published_at": "2026-10-31T10:31:17.437020"
     },
     {
         "kind": "review_preview",
