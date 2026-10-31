@@ -1,0 +1,98 @@
+name: Rescue Facebook Manha 31out Fix (temp)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  rescue-facebook-fix:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14.6'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Apagar post com backdate errado e republicar com 10:06
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+        run: |
+          python3 - <<'PYEOF'
+          import json
+          import os
+          import sys
+          import urllib.parse
+          import urllib.request
+          import urllib.error
+
+          # Post criado pela primeira tentativa de resgate, com backdate
+          # errado (08:46 em vez de 10:06, alvo do slot da manha).
+          WRONG_POST_ID = "1030669413467151_122136851912824703"
+          CORRECT_BACKDATE = 1793441160  # 2026-10-31 10:06 Lisboa
+
+          page_id = os.environ.get("FB_PAGE_ID", "")
+          page_token = os.environ.get("FB_PAGE_ACCESS_TOKEN", "")
+          if not page_id or not page_token:
+              print("ERRO: FB_PAGE_ID ou FB_PAGE_ACCESS_TOKEN em falta")
+              sys.exit(1)
+
+          def fb_call(method, path, data=None):
+              url = f"https://graph.facebook.com/v25.0/{path}"
+              body = None
+              if data is not None:
+                  data["access_token"] = page_token
+                  body = urllib.parse.urlencode(data).encode()
+              else:
+                  url += "?" + urllib.parse.urlencode({"access_token": page_token})
+              req = urllib.request.Request(url, data=body, method=method)
+              try:
+                  with urllib.request.urlopen(req, timeout=60) as resp:
+                      return json.loads(resp.read().decode()), None
+              except urllib.error.HTTPError as e:
+                  return None, e.read().decode()
+
+          # 1. Apagar o post com o backdate errado.
+          result, err = fb_call("DELETE", WRONG_POST_ID)
+          print("DELETE:", result, err)
+          if not (result and result.get("success")):
+              print("ERRO: nao consegui apagar o post errado; a abortar sem republicar")
+              sys.exit(1)
+
+          # 2. Confirmar que ja nao existe, antes de republicar.
+          result, err = fb_call("GET", WRONG_POST_ID)
+          print("GET apos DELETE:", result, err)
+          if result is not None:
+              print("ERRO: o post errado ainda existe; a abortar sem republicar")
+              sys.exit(1)
+
+          # 3. Republicar com o backdate certo.
+          with open("pending_posts.json", "r", encoding="utf-8") as f:
+              posts = json.load(f)
+          entry = next((p for p in posts if p.get("id") == "pt_2026-10-31_1"), None)
+          if entry is None:
+              print("ERRO: post pt_2026-10-31_1 nao encontrado")
+              sys.exit(1)
+          option = entry["options"][entry.get("selected_option", 0)]
+          caption = option.get("caption_facebook") or option.get("caption", "")
+          image_url = option.get("image_url", "")
+          if not caption or not image_url:
+              print("ERRO: legenda ou image_url em falta no post aprovado")
+              sys.exit(1)
+
+          import publisher
+          fb_id = publisher.publish_to_facebook(caption, image_url, backdated_time=CORRECT_BACKDATE)
+          print("FB feed id (corrigido):", fb_id)
+          if not fb_id:
+              print("ERRO: republicacao nao devolveu id")
+              sys.exit(1)
+          PYEOF
