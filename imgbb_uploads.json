@@ -6621,17 +6621,23 @@
         "published_at": "2026-11-01T11:31:39.980038"
     },
     {
-        "kind": "review_preview",
+        "kind": "published_post",
         "lang": "pt",
         "date": "2026-11-01",
         "option_index": 0,
         "title": "Presidente da República envia decreto do estado de emergência ao Parlamento",
         "year": "2020",
-        "image_url": "https://i.ibb.co/zTGBtCyR/2026-11-01-01-2020-presidente-da-republica-envia-decreto-do-estado-de-emergencia-ao-parlamento.jpg",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-01_2.jpg",
         "delete_url": "https://ibb.co/cSDZsRGF/d0d58687b2671b12bf6a3174aa60ac8e",
-        "created_at": "2026-10-25T17:16:05+00:00",
+        "created_at": "2026-11-01T21:32:13+00:00",
         "deleted_at": "",
-        "delete_status": ""
+        "delete_status": "",
+        "slot": "evening",
+        "platform": "facebook",
+        "post_id": "pt_2026-11-01_2",
+        "platform_post_id": "1030669413467151_122137031066824703",
+        "platform_post_url": "https://www.facebook.com/1030669413467151_122137031066824703",
+        "published_at": "2026-11-01T21:32:13.820470"
     },
     {
         "kind": "review_preview",
