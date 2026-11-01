@@ -6602,17 +6602,23 @@
         "published_at": "2026-10-31T21:02:20.834491"
     },
     {
-        "kind": "review_preview",
+        "kind": "published_post",
         "lang": "pt",
         "date": "2026-11-01",
         "option_index": 0,
         "title": "Crise política e agitação militar precipitam rutura na Primeira República",
         "year": "1918",
-        "image_url": "https://i.ibb.co/spKgBKwD/2026-11-01-01-1918-crise-politica-e-agitacao-militar-precipitam-rutura-na-primeira-republica.jpg",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-01_1.jpg",
         "delete_url": "https://ibb.co/j9y8pyMx/e2fdcee6e1a361b23ccc779ac17a816c",
-        "created_at": "2026-10-25T17:15:43+00:00",
+        "created_at": "2026-11-01T11:31:39+00:00",
         "deleted_at": "",
-        "delete_status": ""
+        "delete_status": "",
+        "slot": "morning",
+        "platform": "facebook",
+        "post_id": "pt_2026-11-01_1",
+        "platform_post_id": "1030669413467151_122136978242824703",
+        "platform_post_url": "https://www.facebook.com/1030669413467151_122136978242824703",
+        "published_at": "2026-11-01T11:31:39.980038"
     },
     {
         "kind": "review_preview",
