@@ -7230,5 +7230,21 @@
         "created_at": "2026-11-02T19:00:28+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "published_post",
+        "lang": "pt",
+        "date": "2026-11-02",
+        "slot": "evening",
+        "platform": "facebook",
+        "post_id": "pt_2026-11-02_2",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-02_2.jpg",
+        "delete_url": "",
+        "platform_post_id": "1030669413467151_122137175186824703",
+        "platform_post_url": "https://www.facebook.com/1030669413467151_122137175186824703",
+        "published_at": "2026-11-02T20:02:09.210115",
+        "created_at": "2026-11-02T20:02:09+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
