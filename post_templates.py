@@ -871,10 +871,12 @@ def _prepare_breaking_background(background_image, template_path, size):
     if background_image is not None:
         image = fit_and_crop(background_image, size)
         image = ImageEnhance.Color(image).enhance(0.22)
-        image = ImageEnhance.Brightness(image).enhance(0.20)
         image = image.filter(ImageFilter.GaussianBlur(10))
-        image = Image.alpha_composite(image, _build_gradient(size, (0, 0, 0, 215), (0, 0, 0, 245)))
-        canvas = Image.blend(canvas, image, 0.12)
+        # Veu preto de 60% sobre a foto (alfa 153). Antes era um gradiente
+        # de 84-96% com brilho a 20% e mistura a 12%, que apagava a foto
+        # por completo; com o veu a 60% a foto mostra-se a cerca de 40%.
+        image = Image.alpha_composite(image, _build_gradient(size, (0, 0, 0, 153), (0, 0, 0, 153)))
+        canvas = image
 
     return canvas
 
@@ -1887,16 +1889,6 @@ def render_template_3(category, title, description, highlight_text, lang, backgr
 def render_breaking_template(category, title, description, highlight_text, lang, background_image=None, template_path=None, year=None, relevance_level=None):
     del description
     canvas = _prepare_breaking_background(background_image, template_path, TARGET_SIZE)
-    draw = ImageDraw.Draw(canvas)
-    accent_width = 126
-    accent_height = 8
-    accent_x = (TARGET_SIZE[0] - accent_width) // 2
-    accent_y = 168
-    draw.rounded_rectangle(
-        (accent_x, accent_y, accent_x + accent_width, accent_y + accent_height),
-        radius=5,
-        fill=(44, 216, 232, 255),
-    )
     canvas = _draw_logo(canvas, lang, use_shadows=True)
 
     breaking_text = "ÚLTIMA HORA" if lang == "pt" else "BREAKING"
