@@ -56,9 +56,9 @@ jobs:
           IG_USER_ID_PT: ${{ secrets.IG_USER_ID_PT }}
           IG_ACCESS_TOKEN_EN: ${{ secrets.IG_ACCESS_TOKEN_EN }}
           IG_USER_ID_EN: ${{ secrets.IG_USER_ID_EN }}
-          # Inglês desligado por defeito no ciclo diário (decisão de lançamento pendente);
-          # o teste e o arranque usam ENABLE_EN_PUBLISH=true.
-          ENABLE_EN_PUBLISH: "false"
+          # Inglês ligado no ciclo diário a partir de 2026-11-03 (lançamento EN).
+          # O Facebook EN continua só no Instagram até o Buffer estar válido.
+          ENABLE_EN_PUBLISH: "true"
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
           # Publicacao direta no Facebook em cada run: o cross-posting da Meta
