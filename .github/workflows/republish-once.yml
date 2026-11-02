@@ -1,0 +1,188 @@
+name: Republish once
+on:
+  workflow_dispatch:
+jobs:
+  republish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14.6'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Republish morning post with photo
+        env:
+          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
+          IG_ACCESS_TOKEN_PT: ${{ secrets.IG_ACCESS_TOKEN_PT }}
+          IG_USER_ID_PT: ${{ secrets.IG_USER_ID_PT }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          ENABLE_DIRECT_FB_PUBLISH: 'true'
+        run: |
+          python3 - <<'PYEOF'
+          import json
+          import os
+          import re
+          import requests
+          from datetime import datetime
+          from publisher import (
+              create_image_with_text,
+              publish_to_instagram,
+              publish_instagram_story,
+              publish_to_facebook,
+              publish_facebook_story,
+              normalize_text,
+          )
+          from imgbb_registry import register_imgbb_upload
+
+          ENTRY_ID = "pt_2026-11-02_1"
+          PINNED_BG = "https://arquivo.pt/wayback/20180126035715im_/https://static.noticiasaominuto.com/stockimages/1920/naom_59b138228d85c.jpg?151690096"
+
+          with open("pending_posts.json", encoding="utf-8") as f:
+              pending = json.load(f)
+          entry = next(x for x in pending if x.get("id") == ENTRY_ID)
+          option = entry["options"][entry["selected_option"]]
+          old = {
+              "instagram_id": entry.get("instagram_id", ""),
+              "instagram_url": entry.get("instagram_url", ""),
+              "instagram_story_id": entry.get("instagram_story_id", ""),
+              "facebook_id": entry.get("facebook_id", ""),
+              "facebook_url": entry.get("facebook_url", ""),
+              "facebook_story_id": entry.get("facebook_story_id", ""),
+          }
+          print("OLD_IDS:", json.dumps(old))
+
+          output_path = option.get("local_image_path") or "images/review/pt/2026-11-02_01_2022_professores-realizam-greve-nacional-contra-o-orcamento-do-estado.jpg"
+          details = create_image_with_text(
+              "EDUCAÇÃO",
+              option["title"],
+              "pt",
+              output_path=output_path,
+              description_to_draw=option.get("overlay_description", ""),
+              highlight_text=option.get("highlight_text", ""),
+              layout_name="breaking",
+              layout_preference=option.get("layout_preference", "template_1"),
+              breaking_candidate=bool(option.get("breaking_candidate", False)),
+              background_query=option.get("image_theme", "") or option.get("title", ""),
+              manual_background_url=PINNED_BG,
+              year=int(option["year"]),
+              relevance_level=(option.get("relevance") or {}).get("level"),
+              return_details=True,
+          )
+          print("RENDERED:", output_path)
+
+          api_key = os.environ.get("IMGBB_API_KEY", "")
+          with open(output_path, "rb") as fh:
+              res = requests.post(
+                  "https://api.imgbb.com/1/upload",
+                  data={"key": api_key},
+                  files={"image": fh},
+                  timeout=60,
+              )
+          data = res.json()
+          assert data.get("success"), f"IMGBB falhou: {data}"
+          public_image_url = data["data"]["url"]
+          delete_url = data["data"].get("delete_url", "")
+          print("PUBLIC_IMAGE_URL:", public_image_url)
+
+          def norm_caption(text):
+              text = re.sub(
+                  r"🔗?\s*L[eê] a not[ií]cia completa no link (?:da bio|do sobre do perfil)\.?",
+                  "🔗 Lê a notícia completa no link na descrição do perfil.",
+                  text or "",
+                  flags=re.IGNORECASE,
+              )
+              return normalize_text(text)
+
+          cap_ig = norm_caption(option.get("caption_instagram") or option.get("title", ""))
+          cap_fb = norm_caption(option.get("caption_facebook") or option.get("title", ""))
+
+          ig = publish_to_instagram(public_image_url, cap_ig)
+          assert isinstance(ig, dict) and ig.get("success"), f"IG falhou: {ig}"
+          ig_id = str(ig.get("id", ""))
+          ig_url = str(ig.get("permalink", ""))
+          print("NEW_IG:", ig_id, ig_url)
+          ig_story = publish_instagram_story(public_image_url, "pt")
+          print("NEW_IG_STORY:", ig_story)
+
+          fb = publish_to_facebook(cap_fb, public_image_url)
+          assert fb is not None, "FB falhou"
+          fb_id = str(fb.get("id", "")) if isinstance(fb, dict) else str(fb)
+          fb_url = str(fb.get("permalink", "")) if isinstance(fb, dict) else f"https://www.facebook.com/{fb_id}"
+          print("NEW_FB:", fb_id, fb_url)
+          fb_story = publish_facebook_story(public_image_url)
+          print("NEW_FB_STORY:", fb_story)
+
+          page_token = os.environ.get("FB_PAGE_ACCESS_TOKEN", "")
+          for label, pid in (("feed", old["facebook_id"]), ("story", old["facebook_story_id"])):
+              if not pid:
+                  continue
+              try:
+                  r = requests.delete(
+                      f"https://graph.facebook.com/v25.0/{pid}",
+                      params={"access_token": page_token},
+                      timeout=30,
+                  )
+                  print(f"DELETE_FB_{label}:", r.status_code, r.text[:200])
+              except Exception as e:
+                  print(f"DELETE_FB_{label} excecao:", e)
+
+          entry["republished_from"] = old
+          entry["instagram_id"] = ig_id
+          entry["instagram_url"] = ig_url
+          entry["instagram_story_id"] = str(ig_story) if ig_story else ""
+          entry["facebook_id"] = fb_id
+          entry["facebook_url"] = fb_url
+          entry["facebook_story_id"] = str(fb_story) if fb_story else ""
+          entry["published_at"] = datetime.now().isoformat()
+          entry["status"] = "published"
+          option["image_url"] = public_image_url
+          option["image_delete_url"] = delete_url
+          option["local_image_path"] = output_path
+          bg_local = details.get("background_local_path", "") if isinstance(details, dict) else ""
+          if bg_local and os.path.exists(bg_local):
+              option["local_background_path"] = bg_local
+          register_imgbb_upload({
+              "kind": "published_post",
+              "lang": "pt",
+              "date": "2026-11-02",
+              "slot": 1,
+              "platform": "instagram",
+              "post_id": ENTRY_ID,
+              "image_url": public_image_url,
+              "delete_url": delete_url,
+              "platform_post_id": ig_id,
+              "platform_post_url": ig_url,
+              "published_at": datetime.now().isoformat(),
+          })
+          with open("pending_posts.json", "w", encoding="utf-8") as pf:
+              json.dump(pending, pf, ensure_ascii=False, indent=4)
+          print("PENDING_UPDATED")
+          PYEOF
+      - name: Build static site
+        run: python -u build_site.py
+      - name: Sync dynamic website
+        run: python -u scripts/sync_dynamic_site.py
+      - name: Commit and Push changes
+        if: always()
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: republish morning post 2026-11-02 with photo"
+            for attempt in 1 2 3; do
+              git pull --rebase --autostash origin main || true
+              if git push origin main; then
+                echo "Push efetuado com sucesso."
+                break
+              fi
+              echo "Tentativa $attempt falhou ao dar push; a tentar novamente..."
+              sleep 3
+            done
+          fi
