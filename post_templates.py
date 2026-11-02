@@ -1,6 +1,7 @@
 import os
 import re
 import sys
+import time
 import unicodedata
 from functools import lru_cache
 from io import BytesIO
@@ -480,8 +481,36 @@ _UA_HEADERS = {
 }
 
 
+def _search_get(url, params=None, headers=None, timeout=10, attempts=3):
+    """GET de pesquisa com retry em erros transitorios (timeout, ligacao, 5xx).
+
+    Devolve a resposta da primeira tentativa com 200 (ou 4xx, que nao
+    melhora com retry), ou None se todas as tentativas falharem. Os
+    timeouts curtos do Arquivo.pt/Openverse rebentavam a procura a
+    primeira; um soluco de rede ja nao deixa o post sem foto.
+    """
+    last_exc = None
+    for attempt in range(1, attempts + 1):
+        try:
+            res = requests.get(url, params=params, headers=headers or _UA_HEADERS, timeout=timeout)
+            if res.status_code == 200 or 400 <= res.status_code < 500:
+                return res
+            print(f"Busca de imagem: HTTP {res.status_code} em {url} (tentativa {attempt}/{attempts}).")
+            last_exc = None
+        except Exception as exc:  # timeout, ligacao, DNS
+            last_exc = exc
+            print(f"Busca de imagem: erro transitorio em {url} (tentativa {attempt}/{attempts}): {exc}")
+        if attempt < attempts:
+            time.sleep(2 * attempt)
+    if last_exc is not None:
+        print(f"Busca de imagem: desistiu de {url} apos {attempts} tentativas ({last_exc}).")
+    return None
+
+
 def _download_image_from_url(image_url, headers=None):
-    response = requests.get(image_url, headers=headers or _UA_HEADERS, timeout=8)
+    # 20 s: os downloads do Arquivo.pt (wayback) sao lentos; com 8 s o
+    # candidato era descartado em silencio e o post ficava sem foto.
+    response = requests.get(image_url, headers=headers or _UA_HEADERS, timeout=20)
     response.raise_for_status()
     return Image.open(BytesIO(response.content)).convert("RGBA")
 
@@ -524,7 +553,7 @@ def _fetch_wikipedia_lead_image(query, lang, target_size, exclude_urls=None):
     wiki_langs = [lang] + (["en"] if lang != "en" else [])
     for wiki_lang in wiki_langs:
         try:
-            res = requests.get(
+            res = _search_get(
                 f"https://{wiki_lang}.wikipedia.org/w/api.php",
                 params={
                     "action": "query",
@@ -537,9 +566,9 @@ def _fetch_wikipedia_lead_image(query, lang, target_size, exclude_urls=None):
                     "pithumbsize": 1600,
                 },
                 headers=_UA_HEADERS,
-                timeout=8,
+                timeout=10,
             )
-            if res.status_code != 200:
+            if res is None or res.status_code != 200:
                 continue
             pages = (res.json().get("query", {}) or {}).get("pages", {}) or {}
             for page in sorted(pages.values(), key=lambda item: item.get("index", 99)):
@@ -572,25 +601,29 @@ def _fetch_openverse_image(query, lang, target_size, exclude_urls=None):
     global _OPENVERSE_DISABLED
     if _OPENVERSE_DISABLED:
         return None, ""
+    headers = {**_UA_HEADERS, "Accept": "application/json"}
+    openverse_key = os.environ.get("OPENVERSE_API_KEY")
+    if openverse_key:
+        headers["Authorization"] = f"Token {openverse_key}"
+    res = _search_get(
+        "https://api.openverse.org/v1/images/",
+        params={
+            "q": " ".join(str(query or "").split()),
+            "page_size": 6,
+            "mature": "false",
+        },
+        headers=headers,
+        timeout=10,
+    )
+    if res is None:
+        # Falha transitoria apos retries: nao desativa a fonte para a
+        # proxima ronda; volta a ser tentada com a proxima consulta.
+        return None, ""
+    if res.status_code != 200:
+        _OPENVERSE_DISABLED = True
+        print(f"[{lang}] Openverse indisponível ({res.status_code}).")
+        return None, ""
     try:
-        headers = {**_UA_HEADERS, "Accept": "application/json"}
-        openverse_key = os.environ.get("OPENVERSE_API_KEY")
-        if openverse_key:
-            headers["Authorization"] = f"Token {openverse_key}"
-        res = requests.get(
-            "https://api.openverse.org/v1/images/",
-            params={
-                "q": " ".join(str(query or "").split()),
-                "page_size": 6,
-                "mature": "false",
-            },
-            headers=headers,
-            timeout=5,
-        )
-        if res.status_code != 200:
-            _OPENVERSE_DISABLED = True
-            print(f"[{lang}] Openverse indisponível ({res.status_code}).")
-            return None, ""
         excluded = {url for url in (exclude_urls or []) if url}
         for item in res.json().get("results", []):
             image_url = item.get("url", "")
@@ -611,8 +644,7 @@ def _fetch_openverse_image(query, lang, target_size, exclude_urls=None):
             if fitted:
                 return fitted, item.get("foreign_landing_url") or image_url
     except Exception as exc:
-        _OPENVERSE_DISABLED = True
-        print(f"[{lang}] Erro Openverse (desativado nesta sessão): {exc}")
+        print(f"[{lang}] Erro Openverse: {exc}")
     return None, ""
 
 
@@ -647,7 +679,7 @@ def fetch_background_image(
                     "(https://github.com/; image background lookup)"
                 )
             }
-            res = requests.get(
+            res = _search_get(
                 "https://commons.wikimedia.org/w/api.php",
                 params={
                     "action": "query",
@@ -661,9 +693,9 @@ def fetch_background_image(
                     "format": "json",
                 },
                 headers=headers,
-                timeout=8,
+                timeout=10,
             )
-            if res.status_code == 200:
+            if res is not None and res.status_code == 200:
                 pages = (res.json().get("query", {}) or {}).get("pages", {}) or {}
                 for page in pages.values():
                     info = (page.get("imageinfo") or [{}])[0]
@@ -704,8 +736,8 @@ def fetch_background_image(
                     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
                 )
             }
-            res = requests.get("https://arquivo.pt/imagesearch", params={"q": query, "format": "json", "limit": 6}, timeout=8)
-            if res.status_code == 200:
+            res = _search_get("https://arquivo.pt/imagesearch", params={"q": query, "format": "json", "limit": 6}, timeout=20)
+            if res is not None and res.status_code == 200:
                 data = res.json()
                 items = data.get("responseItems", [])
                 excluded = {url for url in (exclude_urls or []) if url}
@@ -1994,7 +2026,7 @@ def create_image_with_text(
         for candidate in (theme_query, short_theme, title_query, query):
             if candidate and candidate not in query_candidates:
                 query_candidates.append(candidate)
-        for candidate in query_candidates[:2]:
+        for candidate in query_candidates[:3]:
             background_image, background_source_url = fetch_background_image(
                 candidate,
                 lang,
@@ -2004,6 +2036,8 @@ def create_image_with_text(
             )
             if background_image is not None:
                 break
+        if background_image is None:
+            print(f"[{lang}] AVISO: sem foto de fundo apos todas as consultas e fontes; o post vai sair com fundo preto.")
 
     resolved_layout = resolve_layout_name(
         layout_name=layout_name,
