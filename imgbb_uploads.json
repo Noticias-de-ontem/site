@@ -7198,5 +7198,21 @@
         "created_at": "2026-11-02T11:32:29+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "published_post",
+        "lang": "pt",
+        "date": "2026-11-02",
+        "slot": 1,
+        "platform": "instagram",
+        "post_id": "pt_2026-11-02_1",
+        "image_url": "https://i.ibb.co/F4bwTkgy/2026-11-02-01-2022-professores-realizam-greve-nacional-contra-o-orcamento-do-estado.jpg",
+        "delete_url": "https://ibb.co/k2g8CVQw/2c9892da02783863e98e3fe70e5f4f21",
+        "platform_post_id": "18050898204342590",
+        "platform_post_url": "https://www.instagram.com/p/DfPVfgdGFSl/",
+        "published_at": "2026-11-02T12:45:19.358332",
+        "created_at": "2026-11-02T12:45:19+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
