@@ -27,8 +27,9 @@ jobs:
           import os, requests
           from publisher import publish_to_buffer
 
-          TEST_IMG = "https://i.ibb.co/pBLxg1sj/post-pt.jpg"
-          TEST_TEXT = "Teste Buffer - Noticias de Ontem (publicacao de teste, apagar depois)."
+          TEST_IMG = "https://i.ibb.co/RTjJCfB4/post-en.jpg"
+          import datetime as _dt
+          TEST_TEXT = "Teste Buffer 2 - Noticias de Ontem " + _dt.datetime.now(_dt.timezone.utc).strftime("%H:%M:%S") + " (publicacao de teste, apagar depois)."
           results = {}
           for lang in ("pt", "en"):
               r = publish_to_buffer(TEST_TEXT, TEST_IMG, lang)
