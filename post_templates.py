@@ -1927,7 +1927,9 @@ def render_breaking_template(category, title, description, highlight_text, lang,
 
     title_start_y = 424
     if relevance_level:
-        relevance_y = badge_top + 56
+        # A linha de badges tem 58 px de altura (badge da categoria compacto);
+        # deixar 16 px de folga antes da pílula de relevância.
+        relevance_y = badge_top + 56 + 16
         canvas = _draw_relevance_badge(
             canvas,
             relevance_level,
