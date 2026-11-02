@@ -1,0 +1,133 @@
+name: Create EN entries 3-4 Nov once
+on:
+  workflow_dispatch:
+jobs:
+  create:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14.6'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Create EN entries for 3 and 4 Nov
+        env:
+          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
+        run: |
+          python3 - <<'PYEOF'
+          import json, os, requests
+
+          IMGBB_KEY = os.environ["IMGBB_API_KEY"]
+          CAT_EN = {"EDUCAÇÃO": "EDUCATION", "SOCIEDADE": "SOCIETY", "POLÍTICA": "POLITICS", "MUNDIAL": "WORLD", "HISTÓRIA": "HISTORY"}
+          ALERT = "This post is intended solely to recall past events in history, never representing current events. This story is from {year}."
+          CTA = "🔗 Read the full story via the link in our bio/about section."
+
+          EN_MAIN = {
+              "pt_2026-11-03_1": "In protest against what they saw as a rollback of their labour and pay rights, private and cooperative school teachers held a historic national strike in 2002, affecting schools across several regions of the country.",
+              "pt_2026-11-03_2": "In a directive that sparked wide repercussion and public debate, the Vatican and the Congregation for Catholic Education decided in 2015 to expressly ban the ordination of priests and admission to seminaries of men with homosexual tendencies.",
+              "pt_2026-11-04_1": "Following the closure of the Pedrouços port facilities, the Portuguese Government announced in 2003 urgent works in Trafaria and the Alcântara Dock to create a definitive alternative to Docapesca.",
+              "pt_2026-11-04_2": "In a historic election followed by millions of people around the world, Barack Obama won the 2008 US presidential election, becoming the first African American to lead the United States.",
+          }
+          EN_HIGHLIGHT = {
+              "pt_2026-11-03_1": "National Strike",
+              "pt_2026-11-03_2": "Vatican",
+              "pt_2026-11-04_1": "Urgent Works",
+              "pt_2026-11-04_2": "Barack Obama",
+          }
+
+          posts = json.load(open("pending_posts.json", encoding="utf-8"))
+          existing = {p["id"] for p in posts}
+          created = []
+          for pt_id in ("pt_2026-11-03_1", "pt_2026-11-03_2", "pt_2026-11-04_1", "pt_2026-11-04_2"):
+              en_id = pt_id.replace("pt_", "en_", 1)
+              if en_id in existing:
+                  print(f"{en_id} ja existe, a saltar")
+                  continue
+              pt = next(p for p in posts if p["id"] == pt_id)
+              opt = pt["options"][pt.get("selected_option", 0)]
+              # subir a foto de fundo (a mesma do post PT) para o ImgBB e fixa-la
+              with open(opt["local_background_path"], "rb") as f:
+                  up = requests.post("https://api.imgbb.com/1/upload", data={"key": IMGBB_KEY}, files={"image": f}, timeout=60).json()
+              bg_url = up["data"]["url"]
+              print(f"{pt_id} fundo: {bg_url}")
+              cat_en = CAT_EN[opt.get("category", "")]
+              year = opt.get("year")
+              caption = f"{EN_MAIN[pt_id]}\n\n{ALERT.format(year=year)}\n\n{CTA}\n\n#YesterdayNews #ArquivoPT #{cat_en.title()}"
+              en_opt = {
+                  "title": opt.get("title_en", ""),
+                  "title_en": opt.get("title_en", ""),
+                  "category": cat_en,
+                  "year": year,
+                  "layout_preference": opt.get("layout_preference", "template_1"),
+                  "breaking_candidate": bool(opt.get("breaking_candidate", False)),
+                  "overlay_description": opt.get("summary_en", ""),
+                  "highlight_text": EN_HIGHLIGHT[pt_id],
+                  "caption": caption,
+                  "caption_instagram": caption,
+                  "caption_facebook": caption,
+                  "summary": opt.get("summary_en", ""),
+                  "summary_en": opt.get("summary_en", ""),
+                  "image_url": "",
+                  "image_theme": opt.get("image_theme", ""),
+                  "networks": ["instagram"],
+                  "relevance": opt.get("relevance"),
+              }
+              date_part, slot_part = pt_id[3:13], int(pt_id[14:])
+              entry = {
+                  "id": en_id,
+                  "lang": "en",
+                  "date": date_part,
+                  "slot": slot_part,
+                  "status": "approved",
+                  "selected_option": 0,
+                  "layout_override": opt.get("layout_preference", "template_1"),
+                  "manual_background_url": bg_url,
+                  "options": [en_opt],
+                  "instagram_id": "",
+                  "instagram_url": "",
+                  "instagram_story_id": "",
+                  "facebook_id": "",
+                  "facebook_url": "",
+                  "facebook_story_id": "",
+                  "published_at": "",
+                  "image_url": "",
+                  "review_action": "",
+              }
+              posts.append(entry)
+              created.append(en_id)
+              print(f"criado {en_id}: {en_opt['title']} | {cat_en} | {year}")
+          json.dump(posts, open("pending_posts.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+          print("criadas:", created)
+          PYEOF
+
+      - name: Commit and Push changes
+        if: always()
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+
+          if ! git diff --staged --quiet; then
+            git commit -m "teste EN: entradas en_2026-11-03_1, en_2026-11-03_2, en_2026-11-04_1 e en_2026-11-04_2 (traducao das aprovadas PT)"
+            for attempt in 1 2 3; do
+              git pull --rebase --autostash origin main || true
+              if git push origin main; then
+                echo "Push efetuado com sucesso."
+                break
+              fi
+              echo "Tentativa $attempt falhou ao dar push; a tentar novamente..."
+              sleep 3
+            done
+          fi
