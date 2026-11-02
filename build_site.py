@@ -1471,6 +1471,8 @@ def build_payload():
         "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
         "instagram_profile_url": os.environ.get("INSTAGRAM_PROFILE_URL", "https://www.instagram.com/noticiasdeontempt/"),
         "facebook_profile_url": os.environ.get("FB_PROFILE_URL", "https://www.facebook.com/noticiasdeontempt"),
+        "instagram_profile_url_en": os.environ.get("INSTAGRAM_PROFILE_URL_EN", "https://www.instagram.com/yesterday.snews/"),
+        "facebook_profile_url_en": os.environ.get("FB_PROFILE_URL_EN", "https://www.facebook.com/profile.php?id=1318455601360516"),
         "has_published_posts": bool(published),
         "newsletter": {
             "form_url": os.environ.get("NEWSLETTER_FORM_URL", ""),
