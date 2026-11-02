@@ -2440,6 +2440,19 @@ def publish_to_buffer(message, image_url, lang):
                 print("Facebook (Buffer): post publicado, mas nao o encontrei no feed da Pagina; a guardar o ID do Buffer.")
                 return {"success": True, "id": str(buffer_post_id), "permalink": f"https://www.facebook.com/{page_id}"}
             print(f"Facebook (Buffer) (tentativa {_attempt}/3): Erro:", data)
+            # O Buffer rejeita um post identico ao que ja publicou ha pouco
+            # ("already got this one scheduled or posted"): se o post ja
+            # estiver no feed, trata-se de sucesso e guarda-se o ID real.
+            _msg = ""
+            _cp = (data.get("data") or {}).get("createPost") or {}
+            if isinstance(_cp, dict):
+                _msg = _cp.get("message") or ""
+            if "already got this one" in _msg:
+                found = _find_facebook_post_by_message(page_id, page_token, message) if page_token else None
+                if found:
+                    print(f"Facebook (Buffer): o post ja existia no feed: {found['id']}")
+                    return {"success": True, "id": found["id"], "permalink": found["permalink"]}
+                print("Facebook (Buffer): o Buffer diz que o post ja existe, mas nao o encontrei no feed.")
         except Exception as exc:
             print(f"Facebook (Buffer) (tentativa {_attempt}/3): Excecao:", exc)
         if _attempt < 3:
