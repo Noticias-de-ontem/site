@@ -1829,7 +1829,9 @@ def main():
     force_publish = os.environ.get("FORCE_PUBLISH", "false").strip().lower() in ("true", "1", "yes")
     publish_immediate = os.environ.get("PUBLISH_IMMEDIATE", "1").strip().lower() in ("true", "1", "yes")
 
-    for lang in ["pt"]:
+    enable_en_publish = os.environ.get("ENABLE_EN_PUBLISH", "false").strip().lower() in ("true", "1", "yes")
+    langs = ["pt"] + (["en"] if enable_en_publish else [])
+    for lang in langs:
         tz_name = "Europe/Lisbon"
         tz = ZoneInfo(tz_name)
         local_now = datetime.now(tz)
@@ -1897,7 +1899,11 @@ def main():
         )
 
         enable_direct_facebook = os.environ.get("ENABLE_DIRECT_FB_PUBLISH", "false").strip().lower() in ("true", "1", "yes")
-        target_platforms = ("instagram", "facebook") if enable_direct_facebook else ("instagram",)
+        if lang == "en":
+            # Facebook em inglês vai pelo Buffer (ainda sem chave): só Instagram por agora.
+            target_platforms = ("instagram",)
+        else:
+            target_platforms = ("instagram", "facebook") if enable_direct_facebook else ("instagram",)
 
         platforms_to_post = []
         for pname in target_platforms:
@@ -2130,12 +2136,20 @@ def main():
                 final_caption = caption_instagram or short_title
             elif pname == "facebook":
                 final_caption = caption_facebook or short_title
-            final_caption = re.sub(
-                r"🔗?\s*L[eê] a not[ií]cia completa no link (?:da bio|do sobre do perfil)\.?",
-                "🔗 Lê a notícia completa no link na descrição do perfil.",
-                final_caption,
-                flags=re.IGNORECASE,
-            )
+            if lang == "en":
+                final_caption = re.sub(
+                    r"🔗?\s*Read the full story via the link (?:in our bio/about section|in the profile description|in bio)\.?",
+                    "🔗 Read the full story via the link in our bio/about section.",
+                    final_caption,
+                    flags=re.IGNORECASE,
+                )
+            else:
+                final_caption = re.sub(
+                    r"🔗?\s*L[eê] a not[ií]cia completa no link (?:da bio|do sobre do perfil)\.?",
+                    "🔗 Lê a notícia completa no link na descrição do perfil.",
+                    final_caption,
+                    flags=re.IGNORECASE,
+                )
             final_caption = normalize_text(final_caption)
 
             # Publish to the platform
