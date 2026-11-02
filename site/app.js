@@ -116,13 +116,27 @@ const SOCIAL_NETWORKS = {
   },
 };
 
+// URL do perfil por língua: a vista PT leva aos perfis PT e a vista EN
+// aos perfis EN (Instagram @yesterday.snews e Página «Yesterday's News»).
+function profileUrl(network) {
+  const isEn = state.lang === "en";
+  if (network === "instagram") {
+    return isEn
+      ? (cleanProfileUrl(state.data?.instagram_profile_url_en) || "https://www.instagram.com/yesterday.snews/")
+      : (cleanProfileUrl(state.data?.instagram_profile_url) || "https://www.instagram.com/noticiasdeontempt/");
+  }
+  return isEn
+    ? (cleanProfileUrl(state.data?.facebook_profile_url_en) || "https://www.facebook.com/profile.php?id=1318455601360516")
+    : (cleanProfileUrl(state.data?.facebook_profile_url) || "https://www.facebook.com/noticiasdeontempt");
+}
+
 // Os badges no site devem ser sempre instagram e facebook nesta ordem:
 function networkBadgesHtml(item) {
   const ORDER = ["instagram", "facebook"];
   return ORDER.map((network) => {
     const meta = SOCIAL_NETWORKS[network];
     if (!meta) return "";
-    const href = item?.network_posts?.[network] || (network === "instagram" ? (item?.instagram_url || meta.url) : (item?.facebook_url || meta.url));
+    const href = item?.network_posts?.[network] || (network === "instagram" ? (item?.instagram_url || profileUrl("instagram")) : (item?.facebook_url || profileUrl("facebook")));
     const logo = assetPath(meta.logo);
     return `<a class="network-badge network-${network}" href="${escapeHtml(href)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(meta.label)}" title="${escapeHtml(meta.label)}"><img src="${escapeHtml(logo)}" alt="" loading="lazy"></a>`;
   }).join("");
@@ -980,10 +994,10 @@ function renderHero() {
     detail.dataset.newsId = item.page_id;
   }
   setText("#hero-summary", localized(item, "summary"));
-  const igUrl = item.instagram_url || item.network_posts?.instagram || state.data?.instagram_profile_url || "https://www.instagram.com/noticiasdeontempt/";
+  const igUrl = item.instagram_url || item.network_posts?.instagram || profileUrl("instagram");
   setLink(instagram, igUrl, t("openInstagram"), t("unavailableInstagram"));
   if (facebook) {
-    const fbUrl = item.facebook_url || item.network_posts?.facebook || state.data?.facebook_profile_url || "https://www.facebook.com/noticiasdeontempt";
+    const fbUrl = item.facebook_url || item.network_posts?.facebook || profileUrl("facebook");
     setLink(facebook, fbUrl, t("openFacebook"), t("unavailableFacebook"));
     facebook.hidden = !fbUrl;
   }
@@ -3725,6 +3739,7 @@ function render() {
   renderDocs();
   renderNewsletter();
   renderNewsDetail();
+  updateFooterProfileLinks();
 }
 
 function setRoute(route) {
@@ -4487,13 +4502,13 @@ async function init() {
   setRoute(initialRoute);
   if (initialRoute === "topics" && state.topicQuery && !state.topicResultSets.length) runTopicSearch(false);
   startCarousel();
-  const footerInstagram = document.getElementById("footer-instagram");
-  const profileUrl = cleanProfileUrl(state.data?.instagram_profile_url) || "https://www.instagram.com/noticiasdeontempt/";
-  if (footerInstagram) footerInstagram.href = profileUrl;
+}
 
+function updateFooterProfileLinks() {
+  const footerInstagram = document.getElementById("footer-instagram");
+  if (footerInstagram) footerInstagram.href = profileUrl("instagram");
   const footerFacebook = document.getElementById("footer-facebook");
-  const fbProfileUrl = cleanProfileUrl(state.data?.facebook_profile_url) || "https://www.facebook.com/noticiasdeontempt";
-  if (footerFacebook) footerFacebook.href = fbProfileUrl;
+  if (footerFacebook) footerFacebook.href = profileUrl("facebook");
 }
 
 function cleanProfileUrl(value) {
