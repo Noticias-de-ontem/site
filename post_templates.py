@@ -1248,7 +1248,9 @@ def _draw_logo(base_image, lang, left=58, top=74, right=None, center_x=None, sca
     top_text = "NOTÍCIAS" if lang == "pt" else "YESTERDAY'S"
     bottom_text = "DE ONTEM" if lang == "pt" else "NEWS"
     top_font = get_font("extra_bold_italic", int(74 * scale))
-    bottom_font = get_font("black_italic", int(66 * scale))
+    # EN: a segunda linha (NEWS) e dominante no logo de referencia
+    # (mais alta do que YESTERDAY'S); em PT mantem-se o tamanho atual.
+    bottom_font = get_font("black_italic", int((90 if lang == "en" else 66) * scale))
     measure_draw = ImageDraw.Draw(base_image)
     top_width, top_height = _measure_text(measure_draw, top_text, top_font)
     bottom_width, bottom_height = _measure_text(measure_draw, bottom_text, bottom_font)
@@ -1340,7 +1342,8 @@ def _draw_logo(base_image, lang, left=58, top=74, right=None, center_x=None, sca
         width=max(4, int(8 * scale)),
     )
 
-    bottom_top = top + top_height - int(8 * scale)
+    # Espaco livre entre as duas linhas do logo (antes sobrepunham-se 8 px).
+    bottom_top = top + top_height + int(12 * scale)
     if use_shadows:
         base_image = _draw_blurred_text_shadow(
             base_image,
