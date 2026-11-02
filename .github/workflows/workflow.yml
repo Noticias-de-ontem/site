@@ -54,6 +54,11 @@ jobs:
           IG_USER_ID: ${{ secrets.IG_USER_ID }}
           IG_ACCESS_TOKEN_PT: ${{ secrets.IG_ACCESS_TOKEN_PT }}
           IG_USER_ID_PT: ${{ secrets.IG_USER_ID_PT }}
+          IG_ACCESS_TOKEN_EN: ${{ secrets.IG_ACCESS_TOKEN_EN }}
+          IG_USER_ID_EN: ${{ secrets.IG_USER_ID_EN }}
+          # Inglês desligado por defeito no ciclo diário (decisão de lançamento pendente);
+          # o teste e o arranque usam ENABLE_EN_PUBLISH=true.
+          ENABLE_EN_PUBLISH: "false"
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
           # Publicacao direta no Facebook em cada run: o cross-posting da Meta
