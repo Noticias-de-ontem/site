@@ -4,6 +4,10 @@ on:
 jobs:
   republish:
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -102,7 +106,7 @@ jobs:
           cap_ig = norm_caption(option.get("caption_instagram") or option.get("title", ""))
           cap_fb = norm_caption(option.get("caption_facebook") or option.get("title", ""))
 
-          ig = publish_to_instagram(public_image_url, cap_ig)
+          ig = publish_to_instagram(public_image_url, cap_ig, "pt")
           assert isinstance(ig, dict) and ig.get("success"), f"IG falhou: {ig}"
           ig_id = str(ig.get("id", ""))
           ig_url = str(ig.get("permalink", ""))
