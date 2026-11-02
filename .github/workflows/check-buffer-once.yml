@@ -12,44 +12,62 @@ jobs:
           IG_ACCESS_TOKEN_EN: ${{ secrets.IG_ACCESS_TOKEN_EN }}
         run: |
           python3 - <<'PYEOF'
-          import os, requests, json
+          import os, requests, json, time
 
           KEY = os.environ["BUFFER_API_KEY"]
           IG_PT = os.environ["IG_ACCESS_TOKEN_PT"]
           IG_EN = os.environ["IG_ACCESS_TOKEN_EN"]
 
-          # 1. listar canais do Buffer
-          r = requests.get("https://api.buffer.com/1/profiles.json", params={"access_token": KEY}, timeout=30)
-          print("profiles status:", r.status_code)
-          profiles = r.json()
-          print(json.dumps(profiles, indent=2, ensure_ascii=False)[:2000])
-          channels = {}
-          for p in profiles:
-              if p.get("service") == "facebook":
-                  name = p.get("formatted_username") or p.get("service_username") or p.get("id")
-                  channels[name] = p.get("id")
-                  print("canal FB:", name, "->", p.get("id"))
-          print("canais FB encontrados:", channels)
+          def gql(query, variables=None):
+              r = requests.post(
+                  "https://api.buffer.com",
+                  headers={"Authorization": f"Bearer {KEY}", "Content-Type": "application/json"},
+                  json={"query": query, "variables": variables or {}},
+                  timeout=30,
+              )
+              print("GraphQL status:", r.status_code)
+              return r.json()
 
-          # 2. post de teste em cada canal (imagem espelhada do post da noite)
+          # 1. conta e organizacao
+          acc = gql("query { account { id email organizations { id name } } }")
+          print("conta:", json.dumps(acc, indent=2)[:1200])
+          orgs = (acc.get("data") or {}).get("account", {}).get("organizations") or []
+          org_id = orgs[0]["id"] if orgs else None
+          print("org_id:", org_id)
+
+          # 2. canais
+          ch = gql(
+              "query GetChannels($organizationId: String!) { channels(input: { organizationId: $organizationId }) { id name service serviceId } }",
+              {"organizationId": org_id},
+          )
+          print("canais:", json.dumps(ch, indent=2)[:2000])
+          fb_channels = [c for c in ((ch.get("data") or {}).get("channels") or []) if c.get("service") == "facebook"]
+          print("canais FB:", fb_channels)
+
+          # 3. post de teste em cada canal FB (imagem espelhada do post da noite)
           TEST_IMG = "https://i.ibb.co/pBLxg1sj/post-pt.jpg"
           TEST_TEXT = "Teste Buffer - Noticias de Ontem (publicacao de teste, apagar depois)."
-          for name, cid in channels.items():
-              resp = requests.post(
-                  "https://api.buffer.com/1/updates/create.json",
-                  data={
-                      "access_token": KEY,
-                      "text": TEST_TEXT,
-                      "profile_ids[]": cid,
-                      "media[photo]": TEST_IMG,
-                      "now": "true",
-                  },
-                  timeout=60,
+          mut = """
+          mutation CreatePost($input: CreatePostInput!) {
+            createPost(input: $input) {
+              ... on PostActionSuccess { post { id text status scheduledAt } }
+              ... on MutationError { message }
+            }
+          }
+          """
+          for c in fb_channels:
+              variables = {"input": {"text": TEST_TEXT, "channelId": c["id"], "schedulingType": "automatic", "mode": "shareNow", "assets": [{"image": {"url": TEST_IMG}}]}}
+              resp = gql(mut, variables)
+              print(f"teste {c.get('name')}:", json.dumps(resp, indent=2)[:800])
+
+          # 4. confirmar no feed de cada Pagina (privacidade do post de teste)
+          time.sleep(25)
+          for label, page_id, token in (("PT", "1030669413467151", IG_PT), ("EN", "1318455601360516", IG_EN)):
+              r = requests.get(
+                  f"https://graph.facebook.com/v25.0/{page_id}/posts",
+                  params={"fields": "id,privacy,permalink_url,created_time,message", "limit": 5, "access_token": token},
+                  timeout=30,
               )
-              print(f"teste {name}: status {resp.status_code} {resp.text[:500]}")
-              try:
-                  upd = resp.json().get("updates", [{}])[0]
-                  print(f"  update id: {upd.get('id')} service_update_id: {upd.get('service_update_id')} status: {upd.get('status')}")
-              except Exception as e:
-                  print("  erro a ler resposta:", e)
+              print(label, "feed status:", r.status_code)
+              print(r.text[:1200])
           PYEOF
