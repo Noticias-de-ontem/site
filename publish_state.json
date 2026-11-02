@@ -23,24 +23,26 @@
         }
     },
     "en": {
-        "date": "",
+        "date": "2026-11-02",
+        "morning_target_time": "12:47",
+        "evening_target_time": "19:35",
         "instagram": {
-            "morning_posted": false,
+            "morning_posted": true,
             "evening_posted": false,
-            "last_post_time": null,
-            "morning_attempted": false,
+            "morning_attempted": true,
             "evening_attempted": false,
-            "morning_story_posted": false,
-            "evening_story_posted": false
+            "morning_story_posted": true,
+            "evening_story_posted": false,
+            "last_post_time": "2026-11-02T19:00:15.972893+00:00"
         },
         "facebook": {
             "morning_posted": false,
             "evening_posted": false,
-            "last_post_time": null,
             "morning_attempted": false,
             "evening_attempted": false,
             "morning_story_posted": false,
-            "evening_story_posted": false
+            "evening_story_posted": false,
+            "last_post_time": null
         }
     }
 }

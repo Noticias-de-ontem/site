@@ -7214,5 +7214,21 @@
         "created_at": "2026-11-02T12:45:19+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "published_post",
+        "lang": "en",
+        "date": "2026-11-02",
+        "slot": "morning",
+        "platform": "instagram",
+        "post_id": "en_2026-11-02_1",
+        "image_url": "https://i.ibb.co/sfTSz3M/post-en.jpg",
+        "delete_url": "https://ibb.co/SjkTGv9/7e68e6a71dca53ff4fdae6632902e07e",
+        "platform_post_id": "17963475294239887",
+        "platform_post_url": "https://www.instagram.com/p/DfQAhrSGiBR/",
+        "published_at": "2026-11-02T19:00:28.871546",
+        "created_at": "2026-11-02T19:00:28+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
