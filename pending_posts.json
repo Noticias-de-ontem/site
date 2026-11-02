@@ -4742,5 +4742,229 @@
                 "body": ""
             }
         ]
+    },
+    {
+        "id": "en_2026-11-03_1",
+        "lang": "en",
+        "date": "2026-11-03",
+        "slot": 1,
+        "status": "approved",
+        "selected_option": 0,
+        "layout_override": "template_2",
+        "manual_background_url": "https://i.ibb.co/dwr1Vrwv/2026-11-03-01-2002-docentes-ensino-particular-greve-nacional-fundo.jpg",
+        "options": [
+            {
+                "title": "Private and Cooperative School Teachers Join National Strike",
+                "title_en": "Private and Cooperative School Teachers Join National Strike",
+                "category": "EDUCATION",
+                "year": "2002",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "overlay_description": "The federation representing private and cooperative education workers called a national strike among teachers.",
+                "highlight_text": "National Strike",
+                "caption": "In protest against what they saw as a rollback of their labour and pay rights, private and cooperative school teachers held a historic national strike in 2002, affecting schools across several regions of the country.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2002.\n\n🔗 Read the full story via the link in our bio/about section.\n\n#YesterdayNews #ArquivoPT #Education",
+                "caption_instagram": "In protest against what they saw as a rollback of their labour and pay rights, private and cooperative school teachers held a historic national strike in 2002, affecting schools across several regions of the country.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2002.\n\n🔗 Read the full story via the link in our bio/about section.\n\n#YesterdayNews #ArquivoPT #Education",
+                "caption_facebook": "In protest against what they saw as a rollback of their labour and pay rights, private and cooperative school teachers held a historic national strike in 2002, affecting schools across several regions of the country.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2002.\n\n🔗 Read the full story via the link in our bio/about section.\n\n#YesterdayNews #ArquivoPT #Education",
+                "summary": "The federation representing private and cooperative education workers called a national strike among teachers.",
+                "summary_en": "The federation representing private and cooperative education workers called a national strike among teachers.",
+                "image_url": "",
+                "image_theme": "Greve docentes Portugal",
+                "networks": [
+                    "instagram"
+                ],
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 30.0,
+                        "dimensao_impacto": 45.0,
+                        "consequencias": 40.0,
+                        "relevancia_posterior": 30.0,
+                        "dimensao_duracao": 30.0,
+                        "relevancia_mediatica": 45.0,
+                        "singularidade": 30.0
+                    },
+                    "weighted_score": 35.2,
+                    "justification": "A greve afetou diretamente a continuidade das aulas em escolas privadas e cooperativas, mas a fonte não documenta consequências duradouras.",
+                    "lang": "pt"
+                }
+            }
+        ],
+        "instagram_id": "",
+        "instagram_url": "",
+        "instagram_story_id": "",
+        "facebook_id": "",
+        "facebook_url": "",
+        "facebook_story_id": "",
+        "published_at": "",
+        "image_url": "",
+        "review_action": ""
+    },
+    {
+        "id": "en_2026-11-03_2",
+        "lang": "en",
+        "date": "2026-11-03",
+        "slot": 2,
+        "status": "approved",
+        "selected_option": 0,
+        "layout_override": "template_1",
+        "manual_background_url": "https://i.ibb.co/6cDmBcnx/2026-11-03-02-2015-vaticano-diretiva-padres-homossexuais-fundo.jpg",
+        "options": [
+            {
+                "title": "Vatican Confirms Directive Banning Homosexual Priests",
+                "title_en": "Vatican Confirms Directive Banning Homosexual Priests",
+                "category": "SOCIETY",
+                "year": "2015",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "overlay_description": "Catholic Church maintains restrictions on admissions to seminaries and ordination.",
+                "highlight_text": "Vatican",
+                "caption": "In a directive that sparked wide repercussion and public debate, the Vatican and the Congregation for Catholic Education decided in 2015 to expressly ban the ordination of priests and admission to seminaries of men with homosexual tendencies.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2015.\n\n🔗 Read the full story via the link in our bio/about section.\n\n#YesterdayNews #ArquivoPT #Society",
+                "caption_instagram": "In a directive that sparked wide repercussion and public debate, the Vatican and the Congregation for Catholic Education decided in 2015 to expressly ban the ordination of priests and admission to seminaries of men with homosexual tendencies.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2015.\n\n🔗 Read the full story via the link in our bio/about section.\n\n#YesterdayNews #ArquivoPT #Society",
+                "caption_facebook": "In a directive that sparked wide repercussion and public debate, the Vatican and the Congregation for Catholic Education decided in 2015 to expressly ban the ordination of priests and admission to seminaries of men with homosexual tendencies.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2015.\n\n🔗 Read the full story via the link in our bio/about section.\n\n#YesterdayNews #ArquivoPT #Society",
+                "summary": "Catholic Church maintains restrictions on admissions to seminaries and ordination.",
+                "summary_en": "Catholic Church maintains restrictions on admissions to seminaries and ordination.",
+                "image_url": "",
+                "image_theme": "Praca Sao Pedro Vaticano Roma",
+                "networks": [
+                    "instagram"
+                ],
+                "relevance": {
+                    "level": 3,
+                    "scores": {
+                        "impacto_historico": 75.0,
+                        "dimensao_impacto": 80.0,
+                        "consequencias": 70.0,
+                        "relevancia_posterior": 75.0,
+                        "dimensao_duracao": 75.0,
+                        "relevancia_mediatica": 85.0,
+                        "singularidade": 70.0
+                    },
+                    "weighted_score": 75.8,
+                    "justification": "Tema de forte debate ético, religioso e social com impacto internacional.",
+                    "lang": "pt"
+                }
+            }
+        ],
+        "instagram_id": "",
+        "instagram_url": "",
+        "instagram_story_id": "",
+        "facebook_id": "",
+        "facebook_url": "",
+        "facebook_story_id": "",
+        "published_at": "",
+        "image_url": "",
+        "review_action": ""
+    },
+    {
+        "id": "en_2026-11-04_1",
+        "lang": "en",
+        "date": "2026-11-04",
+        "slot": 1,
+        "status": "approved",
+        "selected_option": 0,
+        "layout_override": "template_2",
+        "manual_background_url": "https://i.ibb.co/21CNCXRL/2026-11-04-01-2003-obras-urgentes-docapesca-alcantara-trafaria-fundo.jpg",
+        "options": [
+            {
+                "title": "Government Announces Urgent Works to Replace Docapesca",
+                "title_en": "Government Announces Urgent Works to Replace Docapesca",
+                "category": "POLITICS",
+                "year": "2003",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "overlay_description": "The government ordered immediate works at Trafaria and Alcântara to provide an alternative to the closed Docapesca port facility.",
+                "highlight_text": "Urgent Works",
+                "caption": "Following the closure of the Pedrouços port facilities, the Portuguese Government announced in 2003 urgent works in Trafaria and the Alcântara Dock to create a definitive alternative to Docapesca.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2003.\n\n🔗 Read the full story via the link in our bio/about section.\n\n#YesterdayNews #ArquivoPT #Politics",
+                "caption_instagram": "Following the closure of the Pedrouços port facilities, the Portuguese Government announced in 2003 urgent works in Trafaria and the Alcântara Dock to create a definitive alternative to Docapesca.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2003.\n\n🔗 Read the full story via the link in our bio/about section.\n\n#YesterdayNews #ArquivoPT #Politics",
+                "caption_facebook": "Following the closure of the Pedrouços port facilities, the Portuguese Government announced in 2003 urgent works in Trafaria and the Alcântara Dock to create a definitive alternative to Docapesca.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2003.\n\n🔗 Read the full story via the link in our bio/about section.\n\n#YesterdayNews #ArquivoPT #Politics",
+                "summary": "The government ordered immediate works at Trafaria and Alcântara to provide an alternative to the closed Docapesca port facility.",
+                "summary_en": "The government ordered immediate works at Trafaria and Alcântara to provide an alternative to the closed Docapesca port facility.",
+                "image_url": "",
+                "image_theme": "Governo de Portugal São Bento",
+                "networks": [
+                    "instagram"
+                ],
+                "relevance": {
+                    "level": 5,
+                    "scores": {
+                        "impacto_historico": 35.0,
+                        "dimensao_impacto": 42.0,
+                        "consequencias": 48.0,
+                        "relevancia_posterior": 38.0,
+                        "dimensao_duracao": 45.0,
+                        "relevancia_mediatica": 35.0,
+                        "singularidade": 30.0
+                    },
+                    "weighted_score": 39.5,
+                    "justification": "A obra buscava preservar a atividade portuária após o encerramento, mas o resumo não detalha resultados posteriores ou impactos duradouros.",
+                    "lang": "pt"
+                }
+            }
+        ],
+        "instagram_id": "",
+        "instagram_url": "",
+        "instagram_story_id": "",
+        "facebook_id": "",
+        "facebook_url": "",
+        "facebook_story_id": "",
+        "published_at": "",
+        "image_url": "",
+        "review_action": ""
+    },
+    {
+        "id": "en_2026-11-04_2",
+        "lang": "en",
+        "date": "2026-11-04",
+        "slot": 2,
+        "status": "approved",
+        "selected_option": 0,
+        "layout_override": "template_1",
+        "manual_background_url": "https://i.ibb.co/L3SptPP/2026-11-04-02-2008-barack-obama-eleito-primeiro-presidente-afro-americano-fundo.jpg",
+        "options": [
+            {
+                "title": "Barack Obama Elected First African American President of the United States",
+                "title_en": "Barack Obama Elected First African American President of the United States",
+                "category": "WORLD",
+                "year": "2008",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "overlay_description": "Barack Obama defeated John McCain to become the first African American president in US history.",
+                "highlight_text": "Barack Obama",
+                "caption": "In a historic election followed by millions of people around the world, Barack Obama won the 2008 US presidential election, becoming the first African American to lead the United States.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2008.\n\n🔗 Read the full story via the link in our bio/about section.\n\n#YesterdayNews #ArquivoPT #World",
+                "caption_instagram": "In a historic election followed by millions of people around the world, Barack Obama won the 2008 US presidential election, becoming the first African American to lead the United States.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2008.\n\n🔗 Read the full story via the link in our bio/about section.\n\n#YesterdayNews #ArquivoPT #World",
+                "caption_facebook": "In a historic election followed by millions of people around the world, Barack Obama won the 2008 US presidential election, becoming the first African American to lead the United States.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2008.\n\n🔗 Read the full story via the link in our bio/about section.\n\n#YesterdayNews #ArquivoPT #World",
+                "summary": "Barack Obama defeated John McCain to become the first African American president in US history.",
+                "summary_en": "Barack Obama defeated John McCain to become the first African American president in US history.",
+                "image_url": "",
+                "image_theme": "Barack Obama Chicago 2008 victory",
+                "networks": [
+                    "instagram"
+                ],
+                "relevance": {
+                    "level": 1,
+                    "scores": {
+                        "impacto_historico": 100.0,
+                        "dimensao_impacto": 100.0,
+                        "consequencias": 95.0,
+                        "relevancia_posterior": 100.0,
+                        "dimensao_duracao": 95.0,
+                        "relevancia_mediatica": 100.0,
+                        "singularidade": 100.0
+                    },
+                    "weighted_score": 98.5,
+                    "justification": "Um dos momentos políticos mais marcantes do século XXI à escala global.",
+                    "lang": "pt"
+                }
+            }
+        ],
+        "instagram_id": "",
+        "instagram_url": "",
+        "instagram_story_id": "",
+        "facebook_id": "",
+        "facebook_url": "",
+        "facebook_story_id": "",
+        "published_at": "",
+        "image_url": "",
+        "review_action": ""
     }
 ]
