@@ -57,7 +57,7 @@ jobs:
           }
           """
           for c in fb_channels:
-              variables = {"input": {"text": TEST_TEXT, "channelId": c["id"], "schedulingType": "automatic", "mode": "shareNow", "assets": [{"image": {"url": TEST_IMG}}]}}
+              variables = {"input": {"text": TEST_TEXT, "channelId": c["id"], "schedulingType": "automatic", "mode": "shareNow", "assets": [{"image": {"url": TEST_IMG}}], "metadata": {"facebook": {"type": "post"}}}}
               resp = gql(mut, variables)
               print(f"teste {c.get('name')}:", json.dumps(resp, indent=2)[:800])
 
