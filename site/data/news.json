@@ -1,9 +1,11 @@
 {
-  "generated_at": "2026-11-02T21:01:24+00:00",
+  "generated_at": "2026-11-02T21:31:18+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
   "facebook_profile_url": "https://www.facebook.com/noticiasdeontempt",
+  "instagram_profile_url_en": "https://www.instagram.com/yesterday.snews/",
+  "facebook_profile_url_en": "https://www.facebook.com/profile.php?id=1318455601360516",
   "has_published_posts": true,
   "newsletter": {
     "form_url": "",
@@ -1659,7 +1661,7 @@
     "instagram_sources": 14,
     "unique_sources": 34,
     "published_posts": 15,
-    "social_followers": 228,
+    "social_followers": 227,
     "social_networks": 1,
     "news_source_domains": [
       "abola.pt",
