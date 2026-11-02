@@ -1898,12 +1898,14 @@ def main():
             or (in_evening_window and (local_time_str >= evening_target or local_mins >= 21 * 60 + 20))
         )
 
-        enable_direct_facebook = os.environ.get("ENABLE_DIRECT_FB_PUBLISH", "false").strip().lower() in ("true", "1", "yes")
-        if lang == "en":
-            # Facebook em inglês vai pelo Buffer (ainda sem chave): só Instagram por agora.
-            target_platforms = ("instagram",)
+        # Facebook vai pelo Buffer (posts publicos no feed). Sem chave, o
+        # Facebook fica de fora do ciclo e nao sai um post direto privado.
+        buffer_api_key = os.environ.get("BUFFER_API_KEY", "").strip()
+        if buffer_api_key:
+            target_platforms = ("instagram", "facebook")
         else:
-            target_platforms = ("instagram", "facebook") if enable_direct_facebook else ("instagram",)
+            print(f"[{lang}] Facebook: sem BUFFER_API_KEY, so Instagram neste ciclo.")
+            target_platforms = ("instagram",)
 
         platforms_to_post = []
         for pname in target_platforms:
@@ -2119,7 +2121,7 @@ def main():
                 if story_result:
                     if approved_entry:
                         approved_entry[f"{pname}_story_id"] = str(story_result)
-                        if pname == "instagram" and not enable_direct_facebook:
+                        if pname == "instagram" and "facebook" not in target_platforms:
                             approved_entry["facebook_story_id"] = f"crosspost_story_{story_result}"
                             lang_state.get("facebook", {})[f"{pslot}_story_posted"] = True
                         with open("pending_posts.json", "w", encoding="utf-8") as pf:
@@ -2160,7 +2162,7 @@ def main():
                 publish_result = publish_to_instagram(public_image_url, final_caption, lang)
                 publish_success = bool(publish_result.get("success")) if isinstance(publish_result, dict) else bool(publish_result)
             elif pname == "facebook":
-                publish_result = publish_to_facebook(final_caption, public_image_url)
+                publish_result = publish_to_buffer(final_caption, public_image_url, lang)
                 publish_success = publish_result is not None
 
             if publish_success:
@@ -2218,7 +2220,7 @@ def main():
                     pstate[f"{pslot}_story_posted"] = True
                 pstate["last_post_time"] = local_now.isoformat()
 
-                if pname == "instagram" and not enable_direct_facebook:
+                if pname == "instagram" and "facebook" not in target_platforms:
                     # Meta Cross-posting automatico alimenta a Pagina de Facebook
                     fb_state = lang_state.get("facebook", {})
                     fb_state[f"{pslot}_posted"] = True
@@ -2256,6 +2258,10 @@ def main():
 def publish_to_facebook(message, image_url, backdated_time=None):
     """Publica uma foto como publicacao genuina no Feed (Timeline de Publicacoes) da Pagina do Facebook.
     Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN.
+    NOTA (2026-11-02): o ciclo diario ja nao usa esta funcao — o feed vai pelo
+    Buffer (publish_to_buffer), porque os posts diretos via Graph API, com a
+    app em modo Development, ficam so na aba Fotos e nao aparecem no feed.
+    Mantem-se aqui para uso manual pontual.
     Suporta opcionalmente backdated_time (timestamp Unix ou string ISO) para publicacoes com data retroativa.
 
     Usa o fluxo oficial da Meta para publicacoes com imagem no feed:
@@ -2329,6 +2335,119 @@ def publish_to_facebook(message, image_url, backdated_time=None):
             _time.sleep(20)
     print("Facebook feed: falhou apos 3 tentativas na mesma run; sera retentado na proxima run.")
     return None
+
+# Canais do Buffer por lingua (confirmados a 2026-11-02): a chave e o segredo
+# BUFFER_API_KEY; os IDs dos canais podem vir das variaveis de ambiente
+# BUFFER_CHANNEL_ID_PT / BUFFER_CHANNEL_ID_EN.
+BUFFER_CHANNELS = {
+    "pt": {
+        "channel_id": "6ae8e746e29c69a1713d9390",
+        "page_id": "1030669413467151",
+        "page_token_env": "FB_PAGE_ACCESS_TOKEN",
+    },
+    "en": {
+        "channel_id": "6ae8e746e29c69a1713d938f",
+        "page_id": "1318455601360516",
+        "page_token_env": "IG_ACCESS_TOKEN_EN",
+    },
+}
+
+
+def _find_facebook_post_by_message(page_id, page_token, caption, attempts=3):
+    """Procura no feed da Pagina o post com esta legenda (para guardar o ID
+    real do Facebook depois de publicar via Buffer). Devolve
+    {"id": ..., "permalink": ...} ou None."""
+    import time as _time
+
+    import requests as _r
+
+    snippet = (caption or "")[:120]
+    for _attempt in range(1, attempts + 1):
+        try:
+            res = _r.get(
+                f"https://graph.facebook.com/v25.0/{page_id}/posts",
+                params={"fields": "id,permalink_url,created_time,message", "limit": 5, "access_token": page_token},
+                timeout=30,
+            )
+            for post in (res.json().get("data") or []):
+                msg = post.get("message") or ""
+                if msg and (msg == caption or msg.startswith(snippet)):
+                    return {"id": str(post["id"]), "permalink": post.get("permalink_url") or f"https://www.facebook.com/{post['id']}"}
+        except Exception as exc:
+            print(f"Facebook (Buffer): procura do post no feed (tentativa {_attempt}/{attempts}):", exc)
+        if _attempt < attempts:
+            _time.sleep(10)
+    return None
+
+
+def publish_to_buffer(message, image_url, lang):
+    """Publica a imagem com legenda no feed da Pagina do Facebook via Buffer
+    (API GraphQL em https://api.buffer.com, Bearer BUFFER_API_KEY).
+    O Buffer publica como a propria Pagina, por isso o post aparece publico
+    no feed — ao contrario do post direto via Graph API em modo Development,
+    que fica so na aba Fotos. Devolve {"success": True, "id": <id do post no
+    Facebook>, "permalink": ...} ou None apos 3 tentativas. A story do
+    Facebook continua pelo caminho direto (publish_facebook_story)."""
+    import time as _time
+
+    import requests as _r
+
+    api_key = os.environ.get("BUFFER_API_KEY", "").strip()
+    cfg = BUFFER_CHANNELS.get(lang) or BUFFER_CHANNELS["pt"]
+    channel_id = os.environ.get(f"BUFFER_CHANNEL_ID_{lang.upper()}", "").strip() or cfg["channel_id"]
+    page_id = os.environ.get("FB_PAGE_ID" if lang == "pt" else "FB_PAGE_ID_EN", "").strip() or cfg["page_id"]
+    page_token = os.environ.get(cfg["page_token_env"], "").strip()
+    if not api_key or not channel_id:
+        print("Facebook (Buffer): BUFFER_API_KEY ou canal nao configurado.")
+        return None
+
+    mutation = """
+    mutation CreatePost($input: CreatePostInput!) {
+      createPost(input: $input) {
+        ... on PostActionSuccess { post { id text status createdAt } }
+        ... on MutationError { message }
+      }
+    }
+    """
+    variables = {
+        "input": {
+            "text": message,
+            "channelId": channel_id,
+            "schedulingType": "automatic",
+            "mode": "shareNow",
+            "assets": [{"image": {"url": image_url}}],
+            "metadata": {"facebook": {"type": "post"}},
+        }
+    }
+    for _attempt in range(1, 4):
+        try:
+            res = _r.post(
+                "https://api.buffer.com",
+                headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+                json={"query": mutation, "variables": variables},
+                timeout=60,
+            )
+            data = res.json()
+            created = ((data.get("data") or {}).get("createPost") or {}).get("post") or {}
+            buffer_post_id = created.get("id")
+            if buffer_post_id:
+                print(f"Facebook (Buffer): publicado! Post Buffer: {buffer_post_id}")
+                # Ir buscar o ID real do post no Facebook para guardar na entrada.
+                found = _find_facebook_post_by_message(page_id, page_token, message) if page_token else None
+                if found:
+                    print(f"Facebook (Buffer): post no feed: {found['id']}")
+                    return {"success": True, "id": found["id"], "permalink": found["permalink"]}
+                print("Facebook (Buffer): post publicado, mas nao o encontrei no feed da Pagina; a guardar o ID do Buffer.")
+                return {"success": True, "id": str(buffer_post_id), "permalink": f"https://www.facebook.com/{page_id}"}
+            print(f"Facebook (Buffer) (tentativa {_attempt}/3): Erro:", data)
+        except Exception as exc:
+            print(f"Facebook (Buffer) (tentativa {_attempt}/3): Excecao:", exc)
+        if _attempt < 3:
+            print("Facebook (Buffer): a retentar apenas o feed, na mesma run, em 20 s...")
+            _time.sleep(20)
+    print("Facebook (Buffer): falhou apos 3 tentativas na mesma run; sera retentado na proxima run.")
+    return None
+
 
 def publish_facebook_story(image_url):
     """Publica a mesma imagem como Story da Pagina do Facebook (24h).
