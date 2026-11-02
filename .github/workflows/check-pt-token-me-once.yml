@@ -1,0 +1,46 @@
+name: Check PT token me once
+on:
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Who is this PT token
+        env:
+          IG_ACCESS_TOKEN_PT: ${{ secrets.IG_ACCESS_TOKEN_PT }}
+        run: |
+          python3 - <<'PYEOF'
+          import os
+          import requests
+
+          token = os.environ.get("IG_ACCESS_TOKEN_PT", "")
+          base = "https://graph.facebook.com/v25.0"
+          if not token:
+              print("FALTA segredo: IG_ACCESS_TOKEN_PT nao definido.")
+              raise SystemExit(1)
+          r = requests.get(
+              f"{base}/me",
+              params={"fields": "id,name,instagram_business_account", "access_token": token},
+              timeout=30,
+          )
+          print("ME_STATUS:", r.status_code)
+          d = r.json()
+          print("ME_ID:", d.get("id", ""))
+          print("ME_NAME:", d.get("name", ""))
+          ig = (d.get("instagram_business_account") or {}).get("id", "")
+          print("ME_IG_ID_PRESENTE:", bool(ig))
+          if ig:
+              r2 = requests.get(
+                  f"{base}/{ig}",
+                  params={"fields": "id,username", "access_token": token},
+                  timeout=30,
+              )
+              d2 = r2.json()
+              print("IG_USERNAME:", d2.get("username", "(vazio)"))
+          if "error" in d:
+              print("ME_ERROR:", d["error"])
+          PYEOF
