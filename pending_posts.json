@@ -3235,6 +3235,68 @@
         }
     },
     {
+        "id": "en_2026-11-02_1",
+        "lang": "en",
+        "date": "2026-11-02",
+        "slot": 1,
+        "generated_month": "2026-11",
+        "status": "approved",
+        "selected_option": 0,
+        "layout_override": "breaking",
+        "manual_background_url": "https://arquivo.pt/wayback/20180126035715im_/https://static.noticiasaominuto.com/stockimages/1920/naom_59b138228d85c.jpg?151690096",
+        "theme_suggestion": "",
+        "review_action": "",
+        "review_note": "",
+        "external_suggestions": [],
+        "options": [
+            {
+                "year": "2022",
+                "category": "EDUCATION",
+                "editorial_tier": "high",
+                "title": "Teachers Stage a National Strike Over the State Budget",
+                "highlight_text": "",
+                "overlay_description": "Schools closed as teachers mounted a highly supported national strike over budget cuts and inadequate investment in education.",
+                "image_theme": "Portuguese school strike protest Lisbon",
+                "layout_preference": "breaking",
+                "breaking_candidate": true,
+                "conditional_trigger": "",
+                "caption": "With turnout of around 90% and hundreds of schools closed across the country, teachers held a national strike in 2022 to protest against the State Budget and demand investment in public education.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2022.\n\n🔗 Read the full story via the link in our bio/about section.\n\n#YesterdayNews #ArquivoPT #Education",
+                "summary": "With turnout of around 90% and hundreds of schools closed across the country, teachers held a national strike in 2022 to protest against the State Budget and demand investment in public education.",
+                "title_en": "Teachers Stage a National Strike Over the State Budget",
+                "summary_en": "Schools closed as teachers mounted a highly supported national strike over budget cuts and inadequate investment in education.",
+                "relevance": {
+                    "level": 4,
+                    "scores": {
+                        "impacto_historico": 48.0,
+                        "dimensao_impacto": 68.0,
+                        "consequencias": 58.0,
+                        "relevancia_posterior": 42.0,
+                        "dimensao_duracao": 35.0,
+                        "relevancia_mediatica": 72.0,
+                        "singularidade": 45.0
+                    },
+                    "weighted_score": 52.4,
+                    "justification": "A greve fechou escolas e perturbou famílias e aulas, mas o resumo não documenta mudanças estruturais posteriores no sistema educativo.",
+                    "lang": "en"
+                },
+                "article_url": "",
+                "source_platform": "",
+                "source_profile": "",
+                "networks": [
+                    "instagram"
+                ],
+                "background_source_url": "https://arquivo.pt/wayback/20180126035715im_/https://static.noticiasaominuto.com/stockimages/1920/naom_59b138228d85c.jpg?151690096",
+                "body": "With turnout of around 90% and hundreds of schools closed across the country, teachers held a national strike in 2022 to protest against the State Budget and demand investment in public education.",
+                "image_url": "",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "local_background_path": "",
+                "caption_instagram": "With turnout of around 90% and hundreds of schools closed across the country, teachers held a national strike in 2022 to protest against the State Budget and demand investment in public education.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2022.\n\n🔗 Read the full story via the link in our bio/about section.\n\n#YesterdayNews #ArquivoPT #Education",
+                "caption_facebook": "With turnout of around 90% and hundreds of schools closed across the country, teachers held a national strike in 2022 to protest against the State Budget and demand investment in public education.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2022.\n\n🔗 Read the full story via the link in our bio/about section.\n\n#YesterdayNews #ArquivoPT #Education"
+            }
+        ]
+    },
+    {
         "id": "pt_2026-11-02_2",
         "date": "2026-11-02",
         "slot": 2,
