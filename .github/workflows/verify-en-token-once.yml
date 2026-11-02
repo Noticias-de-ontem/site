@@ -20,32 +20,38 @@ jobs:
 
           token = os.environ.get("IG_ACCESS_TOKEN_EN", "")
           user_id = os.environ.get("IG_USER_ID_EN", "")
-          print("TOKEN_PRESENTE:", bool(token))
-          print("USER_ID_PRESENTE:", bool(user_id), user_id if user_id else "")
+          page_id = "61596236577237"
+          base = "https://graph.facebook.com/v25.0"
           if not token or not user_id:
               print("FALTA segredo: IG_ACCESS_TOKEN_EN ou IG_USER_ID_EN nao definidos.")
               raise SystemExit(1)
-          base = "https://graph.facebook.com/v25.0"
+          print("USER_ID_IGUAL_A_PAGE_ID:", user_id == page_id)
           r = requests.get(
               f"{base}/{user_id}",
-              params={"fields": "id,username", "access_token": token},
+              params={"fields": "id,username,media_count", "access_token": token},
               timeout=30,
           )
           print("IG_STATUS:", r.status_code)
           d = r.json()
-          print("IG_ID:", d.get("id", ""))
-          print("IG_USERNAME:", d.get("username", ""))
+          print("IG_ID_LEN:", len(str(d.get("id", ""))))
+          print("IG_ID_IGUAL_A_PAGE_ID:", str(d.get("id", "")) == page_id)
+          print("IG_USERNAME:", d.get("username", "(vazio)"))
+          print("IG_MEDIA_COUNT:", d.get("media_count", "(ausente)"))
           if "error" in d:
               print("IG_ERROR:", d["error"])
-          r2 = requests.get(
-              f"{base}/61596236577237",
-              params={"fields": "id,name,instagram_business_account", "access_token": token},
-              timeout=30,
+          # Contentor de teste (rascunho nao publicado, expira em 24h): prova a permissao de publicar.
+          r3 = requests.post(
+              f"{base}/{user_id}/media",
+              data={
+                  "image_url": "https://www.noticiasdeontem.pt/assets/posts/2026-11-02-1-professores-realizam-greve-nacional-contra-o-oramento-do-estado.jpg",
+                  "caption": "Teste de verificacao do token EN - rascunho, nao publicar.",
+                  "access_token": token,
+              },
+              timeout=60,
           )
-          print("PAGE_STATUS:", r2.status_code)
-          d2 = r2.json()
-          print("PAGE_NAME:", d2.get("name", ""))
-          print("PAGE_IG_ID:", (d2.get("instagram_business_account") or {}).get("id", ""))
-          if "error" in d2:
-              print("PAGE_ERROR:", d2["error"])
+          print("CONTAINER_STATUS:", r3.status_code)
+          d3 = r3.json()
+          print("CONTAINER_ID_PRESENTE:", bool(d3.get("id")))
+          if "error" in d3:
+              print("CONTAINER_ERROR:", d3["error"])
           PYEOF
