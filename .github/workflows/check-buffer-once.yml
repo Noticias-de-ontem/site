@@ -10,12 +10,13 @@ jobs:
           BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
           IG_ACCESS_TOKEN_PT: ${{ secrets.IG_ACCESS_TOKEN_PT }}
           IG_ACCESS_TOKEN_EN: ${{ secrets.IG_ACCESS_TOKEN_EN }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
         run: |
           python3 - <<'PYEOF'
           import os, requests, json, time
 
           KEY = os.environ["BUFFER_API_KEY"]
-          IG_PT = os.environ["IG_ACCESS_TOKEN_PT"]
+          IG_PT = os.environ["FB_PAGE_ACCESS_TOKEN"]
           IG_EN = os.environ["IG_ACCESS_TOKEN_EN"]
 
           def gql(query, variables=None):
@@ -37,7 +38,7 @@ jobs:
 
           # 2. canais
           ch = gql(
-              "query GetChannels($organizationId: String!) { channels(input: { organizationId: $organizationId }) { id name service serviceId } }",
+              "query GetChannels($organizationId: OrganizationId!) { channels(input: { organizationId: $organizationId }) { id name service serviceId } }",
               {"organizationId": org_id},
           )
           print("canais:", json.dumps(ch, indent=2)[:2000])
