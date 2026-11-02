@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-02T20:02:20+00:00",
+  "generated_at": "2026-11-02T20:16:51+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -15,7 +15,7 @@
     "date": "2026-11-02",
     "slot": 2,
     "status": "published",
-    "published_at": "2026-11-02T20:02:09.217872",
+    "published_at": "2026-11-02T20:16:45.988906+00:00",
     "category": "POLÍTICA",
     "title": "Governo omitiu 500 milhões de euros em benefícios fiscais no Orçamento",
     "title_en": "Government Omitted 500 Million Euros in Tax Benefits from Budget",
@@ -30,10 +30,10 @@
     "source_url": "http://www.dn.pt/economia/dinheiro-vivo/interior/governo-omitiu-500-milhoes-de-euros-em-beneficios-fiscais-4304057.html",
     "source_profile": "dn.pt",
     "source_platform": "dn.pt",
-    "instagram_url": "https://www.instagram.com/p/DfQHiCgEqmu/",
-    "instagram_id": "17938644231401214",
-    "facebook_url": "https://www.facebook.com/1030669413467151_122137175186824703",
-    "facebook_id": "1030669413467151_122137175186824703",
+    "instagram_url": "https://www.instagram.com/p/DfQJJurl-oj/",
+    "instagram_id": "17905622907599722",
+    "facebook_url": "https://www.facebook.com/1030669413467151_122137176890824703",
+    "facebook_id": "1030669413467151_122137176890824703",
     "archive_credit": "Arquivo.pt",
     "banner_ready": false,
     "networks": [
@@ -42,8 +42,8 @@
     ],
     "cover_focus": null,
     "network_posts": {
-      "instagram": "https://www.instagram.com/p/DfQHiCgEqmu/",
-      "facebook": "https://www.facebook.com/1030669413467151_122137175186824703"
+      "instagram": "https://www.instagram.com/p/DfQJJurl-oj/",
+      "facebook": "https://www.facebook.com/1030669413467151_122137176890824703"
     },
     "relevance_level": 3,
     "relevance_scores": {
@@ -227,6 +227,60 @@
       "snapshot_url": "assets/snapshots/noticia-7f6cc4d040d947b910e791dc.jpg"
     },
     {
+      "id": "pt_2026-11-02_2",
+      "lang": "pt",
+      "date": "2026-11-02",
+      "slot": 2,
+      "status": "published",
+      "published_at": "2026-11-02T20:16:45.988906+00:00",
+      "category": "POLÍTICA",
+      "title": "Governo omitiu 500 milhões de euros em benefícios fiscais no Orçamento",
+      "title_en": "Government Omitted 500 Million Euros in Tax Benefits from Budget",
+      "summary": "Proposta orçamental de 2015 ocultou meio milhão de euros em desagravamentos tributários.",
+      "summary_en": "Budget proposals omitted half a billion euros in tax expenditures triggering political scrutiny.",
+      "original_year": "2015",
+      "image": "assets/posts/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento.jpg",
+      "banner_image": "assets/banners/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento-banner.jpg",
+      "body": "Uma auditoria detalhada às tabelas orçamentais revelou que o Governo deixou de fora do relatório que acompanhou a proposta de Orçamento do Estado cerca de 500 milhões de euros respeitantes a desagravamentos e incentivos fiscais concedidos a empresas e contribuintes. A revelação provocou forte surpresa e acesas críticas nos meios económicos e parlamentares. Especialistas em finanças públicas e deputados da oposição questionaram a transparência da prestação de contas, apontando que a omissão destes valores distorcia o real saldo das receitas fiscais previstas para o ano económico seguinte. O Ministério das Finanças procurou justificar a ausência como uma questão meramente técnica e metodológica de apresentação das despesas fiscais. A controvérsia acentuou o escrutínio sobre o rigor orçamental e as exigências da União Europeia relativamente à clareza das contas nacionais, consolidando-se como um dos episódios mais debatidos na discussão das finanças públicas do período.",
+      "body_en": "",
+      "caption": "Num relatório que gerou forte controvérsia política e parlamentar, foi revelado em 2015 que o Governo omitiu cerca de 500 milhões de euros em benefícios fiscais na proposta inicial do Orçamento do Estado. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015. 🔗 Lê a notícia completa no link na descrição do perfil.",
+      "source_url": "http://www.dn.pt/economia/dinheiro-vivo/interior/governo-omitiu-500-milhoes-de-euros-em-beneficios-fiscais-4304057.html",
+      "source_profile": "dn.pt",
+      "source_platform": "dn.pt",
+      "instagram_url": "https://www.instagram.com/p/DfQJJurl-oj/",
+      "instagram_id": "17905622907599722",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122137176890824703",
+      "facebook_id": "1030669413467151_122137176890824703",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram",
+        "facebook"
+      ],
+      "cover_focus": null,
+      "network_posts": {
+        "instagram": "https://www.instagram.com/p/DfQJJurl-oj/",
+        "facebook": "https://www.facebook.com/1030669413467151_122137176890824703"
+      },
+      "relevance_level": 3,
+      "relevance_scores": {
+        "impacto_historico": 70.0,
+        "dimensao_impacto": 80.0,
+        "consequencias": 75.0,
+        "relevancia_posterior": 70.0,
+        "dimensao_duracao": 65.0,
+        "relevancia_mediatica": 85.0,
+        "singularidade": 75.0
+      },
+      "relevance_weighted": 75.0,
+      "relevance_justification": "Impacto orçamental direto nas contas públicas e escrutínio governativo.",
+      "source_type": "newspaper",
+      "url_path": "noticia/politica/governo-omitiu-500-milhoes-de-euros",
+      "page_id": "noticia-017bd61178fa8c59845d65ec",
+      "detail_image": "assets/banners/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento-banner.jpg",
+      "snapshot_url": "assets/snapshots/noticia-017bd61178fa8c59845d65ec.jpg"
+    },
+    {
       "id": "pt_2026-10-27_1",
       "lang": "pt",
       "date": "2026-10-27",
@@ -387,60 +441,6 @@
       "page_id": "noticia-9e4235e75faf7e97f8470de0",
       "detail_image": "assets/banners/2026-10-31-2-revolta-militar-de-31-de-outubro-desafia-poder-governamental-no-porto-banner.jpg",
       "snapshot_url": ""
-    },
-    {
-      "id": "pt_2026-11-02_2",
-      "lang": "pt",
-      "date": "2026-11-02",
-      "slot": 2,
-      "status": "published",
-      "published_at": "2026-11-02T20:02:09.217872",
-      "category": "POLÍTICA",
-      "title": "Governo omitiu 500 milhões de euros em benefícios fiscais no Orçamento",
-      "title_en": "Government Omitted 500 Million Euros in Tax Benefits from Budget",
-      "summary": "Proposta orçamental de 2015 ocultou meio milhão de euros em desagravamentos tributários.",
-      "summary_en": "Budget proposals omitted half a billion euros in tax expenditures triggering political scrutiny.",
-      "original_year": "2015",
-      "image": "assets/posts/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento.jpg",
-      "banner_image": "assets/banners/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento-banner.jpg",
-      "body": "Uma auditoria detalhada às tabelas orçamentais revelou que o Governo deixou de fora do relatório que acompanhou a proposta de Orçamento do Estado cerca de 500 milhões de euros respeitantes a desagravamentos e incentivos fiscais concedidos a empresas e contribuintes. A revelação provocou forte surpresa e acesas críticas nos meios económicos e parlamentares. Especialistas em finanças públicas e deputados da oposição questionaram a transparência da prestação de contas, apontando que a omissão destes valores distorcia o real saldo das receitas fiscais previstas para o ano económico seguinte. O Ministério das Finanças procurou justificar a ausência como uma questão meramente técnica e metodológica de apresentação das despesas fiscais. A controvérsia acentuou o escrutínio sobre o rigor orçamental e as exigências da União Europeia relativamente à clareza das contas nacionais, consolidando-se como um dos episódios mais debatidos na discussão das finanças públicas do período.",
-      "body_en": "",
-      "caption": "Num relatório que gerou forte controvérsia política e parlamentar, foi revelado em 2015 que o Governo omitiu cerca de 500 milhões de euros em benefícios fiscais na proposta inicial do Orçamento do Estado. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015. 🔗 Lê a notícia completa no link na descrição do perfil.",
-      "source_url": "http://www.dn.pt/economia/dinheiro-vivo/interior/governo-omitiu-500-milhoes-de-euros-em-beneficios-fiscais-4304057.html",
-      "source_profile": "dn.pt",
-      "source_platform": "dn.pt",
-      "instagram_url": "https://www.instagram.com/p/DfQHiCgEqmu/",
-      "instagram_id": "17938644231401214",
-      "facebook_url": "https://www.facebook.com/1030669413467151_122137175186824703",
-      "facebook_id": "1030669413467151_122137175186824703",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram",
-        "facebook"
-      ],
-      "cover_focus": null,
-      "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfQHiCgEqmu/",
-        "facebook": "https://www.facebook.com/1030669413467151_122137175186824703"
-      },
-      "relevance_level": 3,
-      "relevance_scores": {
-        "impacto_historico": 70.0,
-        "dimensao_impacto": 80.0,
-        "consequencias": 75.0,
-        "relevancia_posterior": 70.0,
-        "dimensao_duracao": 65.0,
-        "relevancia_mediatica": 85.0,
-        "singularidade": 75.0
-      },
-      "relevance_weighted": 75.0,
-      "relevance_justification": "Impacto orçamental direto nas contas públicas e escrutínio governativo.",
-      "source_type": "newspaper",
-      "url_path": "noticia/politica/governo-omitiu-500-milhoes-de-euros",
-      "page_id": "noticia-017bd61178fa8c59845d65ec",
-      "detail_image": "assets/banners/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-017bd61178fa8c59845d65ec.jpg"
     }
   ],
   "latest": [
@@ -829,7 +829,7 @@
       "date": "2026-11-02",
       "slot": 2,
       "status": "published",
-      "published_at": "2026-11-02T20:02:09.217872",
+      "published_at": "2026-11-02T20:16:45.988906+00:00",
       "category": "POLÍTICA",
       "title": "Governo omitiu 500 milhões de euros em benefícios fiscais no Orçamento",
       "title_en": "Government Omitted 500 Million Euros in Tax Benefits from Budget",
@@ -844,10 +844,10 @@
       "source_url": "http://www.dn.pt/economia/dinheiro-vivo/interior/governo-omitiu-500-milhoes-de-euros-em-beneficios-fiscais-4304057.html",
       "source_profile": "dn.pt",
       "source_platform": "dn.pt",
-      "instagram_url": "https://www.instagram.com/p/DfQHiCgEqmu/",
-      "instagram_id": "17938644231401214",
-      "facebook_url": "https://www.facebook.com/1030669413467151_122137175186824703",
-      "facebook_id": "1030669413467151_122137175186824703",
+      "instagram_url": "https://www.instagram.com/p/DfQJJurl-oj/",
+      "instagram_id": "17905622907599722",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122137176890824703",
+      "facebook_id": "1030669413467151_122137176890824703",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
@@ -856,8 +856,8 @@
       ],
       "cover_focus": null,
       "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfQHiCgEqmu/",
-        "facebook": "https://www.facebook.com/1030669413467151_122137175186824703"
+        "instagram": "https://www.instagram.com/p/DfQJJurl-oj/",
+        "facebook": "https://www.facebook.com/1030669413467151_122137176890824703"
       },
       "relevance_level": 3,
       "relevance_scores": {
