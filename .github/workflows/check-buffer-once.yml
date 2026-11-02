@@ -51,7 +51,7 @@ jobs:
           mut = """
           mutation CreatePost($input: CreatePostInput!) {
             createPost(input: $input) {
-              ... on PostActionSuccess { post { id text status scheduledAt } }
+              ... on PostActionSuccess { post { id text status createdAt } }
               ... on MutationError { message }
             }
           }
