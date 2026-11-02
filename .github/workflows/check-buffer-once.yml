@@ -1,0 +1,55 @@
+name: Check Buffer channels once
+on:
+  workflow_dispatch:
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: List Buffer channels and test post
+        env:
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          IG_ACCESS_TOKEN_PT: ${{ secrets.IG_ACCESS_TOKEN_PT }}
+          IG_ACCESS_TOKEN_EN: ${{ secrets.IG_ACCESS_TOKEN_EN }}
+        run: |
+          python3 - <<'PYEOF'
+          import os, requests, json
+
+          KEY = os.environ["BUFFER_API_KEY"]
+          IG_PT = os.environ["IG_ACCESS_TOKEN_PT"]
+          IG_EN = os.environ["IG_ACCESS_TOKEN_EN"]
+
+          # 1. listar canais do Buffer
+          r = requests.get("https://api.buffer.com/1/profiles.json", params={"access_token": KEY}, timeout=30)
+          print("profiles status:", r.status_code)
+          profiles = r.json()
+          print(json.dumps(profiles, indent=2, ensure_ascii=False)[:2000])
+          channels = {}
+          for p in profiles:
+              if p.get("service") == "facebook":
+                  name = p.get("formatted_username") or p.get("service_username") or p.get("id")
+                  channels[name] = p.get("id")
+                  print("canal FB:", name, "->", p.get("id"))
+          print("canais FB encontrados:", channels)
+
+          # 2. post de teste em cada canal (imagem espelhada do post da noite)
+          TEST_IMG = "https://i.ibb.co/pBLxg1sj/post-pt.jpg"
+          TEST_TEXT = "Teste Buffer - Noticias de Ontem (publicacao de teste, apagar depois)."
+          for name, cid in channels.items():
+              resp = requests.post(
+                  "https://api.buffer.com/1/updates/create.json",
+                  data={
+                      "access_token": KEY,
+                      "text": TEST_TEXT,
+                      "profile_ids[]": cid,
+                      "media[photo]": TEST_IMG,
+                      "now": "true",
+                  },
+                  timeout=60,
+              )
+              print(f"teste {name}: status {resp.status_code} {resp.text[:500]}")
+              try:
+                  upd = resp.json().get("updates", [{}])[0]
+                  print(f"  update id: {upd.get('id')} service_update_id: {upd.get('service_update_id')} status: {upd.get('status')}")
+              except Exception as e:
+                  print("  erro a ler resposta:", e)
+          PYEOF
