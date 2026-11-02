@@ -4,22 +4,22 @@
         "morning_target_time": "11:14",
         "evening_target_time": "19:48",
         "instagram": {
-            "morning_posted": false,
+            "morning_posted": true,
             "evening_posted": false,
-            "morning_attempted": false,
+            "morning_attempted": true,
             "evening_attempted": false,
-            "morning_story_posted": false,
+            "morning_story_posted": true,
             "evening_story_posted": false,
-            "last_post_time": null
+            "last_post_time": "2026-11-02T11:31:08.228388+00:00"
         },
         "facebook": {
-            "morning_posted": false,
+            "morning_posted": true,
             "evening_posted": false,
-            "morning_attempted": false,
+            "morning_attempted": true,
             "evening_attempted": false,
-            "morning_story_posted": false,
+            "morning_story_posted": true,
             "evening_story_posted": false,
-            "last_post_time": null
+            "last_post_time": "2026-11-02T11:31:08.228388+00:00"
         }
     },
     "en": {

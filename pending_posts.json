@@ -2964,7 +2964,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -3217,7 +3217,14 @@
                 "caption_facebook": "Simone Biles conquistou o décimo terceiro título mundial de ginástica, renovando um recorde que perdurava desde 1996.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no link na descrição do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Desporto",
                 "body": ""
             }
-        ]
+        ],
+        "instagram_id": "18046066496835972",
+        "instagram_url": "https://www.instagram.com/p/DfPNKiCIFV8/",
+        "published_at": "2026-11-02T11:32:29.260736",
+        "instagram_story_id": "17995676973024812",
+        "facebook_id": "1030669413467151_122137119380824703",
+        "facebook_url": "https://www.facebook.com/1030669413467151_122137119380824703",
+        "facebook_story_id": "1459409829720653"
     },
     {
         "id": "pt_2026-11-02_2",
