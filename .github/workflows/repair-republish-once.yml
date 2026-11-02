@@ -1,0 +1,203 @@
+name: Repair mirrors and republish night post once
+on:
+  workflow_dispatch:
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14.6'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Republish night post and repair mirrors
+        timeout-minutes: 15
+        env:
+          PYTHONUNBUFFERED: "1"
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN_PT: ${{ secrets.IG_ACCESS_TOKEN_PT }}
+          IG_USER_ID_PT: ${{ secrets.IG_USER_ID_PT }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
+        run: |
+          python3 - <<'PYEOF'
+          import json, os, shutil, requests
+          from datetime import datetime, timezone
+          from PIL import Image
+          from publisher import (
+              publish_to_instagram,
+              publish_instagram_story,
+              publish_to_facebook,
+              publish_facebook_story,
+              register_imgbb_upload,
+          )
+          from post_templates import create_image_with_text
+
+          IG_TOKEN = os.environ["IG_ACCESS_TOKEN_PT"]
+          FB_TOKEN = os.environ["FB_PAGE_ACCESS_TOKEN"]
+          IMGBB_KEY = os.environ["IMGBB_API_KEY"]
+
+          OLD_IG_ID = "17938644231401214"
+          OLD_IG_URL = "https://www.instagram.com/p/DfQHiCgEqmu/"
+          OLD_IG_STORY = "18135342634733597"
+          OLD_FB_ID = "1030669413467151_122137175186824703"
+          OLD_FB_STORY = "2126316101337437"
+          EN_TEST_IG_ID = "17963475294239887"
+
+          # 1. verificar se os posts antigos do IG ja foram apagados (so registo)
+          for label, mid in (("noite", OLD_IG_ID), ("teste EN", EN_TEST_IG_ID)):
+              r = requests.get(f"https://graph.facebook.com/v25.0/{mid}", params={"fields": "id", "access_token": IG_TOKEN}, timeout=30)
+              print(f"check IG {label}: status {r.status_code} {r.text[:200]}")
+
+          # 2. apagar o post antigo do Facebook (feed + tentativa da story)
+          r = requests.delete(f"https://graph.facebook.com/v25.0/{OLD_FB_ID}", params={"access_token": FB_TOKEN}, timeout=30)
+          print("delete FB feed:", r.status_code, r.text[:200])
+          r = requests.delete(f"https://graph.facebook.com/v25.0/{OLD_FB_STORY}", params={"access_token": FB_TOKEN}, timeout=30)
+          print("delete FB story:", r.status_code, r.text[:200])
+
+          # 3. carregar pending_posts.json e o post da noite
+          posts = json.load(open("pending_posts.json", encoding="utf-8"))
+          entry = next(p for p in posts if p["id"] == "pt_2026-11-02_2")
+          opt = entry["options"][entry.get("selected_option", 0)]
+          caption_ig = opt.get("caption_instagram") or opt.get("caption") or ""
+          caption_fb = opt.get("caption_facebook") or opt.get("caption") or ""
+
+          def render_post(e, o, out_path):
+              bg = Image.open(o["local_background_path"]).convert("RGB")
+              create_image_with_text(
+                  o.get("category", ""),
+                  o.get("title", ""),
+                  "pt",
+                  output_path=out_path,
+                  description_to_draw=o.get("overlay_description", ""),
+                  highlight_text=o.get("highlight_text", ""),
+                  layout_name=o.get("layout_preference", "template_1"),
+                  layout_preference=o.get("layout_preference", "template_1"),
+                  breaking_candidate=bool(o.get("breaking_candidate", False)),
+                  background_image=bg,
+                  year=o.get("year"),
+                  relevance_level=(o.get("relevance") or {}).get("level"),
+              )
+              print("renderizado:", out_path)
+
+          # 4. render da imagem da noite com a foto de fundo do repo
+          render_post(entry, opt, "post_pt.jpg")
+
+          # 5. upload para o ImgBB
+          with open("post_pt.jpg", "rb") as f:
+              up = requests.post("https://api.imgbb.com/1/upload", data={"key": IMGBB_KEY}, files={"image": f}, timeout=60).json()
+          img_url = up["data"]["url"]
+          del_url = up["data"].get("delete_url", "")
+          print("ImgBB URL:", img_url)
+
+          # 6. publicar IG + FB
+          res_ig = publish_to_instagram(img_url, caption_ig, "pt")
+          print("IG feed:", res_ig)
+          ig_story = publish_instagram_story(img_url, "pt")
+          print("IG story:", ig_story)
+          res_fb = publish_to_facebook(caption_fb, img_url)
+          print("FB feed:", res_fb)
+          fb_story = publish_facebook_story(img_url)
+          print("FB story:", fb_story)
+
+          # 7. atualizar pending_posts.json com os novos IDs
+          new_ig_id = res_ig.get("id", "") if isinstance(res_ig, dict) else ""
+          new_ig_url = res_ig.get("permalink", "") if isinstance(res_ig, dict) else ""
+          new_fb_id = res_fb.get("id", "") if isinstance(res_fb, dict) else (str(res_fb) if res_fb else "")
+          new_fb_url = res_fb.get("permalink", "") if isinstance(res_fb, dict) else ""
+          entry["instagram_id"] = new_ig_id
+          entry["instagram_url"] = new_ig_url
+          entry["instagram_story_id"] = ig_story if isinstance(ig_story, str) else ""
+          entry["facebook_id"] = new_fb_id
+          entry["facebook_url"] = new_fb_url
+          entry["facebook_story_id"] = fb_story if isinstance(fb_story, str) else ""
+          entry["published_at"] = datetime.now(timezone.utc).isoformat()
+          entry["image_url"] = img_url
+          entry["image_delete_url"] = del_url
+          entry["republished_from"] = {
+              "instagram_id": OLD_IG_ID,
+              "instagram_url": OLD_IG_URL,
+              "instagram_story_id": OLD_IG_STORY,
+              "facebook_id": OLD_FB_ID,
+              "facebook_story_id": OLD_FB_STORY,
+          }
+          opt["image_url"] = img_url
+          opt["image_delete_url"] = del_url
+
+          # 8. reparar os espelhos de 3 e 4 nov (renderizar por cima da foto em bruto)
+          for pid in ("pt_2026-11-03_1", "pt_2026-11-03_2", "pt_2026-11-04_1", "pt_2026-11-04_2"):
+              e = next(p for p in posts if p["id"] == pid)
+              o = e["options"][e.get("selected_option", 0)]
+              tmp_out = f"/tmp/mirror-{pid}.jpg"
+              render_post(e, o, tmp_out)
+              shutil.copyfile(tmp_out, f"site/images/approved/{pid}.jpg")
+              print("espelho reparado:", pid)
+          shutil.copyfile("post_pt.jpg", "site/images/approved/pt_2026-11-02_2.jpg")
+          print("espelho da noite atualizado")
+
+          # 9. registar upload ImgBB e guardar pending_posts.json
+          register_imgbb_upload({
+              "kind": "published_post",
+              "lang": "pt",
+              "date": "2026-11-02",
+              "slot": 2,
+              "platform": "instagram",
+              "post_id": "pt_2026-11-02_2",
+              "image_url": img_url,
+              "delete_url": del_url,
+              "platform_post_id": new_ig_id,
+              "platform_post_url": new_ig_url,
+          })
+          json.dump(posts, open("pending_posts.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+          print("pending_posts.json atualizado")
+          PYEOF
+
+      - name: Build static site
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_ACCESS_TOKEN_PT: ${{ secrets.IG_ACCESS_TOKEN_PT }}
+          IG_USER_ID_PT: ${{ secrets.IG_USER_ID_PT }}
+          IG_ACCESS_TOKEN_EN: ${{ secrets.IG_ACCESS_TOKEN_EN }}
+          IG_USER_ID_EN: ${{ secrets.IG_USER_ID_EN }}
+        run: python -u build_site.py
+
+      - name: Sync dynamic website
+        env:
+          SITE_API_URL: ${{ secrets.SITE_API_URL }}
+          SITE_SYNC_TOKEN: ${{ secrets.SITE_SYNC_TOKEN }}
+        run: python -u scripts/sync_dynamic_site.py
+
+      - name: Commit and Push changes
+        if: always()
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: republicar post da noite 2026-11-02 com imagem renderizada e reparar espelhos de 3 e 4 nov"
+            for attempt in 1 2 3; do
+              git pull --rebase --autostash origin main || true
+              if git push origin main; then
+                echo "Push efetuado com sucesso."
+                break
+              fi
+              echo "Tentativa $attempt falhou ao dar push; a tentar novamente..."
+              sleep 3
+            done
+          fi
