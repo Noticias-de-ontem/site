@@ -1,0 +1,51 @@
+name: Verify EN token once
+on:
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Verify EN token and account
+        env:
+          IG_ACCESS_TOKEN_EN: ${{ secrets.IG_ACCESS_TOKEN_EN }}
+          IG_USER_ID_EN: ${{ secrets.IG_USER_ID_EN }}
+        run: |
+          python3 - <<'PYEOF'
+          import os
+          import requests
+
+          token = os.environ.get("IG_ACCESS_TOKEN_EN", "")
+          user_id = os.environ.get("IG_USER_ID_EN", "")
+          print("TOKEN_PRESENTE:", bool(token))
+          print("USER_ID_PRESENTE:", bool(user_id), user_id if user_id else "")
+          if not token or not user_id:
+              print("FALTA segredo: IG_ACCESS_TOKEN_EN ou IG_USER_ID_EN nao definidos.")
+              raise SystemExit(1)
+          base = "https://graph.facebook.com/v25.0"
+          r = requests.get(
+              f"{base}/{user_id}",
+              params={"fields": "id,username", "access_token": token},
+              timeout=30,
+          )
+          print("IG_STATUS:", r.status_code)
+          d = r.json()
+          print("IG_ID:", d.get("id", ""))
+          print("IG_USERNAME:", d.get("username", ""))
+          if "error" in d:
+              print("IG_ERROR:", d["error"])
+          r2 = requests.get(
+              f"{base}/61596236577237",
+              params={"fields": "id,name,instagram_business_account", "access_token": token},
+              timeout=30,
+          )
+          print("PAGE_STATUS:", r2.status_code)
+          d2 = r2.json()
+          print("PAGE_NAME:", d2.get("name", ""))
+          print("PAGE_IG_ID:", (d2.get("instagram_business_account") or {}).get("id", ""))
+          if "error" in d2:
+              print("PAGE_ERROR:", d2["error"])
+          PYEOF
