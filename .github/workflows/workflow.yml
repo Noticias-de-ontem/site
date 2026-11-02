@@ -57,14 +57,15 @@ jobs:
           IG_ACCESS_TOKEN_EN: ${{ secrets.IG_ACCESS_TOKEN_EN }}
           IG_USER_ID_EN: ${{ secrets.IG_USER_ID_EN }}
           # Inglês ligado no ciclo diário a partir de 2026-11-03 (lançamento EN).
-          # O Facebook EN continua só no Instagram até o Buffer estar válido.
           ENABLE_EN_PUBLISH: "true"
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
-          # Publicacao direta no Facebook em cada run: o cross-posting da Meta
-          # nao dispara para posts feitos via API, por isso sem isto o Facebook
-          # ficava so com o marcador crosspost_<ig_id> e sem post nenhum.
-          ENABLE_DIRECT_FB_PUBLISH: "true"
+          # Facebook via Buffer (posts publicos no feed): a API e GraphQL em
+          # https://api.buffer.com, com a chave pessoal em BUFFER_API_KEY.
+          # Os posts diretos via Graph API ficavam so na aba Fotos.
+          BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+          BUFFER_CHANNEL_ID_PT: "6ae8e746e29c69a1713d9390"
+          BUFFER_CHANNEL_ID_EN: "6ae8e746e29c69a1713d938f"
           IMGBB_API_KEY: ${{ secrets.IMGBB_API_KEY }}
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
