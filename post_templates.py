@@ -1390,7 +1390,7 @@ def _draw_logo(base_image, lang, left=58, top=74, right=None, center_x=None, sca
 def _draw_year_tag(base_image, year, x, y, align="left", use_shadow=True, font_size=28, lang="pt"):
     if not year:
         return base_image, 0
-    text = f"{\"IN\" if lang == \"en\" else \"EM\"} {year}"
+    text = f"{'IN' if lang == 'en' else 'EM'} {year}"
     font = get_font("bold", font_size)
     draw = ImageDraw.Draw(base_image)
     text_width, text_height = _measure_text(draw, text, font)
