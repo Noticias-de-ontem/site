@@ -1387,10 +1387,10 @@ def _draw_logo(base_image, lang, left=58, top=74, right=None, center_x=None, sca
     return base_image
 
 
-def _draw_year_tag(base_image, year, x, y, align="left", use_shadow=True, font_size=28):
+def _draw_year_tag(base_image, year, x, y, align="left", use_shadow=True, font_size=28, lang="pt"):
     if not year:
         return base_image, 0
-    text = f"EM {year}"
+    text = f"{\"IN\" if lang == \"en\" else \"EM\"} {year}"
     font = get_font("bold", font_size)
     draw = ImageDraw.Draw(base_image)
     text_width, text_height = _measure_text(draw, text, font)
@@ -1785,7 +1785,7 @@ def render_template_1(
     )
     year_height = 0
     if year:
-        canvas, year_height = _draw_year_tag(canvas, year, 58, 878 + title_height + 12, align="left", use_shadow=text_shadows)
+        canvas, year_height = _draw_year_tag(canvas, year, 58, 878 + title_height + 12, align="left", use_shadow=text_shadows, lang=lang)
     
     description_top = 878 + title_height + 12 + (year_height + 28 if year_height else 28)
     footer_top = canvas.height - 86
@@ -1821,7 +1821,7 @@ def render_template_2(category, title, description, highlight_text, lang, backgr
     )
     year_height = 0
     if year:
-        canvas, year_height = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 280 + title_height + 16, align="center", use_shadow=False)
+        canvas, year_height = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 280 + title_height + 16, align="center", use_shadow=False, lang=lang)
     if relevance_level:
         canvas = _draw_relevance_badge(
             canvas,
@@ -1882,7 +1882,7 @@ def render_template_3(category, title, description, highlight_text, lang, backgr
     )
     year_height = 0
     if year:
-        canvas, year_height = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 978 + title_height + 14, align="center", use_shadow=True)
+        canvas, year_height = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 978 + title_height + 14, align="center", use_shadow=True, lang=lang)
     return canvas
 
 
@@ -1953,7 +1953,7 @@ def render_breaking_template(category, title, description, highlight_text, lang,
         max_lines=7,
     )
     if year:
-        canvas, _ = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, title_start_y + title_height + 18, align="center", use_shadow=False)
+        canvas, _ = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, title_start_y + title_height + 18, align="center", use_shadow=False, lang=lang)
     return canvas
 
 
