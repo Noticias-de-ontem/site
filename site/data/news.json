@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-03T19:33:45+00:00",
+  "generated_at": "2026-11-03T20:05:16+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -12,30 +12,30 @@
     "enabled": true
   },
   "featured": {
-    "id": "en_2026-11-03_2",
-    "lang": "en",
+    "id": "pt_2026-11-03_2",
+    "lang": "pt",
     "date": "2026-11-03",
     "slot": 2,
     "status": "published",
-    "published_at": "2026-11-03T19:03:44.975705",
-    "category": "SOCIETY",
-    "title": "Vatican Confirms Directive Banning Homosexual Priests",
+    "published_at": "2026-11-03T20:04:44.653773",
+    "category": "SOCIEDADE",
+    "title": "Vaticano confirma diretiva que proíbe padres com tendências homossexuais",
     "title_en": "Vatican Confirms Directive Banning Homosexual Priests",
-    "summary": "Catholic Church maintains restrictions on admissions to seminaries and ordination.",
+    "summary": "Igreja Católica mantém diretiva restritiva sobre admissão nos seminários.",
     "summary_en": "Catholic Church maintains restrictions on admissions to seminaries and ordination.",
     "original_year": "2015",
-    "image": "",
-    "banner_image": "",
-    "body": "",
+    "image": "assets/posts/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais.jpg",
+    "banner_image": "assets/banners/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais-banner.jpg",
+    "body": "O Vaticano e a Congregação para a Educação Católica reafirmaram oficialmente as normas que impedem a admissão em seminários e a ordenação de candidatos com tendências homossexuais ativas ou profundamente enraizadas. O documento foi emitido na sequência de orientações preparadas pela Santa Sé sobre a formação sacerdotal contemporânea. A confirmação da diretiva gerou reações contrastantes em vários setores da Igreja Católica a nível mundial. Enquanto círculos conservadores saudaram a manutenção da doutrina tradicional, teólogos progressistas e associações de fiéis lamentaram a rigidez da posição, apontando contradições com as mensagens de maior acolhimento promovidas no pontificado. O debate repercutiu-se amplamente na opinião pública portuguesa e europeia, evidenciando as profundas tensões internas e os desafios da instituição católica na relação com a diversidade e os direitos humanos no século XXI.",
     "body_en": "",
-    "caption": "In a directive that sparked wide repercussion and public debate, the Vatican and the Congregation for Catholic Education decided in 2015 to expressly ban the ordination of priests and admission to seminaries of men with homosexual tendencies. This post is intended solely to recall past events in history, never representing current events. This story is from 2015. 🔗 Read the full story via the link in our bio/about section.",
-    "source_url": "https://arquivo.pt/wayback/20161113044334/https://tradcatknight.blogspot.pt/2016/10/signs-of-times-october-11-2016.html",
-    "source_profile": "",
-    "source_platform": "",
-    "instagram_url": "https://www.instagram.com/p/DfSlsq2l-Ke/",
-    "instagram_id": "17944920099367503",
-    "facebook_url": "",
-    "facebook_id": "",
+    "caption": "Numa diretiva com grande repercussão e debate no espaço público, o Vaticano e a Congregação para a Educação Católica determinaram em 2015 a proibição expressa da ordenação sacerdotal e admissão nos seminários de homens com tendências homossexuais. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015. 🔗 Lê a notícia completa no link na descrição do perfil.",
+    "source_url": "https://www.publico.pt/2015/11/03/sociedade/noticia/igreja-proibe-padres-com-tendencias-homossexuais-1713214",
+    "source_profile": "publico.pt",
+    "source_platform": "publico.pt",
+    "instagram_url": "https://www.instagram.com/p/DfSslgAGsNX/",
+    "instagram_id": "18439192579199191",
+    "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137344740824703",
+    "facebook_id": "1030669413467151_122137344740824703",
     "archive_credit": "Arquivo.pt",
     "banner_ready": false,
     "networks": [
@@ -44,7 +44,8 @@
     ],
     "cover_focus": null,
     "network_posts": {
-      "instagram": "https://www.instagram.com/p/DfSlsq2l-Ke/"
+      "instagram": "https://www.instagram.com/p/DfSslgAGsNX/",
+      "facebook": "https://www.facebook.com/122136509126824703/posts/122137344740824703"
     },
     "relevance_level": 3,
     "relevance_scores": {
@@ -58,11 +59,11 @@
     },
     "relevance_weighted": 75.8,
     "relevance_justification": "Tema de forte debate ético, religioso e social com impacto internacional.",
-    "source_type": "archive",
-    "url_path": "noticia/society/vatican-confirms-directive-banning-homosexual-priests",
-    "page_id": "noticia-2f9cf6275a97728d1a801099",
-    "detail_image": "https://arquivo.pt/screenshot/?url=https%3A%2F%2Farquivo.pt%2FnoFrame%2Freplay%2F20161113044334%2Fhttps%3A%2F%2Ftradcatknight.blogspot.pt%2F2016%2F10%2Fsigns-of-times-october-11-2016.html",
-    "snapshot_url": "https://arquivo.pt/screenshot/?url=https%3A%2F%2Farquivo.pt%2FnoFrame%2Freplay%2F20161113044334%2Fhttps%3A%2F%2Ftradcatknight.blogspot.pt%2F2016%2F10%2Fsigns-of-times-october-11-2016.html"
+    "source_type": "newspaper",
+    "url_path": "noticia/sociedade/vaticano-confirma-diretiva-que-proibe-padres",
+    "page_id": "noticia-9372c72c68f60189b3fe64a3",
+    "detail_image": "assets/banners/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais-banner.jpg",
+    "snapshot_url": "assets/snapshots/noticia-9372c72c68f60189b3fe64a3.jpg"
   },
   "carousel": [
     {
@@ -118,60 +119,6 @@
       "page_id": "noticia-ce7c0b75f943300593ee1c17",
       "detail_image": "assets/banners/2026-11-01-1-crise-poltica-e-agitao-militar-precipitam-rutura-na-primeira-repblica-banner.jpg",
       "snapshot_url": ""
-    },
-    {
-      "id": "pt_2026-10-28_2",
-      "lang": "pt",
-      "date": "2026-10-28",
-      "slot": 2,
-      "status": "published",
-      "published_at": "2026-10-28T19:02:30.011181",
-      "category": "POLÍTICA",
-      "title": "Partidos de esquerda chegam a acordo de base para Governo",
-      "title_en": "Left-wing parties reach framework agreement to form Government",
-      "summary": "Forças partidárias concluem entendimentos para viabilizar solução governativa",
-      "summary_en": "Partisan forces conclude understandings to enable a governing solution.",
-      "original_year": "2015",
-      "image": "assets/posts/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo.jpg",
-      "banner_image": "assets/banners/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-banner.jpg",
-      "body": "A chegada a um acordo de base para formar Governo, em 2015, resultou do trabalho de negociação entre forças partidárias de esquerda. O processo permitiu ultrapassar o impasse que se seguia às eleições e abriu caminho à apresentação de uma maioria alternativa no Parlamento. Segundo o resumo da notícia, as forças envolvidas concluíram entendimentos de natureza programática, establishendo compromissos comuns para viabilizar uma solução governativa. A legenda da página refere-se, precisamente, ao resultado alcançado: os partidos parlamentares fixaram compromissos programáticos que permitiram apresentar uma maioria alternativa na Assembleia da República. O acordo não se limitou, portanto, a uma simples concertação de vontades. Incluiu a definição de compromissos programáticos, elemento apresentado como indispensável para garantir a viabilidade do futuro Governo. A negociação entre os partidos de esquerda deu assim origem a uma base de apoio em torno de uma agenda comum, com a qual se candidataram a constituir uma maioria parlamentar. A ocorrência integra a atualidade política portuguesa de 2015 e ilustra a capacidade de diálogo entre forças que, até então, não tinham conseguido ultrapassar as diferenças que bloqueavam a governação. A apresentação de uma maioria alternativa no Parlamento representa o passo decisivo dessa concertação, ao transformar entendimentos entre partidos em uma base concreta para o exercício do poder. A relevância duradoura do acontecimento reside no método político queowie accompanyou: a construção de uma solução governativa através de compromissos programáticos e do diálogo entre partidos de esquerda. O acordo de base fica associado a uma fase de transição na política portuguesa, em que a capacidade de negociação entre forças parliamentary permitiu responder ao resultado eleitoral com uma alternativa de governo.",
-      "body_en": "Reaching a framework agreement to form a Government in 2015 resulted from intense negotiations between left-wing political forces in Portugal. The process resolved the impasse following the elections and paved the way for presenting an alternative parliamentary majority in the Assembly of the Republic. According to reports, the parties involved concluded programmatic understandings, establishing shared commitments to enable a viable governing solution. The agreement went beyond a simple alignment of political wills. It established programmatic commitments, considered essential to ensure the viability and stability of the incoming Government. Negotiations among the left-wing parties gave rise to a broad support base centered on a common progressive agenda, with which they presented an alternative majority in Parliament. This landmark event shaped Portuguese political history in 2015, demonstrating an unprecedented capacity for dialogue between forces that had previously never bridged their historic differences. The lasting significance of this development lies in the political model it pioneered: building a stable governing solution through programmatic compromise and dialogue among left-wing parties.",
-      "caption": "Contra quase todas as previsões da época, as forças partidárias de esquerda concluíram as negociações bilaterais no Parlamento para viabilizar uma maioria governativa em 2015, dando origem ao histórico entendimento político que ficaria conhecido como a \"Geringonça\". Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015. 🔗 Lê a notícia completa no link na descrição do perfil.",
-      "source_url": "https://arquivo.pt/wayback/20160611062004/https://news.google.pt/news/story?cf=all&hl=pt-pt&ned=pt-pt_pt&cf=all&ncl=djkchvb-0d5trum98olw8en2a1lqm&topic=n&scoring=n",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "https://www.instagram.com/p/DfDIuhDGH8O/",
-      "instagram_id": "18182963707442613",
-      "facebook_url": "https://www.facebook.com/1030669413467151_122136508664824703",
-      "facebook_id": "1030669413467151_122136508664824703",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram",
-        "facebook"
-      ],
-      "cover_focus": null,
-      "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfDIuhDGH8O/",
-        "facebook": "https://www.facebook.com/1030669413467151_122136508664824703"
-      },
-      "relevance_level": 2,
-      "relevance_scores": {
-        "impacto_historico": 80.0,
-        "dimensao_impacto": 70.0,
-        "consequencias": 75.0,
-        "relevancia_posterior": 70.0,
-        "dimensao_duracao": 60.0,
-        "relevancia_mediatica": 60.0,
-        "singularidade": 65.0
-      },
-      "relevance_weighted": 72.0,
-      "relevance_justification": "Acordo histórico de esquerda viabiliza governo e muda ciclo político português.",
-      "source_type": "archive",
-      "url_path": "noticia/politica/partidos-de-esquerda-chegam-a-acordo",
-      "page_id": "noticia-a5a2b7798af63a2eee482299",
-      "detail_image": "assets/banners/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-a5a2b7798af63a2eee482299.jpg"
     },
     {
       "id": "pt_2026-10-27_2",
@@ -449,7 +396,7 @@
       "date": "2026-11-03",
       "slot": 2,
       "status": "published",
-      "published_at": "2026-11-03T19:03:44.975705",
+      "published_at": "2026-11-03T20:05:03.449633",
       "category": "SOCIETY",
       "title": "Vatican Confirms Directive Banning Homosexual Priests",
       "title_en": "Vatican Confirms Directive Banning Homosexual Priests",
@@ -466,8 +413,8 @@
       "source_platform": "",
       "instagram_url": "https://www.instagram.com/p/DfSlsq2l-Ke/",
       "instagram_id": "17944920099367503",
-      "facebook_url": "",
-      "facebook_id": "",
+      "facebook_url": "https://www.facebook.com/122096313699541219/posts/122097205521541219",
+      "facebook_id": "1318455601360516_122097205521541219",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
@@ -476,7 +423,8 @@
       ],
       "cover_focus": null,
       "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfSlsq2l-Ke/"
+        "instagram": "https://www.instagram.com/p/DfSlsq2l-Ke/",
+        "facebook": "https://www.facebook.com/122096313699541219/posts/122097205521541219"
       },
       "relevance_level": 3,
       "relevance_scores": {
@@ -495,6 +443,114 @@
       "page_id": "noticia-2f9cf6275a97728d1a801099",
       "detail_image": "https://arquivo.pt/screenshot/?url=https%3A%2F%2Farquivo.pt%2FnoFrame%2Freplay%2F20161113044334%2Fhttps%3A%2F%2Ftradcatknight.blogspot.pt%2F2016%2F10%2Fsigns-of-times-october-11-2016.html",
       "snapshot_url": "https://arquivo.pt/screenshot/?url=https%3A%2F%2Farquivo.pt%2FnoFrame%2Freplay%2F20161113044334%2Fhttps%3A%2F%2Ftradcatknight.blogspot.pt%2F2016%2F10%2Fsigns-of-times-october-11-2016.html"
+    },
+    {
+      "id": "pt_2026-11-03_2",
+      "lang": "pt",
+      "date": "2026-11-03",
+      "slot": 2,
+      "status": "published",
+      "published_at": "2026-11-03T20:04:44.653773",
+      "category": "SOCIEDADE",
+      "title": "Vaticano confirma diretiva que proíbe padres com tendências homossexuais",
+      "title_en": "Vatican Confirms Directive Banning Homosexual Priests",
+      "summary": "Igreja Católica mantém diretiva restritiva sobre admissão nos seminários.",
+      "summary_en": "Catholic Church maintains restrictions on admissions to seminaries and ordination.",
+      "original_year": "2015",
+      "image": "assets/posts/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais.jpg",
+      "banner_image": "assets/banners/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais-banner.jpg",
+      "body": "O Vaticano e a Congregação para a Educação Católica reafirmaram oficialmente as normas que impedem a admissão em seminários e a ordenação de candidatos com tendências homossexuais ativas ou profundamente enraizadas. O documento foi emitido na sequência de orientações preparadas pela Santa Sé sobre a formação sacerdotal contemporânea. A confirmação da diretiva gerou reações contrastantes em vários setores da Igreja Católica a nível mundial. Enquanto círculos conservadores saudaram a manutenção da doutrina tradicional, teólogos progressistas e associações de fiéis lamentaram a rigidez da posição, apontando contradições com as mensagens de maior acolhimento promovidas no pontificado. O debate repercutiu-se amplamente na opinião pública portuguesa e europeia, evidenciando as profundas tensões internas e os desafios da instituição católica na relação com a diversidade e os direitos humanos no século XXI.",
+      "body_en": "",
+      "caption": "Numa diretiva com grande repercussão e debate no espaço público, o Vaticano e a Congregação para a Educação Católica determinaram em 2015 a proibição expressa da ordenação sacerdotal e admissão nos seminários de homens com tendências homossexuais. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015. 🔗 Lê a notícia completa no link na descrição do perfil.",
+      "source_url": "https://www.publico.pt/2015/11/03/sociedade/noticia/igreja-proibe-padres-com-tendencias-homossexuais-1713214",
+      "source_profile": "publico.pt",
+      "source_platform": "publico.pt",
+      "instagram_url": "https://www.instagram.com/p/DfSslgAGsNX/",
+      "instagram_id": "18439192579199191",
+      "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137344740824703",
+      "facebook_id": "1030669413467151_122137344740824703",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram",
+        "facebook"
+      ],
+      "cover_focus": null,
+      "network_posts": {
+        "instagram": "https://www.instagram.com/p/DfSslgAGsNX/",
+        "facebook": "https://www.facebook.com/122136509126824703/posts/122137344740824703"
+      },
+      "relevance_level": 3,
+      "relevance_scores": {
+        "impacto_historico": 75.0,
+        "dimensao_impacto": 80.0,
+        "consequencias": 70.0,
+        "relevancia_posterior": 75.0,
+        "dimensao_duracao": 75.0,
+        "relevancia_mediatica": 85.0,
+        "singularidade": 70.0
+      },
+      "relevance_weighted": 75.8,
+      "relevance_justification": "Tema de forte debate ético, religioso e social com impacto internacional.",
+      "source_type": "newspaper",
+      "url_path": "noticia/sociedade/vaticano-confirma-diretiva-que-proibe-padres",
+      "page_id": "noticia-9372c72c68f60189b3fe64a3",
+      "detail_image": "assets/banners/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais-banner.jpg",
+      "snapshot_url": "assets/snapshots/noticia-9372c72c68f60189b3fe64a3.jpg"
+    },
+    {
+      "id": "pt_2026-10-28_2",
+      "lang": "pt",
+      "date": "2026-10-28",
+      "slot": 2,
+      "status": "published",
+      "published_at": "2026-10-28T19:02:30.011181",
+      "category": "POLÍTICA",
+      "title": "Partidos de esquerda chegam a acordo de base para Governo",
+      "title_en": "Left-wing parties reach framework agreement to form Government",
+      "summary": "Forças partidárias concluem entendimentos para viabilizar solução governativa",
+      "summary_en": "Partisan forces conclude understandings to enable a governing solution.",
+      "original_year": "2015",
+      "image": "assets/posts/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo.jpg",
+      "banner_image": "assets/banners/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-banner.jpg",
+      "body": "A chegada a um acordo de base para formar Governo, em 2015, resultou do trabalho de negociação entre forças partidárias de esquerda. O processo permitiu ultrapassar o impasse que se seguia às eleições e abriu caminho à apresentação de uma maioria alternativa no Parlamento. Segundo o resumo da notícia, as forças envolvidas concluíram entendimentos de natureza programática, establishendo compromissos comuns para viabilizar uma solução governativa. A legenda da página refere-se, precisamente, ao resultado alcançado: os partidos parlamentares fixaram compromissos programáticos que permitiram apresentar uma maioria alternativa na Assembleia da República. O acordo não se limitou, portanto, a uma simples concertação de vontades. Incluiu a definição de compromissos programáticos, elemento apresentado como indispensável para garantir a viabilidade do futuro Governo. A negociação entre os partidos de esquerda deu assim origem a uma base de apoio em torno de uma agenda comum, com a qual se candidataram a constituir uma maioria parlamentar. A ocorrência integra a atualidade política portuguesa de 2015 e ilustra a capacidade de diálogo entre forças que, até então, não tinham conseguido ultrapassar as diferenças que bloqueavam a governação. A apresentação de uma maioria alternativa no Parlamento representa o passo decisivo dessa concertação, ao transformar entendimentos entre partidos em uma base concreta para o exercício do poder. A relevância duradoura do acontecimento reside no método político queowie accompanyou: a construção de uma solução governativa através de compromissos programáticos e do diálogo entre partidos de esquerda. O acordo de base fica associado a uma fase de transição na política portuguesa, em que a capacidade de negociação entre forças parliamentary permitiu responder ao resultado eleitoral com uma alternativa de governo.",
+      "body_en": "Reaching a framework agreement to form a Government in 2015 resulted from intense negotiations between left-wing political forces in Portugal. The process resolved the impasse following the elections and paved the way for presenting an alternative parliamentary majority in the Assembly of the Republic. According to reports, the parties involved concluded programmatic understandings, establishing shared commitments to enable a viable governing solution. The agreement went beyond a simple alignment of political wills. It established programmatic commitments, considered essential to ensure the viability and stability of the incoming Government. Negotiations among the left-wing parties gave rise to a broad support base centered on a common progressive agenda, with which they presented an alternative majority in Parliament. This landmark event shaped Portuguese political history in 2015, demonstrating an unprecedented capacity for dialogue between forces that had previously never bridged their historic differences. The lasting significance of this development lies in the political model it pioneered: building a stable governing solution through programmatic compromise and dialogue among left-wing parties.",
+      "caption": "Contra quase todas as previsões da época, as forças partidárias de esquerda concluíram as negociações bilaterais no Parlamento para viabilizar uma maioria governativa em 2015, dando origem ao histórico entendimento político que ficaria conhecido como a \"Geringonça\". Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015. 🔗 Lê a notícia completa no link na descrição do perfil.",
+      "source_url": "https://arquivo.pt/wayback/20160611062004/https://news.google.pt/news/story?cf=all&hl=pt-pt&ned=pt-pt_pt&cf=all&ncl=djkchvb-0d5trum98olw8en2a1lqm&topic=n&scoring=n",
+      "source_profile": "",
+      "source_platform": "",
+      "instagram_url": "https://www.instagram.com/p/DfDIuhDGH8O/",
+      "instagram_id": "18182963707442613",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136508664824703",
+      "facebook_id": "1030669413467151_122136508664824703",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram",
+        "facebook"
+      ],
+      "cover_focus": null,
+      "network_posts": {
+        "instagram": "https://www.instagram.com/p/DfDIuhDGH8O/",
+        "facebook": "https://www.facebook.com/1030669413467151_122136508664824703"
+      },
+      "relevance_level": 2,
+      "relevance_scores": {
+        "impacto_historico": 80.0,
+        "dimensao_impacto": 70.0,
+        "consequencias": 75.0,
+        "relevancia_posterior": 70.0,
+        "dimensao_duracao": 60.0,
+        "relevancia_mediatica": 60.0,
+        "singularidade": 65.0
+      },
+      "relevance_weighted": 72.0,
+      "relevance_justification": "Acordo histórico de esquerda viabiliza governo e muda ciclo político português.",
+      "source_type": "archive",
+      "url_path": "noticia/politica/partidos-de-esquerda-chegam-a-acordo",
+      "page_id": "noticia-a5a2b7798af63a2eee482299",
+      "detail_image": "assets/banners/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-banner.jpg",
+      "snapshot_url": "assets/snapshots/noticia-a5a2b7798af63a2eee482299.jpg"
     }
   ],
   "latest": [
@@ -575,8 +631,8 @@
       "source_platform": "",
       "instagram_url": "https://www.instagram.com/p/DfSAByiGjz8/",
       "instagram_id": "18123457861736406",
-      "facebook_url": "",
-      "facebook_id": "",
+      "facebook_url": "https://www.facebook.com/122096313699541219/posts/122097200955541219",
+      "facebook_id": "1318455601360516_122097200955541219",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
@@ -585,7 +641,8 @@
       ],
       "cover_focus": null,
       "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfSAByiGjz8/"
+        "instagram": "https://www.instagram.com/p/DfSAByiGjz8/",
+        "facebook": "https://www.facebook.com/122096313699541219/posts/122097200955541219"
       },
       "relevance_level": 5,
       "relevance_scores": {
@@ -873,32 +930,34 @@
       "page_id": "noticia-fa83b1867bdc4c85ac2cbb7f",
       "detail_image": "assets/banners/2026-10-30-2-corte-de-76-no-oramento-universitrio-coloca-em-risco-rankings-internacionais-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-fa83b1867bdc4c85ac2cbb7f.jpg"
-    },
+    }
+  ],
+  "all": [
     {
-      "id": "pt_2026-10-30_1",
+      "id": "pt_2026-11-03_2",
       "lang": "pt",
-      "date": "2026-10-30",
-      "slot": 1,
+      "date": "2026-11-03",
+      "slot": 2,
       "status": "published",
-      "published_at": "2026-10-30T13:03:05.780205",
+      "published_at": "2026-11-03T20:04:44.653773",
       "category": "SOCIEDADE",
-      "title": "Governo propõe fecho de 311 escolas, municípios ameaçam providências cautelares",
-      "title_en": "Government proposes closing 311 schools, municipalities threaten legal action",
-      "summary": "Ministério da Educação e Ciência apresenta medida de encerramento de escolas, gerando protestos em 129 municípios.",
-      "summary_en": "Education ministry proposes shutting down 311 schools, prompting municipal protests and legal threats in 129 affected areas.",
-      "original_year": "2014",
-      "image": "assets/posts/2026-10-30-1-governo-prope-fecho-de-311-escolas-municpios-ameaam-providncias-cautelares.jpg",
-      "banner_image": "assets/banners/2026-10-30-1-governo-prope-fecho-de-311-escolas-municpios-ameaam-providncias-cautelares-banner.jpg",
-      "body": "O Ministério da Educação e Ciência apresentou em 2014 uma proposta de encerramento de 311 escolas, numa medida que pretendia reorganizar a rede de ensino. A decisão gerou Contestações efhuma mobilização em 129 municípios, onde foram realizados protestos contra o fecho de estabelecimentos de ensino. A proposta do Governo provocou a reação dos municípios afetados, que ameaçaram recorrer aos tribunais através de providências cautelares. O objetivo era travar medidas de encerramento consideradas prejudiciais para as comunidades locais e garantir a manutenção das escolas em funcionamento. A questão não se limitou ao número de escolas encerradas. A resposta institucional e a participação dos municípios transformaram a proposta numa matter de之争 sobre o impacto da reorganização da rede escolar nas localidades, na continuidade da oferta de ensino e no papel das autarquias na defesa dos serviços públicos. A ameaça de ação judicial e os protestos em 129 municípios revelaram a dimensão do opposition à medida. O caso evidencia o peso das decisões sobre a rede de escolas na vida das comunidades e a importância de uma resposta articulada entre|scaleSink e o poder local. A manutenção de escolas assume-se, neste debate, como uma questão de coesão territorial e de acesso ao ensino.",
+      "title": "Vaticano confirma diretiva que proíbe padres com tendências homossexuais",
+      "title_en": "Vatican Confirms Directive Banning Homosexual Priests",
+      "summary": "Igreja Católica mantém diretiva restritiva sobre admissão nos seminários.",
+      "summary_en": "Catholic Church maintains restrictions on admissions to seminaries and ordination.",
+      "original_year": "2015",
+      "image": "assets/posts/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais.jpg",
+      "banner_image": "assets/banners/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais-banner.jpg",
+      "body": "O Vaticano e a Congregação para a Educação Católica reafirmaram oficialmente as normas que impedem a admissão em seminários e a ordenação de candidatos com tendências homossexuais ativas ou profundamente enraizadas. O documento foi emitido na sequência de orientações preparadas pela Santa Sé sobre a formação sacerdotal contemporânea. A confirmação da diretiva gerou reações contrastantes em vários setores da Igreja Católica a nível mundial. Enquanto círculos conservadores saudaram a manutenção da doutrina tradicional, teólogos progressistas e associações de fiéis lamentaram a rigidez da posição, apontando contradições com as mensagens de maior acolhimento promovidas no pontificado. O debate repercutiu-se amplamente na opinião pública portuguesa e europeia, evidenciando as profundas tensões internas e os desafios da instituição católica na relação com a diversidade e os direitos humanos no século XXI.",
       "body_en": "",
-      "caption": "A proposta apresentada pelo Ministério da Educação para encerrar 311 escolas do 1.º ciclo gerou uma onda de contestação autárquica em 2014, com dezenas de municípios a avançarem com providências cautelares para travar a reorganização da rede escolar. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014. 🔗 Lê a notícia completa no link na descrição do perfil.",
-      "source_url": "https://arquivo.pt/wayback/20141030024907/http://www.publico.pt/sociedade/noticia/providencias-cautelares-poderao-travar-fecho-de-escolas-em-pelo-menos-dez-municipios-1661414",
+      "caption": "Numa diretiva com grande repercussão e debate no espaço público, o Vaticano e a Congregação para a Educação Católica determinaram em 2015 a proibição expressa da ordenação sacerdotal e admissão nos seminários de homens com tendências homossexuais. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015. 🔗 Lê a notícia completa no link na descrição do perfil.",
+      "source_url": "https://www.publico.pt/2015/11/03/sociedade/noticia/igreja-proibe-padres-com-tendencias-homossexuais-1713214",
       "source_profile": "publico.pt",
-      "source_platform": "arquivo.pt",
-      "instagram_url": "https://www.instagram.com/p/DfHpNAzIP5y/",
-      "instagram_id": "18096851696149000",
-      "facebook_url": "https://www.facebook.com/noticiasdeontempt",
-      "facebook_id": "crosspost_18096851696149000",
+      "source_platform": "publico.pt",
+      "instagram_url": "https://www.instagram.com/p/DfSslgAGsNX/",
+      "instagram_id": "18439192579199191",
+      "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137344740824703",
+      "facebook_id": "1030669413467151_122137344740824703",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
@@ -907,36 +966,34 @@
       ],
       "cover_focus": null,
       "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfHpNAzIP5y/",
-        "facebook": "https://www.facebook.com/noticiasdeontempt"
+        "instagram": "https://www.instagram.com/p/DfSslgAGsNX/",
+        "facebook": "https://www.facebook.com/122136509126824703/posts/122137344740824703"
       },
-      "relevance_level": 5,
+      "relevance_level": 3,
       "relevance_scores": {
-        "impacto_historico": 45.0,
-        "dimensao_impacto": 40.0,
-        "consequencias": 40.0,
-        "relevancia_posterior": 35.0,
-        "dimensao_duracao": 30.0,
-        "relevancia_mediatica": 35.0,
-        "singularidade": 40.0
+        "impacto_historico": 75.0,
+        "dimensao_impacto": 80.0,
+        "consequencias": 70.0,
+        "relevancia_posterior": 75.0,
+        "dimensao_duracao": 75.0,
+        "relevancia_mediatica": 85.0,
+        "singularidade": 70.0
       },
-      "relevance_weighted": 39.5,
-      "relevance_justification": "Protestos municipais contra encerramentos afetam educação local; medidas posteriormente revisadas em vários distritos.",
+      "relevance_weighted": 75.8,
+      "relevance_justification": "Tema de forte debate ético, religioso e social com impacto internacional.",
       "source_type": "newspaper",
-      "url_path": "noticia/sociedade/governo-propoe-fecho-de-311-escolas",
-      "page_id": "noticia-d751dc63e7b043663a72ac33",
-      "detail_image": "assets/banners/2026-10-30-1-governo-prope-fecho-de-311-escolas-municpios-ameaam-providncias-cautelares-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-d751dc63e7b043663a72ac33.jpg"
-    }
-  ],
-  "all": [
+      "url_path": "noticia/sociedade/vaticano-confirma-diretiva-que-proibe-padres",
+      "page_id": "noticia-9372c72c68f60189b3fe64a3",
+      "detail_image": "assets/banners/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais-banner.jpg",
+      "snapshot_url": "assets/snapshots/noticia-9372c72c68f60189b3fe64a3.jpg"
+    },
     {
       "id": "en_2026-11-03_2",
       "lang": "en",
       "date": "2026-11-03",
       "slot": 2,
       "status": "published",
-      "published_at": "2026-11-03T19:03:44.975705",
+      "published_at": "2026-11-03T20:05:03.449633",
       "category": "SOCIETY",
       "title": "Vatican Confirms Directive Banning Homosexual Priests",
       "title_en": "Vatican Confirms Directive Banning Homosexual Priests",
@@ -953,8 +1010,8 @@
       "source_platform": "",
       "instagram_url": "https://www.instagram.com/p/DfSlsq2l-Ke/",
       "instagram_id": "17944920099367503",
-      "facebook_url": "",
-      "facebook_id": "",
+      "facebook_url": "https://www.facebook.com/122096313699541219/posts/122097205521541219",
+      "facebook_id": "1318455601360516_122097205521541219",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
@@ -963,7 +1020,8 @@
       ],
       "cover_focus": null,
       "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfSlsq2l-Ke/"
+        "instagram": "https://www.instagram.com/p/DfSlsq2l-Ke/",
+        "facebook": "https://www.facebook.com/122096313699541219/posts/122097205521541219"
       },
       "relevance_level": 3,
       "relevance_scores": {
@@ -1060,8 +1118,8 @@
       "source_platform": "",
       "instagram_url": "https://www.instagram.com/p/DfSAByiGjz8/",
       "instagram_id": "18123457861736406",
-      "facebook_url": "",
-      "facebook_id": "",
+      "facebook_url": "https://www.facebook.com/122096313699541219/posts/122097200955541219",
+      "facebook_id": "1318455601360516_122097200955541219",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
@@ -1070,7 +1128,8 @@
       ],
       "cover_focus": null,
       "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfSAByiGjz8/"
+        "instagram": "https://www.instagram.com/p/DfSAByiGjz8/",
+        "facebook": "https://www.facebook.com/122096313699541219/posts/122097200955541219"
       },
       "relevance_level": 5,
       "relevance_scores": {
@@ -1926,7 +1985,7 @@
     "news_sources": 27,
     "instagram_sources": 14,
     "unique_sources": 34,
-    "published_posts": 18,
+    "published_posts": 19,
     "social_followers": 226,
     "social_networks": 1,
     "news_source_domains": [

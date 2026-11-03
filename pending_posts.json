@@ -3918,7 +3918,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -4171,7 +4171,14 @@
                 "caption_facebook": "Os docentes do ensino particular e cooperativo aderiram a uma greve nacional, em resposta ao que consideram uma regressão dos seus direitos e condições de trabalho.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link na descrição do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
                 "body": ""
             }
-        ]
+        ],
+        "instagram_id": "18439192579199191",
+        "instagram_url": "https://www.instagram.com/p/DfSslgAGsNX/",
+        "published_at": "2026-11-03T20:04:44.653773",
+        "instagram_story_id": "18119013476082620",
+        "facebook_id": "1030669413467151_122137344740824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137344740824703",
+        "facebook_story_id": "3669861409841844"
     },
     {
         "id": "pt_2026-11-04_1",
@@ -4858,10 +4865,10 @@
         "instagram_id": "17944920099367503",
         "instagram_url": "https://www.instagram.com/p/DfSlsq2l-Ke/",
         "instagram_story_id": "18468438124185316",
-        "facebook_id": "",
-        "facebook_url": "",
-        "facebook_story_id": "",
-        "published_at": "2026-11-03T19:03:44.975705",
+        "facebook_id": "1318455601360516_122097205521541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122097205521541219",
+        "facebook_story_id": "1652724313195633",
+        "published_at": "2026-11-03T20:05:03.449633",
         "image_url": "",
         "review_action": ""
     },

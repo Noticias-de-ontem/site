@@ -5,21 +5,21 @@
         "evening_target_time": "19:45",
         "instagram": {
             "morning_posted": true,
-            "evening_posted": false,
+            "evening_posted": true,
             "morning_attempted": true,
-            "evening_attempted": false,
+            "evening_attempted": true,
             "morning_story_posted": true,
-            "evening_story_posted": false,
-            "last_post_time": "2026-11-03T13:01:27.454058+00:00"
+            "evening_story_posted": true,
+            "last_post_time": "2026-11-03T20:03:48.403964+00:00"
         },
         "facebook": {
             "morning_posted": true,
-            "evening_posted": false,
+            "evening_posted": true,
             "morning_attempted": true,
-            "evening_attempted": false,
+            "evening_attempted": true,
             "morning_story_posted": true,
-            "evening_story_posted": false,
-            "last_post_time": "2026-11-03T13:01:27.454058+00:00"
+            "evening_story_posted": true,
+            "last_post_time": "2026-11-03T20:03:48.403964+00:00"
         }
     },
     "en": {
@@ -37,12 +37,12 @@
         },
         "facebook": {
             "morning_posted": false,
-            "evening_posted": false,
+            "evening_posted": true,
             "morning_attempted": false,
-            "evening_attempted": false,
+            "evening_attempted": true,
             "morning_story_posted": false,
-            "evening_story_posted": false,
-            "last_post_time": null
+            "evening_story_posted": true,
+            "last_post_time": "2026-11-03T20:04:54.329745+00:00"
         }
     }
 }
