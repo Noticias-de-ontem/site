@@ -1,0 +1,48 @@
+name: Set Facebook covers once
+on:
+  workflow_dispatch:
+jobs:
+  set-covers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upload banners and set as Page covers
+        env:
+          FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          IG_ACCESS_TOKEN_EN: ${{ secrets.IG_ACCESS_TOKEN_EN }}
+        run: |
+          python3 - <<'PYEOF'
+          import os, requests
+
+          for label, page_id, token, path in (
+              ("PT", "1030669413467151", os.environ["FB_PAGE_ACCESS_TOKEN"], "site/assets/banners/banner-facebook-pt.png"),
+              ("EN", "1318455601360516", os.environ["IG_ACCESS_TOKEN_EN"], "site/assets/banners/banner-facebook-en.png"),
+          ):
+              # 1. subir a foto para a Pagina sem criar historia no feed
+              with open(path, "rb") as f:
+                  up = requests.post(
+                      f"https://graph.facebook.com/v25.0/{page_id}/photos",
+                      data={"published": "false", "no_story": "true", "access_token": token},
+                      files={"source": (os.path.basename(path), f, "image/png")},
+                      timeout=120,
+                  )
+              print(label, "upload:", up.status_code, up.text[:300])
+              photo_id = up.json().get("id")
+              if not photo_id:
+                  print(label, "sem photo_id, a saltar")
+                  continue
+              # 2. definir a foto como capa (sem historia no feed)
+              r = requests.post(
+                  f"https://graph.facebook.com/v25.0/{page_id}",
+                  data={"cover": photo_id, "no_feed_story": "true", "access_token": token},
+                  timeout=60,
+              )
+              print(label, "set cover:", r.status_code, r.text[:300])
+              # 3. verificar a capa atual
+              g = requests.get(
+                  f"https://graph.facebook.com/v25.0/{page_id}",
+                  params={"fields": "cover", "access_token": token},
+                  timeout=30,
+              )
+              print(label, "cover atual:", g.status_code, g.text[:400])
+          PYEOF
