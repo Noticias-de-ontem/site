@@ -1687,6 +1687,71 @@ def _face_text_overlap_score(face_boxes, text_zones):
     return score
 
 
+def _relative_luminance(rgb):
+    """Luminancia relativa WCAG de uma cor RGB (0-255 por canal)."""
+
+    def channel(value):
+        value = value / 255.0
+        return value / 12.92 if value <= 0.04045 else ((value + 0.055) / 1.055) ** 2.4
+
+    red, green, blue = (channel(value) for value in rgb)
+    return 0.2126 * red + 0.7152 * green + 0.0722 * blue
+
+
+def _contrast_ratio(luminance_a, luminance_b):
+    """Racio de contraste WCAG entre duas luminancias relativas."""
+    lighter = max(luminance_a, luminance_b)
+    darker = min(luminance_a, luminance_b)
+    return (lighter + 0.05) / (darker + 0.05)
+
+
+# Cor do titulo de cada template, a mesma usada no render.
+_TITLE_FILL_BY_LAYOUT = {
+    "template_1": PURE_WHITE[:3],
+    "template_2": OFF_BLACK[:3],
+    "template_3": PURE_WHITE[:3],
+}
+
+# Preparacao do fundo de cada template (o fade aplicado no render).
+_PREPARE_BACKGROUND_BY_LAYOUT = {
+    "template_1": _prepare_template_1_background,
+    "template_2": _prepare_template_2_background,
+    "template_3": _prepare_template_3_background,
+}
+
+# Contraste minimo WCAG AA para texto grande (titulos), medido no decil
+# adverso da zona de texto ja com o fade do template aplicado: o decil mais
+# escuro para texto preto e o decil mais claro para texto branco.
+_MIN_TEXT_CONTRAST = 3.0
+
+
+def _layout_text_contrast(layout_name, background_image):
+    """Contraste do titulo de um template contra a sua zona de texto, medido
+    depois de aplicar o fade do proprio template ao fundo. Devolve None
+    quando nao for possivel medir (nesse caso o template nao e vetado)."""
+    prepare = _PREPARE_BACKGROUND_BY_LAYOUT.get(layout_name)
+    zones = TEXT_ZONES_BY_LAYOUT.get(layout_name)
+    fill = _TITLE_FILL_BY_LAYOUT.get(layout_name)
+    if prepare is None or not zones or fill is None or background_image is None:
+        return None
+    try:
+        faded = prepare(background_image, None, TARGET_SIZE).convert("RGB")
+        zone = _clamp_box(zones[0], faded.width, faded.height)
+        crop = faded.crop(zone).convert("L")
+        values = np.array(crop, dtype=float)
+        if values.size == 0:
+            return None
+        # Texto branco falha nas zonas claras; texto preto nas zonas escuras.
+        percentile = 90 if _relative_luminance(fill) > 0.5 else 10
+        worst = float(np.percentile(values, percentile))
+        return _contrast_ratio(
+            _relative_luminance((worst, worst, worst)),
+            _relative_luminance(fill),
+        )
+    except Exception:
+        return None
+
+
 def resolve_layout_name(layout_name, layout_preference="", background_image=None, breaking_candidate=False):
     normalized_direct = (layout_name or "").strip().lower()
     if normalized_direct and normalized_direct != "auto":
@@ -1699,6 +1764,10 @@ def resolve_layout_name(layout_name, layout_preference="", background_image=None
     if background_image is None:
         if breaking_candidate:
             return "breaking"
+        if preference == "template_2":
+            # Sem foto, o fundo de recurso e escuro e o texto preto do
+            # template_2 ficaria invisivel.
+            return "template_1"
         return preference if preference in SUPPORTED_LAYOUTS else "template_1"
 
     top_center = _region_stats(background_image, (160, 110, 920, 565))
@@ -1721,9 +1790,6 @@ def resolve_layout_name(layout_name, layout_preference="", background_image=None
     scores["template_3"] += _safe_score(bottom_center["mean"], 55, 138, invert=True) * 0.26
     scores["template_3"] += _safe_score(bottom_center["edge"], 18, 58, invert=True) * 0.20
 
-    if top_center["mean"] > 140 and top_center["stddev"] < 62:
-        scores["template_2"] -= 0.28
-        scores["template_3"] += 0.10
     if top_center["edge"] > 32 or top_center["stddev"] > 45:
         scores["template_2"] -= 0.32
 
@@ -1746,6 +1812,23 @@ def resolve_layout_name(layout_name, layout_preference="", background_image=None
     elif breaking_candidate:
         return "breaking"
 
+    # Veto de legibilidade: a escolha tem de ser feita sobre o fundo tal
+    # como fica depois do fade do template, nao sobre a foto em bruto. O
+    # template_2 escurece a zona do titulo com um fade preto e so depois
+    # desenha o titulo a preto; medir so a foto em bruto nao deteta isso.
+    # Um template vetado nunca e escolhido, mesmo que ganhe na pontuacao.
+    eligible = {}
+    for layout in scores:
+        text_contrast = _layout_text_contrast(layout, background_image)
+        if text_contrast is None or text_contrast >= _MIN_TEXT_CONTRAST:
+            eligible[layout] = scores[layout]
+        else:
+            print(
+                f"[layout] {layout} vetado: contraste {text_contrast:.2f} "
+                f"< {_MIN_TEXT_CONTRAST} na zona de texto."
+            )
+    if eligible:
+        return max(eligible, key=lambda k: eligible[k])
     return max(scores, key=lambda k: scores[k])
 
 
