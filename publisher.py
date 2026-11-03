@@ -2117,7 +2117,7 @@ def main():
                 if pname == "instagram":
                     story_result = publish_instagram_story(public_image_url, lang)
                 elif pname == "facebook":
-                    story_result = publish_facebook_story(public_image_url)
+                    story_result = publish_facebook_story(public_image_url, lang)
                 if story_result:
                     if approved_entry:
                         approved_entry[f"{pname}_story_id"] = str(story_result)
@@ -2203,7 +2203,7 @@ def main():
                     if pname == "instagram":
                         story_result = publish_instagram_story(public_image_url, lang)
                     elif pname == "facebook":
-                        story_result = publish_facebook_story(public_image_url)
+                        story_result = publish_facebook_story(public_image_url, lang)
                     if story_result:
                         approved_entry[f"{pname}_story_id"] = str(story_result)
                         with open("pending_posts.json", "w", encoding="utf-8") as pf:
@@ -2462,7 +2462,7 @@ def publish_to_buffer(message, image_url, lang):
     return None
 
 
-def publish_facebook_story(image_url):
+def publish_facebook_story(image_url, lang="pt"):
     """Publica a mesma imagem como Story da Pagina do Facebook (24h).
 
     Dois passos Graph API: primeiro upload da foto como nao publicada,
@@ -2471,12 +2471,17 @@ def publish_facebook_story(image_url):
     a story sai, em principio, junto ao feed, com retry imediato; so se
     as 3 tentativas imediatas falharem e que vai para a proxima run. Best-effort: devolve o post_id ou True/False, nunca levanta
     excecao, para uma falha na story nao transformar um post do feed ja
-    publicado num falhado. Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN, os
-    mesmos do feed.
+    publicado num falhado. Por lingua: em PT usa FB_PAGE_ID +
+    FB_PAGE_ACCESS_TOKEN; em EN usa a Pagina EN (1318455601360516) e o
+    token da Pagina EN (IG_ACCESS_TOKEN_EN).
     """
     image_url = story_image_9x16_url(image_url)
-    page_id = os.environ.get("FB_PAGE_ID", "")
-    page_token = os.environ.get("FB_PAGE_ACCESS_TOKEN", "")
+    if lang == "en":
+        page_id = "1318455601360516"
+        page_token = os.environ.get("IG_ACCESS_TOKEN_EN", "")
+    else:
+        page_id = os.environ.get("FB_PAGE_ID", "")
+        page_token = os.environ.get("FB_PAGE_ACCESS_TOKEN", "")
     if not page_id or not page_token:
         print("Story Facebook: credenciais nao configuradas.")
         return False
