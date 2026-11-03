@@ -3283,7 +3283,8 @@
                 "source_platform": "",
                 "source_profile": "",
                 "networks": [
-                    "instagram"
+                    "instagram",
+                    "facebook"
                 ],
                 "background_source_url": "https://arquivo.pt/wayback/20180126035715im_/https://static.noticiasaominuto.com/stockimages/1920/naom_59b138228d85c.jpg?151690096",
                 "body": "With turnout of around 90% and hundreds of schools closed across the country, teachers held a national strike in 2022 to protest against the State Budget and demand investment in public education.",
@@ -4777,7 +4778,8 @@
                 "image_url": "",
                 "image_theme": "Greve docentes Portugal",
                 "networks": [
-                    "instagram"
+                    "instagram",
+                    "facebook"
                 ],
                 "relevance": {
                     "level": 5,
@@ -4833,7 +4835,8 @@
                 "image_url": "",
                 "image_theme": "Praca Sao Pedro Vaticano Roma",
                 "networks": [
-                    "instagram"
+                    "instagram",
+                    "facebook"
                 ],
                 "relevance": {
                     "level": 3,
@@ -4889,7 +4892,8 @@
                 "image_url": "",
                 "image_theme": "Governo de Portugal São Bento",
                 "networks": [
-                    "instagram"
+                    "instagram",
+                    "facebook"
                 ],
                 "relevance": {
                     "level": 5,
@@ -4945,7 +4949,8 @@
                 "image_url": "",
                 "image_theme": "Barack Obama Chicago 2008 victory",
                 "networks": [
-                    "instagram"
+                    "instagram",
+                    "facebook"
                 ],
                 "relevance": {
                     "level": 1,
