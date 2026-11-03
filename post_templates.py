@@ -1,6 +1,7 @@
 import os
 import re
 import sys
+import time
 import unicodedata
 from functools import lru_cache
 from io import BytesIO
@@ -480,8 +481,36 @@ _UA_HEADERS = {
 }
 
 
+def _search_get(url, params=None, headers=None, timeout=10, attempts=3):
+    """GET de pesquisa com retry em erros transitorios (timeout, ligacao, 5xx).
+
+    Devolve a resposta da primeira tentativa com 200 (ou 4xx, que nao
+    melhora com retry), ou None se todas as tentativas falharem. Os
+    timeouts curtos do Arquivo.pt/Openverse rebentavam a procura a
+    primeira; um soluco de rede ja nao deixa o post sem foto.
+    """
+    last_exc = None
+    for attempt in range(1, attempts + 1):
+        try:
+            res = requests.get(url, params=params, headers=headers or _UA_HEADERS, timeout=timeout)
+            if res.status_code == 200 or 400 <= res.status_code < 500:
+                return res
+            print(f"Busca de imagem: HTTP {res.status_code} em {url} (tentativa {attempt}/{attempts}).")
+            last_exc = None
+        except Exception as exc:  # timeout, ligacao, DNS
+            last_exc = exc
+            print(f"Busca de imagem: erro transitorio em {url} (tentativa {attempt}/{attempts}): {exc}")
+        if attempt < attempts:
+            time.sleep(2 * attempt)
+    if last_exc is not None:
+        print(f"Busca de imagem: desistiu de {url} apos {attempts} tentativas ({last_exc}).")
+    return None
+
+
 def _download_image_from_url(image_url, headers=None):
-    response = requests.get(image_url, headers=headers or _UA_HEADERS, timeout=8)
+    # 20 s: os downloads do Arquivo.pt (wayback) sao lentos; com 8 s o
+    # candidato era descartado em silencio e o post ficava sem foto.
+    response = requests.get(image_url, headers=headers or _UA_HEADERS, timeout=20)
     response.raise_for_status()
     return Image.open(BytesIO(response.content)).convert("RGBA")
 
@@ -524,7 +553,7 @@ def _fetch_wikipedia_lead_image(query, lang, target_size, exclude_urls=None):
     wiki_langs = [lang] + (["en"] if lang != "en" else [])
     for wiki_lang in wiki_langs:
         try:
-            res = requests.get(
+            res = _search_get(
                 f"https://{wiki_lang}.wikipedia.org/w/api.php",
                 params={
                     "action": "query",
@@ -537,9 +566,9 @@ def _fetch_wikipedia_lead_image(query, lang, target_size, exclude_urls=None):
                     "pithumbsize": 1600,
                 },
                 headers=_UA_HEADERS,
-                timeout=8,
+                timeout=10,
             )
-            if res.status_code != 200:
+            if res is None or res.status_code != 200:
                 continue
             pages = (res.json().get("query", {}) or {}).get("pages", {}) or {}
             for page in sorted(pages.values(), key=lambda item: item.get("index", 99)):
@@ -572,25 +601,29 @@ def _fetch_openverse_image(query, lang, target_size, exclude_urls=None):
     global _OPENVERSE_DISABLED
     if _OPENVERSE_DISABLED:
         return None, ""
+    headers = {**_UA_HEADERS, "Accept": "application/json"}
+    openverse_key = os.environ.get("OPENVERSE_API_KEY")
+    if openverse_key:
+        headers["Authorization"] = f"Token {openverse_key}"
+    res = _search_get(
+        "https://api.openverse.org/v1/images/",
+        params={
+            "q": " ".join(str(query or "").split()),
+            "page_size": 6,
+            "mature": "false",
+        },
+        headers=headers,
+        timeout=10,
+    )
+    if res is None:
+        # Falha transitoria apos retries: nao desativa a fonte para a
+        # proxima ronda; volta a ser tentada com a proxima consulta.
+        return None, ""
+    if res.status_code != 200:
+        _OPENVERSE_DISABLED = True
+        print(f"[{lang}] Openverse indisponível ({res.status_code}).")
+        return None, ""
     try:
-        headers = {**_UA_HEADERS, "Accept": "application/json"}
-        openverse_key = os.environ.get("OPENVERSE_API_KEY")
-        if openverse_key:
-            headers["Authorization"] = f"Token {openverse_key}"
-        res = requests.get(
-            "https://api.openverse.org/v1/images/",
-            params={
-                "q": " ".join(str(query or "").split()),
-                "page_size": 6,
-                "mature": "false",
-            },
-            headers=headers,
-            timeout=5,
-        )
-        if res.status_code != 200:
-            _OPENVERSE_DISABLED = True
-            print(f"[{lang}] Openverse indisponível ({res.status_code}).")
-            return None, ""
         excluded = {url for url in (exclude_urls or []) if url}
         for item in res.json().get("results", []):
             image_url = item.get("url", "")
@@ -611,8 +644,7 @@ def _fetch_openverse_image(query, lang, target_size, exclude_urls=None):
             if fitted:
                 return fitted, item.get("foreign_landing_url") or image_url
     except Exception as exc:
-        _OPENVERSE_DISABLED = True
-        print(f"[{lang}] Erro Openverse (desativado nesta sessão): {exc}")
+        print(f"[{lang}] Erro Openverse: {exc}")
     return None, ""
 
 
@@ -647,7 +679,7 @@ def fetch_background_image(
                     "(https://github.com/; image background lookup)"
                 )
             }
-            res = requests.get(
+            res = _search_get(
                 "https://commons.wikimedia.org/w/api.php",
                 params={
                     "action": "query",
@@ -661,9 +693,9 @@ def fetch_background_image(
                     "format": "json",
                 },
                 headers=headers,
-                timeout=8,
+                timeout=10,
             )
-            if res.status_code == 200:
+            if res is not None and res.status_code == 200:
                 pages = (res.json().get("query", {}) or {}).get("pages", {}) or {}
                 for page in pages.values():
                     info = (page.get("imageinfo") or [{}])[0]
@@ -704,8 +736,8 @@ def fetch_background_image(
                     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
                 )
             }
-            res = requests.get("https://arquivo.pt/imagesearch", params={"q": query, "format": "json", "limit": 6}, timeout=8)
-            if res.status_code == 200:
+            res = _search_get("https://arquivo.pt/imagesearch", params={"q": query, "format": "json", "limit": 6}, timeout=20)
+            if res is not None and res.status_code == 200:
                 data = res.json()
                 items = data.get("responseItems", [])
                 excluded = {url for url in (exclude_urls or []) if url}
@@ -839,10 +871,12 @@ def _prepare_breaking_background(background_image, template_path, size):
     if background_image is not None:
         image = fit_and_crop(background_image, size)
         image = ImageEnhance.Color(image).enhance(0.22)
-        image = ImageEnhance.Brightness(image).enhance(0.20)
         image = image.filter(ImageFilter.GaussianBlur(10))
-        image = Image.alpha_composite(image, _build_gradient(size, (0, 0, 0, 215), (0, 0, 0, 245)))
-        canvas = Image.blend(canvas, image, 0.12)
+        # Veu preto de 60% sobre a foto (alfa 153). Antes era um gradiente
+        # de 84-96% com brilho a 20% e mistura a 12%, que apagava a foto
+        # por completo; com o veu a 60% a foto mostra-se a cerca de 40%.
+        image = Image.alpha_composite(image, _build_gradient(size, (0, 0, 0, 153), (0, 0, 0, 153)))
+        canvas = image
 
     return canvas
 
@@ -1214,7 +1248,9 @@ def _draw_logo(base_image, lang, left=58, top=74, right=None, center_x=None, sca
     top_text = "NOTÍCIAS" if lang == "pt" else "YESTERDAY'S"
     bottom_text = "DE ONTEM" if lang == "pt" else "NEWS"
     top_font = get_font("extra_bold_italic", int(74 * scale))
-    bottom_font = get_font("black_italic", int(66 * scale))
+    # EN: a segunda linha (NEWS) e dominante no logo de referencia
+    # (mais alta do que YESTERDAY'S); em PT mantem-se o tamanho atual.
+    bottom_font = get_font("black_italic", int((90 if lang == "en" else 66) * scale))
     measure_draw = ImageDraw.Draw(base_image)
     top_width, top_height = _measure_text(measure_draw, top_text, top_font)
     bottom_width, bottom_height = _measure_text(measure_draw, bottom_text, bottom_font)
@@ -1306,7 +1342,8 @@ def _draw_logo(base_image, lang, left=58, top=74, right=None, center_x=None, sca
         width=max(4, int(8 * scale)),
     )
 
-    bottom_top = top + top_height - int(8 * scale)
+    # Espaco livre entre as duas linhas do logo (antes sobrepunham-se 8 px).
+    bottom_top = top + top_height + int(12 * scale)
     if use_shadows:
         base_image = _draw_blurred_text_shadow(
             base_image,
@@ -1353,10 +1390,10 @@ def _draw_logo(base_image, lang, left=58, top=74, right=None, center_x=None, sca
     return base_image
 
 
-def _draw_year_tag(base_image, year, x, y, align="left", use_shadow=True, font_size=28):
+def _draw_year_tag(base_image, year, x, y, align="left", use_shadow=True, font_size=28, lang="pt"):
     if not year:
         return base_image, 0
-    text = f"EM {year}"
+    text = f"{'IN' if lang == 'en' else 'EM'} {year}"
     font = get_font("bold", font_size)
     draw = ImageDraw.Draw(base_image)
     text_width, text_height = _measure_text(draw, text, font)
@@ -1650,6 +1687,71 @@ def _face_text_overlap_score(face_boxes, text_zones):
     return score
 
 
+def _relative_luminance(rgb):
+    """Luminancia relativa WCAG de uma cor RGB (0-255 por canal)."""
+
+    def channel(value):
+        value = value / 255.0
+        return value / 12.92 if value <= 0.04045 else ((value + 0.055) / 1.055) ** 2.4
+
+    red, green, blue = (channel(value) for value in rgb)
+    return 0.2126 * red + 0.7152 * green + 0.0722 * blue
+
+
+def _contrast_ratio(luminance_a, luminance_b):
+    """Racio de contraste WCAG entre duas luminancias relativas."""
+    lighter = max(luminance_a, luminance_b)
+    darker = min(luminance_a, luminance_b)
+    return (lighter + 0.05) / (darker + 0.05)
+
+
+# Cor do titulo de cada template, a mesma usada no render.
+_TITLE_FILL_BY_LAYOUT = {
+    "template_1": PURE_WHITE[:3],
+    "template_2": OFF_BLACK[:3],
+    "template_3": PURE_WHITE[:3],
+}
+
+# Preparacao do fundo de cada template (o fade aplicado no render).
+_PREPARE_BACKGROUND_BY_LAYOUT = {
+    "template_1": _prepare_template_1_background,
+    "template_2": _prepare_template_2_background,
+    "template_3": _prepare_template_3_background,
+}
+
+# Contraste minimo WCAG AA para texto grande (titulos), medido no decil
+# adverso da zona de texto ja com o fade do template aplicado: o decil mais
+# escuro para texto preto e o decil mais claro para texto branco.
+_MIN_TEXT_CONTRAST = 3.0
+
+
+def _layout_text_contrast(layout_name, background_image):
+    """Contraste do titulo de um template contra a sua zona de texto, medido
+    depois de aplicar o fade do proprio template ao fundo. Devolve None
+    quando nao for possivel medir (nesse caso o template nao e vetado)."""
+    prepare = _PREPARE_BACKGROUND_BY_LAYOUT.get(layout_name)
+    zones = TEXT_ZONES_BY_LAYOUT.get(layout_name)
+    fill = _TITLE_FILL_BY_LAYOUT.get(layout_name)
+    if prepare is None or not zones or fill is None or background_image is None:
+        return None
+    try:
+        faded = prepare(background_image, None, TARGET_SIZE).convert("RGB")
+        zone = _clamp_box(zones[0], faded.width, faded.height)
+        crop = faded.crop(zone).convert("L")
+        values = np.array(crop, dtype=float)
+        if values.size == 0:
+            return None
+        # Texto branco falha nas zonas claras; texto preto nas zonas escuras.
+        percentile = 90 if _relative_luminance(fill) > 0.5 else 10
+        worst = float(np.percentile(values, percentile))
+        return _contrast_ratio(
+            _relative_luminance((worst, worst, worst)),
+            _relative_luminance(fill),
+        )
+    except Exception:
+        return None
+
+
 def resolve_layout_name(layout_name, layout_preference="", background_image=None, breaking_candidate=False):
     normalized_direct = (layout_name or "").strip().lower()
     if normalized_direct and normalized_direct != "auto":
@@ -1662,6 +1764,10 @@ def resolve_layout_name(layout_name, layout_preference="", background_image=None
     if background_image is None:
         if breaking_candidate:
             return "breaking"
+        if preference == "template_2":
+            # Sem foto, o fundo de recurso e escuro e o texto preto do
+            # template_2 ficaria invisivel.
+            return "template_1"
         return preference if preference in SUPPORTED_LAYOUTS else "template_1"
 
     top_center = _region_stats(background_image, (160, 110, 920, 565))
@@ -1684,9 +1790,6 @@ def resolve_layout_name(layout_name, layout_preference="", background_image=None
     scores["template_3"] += _safe_score(bottom_center["mean"], 55, 138, invert=True) * 0.26
     scores["template_3"] += _safe_score(bottom_center["edge"], 18, 58, invert=True) * 0.20
 
-    if top_center["mean"] > 140 and top_center["stddev"] < 62:
-        scores["template_2"] -= 0.28
-        scores["template_3"] += 0.10
     if top_center["edge"] > 32 or top_center["stddev"] > 45:
         scores["template_2"] -= 0.32
 
@@ -1709,6 +1812,23 @@ def resolve_layout_name(layout_name, layout_preference="", background_image=None
     elif breaking_candidate:
         return "breaking"
 
+    # Veto de legibilidade: a escolha tem de ser feita sobre o fundo tal
+    # como fica depois do fade do template, nao sobre a foto em bruto. O
+    # template_2 escurece a zona do titulo com um fade preto e so depois
+    # desenha o titulo a preto; medir so a foto em bruto nao deteta isso.
+    # Um template vetado nunca e escolhido, mesmo que ganhe na pontuacao.
+    eligible = {}
+    for layout in scores:
+        text_contrast = _layout_text_contrast(layout, background_image)
+        if text_contrast is None or text_contrast >= _MIN_TEXT_CONTRAST:
+            eligible[layout] = scores[layout]
+        else:
+            print(
+                f"[layout] {layout} vetado: contraste {text_contrast:.2f} "
+                f"< {_MIN_TEXT_CONTRAST} na zona de texto."
+            )
+    if eligible:
+        return max(eligible, key=lambda k: eligible[k])
     return max(scores, key=lambda k: scores[k])
 
 
@@ -1751,7 +1871,7 @@ def render_template_1(
     )
     year_height = 0
     if year:
-        canvas, year_height = _draw_year_tag(canvas, year, 58, 878 + title_height + 12, align="left", use_shadow=text_shadows)
+        canvas, year_height = _draw_year_tag(canvas, year, 58, 878 + title_height + 12, align="left", use_shadow=text_shadows, lang=lang)
     
     description_top = 878 + title_height + 12 + (year_height + 28 if year_height else 28)
     footer_top = canvas.height - 86
@@ -1787,7 +1907,7 @@ def render_template_2(category, title, description, highlight_text, lang, backgr
     )
     year_height = 0
     if year:
-        canvas, year_height = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 280 + title_height + 16, align="center", use_shadow=False)
+        canvas, year_height = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 280 + title_height + 16, align="center", use_shadow=False, lang=lang)
     if relevance_level:
         canvas = _draw_relevance_badge(
             canvas,
@@ -1848,23 +1968,13 @@ def render_template_3(category, title, description, highlight_text, lang, backgr
     )
     year_height = 0
     if year:
-        canvas, year_height = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 978 + title_height + 14, align="center", use_shadow=True)
+        canvas, year_height = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, 978 + title_height + 14, align="center", use_shadow=True, lang=lang)
     return canvas
 
 
 def render_breaking_template(category, title, description, highlight_text, lang, background_image=None, template_path=None, year=None, relevance_level=None):
     del description
     canvas = _prepare_breaking_background(background_image, template_path, TARGET_SIZE)
-    draw = ImageDraw.Draw(canvas)
-    accent_width = 126
-    accent_height = 8
-    accent_x = (TARGET_SIZE[0] - accent_width) // 2
-    accent_y = 168
-    draw.rounded_rectangle(
-        (accent_x, accent_y, accent_x + accent_width, accent_y + accent_height),
-        radius=5,
-        fill=(44, 216, 232, 255),
-    )
     canvas = _draw_logo(canvas, lang, use_shadows=True)
 
     breaking_text = "ÚLTIMA HORA" if lang == "pt" else "BREAKING"
@@ -1900,7 +2010,9 @@ def render_breaking_template(category, title, description, highlight_text, lang,
 
     title_start_y = 424
     if relevance_level:
-        relevance_y = badge_top + 56
+        # A linha de badges tem 58 px de altura (badge da categoria compacto);
+        # deixar 16 px de folga antes da pílula de relevância.
+        relevance_y = badge_top + 56 + 16
         canvas = _draw_relevance_badge(
             canvas,
             relevance_level,
@@ -1929,7 +2041,7 @@ def render_breaking_template(category, title, description, highlight_text, lang,
         max_lines=7,
     )
     if year:
-        canvas, _ = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, title_start_y + title_height + 18, align="center", use_shadow=False)
+        canvas, _ = _draw_year_tag(canvas, year, TARGET_SIZE[0] // 2, title_start_y + title_height + 18, align="center", use_shadow=False, lang=lang)
     return canvas
 
 
@@ -1994,7 +2106,7 @@ def create_image_with_text(
         for candidate in (theme_query, short_theme, title_query, query):
             if candidate and candidate not in query_candidates:
                 query_candidates.append(candidate)
-        for candidate in query_candidates[:2]:
+        for candidate in query_candidates[:3]:
             background_image, background_source_url = fetch_background_image(
                 candidate,
                 lang,
@@ -2004,6 +2116,8 @@ def create_image_with_text(
             )
             if background_image is not None:
                 break
+        if background_image is None:
+            print(f"[{lang}] AVISO: sem foto de fundo apos todas as consultas e fontes; o post vai sair com fundo preto.")
 
     resolved_layout = resolve_layout_name(
         layout_name=layout_name,
