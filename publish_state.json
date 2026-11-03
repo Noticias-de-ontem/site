@@ -40,7 +40,7 @@
             "evening_posted": true,
             "morning_attempted": false,
             "evening_attempted": true,
-            "morning_story_posted": false,
+            "morning_story_posted": true,
             "evening_story_posted": true,
             "last_post_time": "2026-11-03T20:04:54.329745+00:00"
         }
