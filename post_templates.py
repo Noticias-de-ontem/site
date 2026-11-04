@@ -1708,7 +1708,7 @@ def _contrast_ratio(luminance_a, luminance_b):
 # Cor do titulo de cada template, a mesma usada no render.
 _TITLE_FILL_BY_LAYOUT = {
     "template_1": PURE_WHITE[:3],
-    "template_2": OFF_BLACK[:3],
+    "template_2": PURE_WHITE[:3],
     "template_3": PURE_WHITE[:3],
 }
 
@@ -1764,10 +1764,8 @@ def resolve_layout_name(layout_name, layout_preference="", background_image=None
     if background_image is None:
         if breaking_candidate:
             return "breaking"
-        if preference == "template_2":
-            # Sem foto, o fundo de recurso e escuro e o texto preto do
-            # template_2 ficaria invisivel.
-            return "template_1"
+        # Sem foto, o fundo de recurso e escuro e todos os templates usam
+        # titulo branco, por isso a preferencia vale como nos outros.
         return preference if preference in SUPPORTED_LAYOUTS else "template_1"
 
     top_center = _region_stats(background_image, (160, 110, 920, 565))
@@ -1898,9 +1896,11 @@ def render_template_2(category, title, description, highlight_text, lang, backgr
         896,
         360,
         align="center",
-        base_fill=OFF_BLACK,
+        base_fill=PURE_WHITE,
         highlight_fill=TITLE_HIGHLIGHT,
-        use_shadow=False,
+        use_shadow=True,
+        shadow_offset=(4, 8),
+        shadow_blur=9,
         largest=84,
         smallest=52,
         max_lines=5,
