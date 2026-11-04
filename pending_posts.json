@@ -4464,7 +4464,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -4763,7 +4763,14 @@
                 "caption_facebook": "O Acordo de Paris entrou em vigor, estabelecendo compromissos internacionais para limitar o aquecimento global e reduzir as emissões de gases com efeito estufa.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2016.\n\n🔗 Lê a notícia completa no link na descrição do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
                 "body": ""
             }
-        ]
+        ],
+        "instagram_id": "18030341123880642",
+        "instagram_url": "https://www.instagram.com/p/DfU_6XkDYMs/",
+        "published_at": "2026-11-04T17:32:08.933294",
+        "instagram_story_id": "18354225811269731",
+        "facebook_id": "1030669413467151_122137484426824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137484426824703",
+        "facebook_story_id": "2168214547376833"
     },
     {
         "id": "en_2026-11-03_1",
@@ -4941,7 +4948,7 @@
         "lang": "en",
         "date": "2026-11-04",
         "slot": 2,
-        "status": "approved",
+        "status": "published",
         "selected_option": 0,
         "layout_override": "template_1",
         "manual_background_url": "https://i.ibb.co/L3SptPP/2026-11-04-02-2008-barack-obama-eleito-primeiro-presidente-afro-americano-fundo.jpg",
@@ -4983,13 +4990,13 @@
                 }
             }
         ],
-        "instagram_id": "",
-        "instagram_url": "",
-        "instagram_story_id": "",
-        "facebook_id": "",
-        "facebook_url": "",
-        "facebook_story_id": "",
-        "published_at": "",
+        "instagram_id": "18138201194500495",
+        "instagram_url": "https://www.instagram.com/p/DfVAHtWDN8v/",
+        "instagram_story_id": "18070968314786961",
+        "facebook_id": "1318455601360516_122097887805541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122097887805541219",
+        "facebook_story_id": "1834749134511476",
+        "published_at": "2026-11-04T17:33:50.910420",
         "image_url": "",
         "review_action": ""
     }
