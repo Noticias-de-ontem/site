@@ -4,20 +4,20 @@
         "morning_target_time": "12:02",
         "evening_target_time": "17:16",
         "instagram": {
-            "morning_posted": true,
+            "morning_posted": false,
             "evening_posted": false,
-            "morning_attempted": true,
+            "morning_attempted": false,
             "evening_attempted": false,
-            "morning_story_posted": true,
+            "morning_story_posted": false,
             "evening_story_posted": false,
             "last_post_time": "2026-11-04T12:31:15.256225+00:00"
         },
         "facebook": {
-            "morning_posted": true,
+            "morning_posted": false,
             "evening_posted": false,
-            "morning_attempted": true,
+            "morning_attempted": false,
             "evening_attempted": false,
-            "morning_story_posted": true,
+            "morning_story_posted": false,
             "evening_story_posted": false,
             "last_post_time": "2026-11-04T12:31:15.256225+00:00"
         }
@@ -27,20 +27,20 @@
         "morning_target_time": "12:02",
         "evening_target_time": "17:16",
         "instagram": {
-            "morning_posted": true,
+            "morning_posted": false,
             "evening_posted": false,
-            "morning_attempted": true,
+            "morning_attempted": false,
             "evening_attempted": false,
-            "morning_story_posted": true,
+            "morning_story_posted": false,
             "evening_story_posted": false,
             "last_post_time": "2026-11-04T12:31:57.174936+00:00"
         },
         "facebook": {
-            "morning_posted": true,
+            "morning_posted": false,
             "evening_posted": false,
-            "morning_attempted": true,
+            "morning_attempted": false,
             "evening_attempted": false,
-            "morning_story_posted": true,
+            "morning_story_posted": false,
             "evening_story_posted": false,
             "last_post_time": "2026-11-04T12:31:57.174936+00:00"
         }
