@@ -1,8 +1,8 @@
 {
     "pt": {
         "date": "2026-11-04",
-        "morning_target_time": "11:19",
-        "evening_target_time": "20:17",
+        "morning_target_time": "12:02",
+        "evening_target_time": "17:16",
         "instagram": {
             "morning_posted": false,
             "evening_posted": false,
@@ -24,8 +24,8 @@
     },
     "en": {
         "date": "2026-11-04",
-        "morning_target_time": "12:18",
-        "evening_target_time": "20:58",
+        "morning_target_time": "12:02",
+        "evening_target_time": "17:16",
         "instagram": {
             "morning_posted": false,
             "evening_posted": false,
