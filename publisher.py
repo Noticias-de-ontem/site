@@ -1814,12 +1814,46 @@ def publish_instagram_story(image_url, lang):
     print(f"[{lang}] Story Instagram: falhou apos 3 tentativas na mesma run; sera retentada na proxima run.")
     return False
 
-def weighted_target_mins(start_mins, end_mins):
-    """Sorteio do minuto-alvo com rampa linear: o peso de cada minuto cresce
-    de 1 no inicio da janela ate N no fim, por isso os alvos caem mais vezes
-    perto do fim da janela (13:30 de manha, 21:30 a tarde)."""
-    n = end_mins - start_mins + 1
-    return random.choices(range(start_mins, end_mins + 1), weights=range(1, n + 1))[0]
+# Atividade dos seguidores por dia da semana, medida nos prints das
+# Estatisticas do Instagram (Horas de atividade dos seguidores, 4 nov 2026).
+# Valores 0-100 por bloco de 3 h (0h, 3h, 6h, 9h, 12h, 15h, 18h, 21h),
+# normalizados pelo pico de cada dia (18h = 100). Segunda=0 ... Domingo=6.
+ACTIVITY_BY_WEEKDAY = {
+    0: {0: 46, 3: 14, 6: 44, 9: 77, 12: 89, 15: 89, 18: 100, 21: 97},
+    1: {0: 37, 3: 11, 6: 45, 9: 70, 12: 89, 15: 91, 18: 100, 21: 95},
+    2: {0: 41, 3: 11, 6: 47, 9: 75, 12: 86, 15: 89, 18: 100, 21: 94},
+    3: {0: 37, 3: 11, 6: 49, 9: 68, 12: 86, 15: 91, 18: 100, 21: 97},
+    4: {0: 37, 3: 11, 6: 46, 9: 69, 12: 91, 15: 92, 18: 100, 21: 99},
+    5: {0: 51, 3: 17, 6: 22, 9: 70, 12: 92, 15: 93, 18: 100, 21: 99},
+    6: {0: 59, 3: 22, 6: 18, 9: 63, 12: 94, 15: 92, 18: 100, 21: 97},
+}
+
+
+def weighted_target_mins(start_mins, end_mins, weekday):
+    """Sorteio do minuto-alvo com pesos da atividade dos seguidores:
+    cada minuto pesa a atividade do bloco de 3 h a que pertence
+    (medida nas Estatisticas do Instagram), por isso os alvos caem mais
+    vezes nas horas de maior afluencia (fim da manha e 18h-21h30).
+    O dia da semana (segunda=0 ... domingo=6) usa a tabela propria.
+    As janelas nao mudam: manha 08:00-13:30, tarde 17:00-21:30."""
+    activity = ACTIVITY_BY_WEEKDAY.get(weekday, ACTIVITY_BY_WEEKDAY[2])
+    minutes = list(range(start_mins, end_mins + 1))
+    weights = [activity[(m // 180) * 3] for m in minutes]
+    return random.choices(minutes, weights=weights)[0]
+
+
+def _day_targets(state, lang, local_date_str, weekday):
+    """Alvos do dia, iguais para todas as linguas (e para Facebook e
+    Instagram, que partilham o alvo da lingua): copia os de outra lingua
+    quando ja existirem para hoje; senao sorteia com os pesos da atividade
+    dos seguidores desse dia da semana."""
+    for other_lang, other_state in state.items():
+        if other_lang != lang and isinstance(other_state, dict) and other_state.get("date") == local_date_str:
+            if "morning_target_time" in other_state and "evening_target_time" in other_state:
+                return other_state["morning_target_time"], other_state["evening_target_time"]
+    m = weighted_target_mins(8 * 60, 13 * 60 + 30, weekday)
+    e = weighted_target_mins(17 * 60, 21 * 60 + 30, weekday)
+    return f"{m // 60:02d}:{m % 60:02d}", f"{e // 60:02d}:{e % 60:02d}"
 
 
 def main():
@@ -1844,16 +1878,15 @@ def main():
         new_day = lang_state.get("date") != local_date_str
         if new_day:
             lang_state.clear()
-            # Sorteia um minuto-alvo para cada janela do dia (rampa linear, mais provavel perto do fim):
-            # Janela 1: 08:00 (480) a 13:30 (810)
-            m_target_mins = weighted_target_mins(8 * 60, 13 * 60 + 30)
-            # Janela 2: 17:00 (1020) a 21:30 (1290)
-            e_target_mins = weighted_target_mins(17 * 60, 21 * 60 + 30)
+            # Alvos do dia, iguais para PT e EN: sorteio com os pesos da
+            # atividade dos seguidores (ou copia dos da outra lingua, se ja
+            # existirem para hoje). Janela 1: 08:00 a 13:30; Janela 2: 17:00 a 21:30.
+            m_target_str, e_target_str = _day_targets(state, lang, local_date_str, local_now.weekday())
 
             lang_state.update({
                 "date": local_date_str,
-                "morning_target_time": f"{m_target_mins // 60:02d}:{m_target_mins % 60:02d}",
-                "evening_target_time": f"{e_target_mins // 60:02d}:{e_target_mins % 60:02d}",
+                "morning_target_time": m_target_str,
+                "evening_target_time": e_target_str,
                 "instagram": {"morning_posted": False, "evening_posted": False, "morning_attempted": False, "evening_attempted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
                 "facebook": {"morning_posted": False, "evening_posted": False, "morning_attempted": False, "evening_attempted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
             })
@@ -1861,13 +1894,12 @@ def main():
         else:
             # Garante que existem os alvos sorteados se o estado foi criado anteriormente sem eles
             state_updated = False
-            if "morning_target_time" not in lang_state:
-                m_target_mins = weighted_target_mins(8 * 60, 13 * 60 + 30)
-                lang_state["morning_target_time"] = f"{m_target_mins // 60:02d}:{m_target_mins % 60:02d}"
-                state_updated = True
-            if "evening_target_time" not in lang_state:
-                e_target_mins = weighted_target_mins(17 * 60, 21 * 60 + 30)
-                lang_state["evening_target_time"] = f"{e_target_mins // 60:02d}:{e_target_mins % 60:02d}"
+            if "morning_target_time" not in lang_state or "evening_target_time" not in lang_state:
+                m_target_str, e_target_str = _day_targets(state, lang, local_date_str, local_now.weekday())
+                if "morning_target_time" not in lang_state:
+                    lang_state["morning_target_time"] = m_target_str
+                if "evening_target_time" not in lang_state:
+                    lang_state["evening_target_time"] = e_target_str
                 state_updated = True
             if state_updated:
                 save_publish_state(state)
