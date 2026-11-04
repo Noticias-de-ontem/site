@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T17:55:13+00:00",
+  "generated_at": "2026-11-04T18:01:51+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -119,6 +119,60 @@
       "page_id": "noticia-e2e1b04ab87f48f9c0fe093f",
       "detail_image": "assets/banners/2026-11-04-2-barack-obama-eleito-o-primeiro-presidente-afro-americano-dos-estados-unidos-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-e2e1b04ab87f48f9c0fe093f.jpg"
+    },
+    {
+      "id": "en_2026-11-04_2",
+      "lang": "en",
+      "date": "2026-11-04",
+      "slot": 2,
+      "status": "published",
+      "published_at": "2026-11-04T17:55:01.037849",
+      "category": "WORLD",
+      "title": "Barack Obama Elected First African American President of the United States",
+      "title_en": "Barack Obama Elected First African American President of the United States",
+      "summary": "Barack Obama defeated John McCain to become the first African American president in US history.",
+      "summary_en": "Barack Obama defeated John McCain to become the first African American president in US history.",
+      "original_year": "2008",
+      "image": "",
+      "banner_image": "",
+      "body": "",
+      "body_en": "",
+      "caption": "In a historic election followed by millions of people around the world, Barack Obama won the 2008 US presidential election, becoming the first African American to lead the United States. This post is intended solely to recall past events in history, never representing current events. This story is from 2008. 🔗 Read the full story via the link in our bio/about section.",
+      "source_url": "",
+      "source_profile": "",
+      "source_platform": "",
+      "instagram_url": "https://www.instagram.com/p/DfVCkV6gZUP/",
+      "instagram_id": "18065528687536854",
+      "facebook_url": "https://www.facebook.com/122096313699541219/posts/122097895071541219",
+      "facebook_id": "1318455601360516_122097895071541219",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram",
+        "facebook"
+      ],
+      "cover_focus": null,
+      "network_posts": {
+        "instagram": "https://www.instagram.com/p/DfVCkV6gZUP/",
+        "facebook": "https://www.facebook.com/122096313699541219/posts/122097895071541219"
+      },
+      "relevance_level": 1,
+      "relevance_scores": {
+        "impacto_historico": 100.0,
+        "dimensao_impacto": 100.0,
+        "consequencias": 95.0,
+        "relevancia_posterior": 100.0,
+        "dimensao_duracao": 95.0,
+        "relevancia_mediatica": 100.0,
+        "singularidade": 100.0
+      },
+      "relevance_weighted": 98.5,
+      "relevance_justification": "Um dos momentos políticos mais marcantes do século XXI à escala global.",
+      "source_type": "archive",
+      "url_path": "noticia/world/barack-obama-elected-first-african-american",
+      "page_id": "noticia-21473e218125457f9fb144b4",
+      "detail_image": "",
+      "snapshot_url": ""
     },
     {
       "id": "pt_2026-11-01_1",
@@ -281,60 +335,6 @@
       "page_id": "noticia-7f6cc4d040d947b910e791dc",
       "detail_image": "assets/banners/2026-10-27-2-oramento-do-estado-chumbado-na-assembleia-da-repblica-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-7f6cc4d040d947b910e791dc.jpg"
-    },
-    {
-      "id": "en_2026-11-04_2",
-      "lang": "en",
-      "date": "2026-11-04",
-      "slot": 2,
-      "status": "published",
-      "published_at": "2026-11-04T17:55:01.037849",
-      "category": "WORLD",
-      "title": "Barack Obama Elected First African American President of the United States",
-      "title_en": "Barack Obama Elected First African American President of the United States",
-      "summary": "Barack Obama defeated John McCain to become the first African American president in US history.",
-      "summary_en": "Barack Obama defeated John McCain to become the first African American president in US history.",
-      "original_year": "2008",
-      "image": "",
-      "banner_image": "",
-      "body": "",
-      "body_en": "",
-      "caption": "In a historic election followed by millions of people around the world, Barack Obama won the 2008 US presidential election, becoming the first African American to lead the United States. This post is intended solely to recall past events in history, never representing current events. This story is from 2008. 🔗 Read the full story via the link in our bio/about section.",
-      "source_url": "",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "https://www.instagram.com/p/DfVCkV6gZUP/",
-      "instagram_id": "18065528687536854",
-      "facebook_url": "https://www.facebook.com/122096313699541219/posts/122097895071541219",
-      "facebook_id": "1318455601360516_122097895071541219",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram",
-        "facebook"
-      ],
-      "cover_focus": null,
-      "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfVCkV6gZUP/",
-        "facebook": "https://www.facebook.com/122096313699541219/posts/122097895071541219"
-      },
-      "relevance_level": 1,
-      "relevance_scores": {
-        "impacto_historico": 100.0,
-        "dimensao_impacto": 100.0,
-        "consequencias": 95.0,
-        "relevancia_posterior": 100.0,
-        "dimensao_duracao": 95.0,
-        "relevancia_mediatica": 100.0,
-        "singularidade": 100.0
-      },
-      "relevance_weighted": 98.5,
-      "relevance_justification": "Um dos momentos políticos mais marcantes do século XXI à escala global.",
-      "source_type": "archive",
-      "url_path": "noticia/world/barack-obama-elected-first-african-american",
-      "page_id": "noticia-21473e218125457f9fb144b4",
-      "detail_image": "",
-      "snapshot_url": ""
     }
   ],
   "latest": [
