@@ -661,12 +661,25 @@ def fetch_background_image(
             print(f"[{lang}] Imagem manual ignorada: URL temporario do Instagram/Facebook CDN.")
             print(f"[{lang}] Vou tentar pesquisa automatica de imagem como fallback...")
         else:
-            try:
-                image = _download_image_from_url(manual_url)
-                return fit_and_crop(image, target_size), manual_url
-            except Exception as exc:
-                print(f"[{lang}] Erro imagem manual: {exc}")
-                print(f"[{lang}] Vou tentar pesquisa automatica de imagem como fallback...")
+            # O fundo manual e a foto aprovada: 3 tentativas (20 s cada),
+            # porque um timeout transitorio nao pode trocar a foto do post.
+            # Se falhar tudo, cai para a pesquisa automatica como antes —
+            # mas o publicador recusa esse resultado quando ha um fundo
+            # manual definido (ver publisher.py), por isso um post aprovado
+            # nunca sai com outra foto. No pre-gerador a pesquisa continua
+            # a valer, porque la a foto ainda vai ser revista.
+            last_exc = None
+            for _attempt in range(1, 4):
+                try:
+                    image = _download_image_from_url(manual_url)
+                    return fit_and_crop(image, target_size), manual_url
+                except Exception as exc:
+                    last_exc = exc
+                    print(f"[{lang}] Erro imagem manual (tentativa {_attempt}/3): {exc}")
+                    if _attempt < 3:
+                        time.sleep(5)
+            print(f"[{lang}] Erro imagem manual apos 3 tentativas: {last_exc}")
+            print(f"[{lang}] Vou tentar pesquisa automatica de imagem como fallback...")
 
     # 1. Wikimedia Commons fallback
     if query:
