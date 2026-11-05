@@ -1,4 +1,4 @@
-﻿import json
+import json
 import os
 import random
 import re
@@ -170,7 +170,7 @@ NVIDIA_HINT_KEYWORDS = [
     "famos",
     "bizarro",
     "curioso",
-    "insÃ³lit",
+    "insólit",
     "polemic",
     "tesla",
     "spacex",
@@ -268,9 +268,9 @@ def score_arquivo_candidate(item):
     weak_terms = [
         "agenda", "programacao", "horoscopo", "meteorologia", "farmacias",
         "transito", "obituario", "classificados", "opiniao", "artigo de opiniao",
-        "cronica", "saldos", "promocao", "promoÃ§Ã£o", "desconto", "descontos",
-        "liquidacao", "liquidaÃ§Ã£o", "loja", "lojas", "compras", "shopping",
-        "outlet", "catalogo", "catÃ¡logo", "festival", "concerto", "cinema",
+        "cronica", "saldos", "promocao", "promoção", "desconto", "descontos",
+        "liquidacao", "liquidação", "loja", "lojas", "compras", "shopping",
+        "outlet", "catalogo", "catálogo", "festival", "concerto", "cinema",
         "filme", "serie", "album", "cancao", "oscar", "globo de ouro",
         "famosos", "celebridades", "locais habituais", "nas bancas", "debate",
         "duelo", "entrevista", "comentario", "sondagem", "intencao de voto",
@@ -313,7 +313,7 @@ def score_arquivo_candidate(item):
         score -= 8
     if any(p in text for p in ["estudo conclui", "cientistas estudam", "investigadores de", "laboratorio pioneiro"]):
         score -= 6
-    if any(p in text for p in ["esqueleto", "ossadas", "tumulo", "tÃºmulo", "fossil", "fÃ³ssil", "arqueolog", "milenares", "adega"]):
+    if any(p in text for p in ["esqueleto", "ossadas", "tumulo", "túmulo", "fossil", "fóssil", "arqueolog", "milenares", "adega"]):
         score -= 10
     if any(p in text for p in ["venezuela", "maduro", "peru", "bolivia", "guatemala", "nicaragua"]):
         score -= 4
@@ -323,8 +323,8 @@ def score_arquivo_candidate(item):
         "governo", "estado", "supremo", "tribunal", "parlamento", "lei", "decreto", "decreta",
         "aprova", "encerra", "encerramento", "fecha", "fecho", "suspende", "suspensao",
         "escola", "escolas", "aulas", "ensino", "universidade", "universidades",
-        "alerta", "emergencia", "emergÃªncia", "quarentena", "confinamento", "saude publica", "saÃºde pÃºblica",
-        "hospitais", "pandemia", "condena", "prisao", "prisÃ£o", "fraude",
+        "alerta", "emergencia", "emergência", "quarentena", "confinamento", "saude publica", "saúde pública",
+        "hospitais", "pandemia", "condena", "prisao", "prisão", "fraude",
         "acordo", "tratado", "soberania", "fronteira", "fronteiras", "europa", "uniao europeia"
     ]
     for st in structural_terms:
@@ -461,8 +461,8 @@ def iter_cdxj_records(path):
 
 
 def clean_headline_text(title):
-    """Sanitiza tÃ­tulos e manchetes removendo resÃ­duos tÃ©cnicos de URLs,
-    hashes hexadecimais, IDs numÃ©ricos de CMS, extensÃµes de ficheiro e palavras truncadas.
+    """Sanitiza títulos e manchetes removendo resíduos técnicos de URLs,
+    hashes hexadecimais, IDs numéricos de CMS, extensões de ficheiro e palavras truncadas.
     """
     if not title:
         return ""
@@ -470,31 +470,31 @@ def clean_headline_text(title):
     # Remove prefixo de ano como "[2010] "
     text = re.sub(r"^\[\d{3,4}\]\s*", "", text).strip()
 
-    # Remove extensÃµes de URL (.html, .htm, .aspx, .asp, .php)
+    # Remove extensões de URL (.html, .htm, .aspx, .asp, .php)
     text = re.sub(r"\.(?:html?|aspx?|php)$", "", text, flags=re.IGNORECASE).strip()
 
-    # Remove iterativamente sufixos de IDs alfanumÃ©ricos, cÃ³digos hexadecimais ou marcadores de artigo
+    # Remove iterativamente sufixos de IDs alfanuméricos, códigos hexadecimais ou marcadores de artigo
     prev = None
     while prev != text:
         prev = text
-        # Hashes hexadecimais (7 a 12 caracteres hex), IDs com prefixo b/v ou numÃ©ricos longos (ex: 83f5ea93, b2178910, 1673000)
+        # Hashes hexadecimais (7 a 12 caracteres hex), IDs com prefixo b/v ou numéricos longos (ex: 83f5ea93, b2178910, 1673000)
         text = re.sub(r"[\s\-_]+(?:[a-f0-9]{7,12}|b\d{6,10}|v?\d{5,12})$", "", text, flags=re.IGNORECASE).strip()
         # Sufixos de CMS (ex: noticia-12345, artigo-12345, foto, galeria)
         text = re.sub(r"[\s\-_]+(?:noticia|artigo|foto|video|galeria)[\s\-_]*\d*$", "", text, flags=re.IGNORECASE).strip()
-        # DÃ­gitos soltos ou letras isoladas no final (exceto preposiÃ§Ãµes/artigos vÃ¡lidos)
-        text = re.sub(r"[\s\-_]+(?!(?:e|a|o|Ã )\b)[a-z0-9]$", "", text, flags=re.IGNORECASE).strip()
+        # Dígitos soltos ou letras isoladas no final (exceto preposições/artigos válidos)
+        text = re.sub(r"[\s\-_]+(?!(?:e|a|o|à)\b)[a-z0-9]$", "", text, flags=re.IGNORECASE).strip()
 
-    # CorreÃ§Ã£o de palavras truncadas por limites de comprimento de slug em jornais
+    # Correção de palavras truncadas por limites de comprimento de slug em jornais
     TRUNCATED_WORD_REPLACEMENTS = {
         "hosp": "hospitais",
         "gover": "governo",
-        "minist": "ministÃ©rio",
-        "admin": "administraÃ§Ã£o",
+        "minist": "ministério",
+        "admin": "administração",
         "tribun": "tribunal",
         "nacion": "nacional",
-        "repub": "repÃºblica",
+        "repub": "república",
         "presid": "presidente",
-        "educ": "educaÃ§Ã£o",
+        "educ": "educação",
         "inter": "internacional",
     }
     words = text.split()
@@ -504,20 +504,20 @@ def clean_headline_text(title):
             words[-1] = TRUNCATED_WORD_REPLACEMENTS[last_low]
             text = " ".join(words)
         elif len(last_low) <= 4 and last_low not in {
-            "ano", "anos", "dia", "dias", "mes", "mÃªs", "lei", "leis", "paz", "fim", "sul", "mar",
+            "ano", "anos", "dia", "dias", "mes", "mês", "lei", "leis", "paz", "fim", "sul", "mar",
             "psd", "cds", "pcp", "cdu", "stj", "tcl", "paf", "fmi", "bce", "ue", "onu", "eua", "otan",
             "psp", "gnr", "pj", "sef", "irs", "irc", "iva", "dap", "tap", "cgd", "bcp", "bpi", "bes",
-            "diz", "quer", "pede", "tera", "terÃ¡", "teve", "vai", "vem", "ha", "hÃ¡", "ja", "jÃ¡", "so", "sÃ³",
+            "diz", "quer", "pede", "tera", "terá", "teve", "vai", "vem", "ha", "há", "ja", "já", "so", "só",
             "sem", "sob", "com", "por", "que", "uma", "uns", "nem", "mas", "bem", "bom", "mau", "mal",
             "alto", "baixa", "novo", "nova", "lusa", "rtp", "sic", "tvi", "lixo", "ouro", "taxa", "jogo",
-            "caso", "voto", "pais", "paÃ­s", "vida", "modo", "fogo", "sede", "zona", "rede", "base", "meta",
+            "caso", "voto", "pais", "país", "vida", "modo", "fogo", "sede", "zona", "rede", "base", "meta",
             "mais", "stop", "euro", "pena", "mil", "pelo", "pela"
         }:
             if not last_low.isupper() and len(last_low) <= 3:
                 words.pop()
                 text = " ".join(words)
 
-    # Limpeza de pontuaÃ§Ã£o dangling e aspas desemparelhadas
+    # Limpeza de pontuação dangling e aspas desemparelhadas
     text = re.sub(r"\s+", " ", text).strip(" -:;,.!?'\"")
     if text.count('"') % 2 == 1:
         text = text.replace('"', "")
@@ -546,7 +546,7 @@ def title_from_url(url):
     slug = re.sub(r"[-_]+", " ", slug)
     slug = re.sub(r"\s+", " ", slug).strip(" -_/")
     slug = clean_headline_text(slug)
-    alpha_words = [w for w in slug.split() if re.search(r"[a-zA-ZÃ€-Ã¿]{3,}", w)]
+    alpha_words = [w for w in slug.split() if re.search(r"[a-zA-ZÀ-ÿ]{3,}", w)]
     if not slug or len(slug) < 14 or len(alpha_words) < 3:
         return ""
     return slug[:1].upper() + slug[1:]
@@ -800,7 +800,7 @@ def filter_headlines_with_ai(candidate_articles, lang, max_items=15):
     if not nvidia_pool.has_keys():
         return select_arquivo_fallback_indexes(candidate_articles, max_total=max_items)
 
-    print(f"[{lang}] A filtrar {len(candidate_articles)} cabeÃ§alhos usando a NVIDIA...")
+    print(f"[{lang}] A filtrar {len(candidate_articles)} cabeçalhos usando a NVIDIA...")
 
 
     candidate_pool = select_arquivo_candidate_pool(candidate_articles)
@@ -929,15 +929,15 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
     if _domain_filter:
         sources = [source for source in sources if str(source.get("domain", "")).lower() in _domain_filter]
 
-    # Intervalo de anos configurÃ¡vel (ARQUIVO_SEARCH_YEAR_START/END) para
-    # acelerar runs locais e permitir foco em Ã©pocas com Ã­ndice pesquisÃ¡vel.
+    # Intervalo de anos configurável (ARQUIVO_SEARCH_YEAR_START/END) para
+    # acelerar runs locais e permitir foco em épocas com índice pesquisável.
     year_start = int(os.environ.get("ARQUIVO_SEARCH_YEAR_START", "1996"))
     year_end = int(os.environ.get("ARQUIVO_SEARCH_YEAR_END", "2026"))
     years = list(range(year_start, year_end))
     candidate_articles = []
     seen_urls = set()
 
-    # 1. Passagem rÃ¡pida pelo Ã­ndice CDXJ local (D:\arquivo_cdxj)
+    # 1. Passagem rápida pelo índice CDXJ local (D:\arquivo_cdxj)
     for year in years:
         cdxj_candidates = load_arquivo_cdxj_candidates_for_day(year, month, day, sources, seen_urls)
         if cdxj_candidates:
@@ -945,7 +945,7 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
             seen_urls.update(item["url"] for item in cdxj_candidates)
             print(f"[{lang}][Arquivo.pt][CDXJ] Ano {year}: {len(cdxj_candidates)} candidatos lidos do indice local.")
 
-    # 2. SÃ³ recorrer a pesquisa online (textsearch/homepages) se o Ã­ndice local nÃ£o tiver candidatos suficientes
+    # 2. Só recorrer a pesquisa online (textsearch/homepages) se o índice local não tiver candidatos suficientes
     if len(candidate_articles) < 100:
         search_terms = [
             term.strip()
@@ -1015,8 +1015,8 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
                         title_lower = title.lower()
                         heavy_words = [
                             "morre", "morto", "morte", "rapto", "raptado", "abuso", "abusa", "viola", 
-                            "violada", "violador", "assassina", "homicÃ­dio", "crime", "suicÃ­dio", 
-                            "tragÃ©dia", "pedofilia", "falece", "falecimento", "assassina",
+                            "violada", "violador", "assassina", "homicídio", "crime", "suicídio", 
+                            "tragédia", "pedofilia", "falece", "falecimento", "assassina",
                             "dies", "died", "death", "kidnap", "kidnapped", "abuse", "rape", "murder", 
                             "murdered", "homicide", "suicide", "tragedy", "pedophilia", "fatal"
                         ]
@@ -1116,8 +1116,8 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
                         title_lower = title.lower()
                         heavy_words = [
                             "morre", "morto", "morte", "rapto", "raptado", "abuso", "abusa", "viola",
-                            "violada", "violador", "assassina", "homicÃ­dio", "crime", "suicÃ­dio",
-                            "tragÃ©dia", "pedofilia", "falece", "falecimento",
+                            "violada", "violador", "assassina", "homicídio", "crime", "suicídio",
+                            "tragédia", "pedofilia", "falece", "falecimento",
                             "dies", "died", "death", "kidnap", "kidnapped", "abuse", "rape", "murder",
                             "murdered", "homicide", "suicide", "tragedy", "pedophilia", "fatal"
                         ]
@@ -1186,11 +1186,11 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
         "obrigado por subscrever",
         "primeira newsletter",
         "subscreva a newsletter",
-        "receba as principais notÃ­cias",
+        "receba as principais notícias",
         "utilizamos cookies",
-        "polÃ­tica de privacidade",
+        "política de privacidade",
         "erro 404",
-        "pÃ¡gina nÃ£o encontrada",
+        "página não encontrada",
         "arquivo.pt",
     )
 
@@ -1463,18 +1463,18 @@ Look at the following raw news publications from exactly this day in the past. Y
 8. Set breaking_candidate to true only if this clearly deserves the special breaking layout. Otherwise false.
 9. Add "networks": a JSON array choosing which of our social networks this story fits: "instagram", "facebook", "x".
    - Instagram: visual, nostalgic, desporto, cultura, estrelas, curiosidades.
-   - Facebook: polÃ­tica, sociedade, economia, marcos nacionais, discussÃ£o geral (pÃºblico maduro 35-65+).
-   - X: polÃ­tica, economia, ciÃªncia, tecnologia, mundial, debate atualizado (pÃºblico instruÃ­do).
+   - Facebook: política, sociedade, economia, marcos nacionais, discussão geral (público maduro 35-65+).
+   - X: política, economia, ciência, tecnologia, mundial, debate atualizado (público instruído).
    - Most stories belong to ONE network. Use two only when the story genuinely fits both audiences. Use all three only for historic landmark / major event stories (level 1-2).
 10. Rewrite the story of that specific event into an expanded, well-written mini-summary for the post caption. You must completely use your own words (to avoid copyright issues). (Use the TITLE-ONLY OFFICE HOOK if applicable).
 11. Write like a strong social editor, not a formal newspaper archive. It can feel lively and culturally aware, focusing on nostalgia and recognition, while staying accurate.
 12. Pretend you are publishing this news ON THE VERY DAY IT HAPPENED. NEVER say things like "hoje faz X anos", "neste dia", or "noticia antiga".
-13. VERY IMPORTANT: Remove any calls to action such as 'link na bio', 'lÃª mais', 'subscreve', and remove original hashtags.
+13. VERY IMPORTANT: Remove any calls to action such as 'link na bio', 'lê mais', 'subscreve', and remove original hashtags.
 14. PLATFORM-SPECIFIC CAPTIONS:
-- Do NOT start the caption with the year (e.g. NEVER start with "Em 2015," or "No ano de 2021,"). Integrate the year naturally inside or towards the end of the narrative phrase (e.g. "A Assembleia da RepÃºblica viveu um momento inÃ©dito na democracia em 2021: ...").
-- Standard disclaimer MUST follow: "Este post apenas tem o objetivo de relembrar acontecimentos passados da histÃ³ria nunca representando acontecimentos atuais. Esta notÃ­cia Ã© de [ANO]."
-- For "caption_instagram": include link phrase "ðŸ”— LÃª a notÃ­cia completa no link da bio." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]" (e.g. #Politica, #Mundo, #Sociedade). NEVER use #atualidade.
-- For "caption_facebook": include link phrase "ðŸ”— LÃª a notÃ­cia completa no site no sobre do perfil." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]". NEVER use #atualidade.
+- Do NOT start the caption with the year (e.g. NEVER start with "Em 2015," or "No ano de 2021,"). Integrate the year naturally inside or towards the end of the narrative phrase (e.g. "A Assembleia da República viveu um momento inédito na democracia em 2021: ...").
+- Standard disclaimer MUST follow: "Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de [ANO]."
+- For "caption_instagram": include link phrase "ðŸ”— Lê a notícia completa no link da bio." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]" (e.g. #Politica, #Mundo, #Sociedade). NEVER use #atualidade.
+- For "caption_facebook": include link phrase "ðŸ”— Lê a notícia completa no site no sobre do perfil." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]". NEVER use #atualidade.
 
 Write your response in Portuguese.
 Return a JSON object with exactly these keys:
@@ -1515,8 +1515,8 @@ Look at the following raw news publications from exactly this day in the past. Y
 13. VERY IMPORTANT: Remove any calls to action and original hashtags.
 14. PLATFORM-SPECIFIC CAPTIONS:
 - Standard disclaimer MUST follow: "This post is intended solely to recall past events in history, never representing current events. This story is from [YEAR]."
-- For "caption_instagram": include link phrase "ðŸ”— Read the full story at the link in bio." and hashtags "#YesterdaysNews #ArquivoPT #[Category]".
-- For "caption_facebook": include link phrase "ðŸ”— Read the full story on the website in the profile's About section." and hashtags "#YesterdaysNews #ArquivoPT #[Category]".
+- For "caption_instagram": include link phrase "🔗 Read the full story at the link in bio." and hashtags "#YesterdaysNews #ArquivoPT #[Category]".
+- For "caption_facebook": include link phrase "🔗 Read the full story on the website in the profile's About section." and hashtags "#YesterdaysNews #ArquivoPT #[Category]".
 - For "caption_x": short, under 280 chars, punchy, current-events style.
 
 Write your response in English.
@@ -1943,12 +1943,46 @@ def publish_instagram_story(image_url, lang):
     print(f"[{lang}] Story Instagram: falhou apos 3 tentativas na mesma run; sera retentada na proxima run.")
     return False
 
-def weighted_target_mins(start_mins, end_mins):
-    """Sorteio do minuto-alvo com rampa linear: o peso de cada minuto cresce
-    de 1 no inicio da janela ate N no fim, por isso os alvos caem mais vezes
-    perto do fim da janela (13:30 de manha, 21:30 a tarde)."""
-    n = end_mins - start_mins + 1
-    return random.choices(range(start_mins, end_mins + 1), weights=range(1, n + 1))[0]
+# Atividade dos seguidores por dia da semana, medida nos prints das
+# Estatisticas do Instagram (Horas de atividade dos seguidores, 4 nov 2026).
+# Valores 0-100 por bloco de 3 h (0h, 3h, 6h, 9h, 12h, 15h, 18h, 21h),
+# normalizados pelo pico de cada dia (18h = 100). Segunda=0 ... Domingo=6.
+ACTIVITY_BY_WEEKDAY = {
+    0: {0: 46, 3: 14, 6: 44, 9: 77, 12: 89, 15: 89, 18: 100, 21: 97},
+    1: {0: 37, 3: 11, 6: 45, 9: 70, 12: 89, 15: 91, 18: 100, 21: 95},
+    2: {0: 41, 3: 11, 6: 47, 9: 75, 12: 86, 15: 89, 18: 100, 21: 94},
+    3: {0: 37, 3: 11, 6: 49, 9: 68, 12: 86, 15: 91, 18: 100, 21: 97},
+    4: {0: 37, 3: 11, 6: 46, 9: 69, 12: 91, 15: 92, 18: 100, 21: 99},
+    5: {0: 51, 3: 17, 6: 22, 9: 70, 12: 92, 15: 93, 18: 100, 21: 99},
+    6: {0: 59, 3: 22, 6: 18, 9: 63, 12: 94, 15: 92, 18: 100, 21: 97},
+}
+
+
+def weighted_target_mins(start_mins, end_mins, weekday):
+    """Sorteio do minuto-alvo com pesos da atividade dos seguidores:
+    cada minuto pesa a atividade do bloco de 3 h a que pertence
+    (medida nas Estatisticas do Instagram), por isso os alvos caem mais
+    vezes nas horas de maior afluencia (fim da manha e 18h-21h30).
+    O dia da semana (segunda=0 ... domingo=6) usa a tabela propria.
+    As janelas nao mudam: manha 08:00-13:30, tarde 17:00-21:30."""
+    activity = ACTIVITY_BY_WEEKDAY.get(weekday, ACTIVITY_BY_WEEKDAY[2])
+    minutes = list(range(start_mins, end_mins + 1))
+    weights = [activity[(m // 180) * 3] for m in minutes]
+    return random.choices(minutes, weights=weights)[0]
+
+
+def _day_targets(state, lang, local_date_str, weekday):
+    """Alvos do dia, iguais para todas as linguas (e para Facebook e
+    Instagram, que partilham o alvo da lingua): copia os de outra lingua
+    quando ja existirem para hoje; senao sorteia com os pesos da atividade
+    dos seguidores desse dia da semana."""
+    for other_lang, other_state in state.items():
+        if other_lang != lang and isinstance(other_state, dict) and other_state.get("date") == local_date_str:
+            if "morning_target_time" in other_state and "evening_target_time" in other_state:
+                return other_state["morning_target_time"], other_state["evening_target_time"]
+    m = weighted_target_mins(8 * 60, 13 * 60 + 30, weekday)
+    e = weighted_target_mins(17 * 60, 21 * 60 + 30, weekday)
+    return f"{m // 60:02d}:{m % 60:02d}", f"{e // 60:02d}:{e % 60:02d}"
 
 
 def main():
@@ -1973,16 +2007,15 @@ def main():
         new_day = lang_state.get("date") != local_date_str
         if new_day:
             lang_state.clear()
-            # Sorteia um minuto-alvo para cada janela do dia (rampa linear, mais provavel perto do fim):
-            # Janela 1: 08:00 (480) a 13:30 (810)
-            m_target_mins = weighted_target_mins(8 * 60, 13 * 60 + 30)
-            # Janela 2: 17:00 (1020) a 21:30 (1290)
-            e_target_mins = weighted_target_mins(17 * 60, 21 * 60 + 30)
+            # Alvos do dia, iguais para PT e EN: sorteio com os pesos da
+            # atividade dos seguidores (ou copia dos da outra lingua, se ja
+            # existirem para hoje). Janela 1: 08:00 a 13:30; Janela 2: 17:00 a 21:30.
+            m_target_str, e_target_str = _day_targets(state, lang, local_date_str, local_now.weekday())
 
             lang_state.update({
                 "date": local_date_str,
-                "morning_target_time": f"{m_target_mins // 60:02d}:{m_target_mins % 60:02d}",
-                "evening_target_time": f"{e_target_mins // 60:02d}:{e_target_mins % 60:02d}",
+                "morning_target_time": m_target_str,
+                "evening_target_time": e_target_str,
                 "instagram": {"morning_posted": False, "evening_posted": False, "morning_attempted": False, "evening_attempted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
                 "facebook": {"morning_posted": False, "evening_posted": False, "morning_attempted": False, "evening_attempted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
             })
@@ -1990,13 +2023,12 @@ def main():
         else:
             # Garante que existem os alvos sorteados se o estado foi criado anteriormente sem eles
             state_updated = False
-            if "morning_target_time" not in lang_state:
-                m_target_mins = weighted_target_mins(8 * 60, 13 * 60 + 30)
-                lang_state["morning_target_time"] = f"{m_target_mins // 60:02d}:{m_target_mins % 60:02d}"
-                state_updated = True
-            if "evening_target_time" not in lang_state:
-                e_target_mins = weighted_target_mins(17 * 60, 21 * 60 + 30)
-                lang_state["evening_target_time"] = f"{e_target_mins // 60:02d}:{e_target_mins % 60:02d}"
+            if "morning_target_time" not in lang_state or "evening_target_time" not in lang_state:
+                m_target_str, e_target_str = _day_targets(state, lang, local_date_str, local_now.weekday())
+                if "morning_target_time" not in lang_state:
+                    lang_state["morning_target_time"] = m_target_str
+                if "evening_target_time" not in lang_state:
+                    lang_state["evening_target_time"] = e_target_str
                 state_updated = True
             if state_updated:
                 save_publish_state(state)

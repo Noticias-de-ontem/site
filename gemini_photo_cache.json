@@ -10209,5 +10209,45 @@
    "reason": "Elemento escolar com quadro de giz e lápis de cor é simbolicamente relevante para notícias sobre educação."
   },
   "_model": "gemini-3.6-flash"
+ },
+ "2026-11-05_01_2015_parlamento-do-irao-aprova-acordo-nuclear-fundo.jpg:487304": {
+  "_final": {
+   "subject": "Página de caligrafia persa manuscrita e iluminada",
+   "embedded_text": true,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.5
+   ],
+   "cover_focus": [
+    0.5,
+    0.5
+   ],
+   "banner_suitable": false,
+   "cover_suitable": true,
+   "relevant": false,
+   "reason": "Caligrafia persa histórica não é relevante para a notícia sobre o acordo nuclear do Irão."
+  },
+  "_model": "gemini-3.5-flash"
+ },
+ "2026-11-05_01_2019_tribunal-britanico-valida-suspensao-do-parlamento-fundo.jpg:336818": {
+  "_final": {
+   "subject": "Palácio de Westminster, sede do Parlamento britânico em Londres",
+   "embedded_text": false,
+   "faces": [],
+   "banner_focus": [
+    0.5,
+    0.65
+   ],
+   "cover_focus": [
+    0.5,
+    0.6
+   ],
+   "banner_suitable": true,
+   "cover_suitable": true,
+   "relevant": true,
+   "reason": "O Palácio de Westminster é a sede do Parlamento britânico, diretamente relacionado com a notícia."
+  },
+  "_model": "gemini-3.6-flash"
  }
 }

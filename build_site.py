@@ -1406,6 +1406,17 @@ def build_payload():
         pt_key = pid[3:] if pid.startswith("pt_") else pid
         en_post = en_posts_by_key.get(pt_key)
         if en_post:
+            item_en = post_to_site_item(en_post, registry_by_post_id)
+            if item_en:
+                item["url_path_en"] = clean_text(item_en.get("url_path"))
+                item["page_id_en"] = clean_text(item_en.get("page_id"))
+                item["category_en"] = clean_text(item_en.get("category"))
+                if not item.get("title_en"):
+                    item["title_en"] = clean_text(item_en.get("title"))
+                if not item.get("summary_en"):
+                    item["summary_en"] = clean_text(item_en.get("summary"))
+                if not item.get("body_en"):
+                    item["body_en"] = clean_text(item_en.get("body"))
             en_opt_idx = en_post.get("selected_option", 0)
             en_opts = en_post.get("options", [])
             en_opt = en_opts[en_opt_idx] if en_opts and isinstance(en_opt_idx, int) and en_opt_idx < len(en_opts) else {}
@@ -1421,20 +1432,25 @@ def build_payload():
                 if not item.get("body_en"):
                     body_en_raw = en_opt.get("body") or en_opt.get("body_en") or ""
                     item["body_en"] = strip_hashtags(strip_social_disclaimer(body_en_raw))
-                if not item.get("relevance_justification_en"):
-                    en_rel = en_opt.get("relevance") if isinstance(en_opt.get("relevance"), dict) else {}
-                    item["relevance_justification_en"] = clean_text(
-                        en_rel.get("justification_en") or en_rel.get("justification") or ""
-                    )
-        # Fallback: justification_en pode vir da opcao PT (campo justification_en)
-        if not item.get("relevance_justification_en"):
-            pt_opt_idx = post.get("selected_option", 0)
-            pt_opts = post.get("options", [])
-            if pt_opts and isinstance(pt_opt_idx, int) and pt_opt_idx < len(pt_opts):
-                pt_rel = pt_opts[pt_opt_idx].get("relevance") if isinstance(pt_opts[pt_opt_idx].get("relevance"), dict) else {}
-                item["relevance_justification_en"] = clean_text(
-                    pt_rel.get("justification_en") or ""
-                )
+
+        # Obter justification_en com prioridade para a opção PT se definida
+        pt_opt_idx = post.get("selected_option", 0)
+        pt_opts = post.get("options", [])
+        pt_just_en = ""
+        if pt_opts and isinstance(pt_opt_idx, int) and pt_opt_idx < len(pt_opts):
+            pt_rel = pt_opts[pt_opt_idx].get("relevance") if isinstance(pt_opts[pt_opt_idx].get("relevance"), dict) else {}
+            pt_just_en = clean_text(pt_rel.get("justification_en") or "")
+
+        if pt_just_en:
+            item["relevance_justification_en"] = pt_just_en
+        elif en_post and not item.get("relevance_justification_en"):
+            en_opt_idx = en_post.get("selected_option", 0)
+            en_opts = en_post.get("options", [])
+            en_opt = en_opts[en_opt_idx] if en_opts and isinstance(en_opt_idx, int) and en_opt_idx < len(en_opts) else {}
+            en_rel = en_opt.get("relevance") if isinstance(en_opt.get("relevance"), dict) else {}
+            item["relevance_justification_en"] = clean_text(
+                en_rel.get("justification_en") or en_rel.get("justification") or ""
+            )
 
         title_key = re.sub(r"[^a-z0-9]", "", _fold_to_ascii(item.get("title") or "").lower())[:80]
         if title_key and title_key in seen_titles_build:
@@ -1585,19 +1601,29 @@ def story_title(item):
     return title
 
 
-def story_structured_data(item, canonical, image):
+def story_structured_data(item, canonical, image, lang="pt"):
+    is_en = lang == "en"
+    title = (
+        clean_text(item.get("title_en")) or clean_text(item.get("title"))
+        if is_en
+        else story_title(item)
+    )
+    year = clean_text(item.get("original_year"))
+    if is_en and year and not re.search(rf"\b{re.escape(year)}\b", title):
+        title = f"{title} em {year}"
+    desc = clean_text(item.get("summary_en")) if is_en else clean_text(item.get("summary"))
     payload = {
         "@context": "https://schema.org",
         "@type": "NewsArticle",
-        "headline": story_title(item),
-        "description": clean_text(item.get("summary")),
+        "headline": title,
+        "description": desc or clean_text(item.get("summary")),
         "url": canonical,
         "mainEntityOfPage": canonical,
         "image": [image],
         "datePublished": clean_text(item.get("date")),
         "dateModified": datetime.now(timezone.utc).date().isoformat(),
-        "articleSection": clean_text(item.get("category")),
-        "inLanguage": "pt-PT",
+        "articleSection": clean_text(item.get("category_en") if is_en else item.get("category")),
+        "inLanguage": "en-US" if is_en else "pt-PT",
         "author": {"@type": "Organization", "name": "Notícias de Ontem"},
         "publisher": {
             "@type": "Organization",
@@ -1798,6 +1824,41 @@ def write_route_pages(payload):
         (alias_dir / "index.html").write_text(alias_html, encoding="utf-8")
         if should_index:
             indexed_story_urls.append(canonical)
+
+        # Página inglesa (se existir versão EN aprovada/publicada)
+        url_path_en = clean_text(item.get("url_path_en"))
+        page_id_en = clean_text(item.get("page_id_en"))
+        title_en = clean_text(item.get("title_en"))
+        if url_path_en and title_en:
+            canonical_path_en = f"{url_path_en}/"
+            canonical_en = absolute_site_url(canonical_path_en)
+            desc_en = clean_text(item.get("summary_en")) or f"Consulte {title_en} e a fonte preservada no Arquivo.pt."
+            story_title_en = title_en
+            year_val = clean_text(item.get("original_year"))
+            if year_val and not re.search(rf"\b{re.escape(year_val)}\b", story_title_en):
+                story_title_en = f"{story_title_en} em {year_val}"
+            story_seo_en = seo_block(
+                f"{story_title_en} | Notícias de Ontem",
+                desc_en,
+                canonical_path_en,
+                story_structured_data(item, canonical_en, image, lang="en"),
+                image_path=image_path,
+                index=should_index,
+                og_type="article",
+            )
+            depth_en = len(Path(url_path_en).parts)
+            canonical_shell_en = build_story_shell(source_html, "../" * depth_en)
+            story_html_en = _activate_view(with_seo(canonical_shell_en, story_seo_en), "news")
+            story_dir_en = SITE_DIR / url_path_en
+            story_dir_en.mkdir(parents=True, exist_ok=True)
+            (story_dir_en / "index.html").write_text(story_html_en, encoding="utf-8")
+            if page_id_en and re.fullmatch(r"[a-z0-9-]+", page_id_en):
+                alias_html_en = _activate_view(with_seo(alias_shell, story_seo_en), "news")
+                alias_dir_en = news_root / page_id_en
+                alias_dir_en.mkdir(parents=True, exist_ok=True)
+                (alias_dir_en / "index.html").write_text(alias_html_en, encoding="utf-8")
+            if should_index:
+                indexed_story_urls.append(canonical_en)
 
     generated_date = clean_text(payload.get("generated_at"))[:10] or datetime.now(timezone.utc).date().isoformat()
     sitemap_urls = [

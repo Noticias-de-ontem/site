@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T18:31:17+00:00",
+  "generated_at": "2026-11-05T18:52:10+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -12,63 +12,69 @@
     "enabled": true
   },
   "featured": {
-    "id": "pt_2026-11-05_2",
+    "id": "pt_2026-11-04_2",
     "lang": "pt",
-    "date": "2026-11-05",
+    "date": "2026-11-04",
     "slot": 2,
     "status": "published",
-    "published_at": "2026-11-05T17:31:52.699318",
+    "published_at": "2026-11-04T17:32:08.933294",
     "category": "MUNDIAL",
-    "title": "Tribunal britânico valida suspensão do Parlamento",
-    "title_en": "UK court validates suspension of Parliament",
-    "summary": "Decisão judicial confirma a constitucionalidade da suspensão dos trabalhos parlamentares",
-    "summary_en": "A British court ruling confirms the constitutionality of suspending parliamentary work, marking a major institutional and geopolitical milestone in the UK.",
-    "original_year": "2019",
-    "image": "assets/posts/2026-11-05-2-tribunal-britnico-valida-suspenso-do-parlamento.jpg",
-    "banner_image": "assets/banners/2026-11-05-2-tribunal-britnico-valida-suspenso-do-parlamento-banner.jpg",
-    "body": "Tribunal britânico valida suspensão do Parlamento Londres, 2019 – O Tribunal Superior de Londres confirmou a constitucionalidade da suspensão dos trabalhos parlamentares no Reino Unido. A decisão judicial valida a prorrogação do Parlamento britânico solicitada pelo primeiro-ministro Boris Johnson. O contexto envolve o período de transição relativo à saída do Reino Unido da União Europeia. O governo liderado por Boris Johnson solicitou a prorrogação dos trabalhos parlamentares, uma medida que gerou debate sobre os limites do poder executivo e o papel do legislativo. O desenvolvimento do processo judicial centrou-se na análise da legalidade da decisão do primeiro-ministro. O Tribunal Superior de Londres examinou se a suspensão dos trabalhos respeitava as normas constitucionais vigentes. A sentença concluiu que a prorrogação era constitucional, confirmando a validade da ação do executivo. A relevância duradoura desta decisão reside na clarificação das fronteiras entre o governo e o Parlamento em momentos de crise política. A validação judicial estabelece um precedente sobre a discricionariedade do primeiro-ministro na gestão do calendário parlamentar. Consequências posteriores: a decisão do Tribunal Superior de Londres contribuiu para o debate constitucional sobre a prorrogação parlamentar e influenciou a dinâmica dos trabalhos legislativos durante o processo de saída do Reino Unido da União Europeia.",
-    "body_en": "London, 2019 — The High Court of London has confirmed the constitutionality of the suspension of parliamentary work in the United Kingdom. The judicial decision validates the prorogation of the British Parliament requested by Prime Minister Boris Johnson. The context involves the transition period related to the United Kingdom's exit from the European Union. The government led by Boris Johnson requested the prorogation of parliamentary work, a measure that sparked debate over the limits of executive power and the role of the legislature. The judicial process centered on an analysis of the legality of the prime minister's decision. The High Court of London examined whether the suspension of parliamentary work respected existing constitutional norms. The ruling concluded that the prorogation was constitutional, confirming the validity of the executive's action. The lasting relevance of this decision lies in the clarification of the boundaries between the government and Parliament during moments of political crisis. The judicial validation establishes a precedent regarding the prime minister's discretion in managing the parliamentary calendar. Subsequent consequences include the decision's contribution to the constitutional debate over parliamentary prorogation and its influence on the dynamics of legislative work during the United Kingdom's exit process from the European Union.",
-    "caption": "O Tribunal Superior de Londres considera constitucional a prorrogação do Parlamento britânica solicitada pelo primeiro-ministro Boris Johnson. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2019. 🔗 Lê a notícia completa no link da bio.",
-    "source_url": "https://arquivo.pt/wayback/20191105005809/https://observador.pt/2019/09/06/suspensao-do-parlamento-britanico-e-legal-diz-supremo-tribunal-em-londres/",
-    "source_profile": "observador.pt",
-    "source_platform": "arquivo.pt",
-    "instagram_url": "https://www.instagram.com/p/DfXktdamJT5/",
-    "instagram_id": "18119609414093980",
-    "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137610000824703",
-    "facebook_id": "1030669413467151_122137610000824703",
+    "title": "Barack Obama é eleito o primeiro presidente afro-americano dos Estados Unidos",
+    "title_en": "Barack Obama Elected First African American President of the United States",
+    "summary": "Barack Obama faz história ao vencer as eleições presidenciais norte-americanas de 2008.",
+    "summary_en": "Barack Obama defeated John McCain to become the first African American president in US history.",
+    "original_year": "2008",
+    "image": "assets/posts/2026-11-04-2-barack-obama-eleito-o-primeiro-presidente-afro-americano-dos-estados-unidos.jpg",
+    "banner_image": "assets/banners/2026-11-04-2-barack-obama-eleito-o-primeiro-presidente-afro-americano-dos-estados-unidos-banner.jpg",
+    "body": "Numa noite eleitoral seguida em direto por centenas de milhões de cidadãos em todo o mundo, o senador democrata pelo Illinois Barack Obama alcançou uma vitória expressiva sobre o republicano John McCain, tornando-se o 44.º Presidente dos Estados Unidos e o primeiro afro-americano a liderar a nação mais poderosa do planeta. Perante uma multidão de centenas de milhares de pessoas reunida no Grant Park, em Chicago, Obama proclamou que 'a mudança chegou à América', galvanizando uma vaga de esperança num momento de profunda crise financeira global e de guerras prolongadas no Médio Oriente. A vitória quebrou uma barreira racial histórica existente desde a fundação dos Estados Unidos, simbolizando um dos marcos sociopolíticos mais transformadores do século XXI e redefinindo a imagem global da democracia norte-americana.",
+    "body_en": "",
+    "caption": "Numa eleição histórica acompanhada por milhões de pessoas em todo o planeta, Barack Obama venceu as presidenciais norte-americanas em 2008, tornando-se o primeiro afro-americano a liderar os Estados Unidos. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2008. 🔗 Lê a notícia completa no link na descrição do perfil.",
+    "source_url": "https://pt.wikipedia.org/wiki/Elei%C3%A7%C3%A3o_presidencial_nos_Estados_Unidos_em_2008",
+    "source_profile": "wikipedia",
+    "source_platform": "wikipedia",
+    "instagram_url": "https://www.instagram.com/p/DfU_6XkDYMs/",
+    "instagram_id": "18030341123880642",
+    "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137484426824703",
+    "facebook_id": "1030669413467151_122137484426824703",
     "archive_credit": "Arquivo.pt",
-    "banner_ready": false,
+    "banner_ready": true,
     "networks": [
       "instagram",
       "facebook"
     ],
-    "cover_focus": null,
+    "cover_focus": [
+      0.505,
+      0.38
+    ],
     "network_posts": {
-      "instagram": "https://www.instagram.com/p/DfXktdamJT5/",
-      "facebook": "https://www.facebook.com/122136509126824703/posts/122137610000824703"
+      "instagram": "https://www.instagram.com/p/DfU_6XkDYMs/",
+      "facebook": "https://www.facebook.com/122136509126824703/posts/122137484426824703"
     },
-    "relevance_level": 2,
+    "relevance_level": 1,
     "relevance_scores": {
-      "impacto_historico": 90.0,
-      "dimensao_impacto": 85.0,
-      "consequencias": 80.0,
-      "relevancia_posterior": 85.0,
-      "dimensao_duracao": 80.0,
-      "relevancia_mediatica": 95.0,
-      "singularidade": 75.0
+      "impacto_historico": 100.0,
+      "dimensao_impacto": 100.0,
+      "consequencias": 95.0,
+      "relevancia_posterior": 100.0,
+      "dimensao_duracao": 95.0,
+      "relevancia_mediatica": 100.0,
+      "singularidade": 100.0
     },
-    "relevance_weighted": 85.2,
-    "relevance_justification": "Decisão histórica que redefiniu limites entre poder executivo e legislativo no Reino Unido.",
-    "source_type": "newspaper",
-    "url_path": "noticia/mundial/tribunal-britanico-valida-suspensao-do-parlamento",
-    "page_id": "noticia-29a566fb986785f2d722127e",
-    "detail_image": "assets/banners/2026-11-05-2-tribunal-britnico-valida-suspenso-do-parlamento-banner.jpg",
-    "snapshot_url": "https://arquivo.pt/screenshot/?url=https%3A%2F%2Farquivo.pt%2FnoFrame%2Freplay%2F20191105005809%2Fhttps%3A%2F%2Fobservador.pt%2F2019%2F09%2F06%2Fsuspensao-do-parlamento-britanico-e-legal-diz-supremo-tribunal-em-londres%2F",
-    "instagram_url_en": "https://www.instagram.com/p/DfXkznlmNyS/",
-    "instagram_id_en": "18033435035911431",
-    "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122098719891541219",
-    "facebook_id_en": "1318455601360516_122098719891541219",
-    "relevance_justification_en": "A historic decision that redefined the limits between executive and legislative power in the United Kingdom."
+    "relevance_weighted": 98.5,
+    "relevance_justification": "Um dos momentos políticos mais marcantes do século XXI à escala global.",
+    "source_type": "wikipedia",
+    "url_path": "noticia/mundial/barack-obama-e-eleito-o-primeiro",
+    "page_id": "noticia-e2e1b04ab87f48f9c0fe093f",
+    "detail_image": "assets/banners/2026-11-04-2-barack-obama-eleito-o-primeiro-presidente-afro-americano-dos-estados-unidos-banner.jpg",
+    "snapshot_url": "assets/snapshots/noticia-e2e1b04ab87f48f9c0fe093f.jpg",
+    "url_path_en": "noticia/world/barack-obama-elected-first-african-american",
+    "page_id_en": "noticia-21473e218125457f9fb144b4",
+    "category_en": "WORLD",
+    "instagram_url_en": "https://www.instagram.com/p/DfVCkV6gZUP/",
+    "instagram_id_en": "18065528687536854",
+    "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122097895071541219",
+    "facebook_id_en": "1318455601360516_122097895071541219",
+    "relevance_justification_en": "Um dos momentos políticos mais marcantes do século XXI à escala global."
   },
   "carousel": [
     {
@@ -97,12 +103,15 @@
       "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137484426824703",
       "facebook_id": "1030669413467151_122137484426824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.505,
+        0.38
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfU_6XkDYMs/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137484426824703"
@@ -124,6 +133,9 @@
       "page_id": "noticia-e2e1b04ab87f48f9c0fe093f",
       "detail_image": "assets/banners/2026-11-04-2-barack-obama-eleito-o-primeiro-presidente-afro-americano-dos-estados-unidos-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-e2e1b04ab87f48f9c0fe093f.jpg",
+      "url_path_en": "noticia/world/barack-obama-elected-first-african-american",
+      "page_id_en": "noticia-21473e218125457f9fb144b4",
+      "category_en": "WORLD",
       "instagram_url_en": "https://www.instagram.com/p/DfVCkV6gZUP/",
       "instagram_id_en": "18065528687536854",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122097895071541219",
@@ -156,12 +168,15 @@
       "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137610000824703",
       "facebook_id": "1030669413467151_122137610000824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.6
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfXktdamJT5/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137610000824703"
@@ -183,11 +198,185 @@
       "page_id": "noticia-29a566fb986785f2d722127e",
       "detail_image": "assets/banners/2026-11-05-2-tribunal-britnico-valida-suspenso-do-parlamento-banner.jpg",
       "snapshot_url": "https://arquivo.pt/screenshot/?url=https%3A%2F%2Farquivo.pt%2FnoFrame%2Freplay%2F20191105005809%2Fhttps%3A%2F%2Fobservador.pt%2F2019%2F09%2F06%2Fsuspensao-do-parlamento-britanico-e-legal-diz-supremo-tribunal-em-londres%2F",
+      "url_path_en": "noticia/world/uk-court-validates-suspension-of-parliament",
+      "page_id_en": "noticia-29a566fb986785f2d722127e",
+      "category_en": "WORLD",
       "instagram_url_en": "https://www.instagram.com/p/DfXkznlmNyS/",
       "instagram_id_en": "18033435035911431",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122098719891541219",
       "facebook_id_en": "1318455601360516_122098719891541219",
       "relevance_justification_en": "A historic decision that redefined the limits between executive and legislative power in the United Kingdom."
+    },
+    {
+      "id": "pt_2026-11-01_1",
+      "lang": "pt",
+      "date": "2026-11-01",
+      "slot": 1,
+      "status": "published",
+      "published_at": "2026-11-01T11:31:39.990035",
+      "category": "HISTÓRIA",
+      "title": "Crise política e agitação militar precipitam rutura na Primeira República",
+      "title_en": "",
+      "summary": "Agravamento da instabilidade militar e governativa precipita crise na Primeira República",
+      "summary_en": "",
+      "original_year": "1918",
+      "image": "assets/posts/2026-11-01-1-crise-poltica-e-agitao-militar-precipitam-rutura-na-primeira-repblica.jpg",
+      "banner_image": "assets/banners/2026-11-01-1-crise-poltica-e-agitao-militar-precipitam-rutura-na-primeira-repblica-banner.jpg",
+      "body": "Em 1918, a Primeira República atravessava uma das suas fases mais críticas, marcada por uma aguda crise política e agitação militar que abalou as estruturas do regime. O final da Primeira Guerra Mundial trouxe expectativas de estabilidade, mas o país mergulhou num cenário de profunda incerteza. O esforço de guerra havia exaurido os recursos nacionais, provocando escassez de géneros alimentícios e um aumento significativo do custo de vida, o que alimentou o descontentamento popular. No plano interno, o governo liberal, liderado por Afonso Costa, enfrentava uma oposição cada vez mais forte e dividida. As greves operárias e as manifestações agrícolas tornaram-se frequentes, denunciando a incapacidade do executivo para gerir a economia de guerra e as reivindicações sociais. Paralelamente, o Exército vivia um momento de fratura. A recusa de oficiais em obedecer ordens e a propagação de ideias republicanas dentro das fileiras criaram um ambiente de desobediência crescente. O caso mais emblemático ocorreu em novembro, quando unidades do Exército manifestaram-se contra a política de intervenção governamental, exigindo reformas profundas e maior participação nos destinos nacionais. Esta confluência de factores — a fadiga da população, a incapacidade governativa e a insubordinação militar — culminou num período de exceção. A instabilidade precipitou a queda de vários ministros e enfraqueceu a credibilidade do regime republicano, que até então se afirmara como a única alternativa política possível após a implosão monárquica. A crise de 1918 funcionou como um ponto de viragem, evidenciando as fissuras latentes da República e preparando o terreno para as transformações políticas que se seguiriam nos anos subsequentes, incluindo a instabilidade que levaria ao Estado Novo. A agudização das tensões militares e políticas colocou a Primeira República sob forte pressão, abrindo caminho a períodos de exceção governativa.",
+      "body_en": "",
+      "caption": "O regime republicano enfrentou um período de profunda instabilidade institucional e contestação nos quartéis em 1918, precipitando uma rutura política que acentuou o clima de agitação militar durante a presidência de Sidónio Pais. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1918. 🔗 Lê a notícia completa no link na descrição do perfil.",
+      "source_url": "",
+      "source_profile": "",
+      "source_platform": "",
+      "instagram_url": "https://www.instagram.com/p/DfMoVeTFK2j/",
+      "instagram_id": "18102049427381392",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136978242824703",
+      "facebook_id": "1030669413467151_122136978242824703",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": true,
+      "networks": [
+        "instagram",
+        "facebook"
+      ],
+      "cover_focus": [
+        0.5,
+        0.6
+      ],
+      "network_posts": {
+        "instagram": "https://www.instagram.com/p/DfMoVeTFK2j/",
+        "facebook": "https://www.facebook.com/1030669413467151_122136978242824703"
+      },
+      "relevance_level": 2,
+      "relevance_scores": {
+        "impacto_historico": 80.0,
+        "dimensao_impacto": 75.0,
+        "consequencias": 70.0,
+        "relevancia_posterior": 70.0,
+        "dimensao_duracao": 65.0,
+        "relevancia_mediatica": 50.0,
+        "singularidade": 65.0
+      },
+      "relevance_weighted": 72.2,
+      "relevance_justification": "Crise política e agitação militar precipitam rutura na Primeira República.",
+      "source_type": "archive",
+      "url_path": "noticia/historia/crise-politica-e-agitacao-militar-precipitam",
+      "page_id": "noticia-ce7c0b75f943300593ee1c17",
+      "detail_image": "assets/banners/2026-11-01-1-crise-poltica-e-agitao-militar-precipitam-rutura-na-primeira-repblica-banner.jpg",
+      "snapshot_url": ""
+    },
+    {
+      "id": "pt_2026-10-28_2",
+      "lang": "pt",
+      "date": "2026-10-28",
+      "slot": 2,
+      "status": "published",
+      "published_at": "2026-10-28T19:02:30.011181",
+      "category": "POLÍTICA",
+      "title": "Partidos de esquerda chegam a acordo de base para Governo",
+      "title_en": "Left-wing parties reach framework agreement to form Government",
+      "summary": "Forças partidárias concluem entendimentos para viabilizar solução governativa",
+      "summary_en": "Partisan forces conclude understandings to enable a governing solution.",
+      "original_year": "2015",
+      "image": "assets/posts/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo.jpg",
+      "banner_image": "assets/banners/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-banner.jpg",
+      "body": "A chegada a um acordo de base para formar Governo, em 2015, resultou do trabalho de negociação entre forças partidárias de esquerda. O processo permitiu ultrapassar o impasse que se seguia às eleições e abriu caminho à apresentação de uma maioria alternativa no Parlamento. Segundo o resumo da notícia, as forças envolvidas concluíram entendimentos de natureza programática, establishendo compromissos comuns para viabilizar uma solução governativa. A legenda da página refere-se, precisamente, ao resultado alcançado: os partidos parlamentares fixaram compromissos programáticos que permitiram apresentar uma maioria alternativa na Assembleia da República. O acordo não se limitou, portanto, a uma simples concertação de vontades. Incluiu a definição de compromissos programáticos, elemento apresentado como indispensável para garantir a viabilidade do futuro Governo. A negociação entre os partidos de esquerda deu assim origem a uma base de apoio em torno de uma agenda comum, com a qual se candidataram a constituir uma maioria parlamentar. A ocorrência integra a atualidade política portuguesa de 2015 e ilustra a capacidade de diálogo entre forças que, até então, não tinham conseguido ultrapassar as diferenças que bloqueavam a governação. A apresentação de uma maioria alternativa no Parlamento representa o passo decisivo dessa concertação, ao transformar entendimentos entre partidos em uma base concreta para o exercício do poder. A relevância duradoura do acontecimento reside no método político queowie accompanyou: a construção de uma solução governativa através de compromissos programáticos e do diálogo entre partidos de esquerda. O acordo de base fica associado a uma fase de transição na política portuguesa, em que a capacidade de negociação entre forças parliamentary permitiu responder ao resultado eleitoral com uma alternativa de governo.",
+      "body_en": "Reaching a framework agreement to form a Government in 2015 resulted from intense negotiations between left-wing political forces in Portugal. The process resolved the impasse following the elections and paved the way for presenting an alternative parliamentary majority in the Assembly of the Republic. According to reports, the parties involved concluded programmatic understandings, establishing shared commitments to enable a viable governing solution. The agreement went beyond a simple alignment of political wills. It established programmatic commitments, considered essential to ensure the viability and stability of the incoming Government. Negotiations among the left-wing parties gave rise to a broad support base centered on a common progressive agenda, with which they presented an alternative majority in Parliament. This landmark event shaped Portuguese political history in 2015, demonstrating an unprecedented capacity for dialogue between forces that had previously never bridged their historic differences. The lasting significance of this development lies in the political model it pioneered: building a stable governing solution through programmatic compromise and dialogue among left-wing parties.",
+      "caption": "Contra quase todas as previsões da época, as forças partidárias de esquerda concluíram as negociações bilaterais no Parlamento para viabilizar uma maioria governativa em 2015, dando origem ao histórico entendimento político que ficaria conhecido como a \"Geringonça\". Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015. 🔗 Lê a notícia completa no link na descrição do perfil.",
+      "source_url": "https://arquivo.pt/wayback/20160611062004/https://news.google.pt/news/story?cf=all&hl=pt-pt&ned=pt-pt_pt&cf=all&ncl=djkchvb-0d5trum98olw8en2a1lqm&topic=n&scoring=n",
+      "source_profile": "",
+      "source_platform": "",
+      "instagram_url": "https://www.instagram.com/p/DfDIuhDGH8O/",
+      "instagram_id": "18182963707442613",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136508664824703",
+      "facebook_id": "1030669413467151_122136508664824703",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": true,
+      "networks": [
+        "instagram",
+        "facebook"
+      ],
+      "cover_focus": [
+        0.5,
+        0.55
+      ],
+      "network_posts": {
+        "instagram": "https://www.instagram.com/p/DfDIuhDGH8O/",
+        "facebook": "https://www.facebook.com/1030669413467151_122136508664824703"
+      },
+      "relevance_level": 2,
+      "relevance_scores": {
+        "impacto_historico": 80.0,
+        "dimensao_impacto": 70.0,
+        "consequencias": 75.0,
+        "relevancia_posterior": 70.0,
+        "dimensao_duracao": 60.0,
+        "relevancia_mediatica": 60.0,
+        "singularidade": 65.0
+      },
+      "relevance_weighted": 72.0,
+      "relevance_justification": "Acordo histórico de esquerda viabiliza governo e muda ciclo político português.",
+      "source_type": "archive",
+      "url_path": "noticia/politica/partidos-de-esquerda-chegam-a-acordo",
+      "page_id": "noticia-a5a2b7798af63a2eee482299",
+      "detail_image": "assets/banners/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-banner.jpg",
+      "snapshot_url": "assets/snapshots/noticia-a5a2b7798af63a2eee482299.jpg"
+    },
+    {
+      "id": "pt_2026-10-27_2",
+      "lang": "pt",
+      "date": "2026-10-27",
+      "slot": 2,
+      "status": "published",
+      "published_at": "2026-10-27T20:59:24.231255",
+      "category": "POLÍTICA",
+      "title": "Orçamento do Estado chumbado na Assembleia da República",
+      "title_en": "State Budget for 2022 rejected in Parliament",
+      "summary": "Chumbo da proposta do Orçamento do Estado abre cenário de crise política",
+      "summary_en": "State Budget proposal rejected in Parliament, opening political crisis and triggering early elections.",
+      "original_year": "2021",
+      "image": "assets/posts/2026-10-27-2-oramento-do-estado-chumbado-na-assembleia-da-repblica.jpg",
+      "banner_image": "assets/banners/2026-10-27-2-oramento-do-estado-chumbado-na-assembleia-da-repblica-banner.jpg",
+      "body": "A proposta do Orçamento do Estado para 2021 foi chumbada na Assembleia da República,Abrindo um cenário de crise política. A decisão parliamentar põe em causa a aprovação do documento orçamental e reforça as tensões entre o Governo e as forças de oposição. A votação traduziu uma ruptura no apoio parlamentar à proposta do Executivo. De acordo com a informação disponível, a proposta orçamental contou apenas com o voto favorável do Governo, enquanto os restantes votos não permitiram a sua aprovação. O chumbo parliamentar significa que o orçamento não foi aprovado nesta fase, deixando em aberto o caminho para a sua reapreciação ou a adopção de medidas orçamentais alternativas. O resultado coloca o Executivo perante um desafio político imediato: obter o apoio necessário para garantir a aprovação do Orçamento do Estado. A ausência de uma maioria parliamentar favorável à proposta obriga o Governo a negociar com os grupos que votaram contra ela ou a apresentar uma solução diferente. A questão central passa, assim, a ser a forma de garantir a viabilidade orçamental do Estado. O chumbo não encerra, por si só, o processo orçamental. A Assembleia da República pode voltar a considerar a proposta, e o Governo pode recorrer a outros mecanismos constitucionais previstos para a aprovação de um orçamento. No entanto, qualquer nova fase será marcada pelo diálogo político e pela necessidade de construir um consenso mais alargado. A rejeição da proposta também evidencia a profundidade da crise política. O documento orçamental é um instrumento central para a definição das prioridades do Estado e para a afectação de recursos a diferentes áreas. A sua não aprovação prolonga a incerteza sobre as decisões públicas e sobre a capacidade do Governo para executar as suas políticas. Consequências posteriores: o chumbo parliamentary abriu um cenário de crise política, com a proposta do Orçamento do Estado de 2021 a ficar sem aprovação e o Governo confrontado com a necessidade de garantir a sua viabilidade através de nova negociação ou reapreciação. A decisão reforçou a ruptura entre o Executivo e as forças de oposição e deixou em aberto o processo de aprovação do documento orçamental.",
+      "body_en": "The proposal for the State Budget was rejected in the Assembly of the Republic, triggering a major political crisis in Portuguese democracy. The parliamentary vote marked a historic rupture in support for the Executive's economic blueprint, with the budget failing to secure approval for the first time since the 25th of April revolution. The proposal received favorable votes solely from the governing party, while opposition parties voted against it or abstained, precipitating a deadlock. The budget's rejection immediately confronted the government with an acute crisis, leading the President of the Republic to dissolve Parliament and call early legislative elections. The decision underscored the depth of the political impasse and marked a defining turning point in contemporary Portuguese politics, leaving lasting consequences for governance and party alliances.",
+      "caption": "A Assembleia da República viveu um momento inédito na democracia portuguesa em 2021: a proposta de Orçamento do Estado foi chumbada na generalidade, contando apenas com os votos favoráveis do Governo e abrindo uma crise política que precipitou eleições antecipadas. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2021. 🔗 Lê a notícia completa no link na descrição do perfil.",
+      "source_url": "https://arquivo.pt/wayback/20211027213859/https://esquerda.net/artigo/orcamento-do-estado-para-2022-chumbado-na-assembleia-da-republica/77576",
+      "source_profile": "",
+      "source_platform": "",
+      "instagram_url": "https://www.instagram.com/p/DfA9Wa6ie4u/",
+      "instagram_id": "17994294225025710",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136508274824703",
+      "facebook_id": "1030669413467151_122136508274824703",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": true,
+      "networks": [
+        "instagram",
+        "facebook"
+      ],
+      "cover_focus": [
+        0.5,
+        0.4
+      ],
+      "network_posts": {
+        "instagram": "https://www.instagram.com/p/DfA9Wa6ie4u/",
+        "facebook": "https://www.facebook.com/1030669413467151_122136508274824703"
+      },
+      "relevance_level": 2,
+      "relevance_scores": {
+        "impacto_historico": 85.0,
+        "dimensao_impacto": 70.0,
+        "consequencias": 75.0,
+        "relevancia_posterior": 70.0,
+        "dimensao_duracao": 60.0,
+        "relevancia_mediatica": 40.0,
+        "singularidade": 50.0
+      },
+      "relevance_weighted": 71.8,
+      "relevance_justification": "Orçamento chumbado inédito desde 25 de Abril; afeta estado e gera crise política.",
+      "source_type": "archive",
+      "url_path": "noticia/politica/orcamento-do-estado-chumbado-na-assembleia",
+      "page_id": "noticia-7f6cc4d040d947b910e791dc",
+      "detail_image": "assets/banners/2026-10-27-2-oramento-do-estado-chumbado-na-assembleia-da-repblica-banner.jpg",
+      "snapshot_url": "assets/snapshots/noticia-7f6cc4d040d947b910e791dc.jpg"
     },
     {
       "id": "pt_2026-11-05_1",
@@ -220,7 +409,10 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfXDcynlDlz/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137585826824703"
@@ -242,176 +434,14 @@
       "page_id": "noticia-75e411b33d57ae00028192a6",
       "detail_image": "assets/banners/2026-11-05-1-parlamento-do-iro-aprova-acordo-nuclear-banner.jpg",
       "snapshot_url": "https://arquivo.pt/screenshot/?url=https%3A%2F%2Farquivo.pt%2FnoFrame%2Freplay%2F20151105023023%2Fhttp%3A%2F%2Fwww.dn.pt%2Fmundo%2Finterior%2Fparlamento-iraniano-aprova-acordo-nuclear-com-as-potencias-mundiais-4831186.html",
+      "url_path_en": "noticia/world/iranian-parliament-approves-nuclear-deal",
+      "page_id_en": "noticia-75e411b33d57ae00028192a6",
+      "category_en": "WORLD",
       "instagram_url_en": "https://www.instagram.com/p/DfXGhPLGRIL/",
       "instagram_id_en": "18114608234176888",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122098537725541219",
       "facebook_id_en": "1318455601360516_122098537725541219",
       "relevance_justification_en": "The nuclear agreement reshaped diplomatic and security relations across the Middle East."
-    },
-    {
-      "id": "pt_2026-11-01_1",
-      "lang": "pt",
-      "date": "2026-11-01",
-      "slot": 1,
-      "status": "published",
-      "published_at": "2026-11-01T11:31:39.990035",
-      "category": "HISTÓRIA",
-      "title": "Crise política e agitação militar precipitam rutura na Primeira República",
-      "title_en": "",
-      "summary": "Agravamento da instabilidade militar e governativa precipita crise na Primeira República",
-      "summary_en": "",
-      "original_year": "1918",
-      "image": "assets/posts/2026-11-01-1-crise-poltica-e-agitao-militar-precipitam-rutura-na-primeira-repblica.jpg",
-      "banner_image": "assets/banners/2026-11-01-1-crise-poltica-e-agitao-militar-precipitam-rutura-na-primeira-repblica-banner.jpg",
-      "body": "Em 1918, a Primeira República atravessava uma das suas fases mais críticas, marcada por uma aguda crise política e agitação militar que abalou as estruturas do regime. O final da Primeira Guerra Mundial trouxe expectativas de estabilidade, mas o país mergulhou num cenário de profunda incerteza. O esforço de guerra havia exaurido os recursos nacionais, provocando escassez de géneros alimentícios e um aumento significativo do custo de vida, o que alimentou o descontentamento popular. No plano interno, o governo liberal, liderado por Afonso Costa, enfrentava uma oposição cada vez mais forte e dividida. As greves operárias e as manifestações agrícolas tornaram-se frequentes, denunciando a incapacidade do executivo para gerir a economia de guerra e as reivindicações sociais. Paralelamente, o Exército vivia um momento de fratura. A recusa de oficiais em obedecer ordens e a propagação de ideias republicanas dentro das fileiras criaram um ambiente de desobediência crescente. O caso mais emblemático ocorreu em novembro, quando unidades do Exército manifestaram-se contra a política de intervenção governamental, exigindo reformas profundas e maior participação nos destinos nacionais. Esta confluência de factores — a fadiga da população, a incapacidade governativa e a insubordinação militar — culminou num período de exceção. A instabilidade precipitou a queda de vários ministros e enfraqueceu a credibilidade do regime republicano, que até então se afirmara como a única alternativa política possível após a implosão monárquica. A crise de 1918 funcionou como um ponto de viragem, evidenciando as fissuras latentes da República e preparando o terreno para as transformações políticas que se seguiriam nos anos subsequentes, incluindo a instabilidade que levaria ao Estado Novo. A agudização das tensões militares e políticas colocou a Primeira República sob forte pressão, abrindo caminho a períodos de exceção governativa.",
-      "body_en": "",
-      "caption": "O regime republicano enfrentou um período de profunda instabilidade institucional e contestação nos quartéis em 1918, precipitando uma rutura política que acentuou o clima de agitação militar durante a presidência de Sidónio Pais. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1918. 🔗 Lê a notícia completa no link na descrição do perfil.",
-      "source_url": "",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "https://www.instagram.com/p/DfMoVeTFK2j/",
-      "instagram_id": "18102049427381392",
-      "facebook_url": "https://www.facebook.com/1030669413467151_122136978242824703",
-      "facebook_id": "1030669413467151_122136978242824703",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram",
-        "facebook"
-      ],
-      "cover_focus": null,
-      "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfMoVeTFK2j/",
-        "facebook": "https://www.facebook.com/1030669413467151_122136978242824703"
-      },
-      "relevance_level": 2,
-      "relevance_scores": {
-        "impacto_historico": 80.0,
-        "dimensao_impacto": 75.0,
-        "consequencias": 70.0,
-        "relevancia_posterior": 70.0,
-        "dimensao_duracao": 65.0,
-        "relevancia_mediatica": 50.0,
-        "singularidade": 65.0
-      },
-      "relevance_weighted": 72.2,
-      "relevance_justification": "Crise política e agitação militar precipitam rutura na Primeira República.",
-      "source_type": "archive",
-      "url_path": "noticia/historia/crise-politica-e-agitacao-militar-precipitam",
-      "page_id": "noticia-ce7c0b75f943300593ee1c17",
-      "detail_image": "assets/banners/2026-11-01-1-crise-poltica-e-agitao-militar-precipitam-rutura-na-primeira-repblica-banner.jpg",
-      "snapshot_url": "",
-      "relevance_justification_en": ""
-    },
-    {
-      "id": "pt_2026-10-28_2",
-      "lang": "pt",
-      "date": "2026-10-28",
-      "slot": 2,
-      "status": "published",
-      "published_at": "2026-10-28T19:02:30.011181",
-      "category": "POLÍTICA",
-      "title": "Partidos de esquerda chegam a acordo de base para Governo",
-      "title_en": "Left-wing parties reach framework agreement to form Government",
-      "summary": "Forças partidárias concluem entendimentos para viabilizar solução governativa",
-      "summary_en": "Partisan forces conclude understandings to enable a governing solution.",
-      "original_year": "2015",
-      "image": "assets/posts/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo.jpg",
-      "banner_image": "assets/banners/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-banner.jpg",
-      "body": "A chegada a um acordo de base para formar Governo, em 2015, resultou do trabalho de negociação entre forças partidárias de esquerda. O processo permitiu ultrapassar o impasse que se seguia às eleições e abriu caminho à apresentação de uma maioria alternativa no Parlamento. Segundo o resumo da notícia, as forças envolvidas concluíram entendimentos de natureza programática, establishendo compromissos comuns para viabilizar uma solução governativa. A legenda da página refere-se, precisamente, ao resultado alcançado: os partidos parlamentares fixaram compromissos programáticos que permitiram apresentar uma maioria alternativa na Assembleia da República. O acordo não se limitou, portanto, a uma simples concertação de vontades. Incluiu a definição de compromissos programáticos, elemento apresentado como indispensável para garantir a viabilidade do futuro Governo. A negociação entre os partidos de esquerda deu assim origem a uma base de apoio em torno de uma agenda comum, com a qual se candidataram a constituir uma maioria parlamentar. A ocorrência integra a atualidade política portuguesa de 2015 e ilustra a capacidade de diálogo entre forças que, até então, não tinham conseguido ultrapassar as diferenças que bloqueavam a governação. A apresentação de uma maioria alternativa no Parlamento representa o passo decisivo dessa concertação, ao transformar entendimentos entre partidos em uma base concreta para o exercício do poder. A relevância duradoura do acontecimento reside no método político queowie accompanyou: a construção de uma solução governativa através de compromissos programáticos e do diálogo entre partidos de esquerda. O acordo de base fica associado a uma fase de transição na política portuguesa, em que a capacidade de negociação entre forças parliamentary permitiu responder ao resultado eleitoral com uma alternativa de governo.",
-      "body_en": "Reaching a framework agreement to form a Government in 2015 resulted from intense negotiations between left-wing political forces in Portugal. The process resolved the impasse following the elections and paved the way for presenting an alternative parliamentary majority in the Assembly of the Republic. According to reports, the parties involved concluded programmatic understandings, establishing shared commitments to enable a viable governing solution. The agreement went beyond a simple alignment of political wills. It established programmatic commitments, considered essential to ensure the viability and stability of the incoming Government. Negotiations among the left-wing parties gave rise to a broad support base centered on a common progressive agenda, with which they presented an alternative majority in Parliament. This landmark event shaped Portuguese political history in 2015, demonstrating an unprecedented capacity for dialogue between forces that had previously never bridged their historic differences. The lasting significance of this development lies in the political model it pioneered: building a stable governing solution through programmatic compromise and dialogue among left-wing parties.",
-      "caption": "Contra quase todas as previsões da época, as forças partidárias de esquerda concluíram as negociações bilaterais no Parlamento para viabilizar uma maioria governativa em 2015, dando origem ao histórico entendimento político que ficaria conhecido como a \"Geringonça\". Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015. 🔗 Lê a notícia completa no link na descrição do perfil.",
-      "source_url": "https://arquivo.pt/wayback/20160611062004/https://news.google.pt/news/story?cf=all&hl=pt-pt&ned=pt-pt_pt&cf=all&ncl=djkchvb-0d5trum98olw8en2a1lqm&topic=n&scoring=n",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "https://www.instagram.com/p/DfDIuhDGH8O/",
-      "instagram_id": "18182963707442613",
-      "facebook_url": "https://www.facebook.com/1030669413467151_122136508664824703",
-      "facebook_id": "1030669413467151_122136508664824703",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram",
-        "facebook"
-      ],
-      "cover_focus": null,
-      "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfDIuhDGH8O/",
-        "facebook": "https://www.facebook.com/1030669413467151_122136508664824703"
-      },
-      "relevance_level": 2,
-      "relevance_scores": {
-        "impacto_historico": 80.0,
-        "dimensao_impacto": 70.0,
-        "consequencias": 75.0,
-        "relevancia_posterior": 70.0,
-        "dimensao_duracao": 60.0,
-        "relevancia_mediatica": 60.0,
-        "singularidade": 65.0
-      },
-      "relevance_weighted": 72.0,
-      "relevance_justification": "Acordo histórico de esquerda viabiliza governo e muda ciclo político português.",
-      "source_type": "archive",
-      "url_path": "noticia/politica/partidos-de-esquerda-chegam-a-acordo",
-      "page_id": "noticia-a5a2b7798af63a2eee482299",
-      "detail_image": "assets/banners/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-a5a2b7798af63a2eee482299.jpg",
-      "relevance_justification_en": ""
-    },
-    {
-      "id": "pt_2026-10-27_2",
-      "lang": "pt",
-      "date": "2026-10-27",
-      "slot": 2,
-      "status": "published",
-      "published_at": "2026-10-27T20:59:24.231255",
-      "category": "POLÍTICA",
-      "title": "Orçamento do Estado chumbado na Assembleia da República",
-      "title_en": "State Budget for 2022 rejected in Parliament",
-      "summary": "Chumbo da proposta do Orçamento do Estado abre cenário de crise política",
-      "summary_en": "State Budget proposal rejected in Parliament, opening political crisis and triggering early elections.",
-      "original_year": "2021",
-      "image": "assets/posts/2026-10-27-2-oramento-do-estado-chumbado-na-assembleia-da-repblica.jpg",
-      "banner_image": "assets/banners/2026-10-27-2-oramento-do-estado-chumbado-na-assembleia-da-repblica-banner.jpg",
-      "body": "A proposta do Orçamento do Estado para 2021 foi chumbada na Assembleia da República,Abrindo um cenário de crise política. A decisão parliamentar põe em causa a aprovação do documento orçamental e reforça as tensões entre o Governo e as forças de oposição. A votação traduziu uma ruptura no apoio parlamentar à proposta do Executivo. De acordo com a informação disponível, a proposta orçamental contou apenas com o voto favorável do Governo, enquanto os restantes votos não permitiram a sua aprovação. O chumbo parliamentar significa que o orçamento não foi aprovado nesta fase, deixando em aberto o caminho para a sua reapreciação ou a adopção de medidas orçamentais alternativas. O resultado coloca o Executivo perante um desafio político imediato: obter o apoio necessário para garantir a aprovação do Orçamento do Estado. A ausência de uma maioria parliamentar favorável à proposta obriga o Governo a negociar com os grupos que votaram contra ela ou a apresentar uma solução diferente. A questão central passa, assim, a ser a forma de garantir a viabilidade orçamental do Estado. O chumbo não encerra, por si só, o processo orçamental. A Assembleia da República pode voltar a considerar a proposta, e o Governo pode recorrer a outros mecanismos constitucionais previstos para a aprovação de um orçamento. No entanto, qualquer nova fase será marcada pelo diálogo político e pela necessidade de construir um consenso mais alargado. A rejeição da proposta também evidencia a profundidade da crise política. O documento orçamental é um instrumento central para a definição das prioridades do Estado e para a afectação de recursos a diferentes áreas. A sua não aprovação prolonga a incerteza sobre as decisões públicas e sobre a capacidade do Governo para executar as suas políticas. Consequências posteriores: o chumbo parliamentary abriu um cenário de crise política, com a proposta do Orçamento do Estado de 2021 a ficar sem aprovação e o Governo confrontado com a necessidade de garantir a sua viabilidade através de nova negociação ou reapreciação. A decisão reforçou a ruptura entre o Executivo e as forças de oposição e deixou em aberto o processo de aprovação do documento orçamental.",
-      "body_en": "The proposal for the State Budget was rejected in the Assembly of the Republic, triggering a major political crisis in Portuguese democracy. The parliamentary vote marked a historic rupture in support for the Executive's economic blueprint, with the budget failing to secure approval for the first time since the 25th of April revolution. The proposal received favorable votes solely from the governing party, while opposition parties voted against it or abstained, precipitating a deadlock. The budget's rejection immediately confronted the government with an acute crisis, leading the President of the Republic to dissolve Parliament and call early legislative elections. The decision underscored the depth of the political impasse and marked a defining turning point in contemporary Portuguese politics, leaving lasting consequences for governance and party alliances.",
-      "caption": "A Assembleia da República viveu um momento inédito na democracia portuguesa em 2021: a proposta de Orçamento do Estado foi chumbada na generalidade, contando apenas com os votos favoráveis do Governo e abrindo uma crise política que precipitou eleições antecipadas. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2021. 🔗 Lê a notícia completa no link na descrição do perfil.",
-      "source_url": "https://arquivo.pt/wayback/20211027213859/https://esquerda.net/artigo/orcamento-do-estado-para-2022-chumbado-na-assembleia-da-republica/77576",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "https://www.instagram.com/p/DfA9Wa6ie4u/",
-      "instagram_id": "17994294225025710",
-      "facebook_url": "https://www.facebook.com/1030669413467151_122136508274824703",
-      "facebook_id": "1030669413467151_122136508274824703",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram",
-        "facebook"
-      ],
-      "cover_focus": null,
-      "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfA9Wa6ie4u/",
-        "facebook": "https://www.facebook.com/1030669413467151_122136508274824703"
-      },
-      "relevance_level": 2,
-      "relevance_scores": {
-        "impacto_historico": 85.0,
-        "dimensao_impacto": 70.0,
-        "consequencias": 75.0,
-        "relevancia_posterior": 70.0,
-        "dimensao_duracao": 60.0,
-        "relevancia_mediatica": 40.0,
-        "singularidade": 50.0
-      },
-      "relevance_weighted": 71.8,
-      "relevance_justification": "Orçamento chumbado inédito desde 25 de Abril; afeta estado e gera crise política.",
-      "source_type": "archive",
-      "url_path": "noticia/politica/orcamento-do-estado-chumbado-na-assembleia",
-      "page_id": "noticia-7f6cc4d040d947b910e791dc",
-      "detail_image": "assets/banners/2026-10-27-2-oramento-do-estado-chumbado-na-assembleia-da-repblica-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-7f6cc4d040d947b910e791dc.jpg",
-      "relevance_justification_en": ""
     }
   ],
   "latest": [
@@ -446,7 +476,10 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfUxG5elGWE/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137471910824703"
@@ -468,6 +501,9 @@
       "page_id": "noticia-68bef6c080db325b9ca48717",
       "detail_image": "assets/banners/2026-11-04-1-governo-anuncia-obras-urgentes-para-substituir-a-docapesca-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-68bef6c080db325b9ca48717.jpg",
+      "url_path_en": "noticia/politics/government-announces-urgent-works-to-replace",
+      "page_id_en": "noticia-86f6a251f156c2f976fe43ca",
+      "category_en": "POLITICS",
       "instagram_url_en": "https://www.instagram.com/p/DfUxOyJlEpQ/",
       "instagram_id_en": "18136043534509246",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122097822321541219",
@@ -500,12 +536,15 @@
       "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137344740824703",
       "facebook_id": "1030669413467151_122137344740824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfSslgAGsNX/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137344740824703"
@@ -527,6 +566,9 @@
       "page_id": "noticia-9372c72c68f60189b3fe64a3",
       "detail_image": "assets/banners/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-9372c72c68f60189b3fe64a3.jpg",
+      "url_path_en": "noticia/society/vatican-confirms-directive-banning-homosexual-priests",
+      "page_id_en": "noticia-2f9cf6275a97728d1a801099",
+      "category_en": "SOCIETY",
       "instagram_url_en": "https://www.instagram.com/p/DfSlsq2l-Ke/",
       "instagram_id_en": "17944920099367503",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122097205521541219",
@@ -559,12 +601,15 @@
       "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137300706824703",
       "facebook_id": "1030669413467151_122137300706824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfR8QOlAerK/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137300706824703"
@@ -586,6 +631,9 @@
       "page_id": "noticia-dc2a94aeefbda2827f94f2e0",
       "detail_image": "assets/banners/2026-11-03-1-docentes-do-ensino-particular-e-cooperativo-aderem-a-greve-nacional-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-dc2a94aeefbda2827f94f2e0.jpg",
+      "url_path_en": "noticia/education/private-and-cooperative-school-teachers-join",
+      "page_id_en": "noticia-cf4f3964486d95016dd0e025",
+      "category_en": "EDUCATION",
       "instagram_url_en": "https://www.instagram.com/p/DfSAByiGjz8/",
       "instagram_id_en": "18123457861736406",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122097200955541219",
@@ -618,12 +666,15 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122137176890824703",
       "facebook_id": "1030669413467151_122137176890824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfQJJurl-oj/",
         "facebook": "https://www.facebook.com/1030669413467151_122137176890824703"
@@ -644,8 +695,7 @@
       "url_path": "noticia/politica/governo-omitiu-500-milhoes-de-euros",
       "page_id": "noticia-017bd61178fa8c59845d65ec",
       "detail_image": "assets/banners/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-017bd61178fa8c59845d65ec.jpg",
-      "relevance_justification_en": ""
+      "snapshot_url": "assets/snapshots/noticia-017bd61178fa8c59845d65ec.jpg"
     },
     {
       "id": "pt_2026-11-02_1",
@@ -673,12 +723,15 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122137127456824703",
       "facebook_id": "1030669413467151_122137127456824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.75,
+        0.65
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfPVfgdGFSl/",
         "facebook": "https://www.facebook.com/1030669413467151_122137127456824703"
@@ -700,6 +753,9 @@
       "page_id": "noticia-a3ba05e1a2c9829663c2e42f",
       "detail_image": "assets/banners/2026-11-02-1-professores-realizam-greve-nacional-contra-o-oramento-do-estado-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-a3ba05e1a2c9829663c2e42f.jpg",
+      "url_path_en": "noticia/education/teachers-stage-a-national-strike-over",
+      "page_id_en": "noticia-98d0b146f6b7724f61b0edb7",
+      "category_en": "EDUCATION",
       "instagram_url_en": "https://www.instagram.com/p/DfQJ22SmHJS/",
       "instagram_id_en": "18181326253436470",
       "facebook_url_en": "",
@@ -737,7 +793,10 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfNtA2DFy0k/",
         "facebook": "https://www.facebook.com/1030669413467151_122137031066824703"
@@ -758,8 +817,7 @@
       "url_path": "noticia/politica/presidente-da-republica-envia-decreto-do",
       "page_id": "noticia-f57b88944d93ad0fe5722289",
       "detail_image": "assets/banners/2026-11-01-2-presidente-da-repblica-envia-decreto-do-estado-de-emergncia-ao-parlamento-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-f57b88944d93ad0fe5722289.jpg",
-      "relevance_justification_en": ""
+      "snapshot_url": "assets/snapshots/noticia-f57b88944d93ad0fe5722289.jpg"
     },
     {
       "id": "pt_2026-10-31_2",
@@ -787,12 +845,15 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136905096824703",
       "facebook_id": "1030669413467151_122136905096824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfLEzL0ox6l/",
         "facebook": "https://www.facebook.com/1030669413467151_122136905096824703"
@@ -813,8 +874,7 @@
       "url_path": "noticia/historia/revolta-militar-de-31-de-outubro",
       "page_id": "noticia-9e4235e75faf7e97f8470de0",
       "detail_image": "assets/banners/2026-10-31-2-revolta-militar-de-31-de-outubro-desafia-poder-governamental-no-porto-banner.jpg",
-      "snapshot_url": "",
-      "relevance_justification_en": ""
+      "snapshot_url": ""
     },
     {
       "id": "pt_2026-10-31_1",
@@ -847,7 +907,10 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.6
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfJ8qcil2sv/",
         "facebook": "https://www.facebook.com/1030669413467151_122136852272824703"
@@ -868,8 +931,7 @@
       "url_path": "noticia/economia/parlamento-isenta-iva-em-cabaz-alimentar",
       "page_id": "noticia-945b11d8b3b9552699197d91",
       "detail_image": "assets/banners/2026-10-31-1-parlamento-isenta-iva-em-cabaz-alimentar-de-44-produtos-essenciais-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-945b11d8b3b9552699197d91.jpg",
-      "relevance_justification_en": ""
+      "snapshot_url": "assets/snapshots/noticia-945b11d8b3b9552699197d91.jpg"
     }
   ],
   "all": [
@@ -899,12 +961,15 @@
       "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137610000824703",
       "facebook_id": "1030669413467151_122137610000824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.6
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfXktdamJT5/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137610000824703"
@@ -926,6 +991,9 @@
       "page_id": "noticia-29a566fb986785f2d722127e",
       "detail_image": "assets/banners/2026-11-05-2-tribunal-britnico-valida-suspenso-do-parlamento-banner.jpg",
       "snapshot_url": "https://arquivo.pt/screenshot/?url=https%3A%2F%2Farquivo.pt%2FnoFrame%2Freplay%2F20191105005809%2Fhttps%3A%2F%2Fobservador.pt%2F2019%2F09%2F06%2Fsuspensao-do-parlamento-britanico-e-legal-diz-supremo-tribunal-em-londres%2F",
+      "url_path_en": "noticia/world/uk-court-validates-suspension-of-parliament",
+      "page_id_en": "noticia-29a566fb986785f2d722127e",
+      "category_en": "WORLD",
       "instagram_url_en": "https://www.instagram.com/p/DfXkznlmNyS/",
       "instagram_id_en": "18033435035911431",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122098719891541219",
@@ -963,7 +1031,10 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfXDcynlDlz/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137585826824703"
@@ -985,6 +1056,9 @@
       "page_id": "noticia-75e411b33d57ae00028192a6",
       "detail_image": "assets/banners/2026-11-05-1-parlamento-do-iro-aprova-acordo-nuclear-banner.jpg",
       "snapshot_url": "https://arquivo.pt/screenshot/?url=https%3A%2F%2Farquivo.pt%2FnoFrame%2Freplay%2F20151105023023%2Fhttp%3A%2F%2Fwww.dn.pt%2Fmundo%2Finterior%2Fparlamento-iraniano-aprova-acordo-nuclear-com-as-potencias-mundiais-4831186.html",
+      "url_path_en": "noticia/world/iranian-parliament-approves-nuclear-deal",
+      "page_id_en": "noticia-75e411b33d57ae00028192a6",
+      "category_en": "WORLD",
       "instagram_url_en": "https://www.instagram.com/p/DfXGhPLGRIL/",
       "instagram_id_en": "18114608234176888",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122098537725541219",
@@ -1017,12 +1091,15 @@
       "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137484426824703",
       "facebook_id": "1030669413467151_122137484426824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.505,
+        0.38
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfU_6XkDYMs/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137484426824703"
@@ -1044,6 +1121,9 @@
       "page_id": "noticia-e2e1b04ab87f48f9c0fe093f",
       "detail_image": "assets/banners/2026-11-04-2-barack-obama-eleito-o-primeiro-presidente-afro-americano-dos-estados-unidos-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-e2e1b04ab87f48f9c0fe093f.jpg",
+      "url_path_en": "noticia/world/barack-obama-elected-first-african-american",
+      "page_id_en": "noticia-21473e218125457f9fb144b4",
+      "category_en": "WORLD",
       "instagram_url_en": "https://www.instagram.com/p/DfVCkV6gZUP/",
       "instagram_id_en": "18065528687536854",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122097895071541219",
@@ -1081,7 +1161,10 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfUxG5elGWE/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137471910824703"
@@ -1103,6 +1186,9 @@
       "page_id": "noticia-68bef6c080db325b9ca48717",
       "detail_image": "assets/banners/2026-11-04-1-governo-anuncia-obras-urgentes-para-substituir-a-docapesca-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-68bef6c080db325b9ca48717.jpg",
+      "url_path_en": "noticia/politics/government-announces-urgent-works-to-replace",
+      "page_id_en": "noticia-86f6a251f156c2f976fe43ca",
+      "category_en": "POLITICS",
       "instagram_url_en": "https://www.instagram.com/p/DfUxOyJlEpQ/",
       "instagram_id_en": "18136043534509246",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122097822321541219",
@@ -1135,12 +1221,15 @@
       "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137344740824703",
       "facebook_id": "1030669413467151_122137344740824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfSslgAGsNX/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137344740824703"
@@ -1162,6 +1251,9 @@
       "page_id": "noticia-9372c72c68f60189b3fe64a3",
       "detail_image": "assets/banners/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-9372c72c68f60189b3fe64a3.jpg",
+      "url_path_en": "noticia/society/vatican-confirms-directive-banning-homosexual-priests",
+      "page_id_en": "noticia-2f9cf6275a97728d1a801099",
+      "category_en": "SOCIETY",
       "instagram_url_en": "https://www.instagram.com/p/DfSlsq2l-Ke/",
       "instagram_id_en": "17944920099367503",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122097205521541219",
@@ -1194,12 +1286,15 @@
       "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137300706824703",
       "facebook_id": "1030669413467151_122137300706824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfR8QOlAerK/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137300706824703"
@@ -1221,6 +1316,9 @@
       "page_id": "noticia-dc2a94aeefbda2827f94f2e0",
       "detail_image": "assets/banners/2026-11-03-1-docentes-do-ensino-particular-e-cooperativo-aderem-a-greve-nacional-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-dc2a94aeefbda2827f94f2e0.jpg",
+      "url_path_en": "noticia/education/private-and-cooperative-school-teachers-join",
+      "page_id_en": "noticia-cf4f3964486d95016dd0e025",
+      "category_en": "EDUCATION",
       "instagram_url_en": "https://www.instagram.com/p/DfSAByiGjz8/",
       "instagram_id_en": "18123457861736406",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122097200955541219",
@@ -1253,12 +1351,15 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122137176890824703",
       "facebook_id": "1030669413467151_122137176890824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfQJJurl-oj/",
         "facebook": "https://www.facebook.com/1030669413467151_122137176890824703"
@@ -1279,8 +1380,7 @@
       "url_path": "noticia/politica/governo-omitiu-500-milhoes-de-euros",
       "page_id": "noticia-017bd61178fa8c59845d65ec",
       "detail_image": "assets/banners/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-017bd61178fa8c59845d65ec.jpg",
-      "relevance_justification_en": ""
+      "snapshot_url": "assets/snapshots/noticia-017bd61178fa8c59845d65ec.jpg"
     },
     {
       "id": "pt_2026-11-02_1",
@@ -1308,12 +1408,15 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122137127456824703",
       "facebook_id": "1030669413467151_122137127456824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.75,
+        0.65
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfPVfgdGFSl/",
         "facebook": "https://www.facebook.com/1030669413467151_122137127456824703"
@@ -1335,6 +1438,9 @@
       "page_id": "noticia-a3ba05e1a2c9829663c2e42f",
       "detail_image": "assets/banners/2026-11-02-1-professores-realizam-greve-nacional-contra-o-oramento-do-estado-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-a3ba05e1a2c9829663c2e42f.jpg",
+      "url_path_en": "noticia/education/teachers-stage-a-national-strike-over",
+      "page_id_en": "noticia-98d0b146f6b7724f61b0edb7",
+      "category_en": "EDUCATION",
       "instagram_url_en": "https://www.instagram.com/p/DfQJ22SmHJS/",
       "instagram_id_en": "18181326253436470",
       "facebook_url_en": "",
@@ -1372,7 +1478,10 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfNtA2DFy0k/",
         "facebook": "https://www.facebook.com/1030669413467151_122137031066824703"
@@ -1393,8 +1502,7 @@
       "url_path": "noticia/politica/presidente-da-republica-envia-decreto-do",
       "page_id": "noticia-f57b88944d93ad0fe5722289",
       "detail_image": "assets/banners/2026-11-01-2-presidente-da-repblica-envia-decreto-do-estado-de-emergncia-ao-parlamento-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-f57b88944d93ad0fe5722289.jpg",
-      "relevance_justification_en": ""
+      "snapshot_url": "assets/snapshots/noticia-f57b88944d93ad0fe5722289.jpg"
     },
     {
       "id": "pt_2026-11-01_1",
@@ -1422,12 +1530,15 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136978242824703",
       "facebook_id": "1030669413467151_122136978242824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.6
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfMoVeTFK2j/",
         "facebook": "https://www.facebook.com/1030669413467151_122136978242824703"
@@ -1448,8 +1559,7 @@
       "url_path": "noticia/historia/crise-politica-e-agitacao-militar-precipitam",
       "page_id": "noticia-ce7c0b75f943300593ee1c17",
       "detail_image": "assets/banners/2026-11-01-1-crise-poltica-e-agitao-militar-precipitam-rutura-na-primeira-repblica-banner.jpg",
-      "snapshot_url": "",
-      "relevance_justification_en": ""
+      "snapshot_url": ""
     },
     {
       "id": "pt_2026-10-31_2",
@@ -1477,12 +1587,15 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136905096824703",
       "facebook_id": "1030669413467151_122136905096824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfLEzL0ox6l/",
         "facebook": "https://www.facebook.com/1030669413467151_122136905096824703"
@@ -1503,8 +1616,7 @@
       "url_path": "noticia/historia/revolta-militar-de-31-de-outubro",
       "page_id": "noticia-9e4235e75faf7e97f8470de0",
       "detail_image": "assets/banners/2026-10-31-2-revolta-militar-de-31-de-outubro-desafia-poder-governamental-no-porto-banner.jpg",
-      "snapshot_url": "",
-      "relevance_justification_en": ""
+      "snapshot_url": ""
     },
     {
       "id": "pt_2026-10-31_1",
@@ -1537,7 +1649,10 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.6
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfJ8qcil2sv/",
         "facebook": "https://www.facebook.com/1030669413467151_122136852272824703"
@@ -1558,8 +1673,7 @@
       "url_path": "noticia/economia/parlamento-isenta-iva-em-cabaz-alimentar",
       "page_id": "noticia-945b11d8b3b9552699197d91",
       "detail_image": "assets/banners/2026-10-31-1-parlamento-isenta-iva-em-cabaz-alimentar-de-44-produtos-essenciais-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-945b11d8b3b9552699197d91.jpg",
-      "relevance_justification_en": ""
+      "snapshot_url": "assets/snapshots/noticia-945b11d8b3b9552699197d91.jpg"
     },
     {
       "id": "pt_2026-10-30_2",
@@ -1587,12 +1701,15 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136784382824703",
       "facebook_id": "1030669413467151_122136784382824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.73,
+        0.57
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfIuHjfjSnv/",
         "facebook": "https://www.facebook.com/1030669413467151_122136784382824703"
@@ -1613,8 +1730,7 @@
       "url_path": "noticia/educacao/corte-de-7-6-no-orcamento",
       "page_id": "noticia-fa83b1867bdc4c85ac2cbb7f",
       "detail_image": "assets/banners/2026-10-30-2-corte-de-76-no-oramento-universitrio-coloca-em-risco-rankings-internacionais-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-fa83b1867bdc4c85ac2cbb7f.jpg",
-      "relevance_justification_en": ""
+      "snapshot_url": "assets/snapshots/noticia-fa83b1867bdc4c85ac2cbb7f.jpg"
     },
     {
       "id": "pt_2026-10-30_1",
@@ -1642,12 +1758,15 @@
       "facebook_url": "https://www.facebook.com/noticiasdeontempt",
       "facebook_id": "crosspost_18096851696149000",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfHpNAzIP5y/",
         "facebook": "https://www.facebook.com/noticiasdeontempt"
@@ -1668,8 +1787,7 @@
       "url_path": "noticia/sociedade/governo-propoe-fecho-de-311-escolas",
       "page_id": "noticia-d751dc63e7b043663a72ac33",
       "detail_image": "assets/banners/2026-10-30-1-governo-prope-fecho-de-311-escolas-municpios-ameaam-providncias-cautelares-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-d751dc63e7b043663a72ac33.jpg",
-      "relevance_justification_en": ""
+      "snapshot_url": "assets/snapshots/noticia-d751dc63e7b043663a72ac33.jpg"
     },
     {
       "id": "pt_2026-10-29_2",
@@ -1697,12 +1815,15 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136645716824703",
       "facebook_id": "1030669413467151_122136645716824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfGJ4rsjAvA/",
         "facebook": "https://www.facebook.com/1030669413467151_122136645716824703"
@@ -1723,8 +1844,7 @@
       "url_path": "noticia/cultura/primeira-emissao-experimental-de-radio-realizada",
       "page_id": "noticia-d91220802e94e8ece00c3449",
       "detail_image": "assets/banners/2026-10-29-2-primeira-emisso-experimental-de-rdio-realizada-em-portugal-banner.jpg",
-      "snapshot_url": "",
-      "relevance_justification_en": ""
+      "snapshot_url": ""
     },
     {
       "id": "pt_2026-10-29_1",
@@ -1757,7 +1877,10 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.55
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfFERIdFGd9/",
         "facebook": "https://www.facebook.com/1030669413467151_122136604340824703"
@@ -1778,8 +1901,7 @@
       "url_path": "noticia/sociedade/greve-da-funcao-publica-ameaca-escolas",
       "page_id": "noticia-b2d71872f7db3d328b083168",
       "detail_image": "assets/banners/2026-10-29-1-greve-da-funo-pblica-ameaa-escolas-hospitais-e-recolha-de-lixo-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-b2d71872f7db3d328b083168.jpg",
-      "relevance_justification_en": ""
+      "snapshot_url": "assets/snapshots/noticia-b2d71872f7db3d328b083168.jpg"
     },
     {
       "id": "pt_2026-10-28_2",
@@ -1807,12 +1929,15 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136508664824703",
       "facebook_id": "1030669413467151_122136508664824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.55
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfDIuhDGH8O/",
         "facebook": "https://www.facebook.com/1030669413467151_122136508664824703"
@@ -1833,8 +1958,7 @@
       "url_path": "noticia/politica/partidos-de-esquerda-chegam-a-acordo",
       "page_id": "noticia-a5a2b7798af63a2eee482299",
       "detail_image": "assets/banners/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-a5a2b7798af63a2eee482299.jpg",
-      "relevance_justification_en": ""
+      "snapshot_url": "assets/snapshots/noticia-a5a2b7798af63a2eee482299.jpg"
     },
     {
       "id": "pt_2026-10-28_1",
@@ -1867,7 +1991,10 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.45,
+        0.38
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfCxiYWjNSh/",
         "facebook": "https://www.facebook.com/1030669413467151_122136508376824703"
@@ -1888,8 +2015,7 @@
       "url_path": "noticia/sociedade/governo-alarga-proibicao-de-smartphones-a",
       "page_id": "noticia-4855d720ad7a500b51b6c728",
       "detail_image": "assets/banners/2026-10-28-1-governo-alarga-proibio-de-smartphones-a-alunos-do-3-ciclo-em-espaos-partilhad-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-4855d720ad7a500b51b6c728.jpg",
-      "relevance_justification_en": ""
+      "snapshot_url": "assets/snapshots/noticia-4855d720ad7a500b51b6c728.jpg"
     },
     {
       "id": "pt_2026-10-27_2",
@@ -1917,12 +2043,15 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136508274824703",
       "facebook_id": "1030669413467151_122136508274824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
+      "banner_ready": true,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.5,
+        0.4
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfA9Wa6ie4u/",
         "facebook": "https://www.facebook.com/1030669413467151_122136508274824703"
@@ -1943,8 +2072,7 @@
       "url_path": "noticia/politica/orcamento-do-estado-chumbado-na-assembleia",
       "page_id": "noticia-7f6cc4d040d947b910e791dc",
       "detail_image": "assets/banners/2026-10-27-2-oramento-do-estado-chumbado-na-assembleia-da-repblica-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-7f6cc4d040d947b910e791dc.jpg",
-      "relevance_justification_en": ""
+      "snapshot_url": "assets/snapshots/noticia-7f6cc4d040d947b910e791dc.jpg"
     },
     {
       "id": "pt_2026-10-27_1",
@@ -1977,7 +2105,10 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": null,
+      "cover_focus": [
+        0.35,
+        0.5
+      ],
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfAAVuLly5s/",
         "facebook": "https://www.facebook.com/1030669413467151_122136507968824703"
@@ -1998,8 +2129,7 @@
       "url_path": "noticia/cultura/unesco-proclama-o-dia-27-de",
       "page_id": "noticia-fdeed003efa49ffb3b6cbaca",
       "detail_image": "assets/banners/2026-10-27-1-unesco-proclama-o-dia-27-de-outubro-como-dia-mundial-do-patrimnio-audiovisual-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-fdeed003efa49ffb3b6cbaca.jpg",
-      "relevance_justification_en": ""
+      "snapshot_url": "assets/snapshots/noticia-fdeed003efa49ffb3b6cbaca.jpg"
     }
   ],
   "calendar": {
