@@ -1,0 +1,22 @@
+name: Delete EN FB morning post 5 Nov (once)
+on:
+  workflow_dispatch:
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Delete the old EN Facebook feed post
+        env:
+          FB_PAGE_ACCESS_TOKEN_EN: ${{ secrets.IG_ACCESS_TOKEN_EN }}
+        run: |
+          python3 - <<'PY'
+          import os, json, urllib.request
+          post_id = "1318455601360516_122098518081541219"
+          tok = os.environ["FB_PAGE_ACCESS_TOKEN_EN"]
+          req = urllib.request.Request(
+              f"https://graph.facebook.com/v25.0/{post_id}?access_token={tok}",
+              method="DELETE")
+          with urllib.request.urlopen(req, timeout=30) as r:
+              print("Resposta da eliminacao:", r.read().decode())
+          PY
