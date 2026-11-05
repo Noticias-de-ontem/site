@@ -924,6 +924,28 @@ def _title_tokens(title_text, highlight_text):
                 tokens[index]["highlight"] = True
             break
 
+    # Garante SEMPRE pelo menos 1 a 2 palavras-chave no título destacadas a azul (TITLE_HIGHLIGHT)
+    if tokens and not any(token["highlight"] for token in tokens):
+        _stopwords = {
+            "A", "O", "AS", "OS", "UM", "UMA", "UNS", "UMAS", "DE", "DO", "DA", "DOS", "DAS",
+            "EM", "NO", "NA", "NOS", "NAS", "E", "OU", "COM", "POR", "PARA", "SE", "QUE",
+            "THE", "AN", "IN", "ON", "AT", "TO", "FOR", "OF", "WITH", "BY", "FROM", "AND", "OR", "AS", "IS"
+        }
+        highlighted_count = 0
+        started = False
+        for token in tokens:
+            norm_word = _normalize_for_match(token["text"])
+            if norm_word and norm_word not in _stopwords:
+                token["highlight"] = True
+                highlighted_count += 1
+                started = True
+                if highlighted_count >= 2:
+                    break
+            elif started:
+                break
+        if not any(token["highlight"] for token in tokens):
+            tokens[0]["highlight"] = True
+
     return tokens
 
 

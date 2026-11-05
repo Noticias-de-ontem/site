@@ -106,8 +106,7 @@
             "source_profile": "wikipedia",
             "networks": [
                 "instagram",
-                "facebook",
-                "x"
+                "facebook"
             ]
         }
     },

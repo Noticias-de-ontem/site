@@ -109,11 +109,6 @@ const SOCIAL_NETWORKS = {
     url: "https://www.facebook.com/noticiasdeontempt",
     logo: "assets/logos/networks/facebook.svg",
   },
-  x: {
-    label: "X",
-    url: "https://x.com/",
-    logo: "assets/logos/networks/x.svg",
-  },
 };
 
 // URL do perfil por língua: a vista PT leva aos perfis PT e a vista EN

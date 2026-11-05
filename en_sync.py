@@ -171,7 +171,20 @@ def _pick_en_highlight(title_en, en_candidate=""):
     cand = str(en_candidate or "").strip()
     if cand and cand.lower() in title_clean.lower() and len(cand.split()) <= 3:
         return cand
-    return ""
+    words = title_clean.split()
+    stopwords = {"a", "an", "the", "in", "on", "at", "to", "for", "of", "with", "by", "from", "and", "or", "as", "is"}
+    meaningful = []
+    for w in words:
+        clean_w = re.sub(r"[^\w]", "", w).lower()
+        if clean_w and clean_w not in stopwords:
+            meaningful.append(w)
+            if len(meaningful) >= 2:
+                break
+        elif meaningful:
+            break
+    if meaningful:
+        return " ".join(meaningful)
+    return words[0] if words else ""
 
 
 def _resolve_local_background(pt_entry, pt_opt):
@@ -363,7 +376,7 @@ def sync_approved_pt_to_en(
         # Se PT tem facebook, EN tem obrigatoriamente facebook (paridade total)
         if isinstance(pt_networks, list):
             for net in pt_networks:
-                if net in ("instagram", "facebook", "x") and net not in en_networks:
+                if net in ("instagram", "facebook") and net not in en_networks:
                     en_networks.append(net)
 
         narrative_en = (
@@ -465,7 +478,6 @@ def sync_approved_pt_to_en(
             "caption": caption_ig_en,
             "caption_instagram": caption_ig_en,
             "caption_facebook": caption_fb_en,
-            "caption_x": existing_en_opt.get("caption_x") or "",
             "year": str(pt_year),
             "summary": summary_en,
             "summary_en": summary_en,

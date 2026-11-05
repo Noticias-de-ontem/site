@@ -5123,8 +5123,7 @@
                 "source_profile": "observador.pt",
                 "networks": [
                     "instagram",
-                    "facebook",
-                    "x"
+                    "facebook"
                 ],
                 "image_url": "",
                 "image_delete_url": "",
@@ -5171,7 +5170,7 @@
                 "source_platform": "arquivo.pt",
                 "source_profile": "publico.pt",
                 "networks": [
-                    "x"
+                    "instagram"
                 ],
                 "image_url": "",
                 "image_delete_url": "",
@@ -5359,7 +5358,7 @@
                     "facebook"
                 ],
                 "body": "Tribunal britânico valida suspensão do Parlamento\n\nLondres, 2019 – O Tribunal Superior de Londres confirmou a constitucionalidade da suspensão dos trabalhos parlamentares no Reino Unido. A decisão judicial valida a prorrogação do Parlamento britânico solicitada pelo primeiro-ministro Boris Johnson.\n\nO contexto envolve o período de transição relativo à saída do Reino Unido da União Europeia. O governo liderado por Boris Johnson solicitou a prorrogação dos trabalhos parlamentares, uma medida que gerou debate sobre os limites do poder executivo e o papel do legislativo.\n\nO desenvolvimento do processo judicial centrou-se na análise da legalidade da decisão do primeiro-ministro. O Tribunal Superior de Londres examinou se a suspensão dos trabalhos respeitava as normas constitucionais vigentes. A sentença concluiu que a prorrogação era constitucional, confirmando a validade da ação do executivo.\n\nA relevância duradoura desta decisão reside na clarificação das fronteiras entre o governo e o Parlamento em momentos de crise política. A validação judicial estabelece um precedente sobre a discricionariedade do primeiro-ministro na gestão do calendário parlamentar.\n\nConsequências posteriores: a decisão do Tribunal Superior de Londres contribuiu para o debate constitucional sobre a prorrogação parlamentar e influenciou a dinâmica dos trabalhos legislativos durante o processo de saída do Reino Unido da União Europeia.",
-                "highlight_text_en": "",
+                "highlight_text_en": "UK court",
                 "caption_narrative_en": "In 2019, London's High Court ruled that Prime Minister Boris Johnson's request to suspend Parliament was constitutional. The decision validated the prorogation of parliamentary work during a critical period of Brexit transition. The ruling clarified the legal boundaries between the UK's executive and legislative branches.",
                 "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-05_2.jpg",
                 "image_delete_url": "https://ibb.co/27yBm0kW/924ecdf5c10c3c324313bf25077e1f6c",
@@ -5405,7 +5404,7 @@
                 "source_platform": "arquivo.pt",
                 "source_profile": "publico.pt",
                 "networks": [
-                    "x"
+                    "instagram"
                 ],
                 "image_url": "",
                 "image_delete_url": "",
@@ -5414,7 +5413,8 @@
                 "local_background_path": "",
                 "caption_instagram": "O Governo do Equador denuncia um golpe de Estado e declara estado de emergência devido a manifestações contra cortes de regalias.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2010.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
                 "caption_facebook": "O Governo do Equador denuncia um golpe de Estado e declara estado de emergência devido a manifestações contra cortes de regalias.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2010.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
-                "body": ""
+                "body": "",
+                "highlight_text_en": "UK court"
             },
             {
                 "year": "2024",
@@ -5461,7 +5461,8 @@
                 "local_background_path": "",
                 "caption_instagram": "Uma greve na Administração Pública obriga ao encerramento de escolas e ao adiamento de consultas médicas, afetando o funcionamento dos serviços públicos.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2024.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
                 "caption_facebook": "Uma greve na Administração Pública obriga ao encerramento de escolas e ao adiamento de consultas médicas, afetando o funcionamento dos serviços públicos.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2024.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
-                "body": ""
+                "body": "",
+                "highlight_text_en": "UK court"
             },
             {
                 "year": "2014",
@@ -5508,7 +5509,8 @@
                 "local_background_path": "",
                 "caption_instagram": "Providências cautelares podem travar o fecho de escolas em pelo menos dez municípios.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
                 "caption_facebook": "Providências cautelares podem travar o fecho de escolas em pelo menos dez municípios.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
-                "body": ""
+                "body": "",
+                "highlight_text_en": "UK court"
             }
         ],
         "instagram_id": "18119609414093980",
@@ -5544,7 +5546,6 @@
                 "caption": "Iran's parliament approved the landmark nuclear agreement with world powers in 2015. The legislative vote ended internal debate and paved the way for the deal's implementation. The decision marked a pivotal moment in Iran's relations with the international community.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2015.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #World",
                 "caption_instagram": "Iran's parliament approved the landmark nuclear agreement with world powers in 2015. The legislative vote ended internal debate and paved the way for the deal's implementation. The decision marked a pivotal moment in Iran's relations with the international community.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2015.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #World",
                 "caption_facebook": "Iran's parliament approved the landmark nuclear agreement with world powers in 2015. The legislative vote ended internal debate and paved the way for the deal's implementation. The decision marked a pivotal moment in Iran's relations with the international community.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2015.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #World",
-                "caption_x": "",
                 "year": "2015",
                 "summary": "Legislative approval of the historic nuclear agreement with world powers, an international accord with global geopolitical impact.",
                 "summary_en": "Legislative approval of the historic nuclear agreement with world powers, an international accord with global geopolitical impact.",
@@ -5602,7 +5603,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-05_2",
-        "status": "published",
+        "status": "approved",
         "generated_month": "2026-11",
         "source_profile": "observador.pt",
         "external_suggestions": [],
@@ -5611,12 +5612,11 @@
                 "category": "WORLD",
                 "title": "UK court validates suspension of Parliament",
                 "title_en": "UK court validates suspension of Parliament",
-                "highlight_text": "",
+                "highlight_text": "UK court",
                 "overlay_description": "A British court ruling confirms the constitutionality of suspending parliamentary work, marking a major institutional and geopolitical milestone in the UK.",
                 "caption": "In 2019, London's High Court ruled that Prime Minister Boris Johnson's request to suspend Parliament was constitutional. The decision validated the prorogation of parliamentary work during a critical period of Brexit transition. The ruling clarified the legal boundaries between the UK's executive and legislative branches.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2019.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #World",
                 "caption_instagram": "In 2019, London's High Court ruled that Prime Minister Boris Johnson's request to suspend Parliament was constitutional. The decision validated the prorogation of parliamentary work during a critical period of Brexit transition. The ruling clarified the legal boundaries between the UK's executive and legislative branches.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2019.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #World",
                 "caption_facebook": "In 2019, London's High Court ruled that Prime Minister Boris Johnson's request to suspend Parliament was constitutional. The decision validated the prorogation of parliamentary work during a critical period of Brexit transition. The ruling clarified the legal boundaries between the UK's executive and legislative branches.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2019.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #World",
-                "caption_x": "",
                 "year": "2019",
                 "summary": "A British court ruling confirms the constitutionality of suspending parliamentary work, marking a major institutional and geopolitical milestone in the UK.",
                 "summary_en": "A British court ruling confirms the constitutionality of suspending parliamentary work, marking a major institutional and geopolitical milestone in the UK.",
@@ -5654,14 +5654,7 @@
                 "background_source_url": "https://commons.wikimedia.org/wiki/File:Palacio_de_Westminster,_Londres,_Inglaterra,_2014-08-07,_DD_027.JPG",
                 "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-05_01_2019_tribunal-britanico-valida-suspensao-do-parlamento-fundo.jpg"
             }
-        ],
-        "instagram_id": "18033435035911431",
-        "instagram_url": "https://www.instagram.com/p/DfXkznlmNyS/",
-        "published_at": "2026-11-05T17:32:43.350739",
-        "instagram_story_id": "17981115011920164",
-        "facebook_id": "1318455601360516_122098719891541219",
-        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122098719891541219",
-        "facebook_story_id": "3238302523037686"
+        ]
     },
     {
         "id": "pt_2026-11-06_1",
@@ -5830,8 +5823,7 @@
                 "source_platform": "arquivo.pt",
                 "source_profile": "dn.pt",
                 "networks": [
-                    "facebook",
-                    "x"
+                    "facebook"
                 ],
                 "image_url": "",
                 "image_delete_url": "",
@@ -5878,8 +5870,7 @@
                 "source_platform": "arquivo.pt",
                 "source_profile": "rtp.pt",
                 "networks": [
-                    "facebook",
-                    "x"
+                    "facebook"
                 ],
                 "image_url": "",
                 "image_delete_url": "",
@@ -5926,8 +5917,7 @@
                 "source_platform": "arquivo.pt",
                 "source_profile": "publico.pt",
                 "networks": [
-                    "facebook",
-                    "x"
+                    "facebook"
                 ],
                 "image_url": "",
                 "image_delete_url": "",
@@ -6107,8 +6097,7 @@
                 "source_platform": "arquivo.pt",
                 "source_profile": "publico.pt",
                 "networks": [
-                    "facebook",
-                    "x"
+                    "facebook"
                 ],
                 "image_url": "",
                 "image_delete_url": "",
@@ -6155,8 +6144,7 @@
                 "source_platform": "arquivo.pt",
                 "source_profile": "noticiasaominuto.com",
                 "networks": [
-                    "facebook",
-                    "x"
+                    "facebook"
                 ],
                 "image_url": "",
                 "image_delete_url": "",
@@ -6203,8 +6191,7 @@
                 "source_platform": "arquivo.pt",
                 "source_profile": "dn.pt",
                 "networks": [
-                    "facebook",
-                    "x"
+                    "facebook"
                 ],
                 "image_url": "",
                 "image_delete_url": "",
@@ -6242,7 +6229,6 @@
                 "caption": "In 2024, Portuguese lawmakers approved a major expansion of parental leave and universal preschool starting at age three, marking a structural shift in family policy. The reform increases initial leave and ensures every child a preschool spot, reflecting a national commitment to early childhood development.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2024.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
                 "caption_instagram": "In 2024, Portuguese lawmakers approved a major expansion of parental leave and universal preschool starting at age three, marking a structural shift in family policy. The reform increases initial leave and ensures every child a preschool spot, reflecting a national commitment to early childhood development.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2024.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
                 "caption_facebook": "In 2024, Portuguese lawmakers approved a major expansion of parental leave and universal preschool starting at age three, marking a structural shift in family policy. The reform increases initial leave and ensures every child a preschool spot, reflecting a national commitment to early childhood development.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2024.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Economy",
-                "caption_x": "",
                 "year": "2024",
                 "summary": "Significant expansion of parental rights and universal preschool education starting at age three, opposed by PSD and CDS-PP.",
                 "summary_en": "Significant expansion of parental rights and universal preschool education starting at age three, opposed by PSD and CDS-PP.",
@@ -6307,7 +6293,6 @@
                 "caption": "In 2015, the PSD and CDS-PP approved the government program, consolidating a new executive after October legislative elections. The announcement came amid instability as the PS and Left Bloc failed to build a left-wing majority.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2015.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Politics",
                 "caption_instagram": "In 2015, the PSD and CDS-PP approved the government program, consolidating a new executive after October legislative elections. The announcement came amid instability as the PS and Left Bloc failed to build a left-wing majority.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2015.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Politics",
                 "caption_facebook": "In 2015, the PSD and CDS-PP approved the government program, consolidating a new executive after October legislative elections. The announcement came amid instability as the PS and Left Bloc failed to build a left-wing majority.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2015.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Politics",
-                "caption_x": "",
                 "year": "2015",
                 "summary": "Approval of government program by PSD and CDS-PP while left attempts to form alternative led by PS.",
                 "summary_en": "Approval of government program by PSD and CDS-PP while left attempts to form alternative led by PS.",
@@ -6475,8 +6460,7 @@
                 "caption_facebook": "Mais de quarenta arguidos são processados por esquema de fraude carrossel que causou prejuízo ao Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2011.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
                 "body": "",
                 "networks": [
-                    "facebook",
-                    "x"
+                    "facebook"
                 ]
             },
             {
@@ -6570,8 +6554,7 @@
                 "caption_facebook": "O Supremo Tribunal de Justiça instaura inquérito ao Governo de António Costa, relacionado a suspeitas de irregularidades.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
                 "body": "",
                 "networks": [
-                    "facebook",
-                    "x"
+                    "facebook"
                 ]
             },
             {
@@ -6618,8 +6601,7 @@
                 "caption_facebook": "Líder político antecipa possíveis encerramentos de serviços públicos no pós-eleitoral.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2013.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
                 "body": "",
                 "networks": [
-                    "facebook",
-                    "x"
+                    "facebook"
                 ]
             }
         ]
@@ -6752,8 +6734,7 @@
                 "caption_facebook": "O Supremo Tribunal de Justiça instaura inquérito ao Governo de António Costa, relacionado a suspeitas de irregularidades.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
                 "body": "",
                 "networks": [
-                    "facebook",
-                    "x"
+                    "facebook"
                 ]
             },
             {
@@ -6800,8 +6781,7 @@
                 "caption_facebook": "Mais de quarenta arguidos são processados por esquema de fraude carrossel que causou prejuízo ao Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2011.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
                 "body": "",
                 "networks": [
-                    "facebook",
-                    "x"
+                    "facebook"
                 ]
             },
             {
@@ -6848,8 +6828,7 @@
                 "caption_facebook": "Líder político antecipa possíveis encerramentos de serviços públicos no pós-eleitoral.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2013.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
                 "body": "",
                 "networks": [
-                    "facebook",
-                    "x"
+                    "facebook"
                 ]
             },
             {
@@ -6896,8 +6875,7 @@
                 "caption_facebook": "O Governo debate alterações à Lei da Nacionalidade, segundo declaração do Secretário de Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
                 "body": "",
                 "networks": [
-                    "facebook",
-                    "x"
+                    "facebook"
                 ]
             }
         ]
@@ -6927,7 +6905,6 @@
                 "caption": "In 2011, schools reported an increase in the number of students receiving assistance with school meals. The figures point to growing demand for nutritional support among students.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2011.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Education",
                 "caption_instagram": "In 2011, schools reported an increase in the number of students receiving assistance with school meals. The figures point to growing demand for nutritional support among students.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2011.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Education",
                 "caption_facebook": "In 2011, schools reported an increase in the number of students receiving assistance with school meals. The figures point to growing demand for nutritional support among students.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2011.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Education",
-                "caption_x": "",
                 "year": "2011",
                 "summary": "The number of students receiving assistance with school meals rose at educational institutions.",
                 "summary_en": "The number of students receiving assistance with school meals rose at educational institutions.",
@@ -6992,7 +6969,6 @@
                 "caption": "Portugal and Spain have decided to keep their shared borders open in 2020, rejecting new closures during the pandemic. Both Iberian nations are maintaining free movement between their territories despite ongoing health concerns. The decision reflects a coordinated approach to managing the crisis while preserving essential cross-border ties.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2020.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Health",
                 "caption_instagram": "Portugal and Spain have decided to keep their shared borders open in 2020, rejecting new closures during the pandemic. Both Iberian nations are maintaining free movement between their territories despite ongoing health concerns. The decision reflects a coordinated approach to managing the crisis while preserving essential cross-border ties.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2020.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Health",
                 "caption_facebook": "Portugal and Spain have decided to keep their shared borders open in 2020, rejecting new closures during the pandemic. Both Iberian nations are maintaining free movement between their territories despite ongoing health concerns. The decision reflects a coordinated approach to managing the crisis while preserving essential cross-border ties.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2020.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Health",
-                "caption_x": "",
                 "year": "2020",
                 "summary": "Portugal and Spain keep shared borders open, refusing new restrictions amid the pandemic.",
                 "summary_en": "Portugal and Spain keep shared borders open, refusing new restrictions amid the pandemic.",
@@ -7823,7 +7799,6 @@
                 "caption": "In 2018, Portugal’s Education Ministry ordered the compulsory closure of the Escola Superior Artística de Guimarães after the institution repeatedly failed evaluation and accreditation reviews. The shutdown brought an end to a chapter for a regional school focused on higher education in the arts.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2018.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Education",
                 "caption_instagram": "In 2018, Portugal’s Education Ministry ordered the compulsory closure of the Escola Superior Artística de Guimarães after the institution repeatedly failed evaluation and accreditation reviews. The shutdown brought an end to a chapter for a regional school focused on higher education in the arts.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2018.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Education",
                 "caption_facebook": "In 2018, Portugal’s Education Ministry ordered the compulsory closure of the Escola Superior Artística de Guimarães after the institution repeatedly failed evaluation and accreditation reviews. The shutdown brought an end to a chapter for a regional school focused on higher education in the arts.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2018.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Education",
-                "caption_x": "",
                 "year": "2018",
                 "summary": "The Ministry of Higher Education ordered the mandatory closure of the institution following repeated accreditation failures.",
                 "summary_en": "The Ministry of Higher Education ordered the mandatory closure of the institution following repeated accreditation failures.",
@@ -7885,7 +7860,6 @@
                 "caption": "During Chinese President Hu Jintao’s 2010 state visit to Lisbon, Portugal and China signed bilateral agreements worth 712 million euros. The deals established financial and energy partnerships between companies in both countries and deepened economic cooperation.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2010.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
                 "caption_instagram": "During Chinese President Hu Jintao’s 2010 state visit to Lisbon, Portugal and China signed bilateral agreements worth 712 million euros. The deals established financial and energy partnerships between companies in both countries and deepened economic cooperation.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2010.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
                 "caption_facebook": "During Chinese President Hu Jintao’s 2010 state visit to Lisbon, Portugal and China signed bilateral agreements worth 712 million euros. The deals established financial and energy partnerships between companies in both countries and deepened economic cooperation.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2010.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Economy",
-                "caption_x": "",
                 "year": "2010",
                 "summary": "A state visit by Chinese President Hu Jintao to Lisbon yielded commercial and energy partnerships worth 712 million euros.",
                 "summary_en": "A state visit by Chinese President Hu Jintao to Lisbon yielded commercial and energy partnerships worth 712 million euros.",

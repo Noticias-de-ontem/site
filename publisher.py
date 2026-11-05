@@ -1452,7 +1452,7 @@ Look at the following raw news publications from exactly this day in the past. Y
    - ENDURING VALUE: Routine institutional birthdays, age-count announcements, congratulatory ceremonies, and publicity-led anniversaries are low-value. Only choose anniversary coverage when it contains a substantive event that remains worth reading without the anniversary number.
 2. Determine a short category in uppercase (max 2 words, examples: "ATUALIDADE", "POLITICA", "MUNDO", "DESPORTO", "ECONOMIA", "CIENCIA", "TECNOLOGIA", "CULTURA").
 3. Write a short, punchy title for the image overlay. (Use the TITLE-ONLY OFFICE HOOK if applicable).
-4. Choose highlight_text as either an empty string or 1 to 3 words that already appear exactly in the title. Prefer just 1 word. Only choose highlight_text when it improves the design and editorial emphasis.
+4. Choose highlight_text as 1 to 3 key words that appear verbatim in the title (MANDATORY: NEVER leave empty, a phrase is required to be highlighted in blue).
 5. Write overlay_description as a short sentence for the image overlay, ideally 8 to 16 words, with no hashtags and no call to action.
 6. Write image_theme as a short visual search query, ideally 2 to 5 words, that would help find a fitting background image.
 7. If this is not breaking news, choose layout_preference from: "template_1", "template_2", "template_3", "template_4".
@@ -1461,11 +1461,10 @@ Look at the following raw news publications from exactly this day in the past. Y
    - template_3: photo-led composition with centered lower title
    - template_4: same as template_1 but cleaner, with no shadow, only when the text area can stay simple
 8. Set breaking_candidate to true only if this clearly deserves the special breaking layout. Otherwise false.
-9. Add "networks": a JSON array choosing which of our social networks this story fits: "instagram", "facebook", "x".
+9. Add "networks": a JSON array choosing which of our social networks this story fits: "instagram", "facebook".
    - Instagram: visual, nostalgic, desporto, cultura, estrelas, curiosidades.
    - Facebook: política, sociedade, economia, marcos nacionais, discussão geral (público maduro 35-65+).
-   - X: política, economia, ciência, tecnologia, mundial, debate atualizado (público instruído).
-   - Most stories belong to ONE network. Use two only when the story genuinely fits both audiences. Use all three only for historic landmark / major event stories (level 1-2).
+   - Most stories belong to ONE network. Use two only when the story genuinely fits both audiences. Use both only for historic landmark / major event stories (level 1-2).
 10. Rewrite the story of that specific event into an expanded, well-written mini-summary for the post caption. You must completely use your own words (to avoid copyright issues). (Use the TITLE-ONLY OFFICE HOOK if applicable).
 11. Write like a strong social editor, not a formal newspaper archive. It can feel lively and culturally aware, focusing on nostalgia and recognition, while staying accurate.
 12. Pretend you are publishing this news ON THE VERY DAY IT HAPPENED. NEVER say things like "hoje faz X anos", "neste dia", or "noticia antiga".
@@ -1473,12 +1472,12 @@ Look at the following raw news publications from exactly this day in the past. Y
 14. PLATFORM-SPECIFIC CAPTIONS:
 - Do NOT start the caption with the year (e.g. NEVER start with "Em 2015," or "No ano de 2021,"). Integrate the year naturally inside or towards the end of the narrative phrase (e.g. "A Assembleia da República viveu um momento inédito na democracia em 2021: ...").
 - Standard disclaimer MUST follow: "Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de [ANO]."
-- For "caption_instagram": include link phrase "ðŸ”— Lê a notícia completa no link da bio." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]" (e.g. #Politica, #Mundo, #Sociedade). NEVER use #atualidade.
-- For "caption_facebook": include link phrase "ðŸ”— Lê a notícia completa no site no sobre do perfil." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]". NEVER use #atualidade.
+- For "caption_instagram": include link phrase "🔗 Lê a notícia completa no link da bio." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]" (e.g. #Politica, #Mundo, #Sociedade). NEVER use #atualidade.
+- For "caption_facebook": include link phrase "🔗 Lê a notícia completa no site no sobre do perfil." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]". NEVER use #atualidade.
 
 Write your response in Portuguese.
 Return a JSON object with exactly these keys:
-category, title, highlight_text, overlay_description, image_theme, layout_preference, breaking_candidate, networks, caption_instagram, caption_facebook, caption_x
+category, title, highlight_text, overlay_description, image_theme, layout_preference, breaking_candidate, networks, caption_instagram, caption_facebook
 
 News Items:
 {context_list}"""
@@ -1495,7 +1494,7 @@ Look at the following raw news publications from exactly this day in the past. Y
    - ENDURING VALUE: Routine institutional birthdays, age-count announcements, congratulatory ceremonies, and publicity-led anniversaries are low-value. Only choose anniversary coverage when it contains a substantive event that remains worth reading without the anniversary number.
 2. Determine a short category in uppercase (max 2 words, examples: "NEWS", "POLITICS", "WORLD", "SPORTS", "ECONOMY", "SCIENCE", "TECHNOLOGY", "CULTURE").
 3. Write a short, punchy title for the image overlay. (Use the TITLE-ONLY OFFICE HOOK if applicable).
-4. Choose highlight_text as either an empty string or 1 to 3 words that already appear exactly in the title. Prefer just 1 word. Only choose highlight_text when it improves the design and editorial emphasis.
+4. Choose highlight_text as 1 to 3 key words that appear verbatim in the title (MANDATORY: NEVER leave empty, a phrase is required to be highlighted in blue).
 5. Write overlay_description as a short sentence for the image overlay, ideally 8 to 16 words, with no hashtags and no call to action.
 6. Write image_theme as a short visual search query, ideally 2 to 5 words, that would help find a fitting background image.
 7. If this is not breaking news, choose layout_preference from: "template_1", "template_2", "template_3", "template_4".
@@ -1504,11 +1503,10 @@ Look at the following raw news publications from exactly this day in the past. Y
    - template_3: photo-led composition with centered lower title
    - template_4: same as template_1 but cleaner, with no shadow, only when the text area can stay simple
 8. Set breaking_candidate to true only if this clearly deserves the special breaking layout. Otherwise false.
-9. Add "networks": a JSON array choosing which of our social networks this story fits: "instagram", "facebook", "x".
+9. Add "networks": a JSON array choosing which of our social networks this story fits: "instagram", "facebook".
    - Instagram: visual, nostalgic, sports, culture, celebrities, curiosities.
    - Facebook: politics, society, economy, national milestones, general discussion (mature audience 35-65+).
-   - X: politics, economy, science, technology, world news, real-time debate (informed audience).
-   - Most stories belong to ONE network. Use two only when the story genuinely fits both audiences. Use all three only for historic landmark / major event stories (level 1-2).
+   - Most stories belong to ONE network. Use two only when the story genuinely fits both audiences. Use both only for historic landmark / major event stories (level 1-2).
 10. Rewrite the story of that specific event into an expanded, well-written mini-summary for the post caption. You must completely use your own words (to avoid copyright issues). (Use the TITLE-ONLY OFFICE HOOK if applicable).
 11. Write like a strong social editor, not a formal newspaper archive. It can feel lively and culturally aware, focusing on nostalgia and recognition, while staying accurate.
 12. Pretend you are publishing this news ON THE VERY DAY IT HAPPENED. NEVER say things like "X years ago today", "on this day", or "old news".
@@ -1517,11 +1515,10 @@ Look at the following raw news publications from exactly this day in the past. Y
 - Standard disclaimer MUST follow: "This post is intended solely to recall past events in history, never representing current events. This story is from [YEAR]."
 - For "caption_instagram": include link phrase "🔗 Read the full story at the link in bio." and hashtags "#YesterdaysNews #ArquivoPT #[Category]".
 - For "caption_facebook": include link phrase "🔗 Read the full story on the website in the profile's About section." and hashtags "#YesterdaysNews #ArquivoPT #[Category]".
-- For "caption_x": short, under 280 chars, punchy, current-events style.
 
 Write your response in English.
 Return a JSON object with exactly these keys:
-category, title, highlight_text, overlay_description, image_theme, layout_preference, breaking_candidate, networks, caption_instagram, caption_facebook, caption_x
+category, title, highlight_text, overlay_description, image_theme, layout_preference, breaking_candidate, networks, caption_instagram, caption_facebook
 
 News Items:
 {context_list}"""
@@ -1544,12 +1541,11 @@ News Items:
             networks = payload.get("networks", ["instagram"])
             if not isinstance(networks, list):
                 networks = ["instagram"]
-            networks = [str(n).strip().lower() for n in networks if str(n).strip().lower() in ("instagram", "facebook", "x")]
+            networks = [str(n).strip().lower() for n in networks if str(n).strip().lower() in ("instagram", "facebook")]
             if not networks:
                 networks = ["instagram"]
             caption_instagram = normalize_text(payload.get("caption_instagram", "") or payload.get("caption", ""))
             caption_facebook = normalize_text(payload.get("caption_facebook", "") or payload.get("caption", ""))
-            caption_x = normalize_text(payload.get("caption_x", "") or payload.get("caption", ""))
             new_caption = normalize_text(payload.get("caption", ""))
 
             if not title or not new_caption:
@@ -1568,7 +1564,6 @@ News Items:
                 networks,
                 caption_instagram,
                 caption_facebook,
-                caption_x,
             )
         except Exception as e:
             err_msg = str(e).lower()
@@ -2137,7 +2132,6 @@ def main():
                         networks = ["instagram"]
                     caption_instagram = normalize_text(option.get("caption_instagram", "") or option.get("caption", ""))
                     caption_facebook = normalize_text(option.get("caption_facebook", "") or option.get("caption", ""))
-                    caption_x = normalize_text(option.get("caption_x", "") or option.get("caption", ""))
                     year = option.get("year")
                     # Post aprovado ja traz tudo (legenda, titulo, ano, imagem):
                     # nao ir buscar candidatos ao Arquivo aqui. O get_today_news

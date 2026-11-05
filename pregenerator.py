@@ -863,7 +863,7 @@ def enrich_options_with_ai(options, lang):
       "idx": 0,
       "title_en": "The headline in natural United States English (not a literal translation)",
       "summary_en": "The overlay/summary in natural United States English",
-      "networks": ["instagram", "facebook" ou "x" — ver regras],
+      "networks": ["instagram" ou "facebook" — ver regras],
       "relevance": {{
         "impacto_historico": 0-100,
         "dimensao_impacto": 0-100,
