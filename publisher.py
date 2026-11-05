@@ -6,6 +6,7 @@ import shutil
 import sys
 import unicodedata
 import gzip
+import hashlib
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import unquote, urlparse
@@ -118,6 +119,34 @@ def copy_image_reference_to_path(image_url, output_path, timeout=30, retries=3):
         shutil.copyfile(local_path, output_path)
         return True
     return False
+
+
+def site_preview_matches_repo(public_url, timeout=30):
+    """Compara os bytes que o site serve para uma preview aprovada com o
+    ficheiro do checkout do repo. Devolve True se forem identicos, False
+    se diferirem (ou o download falhar) e None se nao for uma preview do
+    site ou o ficheiro local nao existir. Serve para detetar a corrida
+    entre o push da preview e o deploy do Pages: o Instagram vai buscar
+    a imagem ao URL do site no instante da publicacao, e se o deploy
+    ainda nao propagou (ou o CDN ainda serve a versao antiga), o post
+    sai com a imagem anterior — 5 nov 2026, 19:10: o post EN da tarde
+    saiu com o template_3 antigo apesar de a preview nova (template_2,
+    "UK COURT" em ciano) ja estar no repo."""
+    mirror_match = re.search(r"/images/approved/([^/?#]+)$", str(public_url or ""))
+    if not mirror_match:
+        return None
+    local_path = os.path.join("site", "images", "approved", mirror_match.group(1))
+    if not os.path.isfile(local_path):
+        return None
+    try:
+        with open(local_path, "rb") as f:
+            local_hash = hashlib.md5(f.read()).hexdigest()
+        resp = requests.get(public_url, timeout=timeout)
+        if resp.status_code != 200:
+            return False
+        return hashlib.md5(resp.content).hexdigest() == local_hash
+    except Exception:
+        return False
 
 MAX_NVIDIA_INPUT_ITEMS = int(os.environ.get("PUBLISHER_NVIDIA_MAX_INPUT_ITEMS", "8"))
 ARQUIVO_AI_MAX_CANDIDATES = int(os.environ.get("ARQUIVO_AI_MAX_CANDIDATES", "300"))
@@ -2236,6 +2265,42 @@ def main():
             public_image_url = existing_img_url
             delete_url = option.get("image_delete_url", "")
             print(f"[{lang}] A reutilizar URL publica da imagem aprovada: {public_image_url}")
+            # Garantia de preview atual: o Instagram vai buscar a imagem
+            # ao URL do site no instante da publicacao. Se a preview foi
+            # enviada para o repo segundos antes desta run, o deploy do
+            # Pages ainda nao propagou (ou o CDN ainda serve a versao
+            # antiga) e o post sai com a imagem anterior — 5 nov 2026,
+            # 19:10, o EN da tarde saiu com o template_3 antigo apesar
+            # de a preview nova (template_2, "UK COURT" em ciano) ja
+            # estar no repo. Nesse caso, subir o ficheiro local (a
+            # verdade do repo) para o ImgBB e entregar ao Instagram
+            # essa URL imutavel; se o upload falhar, manter o URL do
+            # site (comportamento anterior). A story usa o mesmo
+            # public_image_url, por isso fica coberta tambem.
+            if site_preview_matches_repo(public_image_url) is False:
+                print(f"[{lang}] Site ainda serve versao antiga da preview; a subir o ficheiro local para o ImgBB.")
+                if imgbb_api_key:
+                    _m = re.search(r"/images/approved/([^/?#]+)$", str(public_image_url))
+                    _local = os.path.join("site", "images", "approved", _m.group(1)) if _m else ""
+                    try:
+                        with open(_local, "rb") as img_file:
+                            imgbb_res = requests.post(
+                                "https://api.imgbb.com/1/upload",
+                                data={"key": imgbb_api_key},
+                                files={"image": img_file},
+                                timeout=60,
+                            )
+                        imgbb_data = imgbb_res.json()
+                        if imgbb_data.get("success"):
+                            public_image_url = imgbb_data["data"]["url"]
+                            delete_url = imgbb_data["data"].get("delete_url", "")
+                            print(f"[{lang}] Preview atualizada via ImgBB: {public_image_url}")
+                        else:
+                            print(f"[{lang}] Erro IMGBB na preview atualizada: {imgbb_data}")
+                    except Exception as e:
+                        print(f"[{lang}] Excecao IMGBB na preview atualizada: {e}")
+                else:
+                    print(f"[{lang}] IMGBB_API_KEY nao configurado; a manter o URL do site.")
         else:
             if not os.path.exists(output_image_path):
                 print(f"[{lang}] Imagem nao encontrada em {output_image_path}. A saltar todas as redes.")
