@@ -5523,7 +5523,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-05_1",
-        "status": "published",
+        "status": "approved",
         "generated_month": "2026-11",
         "source_profile": "dn.pt",
         "external_suggestions": [],
@@ -5575,14 +5575,7 @@
                 "background_source_url": "https://commons.wikimedia.org/wiki/File:Arabic_Calligraphy_-_Mir_Hosayn_-_1293_AH_-_Islamic_Consultative_Assembly_Museum_of_Iran.jpg",
                 "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-05_01_2015_parlamento-do-irao-aprova-acordo-nuclear-fundo.jpg"
             }
-        ],
-        "instagram_id": "18150265468562076",
-        "instagram_url": "https://www.instagram.com/p/DfXDk_olEen/",
-        "published_at": "2026-11-05T12:42:04.746568",
-        "instagram_story_id": "17918676825265152",
-        "facebook_id": "6aec7996c55ad0f7ef6db576",
-        "facebook_url": "https://www.facebook.com/profile.php?id=1318455601360516",
-        "facebook_story_id": "skipped_no_credentials"
+        ]
     },
     {
         "id": "en_2026-11-05_2",
