@@ -1371,10 +1371,19 @@ def _draw_logo(base_image, lang, left=58, top=74, right=None, center_x=None, sca
     draw = ImageDraw.Draw(base_image)
     draw.text((logo_left + int(2 * scale), bottom_top), bottom_text, font=bottom_font, fill=PURE_WHITE)
 
-    # Logo oficial Arquivo.pt por baixo de "DE ONTEM" com espacamento adequado
+    # Logo oficial Arquivo.pt (com a FCT) por baixo de "DE ONTEM" com
+    # espacamento adequado. O logo e obrigatorio em todos os posts: se o
+    # ficheiro nao existir, o render falha em voz alta em vez de produzir
+    # em silencio uma imagem sem logos, que depois e aprovada e publicada
+    # sem ninguem notar (5 nov 2026: re-renders locais sairam sem os
+    # logos porque o ficheiro nao estava no diretorio de trabalho).
     arquivo_logo_path = os.path.join(os.path.dirname(__file__), "images", "logos", "arquivo_pt_full.png")
     if not os.path.exists(arquivo_logo_path):
         arquivo_logo_path = os.path.join(os.path.dirname(__file__), "site", "assets", "logos", "arquivo_pt_full.png")
+    if not os.path.exists(arquivo_logo_path):
+        raise FileNotFoundError(
+            "Logo do Arquivo.pt em falta (nem images/logos/arquivo_pt_full.png nem site/assets/logos/arquivo_pt_full.png); render recusado para nao publicar um post sem logos"
+        )
 
     if os.path.exists(arquivo_logo_path):
         try:
@@ -1398,7 +1407,7 @@ def _draw_logo(base_image, lang, left=58, top=74, right=None, center_x=None, sca
 
             base_image.paste(arquivo_resized, (arquivo_x, arquivo_y), arquivo_resized)
         except Exception as exc:
-            print(f"[{lang}] Nao foi possivel desenhar o logo do Arquivo.pt: {exc}")
+            raise RuntimeError(f"Nao foi possivel desenhar o logo do Arquivo.pt: {exc}") from exc
 
     return base_image
 
