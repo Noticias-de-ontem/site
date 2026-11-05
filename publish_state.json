@@ -28,7 +28,7 @@
         "evening_target_time": "17:23",
         "instagram": {
             "morning_posted": true,
-            "evening_posted": true,
+            "evening_posted": false,
             "morning_attempted": true,
             "evening_attempted": true,
             "morning_story_posted": true,
@@ -37,7 +37,7 @@
         },
         "facebook": {
             "morning_posted": true,
-            "evening_posted": true,
+            "evening_posted": false,
             "morning_attempted": true,
             "evening_attempted": true,
             "morning_story_posted": true,
