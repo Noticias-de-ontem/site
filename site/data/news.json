@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-05T10:34:07+00:00",
+  "generated_at": "2026-11-05T11:01:26+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -37,15 +37,12 @@
     "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137484426824703",
     "facebook_id": "1030669413467151_122137484426824703",
     "archive_credit": "Arquivo.pt",
-    "banner_ready": true,
+    "banner_ready": false,
     "networks": [
       "instagram",
       "facebook"
     ],
-    "cover_focus": [
-      0.505,
-      0.38
-    ],
+    "cover_focus": null,
     "network_posts": {
       "instagram": "https://www.instagram.com/p/DfU_6XkDYMs/",
       "facebook": "https://www.facebook.com/122136509126824703/posts/122137484426824703"
@@ -100,15 +97,12 @@
       "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137484426824703",
       "facebook_id": "1030669413467151_122137484426824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.505,
-        0.38
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfU_6XkDYMs/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137484426824703"
@@ -162,15 +156,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136978242824703",
       "facebook_id": "1030669413467151_122136978242824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.6
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfMoVeTFK2j/",
         "facebook": "https://www.facebook.com/1030669413467151_122136978242824703"
@@ -220,15 +211,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136508664824703",
       "facebook_id": "1030669413467151_122136508664824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.55
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfDIuhDGH8O/",
         "facebook": "https://www.facebook.com/1030669413467151_122136508664824703"
@@ -278,15 +266,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136508274824703",
       "facebook_id": "1030669413467151_122136508274824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.4
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfA9Wa6ie4u/",
         "facebook": "https://www.facebook.com/1030669413467151_122136508274824703"
@@ -336,15 +321,12 @@
       "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137344740824703",
       "facebook_id": "1030669413467151_122137344740824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfSslgAGsNX/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137344740824703"
@@ -398,15 +380,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122137176890824703",
       "facebook_id": "1030669413467151_122137176890824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfQJJurl-oj/",
         "facebook": "https://www.facebook.com/1030669413467151_122137176890824703"
@@ -428,6 +407,61 @@
       "page_id": "noticia-017bd61178fa8c59845d65ec",
       "detail_image": "assets/banners/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-017bd61178fa8c59845d65ec.jpg",
+      "relevance_justification_en": ""
+    },
+    {
+      "id": "pt_2026-10-27_1",
+      "lang": "pt",
+      "date": "2026-10-27",
+      "slot": 1,
+      "status": "published",
+      "published_at": "2026-10-27T13:51:01.419038",
+      "category": "CULTURA",
+      "title": "UNESCO proclama o dia 27 de outubro como Dia Mundial do Património Audiovisual",
+      "title_en": "UNESCO proclaims 27 October as World Day for Audiovisual Heritage",
+      "summary": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual",
+      "summary_en": "In 2005, UNESCO proclaimed 27 October as the World Day for Audiovisual Heritage.",
+      "original_year": "2005",
+      "image": "assets/posts/2026-10-27-1-unesco-proclama-o-dia-27-de-outubro-como-dia-mundial-do-patrimnio-audiovisual.jpg",
+      "banner_image": "assets/banners/2026-10-27-1-unesco-proclama-o-dia-27-de-outubro-como-dia-mundial-do-patrimnio-audiovisual-banner.jpg",
+      "body": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, na 21.ª sessão da Conferência Geral da UNESCO, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.",
+      "body_en": "In 2005, UNESCO proclaimed 27 October as the World Day for Audiovisual Heritage. The date was chosen to commemorate the adoption, at the 21st session of the General Conference of UNESCO on 27 October 1980, of the Recommendation for the Safeguarding and Preservation of Moving Images.",
+      "caption": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.",
+      "source_url": "https://arquivo.pt/wayback/20240511194613/https://blogue.rbe.mec.pt/dia-mundial-do-patrimonio-audiovisual-2655124",
+      "source_profile": "blogue.rbe.mec.pt",
+      "source_platform": "arquivo.pt",
+      "instagram_url": "https://www.instagram.com/p/DfAAVuLly5s/",
+      "instagram_id": "18174809590400840",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136507968824703",
+      "facebook_id": "1030669413467151_122136507968824703",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram",
+        "facebook"
+      ],
+      "cover_focus": null,
+      "network_posts": {
+        "instagram": "https://www.instagram.com/p/DfAAVuLly5s/",
+        "facebook": "https://www.facebook.com/1030669413467151_122136507968824703"
+      },
+      "relevance_level": 3,
+      "relevance_scores": {
+        "impacto_historico": 65.0,
+        "dimensao_impacto": 65.0,
+        "consequencias": 60.0,
+        "relevancia_posterior": 65.0,
+        "dimensao_duracao": 60.0,
+        "relevancia_mediatica": 50.0,
+        "singularidade": 60.0
+      },
+      "relevance_weighted": 62.5,
+      "relevance_justification": "Proclamação pela UNESCO de uma efeméride internacional para preservação do património audiovisual global.",
+      "source_type": "internet_profile",
+      "url_path": "noticia/cultura/unesco-proclama-o-dia-27-de",
+      "page_id": "noticia-fdeed003efa49ffb3b6cbaca",
+      "detail_image": "assets/banners/2026-10-27-1-unesco-proclama-o-dia-27-de-outubro-como-dia-mundial-do-patrimnio-audiovisual-banner.jpg",
+      "snapshot_url": "assets/snapshots/noticia-fdeed003efa49ffb3b6cbaca.jpg",
       "relevance_justification_en": ""
     },
     {
@@ -456,15 +490,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136645716824703",
       "facebook_id": "1030669413467151_122136645716824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfGJ4rsjAvA/",
         "facebook": "https://www.facebook.com/1030669413467151_122136645716824703"
@@ -514,15 +545,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136905096824703",
       "facebook_id": "1030669413467151_122136905096824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfLEzL0ox6l/",
         "facebook": "https://www.facebook.com/1030669413467151_122136905096824703"
@@ -544,64 +572,6 @@
       "page_id": "noticia-9e4235e75faf7e97f8470de0",
       "detail_image": "assets/banners/2026-10-31-2-revolta-militar-de-31-de-outubro-desafia-poder-governamental-no-porto-banner.jpg",
       "snapshot_url": "",
-      "relevance_justification_en": ""
-    },
-    {
-      "id": "pt_2026-10-27_1",
-      "lang": "pt",
-      "date": "2026-10-27",
-      "slot": 1,
-      "status": "published",
-      "published_at": "2026-10-27T13:51:01.419038",
-      "category": "CULTURA",
-      "title": "UNESCO proclama o dia 27 de outubro como Dia Mundial do Património Audiovisual",
-      "title_en": "UNESCO proclaims 27 October as World Day for Audiovisual Heritage",
-      "summary": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual",
-      "summary_en": "In 2005, UNESCO proclaimed 27 October as the World Day for Audiovisual Heritage.",
-      "original_year": "2005",
-      "image": "assets/posts/2026-10-27-1-unesco-proclama-o-dia-27-de-outubro-como-dia-mundial-do-patrimnio-audiovisual.jpg",
-      "banner_image": "assets/banners/2026-10-27-1-unesco-proclama-o-dia-27-de-outubro-como-dia-mundial-do-patrimnio-audiovisual-banner.jpg",
-      "body": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, na 21.ª sessão da Conferência Geral da UNESCO, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.",
-      "body_en": "In 2005, UNESCO proclaimed 27 October as the World Day for Audiovisual Heritage. The date was chosen to commemorate the adoption, at the 21st session of the General Conference of UNESCO on 27 October 1980, of the Recommendation for the Safeguarding and Preservation of Moving Images.",
-      "caption": "Em 2005, a UNESCO proclamou o dia 27 de outubro como o Dia Mundial do Património Audiovisual. A data foi escolhida para assinalar a aprovação, em 27 de outubro de 1980, da Recomendação sobre a Salvaguarda e Conservação das Imagens em Movimento.",
-      "source_url": "https://arquivo.pt/wayback/20240511194613/https://blogue.rbe.mec.pt/dia-mundial-do-patrimonio-audiovisual-2655124",
-      "source_profile": "blogue.rbe.mec.pt",
-      "source_platform": "arquivo.pt",
-      "instagram_url": "https://www.instagram.com/p/DfAAVuLly5s/",
-      "instagram_id": "18174809590400840",
-      "facebook_url": "https://www.facebook.com/1030669413467151_122136507968824703",
-      "facebook_id": "1030669413467151_122136507968824703",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram",
-        "facebook"
-      ],
-      "cover_focus": [
-        0.35,
-        0.5
-      ],
-      "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfAAVuLly5s/",
-        "facebook": "https://www.facebook.com/1030669413467151_122136507968824703"
-      },
-      "relevance_level": 3,
-      "relevance_scores": {
-        "impacto_historico": 65.0,
-        "dimensao_impacto": 65.0,
-        "consequencias": 60.0,
-        "relevancia_posterior": 65.0,
-        "dimensao_duracao": 60.0,
-        "relevancia_mediatica": 50.0,
-        "singularidade": 60.0
-      },
-      "relevance_weighted": 62.5,
-      "relevance_justification": "Proclamação pela UNESCO de uma efeméride internacional para preservação do património audiovisual global.",
-      "source_type": "internet_profile",
-      "url_path": "noticia/cultura/unesco-proclama-o-dia-27-de",
-      "page_id": "noticia-fdeed003efa49ffb3b6cbaca",
-      "detail_image": "assets/banners/2026-10-27-1-unesco-proclama-o-dia-27-de-outubro-como-dia-mundial-do-patrimnio-audiovisual-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-fdeed003efa49ffb3b6cbaca.jpg",
       "relevance_justification_en": ""
     }
   ],
@@ -637,10 +607,7 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfUxG5elGWE/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137471910824703"
@@ -694,15 +661,12 @@
       "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137300706824703",
       "facebook_id": "1030669413467151_122137300706824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfR8QOlAerK/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137300706824703"
@@ -756,15 +720,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122137127456824703",
       "facebook_id": "1030669413467151_122137127456824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.75,
-        0.65
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfPVfgdGFSl/",
         "facebook": "https://www.facebook.com/1030669413467151_122137127456824703"
@@ -823,10 +784,7 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfNtA2DFy0k/",
         "facebook": "https://www.facebook.com/1030669413467151_122137031066824703"
@@ -881,10 +839,7 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.6
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfJ8qcil2sv/",
         "facebook": "https://www.facebook.com/1030669413467151_122136852272824703"
@@ -934,15 +889,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136784382824703",
       "facebook_id": "1030669413467151_122136784382824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.73,
-        0.57
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfIuHjfjSnv/",
         "facebook": "https://www.facebook.com/1030669413467151_122136784382824703"
@@ -992,15 +944,12 @@
       "facebook_url": "https://www.facebook.com/noticiasdeontempt",
       "facebook_id": "crosspost_18096851696149000",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfHpNAzIP5y/",
         "facebook": "https://www.facebook.com/noticiasdeontempt"
@@ -1052,15 +1001,12 @@
       "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137484426824703",
       "facebook_id": "1030669413467151_122137484426824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.505,
-        0.38
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfU_6XkDYMs/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137484426824703"
@@ -1119,10 +1065,7 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfUxG5elGWE/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137471910824703"
@@ -1176,15 +1119,12 @@
       "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137344740824703",
       "facebook_id": "1030669413467151_122137344740824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfSslgAGsNX/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137344740824703"
@@ -1238,15 +1178,12 @@
       "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137300706824703",
       "facebook_id": "1030669413467151_122137300706824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfR8QOlAerK/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137300706824703"
@@ -1300,15 +1237,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122137176890824703",
       "facebook_id": "1030669413467151_122137176890824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfQJJurl-oj/",
         "facebook": "https://www.facebook.com/1030669413467151_122137176890824703"
@@ -1358,15 +1292,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122137127456824703",
       "facebook_id": "1030669413467151_122137127456824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.75,
-        0.65
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfPVfgdGFSl/",
         "facebook": "https://www.facebook.com/1030669413467151_122137127456824703"
@@ -1425,10 +1356,7 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfNtA2DFy0k/",
         "facebook": "https://www.facebook.com/1030669413467151_122137031066824703"
@@ -1478,15 +1406,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136978242824703",
       "facebook_id": "1030669413467151_122136978242824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.6
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfMoVeTFK2j/",
         "facebook": "https://www.facebook.com/1030669413467151_122136978242824703"
@@ -1536,15 +1461,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136905096824703",
       "facebook_id": "1030669413467151_122136905096824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfLEzL0ox6l/",
         "facebook": "https://www.facebook.com/1030669413467151_122136905096824703"
@@ -1599,10 +1521,7 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.6
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfJ8qcil2sv/",
         "facebook": "https://www.facebook.com/1030669413467151_122136852272824703"
@@ -1652,15 +1571,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136784382824703",
       "facebook_id": "1030669413467151_122136784382824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.73,
-        0.57
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfIuHjfjSnv/",
         "facebook": "https://www.facebook.com/1030669413467151_122136784382824703"
@@ -1710,15 +1626,12 @@
       "facebook_url": "https://www.facebook.com/noticiasdeontempt",
       "facebook_id": "crosspost_18096851696149000",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfHpNAzIP5y/",
         "facebook": "https://www.facebook.com/noticiasdeontempt"
@@ -1768,15 +1681,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136645716824703",
       "facebook_id": "1030669413467151_122136645716824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfGJ4rsjAvA/",
         "facebook": "https://www.facebook.com/1030669413467151_122136645716824703"
@@ -1831,10 +1741,7 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.55
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfFERIdFGd9/",
         "facebook": "https://www.facebook.com/1030669413467151_122136604340824703"
@@ -1884,15 +1791,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136508664824703",
       "facebook_id": "1030669413467151_122136508664824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.55
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfDIuhDGH8O/",
         "facebook": "https://www.facebook.com/1030669413467151_122136508664824703"
@@ -1947,10 +1851,7 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.45,
-        0.38
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfCxiYWjNSh/",
         "facebook": "https://www.facebook.com/1030669413467151_122136508376824703"
@@ -2000,15 +1901,12 @@
       "facebook_url": "https://www.facebook.com/1030669413467151_122136508274824703",
       "facebook_id": "1030669413467151_122136508274824703",
       "archive_credit": "Arquivo.pt",
-      "banner_ready": true,
+      "banner_ready": false,
       "networks": [
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.5,
-        0.4
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfA9Wa6ie4u/",
         "facebook": "https://www.facebook.com/1030669413467151_122136508274824703"
@@ -2063,10 +1961,7 @@
         "instagram",
         "facebook"
       ],
-      "cover_focus": [
-        0.35,
-        0.5
-      ],
+      "cover_focus": null,
       "network_posts": {
         "instagram": "https://www.instagram.com/p/DfAAVuLly5s/",
         "facebook": "https://www.facebook.com/1030669413467151_122136507968824703"
