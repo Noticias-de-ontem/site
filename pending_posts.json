@@ -4438,7 +4438,7 @@
                 "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-04_1.jpg",
                 "image_delete_url": "",
                 "local_image_path": "",
-                "background_source_url": "",
+                "background_source_url": "https://commons.wikimedia.org/wiki/File:O_pal%C3%A1cio_do_Congresso_em_S%C3%A3o_Bento_cercado_por_for%C3%A7as_da_pol%C3%ADcia_e_infantaria_da_guarda_Nacional_Republicana_que,_por_ordem_do_governo,_impediu_a_reuni%C3%A3o_dos_parlamentares.png",
                 "local_background_path": "images/backgrounds/2026-11-04_01_2003_obras-urgentes-docapesca-alcantara-trafaria-fundo.jpg",
                 "caption_instagram": "Perante o encerramento das instalações portuárias de Pedrouços, o Governo português anunciou em 2003 obras de urgência na Trafaria e na Doca de Alcântara para criar uma alternativa definitiva à Docapesca.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2003.\n\n🔗 Lê a notícia completa no link na descrição do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
                 "caption_facebook": "Perante o encerramento das instalações portuárias de Pedrouços, o Governo português anunciou em 2003 obras de urgência na Trafaria e na Doca de Alcântara para criar uma alternativa definitiva à Docapesca.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2003.\n\n🔗 Lê a notícia completa no link na descrição do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
@@ -4930,7 +4930,9 @@
                     "weighted_score": 39.5,
                     "justification": "A obra buscava preservar a atividade portuária após o encerramento, mas o resumo não detalha resultados posteriores ou impactos duradouros.",
                     "lang": "pt"
-                }
+                },
+                "local_background_path": "images/backgrounds/2026-11-04_01_2003_obras-urgentes-docapesca-alcantara-trafaria-fundo.jpg",
+                "background_source_url": "https://commons.wikimedia.org/wiki/File:O_pal%C3%A1cio_do_Congresso_em_S%C3%A3o_Bento_cercado_por_for%C3%A7as_da_pol%C3%ADcia_e_infantaria_da_guarda_Nacional_Republicana_que,_por_ordem_do_governo,_impediu_a_reuni%C3%A3o_dos_parlamentares.png"
             }
         ],
         "image_url": "",
