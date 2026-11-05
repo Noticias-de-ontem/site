@@ -1,0 +1,31 @@
+name: Listar e apagar posts FB EN tarde 5 nov (one-off)
+on:
+  workflow_dispatch:
+jobs:
+  fb:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Listar feed EN e apagar posts da tarde
+        env:
+          FB_TOKEN: ${{ secrets.IG_ACCESS_TOKEN_EN }}
+        run: |
+          python3 - <<'PY'
+          import os, requests
+          token = os.environ["FB_TOKEN"]
+          page = "1318455601360516"
+          # Listar feed recente
+          r = requests.get(f"https://graph.facebook.com/v21.0/{page}/feed",
+                           params={"fields": "id,created_time,message", "limit": 10, "access_token": token},
+                           timeout=30)
+          print("LISTA:", r.status_code)
+          try:
+              for p in r.json().get("data", []):
+                  print(p.get("id"), "|", p.get("created_time"), "|", (p.get("message") or "")[:80].replace("\n", " "))
+          except Exception as e:
+              print("ERRO LISTA:", r.text[:500])
+          # Apagar os dois posts da tarde (17:32 e 19:10); tolerar erro se ja nao existir
+          for pid in ["1318455601360516_122098774725541219", "1318455601360516_122098719891541219"]:
+              d = requests.delete(f"https://graph.facebook.com/v21.0/{pid}",
+                                  params={"access_token": token}, timeout=30)
+              print("APAGAR", pid, "->", d.status_code, d.text[:200])
+          PY
