@@ -2128,7 +2128,7 @@ def main():
 
                     if needs_rerender:
                         try:
-                            create_image_with_text(
+                            render_details = create_image_with_text(
                                 category,
                                 short_title,
                                 lang,
@@ -2142,7 +2142,27 @@ def main():
                                 manual_background_url=manual_background_url,
                                 year=year,
                                 relevance_level=(option.get("relevance") or {}).get("level"),
+                                return_details=True,
                             )
+                            # Garantia de fundo unico: quando ha um fundo
+                            # manual (a foto aprovada), o render tem de o
+                            # ter usado. Se o download falhou e a pesquisa
+                            # automatica devolveu outra foto, recusar o
+                            # render — o fallback abaixo usa a preview
+                            # aprovada (PT) ou aborta o slot (EN), mas o
+                            # post nunca sai com uma foto diferente da
+                            # aprovada. Sem isto, um timeout do ImgBB
+                            # trocava a foto em silencio (4 nov 2026,
+                            # manha e tarde). Reaplicada a 5 nov 2026 apos
+                            # o commit fab6e14 a ter revertido (push local
+                            # sem sincronizar com a main).
+                            if manual_background_url:
+                                used_bg = str((render_details or {}).get("background_source_url", "") or "").strip()
+                                if used_bg != manual_background_url.strip():
+                                    raise RuntimeError(
+                                        "fundo manual falhou; pesquisa automatica recusada "
+                                        f"(manual: {manual_background_url[:100]}, usado: {used_bg[:100]})"
+                                    )
                             used_approved_post = True
                         except Exception as e:
                             print(f"[{lang}] Erro ao re-renderizar post aprovado: {e}.")
