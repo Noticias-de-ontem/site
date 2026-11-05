@@ -60,6 +60,11 @@ jobs:
           ENABLE_EN_PUBLISH: "true"
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_ACCESS_TOKEN }}
+          # EN: o token da Pagina «Yesterday's News» e o IG_ACCESS_TOKEN_EN
+          # (o publisher.py, desde o commit fab6e14, le FB_PAGE_ID_EN e
+          # FB_PAGE_ACCESS_TOKEN_EN para a story e para a lookup do post no Buffer).
+          FB_PAGE_ID_EN: "1318455601360516"
+          FB_PAGE_ACCESS_TOKEN_EN: ${{ secrets.IG_ACCESS_TOKEN_EN }}
           # Facebook via Buffer (posts publicos no feed): a API e GraphQL em
           # https://api.buffer.com, com a chave pessoal em BUFFER_API_KEY.
           # Os posts diretos via Graph API ficavam so na aba Fotos.
