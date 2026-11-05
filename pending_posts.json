@@ -5603,7 +5603,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-05_2",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "observador.pt",
         "external_suggestions": [],
@@ -5656,7 +5656,12 @@
             }
         ],
         "instagram_story_id": "17910503658575656",
-        "facebook_story_id": "1886436579387726"
+        "facebook_story_id": "1886436579387726",
+        "instagram_id": "18125664175939740",
+        "instagram_url": "https://www.instagram.com/p/DfXxo2XD54h/",
+        "published_at": "2026-11-05T19:24:35.311441",
+        "facebook_id": "1318455601360516_122098782039541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122098782039541219"
     },
     {
         "id": "pt_2026-11-06_1",
