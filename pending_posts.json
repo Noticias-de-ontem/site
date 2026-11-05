@@ -5603,7 +5603,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-05_2",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "observador.pt",
         "external_suggestions": [],
@@ -5654,7 +5654,14 @@
                 "background_source_url": "https://commons.wikimedia.org/wiki/File:Palacio_de_Westminster,_Londres,_Inglaterra,_2014-08-07,_DD_027.JPG",
                 "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-05_01_2019_tribunal-britanico-valida-suspensao-do-parlamento-fundo.jpg"
             }
-        ]
+        ],
+        "instagram_id": "18112948712236654",
+        "instagram_url": "https://www.instagram.com/p/DfXv-KUlLBv/",
+        "published_at": "2026-11-05T19:10:22.120524",
+        "instagram_story_id": "17910503658575656",
+        "facebook_id": "1318455601360516_122098774725541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122098774725541219",
+        "facebook_story_id": "1886436579387726"
     },
     {
         "id": "pt_2026-11-06_1",
