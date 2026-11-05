@@ -130,13 +130,32 @@ function profileUrl(network) {
     : (cleanProfileUrl(state.data?.facebook_profile_url) || "https://www.facebook.com/noticiasdeontempt");
 }
 
+function itemSocialUrl(item, network, fallbackToProfile = false) {
+  if (!item) return fallbackToProfile ? profileUrl(network) : "";
+  if (state.lang === "en") {
+    const enDirect = network === "instagram"
+      ? (item.instagram_url_en || item.network_posts_en?.instagram || "")
+      : (item.facebook_url_en || item.network_posts_en?.facebook || "");
+    return enDirect || (fallbackToProfile ? profileUrl(network) : "");
+  }
+  const ptDirect = item.network_posts?.[network] || (network === "instagram" ? item.instagram_url : item.facebook_url) || "";
+  return ptDirect || (fallbackToProfile ? profileUrl(network) : "");
+}
+
+function sourceLinkLabel(url, detailButton = false) {
+  if ((url || "").includes("arquivo.pt")) {
+    return detailButton ? t("newsOpenArquivo") : t("openArquivo");
+  }
+  return state.lang === "en" ? "Open original source" : "Abrir na fonte original";
+}
+
 // Os badges no site devem ser sempre instagram e facebook nesta ordem:
 function networkBadgesHtml(item) {
   const ORDER = ["instagram", "facebook"];
   return ORDER.map((network) => {
     const meta = SOCIAL_NETWORKS[network];
     if (!meta) return "";
-    const href = item?.network_posts?.[network] || (network === "instagram" ? (item?.instagram_url || profileUrl("instagram")) : (item?.facebook_url || profileUrl("facebook")));
+    const href = itemSocialUrl(item, network, true);
     const logo = assetPath(meta.logo);
     return `<a class="network-badge network-${network}" href="${escapeHtml(href)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(meta.label)}" title="${escapeHtml(meta.label)}"><img src="${escapeHtml(logo)}" alt="" loading="lazy"></a>`;
   }).join("");
@@ -777,16 +796,46 @@ const CATEGORY_EN = {
   "CIENCIA": "SCIENCE",
   "NACIONAL": "NATIONAL",
   "MUNDIAL": "WORLD",
+  "INTERNACIONAL": "WORLD",
   "ESTRELA": "STARS",
   "CURIOSO": "OFFBEAT",
   "ECONOMIA": "ECONOMY",
   "ATUALIDADE": "NEWS",
+  "NOTÍCIA": "NEWS",
+  "NOTICIA": "NEWS",
+  "NOTÍCIAS": "NEWS",
+  "NOTICIAS": "NEWS",
+  "EDUCAÇÃO": "EDUCATION",
+  "EDUCACAO": "EDUCATION",
+  "HISTÓRIA": "HISTORY",
+  "HISTORIA": "HISTORY",
+  "MEMÓRIA": "HISTORY",
+  "MEMORIA": "HISTORY",
+  "SAÚDE": "HEALTH",
+  "SAUDE": "HEALTH",
+  "JUSTIÇA": "JUSTICE",
+  "JUSTICA": "JUSTICE",
+  "TECNOLOGIA": "TECHNOLOGY",
+  "AMBIENTE": "ENVIRONMENT",
+  "CRIME": "CRIME",
+  "ENTRETENIMENTO": "ENTERTAINMENT",
+  "LOCAL": "SOCIETY",
+  "ARQUIVO.PT": "ARQUIVO.PT",
 };
+
+function translateCategory(rawCategory) {
+  const raw = String(rawCategory || "").trim();
+  if (!raw) return "";
+  if (state.lang !== "en") return raw;
+  const upper = raw.toUpperCase();
+  if (CATEGORY_EN[upper]) return CATEGORY_EN[upper];
+  const folded = upper.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  return CATEGORY_EN[folded] || raw;
+}
 
 function itemMeta(item) {
   if (!item.category) return [];
-  const category = state.lang === "en" ? CATEGORY_EN[item.category] || item.category : item.category;
-  return [category];
+  return [translateCategory(item.category)];
 }
 
 // Título limpo (sem ano residual) para contexts onde o ano aparece à parte.
@@ -900,7 +949,7 @@ function updateDocumentMetadata() {
         mainEntityOfPage: absolutePageUrl(seo.path),
         image: [image],
         datePublished: item.date || undefined,
-        articleSection: item.category || undefined,
+        articleSection: translateCategory(item.category) || undefined,
         inLanguage: isEn ? "en-US" : "pt-PT",
         isBasedOn: item.source_url || "https://arquivo.pt/",
         publisher: {
@@ -911,8 +960,8 @@ function updateDocumentMetadata() {
       };
     } else {
       seo = {
-        title: "Notícia não encontrada | Notícias de Ontem",
-        description: "A notícia pedida não está disponível.",
+        title: isEn ? "Story not found | Yesterday's News" : "Notícia não encontrada | Notícias de Ontem",
+        description: isEn ? "The requested story is not available." : "A notícia pedida não está disponível.",
         path: window.location.pathname,
         type: "website",
       };
@@ -994,14 +1043,14 @@ function renderHero() {
     detail.dataset.newsId = item.page_id;
   }
   setText("#hero-summary", localized(item, "summary"));
-  const igUrl = item.instagram_url || item.network_posts?.instagram || profileUrl("instagram");
+  const igUrl = itemSocialUrl(item, "instagram", true);
   setLink(instagram, igUrl, t("openInstagram"), t("unavailableInstagram"));
   if (facebook) {
-    const fbUrl = item.facebook_url || item.network_posts?.facebook || profileUrl("facebook");
+    const fbUrl = itemSocialUrl(item, "facebook", true);
     setLink(facebook, fbUrl, t("openFacebook"), t("unavailableFacebook"));
     facebook.hidden = !fbUrl;
   }
-  setLink(source, item.source_url, t("openArquivo"), t("unavailableSource"));
+  setLink(source, item.source_url, sourceLinkLabel(item.source_url), t("unavailableSource"));
   if (instagram) instagram.hidden = !igUrl;
   if (source) source.hidden = !item.source_url;
 }
@@ -1035,9 +1084,9 @@ function renderCarousel() {
           <h3><a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">${escapeHtml(titleWithYear(item))}</a></h3>
           <p>${escapeHtml(localized(item, "summary"))}</p>
           <div class="card-actions">
-            ${item.instagram_url ? `<a class="text-link" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openInstagram"))}</a>` : ""}
-            ${item.facebook_url || item.network_posts?.facebook ? `<a class="text-link" href="${escapeHtml(item.facebook_url || item.network_posts?.facebook)}" target="_blank" rel="noreferrer">${escapeHtml(t("openFacebook"))}</a>` : ""}
-            ${item.source_url ? `<a class="text-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openArquivo"))}</a>` : ""}
+            ${itemSocialUrl(item, "instagram") ? `<a class="text-link" href="${escapeHtml(itemSocialUrl(item, "instagram"))}" target="_blank" rel="noreferrer">${escapeHtml(t("openInstagram"))}</a>` : ""}
+            ${itemSocialUrl(item, "facebook") ? `<a class="text-link" href="${escapeHtml(itemSocialUrl(item, "facebook"))}" target="_blank" rel="noreferrer">${escapeHtml(t("openFacebook"))}</a>` : ""}
+            ${item.source_url ? `<a class="text-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(sourceLinkLabel(item.source_url))}</a>` : ""}
           </div>
         </div>
       </article>
@@ -1063,9 +1112,9 @@ function renderLatest() {
           <h3><a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">${escapeHtml(titleWithYear(item))}</a></h3>
           <p>${escapeHtml(formatDate(item.date))}</p>
           <div class="card-actions">
-            ${item.instagram_url ? `<a class="text-link" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openInstagram"))}</a>` : ""}
-            ${item.facebook_url || item.network_posts?.facebook ? `<a class="text-link" href="${escapeHtml(item.facebook_url || item.network_posts?.facebook)}" target="_blank" rel="noreferrer">${escapeHtml(t("openFacebook"))}</a>` : ""}
-            ${item.source_url ? `<a class="text-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openArquivo"))}</a>` : ""}
+            ${itemSocialUrl(item, "instagram") ? `<a class="text-link" href="${escapeHtml(itemSocialUrl(item, "instagram"))}" target="_blank" rel="noreferrer">${escapeHtml(t("openInstagram"))}</a>` : ""}
+            ${itemSocialUrl(item, "facebook") ? `<a class="text-link" href="${escapeHtml(itemSocialUrl(item, "facebook"))}" target="_blank" rel="noreferrer">${escapeHtml(t("openFacebook"))}</a>` : ""}
+            ${item.source_url ? `<a class="text-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(sourceLinkLabel(item.source_url))}</a>` : ""}
           </div>
         </div>
       </article>
@@ -1401,8 +1450,8 @@ function storyCard(item, options = {}) {
         ${options.showDate ? `<p>${escapeHtml(formatDate(item.date))}</p>` : ""}
         ${localized(item, "summary") ? `<p>${escapeHtml(localized(item, "summary"))}</p>` : ""}
         <div class="card-actions">
-          ${item.instagram_url ? `<a class="text-link" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openInstagram"))}</a>` : ""}
-          ${item.source_url ? `<a class="text-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openArquivo"))}</a>` : ""}
+          ${itemSocialUrl(item, "instagram") ? `<a class="text-link" href="${escapeHtml(itemSocialUrl(item, "instagram"))}" target="_blank" rel="noreferrer">${escapeHtml(t("openInstagram"))}</a>` : ""}
+          ${item.source_url ? `<a class="text-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(sourceLinkLabel(item.source_url))}</a>` : ""}
         </div>
       </div>
     </article>
@@ -1490,12 +1539,13 @@ async function loadDynamicNewsItem(pageId) {
 function cleanArticleText(text) {
   if (!text) return "";
   let val = String(text);
-  val = val.replace(/Este post apenas tem o objetivo de relembrar acontecimentos passados da hist[oó]ria nunca representando acontecimentos atuais\.?:?/gi, "");
+  val = val.replace(/Este post apenas tem o objetivo de relembrar acontecimentos passados da hist[oó]ria,? nunca representando acontecimentos atuais\.?:?/gi, "");
   val = val.replace(/Esta not[ií]cia [eé] de \d{4}\.?/gi, "");
-  val = val.replace(/🔗?\s*L[eê] a not[ií]cia completa no link na descri[cç][aã]o do perfil\.?:?/gi, "");
-  val = val.replace(/🔗?\s*L[eê] a not[ií]cia completa no link da bio\.?:?/gi, "");
-  val = val.replace(/🔗?\s*L[eê] a not[ií]cia completa no link do sobre do perfil\.?:?/gi, "");
+  val = val.replace(/This post is intended solely to recall past events in history,? never representing current events\.?:?/gi, "");
+  val = val.replace(/This (?:story|news) is from \d{4}\.?/gi, "");
+  val = val.replace(/🔗?\s*L[eê] a not[ií]cia completa (?:no link (?:na descri[cç][aã]o do perfil|da bio|do sobre do perfil|do perfil)|no site no sobre do perfil)\.?:?/gi, "");
   val = val.replace(/🔗?\s*L[eê] mais no link da bio\.?:?/gi, "");
+  val = val.replace(/🔗?\s*Read the full story (?:via|at|on) (?:the link in (?:our )?(?:bio(?:\/about section)?|profile(?: description)?)|the website in (?:our |the )?profile'?s About section)\.?:?/gi, "");
   val = val.replace(/#\w+/g, "");
   return val.trim();
 }
@@ -1563,7 +1613,7 @@ function relevanceScoresHtml(item) {
           `;
         }).join("")}
       </div>
-      ${item.relevance_justification ? `<p class="relevance-justification">${escapeHtml(item.relevance_justification)}</p>` : ""}
+      ${localized(item, "relevance_justification") ? `<p class="relevance-justification">${escapeHtml(localized(item, "relevance_justification"))}</p>` : ""}
     </section>
   `;
 }
@@ -1645,7 +1695,7 @@ function renderNewsDetail() {
 
   const title = titleWithYear(item);
   const image = assetPath(item.detail_image || item.image || item.banner_image || "assets/icon.png");
-  const category = item.category || "";
+  const category = translateCategory(item.category || "");
   const dateLine = [
     item.date ? `${t("publishedOn")} ${formatDate(item.date)}` : "",
     item.original_year ? `${t("originalYearLabel")} ${item.original_year}` : "",
@@ -1654,6 +1704,17 @@ function renderNewsDetail() {
   const snapshotUrl = item.snapshot_url ? assetPath(item.snapshot_url) : "";
   const capturedOn = snapshotCaptureDate(item);
   const [lead, ...restParagraphs] = paragraphs;
+  const igDetailUrl = itemSocialUrl(item, "instagram", true);
+  const fbDetailUrl = itemSocialUrl(item, "facebook", true);
+  let snapshotDomainLabel = "arquivo.pt";
+  if (item.source_url && !item.source_url.includes("arquivo.pt")) {
+    try {
+      snapshotDomainLabel = new URL(item.source_url).hostname.replace(/^www\./, "");
+    } catch {
+      snapshotDomainLabel = "arquivo.pt";
+    }
+  }
+  const snapshotImgTag = `<img id="news-snapshot-image" src="${escapeHtml(snapshotUrl)}" alt="${escapeHtml(t("snapshotCaption"))}" loading="eager" fetchpriority="high" decoding="async">`;
   // Capa e snapshot duplicadas: no desktop ficam FIXAS na coluna direita
   // (vista global, sem deslizar); em ecrãs menores a capa surge depois do
   // título e a snapshot no fim do texto, antes de "No mesmo dia".
@@ -1665,15 +1726,15 @@ function renderNewsDetail() {
     <section class="news-snapshot">
       <div class="news-snapshot-header">
         <h2 class="news-article-sub">${escapeHtml(t("snapshotSectionTitle"))}</h2>
-        ${item.source_url ? `<a class="snapshot-external-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">Ver no Arquivo.pt ↗</a>` : ""}
+        ${item.source_url ? `<a class="snapshot-external-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(sourceLinkLabel(item.source_url))} ↗</a>` : ""}
       </div>
-      <figure class="news-article-snapshot-frame">
+      <figure class="news-article-snapshot-frame" id="news-snapshot-frame">
         <div class="news-article-snapshot-head">
-          <span class="snapshot-domain">arquivo.pt</span>
+          <span class="snapshot-domain">${escapeHtml(snapshotDomainLabel)}</span>
           ${capturedOn ? `<span class="snapshot-date">${escapeHtml(`${t("snapshotCaptured")} ${capturedOn}`)}</span>` : ""}
         </div>
         <div class="news-snapshot-viewport">
-          <img src="${escapeHtml(snapshotUrl)}" alt="${escapeHtml(t("snapshotCaption"))}" loading="eager" fetchpriority="high" decoding="async">
+          ${item.source_url ? `<a href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(sourceLinkLabel(item.source_url, true))}">${snapshotImgTag}</a>` : snapshotImgTag}
         </div>
         <figcaption class="snapshot-caption">
           <span>${escapeHtml(t("snapshotCaption"))}</span>
@@ -1693,7 +1754,7 @@ function renderNewsDetail() {
         <header class="news-head">
           <p class="news-article-meta">
             ${category ? `<span class="meta-pill">${escapeHtml(category)}</span>` : ""}
-            ${relevanceBadge(item, { scores: item.relevance_scores, justification: item.relevance_justification, weighted: item.relevance_weighted })}
+            ${relevanceBadge(item, { scores: item.relevance_scores, justification: localized(item, "relevance_justification"), weighted: item.relevance_weighted })}
             ${networkBadgesHtml(item)}
           </p>
           <h1 id="news-detail-title">${escapeHtml(title)}</h1>
@@ -1703,9 +1764,9 @@ function renderNewsDetail() {
           ${lead ? `<p class="news-article-lead">${escapeHtml(lead)}</p>` : ""}
           ${restParagraphs.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}
           <div class="news-article-actions">
-            ${item.instagram_url ? `<a class="button primary" href="${escapeHtml(item.instagram_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenInstagram"))}</a>` : ""}
-            ${item.facebook_url || item.network_posts?.facebook ? `<a class="button primary facebook" href="${escapeHtml(item.facebook_url || item.network_posts?.facebook)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenFacebook"))}</a>` : ""}
-            ${item.source_url ? `<a class="button secondary" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml((item.source_url || "").includes("arquivo.pt") ? t("newsOpenArquivo") : (state.lang === "pt" ? "Abrir na fonte original" : "Open original source"))}</a>` : ""}
+            ${igDetailUrl ? `<a class="button primary" href="${escapeHtml(igDetailUrl)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenInstagram"))}</a>` : ""}
+            ${fbDetailUrl ? `<a class="button primary facebook" href="${escapeHtml(fbDetailUrl)}" target="_blank" rel="noreferrer">${escapeHtml(t("newsOpenFacebook"))}</a>` : ""}
+            ${item.source_url ? `<a class="button secondary" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(sourceLinkLabel(item.source_url, true))}</a>` : ""}
           </div>
         </div>
         <div class="news-media">
@@ -1721,6 +1782,11 @@ function renderNewsDetail() {
   detailImage?.addEventListener("error", () => {
     const fallback = assetPath("assets/icon.png");
     if (detailImage.src !== fallback) detailImage.src = fallback;
+  }, { once: true });
+  const snapshotImage = document.getElementById("news-snapshot-image");
+  snapshotImage?.addEventListener("error", () => {
+    const section = snapshotImage.closest(".news-snapshot") || document.getElementById("news-snapshot-frame");
+    if (section) section.hidden = true;
   }, { once: true });
   updateDocumentMetadata();
 }
@@ -3390,7 +3456,7 @@ function renderHomeSections() {
           <h3><a href="${escapeHtml(newsPageUrl(item))}" data-news-id="${escapeHtml(item.page_id)}">${escapeHtml(cleanTitle(item))}</a></h3>
           <p>${escapeHtml(localized(item, "summary"))}</p>
           <div class="card-actions">
-            ${item.source_url ? `<a class="text-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(t("openArquivo"))}</a>` : ""}
+            ${item.source_url ? `<a class="text-link" href="${escapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${escapeHtml(sourceLinkLabel(item.source_url))}</a>` : ""}
           </div>
         </div>
       </article>
@@ -3484,7 +3550,7 @@ function relativeTime(dateValue, publishedAt) {
   const thenMidnight = new Date(then);
   thenMidnight.setHours(12, 0, 0, 0);
   const diffDays = Math.max(0, Math.round((today.getTime() - thenMidnight.getTime()) / 86400000));
-  if (diffDays <= 0) return state.lang === "en" ? "Hoje" : "hoje";
+  if (diffDays <= 0) return state.lang === "en" ? "Today" : "hoje";
   if (diffDays === 1) return state.lang === "en" ? "Yesterday" : "ontem";
   if (diffDays < 30) {
     return state.lang === "en" ? `${diffDays} days ago` : `há ${diffDays} dias`;
@@ -3638,7 +3704,7 @@ function renderRelevanceDocs() {
             heading.innerHTML = `<a href="${escapeHtml(newsPageUrl(real))}" data-news-id="${escapeHtml(real.page_id)}" style="color:inherit;text-decoration:none">${escapeHtml(cleanTitle(real))}</a>`;
           }
           if (body) {
-            body.textContent = real.relevance_justification || localized(real, "summary") || "";
+            body.textContent = localized(real, "relevance_justification") || localized(real, "summary") || "";
           }
         } else {
           if (heading && example && lang === "pt") heading.textContent = example.pt?.title || heading.textContent;
@@ -3653,6 +3719,8 @@ function renderRelevanceDocs() {
 
 function renderStaticText() {
   document.documentElement.lang = state.lang;
+  const skipLink = document.querySelector(".skip-link");
+  if (skipLink) skipLink.textContent = state.lang === "en" ? "Skip to content" : "Saltar para o conteúdo";
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const key = element.getAttribute("data-i18n");
     const value = t(key);

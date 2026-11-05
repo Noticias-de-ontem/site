@@ -1380,15 +1380,62 @@ def build_payload():
 
     include_unpublished = str(os.environ.get("SITE_INCLUDE_UNPUBLISHED", "")).strip().lower() in {"1", "true", "yes"}
 
+    # Separar posts EN para merge com PT (evitar cards duplicados no site)
+    all_posts = pending_posts if isinstance(pending_posts, list) else []
+    en_posts_by_key = {}
+    for post in all_posts:
+        pid = clean_text(post.get("id") or "")
+        if pid.startswith("en_"):
+            en_posts_by_key[pid[3:]] = post  # key = "2026-11-02_1"
+
     items = []
     seen_titles_build = {}
-    for post in pending_posts if isinstance(pending_posts, list) else []:
+    for post in all_posts:
+        pid = clean_text(post.get("id") or "")
+        # Posts EN são merged no post PT — não aparecem como entradas independentes
+        if pid.startswith("en_"):
+            continue
         post_status = clean_text(post.get("status") or "pending").lower()
         if not include_unpublished and post_status != "published":
             continue
         item = post_to_site_item(post, registry_by_post_id)
         if not item:
             continue
+
+        # Enriquecer com dados do post EN correspondente
+        pt_key = pid[3:] if pid.startswith("pt_") else pid
+        en_post = en_posts_by_key.get(pt_key)
+        if en_post:
+            en_opt_idx = en_post.get("selected_option", 0)
+            en_opts = en_post.get("options", [])
+            en_opt = en_opts[en_opt_idx] if en_opts and isinstance(en_opt_idx, int) and en_opt_idx < len(en_opts) else {}
+            item["instagram_url_en"] = clean_text(en_post.get("instagram_url") or "")
+            item["instagram_id_en"] = clean_text(en_post.get("instagram_id") or "")
+            item["facebook_url_en"] = clean_text(en_post.get("facebook_url") or "")
+            item["facebook_id_en"] = clean_text(en_post.get("facebook_id") or "")
+            if en_opt:
+                if not item.get("title_en"):
+                    item["title_en"] = clean_text(en_opt.get("title") or en_opt.get("title_en") or "")
+                if not item.get("summary_en"):
+                    item["summary_en"] = clean_text(en_opt.get("summary") or en_opt.get("summary_en") or "")
+                if not item.get("body_en"):
+                    body_en_raw = en_opt.get("body") or en_opt.get("body_en") or ""
+                    item["body_en"] = strip_hashtags(strip_social_disclaimer(body_en_raw))
+                if not item.get("relevance_justification_en"):
+                    en_rel = en_opt.get("relevance") if isinstance(en_opt.get("relevance"), dict) else {}
+                    item["relevance_justification_en"] = clean_text(
+                        en_rel.get("justification_en") or en_rel.get("justification") or ""
+                    )
+        # Fallback: justification_en pode vir da opcao PT (campo justification_en)
+        if not item.get("relevance_justification_en"):
+            pt_opt_idx = post.get("selected_option", 0)
+            pt_opts = post.get("options", [])
+            if pt_opts and isinstance(pt_opt_idx, int) and pt_opt_idx < len(pt_opts):
+                pt_rel = pt_opts[pt_opt_idx].get("relevance") if isinstance(pt_opts[pt_opt_idx].get("relevance"), dict) else {}
+                item["relevance_justification_en"] = clean_text(
+                    pt_rel.get("justification_en") or ""
+                )
+
         title_key = re.sub(r"[^a-z0-9]", "", _fold_to_ascii(item.get("title") or "").lower())[:80]
         if title_key and title_key in seen_titles_build:
             existing = seen_titles_build[title_key]

@@ -28,6 +28,32 @@ def item_from_source(source):
     year = captured_at[:4]
     arquivo_url = str(source.get("arquivo_url") or "").strip()
     title = str(source.get("title") or "").strip() or "Noticia preservada"
+
+    # Rejeitar capturas de media/assets, nao paginas de noticias
+    import re as _re
+    _ASSET_EXT_RE = r"\.(?:jpe?g|png|gif|webp|svg|bmp|ico|tiff?|mp4|mp3|wav|ogg|webm|pdf|css|js|woff2?|ttf|eot)(?:[?#]|$)"
+    _is_asset = bool(
+        _re.search(_ASSET_EXT_RE, original_url, _re.IGNORECASE)
+        or ("im_/" in arquivo_url or "js_/" in arquivo_url or "cs_/" in arquivo_url)
+    )
+    if _is_asset:
+        return {
+            "id": str(source.get("capture_id") or original_url_key),
+            "page_id": page_id_for_key(original_url_key),
+            "date": captured_at[:10],
+            "original_year": year,
+            "title": title,
+            "summary": "",
+            "summary_en": "",
+            "category": "Arquivo.pt",
+            "domain": domain,
+            "source_url": "",
+            "original_url": original_url,
+            "detail_image": "",
+            "snapshot_url": "",
+            "archive_credit": "Arquivo.pt",
+        }
+
     return {
         "id": str(source.get("capture_id") or original_url_key),
         "page_id": page_id_for_key(original_url_key),
@@ -40,9 +66,9 @@ def item_from_source(source):
         "domain": domain,
         "source_url": arquivo_url,
         "original_url": original_url,
-        "detail_image": screenshot_url(arquivo_url),
+        "detail_image": "",  # Carregado lazy pelo frontend via snapshot_url
         # A snapshot é a própria captura preservada (secção "A página preservada").
-        "snapshot_url": screenshot_url(arquivo_url),
+        "snapshot_url": screenshot_url(arquivo_url.replace("/wayback/", "/noFrame/replay/") if "/wayback/" in arquivo_url else arquivo_url),
         "archive_credit": "Arquivo.pt",
     }
 

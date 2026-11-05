@@ -53,36 +53,37 @@ NETWORK_AUDIENCE_EN = {
 def fold_category(category):
     import unicodedata
 
-    text = str(category or "").upper().strip()
-    normalized = unicodedata.normalize("NFKD", text)
-    return "".join(char for char in normalized if not unicodedata.combining(char))
+    if not category:
+        return ""
+    return unicodedata.normalize("NFKD", str(category).upper()).encode("ASCII", "ignore").decode()
 
 
 def networks_for_option(category, level):
-    """Redes adequadas por categoria e nível (regra local, sem IA)."""
+    """Devolve a lista de redes sociais recomendadas para a categoria e nível."""
     folded = fold_category(category)
-    level = int(level) if level else 4
     if level in (1, 2):
         return list(NETWORKS)
-    networks = [
-        network
-        for network in NETWORKS
-        if folded in NETWORK_CATEGORY_RULES[network]
-    ]
-    return networks or ["instagram"]
+    result = []
+    for network, cats in NETWORK_CATEGORY_RULES.items():
+        if folded in cats:
+            result.append(network)
+    return result or ["instagram"]
 
 
 def normalize_networks(raw, category="", level=None):
-    """Normaliza a lista de redes devolvida pela IA com fallback por regra."""
-    fallback = networks_for_option(category, level)
-    if not isinstance(raw, (list, tuple)):
-        return fallback
-    cleaned = []
-    for entry in raw:
-        network = str(entry or "").strip().lower()
-        if network in NETWORKS and network not in cleaned:
-            cleaned.append(network)
-    return cleaned or fallback
+    """Normaliza a lista de redes: converte strings, filtra inválidas, fallback."""
+    if isinstance(raw, str):
+        import json as _json
+        try:
+            raw = _json.loads(raw)
+        except Exception:
+            raw = [raw]
+    if not isinstance(raw, list):
+        raw = []
+    valid = [n for n in raw if n in NETWORKS]
+    if not valid and category:
+        valid = networks_for_option(category, level)
+    return valid or ["instagram"]
 
 
 def networks_prompt_rules():
@@ -96,3 +97,67 @@ def networks_prompt_rules():
 - Choose based on where the TARGET audience engages best with this specific story. Most stories belong to ONE network; two networks only when the story genuinely fits both audiences.
 - ALL THREE networks are allowed ONLY for historic landmark / major event stories (relevance level 1-2) that a very wide audience cares about.
 - Never choose a network whose audience has no interest in the story."""
+
+
+# ---------------------------------------------------------------------------
+# CTAs canónicas por plataforma e idioma
+# ---------------------------------------------------------------------------
+_SOCIAL_CTA_MAP = {
+    ("instagram", "pt"): "🔗 Lê a notícia completa no link da bio.",
+    ("instagram", "en"): "🔗 Read the full story at the link in bio.",
+    ("facebook", "pt"): "🔗 Lê a notícia completa no site no sobre do perfil.",
+    ("facebook", "en"): "🔗 Read the full story on the website in the profile's About section.",
+    ("x", "pt"): "🔗 Lê a notícia completa no link.",
+    ("x", "en"): "🔗 Read the full story at the link.",
+}
+
+
+def social_link_cta(platform: str = "instagram", lang: str = "pt") -> str:
+    """Devolve a CTA canónica para a plataforma e idioma indicados."""
+    return _SOCIAL_CTA_MAP.get((platform.lower(), lang.lower()), "")
+
+
+def replace_social_cta(caption: str, platform: str, lang: str) -> str:
+    """Remove qualquer CTA existente do caption e adiciona a CTA canónica."""
+    import re
+    _strip = re.compile(r"🔗\s*(?:Lê|Le|Read|See|via)\s+[^\n]{0,140}", re.IGNORECASE)
+    cleaned = _strip.sub("", caption or "").strip()
+    cta = social_link_cta(platform=platform, lang=lang)
+    return f"{cleaned}\n\n{cta}".strip() if cta else cleaned
+
+
+# ---------------------------------------------------------------------------
+# Tradução de categorias PT -> EN (uppercase para consistência)
+# ---------------------------------------------------------------------------
+_CATEGORY_EN_MAP = {
+    "POLITICA": "POLITICS",
+    "ECONOMIA": "ECONOMY",
+    "SOCIEDADE": "SOCIETY",
+    "DESPORTO": "SPORTS",
+    "CULTURA": "CULTURE",
+    "EDUCACAO": "EDUCATION",
+    "SAUDE": "HEALTH",
+    "CIENCIA": "SCIENCE",
+    "TECNOLOGIA": "TECHNOLOGY",
+    "MUNDO": "WORLD",
+    "MUNDIAL": "WORLD",
+    "NACIONAL": "NATIONAL",
+    "LOCAL": "LOCAL",
+    "INTERESSE PUBLICO": "PUBLIC INTEREST",
+    "ENTRETENIMENTO": "ENTERTAINMENT",
+    "ESTRELA": "CELEBRITIES",
+    "CURIOSO": "CURIOSITIES",
+    "AMBIENTE": "ENVIRONMENT",
+    "JUSTICA": "JUSTICE",
+    "CRIME": "CRIME",
+    "INTERNACIONAL": "INTERNATIONAL",
+    "HISTORIA": "HISTORY",
+}
+
+
+def translate_category_to_en(category: str) -> str:
+    """Traduz uma categoria PT para EN (uppercase). Devolve a original se não encontrar."""
+    if not category:
+        return ""
+    folded = fold_category(category)
+    return _CATEGORY_EN_MAP.get(folded, category.upper())

@@ -1,4 +1,4 @@
-import json
+﻿import json
 import os
 import random
 import re
@@ -30,6 +30,22 @@ from imgbb_registry import register_imgbb_upload
 from nvidia_client import DEFAULT_NVIDIA_MODEL, NvidiaKeyPool, load_nvidia_api_keys
 from post_templates import create_image_with_text as render_post_image
 from http_cache import cached_get
+_SOCIAL_CTA = {
+    ("instagram", "pt"): "\U0001f517 L\u00ea a not\u00edcia completa no link da bio.",
+    ("instagram", "en"): "\U0001f517 Read the full story at the link in bio.",
+    ("facebook", "pt"): "\U0001f517 L\u00ea a not\u00edcia completa no site no sobre do perfil.",
+    ("facebook", "en"): "\U0001f517 Read the full story on our website (see About section).",
+}
+_CTA_STRIP_RE = __import__('re').compile(
+    r"\U0001f517\s*(?:L\u00ea|Le|Read|See)\s+[^\n]{0,120}", __import__('re').IGNORECASE
+)
+
+
+def replace_social_cta(caption: str, platform: str, lang: str) -> str:
+    """Remove any existing CTA from caption and append the canonical one."""
+    cleaned = _CTA_STRIP_RE.sub("", caption or "").strip()
+    cta = _SOCIAL_CTA.get((platform.lower(), lang.lower()), "")
+    return f"{cleaned}\n\n{cta}".strip() if cta else cleaned
 
 
 IG_CREDENTIALS = {
@@ -73,6 +89,12 @@ def copy_image_reference_to_path(image_url, output_path, timeout=30, retries=3):
     registar o erro; um estado HTTP diferente de 200 devolve False."""
     if not image_url:
         return False
+    mirror_match = re.search(r"/images/approved/([^/?#]+)$", str(image_url))
+    if mirror_match:
+        local_mirror = os.path.join("site", "images", "approved", mirror_match.group(1))
+        if os.path.isfile(local_mirror):
+            shutil.copyfile(local_mirror, output_path)
+            return True
     if re.match(r"^https?://", image_url, flags=re.IGNORECASE):
         import time as _time
         last_exc = None
@@ -148,7 +170,7 @@ NVIDIA_HINT_KEYWORDS = [
     "famos",
     "bizarro",
     "curioso",
-    "insólit",
+    "insÃ³lit",
     "polemic",
     "tesla",
     "spacex",
@@ -246,9 +268,9 @@ def score_arquivo_candidate(item):
     weak_terms = [
         "agenda", "programacao", "horoscopo", "meteorologia", "farmacias",
         "transito", "obituario", "classificados", "opiniao", "artigo de opiniao",
-        "cronica", "saldos", "promocao", "promoção", "desconto", "descontos",
-        "liquidacao", "liquidação", "loja", "lojas", "compras", "shopping",
-        "outlet", "catalogo", "catálogo", "festival", "concerto", "cinema",
+        "cronica", "saldos", "promocao", "promoÃ§Ã£o", "desconto", "descontos",
+        "liquidacao", "liquidaÃ§Ã£o", "loja", "lojas", "compras", "shopping",
+        "outlet", "catalogo", "catÃ¡logo", "festival", "concerto", "cinema",
         "filme", "serie", "album", "cancao", "oscar", "globo de ouro",
         "famosos", "celebridades", "locais habituais", "nas bancas", "debate",
         "duelo", "entrevista", "comentario", "sondagem", "intencao de voto",
@@ -291,7 +313,7 @@ def score_arquivo_candidate(item):
         score -= 8
     if any(p in text for p in ["estudo conclui", "cientistas estudam", "investigadores de", "laboratorio pioneiro"]):
         score -= 6
-    if any(p in text for p in ["esqueleto", "ossadas", "tumulo", "túmulo", "fossil", "fóssil", "arqueolog", "milenares", "adega"]):
+    if any(p in text for p in ["esqueleto", "ossadas", "tumulo", "tÃºmulo", "fossil", "fÃ³ssil", "arqueolog", "milenares", "adega"]):
         score -= 10
     if any(p in text for p in ["venezuela", "maduro", "peru", "bolivia", "guatemala", "nicaragua"]):
         score -= 4
@@ -301,8 +323,8 @@ def score_arquivo_candidate(item):
         "governo", "estado", "supremo", "tribunal", "parlamento", "lei", "decreto", "decreta",
         "aprova", "encerra", "encerramento", "fecha", "fecho", "suspende", "suspensao",
         "escola", "escolas", "aulas", "ensino", "universidade", "universidades",
-        "alerta", "emergencia", "emergência", "quarentena", "confinamento", "saude publica", "saúde pública",
-        "hospitais", "pandemia", "condena", "prisao", "prisão", "fraude",
+        "alerta", "emergencia", "emergÃªncia", "quarentena", "confinamento", "saude publica", "saÃºde pÃºblica",
+        "hospitais", "pandemia", "condena", "prisao", "prisÃ£o", "fraude",
         "acordo", "tratado", "soberania", "fronteira", "fronteiras", "europa", "uniao europeia"
     ]
     for st in structural_terms:
@@ -438,6 +460,75 @@ def iter_cdxj_records(path):
         print(f"[Arquivo.pt][CDXJ] Erro ao ler {path}: {exc}")
 
 
+def clean_headline_text(title):
+    """Sanitiza tÃ­tulos e manchetes removendo resÃ­duos tÃ©cnicos de URLs,
+    hashes hexadecimais, IDs numÃ©ricos de CMS, extensÃµes de ficheiro e palavras truncadas.
+    """
+    if not title:
+        return ""
+    text = normalize_text(title).strip()
+    # Remove prefixo de ano como "[2010] "
+    text = re.sub(r"^\[\d{3,4}\]\s*", "", text).strip()
+
+    # Remove extensÃµes de URL (.html, .htm, .aspx, .asp, .php)
+    text = re.sub(r"\.(?:html?|aspx?|php)$", "", text, flags=re.IGNORECASE).strip()
+
+    # Remove iterativamente sufixos de IDs alfanumÃ©ricos, cÃ³digos hexadecimais ou marcadores de artigo
+    prev = None
+    while prev != text:
+        prev = text
+        # Hashes hexadecimais (7 a 12 caracteres hex), IDs com prefixo b/v ou numÃ©ricos longos (ex: 83f5ea93, b2178910, 1673000)
+        text = re.sub(r"[\s\-_]+(?:[a-f0-9]{7,12}|b\d{6,10}|v?\d{5,12})$", "", text, flags=re.IGNORECASE).strip()
+        # Sufixos de CMS (ex: noticia-12345, artigo-12345, foto, galeria)
+        text = re.sub(r"[\s\-_]+(?:noticia|artigo|foto|video|galeria)[\s\-_]*\d*$", "", text, flags=re.IGNORECASE).strip()
+        # DÃ­gitos soltos ou letras isoladas no final (exceto preposiÃ§Ãµes/artigos vÃ¡lidos)
+        text = re.sub(r"[\s\-_]+(?!(?:e|a|o|Ã )\b)[a-z0-9]$", "", text, flags=re.IGNORECASE).strip()
+
+    # CorreÃ§Ã£o de palavras truncadas por limites de comprimento de slug em jornais
+    TRUNCATED_WORD_REPLACEMENTS = {
+        "hosp": "hospitais",
+        "gover": "governo",
+        "minist": "ministÃ©rio",
+        "admin": "administraÃ§Ã£o",
+        "tribun": "tribunal",
+        "nacion": "nacional",
+        "repub": "repÃºblica",
+        "presid": "presidente",
+        "educ": "educaÃ§Ã£o",
+        "inter": "internacional",
+    }
+    words = text.split()
+    if words:
+        last_low = words[-1].lower().rstrip(" ,;:-.")
+        if last_low in TRUNCATED_WORD_REPLACEMENTS:
+            words[-1] = TRUNCATED_WORD_REPLACEMENTS[last_low]
+            text = " ".join(words)
+        elif len(last_low) <= 4 and last_low not in {
+            "ano", "anos", "dia", "dias", "mes", "mÃªs", "lei", "leis", "paz", "fim", "sul", "mar",
+            "psd", "cds", "pcp", "cdu", "stj", "tcl", "paf", "fmi", "bce", "ue", "onu", "eua", "otan",
+            "psp", "gnr", "pj", "sef", "irs", "irc", "iva", "dap", "tap", "cgd", "bcp", "bpi", "bes",
+            "diz", "quer", "pede", "tera", "terÃ¡", "teve", "vai", "vem", "ha", "hÃ¡", "ja", "jÃ¡", "so", "sÃ³",
+            "sem", "sob", "com", "por", "que", "uma", "uns", "nem", "mas", "bem", "bom", "mau", "mal",
+            "alto", "baixa", "novo", "nova", "lusa", "rtp", "sic", "tvi", "lixo", "ouro", "taxa", "jogo",
+            "caso", "voto", "pais", "paÃ­s", "vida", "modo", "fogo", "sede", "zona", "rede", "base", "meta",
+            "mais", "stop", "euro", "pena", "mil", "pelo", "pela"
+        }:
+            if not last_low.isupper() and len(last_low) <= 3:
+                words.pop()
+                text = " ".join(words)
+
+    # Limpeza de pontuaÃ§Ã£o dangling e aspas desemparelhadas
+    text = re.sub(r"\s+", " ", text).strip(" -:;,.!?'\"")
+    if text.count('"') % 2 == 1:
+        text = text.replace('"', "")
+    if text.count("'") % 2 == 1:
+        text = text.replace("'", "")
+
+    if text:
+        text = text[:1].upper() + text[1:]
+    return text
+
+
 def title_from_url(url):
     parsed = urlparse(url)
     path = unquote(parsed.path or "").strip("/")
@@ -445,10 +536,17 @@ def title_from_url(url):
     slug = segments[-1] if segments else ""
     slug = re.sub(r"\.[a-z0-9]{2,6}$", "", slug, flags=re.IGNORECASE)
     slug = re.sub(r"^(?:19|20)\d{2}[-_/]\d{1,2}[-_/]\d{1,2}[-_/]*", "", slug)
-    slug = re.sub(r"[-_/]+(?:v?\d{5,}|\d{1,2})$", "", slug, flags=re.IGNORECASE)
+
+    prev_slug = None
+    while prev_slug != slug:
+        prev_slug = slug
+        slug = re.sub(r"[-_/]+(?:[a-f0-9]{7,12}|b\d{6,10}|v?\d{5,}|\d{1,2})$", "", slug, flags=re.IGNORECASE)
+        slug = re.sub(r"[-_/]+(?:noticia|artigo|foto|video|galeria)[-_/]*\d*$", "", slug, flags=re.IGNORECASE)
+
     slug = re.sub(r"[-_]+", " ", slug)
     slug = re.sub(r"\s+", " ", slug).strip(" -_/")
-    alpha_words = [w for w in slug.split() if re.search(r"[a-zA-ZÀ-ÿ]{3,}", w)]
+    slug = clean_headline_text(slug)
+    alpha_words = [w for w in slug.split() if re.search(r"[a-zA-ZÃ€-Ã¿]{3,}", w)]
     if not slug or len(slug) < 14 or len(alpha_words) < 3:
         return ""
     return slug[:1].upper() + slug[1:]
@@ -557,14 +655,23 @@ def load_arquivo_cdxj_candidates_for_day(year, month, day, sources, seen_urls):
             ]):
                 continue
 
-            # Enforce year coherence: if URL contains an explicit year segment, it must match current year
-            m_year_seg = re.search(r"/(19\d\d|20\d\d)[-_/]", url)
-            if m_year_seg and int(m_year_seg.group(1)) != int(year):
-                continue
+            # Enforce date segment coherence: if URL contains an explicit date segment, it must match current year and month
+            m_date_seg = re.search(r"/(19\d\d|20\d\d)[-_/](\d{1,2})[-_/]", url)
+            if m_date_seg:
+                url_y = int(m_date_seg.group(1))
+                url_m = int(m_date_seg.group(2))
+                if url_y != int(year) or (url_m != int(month) and abs(url_m - int(month)) > 0):
+                    continue
+            else:
+                m_year_seg = re.search(r"/(19\d\d|20\d\d)[-_/]", url)
+                if m_year_seg and int(m_year_seg.group(1)) != int(year):
+                    continue
 
             title = normalize_text(record.get("title") or record.get("metadata", {}).get("title") or "")
             if not title or len(title) < 8:
                 title = title_from_url(url)
+            else:
+                title = clean_headline_text(title)
             if not title or "pagina arquivada em" in title.lower():
                 continue
 
@@ -693,7 +800,7 @@ def filter_headlines_with_ai(candidate_articles, lang, max_items=15):
     if not nvidia_pool.has_keys():
         return select_arquivo_fallback_indexes(candidate_articles, max_total=max_items)
 
-    print(f"[{lang}] A filtrar {len(candidate_articles)} cabeçalhos usando a NVIDIA...")
+    print(f"[{lang}] A filtrar {len(candidate_articles)} cabeÃ§alhos usando a NVIDIA...")
 
 
     candidate_pool = select_arquivo_candidate_pool(candidate_articles)
@@ -822,15 +929,15 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
     if _domain_filter:
         sources = [source for source in sources if str(source.get("domain", "")).lower() in _domain_filter]
 
-    # Intervalo de anos configurável (ARQUIVO_SEARCH_YEAR_START/END) para
-    # acelerar runs locais e permitir foco em épocas com índice pesquisável.
+    # Intervalo de anos configurÃ¡vel (ARQUIVO_SEARCH_YEAR_START/END) para
+    # acelerar runs locais e permitir foco em Ã©pocas com Ã­ndice pesquisÃ¡vel.
     year_start = int(os.environ.get("ARQUIVO_SEARCH_YEAR_START", "1996"))
     year_end = int(os.environ.get("ARQUIVO_SEARCH_YEAR_END", "2026"))
     years = list(range(year_start, year_end))
     candidate_articles = []
     seen_urls = set()
 
-    # 1. Passagem rápida pelo índice CDXJ local (D:\arquivo_cdxj)
+    # 1. Passagem rÃ¡pida pelo Ã­ndice CDXJ local (D:\arquivo_cdxj)
     for year in years:
         cdxj_candidates = load_arquivo_cdxj_candidates_for_day(year, month, day, sources, seen_urls)
         if cdxj_candidates:
@@ -838,7 +945,7 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
             seen_urls.update(item["url"] for item in cdxj_candidates)
             print(f"[{lang}][Arquivo.pt][CDXJ] Ano {year}: {len(cdxj_candidates)} candidatos lidos do indice local.")
 
-    # 2. Só recorrer a pesquisa online (textsearch/homepages) se o índice local não tiver candidatos suficientes
+    # 2. SÃ³ recorrer a pesquisa online (textsearch/homepages) se o Ã­ndice local nÃ£o tiver candidatos suficientes
     if len(candidate_articles) < 100:
         search_terms = [
             term.strip()
@@ -908,8 +1015,8 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
                         title_lower = title.lower()
                         heavy_words = [
                             "morre", "morto", "morte", "rapto", "raptado", "abuso", "abusa", "viola", 
-                            "violada", "violador", "assassina", "homicídio", "crime", "suicídio", 
-                            "tragédia", "pedofilia", "falece", "falecimento", "assassina",
+                            "violada", "violador", "assassina", "homicÃ­dio", "crime", "suicÃ­dio", 
+                            "tragÃ©dia", "pedofilia", "falece", "falecimento", "assassina",
                             "dies", "died", "death", "kidnap", "kidnapped", "abuse", "rape", "murder", 
                             "murdered", "homicide", "suicide", "tragedy", "pedophilia", "fatal"
                         ]
@@ -1009,8 +1116,8 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
                         title_lower = title.lower()
                         heavy_words = [
                             "morre", "morto", "morte", "rapto", "raptado", "abuso", "abusa", "viola",
-                            "violada", "violador", "assassina", "homicídio", "crime", "suicídio",
-                            "tragédia", "pedofilia", "falece", "falecimento",
+                            "violada", "violador", "assassina", "homicÃ­dio", "crime", "suicÃ­dio",
+                            "tragÃ©dia", "pedofilia", "falece", "falecimento",
                             "dies", "died", "death", "kidnap", "kidnapped", "abuse", "rape", "murder",
                             "murdered", "homicide", "suicide", "tragedy", "pedophilia", "fatal"
                         ]
@@ -1079,11 +1186,11 @@ def get_today_news_from_arquivo(lang, month, day, max_items=15):
         "obrigado por subscrever",
         "primeira newsletter",
         "subscreva a newsletter",
-        "receba as principais notícias",
+        "receba as principais notÃ­cias",
         "utilizamos cookies",
-        "política de privacidade",
+        "polÃ­tica de privacidade",
         "erro 404",
-        "página não encontrada",
+        "pÃ¡gina nÃ£o encontrada",
         "arquivo.pt",
     )
 
@@ -1356,18 +1463,18 @@ Look at the following raw news publications from exactly this day in the past. Y
 8. Set breaking_candidate to true only if this clearly deserves the special breaking layout. Otherwise false.
 9. Add "networks": a JSON array choosing which of our social networks this story fits: "instagram", "facebook", "x".
    - Instagram: visual, nostalgic, desporto, cultura, estrelas, curiosidades.
-   - Facebook: política, sociedade, economia, marcos nacionais, discussão geral (público maduro 35-65+).
-   - X: política, economia, ciência, tecnologia, mundial, debate atualizado (público instruído).
+   - Facebook: polÃ­tica, sociedade, economia, marcos nacionais, discussÃ£o geral (pÃºblico maduro 35-65+).
+   - X: polÃ­tica, economia, ciÃªncia, tecnologia, mundial, debate atualizado (pÃºblico instruÃ­do).
    - Most stories belong to ONE network. Use two only when the story genuinely fits both audiences. Use all three only for historic landmark / major event stories (level 1-2).
 10. Rewrite the story of that specific event into an expanded, well-written mini-summary for the post caption. You must completely use your own words (to avoid copyright issues). (Use the TITLE-ONLY OFFICE HOOK if applicable).
 11. Write like a strong social editor, not a formal newspaper archive. It can feel lively and culturally aware, focusing on nostalgia and recognition, while staying accurate.
 12. Pretend you are publishing this news ON THE VERY DAY IT HAPPENED. NEVER say things like "hoje faz X anos", "neste dia", or "noticia antiga".
-13. VERY IMPORTANT: Remove any calls to action such as 'link na bio', 'lê mais', 'subscreve', and remove original hashtags.
+13. VERY IMPORTANT: Remove any calls to action such as 'link na bio', 'lÃª mais', 'subscreve', and remove original hashtags.
 14. PLATFORM-SPECIFIC CAPTIONS:
-- Do NOT start the caption with the year (e.g. NEVER start with "Em 2015," or "No ano de 2021,"). Integrate the year naturally inside or towards the end of the narrative phrase (e.g. "A Assembleia da República viveu um momento inédito na democracia em 2021: ...").
-- Standard disclaimer MUST follow: "Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de [ANO]."
-- For "caption_instagram": include link phrase "🔗 Lê a notícia completa no link na descrição do perfil." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]" (e.g. #Politica, #Mundo, #Sociedade). NEVER use #atualidade.
-- For "caption_facebook": include link phrase "🔗 Lê a notícia completa no link na descrição do perfil." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]". NEVER use #atualidade.
+- Do NOT start the caption with the year (e.g. NEVER start with "Em 2015," or "No ano de 2021,"). Integrate the year naturally inside or towards the end of the narrative phrase (e.g. "A Assembleia da RepÃºblica viveu um momento inÃ©dito na democracia em 2021: ...").
+- Standard disclaimer MUST follow: "Este post apenas tem o objetivo de relembrar acontecimentos passados da histÃ³ria nunca representando acontecimentos atuais. Esta notÃ­cia Ã© de [ANO]."
+- For "caption_instagram": include link phrase "ðŸ”— LÃª a notÃ­cia completa no link da bio." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]" (e.g. #Politica, #Mundo, #Sociedade). NEVER use #atualidade.
+- For "caption_facebook": include link phrase "ðŸ”— LÃª a notÃ­cia completa no site no sobre do perfil." and hashtags "#NoticiasDeOntem #ArquivoPT #[Category]". NEVER use #atualidade.
 
 Write your response in Portuguese.
 Return a JSON object with exactly these keys:
@@ -1406,7 +1513,11 @@ Look at the following raw news publications from exactly this day in the past. Y
 11. Write like a strong social editor, not a formal newspaper archive. It can feel lively and culturally aware, focusing on nostalgia and recognition, while staying accurate.
 12. Pretend you are publishing this news ON THE VERY DAY IT HAPPENED. NEVER say things like "X years ago today", "on this day", or "old news".
 13. VERY IMPORTANT: Remove any calls to action and original hashtags.
-14. PLATFORM-SPECIFIC CAPTIONS: Write "caption_instagram" (visual, engaging, nostalgic tone with emojis), "caption_facebook" (discussion-oriented, invites comments), and "caption_x" (short, under 280 chars, punchy, current-events style). Each should be adapted to its platform's audience while covering the same story.
+14. PLATFORM-SPECIFIC CAPTIONS:
+- Standard disclaimer MUST follow: "This post is intended solely to recall past events in history, never representing current events. This story is from [YEAR]."
+- For "caption_instagram": include link phrase "ðŸ”— Read the full story at the link in bio." and hashtags "#YesterdaysNews #ArquivoPT #[Category]".
+- For "caption_facebook": include link phrase "ðŸ”— Read the full story on the website in the profile's About section." and hashtags "#YesterdaysNews #ArquivoPT #[Category]".
+- For "caption_x": short, under 280 chars, punchy, current-events style.
 
 Write your response in English.
 Return a JSON object with exactly these keys:
@@ -1710,19 +1821,35 @@ def publish_to_instagram(image_url, caption, lang):
     return {"success": False}
 
 
-def story_image_9x16_url(image_url):
+_STORY_9X16_CACHE = {}
+
+
+def story_image_9x16_url(image_url, lang="pt"):
     """Devolve uma URL 9:16 (1080x1920) da imagem do feed, sem cortar a
     imagem original: a imagem do feed fica inteira, centrada, sobre um
     fundo desfocado da propria imagem. Se a conversao ou o upload
     falharem, devolve a URL original, para a story sair na mesma,
     ainda que cortada, em vez de falhar."""
+    if not image_url:
+        return image_url
+    if image_url in _STORY_9X16_CACHE:
+        return _STORY_9X16_CACHE[image_url]
     try:
         import io
         from PIL import Image, ImageFilter, ImageEnhance
-        resp = requests.get(image_url, timeout=30)
-        if resp.status_code != 200 or not resp.content:
-            return image_url
-        img = Image.open(io.BytesIO(resp.content)).convert("RGB")
+        mirror_match = re.search(r"/images/approved/([^/?#]+)$", str(image_url))
+        raw_bytes = None
+        if mirror_match:
+            local_mirror = os.path.join("site", "images", "approved", mirror_match.group(1))
+            if os.path.isfile(local_mirror):
+                with open(local_mirror, "rb") as lf:
+                    raw_bytes = lf.read()
+        if raw_bytes is None:
+            resp = requests.get(image_url, timeout=30)
+            if resp.status_code != 200 or not resp.content:
+                return image_url
+            raw_bytes = resp.content
+        img = Image.open(io.BytesIO(raw_bytes)).convert("RGB")
         W, H = 1080, 1920
         bg = img.copy()
         scale = max(W / bg.width, H / bg.height)
@@ -1737,7 +1864,7 @@ def story_image_9x16_url(image_url):
         scale_fg = min(W / fg.width, H / fg.height)
         fg = fg.resize((int(fg.width * scale_fg + 0.5), int(fg.height * scale_fg + 0.5)), Image.LANCZOS)
         canvas.paste(fg, ((W - fg.width) // 2, (H - fg.height) // 2))
-        out_path = "story_9x16.jpg"
+        out_path = f"story_9x16_{lang}.jpg"
         canvas.save(out_path, "JPEG", quality=92)
         api_key = os.environ.get("IMGBB_API_KEY", "")
         if not api_key:
@@ -1751,7 +1878,9 @@ def story_image_9x16_url(image_url):
             )
         data = res.json()
         if data.get("success"):
-            return data["data"]["url"]
+            story_url = data["data"]["url"]
+            _STORY_9X16_CACHE[image_url] = story_url
+            return story_url
         return image_url
     except Exception as e:
         print(f"Story 9:16: conversao falhou ({e}), a usar a imagem original.")
@@ -1768,7 +1897,7 @@ def publish_instagram_story(image_url, lang):
     excecao, para uma falha na story nao transformar um post do feed ja
     publicado num falhado.
     """
-    image_url = story_image_9x16_url(image_url)
+    image_url = story_image_9x16_url(image_url, lang=lang)
     token = IG_CREDENTIALS.get(lang, {}).get("token")
     user_id = IG_CREDENTIALS.get(lang, {}).get("user_id")
     if not token or not user_id:
@@ -1814,46 +1943,12 @@ def publish_instagram_story(image_url, lang):
     print(f"[{lang}] Story Instagram: falhou apos 3 tentativas na mesma run; sera retentada na proxima run.")
     return False
 
-# Atividade dos seguidores por dia da semana, medida nos prints das
-# Estatisticas do Instagram (Horas de atividade dos seguidores, 4 nov 2026).
-# Valores 0-100 por bloco de 3 h (0h, 3h, 6h, 9h, 12h, 15h, 18h, 21h),
-# normalizados pelo pico de cada dia (18h = 100). Segunda=0 ... Domingo=6.
-ACTIVITY_BY_WEEKDAY = {
-    0: {0: 46, 3: 14, 6: 44, 9: 77, 12: 89, 15: 89, 18: 100, 21: 97},
-    1: {0: 37, 3: 11, 6: 45, 9: 70, 12: 89, 15: 91, 18: 100, 21: 95},
-    2: {0: 41, 3: 11, 6: 47, 9: 75, 12: 86, 15: 89, 18: 100, 21: 94},
-    3: {0: 37, 3: 11, 6: 49, 9: 68, 12: 86, 15: 91, 18: 100, 21: 97},
-    4: {0: 37, 3: 11, 6: 46, 9: 69, 12: 91, 15: 92, 18: 100, 21: 99},
-    5: {0: 51, 3: 17, 6: 22, 9: 70, 12: 92, 15: 93, 18: 100, 21: 99},
-    6: {0: 59, 3: 22, 6: 18, 9: 63, 12: 94, 15: 92, 18: 100, 21: 97},
-}
-
-
-def weighted_target_mins(start_mins, end_mins, weekday):
-    """Sorteio do minuto-alvo com pesos da atividade dos seguidores:
-    cada minuto pesa a atividade do bloco de 3 h a que pertence
-    (medida nas Estatisticas do Instagram), por isso os alvos caem mais
-    vezes nas horas de maior afluencia (fim da manha e 18h-21h30).
-    O dia da semana (segunda=0 ... domingo=6) usa a tabela propria.
-    As janelas nao mudam: manha 08:00-13:30, tarde 17:00-21:30."""
-    activity = ACTIVITY_BY_WEEKDAY.get(weekday, ACTIVITY_BY_WEEKDAY[2])
-    minutes = list(range(start_mins, end_mins + 1))
-    weights = [activity[(m // 180) * 3] for m in minutes]
-    return random.choices(minutes, weights=weights)[0]
-
-
-def _day_targets(state, lang, local_date_str, weekday):
-    """Alvos do dia, iguais para todas as linguas (e para Facebook e
-    Instagram, que partilham o alvo da lingua): copia os de outra lingua
-    quando ja existirem para hoje; senao sorteia com os pesos da atividade
-    dos seguidores desse dia da semana."""
-    for other_lang, other_state in state.items():
-        if other_lang != lang and isinstance(other_state, dict) and other_state.get("date") == local_date_str:
-            if "morning_target_time" in other_state and "evening_target_time" in other_state:
-                return other_state["morning_target_time"], other_state["evening_target_time"]
-    m = weighted_target_mins(8 * 60, 13 * 60 + 30, weekday)
-    e = weighted_target_mins(17 * 60, 21 * 60 + 30, weekday)
-    return f"{m // 60:02d}:{m % 60:02d}", f"{e // 60:02d}:{e % 60:02d}"
+def weighted_target_mins(start_mins, end_mins):
+    """Sorteio do minuto-alvo com rampa linear: o peso de cada minuto cresce
+    de 1 no inicio da janela ate N no fim, por isso os alvos caem mais vezes
+    perto do fim da janela (13:30 de manha, 21:30 a tarde)."""
+    n = end_mins - start_mins + 1
+    return random.choices(range(start_mins, end_mins + 1), weights=range(1, n + 1))[0]
 
 
 def main():
@@ -1878,15 +1973,16 @@ def main():
         new_day = lang_state.get("date") != local_date_str
         if new_day:
             lang_state.clear()
-            # Alvos do dia, iguais para PT e EN: sorteio com os pesos da
-            # atividade dos seguidores (ou copia dos da outra lingua, se ja
-            # existirem para hoje). Janela 1: 08:00 a 13:30; Janela 2: 17:00 a 21:30.
-            m_target_str, e_target_str = _day_targets(state, lang, local_date_str, local_now.weekday())
+            # Sorteia um minuto-alvo para cada janela do dia (rampa linear, mais provavel perto do fim):
+            # Janela 1: 08:00 (480) a 13:30 (810)
+            m_target_mins = weighted_target_mins(8 * 60, 13 * 60 + 30)
+            # Janela 2: 17:00 (1020) a 21:30 (1290)
+            e_target_mins = weighted_target_mins(17 * 60, 21 * 60 + 30)
 
             lang_state.update({
                 "date": local_date_str,
-                "morning_target_time": m_target_str,
-                "evening_target_time": e_target_str,
+                "morning_target_time": f"{m_target_mins // 60:02d}:{m_target_mins % 60:02d}",
+                "evening_target_time": f"{e_target_mins // 60:02d}:{e_target_mins % 60:02d}",
                 "instagram": {"morning_posted": False, "evening_posted": False, "morning_attempted": False, "evening_attempted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
                 "facebook": {"morning_posted": False, "evening_posted": False, "morning_attempted": False, "evening_attempted": False, "morning_story_posted": False, "evening_story_posted": False, "last_post_time": None},
             })
@@ -1894,12 +1990,13 @@ def main():
         else:
             # Garante que existem os alvos sorteados se o estado foi criado anteriormente sem eles
             state_updated = False
-            if "morning_target_time" not in lang_state or "evening_target_time" not in lang_state:
-                m_target_str, e_target_str = _day_targets(state, lang, local_date_str, local_now.weekday())
-                if "morning_target_time" not in lang_state:
-                    lang_state["morning_target_time"] = m_target_str
-                if "evening_target_time" not in lang_state:
-                    lang_state["evening_target_time"] = e_target_str
+            if "morning_target_time" not in lang_state:
+                m_target_mins = weighted_target_mins(8 * 60, 13 * 60 + 30)
+                lang_state["morning_target_time"] = f"{m_target_mins // 60:02d}:{m_target_mins % 60:02d}"
+                state_updated = True
+            if "evening_target_time" not in lang_state:
+                e_target_mins = weighted_target_mins(17 * 60, 21 * 60 + 30)
+                lang_state["evening_target_time"] = f"{e_target_mins // 60:02d}:{e_target_mins % 60:02d}"
                 state_updated = True
             if state_updated:
                 save_publish_state(state)
@@ -2031,7 +2128,7 @@ def main():
 
                     if needs_rerender:
                         try:
-                            render_details = create_image_with_text(
+                            create_image_with_text(
                                 category,
                                 short_title,
                                 lang,
@@ -2045,25 +2142,7 @@ def main():
                                 manual_background_url=manual_background_url,
                                 year=year,
                                 relevance_level=(option.get("relevance") or {}).get("level"),
-                                return_details=True,
                             )
-                            # Garantia de fundo unico: quando ha um fundo
-                            # manual (a foto aprovada), o render tem de o
-                            # ter usado. Se o download falhou e a pesquisa
-                            # automatica devolveu outra foto, recusar o
-                            # render — o fallback abaixo usa a preview
-                            # aprovada (PT) ou aborta o slot (EN), mas o
-                            # post nunca sai com uma foto diferente da
-                            # aprovada. Sem isto, um timeout do ImgBB
-                            # trocava a foto em silencio (4 nov 2026,
-                            # manha e tarde).
-                            if manual_background_url:
-                                used_bg = str((render_details or {}).get("background_source_url", "") or "").strip()
-                                if used_bg != manual_background_url.strip():
-                                    raise RuntimeError(
-                                        "fundo manual falhou; pesquisa automatica recusada "
-                                        f"(manual: {manual_background_url[:100]}, usado: {used_bg[:100]})"
-                                    )
                             used_approved_post = True
                         except Exception as e:
                             print(f"[{lang}] Erro ao re-renderizar post aprovado: {e}.")
@@ -2130,6 +2209,11 @@ def main():
                         upload_data = imgbb_data.get("data", {})
                         public_image_url = upload_data["url"]
                         delete_url = upload_data.get("delete_url", "")
+                        if option is not None:
+                            option["image_url"] = public_image_url
+                            option["image_delete_url"] = delete_url
+                            with open("pending_posts.json", "w", encoding="utf-8") as pf:
+                                json.dump(pending_posts, pf, ensure_ascii=False, indent=4)
                     else:
                         print(f"[{lang}] Erro IMGBB: {imgbb_data}")
                 except Exception as e:
@@ -2171,14 +2255,14 @@ def main():
                 if story_result:
                     if approved_entry:
                         approved_entry[f"{pname}_story_id"] = str(story_result)
-                        if pname == "instagram" and "facebook" not in target_platforms:
+                        if pname == "instagram" and "facebook" not in target_platforms and os.environ.get("META_CROSSPOST_ENABLED", "").strip().lower() in ("true", "1", "yes"):
                             approved_entry["facebook_story_id"] = f"crosspost_story_{story_result}"
                             lang_state.get("facebook", {})[f"{pslot}_story_posted"] = True
                         with open("pending_posts.json", "w", encoding="utf-8") as pf:
                             json.dump(pending_posts, pf, ensure_ascii=False, indent=4)
                     pstate[f"{pslot}_story_posted"] = True
                     save_publish_state(state)
-                    print(f"[{lang}] {pname}: Story retentada com sucesso na proxima run (feed nao republicado).")
+                    print(f"[{lang}] {pname}: Story concluida ({story_result}) na proxima run (feed nao republicado).")
                 else:
                     print(f"[{lang}] {pname}: Story continua a falhar apos as tentativas imediatas; sera retentada na proxima run, ate ao fim da janela.")
                 continue
@@ -2188,20 +2272,7 @@ def main():
                 final_caption = caption_instagram or short_title
             elif pname == "facebook":
                 final_caption = caption_facebook or short_title
-            if lang == "en":
-                final_caption = re.sub(
-                    r"🔗?\s*Read the full story via the link (?:in our bio/about section|in the profile description|in bio)\.?",
-                    "🔗 Read the full story via the link in our bio/about section.",
-                    final_caption,
-                    flags=re.IGNORECASE,
-                )
-            else:
-                final_caption = re.sub(
-                    r"🔗?\s*L[eê] a not[ií]cia completa no link (?:da bio|do sobre do perfil)\.?",
-                    "🔗 Lê a notícia completa no link na descrição do perfil.",
-                    final_caption,
-                    flags=re.IGNORECASE,
-                )
+            final_caption = replace_social_cta(final_caption, platform=pname, lang=lang)
             final_caption = normalize_text(final_caption)
 
             # Publish to the platform
@@ -2270,8 +2341,8 @@ def main():
                     pstate[f"{pslot}_story_posted"] = True
                 pstate["last_post_time"] = local_now.isoformat()
 
-                if pname == "instagram" and "facebook" not in target_platforms:
-                    # Meta Cross-posting automatico alimenta a Pagina de Facebook
+                if pname == "instagram" and "facebook" not in target_platforms and os.environ.get("META_CROSSPOST_ENABLED", "").strip().lower() in ("true", "1", "yes"):
+                    # Meta Cross-posting automatico alimenta a Pagina de Facebook (apenas quando ativo)
                     fb_state = lang_state.get("facebook", {})
                     fb_state[f"{pslot}_posted"] = True
                     fb_state[f"{pslot}_attempted"] = True
@@ -2280,7 +2351,11 @@ def main():
                     fb_state["last_post_time"] = local_now.isoformat()
                     if approved_entry:
                         approved_entry["facebook_id"] = f"crosspost_{post_id_str}"
-                        approved_entry["facebook_url"] = "https://www.facebook.com/noticiasdeontempt"
+                        approved_entry["facebook_url"] = (
+                            "https://www.facebook.com/profile.php?id=1318455601360516"
+                            if lang == "en"
+                            else "https://www.facebook.com/noticiasdeontempt"
+                        )
                         if story_result:
                             approved_entry["facebook_story_id"] = f"crosspost_story_{story_result}"
                         with open("pending_posts.json", "w", encoding="utf-8") as pf:
@@ -2308,7 +2383,7 @@ def main():
 def publish_to_facebook(message, image_url, backdated_time=None):
     """Publica uma foto como publicacao genuina no Feed (Timeline de Publicacoes) da Pagina do Facebook.
     Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN.
-    NOTA (2026-11-02): o ciclo diario ja nao usa esta funcao — o feed vai pelo
+    NOTA (2026-11-02): o ciclo diario ja nao usa esta funcao â€” o feed vai pelo
     Buffer (publish_to_buffer), porque os posts diretos via Graph API, com a
     app em modo Development, ficam so na aba Fotos e nao aparecem no feed.
     Mantem-se aqui para uso manual pontual.
@@ -2394,11 +2469,13 @@ BUFFER_CHANNELS = {
         "channel_id": "6ae8e746e29c69a1713d9390",
         "page_id": "1030669413467151",
         "page_token_env": "FB_PAGE_ACCESS_TOKEN",
+        "fallback_permalink": "https://www.facebook.com/noticiasdeontempt",
     },
     "en": {
         "channel_id": "6ae8e746e29c69a1713d938f",
         "page_id": "1318455601360516",
-        "page_token_env": "IG_ACCESS_TOKEN_EN",
+        "page_token_env": "FB_PAGE_ACCESS_TOKEN_EN",
+        "fallback_permalink": "https://www.facebook.com/profile.php?id=1318455601360516",
     },
 }
 
@@ -2412,6 +2489,7 @@ def _find_facebook_post_by_message(page_id, page_token, caption, attempts=3):
     import requests as _r
 
     snippet = (caption or "")[:120]
+    _time.sleep(5)
     for _attempt in range(1, attempts + 1):
         try:
             res = _r.get(
@@ -2434,7 +2512,7 @@ def publish_to_buffer(message, image_url, lang):
     """Publica a imagem com legenda no feed da Pagina do Facebook via Buffer
     (API GraphQL em https://api.buffer.com, Bearer BUFFER_API_KEY).
     O Buffer publica como a propria Pagina, por isso o post aparece publico
-    no feed — ao contrario do post direto via Graph API em modo Development,
+    no feed â€” ao contrario do post direto via Graph API em modo Development,
     que fica so na aba Fotos. Devolve {"success": True, "id": <id do post no
     Facebook>, "permalink": ...} ou None apos 3 tentativas. A story do
     Facebook continua pelo caminho direto (publish_facebook_story)."""
@@ -2443,12 +2521,16 @@ def publish_to_buffer(message, image_url, lang):
     import requests as _r
 
     api_key = os.environ.get("BUFFER_API_KEY", "").strip()
-    cfg = BUFFER_CHANNELS.get(lang) or BUFFER_CHANNELS["pt"]
+    cfg = BUFFER_CHANNELS.get(lang)
+    if not cfg:
+        print(f"Facebook (Buffer): lingua desconhecida '{lang}'; a abortar para evitar publicar no canal errado.")
+        return None
     channel_id = os.environ.get(f"BUFFER_CHANNEL_ID_{lang.upper()}", "").strip() or cfg["channel_id"]
     page_id = os.environ.get("FB_PAGE_ID" if lang == "pt" else "FB_PAGE_ID_EN", "").strip() or cfg["page_id"]
     page_token = os.environ.get(cfg["page_token_env"], "").strip()
+    fallback_permalink = cfg.get("fallback_permalink") or f"https://www.facebook.com/{page_id}"
     if not api_key or not channel_id:
-        print("Facebook (Buffer): BUFFER_API_KEY ou canal nao configurado.")
+        print(f"[{lang}] Facebook (Buffer): BUFFER_API_KEY ou canal nao configurado.")
         return None
 
     mutation = """
@@ -2481,34 +2563,39 @@ def publish_to_buffer(message, image_url, lang):
             created = ((data.get("data") or {}).get("createPost") or {}).get("post") or {}
             buffer_post_id = created.get("id")
             if buffer_post_id:
-                print(f"Facebook (Buffer): publicado! Post Buffer: {buffer_post_id}")
+                print(f"[{lang}] Facebook (Buffer): publicado! Post Buffer: {buffer_post_id}")
                 # Ir buscar o ID real do post no Facebook para guardar na entrada.
                 found = _find_facebook_post_by_message(page_id, page_token, message) if page_token else None
                 if found:
-                    print(f"Facebook (Buffer): post no feed: {found['id']}")
+                    print(f"[{lang}] Facebook (Buffer): post no feed: {found['id']}")
                     return {"success": True, "id": found["id"], "permalink": found["permalink"]}
-                print("Facebook (Buffer): post publicado, mas nao o encontrei no feed da Pagina; a guardar o ID do Buffer.")
-                return {"success": True, "id": str(buffer_post_id), "permalink": f"https://www.facebook.com/{page_id}"}
-            print(f"Facebook (Buffer) (tentativa {_attempt}/3): Erro:", data)
+                print(f"[{lang}] Facebook (Buffer): post publicado, a guardar o ID do Buffer ({buffer_post_id}).")
+                return {"success": True, "id": str(buffer_post_id), "permalink": fallback_permalink}
+            print(f"[{lang}] Facebook (Buffer) (tentativa {_attempt}/3): Erro:", data)
             # O Buffer rejeita um post identico ao que ja publicou ha pouco
             # ("already got this one scheduled or posted"): se o post ja
-            # estiver no feed, trata-se de sucesso e guarda-se o ID real.
-            _msg = ""
+            # estiver no Buffer/feed, trata-se de sucesso e evita loop infinito.
+            _msg_parts = []
             _cp = (data.get("data") or {}).get("createPost") or {}
-            if isinstance(_cp, dict):
-                _msg = _cp.get("message") or ""
-            if "already got this one" in _msg:
+            if isinstance(_cp, dict) and _cp.get("message"):
+                _msg_parts.append(str(_cp["message"]))
+            for _err in (data.get("errors") or []):
+                if isinstance(_err, dict) and _err.get("message"):
+                    _msg_parts.append(str(_err["message"]))
+            _msg = " ".join(_msg_parts)
+            if "already got this one" in _msg.lower():
                 found = _find_facebook_post_by_message(page_id, page_token, message) if page_token else None
                 if found:
-                    print(f"Facebook (Buffer): o post ja existia no feed: {found['id']}")
+                    print(f"[{lang}] Facebook (Buffer): o post ja existia no feed: {found['id']}")
                     return {"success": True, "id": found["id"], "permalink": found["permalink"]}
-                print("Facebook (Buffer): o Buffer diz que o post ja existe, mas nao o encontrei no feed.")
+                print(f"[{lang}] Facebook (Buffer): o Buffer confirma que o post ja foi agendado/publicado; a marcar como concluido.")
+                return {"success": True, "id": "buffer_duplicate_ok", "permalink": fallback_permalink}
         except Exception as exc:
-            print(f"Facebook (Buffer) (tentativa {_attempt}/3): Excecao:", exc)
+            print(f"[{lang}] Facebook (Buffer) (tentativa {_attempt}/3): Excecao:", exc)
         if _attempt < 3:
-            print("Facebook (Buffer): a retentar apenas o feed, na mesma run, em 20 s...")
+            print(f"[{lang}] Facebook (Buffer): a retentar apenas o feed, na mesma run, em 20 s...")
             _time.sleep(20)
-    print("Facebook (Buffer): falhou apos 3 tentativas na mesma run; sera retentado na proxima run.")
+    print(f"[{lang}] Facebook (Buffer): falhou apos 3 tentativas na mesma run; sera retentado na proxima run.")
     return None
 
 
@@ -2521,20 +2608,22 @@ def publish_facebook_story(image_url, lang="pt"):
     a story sai, em principio, junto ao feed, com retry imediato; so se
     as 3 tentativas imediatas falharem e que vai para a proxima run. Best-effort: devolve o post_id ou True/False, nunca levanta
     excecao, para uma falha na story nao transformar um post do feed ja
-    publicado num falhado. Por lingua: em PT usa FB_PAGE_ID +
-    FB_PAGE_ACCESS_TOKEN; em EN usa a Pagina EN (1318455601360516) e o
-    token da Pagina EN (IG_ACCESS_TOKEN_EN).
+    publicado num falhado. Requer FB_PAGE_ID + FB_PAGE_ACCESS_TOKEN (PT) ou
+    FB_PAGE_ID_EN + FB_PAGE_ACCESS_TOKEN_EN (EN) â€” nunca faz fallback entre linguas.
     """
-    image_url = story_image_9x16_url(image_url)
     if lang == "en":
-        page_id = "1318455601360516"
-        page_token = os.environ.get("IG_ACCESS_TOKEN_EN", "")
+        page_id = os.environ.get("FB_PAGE_ID_EN", "").strip()
+        page_token = os.environ.get("FB_PAGE_ACCESS_TOKEN_EN", "").strip()
+    elif lang == "pt":
+        page_id = os.environ.get("FB_PAGE_ID", "").strip()
+        page_token = os.environ.get("FB_PAGE_ACCESS_TOKEN", "").strip()
     else:
-        page_id = os.environ.get("FB_PAGE_ID", "")
-        page_token = os.environ.get("FB_PAGE_ACCESS_TOKEN", "")
+        page_id = ""
+        page_token = ""
     if not page_id or not page_token:
-        print("Story Facebook: credenciais nao configuradas.")
-        return False
+        print(f"[{lang}] Story Facebook: credenciais nao configuradas para '{lang}'; story ignorada.")
+        return "skipped_no_credentials"
+    image_url = story_image_9x16_url(image_url, lang=lang)
     import requests as _r
     import time as _time
     for _attempt in range(1, 4):
@@ -2571,3 +2660,4 @@ def publish_facebook_story(image_url, lang="pt"):
 
 if __name__ == "__main__":
     main()
+

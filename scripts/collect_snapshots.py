@@ -59,6 +59,53 @@ def collect(limit=None):
     print(f"Concluído: {downloaded} descarregados, {skipped} já existiam, {failed} falhados.")
 
 
+def is_valid_snapshot_bytes(data: bytes) -> bool:
+    """Valida se os bytes recebidos são um screenshot genuíno do Arquivo.pt.
+
+    Rejeita:
+    - Imagens com aspect ratio de capa Instagram (≈ 4:5, largura > 900 px)
+    - Imagens demasiado pequenas (largura < 500 px)
+    - Imagens com cores muito saturadas/escuras (páginas de erro coloridas)
+    - Imagens quadradas ou landscape (não são screenshots de página web)
+    Aceita screenshots portrait de página web (height > 1.5 × width, pale).
+    """
+    try:
+        import io
+        from PIL import Image
+        import colorsys
+
+        img = Image.open(io.BytesIO(data))
+        w, h = img.size
+
+        # Demasiado pequena
+        if w < 500 or h < 500:
+            return False
+
+        # Landscape ou quase-quadrada
+        if h < w * 1.2:
+            return False
+
+        # Aspect ratio de capa Instagram (4:5) — rejeitar
+        ratio = h / w
+        if ratio < 1.4 and w > 900:
+            return False
+
+        # Verificar cor dominante — rejeitar imagens muito saturadas (erros)
+        thumb = img.convert("RGB").resize((50, 50))
+        pixels = list(thumb.getdata())
+        avg_r = sum(p[0] for p in pixels) / len(pixels)
+        avg_g = sum(p[1] for p in pixels) / len(pixels)
+        avg_b = sum(p[2] for p in pixels) / len(pixels)
+        h_hls, l_hls, s_hls = colorsys.rgb_to_hls(avg_r / 255, avg_g / 255, avg_b / 255)
+        # Rejeitar se saturação alta (>0.3) — páginas de erro coloridas
+        if s_hls > 0.3:
+            return False
+
+        return True
+    except Exception:
+        return False
+
+
 if __name__ == "__main__":
     import sys
 
