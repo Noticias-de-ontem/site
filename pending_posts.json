@@ -5674,7 +5674,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -5935,7 +5935,14 @@
                 "caption_facebook": "Assinatura de acordo que estabelece o aumento do salário mínimo do Estado para 878,41 euros no próximo ano letivo.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2024.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Saude",
                 "body": ""
             }
-        ]
+        ],
+        "instagram_id": "18093693059208383",
+        "instagram_url": "https://www.instagram.com/p/DfZjw3AlNqO/",
+        "published_at": "2026-11-06T12:02:21.949757",
+        "instagram_story_id": "18110888005907614",
+        "facebook_id": "1030669413467151_122137708106824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137708106824703",
+        "facebook_story_id": "1407864694427146"
     },
     {
         "id": "pt_2026-11-06_2",
@@ -6222,7 +6229,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-06_1",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "expresso.pt",
         "external_suggestions": [],
@@ -6273,7 +6280,14 @@
                 "background_source_url": "https://commons.wikimedia.org/wiki/File:22_11_2022_Encontro_com_o_senhor_Augusto_Santos_Silva,_Presidente_da_Assembleia_da_Rep%C3%BAblica_(52518273981).jpg",
                 "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-06_01_2024_parlamento-aprova-alargamento-da-licenca-parental-e-pre-escolar-a-partir-dos-tre-fundo.jpg"
             }
-        ]
+        ],
+        "instagram_id": "17887934958689280",
+        "instagram_url": "https://www.instagram.com/p/DfZj4s6lFha/",
+        "published_at": "2026-11-06T12:03:04.962469",
+        "instagram_story_id": "17918027625520929",
+        "facebook_id": "1318455601360516_122099348817541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122099348817541219",
+        "facebook_story_id": "1886688785823634"
     },
     {
         "id": "en_2026-11-06_2",
