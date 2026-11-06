@@ -5955,7 +5955,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -6216,7 +6216,14 @@
                 "caption_facebook": "A Assembleia da República vota hoje propostas de lei que endurecem as regras de imigração e permanência no país.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
                 "body": ""
             }
-        ]
+        ],
+        "instagram_id": "18114221045605865",
+        "instagram_url": "https://www.instagram.com/p/Dfak-BFAMzd/",
+        "published_at": "2026-11-06T21:31:42.725230",
+        "instagram_story_id": "17964069941996973",
+        "facebook_id": "1030669413467151_122137757774824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137757774824703",
+        "facebook_story_id": "28893529023602582"
     },
     {
         "id": "en_2026-11-06_1",
@@ -6300,7 +6307,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-06_2",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "rtp.pt",
         "external_suggestions": [],
@@ -6351,7 +6358,14 @@
                 "background_source_url": "https://commons.wikimedia.org/wiki/File:Pal%C3%A1cio_de_S%C3%A3o_Louren%C3%A7o_-_Funchal_01.jpg",
                 "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-06_01_2015_psd-e-cds-aprovam-programa-de-governo-fundo.jpg"
             }
-        ]
+        ],
+        "instagram_id": "18047462975831773",
+        "instagram_url": "https://www.instagram.com/p/DfalCz7jxSN/",
+        "published_at": "2026-11-06T21:32:19.818097",
+        "instagram_story_id": "18134957605782123",
+        "facebook_id": "1318455601360516_122099680455541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122099680455541219",
+        "facebook_story_id": "4505610903049695"
     },
     {
         "id": "pt_2026-11-07_1",
