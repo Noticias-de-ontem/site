@@ -6378,7 +6378,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -6639,7 +6639,14 @@
                     "facebook"
                 ]
             }
-        ]
+        ],
+        "instagram_id": "18644397199059022",
+        "instagram_url": "https://www.instagram.com/p/DfcL-KgGz5h/",
+        "published_at": "2026-11-07T12:31:48.557402",
+        "instagram_story_id": "17891112036476420",
+        "facebook_id": "1030669413467151_122137829978824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137829978824703",
+        "facebook_story_id": "1028938063593942"
     },
     {
         "id": "pt_2026-11-07_2",
@@ -6926,7 +6933,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-07_1",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "publico.pt",
         "external_suggestions": [],
@@ -6977,7 +6984,14 @@
                 "background_source_url": "https://arquivo.pt/wayback/20180712110821/https://www.solsef.org/noticias/detalhe/esta-a-chegar-o-encerramento-da-exposicao/",
                 "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-07_01_2011_escolas-com-aumento-de-alunos-mal-alimentados-fundo.jpg"
             }
-        ]
+        ],
+        "instagram_id": "18154600336557311",
+        "instagram_url": "https://www.instagram.com/p/DfcMDxzoBHr/",
+        "published_at": "2026-11-07T12:32:32.390300",
+        "instagram_story_id": "17910356547574658",
+        "facebook_id": "1318455601360516_122100251547541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122100251547541219",
+        "facebook_story_id": "1882603853090273"
     },
     {
         "id": "en_2026-11-07_2",
