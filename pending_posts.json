@@ -6659,7 +6659,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -6920,7 +6920,14 @@
                     "facebook"
                 ]
             }
-        ]
+        ],
+        "instagram_id": "17913152046561510",
+        "instagram_url": "https://www.instagram.com/p/Dfc_etwDK3z/",
+        "published_at": "2026-11-07T20:01:58.624295",
+        "instagram_story_id": "18115132424615821",
+        "facebook_id": "1030669413467151_122137875986824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137875986824703",
+        "facebook_story_id": "1826667138532551"
     },
     {
         "id": "en_2026-11-07_1",
@@ -7004,7 +7011,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-07_2",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "expresso.pt",
         "external_suggestions": [],
@@ -7055,7 +7062,14 @@
                 "background_source_url": "https://commons.wikimedia.org/wiki/File:Portugal_Spain_border_crossing_Vilar_Formoso.jpg",
                 "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-07_01_2020_portugal-e-espanha-rejeitam-novo-fecho-de-fronteiras-fundo.jpg"
             }
-        ]
+        ],
+        "instagram_id": "18103741580374366",
+        "instagram_url": "https://www.instagram.com/p/Dfc_kjrDNX_/",
+        "published_at": "2026-11-07T20:02:42.379414",
+        "instagram_story_id": "18383300587239452",
+        "facebook_id": "1318455601360516_122100535191541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122100535191541219",
+        "facebook_story_id": "2135335183774694"
     },
     {
         "id": "pt_2026-11-08_1",
