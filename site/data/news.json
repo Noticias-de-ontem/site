@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-08T13:33:17+00:00",
+  "generated_at": "2026-11-08T17:01:28+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -47,9 +47,17 @@
       "instagram": "https://www.instagram.com/p/Dfe3oOFDeKo/",
       "facebook": "https://www.facebook.com/122136509126824703/posts/122137975370824703"
     },
-    "relevance_level": 3,
-    "relevance_scores": {},
-    "relevance_weighted": 72.0,
+    "relevance_level": 2,
+    "relevance_scores": {
+      "impacto_historico": 70.0,
+      "dimensao_impacto": 72.0,
+      "consequencias": 75.0,
+      "relevancia_posterior": 70.0,
+      "dimensao_duracao": 72.0,
+      "relevancia_mediatica": 75.0,
+      "singularidade": 74.0
+    },
+    "relevance_weighted": 71.8,
     "relevance_justification": "Fecho compulsivo de polo de ensino superior artístico afeta centenas de estudantes e docentes.",
     "source_type": "archive",
     "url_path": "noticia/educacao/governo-determina-encerramento-compulsivo-da-escola",
@@ -102,7 +110,7 @@
         "instagram": "https://www.instagram.com/p/DfU_6XkDYMs/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137484426824703"
       },
-      "relevance_level": 1,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 100.0,
         "dimensao_impacto": 100.0,
@@ -112,7 +120,7 @@
         "relevancia_mediatica": 100.0,
         "singularidade": 100.0
       },
-      "relevance_weighted": 98.5,
+      "relevance_weighted": 98.8,
       "relevance_justification": "Um dos momentos políticos mais marcantes do século XXI à escala global.",
       "source_type": "wikipedia",
       "url_path": "noticia/mundial/barack-obama-e-eleito-o-primeiro",
@@ -413,9 +421,69 @@
       "page_id": "noticia-7f6cc4d040d947b910e791dc",
       "detail_image": "assets/banners/2026-10-27-2-oramento-do-estado-chumbado-na-assembleia-da-repblica-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-7f6cc4d040d947b910e791dc.jpg"
-    }
-  ],
-  "latest": [
+    },
+    {
+      "id": "pt_2026-11-03_2",
+      "lang": "pt",
+      "date": "2026-11-03",
+      "slot": 2,
+      "status": "published",
+      "published_at": "2026-11-03T20:04:44.653773",
+      "category": "SOCIEDADE",
+      "title": "Vaticano confirma diretiva que proíbe padres com tendências homossexuais",
+      "title_en": "Vatican Confirms Directive Banning Homosexual Priests",
+      "summary": "Igreja Católica mantém diretiva restritiva sobre admissão nos seminários.",
+      "summary_en": "Catholic Church maintains restrictions on admissions to seminaries and ordination.",
+      "original_year": "2015",
+      "image": "assets/posts/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais.jpg",
+      "banner_image": "assets/banners/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais-banner.jpg",
+      "body": "O Vaticano e a Congregação para a Educação Católica reafirmaram oficialmente as normas que impedem a admissão em seminários e a ordenação de candidatos com tendências homossexuais ativas ou profundamente enraizadas. O documento foi emitido na sequência de orientações preparadas pela Santa Sé sobre a formação sacerdotal contemporânea. A confirmação da diretiva gerou reações contrastantes em vários setores da Igreja Católica a nível mundial. Enquanto círculos conservadores saudaram a manutenção da doutrina tradicional, teólogos progressistas e associações de fiéis lamentaram a rigidez da posição, apontando contradições com as mensagens de maior acolhimento promovidas no pontificado. O debate repercutiu-se amplamente na opinião pública portuguesa e europeia, evidenciando as profundas tensões internas e os desafios da instituição católica na relação com a diversidade e os direitos humanos no século XXI.",
+      "body_en": "",
+      "caption": "Numa diretiva com grande repercussão e debate no espaço público, o Vaticano e a Congregação para a Educação Católica determinaram em 2015 a proibição expressa da ordenação sacerdotal e admissão nos seminários de homens com tendências homossexuais. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015. 🔗 Lê a notícia completa no link na descrição do perfil.",
+      "source_url": "https://www.publico.pt/2015/11/03/sociedade/noticia/igreja-proibe-padres-com-tendencias-homossexuais-1713214",
+      "source_profile": "publico.pt",
+      "source_platform": "publico.pt",
+      "instagram_url": "https://www.instagram.com/p/DfSslgAGsNX/",
+      "instagram_id": "18439192579199191",
+      "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137344740824703",
+      "facebook_id": "1030669413467151_122137344740824703",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram",
+        "facebook"
+      ],
+      "cover_focus": null,
+      "network_posts": {
+        "instagram": "https://www.instagram.com/p/DfSslgAGsNX/",
+        "facebook": "https://www.facebook.com/122136509126824703/posts/122137344740824703"
+      },
+      "relevance_level": 2,
+      "relevance_scores": {
+        "impacto_historico": 75.0,
+        "dimensao_impacto": 80.0,
+        "consequencias": 70.0,
+        "relevancia_posterior": 75.0,
+        "dimensao_duracao": 75.0,
+        "relevancia_mediatica": 85.0,
+        "singularidade": 70.0
+      },
+      "relevance_weighted": 75.5,
+      "relevance_justification": "Tema de forte debate ético, religioso e social com impacto internacional.",
+      "source_type": "newspaper",
+      "url_path": "noticia/sociedade/vaticano-confirma-diretiva-que-proibe-padres",
+      "page_id": "noticia-9372c72c68f60189b3fe64a3",
+      "detail_image": "assets/banners/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais-banner.jpg",
+      "snapshot_url": "assets/snapshots/noticia-9372c72c68f60189b3fe64a3.jpg",
+      "url_path_en": "noticia/society/vatican-confirms-directive-banning-homosexual-priests",
+      "page_id_en": "noticia-2f9cf6275a97728d1a801099",
+      "category_en": "SOCIETY",
+      "instagram_url_en": "https://www.instagram.com/p/DfSlsq2l-Ke/",
+      "instagram_id_en": "17944920099367503",
+      "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122097205521541219",
+      "facebook_id_en": "1318455601360516_122097205521541219",
+      "relevance_justification_en": "Tema de forte debate ético, religioso e social com impacto internacional."
+    },
     {
       "id": "pt_2026-11-08_1",
       "lang": "pt",
@@ -452,9 +520,17 @@
         "instagram": "https://www.instagram.com/p/Dfe3oOFDeKo/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137975370824703"
       },
-      "relevance_level": 3,
-      "relevance_scores": {},
-      "relevance_weighted": 72.0,
+      "relevance_level": 2,
+      "relevance_scores": {
+        "impacto_historico": 70.0,
+        "dimensao_impacto": 72.0,
+        "consequencias": 75.0,
+        "relevancia_posterior": 70.0,
+        "dimensao_duracao": 72.0,
+        "relevancia_mediatica": 75.0,
+        "singularidade": 74.0
+      },
+      "relevance_weighted": 71.8,
       "relevance_justification": "Fecho compulsivo de polo de ensino superior artístico afeta centenas de estudantes e docentes.",
       "source_type": "archive",
       "url_path": "noticia/educacao/governo-determina-encerramento-compulsivo-da-escola",
@@ -470,6 +546,62 @@
       "facebook_id_en": "1318455601360516_122101158975541219",
       "relevance_justification_en": "The compulsory closure of an art-focused higher education institution affected hundreds of students and faculty members."
     },
+    {
+      "id": "pt_2026-11-02_2",
+      "lang": "pt",
+      "date": "2026-11-02",
+      "slot": 2,
+      "status": "published",
+      "published_at": "2026-11-02T20:16:45.988906+00:00",
+      "category": "POLÍTICA",
+      "title": "Governo omitiu 500 milhões de euros em benefícios fiscais no Orçamento",
+      "title_en": "Government Omitted 500 Million Euros in Tax Benefits from Budget",
+      "summary": "Proposta orçamental de 2015 ocultou meio milhão de euros em desagravamentos tributários.",
+      "summary_en": "Budget proposals omitted half a billion euros in tax expenditures triggering political scrutiny.",
+      "original_year": "2015",
+      "image": "assets/posts/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento.jpg",
+      "banner_image": "assets/banners/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento-banner.jpg",
+      "body": "Uma auditoria detalhada às tabelas orçamentais revelou que o Governo deixou de fora do relatório que acompanhou a proposta de Orçamento do Estado cerca de 500 milhões de euros respeitantes a desagravamentos e incentivos fiscais concedidos a empresas e contribuintes. A revelação provocou forte surpresa e acesas críticas nos meios económicos e parlamentares. Especialistas em finanças públicas e deputados da oposição questionaram a transparência da prestação de contas, apontando que a omissão destes valores distorcia o real saldo das receitas fiscais previstas para o ano económico seguinte. O Ministério das Finanças procurou justificar a ausência como uma questão meramente técnica e metodológica de apresentação das despesas fiscais. A controvérsia acentuou o escrutínio sobre o rigor orçamental e as exigências da União Europeia relativamente à clareza das contas nacionais, consolidando-se como um dos episódios mais debatidos na discussão das finanças públicas do período.",
+      "body_en": "",
+      "caption": "Num relatório que gerou forte controvérsia política e parlamentar, foi revelado em 2015 que o Governo omitiu cerca de 500 milhões de euros em benefícios fiscais na proposta inicial do Orçamento do Estado. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015. 🔗 Lê a notícia completa no link na descrição do perfil.",
+      "source_url": "http://www.dn.pt/economia/dinheiro-vivo/interior/governo-omitiu-500-milhoes-de-euros-em-beneficios-fiscais-4304057.html",
+      "source_profile": "dn.pt",
+      "source_platform": "dn.pt",
+      "instagram_url": "https://www.instagram.com/p/DfQJJurl-oj/",
+      "instagram_id": "17905622907599722",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122137176890824703",
+      "facebook_id": "1030669413467151_122137176890824703",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram",
+        "facebook"
+      ],
+      "cover_focus": null,
+      "network_posts": {
+        "instagram": "https://www.instagram.com/p/DfQJJurl-oj/",
+        "facebook": "https://www.facebook.com/1030669413467151_122137176890824703"
+      },
+      "relevance_level": 2,
+      "relevance_scores": {
+        "impacto_historico": 70.0,
+        "dimensao_impacto": 80.0,
+        "consequencias": 75.0,
+        "relevancia_posterior": 70.0,
+        "dimensao_duracao": 65.0,
+        "relevancia_mediatica": 85.0,
+        "singularidade": 75.0
+      },
+      "relevance_weighted": 73.2,
+      "relevance_justification": "Impacto orçamental direto nas contas públicas e escrutínio governativo.",
+      "source_type": "newspaper",
+      "url_path": "noticia/politica/governo-omitiu-500-milhoes-de-euros",
+      "page_id": "noticia-017bd61178fa8c59845d65ec",
+      "detail_image": "assets/banners/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento-banner.jpg",
+      "snapshot_url": "assets/snapshots/noticia-017bd61178fa8c59845d65ec.jpg"
+    }
+  ],
+  "latest": [
     {
       "id": "pt_2026-11-07_2",
       "lang": "pt",
@@ -781,68 +913,6 @@
       "relevance_justification_en": "A obra buscava preservar a atividade portuária após o encerramento, mas o resumo não detalha resultados posteriores ou impactos duradouros."
     },
     {
-      "id": "pt_2026-11-03_2",
-      "lang": "pt",
-      "date": "2026-11-03",
-      "slot": 2,
-      "status": "published",
-      "published_at": "2026-11-03T20:04:44.653773",
-      "category": "SOCIEDADE",
-      "title": "Vaticano confirma diretiva que proíbe padres com tendências homossexuais",
-      "title_en": "Vatican Confirms Directive Banning Homosexual Priests",
-      "summary": "Igreja Católica mantém diretiva restritiva sobre admissão nos seminários.",
-      "summary_en": "Catholic Church maintains restrictions on admissions to seminaries and ordination.",
-      "original_year": "2015",
-      "image": "assets/posts/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais.jpg",
-      "banner_image": "assets/banners/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais-banner.jpg",
-      "body": "O Vaticano e a Congregação para a Educação Católica reafirmaram oficialmente as normas que impedem a admissão em seminários e a ordenação de candidatos com tendências homossexuais ativas ou profundamente enraizadas. O documento foi emitido na sequência de orientações preparadas pela Santa Sé sobre a formação sacerdotal contemporânea. A confirmação da diretiva gerou reações contrastantes em vários setores da Igreja Católica a nível mundial. Enquanto círculos conservadores saudaram a manutenção da doutrina tradicional, teólogos progressistas e associações de fiéis lamentaram a rigidez da posição, apontando contradições com as mensagens de maior acolhimento promovidas no pontificado. O debate repercutiu-se amplamente na opinião pública portuguesa e europeia, evidenciando as profundas tensões internas e os desafios da instituição católica na relação com a diversidade e os direitos humanos no século XXI.",
-      "body_en": "",
-      "caption": "Numa diretiva com grande repercussão e debate no espaço público, o Vaticano e a Congregação para a Educação Católica determinaram em 2015 a proibição expressa da ordenação sacerdotal e admissão nos seminários de homens com tendências homossexuais. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015. 🔗 Lê a notícia completa no link na descrição do perfil.",
-      "source_url": "https://www.publico.pt/2015/11/03/sociedade/noticia/igreja-proibe-padres-com-tendencias-homossexuais-1713214",
-      "source_profile": "publico.pt",
-      "source_platform": "publico.pt",
-      "instagram_url": "https://www.instagram.com/p/DfSslgAGsNX/",
-      "instagram_id": "18439192579199191",
-      "facebook_url": "https://www.facebook.com/122136509126824703/posts/122137344740824703",
-      "facebook_id": "1030669413467151_122137344740824703",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram",
-        "facebook"
-      ],
-      "cover_focus": null,
-      "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfSslgAGsNX/",
-        "facebook": "https://www.facebook.com/122136509126824703/posts/122137344740824703"
-      },
-      "relevance_level": 3,
-      "relevance_scores": {
-        "impacto_historico": 75.0,
-        "dimensao_impacto": 80.0,
-        "consequencias": 70.0,
-        "relevancia_posterior": 75.0,
-        "dimensao_duracao": 75.0,
-        "relevancia_mediatica": 85.0,
-        "singularidade": 70.0
-      },
-      "relevance_weighted": 75.8,
-      "relevance_justification": "Tema de forte debate ético, religioso e social com impacto internacional.",
-      "source_type": "newspaper",
-      "url_path": "noticia/sociedade/vaticano-confirma-diretiva-que-proibe-padres",
-      "page_id": "noticia-9372c72c68f60189b3fe64a3",
-      "detail_image": "assets/banners/2026-11-03-2-vaticano-confirma-diretiva-que-probe-padres-com-tendncias-homossexuais-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-9372c72c68f60189b3fe64a3.jpg",
-      "url_path_en": "noticia/society/vatican-confirms-directive-banning-homosexual-priests",
-      "page_id_en": "noticia-2f9cf6275a97728d1a801099",
-      "category_en": "SOCIETY",
-      "instagram_url_en": "https://www.instagram.com/p/DfSlsq2l-Ke/",
-      "instagram_id_en": "17944920099367503",
-      "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122097205521541219",
-      "facebook_id_en": "1318455601360516_122097205521541219",
-      "relevance_justification_en": "Tema de forte debate ético, religioso e social com impacto internacional."
-    },
-    {
       "id": "pt_2026-11-03_1",
       "lang": "pt",
       "date": "2026-11-03",
@@ -903,60 +973,6 @@
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122097200955541219",
       "facebook_id_en": "1318455601360516_122097200955541219",
       "relevance_justification_en": "A greve afetou diretamente a continuidade das aulas em escolas privadas e cooperativas, mas a fonte não documenta consequências duradouras."
-    },
-    {
-      "id": "pt_2026-11-02_2",
-      "lang": "pt",
-      "date": "2026-11-02",
-      "slot": 2,
-      "status": "published",
-      "published_at": "2026-11-02T20:16:45.988906+00:00",
-      "category": "POLÍTICA",
-      "title": "Governo omitiu 500 milhões de euros em benefícios fiscais no Orçamento",
-      "title_en": "Government Omitted 500 Million Euros in Tax Benefits from Budget",
-      "summary": "Proposta orçamental de 2015 ocultou meio milhão de euros em desagravamentos tributários.",
-      "summary_en": "Budget proposals omitted half a billion euros in tax expenditures triggering political scrutiny.",
-      "original_year": "2015",
-      "image": "assets/posts/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento.jpg",
-      "banner_image": "assets/banners/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento-banner.jpg",
-      "body": "Uma auditoria detalhada às tabelas orçamentais revelou que o Governo deixou de fora do relatório que acompanhou a proposta de Orçamento do Estado cerca de 500 milhões de euros respeitantes a desagravamentos e incentivos fiscais concedidos a empresas e contribuintes. A revelação provocou forte surpresa e acesas críticas nos meios económicos e parlamentares. Especialistas em finanças públicas e deputados da oposição questionaram a transparência da prestação de contas, apontando que a omissão destes valores distorcia o real saldo das receitas fiscais previstas para o ano económico seguinte. O Ministério das Finanças procurou justificar a ausência como uma questão meramente técnica e metodológica de apresentação das despesas fiscais. A controvérsia acentuou o escrutínio sobre o rigor orçamental e as exigências da União Europeia relativamente à clareza das contas nacionais, consolidando-se como um dos episódios mais debatidos na discussão das finanças públicas do período.",
-      "body_en": "",
-      "caption": "Num relatório que gerou forte controvérsia política e parlamentar, foi revelado em 2015 que o Governo omitiu cerca de 500 milhões de euros em benefícios fiscais na proposta inicial do Orçamento do Estado. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015. 🔗 Lê a notícia completa no link na descrição do perfil.",
-      "source_url": "http://www.dn.pt/economia/dinheiro-vivo/interior/governo-omitiu-500-milhoes-de-euros-em-beneficios-fiscais-4304057.html",
-      "source_profile": "dn.pt",
-      "source_platform": "dn.pt",
-      "instagram_url": "https://www.instagram.com/p/DfQJJurl-oj/",
-      "instagram_id": "17905622907599722",
-      "facebook_url": "https://www.facebook.com/1030669413467151_122137176890824703",
-      "facebook_id": "1030669413467151_122137176890824703",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram",
-        "facebook"
-      ],
-      "cover_focus": null,
-      "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfQJJurl-oj/",
-        "facebook": "https://www.facebook.com/1030669413467151_122137176890824703"
-      },
-      "relevance_level": 3,
-      "relevance_scores": {
-        "impacto_historico": 70.0,
-        "dimensao_impacto": 80.0,
-        "consequencias": 75.0,
-        "relevancia_posterior": 70.0,
-        "dimensao_duracao": 65.0,
-        "relevancia_mediatica": 85.0,
-        "singularidade": 75.0
-      },
-      "relevance_weighted": 75.0,
-      "relevance_justification": "Impacto orçamental direto nas contas públicas e escrutínio governativo.",
-      "source_type": "newspaper",
-      "url_path": "noticia/politica/governo-omitiu-500-milhoes-de-euros",
-      "page_id": "noticia-017bd61178fa8c59845d65ec",
-      "detail_image": "assets/banners/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-017bd61178fa8c59845d65ec.jpg"
     }
   ],
   "all": [
@@ -996,9 +1012,17 @@
         "instagram": "https://www.instagram.com/p/Dfe3oOFDeKo/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137975370824703"
       },
-      "relevance_level": 3,
-      "relevance_scores": {},
-      "relevance_weighted": 72.0,
+      "relevance_level": 2,
+      "relevance_scores": {
+        "impacto_historico": 70.0,
+        "dimensao_impacto": 72.0,
+        "consequencias": 75.0,
+        "relevancia_posterior": 70.0,
+        "dimensao_duracao": 72.0,
+        "relevancia_mediatica": 75.0,
+        "singularidade": 74.0
+      },
+      "relevance_weighted": 71.8,
       "relevance_justification": "Fecho compulsivo de polo de ensino superior artístico afeta centenas de estudantes e docentes.",
       "source_type": "archive",
       "url_path": "noticia/educacao/governo-determina-encerramento-compulsivo-da-escola",
@@ -1422,7 +1446,7 @@
         "instagram": "https://www.instagram.com/p/DfU_6XkDYMs/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137484426824703"
       },
-      "relevance_level": 1,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 100.0,
         "dimensao_impacto": 100.0,
@@ -1432,7 +1456,7 @@
         "relevancia_mediatica": 100.0,
         "singularidade": 100.0
       },
-      "relevance_weighted": 98.5,
+      "relevance_weighted": 98.8,
       "relevance_justification": "Um dos momentos políticos mais marcantes do século XXI à escala global.",
       "source_type": "wikipedia",
       "url_path": "noticia/mundial/barack-obama-e-eleito-o-primeiro",
@@ -1546,7 +1570,7 @@
         "instagram": "https://www.instagram.com/p/DfSslgAGsNX/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122137344740824703"
       },
-      "relevance_level": 3,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 75.0,
         "dimensao_impacto": 80.0,
@@ -1556,7 +1580,7 @@
         "relevancia_mediatica": 85.0,
         "singularidade": 70.0
       },
-      "relevance_weighted": 75.8,
+      "relevance_weighted": 75.5,
       "relevance_justification": "Tema de forte debate ético, religioso e social com impacto internacional.",
       "source_type": "newspaper",
       "url_path": "noticia/sociedade/vaticano-confirma-diretiva-que-proibe-padres",
@@ -1670,7 +1694,7 @@
         "instagram": "https://www.instagram.com/p/DfQJJurl-oj/",
         "facebook": "https://www.facebook.com/1030669413467151_122137176890824703"
       },
-      "relevance_level": 3,
+      "relevance_level": 2,
       "relevance_scores": {
         "impacto_historico": 70.0,
         "dimensao_impacto": 80.0,
@@ -1680,7 +1704,7 @@
         "relevancia_mediatica": 85.0,
         "singularidade": 75.0
       },
-      "relevance_weighted": 75.0,
+      "relevance_weighted": 73.2,
       "relevance_justification": "Impacto orçamental direto nas contas públicas e escrutínio governativo.",
       "source_type": "newspaper",
       "url_path": "noticia/politica/governo-omitiu-500-milhoes-de-euros",
@@ -2390,7 +2414,7 @@
         "relevancia_mediatica": 50.0,
         "singularidade": 60.0
       },
-      "relevance_weighted": 62.5,
+      "relevance_weighted": 62.8,
       "relevance_justification": "Proclamação pela UNESCO de uma efeméride internacional para preservação do património audiovisual global.",
       "source_type": "internet_profile",
       "url_path": "noticia/cultura/unesco-proclama-o-dia-27-de",
