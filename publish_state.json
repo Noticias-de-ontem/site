@@ -4,22 +4,22 @@
         "morning_target_time": "13:18",
         "evening_target_time": "20:12",
         "instagram": {
-            "morning_posted": false,
+            "morning_posted": true,
             "evening_posted": false,
-            "morning_attempted": false,
+            "morning_attempted": true,
             "evening_attempted": false,
-            "morning_story_posted": false,
+            "morning_story_posted": true,
             "evening_story_posted": false,
-            "last_post_time": null
+            "last_post_time": "2026-11-08T13:31:10.856742+00:00"
         },
         "facebook": {
-            "morning_posted": false,
+            "morning_posted": true,
             "evening_posted": false,
-            "morning_attempted": false,
+            "morning_attempted": true,
             "evening_attempted": false,
-            "morning_story_posted": false,
+            "morning_story_posted": true,
             "evening_story_posted": false,
-            "last_post_time": null
+            "last_post_time": "2026-11-08T13:31:10.856742+00:00"
         }
     },
     "en": {
@@ -27,22 +27,22 @@
         "morning_target_time": "13:18",
         "evening_target_time": "20:12",
         "instagram": {
-            "morning_posted": false,
+            "morning_posted": true,
             "evening_posted": false,
-            "morning_attempted": false,
+            "morning_attempted": true,
             "evening_attempted": false,
-            "morning_story_posted": false,
+            "morning_story_posted": true,
             "evening_story_posted": false,
-            "last_post_time": null
+            "last_post_time": "2026-11-08T13:32:17.292858+00:00"
         },
         "facebook": {
-            "morning_posted": false,
+            "morning_posted": true,
             "evening_posted": false,
-            "morning_attempted": false,
+            "morning_attempted": true,
             "evening_attempted": false,
-            "morning_story_posted": false,
+            "morning_story_posted": true,
             "evening_story_posted": false,
-            "last_post_time": null
+            "last_post_time": "2026-11-08T13:32:17.292858+00:00"
         }
     }
 }
