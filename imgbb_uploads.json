@@ -9129,5 +9129,18 @@
         "created_at": "2026-11-09T02:54:03+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-09",
+        "option_index": 2,
+        "title": "Começa a ser derrubado o Muro de Berlim",
+        "year": "1989",
+        "image_url": "https://i.ibb.co/5h7kqpkJ/2026-11-09-03-1989-comeca-a-ser-derrubado-o-muro-de-berlim.jpg",
+        "delete_url": "https://ibb.co/qYZCbqC2/fda972b1d4c064c9cd8d12f5ee6718c9",
+        "created_at": "2026-11-09T06:13:22+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
