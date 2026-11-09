@@ -8363,7 +8363,8 @@
           },
           "weighted_score": 19.0,
           "justification": "Medida cerimonial sem alteração estrutural duradoura na sociedade.",
-          "lang": "pt"
+          "lang": "pt",
+          "justification_en": "This is a ceremonial measure with no lasting structural change to society."
         },
         "article_url": "https://arquivo.pt/wayback/20251109213024/https://www.noticiasaominuto.com/pais/2874918/governo-aprova-luto-nacional-de-dois-dias-pela-morte-de-balsemao",
         "source_platform": "arquivo.pt",
@@ -8380,7 +8381,7 @@
         "caption_facebook": "Executivo aprovou luto oficial por período determinado em todo o território nacional.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
         "body": "O Governo de Portugal decretou dois dias de luto nacional em homenagem a uma figura pública que morreu em 2025. A decisão, aprovada pelo Executivo, estabelece um período de luto oficial em todo o território nacional, em conformidade com o protocolo previsto para a morte de uma personalidade de destaque.\n\nA declaração de luto nacional representa uma forma institucional de respeito e permite que os serviços públicos e as entidades privadas organizem, se assim entenderem, os seus-Escolas e atividades de forma compatível com a solemnidade do momento. O decreto fixa a duração do luto em dois dias, durante o qual são mantidos os símbolos e as regras de comportamento associados a esta declaração oficial.\n\nA medida tem efeitos nacionais e constitui um gesto de reconhecimento público da figura falecida. Ao mesmo tempo, integra um dos mecanismos de que o Estado dispõe para assinalar perdas relevantes e para expressar a sua proximidade perante os cidadãos.\n\nA escolha de dois dias de luto evidencia a importância atribuída à personalidade e a necessidade de garantir uma participação ampla nas cerimónias e atos de homenagem. A decisão do Governo constitui, assim, um gesto de memória coletiva e de respeito institucional, com significado duradouro para a comunidade, independentemente da duração limitada do período decretado.",
         "highlight_text_en": "National Mourning",
-        "caption_narrative_en": "Portugal’s government declared two days of national mourning in 2025 to honor a prominent public figure who died that year. The official mourning period applies nationwide and allows public services and private organizations to adjust their schedules and activities in keeping with the solemnity of the declaration."
+        "caption_narrative_en": "Portugal’s government declared two days of national mourning in 2025 to honor a prominent public figure who died that year. The official mourning period applies nationwide and allows public services and private organizations to adjust their schedules and activities in keeping with the solemnity of the occasion."
       },
       {
         "year": "2001",
@@ -14431,7 +14432,8 @@
           },
           "weighted_score": 50.2,
           "justification": "Avaliacao de fechamento temporario reflete tensoes geopoliticas em curso. Consequencias incluem ajustes diplomaticos e seguranca internacional reforcada.",
-          "lang": "pt"
+          "lang": "pt",
+          "justification_en": "A potential temporary closure reflects ongoing geopolitical tensions, with implications for diplomatic operations and international security."
         },
         "article_url": "https://arquivo.pt/wayback/20241121204735/https://www.publico.pt/2024/11/20/politica/noticia/governo-avaliar-encerramento-temporario-embaixada-kiev-2112630",
         "source_platform": "arquivo.pt",
@@ -14441,7 +14443,7 @@
           "facebook"
         ],
         "highlight_text_en": "Evaluates",
-        "caption_narrative_en": "The United States government announced in 2024 it is assessing the temporary closure of its embassy in Kiev, citing evolving security conditions and diplomatic necessities. Officials state the move reflects the dynamic nature of the current geopolitical landscape.",
+        "caption_narrative_en": "In 2024, the government is weighing the temporary closure of its embassy in Kyiv. The move would reflect mounting geopolitical tensions and could prompt diplomatic adjustments and stronger international security measures.",
         "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-21_2.jpg",
         "image_delete_url": "https://ibb.co/ccfXvJwZ/ca5e3845861c91c4f4ae8d7372184a4b",
         "local_image_path": "images/review/pt/2026-11-21_01_2024_governo-avaliar-encerramento-temporario-embaixada-kiev.jpg",
@@ -19595,5 +19597,196 @@
       }
     ],
     "last_image_refresh_at": "2026-11-09T01:48:29.069402"
+  },
+  {
+    "id": "en_2026-11-09_1",
+    "date": "2026-11-09",
+    "slot": 1,
+    "lang": "en",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "Synced from pt_2026-11-09_1",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "source_profile": "noticiasaominuto.com",
+    "external_suggestions": [],
+    "options": [
+      {
+        "category": "SOCIETY",
+        "title": "Government declares two-day national mourning",
+        "title_en": "Government declares two-day national mourning",
+        "highlight_text": "National Mourning",
+        "overlay_description": "Government approves official mourning measure for the death of Balsemão, affecting official symbols and ceremonies.",
+        "caption": "Portugal’s government declared two days of national mourning in 2025 to honor a prominent public figure who died that year. The official mourning period applies nationwide and allows public services and private organizations to adjust their schedules and activities in keeping with the solemnity of the occasion.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2025.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Society",
+        "caption_instagram": "Portugal’s government declared two days of national mourning in 2025 to honor a prominent public figure who died that year. The official mourning period applies nationwide and allows public services and private organizations to adjust their schedules and activities in keeping with the solemnity of the occasion.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2025.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Society",
+        "caption_facebook": "Portugal’s government declared two days of national mourning in 2025 to honor a prominent public figure who died that year. The official mourning period applies nationwide and allows public services and private organizations to adjust their schedules and activities in keeping with the solemnity of the occasion.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2025.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Society",
+        "year": "2025",
+        "summary": "Government approves official mourning measure for the death of Balsemão, affecting official symbols and ceremonies.",
+        "summary_en": "Government approves official mourning measure for the death of Balsemão, affecting official symbols and ceremonies.",
+        "body": "Portugal’s government has declared two days of national mourning in honor of a prominent public figure who died in 2025. The decision, approved by the executive branch, establishes an official mourning period throughout the country under protocols governing the death of a public personality.\n\nNational mourning is an institutional expression of respect. It allows public services and private organizations, if they choose, to adjust their schedules and activities to reflect the solemnity of the occasion. The decree sets the mourning period at two days, during which the symbols and rules of conduct associated with the official declaration remain in place.\n\nThe measure applies nationwide and represents a public acknowledgment of the deceased figure. It is also one of the mechanisms available to the state to mark significant losses and demonstrate its closeness to the people.\n\nChoosing a two-day mourning period underscores the importance attributed to the public figure and the need to allow broad participation in ceremonies and acts of tribute. The government’s decision is thus a gesture of collective remembrance and institutional respect, carrying lasting significance for the community despite the limited duration of the official mourning period.",
+        "body_en": "Portugal’s government has declared two days of national mourning in honor of a prominent public figure who died in 2025. The decision, approved by the executive branch, establishes an official mourning period throughout the country under protocols governing the death of a public personality.\n\nNational mourning is an institutional expression of respect. It allows public services and private organizations, if they choose, to adjust their schedules and activities to reflect the solemnity of the occasion. The decree sets the mourning period at two days, during which the symbols and rules of conduct associated with the official declaration remain in place.\n\nThe measure applies nationwide and represents a public acknowledgment of the deceased figure. It is also one of the mechanisms available to the state to mark significant losses and demonstrate its closeness to the people.\n\nChoosing a two-day mourning period underscores the importance attributed to the public figure and the need to allow broad participation in ceremonies and acts of tribute. The government’s decision is thus a gesture of collective remembrance and institutional respect, carrying lasting significance for the community despite the limited duration of the official mourning period.",
+        "image_theme": "Palácio de Belém Lisboa luto",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "networks": [
+          "facebook"
+        ],
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 30.0,
+            "dimensao_impacto": 20.0,
+            "consequencias": 15.0,
+            "relevancia_posterior": 15.0,
+            "dimensao_duracao": 10.0,
+            "relevancia_mediatica": 5.0,
+            "singularidade": 5.0
+          },
+          "weighted_score": 19.0,
+          "justification": "This is a ceremonial measure with no lasting structural change to society.",
+          "lang": "pt",
+          "justification_en": "This is a ceremonial measure with no lasting structural change to society."
+        },
+        "article_url": "https://arquivo.pt/wayback/20251109213024/https://www.noticiasaominuto.com/pais/2874918/governo-aprova-luto-nacional-de-dois-dias-pela-morte-de-balsemao",
+        "source_profile": "noticiasaominuto.com",
+        "source_platform": "arquivo.pt",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-09_1.jpg",
+        "image_delete_url": "",
+        "local_image_path": "site/images/approved/en_2026-11-09_1.jpg",
+        "background_source_url": "https://commons.wikimedia.org/wiki/File:Pal%C3%A1cio_Nacional_de_Bel%C3%A9m_Edif%C3%ADcio.jpg",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-09_1-fundo.jpg"
+      }
+    ]
+  },
+  {
+    "id": "en_2026-11-09_2",
+    "date": "2026-11-09",
+    "slot": 2,
+    "lang": "en",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "Synced from pt_2026-11-09_2",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "source_profile": "wikipedia",
+    "external_suggestions": [],
+    "options": [
+      {
+        "category": "WORLD",
+        "title": "Berlin Wall Begins to Fall",
+        "title_en": "Berlin Wall Begins to Fall",
+        "highlight_text": "Berlin Wall",
+        "overlay_description": "Work began dismantling the Berlin Wall, opening the way for German reunification and marking a defining turning point in European history.",
+        "caption": "In 1989, Berliners began tearing down the Berlin Wall, turning a symbol of Europe’s division into a scene of popular celebration. The opening of the border crossings paved the way for German reunification and accelerated political change across Eastern Europe.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 1989.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #World",
+        "caption_instagram": "In 1989, Berliners began tearing down the Berlin Wall, turning a symbol of Europe’s division into a scene of popular celebration. The opening of the border crossings paved the way for German reunification and accelerated political change across Eastern Europe.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 1989.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #World",
+        "caption_facebook": "In 1989, Berliners began tearing down the Berlin Wall, turning a symbol of Europe’s division into a scene of popular celebration. The opening of the border crossings paved the way for German reunification and accelerated political change across Eastern Europe.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 1989.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #World",
+        "year": "1989",
+        "summary": "Work began dismantling the Berlin Wall, opening the way for German reunification and marking a defining turning point in European history.",
+        "summary_en": "Work began dismantling the Berlin Wall, opening the way for German reunification and marking a defining turning point in European history.",
+        "body": "The fall of the Berlin Wall was one of the most consequential events in contemporary European history. Erected in 1961, the barrier separated East Germany, a communist state aligned with the Soviet Union, from West Germany, a Western country integrated into the capitalist sphere. For nearly three decades, the border divided not only a country but also families, communities, and memories. Its construction made Berlin one of the principal symbols of the Cold War while cementing Europe’s fragmentation into two blocs.\n\nThe opening of the city’s internal crossings in November 1989 came amid mounting political and social pressure. East Germany’s communist government faced an economic crisis, popular dissent, and declining support from its allies. The decision to allow citizens to cross required opening a border checkpoint, which was soon overrun by a crowd. Guards were present but unarmed and unable to stop the entry of hundreds of thousands of people, accelerating the process. Overnight from November 9 to November 10, citizens crossed the border and began pulling down the wall with pickaxes, their hands, and other tools.\n\nThe start of the demolition transformed a symbol of European division into a scene of popular participation. Berliners gathered at the wall, celebrated the opening of the crossings, and helped remove blocks and other parts of the barrier. The fall, however, was not the result of a single instantaneous decision or military intervention. It was part of a process that combined reforms, civilian mobilization, international pressure, and a climate of change in Eastern Europe. The East German government announced the opening of the border and was then confronted with the scale of the popular movement.\n\nThe event’s importance also lay in its political effects. The wall ceased to function as an effective military frontier, making visible the possibility of overcoming Germany’s division. Reunification of the Federal Republic of Germany and the German Democratic Republic moved onto the political agenda, with negotiations concluding in 1990. The process was accompanied by a profound restructuring of German institutions and a shift in Europe’s political balance. The wall’s disappearance did not immediately resolve all Cold War tensions, but it contributed decisively to accelerating transitions in the Eastern bloc.\n\nGermany’s reunification, completed in 1990, formally ended the country’s division and incorporated East Germany into the institutional system of the Federal Republic. The Wall’s fall also accelerated political transitions in several Eastern European countries, though German unification occurred within a broader transformation across the continent. Berlin became the capital of a reunified country once more, while the city concentrated the memories, remnants, and public debates surrounding the divided era. Though demolished in 1989, the wall remains one of the Cold War’s most important documentary landmarks and a historical reference point for overcoming political and social divisions.",
+        "body_en": "The fall of the Berlin Wall was one of the most consequential events in contemporary European history. Erected in 1961, the barrier separated East Germany, a communist state aligned with the Soviet Union, from West Germany, a Western country integrated into the capitalist sphere. For nearly three decades, the border divided not only a country but also families, communities, and memories. Its construction made Berlin one of the principal symbols of the Cold War while cementing Europe’s fragmentation into two blocs.\n\nThe opening of the city’s internal crossings in November 1989 came amid mounting political and social pressure. East Germany’s communist government faced an economic crisis, popular dissent, and declining support from its allies. The decision to allow citizens to cross required opening a border checkpoint, which was soon overrun by a crowd. Guards were present but unarmed and unable to stop the entry of hundreds of thousands of people, accelerating the process. Overnight from November 9 to November 10, citizens crossed the border and began pulling down the wall with pickaxes, their hands, and other tools.\n\nThe start of the demolition transformed a symbol of European division into a scene of popular participation. Berliners gathered at the wall, celebrated the opening of the crossings, and helped remove blocks and other parts of the barrier. The fall, however, was not the result of a single instantaneous decision or military intervention. It was part of a process that combined reforms, civilian mobilization, international pressure, and a climate of change in Eastern Europe. The East German government announced the opening of the border and was then confronted with the scale of the popular movement.\n\nThe event’s importance also lay in its political effects. The wall ceased to function as an effective military frontier, making visible the possibility of overcoming Germany’s division. Reunification of the Federal Republic of Germany and the German Democratic Republic moved onto the political agenda, with negotiations concluding in 1990. The process was accompanied by a profound restructuring of German institutions and a shift in Europe’s political balance. The wall’s disappearance did not immediately resolve all Cold War tensions, but it contributed decisively to accelerating transitions in the Eastern bloc.\n\nGermany’s reunification, completed in 1990, formally ended the country’s division and incorporated East Germany into the institutional system of the Federal Republic. The Wall’s fall also accelerated political transitions in several Eastern European countries, though German unification occurred within a broader transformation across the continent. Berlin became the capital of a reunified country once more, while the city concentrated the memories, remnants, and public debates surrounding the divided era. Though demolished in 1989, the wall remains one of the Cold War’s most important documentary landmarks and a historical reference point for overcoming political and social divisions.",
+        "image_theme": "Muro de Berlim queda",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "relevance": {
+          "level": 1,
+          "scores": {
+            "impacto_historico": 100.0,
+            "dimensao_impacto": 95.0,
+            "consequencias": 95.0,
+            "relevancia_posterior": 100.0,
+            "dimensao_duracao": 100.0,
+            "relevancia_mediatica": 95.0,
+            "singularidade": 100.0
+          },
+          "weighted_score": 98.0,
+          "justification": "The Wall’s fall paved the way for German reunification and accelerated Europe’s transformation, becoming an enduring landmark of contemporary history.",
+          "lang": "pt",
+          "justification_en": "The Wall’s fall paved the way for German reunification and accelerated Europe’s transformation, becoming an enduring landmark of contemporary history."
+        },
+        "article_url": "",
+        "source_profile": "wikipedia",
+        "source_platform": "wikipedia",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-09_2.jpg",
+        "image_delete_url": "",
+        "local_image_path": "site/images/approved/en_2026-11-09_2.jpg",
+        "background_source_url": "https://arquivo.pt/wayback/20220417111205/https://www.grupoescolar.com/pesquisa/pandemias-ao-longo-da-historia-humana.html/amp",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-09_2-fundo.jpg"
+      }
+    ]
+  },
+  {
+    "id": "en_2026-11-21_2",
+    "date": "2026-11-21",
+    "slot": 2,
+    "lang": "en",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "Synced from pt_2026-11-21_2",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "source_profile": "publico.pt",
+    "external_suggestions": [],
+    "options": [
+      {
+        "category": "POLITICS",
+        "title": "Government evaluates temporary Kiev embassy closure",
+        "title_en": "Government evaluates temporary Kiev embassy closure",
+        "highlight_text": "Evaluates",
+        "overlay_description": "Assessment of temporary embassy closure in Kiev",
+        "caption": "In 2024, the government is weighing the temporary closure of its embassy in Kyiv. The move would reflect mounting geopolitical tensions and could prompt diplomatic adjustments and stronger international security measures.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2024.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Politics",
+        "caption_instagram": "In 2024, the government is weighing the temporary closure of its embassy in Kyiv. The move would reflect mounting geopolitical tensions and could prompt diplomatic adjustments and stronger international security measures.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2024.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Politics",
+        "caption_facebook": "In 2024, the government is weighing the temporary closure of its embassy in Kyiv. The move would reflect mounting geopolitical tensions and could prompt diplomatic adjustments and stronger international security measures.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2024.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Politics",
+        "year": "2024",
+        "summary": "Assessment of temporary embassy closure in Kiev",
+        "summary_en": "Assessment of temporary embassy closure in Kiev",
+        "body": "The United States government announced in 2024 it is assessing the temporary closure of its embassy in Kiev. Officials cite evolving security conditions and the need to adjust diplomatic presence as primary factors. The evaluation comes amid heightened regional instability and reflects broader concerns about maintaining effective diplomatic operations. A senior State Department official emphasized that the review is precautionary and aims to ensure the safety of personnel while preserving diplomatic channels. The potential closure would represent a significant shift in US engagement strategy in the region.\n\nDiplomatic sources indicate the assessment involves coordination with allied missions and local security partners. The process includes a thorough review of current threat assessments and operational capabilities. While no final decision has been made, the mere consideration of such a move underscores the precarious nature of the security environment. Analysts suggest the action, if implemented, would have ripple effects across international diplomatic corps operating in Ukraine.\n\nThe US embassy in Kiev has remained operational throughout the conflict, providing critical consular services and maintaining limited diplomatic functions. Staff have adapted to challenging conditions, but officials acknowledge the situation requires constant reassessment. The evaluation period will likely involve consultations with NATO partners and other key stakeholders. Any final determination is expected to balance security imperatives with the need to maintain a visible US presence in the capital.\n\nInternational relations experts note that embassy closures, even temporary ones, carry significant symbolic weight. The move would signal the depth of current security concerns while potentially impacting aid flows and diplomatic coordination. The State Department has declined to speculate on timing or specific conditions that would trigger a permanent closure. For now, the focus remains on the ongoing assessment and its implications for US foreign policy in Eastern Europe.",
+        "body_en": "The United States government announced in 2024 it is assessing the temporary closure of its embassy in Kiev. Officials cite evolving security conditions and the need to adjust diplomatic presence as primary factors. The evaluation comes amid heightened regional instability and reflects broader concerns about maintaining effective diplomatic operations. A senior State Department official emphasized that the review is precautionary and aims to ensure the safety of personnel while preserving diplomatic channels. The potential closure would represent a significant shift in US engagement strategy in the region.\n\nDiplomatic sources indicate the assessment involves coordination with allied missions and local security partners. The process includes a thorough review of current threat assessments and operational capabilities. While no final decision has been made, the mere consideration of such a move underscores the precarious nature of the security environment. Analysts suggest the action, if implemented, would have ripple effects across international diplomatic corps operating in Ukraine.\n\nThe US embassy in Kiev has remained operational throughout the conflict, providing critical consular services and maintaining limited diplomatic functions. Staff have adapted to challenging conditions, but officials acknowledge the situation requires constant reassessment. The evaluation period will likely involve consultations with NATO partners and other key stakeholders. Any final determination is expected to balance security imperatives with the need to maintain a visible US presence in the capital.\n\nInternational relations experts note that embassy closures, even temporary ones, carry significant symbolic weight. The move would signal the depth of current security concerns while potentially impacting aid flows and diplomatic coordination. The State Department has declined to speculate on timing or specific conditions that would trigger a permanent closure. For now, the focus remains on the ongoing assessment and its implications for US foreign policy in Eastern Europe.",
+        "image_theme": "Palacio de Belém Lisboa",
+        "layout_preference": "template_3",
+        "breaking_candidate": false,
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 60.0,
+            "dimensao_impacto": 50.0,
+            "consequencias": 55.0,
+            "relevancia_posterior": 45.0,
+            "dimensao_duracao": 35.0,
+            "relevancia_mediatica": 40.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 50.2,
+          "justification": "A potential temporary closure reflects ongoing geopolitical tensions, with implications for diplomatic operations and international security.",
+          "lang": "pt",
+          "justification_en": "A potential temporary closure reflects ongoing geopolitical tensions, with implications for diplomatic operations and international security."
+        },
+        "article_url": "https://arquivo.pt/wayback/20241121204735/https://www.publico.pt/2024/11/20/politica/noticia/governo-avaliar-encerramento-temporario-embaixada-kiev-2112630",
+        "source_profile": "publico.pt",
+        "source_platform": "arquivo.pt",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-21_2.jpg",
+        "image_delete_url": "",
+        "local_image_path": "site/images/approved/en_2026-11-21_2.jpg",
+        "background_source_url": "https://commons.wikimedia.org/wiki/File:Pal%C3%A1cio_de_Bel%C3%A9m_-_Lisboa_-_Portugal_(5285258280).jpg",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-21_01_2024_governo-avaliar-encerramento-temporario-embaixada-kiev-fundo.jpg"
+      }
+    ]
   }
 ]
