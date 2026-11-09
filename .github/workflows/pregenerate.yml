@@ -69,4 +69,4 @@ jobs:
           [ -d site ] && git add site || true
 
           # Apenas commita se existirem alterações nos ficheiros
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: regenerate pending posts [skip ci]" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: regenerate pending posts [skip ci]" && git pull --rebase origin main && git push)
