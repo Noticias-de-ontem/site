@@ -2471,6 +2471,8 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
         .option-year { font-weight: 800; }
         .option-title { font-weight: 800; font-size: 0.95rem; line-height: 1.3; }
         .option-thumb img { border-radius: 6px; display: block; }
+        .move-option-btn { align-self: start; margin-top: 0.35rem; padding: 0.3rem 0.65rem; font-size: 0.76rem; font-weight: 700; color: var(--brand-deep); background: #fff; border: 1px solid var(--brand-deep); border-radius: 999px; cursor: pointer; }
+        .move-option-btn:hover { background: var(--brand-soft); }
         .empty { color: var(--muted); text-align: center; padding: 2rem 1rem; }
         .controls-grid { display: grid; gap: 0.6rem; grid-template-columns: 1fr 1fr; }
         .controls-stack { display: grid; gap: 0.6rem; margin-top: 0.6rem; }
@@ -2833,6 +2835,11 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
             const fbCap = option?.caption_facebook || option?.caption || "";
             const shownCaption = activeCapTab === "fb" ? fbCap : igCap;
 
+            const thisSlot = Number(post.slot || 1);
+            const targetSlot = thisSlot === 1 ? 2 : 1;
+            const hasSibling = posts.some(p => p.lang === post.lang && p.date === post.date && Number(p.slot || 1) === targetSlot);
+            const moveLabel = targetSlot === 1 ? "Mover para a manhã" : "Mover para a tarde";
+
             const optionsMarkup = (post.options || []).map((opt, optionIndex) => {
                 const isSel = optionIndex === Number(post.selected_option || 0);
                 const optThumbSrc = resolvePreviewSrc(opt);
@@ -2852,6 +2859,7 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
                             </div>
                             <span class="option-title">${escapeHtml(opt.title || "")}</span>
                             <div>${escapeHtml(opt.summary || opt.overlay_description || "")}</div>
+                            ${hasSibling ? `<button type="button" class="move-option-btn" data-action="move-option" data-post-index="${postIndex}" data-option-index="${optionIndex}">${moveLabel}</button>` : ""}
                         </div>
                         ${optThumbSrc ? `<div class="option-thumb"><img src="${escapeHtml(optThumbSrc)}" alt="" width="56" height="70" loading="lazy"></div>` : `<div></div>`}
                     </label>
@@ -3153,6 +3161,31 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
             showToast(`✓ Post condicional ativado em ${targetDate} (${targetPost.id})!`);
         }
 
+        function moveOptionToSibling(postIndex, optionIndex) {
+            const post = posts[postIndex];
+            const opt = post && Array.isArray(post.options) ? post.options[optionIndex] : null;
+            if (!post || !opt) return;
+            const targetSlot = Number(post.slot || 1) === 1 ? 2 : 1;
+            const target = posts.find(p => p.lang === post.lang && p.date === post.date && Number(p.slot || 1) === targetSlot);
+            if (!target) {
+                showToast("Sem outro slot neste dia.");
+                return;
+            }
+            const sameStory = (o) => String(o.title || "").trim().toLowerCase() === String(opt.title || "").trim().toLowerCase()
+                && String(o.year || "") === String(opt.year || "");
+            if ((target.options || []).some(sameStory)) {
+                showToast("Essa notícia já existe nas opções do outro slot.");
+                return;
+            }
+            target.options = target.options || [];
+            target.options.push(JSON.parse(JSON.stringify(opt)));
+            markDirty(true);
+            render();
+            const slotName = targetSlot === 1 ? "a manhã" : "a tarde";
+            const approvedHint = target.status === "approved" ? " (o slot está aprovado; passa-o a pendente para a escolheres)" : "";
+            showToast(`Opção copiada para ${slotName} de ${target.date}.${approvedHint}`);
+        }
+
         // Event listeners & delegation (no inline onclick handlers)
         document.getElementById("btn-save-direct")?.addEventListener("click", saveDirect);
         document.getElementById("btn-download-json")?.addEventListener("click", downloadJson);
@@ -3231,6 +3264,8 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
                 markDirty(true);
                 showToast("Sugestão aplicada — corre o pregenerator após guardar.");
                 advance();
+            } else if (action === "move-option" && !Number.isNaN(postIndex)) {
+                moveOptionToSibling(postIndex, Number(actionEl.dataset.optionIndex));
             } else if (action === "inject-conditional") {
                 injectConditionalPost(Number(actionEl.dataset.condIndex));
             }
