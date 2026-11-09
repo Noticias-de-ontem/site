@@ -1247,7 +1247,110 @@ def save_new_conditional_options(cond_options, lang):
         print(f"[{lang}][Bolsa Condicional] +{added} notícia(s) condicional(is) guardada(s) em {CONDITIONAL_POOL_FILE}.")
 
 
-def rank_all_stories_for_day(news_items, lang, feedback_note=""):
+
+def _parse_day_month(value):
+    try:
+        return int(str(value).strip())
+    except (TypeError, ValueError):
+        return None
+
+
+def _load_used_external_titles(lang):
+    try:
+        state = load_pregeneration_state()
+    except Exception:
+        return []
+    if not isinstance(state, dict):
+        return []
+    by_lang = state.get("external_suggestion_titles") or {}
+    titles = by_lang.get(lang) or []
+    return [normalize_text(t) for t in titles if normalize_text(t)]
+
+
+def _record_used_external_titles(lang, titles):
+    try:
+        state = load_pregeneration_state()
+    except Exception:
+        state = {}
+    if not isinstance(state, dict):
+        state = {}
+    by_lang = state.get("external_suggestion_titles") or {}
+    if not isinstance(by_lang, dict):
+        by_lang = {}
+    existing = [normalize_text(t) for t in (by_lang.get(lang) or []) if normalize_text(t)]
+    for title in titles:
+        norm = normalize_text(title)
+        if norm and norm not in existing:
+            existing.append(norm)
+    by_lang[lang] = existing[-500:]
+    state["external_suggestion_titles"] = by_lang
+    try:
+        save_pregeneration_state(state)
+    except Exception as exc:
+        print(f"[pregen] nao foi possivel guardar memoria de sugestoes externas: {exc}")
+
+
+def _is_valid_option_title(title):
+    text = normalize_text(title)
+    if not text or len(text) > 70:
+        return False
+    words = text.split()
+    if len(words) < 3:
+        return False
+    if re.search(r"\b(19|20)\d{2}\b", text):
+        return False
+    last = words[-1].lower().strip(",;:.!?'\"“”")
+    if last in _DANGLING_FALLBACK_WORDS:
+        return False
+    return True
+
+
+def _history_collides(option, selected_history, current_date=None):
+    if not selected_history:
+        return False
+    toks = _story_tokens(option.get("title", ""))
+    topic = extract_macro_topic(option.get("title", ""), option.get("summary", ""), option.get("category", ""))
+    year = str(option.get("year", ""))[:4]
+    for item in selected_history:
+        item_date = item.get("date")
+        diff = None
+        if current_date is not None and item_date:
+            try:
+                diff = abs((current_date - item_date).days)
+            except Exception:
+                diff = None
+        if topic and item.get("topic") == topic:
+            gap = 7 if topic == "covid" else 3
+            if diff is not None and diff <= gap:
+                return True
+        if diff is not None and diff <= 15:
+            ov = len(toks & item.get("tokens", set()))
+            if ov >= 3 or (year == item.get("year") and ov >= 2):
+                return True
+    return False
+
+
+def _recent_history_titles(selected_history, current_date=None, days=15, limit=30):
+    entries = []
+    for item in selected_history or []:
+        item_date = item.get("date")
+        if current_date is not None and item_date:
+            try:
+                if abs((current_date - item_date).days) > days:
+                    continue
+            except Exception:
+                pass
+        entries.append(item)
+    entries.sort(key=lambda e: (e.get("date") is not None, e.get("date") or 0), reverse=True)
+    out = []
+    for item in entries[:limit]:
+        title = normalize_text(item.get("title", ""))
+        if title:
+            out.append((title, str(item.get("year", ""))[:4]))
+    return out
+
+
+def rank_all_stories_for_day(news_items, lang, feedback_note="", selected_history=None, current_date=None):
     global NVIDIA_DISABLED
 
     if NVIDIA_DISABLED or not nvidia_pool.has_keys() or not news_items:
@@ -1265,6 +1368,16 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
     ]
 
     normalized_feedback = normalize_text(feedback_note)
+
+    history_exclusion_note = ""
+    if selected_history:
+        recent_titles = _recent_history_titles(selected_history, current_date, days=15, limit=30)
+        if recent_titles:
+            history_exclusion_note = (
+                "\n    Stories already published in the last 15 days — DO NOT select these or near-duplicates:\n"
+                + "\n".join(f"    - {title} ({year})" for title, year in recent_titles)
+                + "\n"
+            )
 
     prompt = f"""
     You are the chief editorial director for an archival news publication.
@@ -1324,7 +1437,7 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
        - INTER-DAY DIVERSITY: Avoid selecting the same macro-topic or sector across consecutive days (e.g. do not schedule strikes or elections two days in a row).
        - HISTORICAL WEIGHT OF WORLD EVENTS: Any world event ('MUNDIAL') must be a landmark historical turning point that impacted world history (e.g. Barack Obama elected first African-American president, fall of the Berlin Wall) rather than foreign local news.
 
-    Format:
+    Format: return an object with an "options" array containing exactly 10 options:
     {{
       "options": [
         {{
@@ -1346,7 +1459,7 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
 
     Editorial review feedback from the human reviewer:
     {normalized_feedback or "No extra feedback provided."}
-
+{history_exclusion_note}
     RAW DATA:
     {json.dumps(payload_items, ensure_ascii=False)}
     """
@@ -1390,6 +1503,9 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
                     option["relevance"] = relevance or default_relevance(lang)
                     if not option["title"] or not option["year"]:
                         continue
+                    if not _is_valid_option_title(option["title"]):
+                        print(f"[pregen] titulo invalido descartado: {option['title'][:60]} ({option['year']})")
+                        continue
                     # Ligar a opção à notícia candidata correspondente (ano +
                     # palavras partilhadas) e resolver a captura wayback —
                     # opções desancoradas (ex.: alucinações da IA) são
@@ -1418,6 +1534,12 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
                                     best = candidate
                                     best_domain = c_domain
                                     break
+                        headline_tokens = _option_tokens(extract_item_headline(best))
+                        title_tokens = _option_tokens(option.get("title", ""))
+                        shared_tokens = title_tokens & headline_tokens
+                        if headline_tokens and title_tokens and len(shared_tokens) < 3 and len(shared_tokens) / len(title_tokens) < 0.5:
+                            print(f"[pregen] titulo sem fidelidade a fonte descartado: {option['title'][:60]} ({option['year']})")
+                            continue
                         best_opts = best.get("options") if isinstance(best.get("options"), list) else []
                         opt0_url = best_opts[0].get("article_url") or best_opts[0].get("url") if best_opts and isinstance(best_opts[0], dict) else ""
                         candidate_url = normalize_text(best.get("source_url") or opt0_url or best.get("url") or "")
@@ -1436,6 +1558,13 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
                         print(f"[pregen] opção desancorada descartada: {option['title'][:60]} ({option['year']})")
                 options = enrich_options_with_ai(grounded_options, lang) if grounded_options else []
                 if options:
+                    kept_options = []
+                    for opt in options:
+                        if _history_collides(opt, selected_history, current_date):
+                            print(f"[pregen] opcao descartada (repete historia recente): {opt.get('title', '')[:60]} ({opt.get('year', '')})")
+                            continue
+                        kept_options.append(opt)
+                    options = kept_options
                     regular_options = []
                     cond_options = []
                     for opt in options:
@@ -1448,10 +1577,33 @@ def rank_all_stories_for_day(news_items, lang, feedback_note=""):
                             regular_options.append(opt)
                     if cond_options:
                         save_new_conditional_options(cond_options, lang)
+                    if len(regular_options) < 10:
+                        existing_titles = {normalize_text(o.get("title", "")) for o in regular_options}
+                        existing_token_sets = [_option_tokens(o.get("title", "")) for o in regular_options]
+                        fallback_batch = build_fallback_options(news_items, lang, limit=12)
+                        fallback_batch = [
+                            o for o in fallback_batch
+                            if normalize_text(o.get("title", "")) not in existing_titles
+                            and _is_valid_option_title(o.get("title", ""))
+                            and not _history_collides(o, selected_history, current_date)
+                            and not any(len(_option_tokens(o.get("title", "")) & toks) >= 3 for toks in existing_token_sets)
+                        ]
+                        if fallback_batch:
+                            fallback_batch = enrich_options_with_ai(fallback_batch, lang)
+                            for o in fallback_batch:
+                                if len(regular_options) >= 10:
+                                    break
+                                if normalize_text(o.get("title", "")) in existing_titles:
+                                    continue
+                                o["conditional_trigger"] = ""
+                                o.setdefault("networks", ["instagram", "facebook"])
+                                regular_options.append(o)
+                                existing_titles.add(normalize_text(o.get("title", "")))
                     if regular_options:
                         regular_options.sort(
                             key=lambda o: 0 if str(o.get("editorial_tier", "high")).lower() == "high" else 1
                         )
+                        regular_options = regular_options[:10]
                     if len(regular_options) >= 2:
                         options = regular_options
             return options if isinstance(options, list) and options else []
@@ -1486,6 +1638,9 @@ def generate_external_day_suggestions(date_obj, lang, existing_options=None):
         for option in existing_options
         if isinstance(option, dict) and normalize_text(option.get("title", ""))
     ]
+    used_titles = _load_used_external_titles(lang)
+    recent_used_titles = used_titles[-40:]
+    used_titles_prompt = json.dumps(recent_used_titles, ensure_ascii=False) if recent_used_titles else "None yet."
     audience_guidance = (
         "Focus primarily on events or cultural moments from Portugal, Portuguese public life, Portuguese media, Portuguese sport, "
         "or stories with especially strong resonance for a Portuguese audience."
@@ -1526,18 +1681,24 @@ def generate_external_day_suggestions(date_obj, lang, existing_options=None):
     Existing archive-backed titles already available in the local database:
     {json.dumps(existing_titles, ensure_ascii=False)}
 
+    Events already suggested on other days (do NOT repeat these or near-duplicates):
+    {used_titles_prompt}
+
     Task:
     1. Suggest exactly 3 historical events, moments, or culturally important stories tied exactly to this calendar day and month.
     2. These suggestions should be independent from the local archive and can come from your own general knowledge base.
     3. Prefer high-confidence, recognisable events rather than obscure ones.
     4. Try not to duplicate the existing archive-backed titles above.
     5. Mix seriousness and virality well when possible.
+    6. In each suggestion, include the exact "day" and "month" of the event as numbers, matching the calendar day above (day {date_obj.day}, month {date_obj.month}).
 
     Return strict JSON as an object with a "suggestions" array containing exactly 3 objects:
     {{
       "suggestions": [
         {{
           "year": "YYYY",
+          "day": {date_obj.day},
+          "month": {date_obj.month},
           "category": "SHORT CATEGORY IN PORTUGUESE (e.g., CULTURA, DESPORTO)",
           "title": "Short headline idea",
           "summary": "1 sentence on why this matters or could work well as a post"
@@ -1565,14 +1726,37 @@ def generate_external_day_suggestions(date_obj, lang, existing_options=None):
             for item in payload[:3]:
                 if not isinstance(item, dict):
                     continue
+                sug_day = _parse_day_month(item.get("day"))
+                sug_month = _parse_day_month(item.get("month"))
+                if sug_day != date_obj.day or sug_month != date_obj.month:
+                    print(f"[pregen] sugestao externa descartada (data errada): {normalize_text(item.get('title', ''))[:60]}")
+                    continue
+                sug_title = normalize_text(item.get("title", ""))
+                sug_year = normalize_text(item.get("year", ""))
+                if not sug_title or not sug_year:
+                    continue
+                if sug_title in used_titles:
+                    print(f"[pregen] sugestao externa descartada (repetida): {sug_title[:60]}")
+                    continue
+                sug_toks = _story_tokens(sug_title)
+                if any(len(sug_toks & _story_tokens(used)) >= 3 for used in used_titles[-200:]):
+                    print(f"[pregen] sugestao externa descartada (quase-duplicada): {sug_title[:60]}")
+                    continue
                 suggestions.append(
                     {
-                        "year": normalize_text(item.get("year", "")),
+                        "year": sug_year,
+                        "day": sug_day,
+                        "month": sug_month,
                         "category": normalize_text(item.get("category", ""), uppercase=True),
-                        "title": normalize_text(item.get("title", "")),
+                        "title": sug_title,
                         "summary": normalize_text(item.get("summary", "")),
                     }
                 )
+            if not suggestions and attempt < max_retries - 1:
+                print(f"[pregen] sugestoes externas todas rejeitadas; nova tentativa ({attempt + 2}/{max_retries}).")
+                continue
+            if suggestions:
+                _record_used_external_titles(lang, [s.get("title", "") for s in suggestions])
             return suggestions
         except Exception as exc:
             err_msg = str(exc).lower()
@@ -2043,24 +2227,29 @@ def regenerate_marked_posts(pending_posts):
         )
 
         print(f"[{lang}] A regenerar {date_str} com {len(matching_news)} noticias.")
+        all_selected_history = build_selected_history(pending_posts, lang=lang)
         options_list = rank_all_stories_for_day(
             matching_news,
             lang,
             feedback_note=feedback_note,
+            selected_history=all_selected_history,
+            current_date=post_date,
         )
         if not options_list:
             print(f"[{lang}] Falha da IA em {date_str}.")
             continue
 
         external_suggestions = generate_external_day_suggestions(post_date, lang, options_list)
-        slot1_base_options = options_list[:5]
-        slot2_base_options = options_list[5:10] if len(options_list) > 5 else options_list
+        slot_options_map = select_diverse_slot_options(options_list, post_date, all_selected_history, [1, 2])
 
         for sibling in siblings:
             if sibling.get("status") == "approved" and sibling.get("review_action") != "regenerate":
                 continue
             slot = int(sibling.get("slot", 1))
-            base_options = slot1_base_options if slot == 1 else slot2_base_options
+            base_options = slot_options_map.get(slot, [])
+            if not base_options:
+                print(f"[{lang}] Slot {slot} de {date_str} sem opcoes validas (cadencia); mantem-se como estava.")
+                continue
             default_selected = 1 if slot == 2 and len(base_options) > 1 else 0
             current_selected = int(sibling.get("selected_option", default_selected) or default_selected)
             current_selected = current_selected if current_selected < len(base_options) else default_selected
@@ -2092,723 +2281,212 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
     )
     initial_focus_month = focus_month or determine_focus_month([post for post in pending_posts if post.get("lang") == lang_filter])
     review_output_path = REVIEW_HTML_FILES[lang_filter]
-    html = f"""<!DOCTYPE html>
+    html = """<!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notícias de Ontem · Painel Editorial ({lang_filter.upper()})</title>
+    <title>Notícias de Ontem · Painel Editorial (@@LANG_UPPER@@)</title>
     <style>
-        :root {{
-            color-scheme: dark;
-            --bg: #0b1017;
-            --bg-elev: #111823;
-            --panel: #151e2b;
-            --panel-soft: #1c2838;
-            --panel-hover: #223044;
-            --text: #f1f5f9;
-            --muted: #94a3b8;
-            --accent: #22c8d2;
-            --accent-strong: #14b8a6;
-            --success: #22c55e;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --info: #38bdf8;
-            --border: rgba(148, 163, 184, 0.16);
-            --border-strong: rgba(148, 163, 184, 0.28);
-            --shadow: 0 18px 40px rgba(2, 6, 23, 0.42);
-            --radius-lg: 18px;
-            --radius-md: 12px;
-            --radius-sm: 8px;
-        }}
-        * {{ box-sizing: border-box; }}
-        html {{
-            container-type: scroll-state;
-            scroll-behavior: smooth;
-        }}
-        :target {{
-            scroll-margin-top: 5.5rem;
-        }}
-        body {{
+        :root {
+            color-scheme: light;
+            --brand: #00c7d6;
+            --brand-deep: #0d9ba8;
+            --brand-soft: #e2f7f9;
+            --ink: #15181d;
+            --ink-deep: #0e1417;
+            --muted: #5a6a71;
+            --line: #dbe4e7;
+            --line-strong: #b9c7cc;
+            --paper: #ffffff;
+            --canvas: #f5f8f9;
+            --soft: #edf3f4;
+            --warning: #8a5a00;
+            --warning-bg: #fdf3e0;
+            --danger: #9b3f38;
+            --success: #1e7d4f;
+            --success-bg: #e4f4ec;
+            --shadow-low: 0 6px 22px rgba(14, 27, 33, 0.08);
+            --radius: 12px;
+        }
+        * { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; }
+        body {
             margin: 0;
-            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-            font-size: 1rem;
+            font-family: Montserrat, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+            color: var(--ink);
+            background: var(--canvas);
             line-height: 1.5;
-            background: radial-gradient(circle at 15% 0%, rgba(34, 200, 210, 0.08), transparent 38%), var(--bg);
-            color: var(--text);
-        }}
-        .visually-hidden {{
-            position: absolute;
-            clip-path: inset(50%);
-            overflow: hidden;
-            width: 1px;
-            height: 1px;
-            margin: -1px;
-            padding: 0;
-            border: 0;
-            white-space: nowrap;
-        }}
-        :focus-visible {{
-            outline: 3px solid var(--accent);
-            outline-offset: 2px;
-        }}
+        }
+        a { color: var(--brand-deep); }
+        button, input, select, textarea { font: inherit; color: inherit; }
+        button { cursor: pointer; }
+        .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-        /* Compact single-row sticky bar (<12% viewport) with scroll-down auto-hide */
-        .top-bar {{
-            position: sticky;
-            top: 0;
-            z-index: 30;
-            background: rgba(11, 16, 23, 0.92);
-            backdrop-filter: blur(14px);
-            border-block-end: 1px solid var(--border);
-            transition: transform 0.22s ease;
-        }}
-        @container scroll-state((scrolled: bottom) and (scrollable: top)) {{
-            .top-bar {{
-                transform: translateY(-100%);
-            }}
-        }}
-        .top-bar:focus-within {{
-            transform: none;
-        }}
-        .top-bar.is-hidden:not(:focus-within) {{
-            transform: translateY(-100%);
-        }}
-        .top-bar-inner {{
-            max-width: 1400px;
-            margin-inline: auto;
-            padding: 0.65rem 1.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.85rem;
-            flex-wrap: wrap;
-        }}
-        .brand-cluster {{
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }}
-        .brand-mark {{
-            width: 2.1rem;
-            height: 2.1rem;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--accent), #0ea5e9);
-            color: #041016;
-            font-weight: 900;
-            font-size: 0.85rem;
-            display: grid;
-            place-items: center;
-            letter-spacing: -0.03em;
-        }}
-        .brand-title {{
-            margin: 0;
-            font-size: 1.02rem;
-            font-weight: 800;
-            letter-spacing: -0.01em;
-        }}
-        .brand-sub {{
-            font-size: 0.75rem;
-            color: var(--muted);
-            display: block;
-        }}
-        .summary-pills {{
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            flex-wrap: wrap;
-        }}
-        .stat-chip {{
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.3rem 0.65rem;
-            border-radius: 999px;
-            background: var(--panel-soft);
-            border: 1px solid var(--border);
-            font-size: 0.78rem;
-            color: var(--muted);
-            font-weight: 600;
-        }}
-        .stat-chip b {{
-            color: var(--text);
-            font-size: 0.85rem;
-        }}
-        .stat-chip.accent b {{ color: var(--accent); }}
-        .stat-chip.success b {{ color: var(--success); }}
-        .stat-chip.warn b {{ color: var(--warning); }}
+        .top-bar {
+            position: sticky; top: 0; z-index: 20;
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--line);
+        }
+        .top-bar-inner {
+            max-width: 780px; margin: 0 auto; padding: 0.6rem 1rem;
+            display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center;
+        }
+        .brand-cluster { display: flex; align-items: center; gap: 0.6rem; min-width: 0; }
+        .brand-mark {
+            width: 34px; height: 34px; flex: none; border-radius: 9px;
+            background: var(--ink-deep); color: #fff;
+            display: grid; place-items: center; font-weight: 800; font-size: 0.8rem; letter-spacing: 0.04em;
+        }
+        .brand-title { margin: 0; font-size: 1rem; line-height: 1.2; font-weight: 800; }
+        .brand-sub { font-size: 0.75rem; color: var(--muted); }
+        .summary-pills { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-left: auto; }
+        .stat-chip {
+            font-size: 0.75rem; padding: 0.2rem 0.55rem; border-radius: 999px;
+            background: var(--soft); border: 1px solid var(--line); white-space: nowrap;
+        }
+        .stat-chip b { font-weight: 800; }
+        .stat-chip.accent { background: var(--brand-soft); border-color: var(--brand); }
+        .stat-chip.success { background: var(--success-bg); border-color: #bfe3d2; }
+        .stat-chip.warn { background: var(--warning-bg); border-color: #f0d9a8; }
+        .top-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
+        .dirty-indicator { font-size: 0.78rem; color: var(--warning); font-weight: 700; }
 
-        .top-actions {{
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }}
-        .dirty-indicator {{
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: var(--warning);
-            padding: 0.25rem 0.6rem;
-            border-radius: 999px;
-            background: rgba(245, 158, 11, 0.14);
-            border: 1px solid rgba(245, 158, 11, 0.35);
-        }}
-        .dirty-indicator[hidden] {{ display: none; }}
+        .primary, .secondary {
+            min-height: 38px; padding: 0.45rem 0.85rem; border-radius: 9px;
+            font-size: 0.85rem; font-weight: 700; border: 1px solid transparent;
+        }
+        .primary { background: var(--brand-deep); color: #fff; }
+        .primary:hover { background: #0b8794; }
+        .secondary { background: #fff; border-color: var(--line-strong); color: var(--ink); }
+        .secondary:hover { border-color: var(--brand-deep); color: var(--brand-deep); }
+        .secondary.is-active { background: var(--brand-soft); border-color: var(--brand-deep); color: var(--brand-deep); }
 
-        button, .btn-link {{
-            appearance: none;
-            border: 1px solid transparent;
-            border-radius: var(--radius-sm);
-            padding: 0.55rem 0.9rem;
-            min-height: 44px;
-            font: inherit;
-            font-size: 0.86rem;
-            font-weight: 700;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.4rem;
-            text-decoration: none;
-            transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
-        }}
-        button.primary {{
-            background: var(--accent);
-            color: #041318;
-        }}
-        button.primary:hover {{ background: #36d6df; }}
-        button.secondary, .btn-link {{
-            background: var(--panel-soft);
-            color: var(--text);
-            border-color: var(--border-strong);
-        }}
-        button.secondary:hover, .btn-link:hover {{
-            background: var(--panel-hover);
-        }}
-        button.approve-btn.is-active {{
-            background: rgba(34, 197, 94, 0.2);
-            color: #86efac;
-            border-color: rgba(34, 197, 94, 0.55);
-        }}
-        button.pending-btn.is-active {{
-            background: rgba(34, 200, 210, 0.18);
-            color: var(--accent);
-            border-color: rgba(34, 200, 210, 0.5);
-        }}
-        button.skip-btn.is-active {{
-            background: rgba(239, 68, 68, 0.18);
-            color: #fca5a5;
-            border-color: rgba(239, 68, 68, 0.48);
-        }}
+        .page { max-width: 780px; margin: 0 auto; padding: 1rem 1rem 3rem; }
+        .control-strip { display: grid; gap: 0.6rem; margin-bottom: 0.75rem; }
+        .filter-row { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: end; }
+        .form-field { display: grid; gap: 0.25rem; min-width: 0; }
+        .form-field label { font-size: 0.75rem; font-weight: 700; color: var(--muted); }
+        .form-field input, .form-field select, .form-field textarea {
+            background: #fff; border: 1px solid var(--line-strong); border-radius: 9px;
+            padding: 0.5rem 0.65rem; font-size: 0.88rem; width: 100%;
+        }
+        .form-field textarea { min-height: 72px; resize: vertical; }
+        .form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+            outline: 2px solid var(--brand); outline-offset: 1px; border-color: var(--brand-deep);
+        }
+        .view-tabs { display: flex; gap: 0.3rem; }
+        .view-tab {
+            min-height: 38px; padding: 0.4rem 0.7rem; border-radius: 999px; font-size: 0.82rem; font-weight: 700;
+            background: #fff; border: 1px solid var(--line-strong); color: var(--ink);
+        }
+        .view-tab[aria-pressed="true"] { background: var(--ink-deep); color: #fff; border-color: var(--ink-deep); }
 
-        .page {{
-            max-width: 1400px;
-            margin-inline: auto;
-            padding: 1.25rem;
-        }}
+        .day-jump-bar { display: flex; gap: 0.35rem; overflow-x: auto; padding-bottom: 0.2rem; scrollbar-width: thin; }
+        .day-chip {
+            flex: none; font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.6rem; border-radius: 999px;
+            background: #fff; border: 1px solid var(--line-strong); color: var(--ink); text-decoration: none;
+        }
+        .day-chip.is-complete { background: var(--success-bg); border-color: #bfe3d2; color: var(--success); }
+        .day-chip.is-current { background: var(--ink-deep); color: #fff; border-color: var(--ink-deep); }
 
-        /* Filter & Day-Jump Control Panel */
-        .control-strip {{
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            padding: 1rem 1.15rem;
-            margin-block-end: 1.25rem;
-            box-shadow: var(--shadow);
-        }}
-        .filter-row {{
-            display: grid;
-            grid-template-columns: auto minmax(160px, 200px) minmax(220px, 1fr) auto;
-            gap: 0.85rem;
-            align-items: end;
-        }}
-        .view-tabs {{
-            display: inline-flex;
-            background: var(--bg-elev);
-            padding: 0.22rem;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            gap: 0.2rem;
-        }}
-        .view-tab {{
-            min-height: 42px;
-            padding: 0.4rem 0.8rem;
-            border-radius: 8px;
-            background: transparent;
-            color: var(--muted);
-            font-size: 0.83rem;
-            border: 0;
-        }}
-        .view-tab[aria-pressed="true"] {{
-            background: var(--panel-soft);
-            color: var(--text);
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-        }}
-        .form-field {{
-            display: flex;
-            flex-direction: column;
-            gap: 0.32rem;
-        }}
-        .form-field label {{
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            color: var(--muted);
-        }}
-        select, input[type="text"], input[type="url"], input[type="search"], textarea {{
-            width: 100%;
-            font-size: 1rem;
-            line-height: 1.4;
-            padding: 0.62rem 0.8rem;
-            min-height: 48px;
-            background: var(--bg-elev);
-            color: var(--text);
-            border: 1px solid var(--border-strong);
-            border-radius: 10px;
-            font-family: inherit;
-        }}
-        textarea {{
-            min-height: 92px;
-            resize: vertical;
-        }}
-        input[type="radio"], input[type="checkbox"] {{
-            accent-color: var(--accent);
-            width: 1.15rem;
-            height: 1.15rem;
-            cursor: pointer;
-        }}
-        @media (pointer: coarse) {{
-            select, input[type="text"], input[type="url"], input[type="search"], button {{
-                min-height: 52px;
-            }}
-        }}
+        .disclosure { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 0.6rem 0.8rem; }
+        .disclosure summary { cursor: pointer; font-weight: 700; font-size: 0.88rem; }
+        .disclosure p { margin: 0.5rem 0 0; }
 
-        .day-jump-bar {{
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            overflow-x: auto;
-            padding-block-start: 0.85rem;
-            margin-block-start: 0.85rem;
-            border-block-start: 1px solid var(--border);
-            scrollbar-width: thin;
-        }}
-        .day-jump-bar:empty {{ display: none; }}
-        .day-chip {{
-            flex: 0 0 auto;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.35rem 0.7rem;
-            border-radius: 999px;
-            background: var(--bg-elev);
-            border: 1px solid var(--border);
-            color: var(--text);
-            text-decoration: none;
-            font-size: 0.8rem;
-            font-weight: 600;
-            min-height: 36px;
-        }}
-        .day-chip:hover {{ border-color: var(--accent); }}
-        .day-chip.is-complete {{
-            border-color: rgba(34, 197, 94, 0.45);
-            background: rgba(34, 197, 94, 0.1);
-            color: #bbf7d0;
-        }}
+        .nav-bar {
+            display: flex; align-items: center; gap: 0.6rem; margin: 0.25rem 0 0.8rem;
+        }
+        .nav-bar .nav-btn { flex: 1; min-height: 46px; font-size: 0.95rem; }
+        .nav-counter { flex: none; font-weight: 800; font-size: 0.9rem; white-space: nowrap; }
+        .nav-progress { font-size: 0.78rem; color: var(--muted); white-space: nowrap; }
 
-        .secondary-drawers {{
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            margin-block-start: 0.75rem;
-        }}
-        details.disclosure {{
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 0.65rem 0.9rem;
-            width: 100%;
-        }}
-        details.disclosure > summary {{
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--accent);
-            user-select: none;
-            padding-block: 0.15rem;
-        }}
-        details.disclosure[open] > summary {{
-            margin-block-end: 0.75rem;
-            padding-block-end: 0.55rem;
-            border-block-end: 1px solid var(--border);
-        }}
+        .post-card {
+            background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+            box-shadow: var(--shadow-low); overflow: hidden;
+        }
+        .post-card.status-approved { border-color: #9fd6b8; }
+        .post-card.needs-refresh { border-color: #f0d9a8; }
+        .post-header {
+            display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; justify-content: space-between;
+            padding: 0.75rem 1rem; border-bottom: 1px solid var(--line); background: var(--soft);
+        }
+        .post-slot-meta { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+        .slot-date-badge { font-weight: 800; font-size: 0.9rem; }
+        .slot-num-badge { font-size: 0.78rem; color: var(--muted); }
+        .status-badge {
+            font-size: 0.75rem; font-weight: 800; padding: 0.2rem 0.55rem; border-radius: 999px;
+            background: var(--warning-bg); color: var(--warning);
+        }
+        .status-badge.approved { background: var(--success-bg); color: var(--success); }
+        .status-badge.published { background: var(--brand-soft); color: var(--brand-deep); }
+        .status-badge.refresh { background: var(--warning-bg); color: var(--warning); }
+        .status-badge.skip { background: var(--soft); color: var(--muted); }
+        .quick-status-group { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+        .quick-status-group .secondary { min-height: 36px; font-size: 0.8rem; padding: 0.35rem 0.6rem; }
 
-        /* Post Cards */
-        .post-card {{
-            background: var(--panel);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            margin-block-end: 1.5rem;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }}
-        /* Deferred rendering strictly for off-screen cards below the initial fold */
-        .post-card-deferred {{
-            content-visibility: auto;
-            contain-intrinsic-size: auto none auto 720px;
-        }}
-        .post-card.status-approved {{ border-color: rgba(34, 197, 94, 0.45); }}
-        .post-card.needs-refresh {{ border-color: rgba(245, 158, 11, 0.6); }}
+        .post-body { padding: 1rem; display: grid; gap: 1rem; }
+        .image-wrap { max-width: 460px; margin: 0 auto; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); background: var(--ink-deep); }
+        .image-wrap img { display: block; width: 100%; height: auto; }
+        .source-verify-card { border: 1px solid var(--line); border-radius: 10px; padding: 0.6rem 0.75rem; background: var(--canvas); font-size: 0.84rem; }
+        .source-status-line { display: flex; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; font-weight: 700; }
+        .source-ok { color: var(--success); }
+        .source-warn { color: var(--warning); }
+        .source-links { display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; margin-top: 0.35rem; }
+        .btn-link { font-size: 0.82rem; font-weight: 700; }
 
-        .post-header {{
-            padding: 0.9rem 1.25rem;
-            background: rgba(15, 23, 36, 0.85);
-            border-block-end: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }}
-        .post-slot-meta {{
-            display: flex;
-            align-items: center;
-            gap: 0.65rem;
-            flex-wrap: wrap;
-        }}
-        .slot-date-badge {{
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: var(--text);
-        }}
-        .slot-num-badge {{
-            font-size: 0.76rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 0.24rem 0.58rem;
-            border-radius: 6px;
-            background: var(--panel-soft);
-            color: var(--muted);
-        }}
-        .status-badge {{
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-size: 0.78rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            padding: 0.28rem 0.68rem;
-            border-radius: 999px;
-        }}
-        .status-badge.pending {{ background: rgba(56, 189, 248, 0.14); color: var(--info); }}
-        .status-badge.approved {{ background: rgba(34, 197, 94, 0.16); color: #86efac; }}
-        .status-badge.published {{ background: rgba(168, 85, 247, 0.18); color: #d8b4fe; }}
-        .status-badge.skip {{ background: rgba(239, 68, 68, 0.16); color: #fca5a5; }}
-        .status-badge.refresh {{ background: rgba(245, 158, 11, 0.18); color: #fcd34d; }}
+        .meta-row { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+        .pill {
+            font-size: 0.74rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 999px;
+            background: var(--soft); border: 1px solid var(--line); white-space: nowrap;
+        }
+        .pill.warning { background: var(--warning-bg); border-color: #f0d9a8; color: var(--warning); }
+        .pill.rel-1, .pill.rel-2 { background: var(--brand-soft); border-color: var(--brand); color: var(--brand-deep); }
+        .headline { margin: 0.55rem 0 0.2rem; font-size: 1.45rem; line-height: 1.2; font-weight: 800; letter-spacing: -0.01em; }
+        .overlay-lead { margin: 0; color: var(--muted); font-size: 0.95rem; }
+        .en-preview-box {
+            margin-top: 0.6rem; border: 1px dashed var(--line-strong); border-radius: 10px;
+            padding: 0.6rem 0.75rem; display: grid; gap: 0.2rem; font-size: 0.88rem; background: var(--canvas);
+        }
+        .caption-box { margin-top: 0.6rem; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+        .caption-tabs { display: flex; border-bottom: 1px solid var(--line); }
+        .caption-tab {
+            flex: 1; min-height: 38px; background: var(--soft); border: 0; font-size: 0.82rem; font-weight: 700; color: var(--muted);
+        }
+        .caption-tab.is-active { background: #fff; color: var(--ink); }
+        .caption-text { padding: 0.65rem 0.8rem; font-size: 0.86rem; white-space: pre-wrap; }
 
-        .quick-status-group {{
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            flex-wrap: wrap;
-        }}
-        .quick-status-group button {{
-            min-height: 40px;
-            padding: 0.4rem 0.75rem;
-            font-size: 0.81rem;
-        }}
-
-        .post-body {{
-            display: grid;
-            grid-template-columns: 360px minmax(0, 1fr);
-            gap: 1.5rem;
-            padding: 1.25rem;
-            align-items: start;
-        }}
-        .media-column {{
-            position: sticky;
-            top: 4.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }}
-        .image-wrap {{
-            background: #070b10;
-            border-radius: 14px;
-            overflow: hidden;
-            border: 1px solid var(--border-strong);
-            aspect-ratio: 4 / 5;
-            display: grid;
-            place-items: center;
-            position: relative;
-        }}
-        .image-wrap img {{
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }}
-        .source-verify-card {{
-            background: var(--bg-elev);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 0.75rem 0.85rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            font-size: 0.82rem;
-        }}
-        .source-status-line {{
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.5rem;
-            font-weight: 700;
-        }}
-        .source-ok {{ color: #86efac; }}
-        .source-warn {{ color: #fcd34d; }}
-        .source-links {{
-            display: flex;
-            gap: 0.45rem;
-            flex-wrap: wrap;
-        }}
-        .source-links a {{
-            font-size: 0.78rem;
-            padding: 0.35rem 0.65rem;
-            min-height: 36px;
-        }}
-
-        /* Right Column Content */
-        .editorial-column {{
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            min-width: 0;
-        }}
-        .meta-row {{
-            display: flex;
-            gap: 0.45rem;
-            flex-wrap: wrap;
-            align-items: center;
-        }}
-        .pill {{
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            padding: 0.26rem 0.65rem;
-            border-radius: 999px;
-            background: rgba(34, 200, 210, 0.13);
-            color: var(--accent);
-            font-size: 0.76rem;
-            font-weight: 700;
-        }}
-        .pill.rel-1, .pill.rel-2 {{ background: rgba(245, 158, 11, 0.18); color: #fcd34d; }}
-        .pill.rel-3 {{ background: rgba(56, 189, 248, 0.16); color: #7dd3fc; }}
-        .pill.rel-4, .pill.rel-5 {{ background: rgba(148, 163, 184, 0.16); color: #cbd5e1; }}
-        .pill.warning {{ background: rgba(245, 158, 11, 0.2); color: #fcd34d; }}
-
-        .headline {{
-            font-size: clamp(1.35rem, 2.1vw, 1.85rem);
-            line-height: 1.15;
-            font-weight: 800;
-            margin: 0;
-            letter-spacing: -0.02em;
-        }}
-        .overlay-lead {{
-            margin: 0.35rem 0 0;
-            color: #cbd5e1;
-            font-size: 0.95rem;
-        }}
-        .en-preview-box {{
-            background: rgba(56, 189, 248, 0.06);
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            border-radius: var(--radius-md);
-            padding: 0.65rem 0.85rem;
-            font-size: 0.85rem;
-        }}
-        .en-preview-box strong {{
-            color: #bae6fd;
-            display: block;
-            margin-block-end: 0.15rem;
-        }}
-        .en-preview-box span {{ color: var(--muted); }}
-
-        .caption-box {{
-            background: var(--bg-elev);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 0.8rem 0.95rem;
-        }}
-        .caption-tabs {{
-            display: flex;
-            gap: 0.4rem;
-            margin-block-end: 0.55rem;
-        }}
-        .caption-tab {{
-            min-height: 32px;
-            padding: 0.2rem 0.65rem;
-            font-size: 0.76rem;
-            border-radius: 999px;
-            background: var(--panel-soft);
-            color: var(--muted);
-        }}
-        .caption-tab.is-active {{
-            background: rgba(34, 200, 210, 0.18);
-            color: var(--accent);
-            border-color: rgba(34, 200, 210, 0.45);
-        }}
-        .caption-text {{
-            white-space: pre-wrap;
-            font-size: 0.88rem;
-            color: #dbe6f0;
-            line-height: 1.55;
-            max-height: 180px;
-            overflow-y: auto;
-        }}
-
-        /* Visible Radio Option Cards (1-5 options) */
-        .options-fieldset {{
-            border: 0;
-            padding: 0;
-            margin: 0;
-        }}
-        .options-legend {{
-            font-size: 0.78rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--muted);
-            margin-block-end: 0.55rem;
-        }}
-        .options-list {{
-            display: grid;
-            gap: 0.55rem;
-        }}
-        .option-item {{
-            display: grid;
-            grid-template-columns: auto minmax(0, 1fr) auto;
-            gap: 0.8rem;
-            align-items: start;
-            padding: 0.75rem 0.9rem;
-            border-radius: var(--radius-md);
-            background: var(--bg-elev);
-            border: 1px solid var(--border);
-            cursor: pointer;
-            transition: border-color 0.15s ease, background 0.15s ease;
-        }}
-        .option-item:hover {{
-            border-color: var(--border-strong);
-            background: rgba(30, 41, 59, 0.65);
-        }}
-        .option-item.is-selected {{
-            border-color: var(--accent);
-            background: rgba(34, 200, 210, 0.08);
-        }}
-        .option-item input[type="radio"] {{
-            margin-block-start: 0.2rem;
-        }}
-        .option-copy {{
-            min-width: 0;
-            font-size: 0.84rem;
-            color: var(--muted);
-        }}
-        .option-head-line {{
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-            flex-wrap: wrap;
-            margin-block-end: 0.2rem;
-        }}
-        .option-year {{
-            font-weight: 800;
-            color: var(--accent);
-            font-size: 0.82rem;
-        }}
-        .option-title {{
-            display: block;
-            color: var(--text);
-            font-weight: 700;
-            font-size: 0.93rem;
-            margin-block-end: 0.2rem;
-        }}
-        .option-thumb {{
-            width: 56px;
-            height: 70px;
-            border-radius: 8px;
-            overflow: hidden;
-            background: #090d13;
-            border: 1px solid var(--border);
-            flex-shrink: 0;
-        }}
-        .option-thumb img {{
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }}
-
-        .controls-grid {{
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.85rem;
-        }}
-        .controls-stack {{
-            display: grid;
-            gap: 0.85rem;
-            margin-block-start: 0.85rem;
-        }}
-        .empty {{
-            color: var(--muted);
-            text-align: center;
-            padding: 2rem 1rem;
-            background: var(--panel);
-            border-radius: var(--radius-lg);
-            border: 1px dashed var(--border-strong);
-        }}
-
-        .toast {{
-            position: fixed;
-            inset-block-end: 1.25rem;
-            inset-inline-end: 1.25rem;
-            z-index: 60;
-            background: #0f172a;
-            color: var(--text);
-            border: 1px solid var(--accent);
-            border-radius: 12px;
-            padding: 0.7rem 1rem;
-            font-size: 0.86rem;
-            font-weight: 700;
-            box-shadow: var(--shadow);
-            opacity: 0;
-            transform: translateY(8px);
-            pointer-events: none;
-            transition: opacity 0.18s ease, transform 0.18s ease;
-        }}
-        .toast.is-visible {{
-            opacity: 1;
-            transform: translateY(0);
-        }}
-
-        @media (max-width: 1024px) {{
-            .filter-row {{
-                grid-template-columns: 1fr 1fr;
-            }}
-            .post-body {{
-                grid-template-columns: 1fr;
-            }}
-            .media-column {{
-                position: static;
-                max-width: 420px;
-            }}
-        }}
-        @media (max-width: 640px) {{
-            .filter-row, .controls-grid {{
-                grid-template-columns: 1fr;
-            }}
-        }}
+        .slot-controls { display: grid; gap: 0.6rem; }
+        .options-fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 0.6rem; margin: 0; }
+        .options-legend { font-weight: 800; font-size: 0.86rem; padding: 0 0.35rem; }
+        .options-list { display: grid; gap: 0.5rem; }
+        .option-item {
+            display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 0.6rem; align-items: start;
+            border: 1px solid var(--line); border-radius: 10px; padding: 0.6rem 0.7rem; cursor: pointer; background: #fff;
+        }
+        .option-item.is-selected { border-color: var(--brand-deep); background: var(--brand-soft); }
+        .option-item input[type="radio"] { margin-top: 0.2rem; accent-color: var(--brand-deep); }
+        .option-copy { display: grid; gap: 0.2rem; min-width: 0; }
+        .option-head-line { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; font-size: 0.78rem; }
+        .option-year { font-weight: 800; }
+        .option-title { font-weight: 800; font-size: 0.95rem; line-height: 1.3; }
+        .option-thumb img { border-radius: 6px; display: block; }
+        .empty { color: var(--muted); text-align: center; padding: 2rem 1rem; }
+        .controls-grid { display: grid; gap: 0.6rem; grid-template-columns: 1fr 1fr; }
+        .controls-stack { display: grid; gap: 0.6rem; margin-top: 0.6rem; }
+        @media (max-width: 640px) {
+            .controls-grid { grid-template-columns: 1fr; }
+            .headline { font-size: 1.25rem; }
+            .page { padding: 0.75rem 0.75rem 2.5rem; }
+        }
+        .toast {
+            position: fixed; left: 50%; bottom: 1rem; transform: translateX(-50%) translateY(140%);
+            background: var(--ink-deep); color: #fff; padding: 0.6rem 1rem; border-radius: 999px;
+            font-size: 0.86rem; font-weight: 700; transition: transform 200ms ease; z-index: 50;
+            max-width: calc(100vw - 2rem); text-align: center;
+        }
+        .toast.is-visible { transform: translateX(-50%) translateY(0); }
+        #json-preview { width: 100%; }
     </style>
 </head>
 <body>
@@ -2817,8 +2495,8 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
             <div class="brand-cluster">
                 <div class="brand-mark" aria-hidden="true">NO</div>
                 <div>
-                    <h1 class="brand-title">Painel de Aprovação · {lang_filter.upper()}</h1>
-                    <span class="brand-sub">Curadoria PT + espelho automático EN (Site, IG &amp; FB/Buffer)</span>
+                    <h1 class="brand-title">Painel de Aprovação · @@LANG_UPPER@@</h1>
+                    <span class="brand-sub">Uma notícia de cada vez · desliza ou usa as setas</span>
                 </div>
             </div>
             <div class="summary-pills" id="summary"></div>
@@ -2846,7 +2524,7 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
                     <label for="month-filter">Mês</label>
                     <select id="month-filter" name="month_filter"></select>
                 </div>
-                <div class="form-field">
+                <div class="form-field" style="flex:1; min-width:180px;">
                     <label for="search-filter">Pesquisar notícia, ano, categoria ou nota</label>
                     <input type="search" id="search-filter" name="search_filter" placeholder="Ex.: 2008, educação, orçamento, Arquivo.pt..." autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
                 </div>
@@ -2866,17 +2544,30 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
                 <details class="disclosure">
                     <summary>Como funciona o fluxo de aprovação &amp; sincronização EN</summary>
                     <p style="margin:0; color:var(--muted); font-size:0.86rem;">
-                        1. Escolhe a opção pretendida em cada slot (as opções estão ordenadas por relevância histórica, impacto concreto em Portugal, distância temporal e verificação no Arquivo.pt).<br>
-                        2. Clica em <strong>✓ Aprovar</strong> no topo do cartão (ou pede <strong>↻ Nova imagem</strong> / <strong>✦ Regenerar IA</strong>) e depois em <strong>💾 Guardar no pending_posts.json</strong>.<br>
-                        3. Todos os slots aprovados em PT geram automaticamente a versão inglesa espelhada (capa EN + título/resumo/artigo EN + CTAs específicas para Instagram e Facebook/Buffer).
+                        1. Revê uma notícia de cada vez: escolhe a opção pretendida (ordenadas por relevância histórica, impacto concreto em Portugal, distância temporal e verificação no Arquivo.pt).<br>
+                        2. Clica em <strong>✓ Aprovar</strong> (ou pede <strong>↻ Nova imagem</strong> / <strong>✦ Regenerar IA</strong>) e avança para a seguinte com as setas ou deslizando.<br>
+                        3. No fim, clica em <strong>💾 Guardar no pending_posts.json</strong> e envia o ficheiro.<br>
+                        4. Todos os slots aprovados em PT geram automaticamente a versão inglesa espelhada (capa EN + título/resumo/artigo EN + CTAs específicas para Instagram e Facebook/Buffer).
                     </p>
                 </details>
             </div>
         </section>
 
+        <div class="nav-bar" id="nav-bar-top">
+            <button type="button" class="secondary nav-btn" id="btn-prev" data-nav="prev">‹ Anterior</button>
+            <span class="nav-counter" id="nav-counter"></span>
+            <button type="button" class="secondary nav-btn" id="btn-next" data-nav="next">Seguinte ›</button>
+        </div>
+
         <div id="posts-root"></div>
 
-        <details class="disclosure" style="margin-block-top:1.5rem;">
+        <div class="nav-bar" id="nav-bar-bottom">
+            <button type="button" class="secondary nav-btn" data-nav="prev">‹ Anterior</button>
+            <span class="nav-counter" id="nav-counter-bottom"></span>
+            <button type="button" class="secondary nav-btn" data-nav="next">Seguinte ›</button>
+        </div>
+
+        <details class="disclosure" style="margin-block-top:1rem;">
             <summary>Inspecionar JSON bruto atualizado (pending_posts.json)</summary>
             <div class="form-field">
                 <label for="json-preview">Conteúdo completo do ficheiro</label>
@@ -2888,11 +2579,11 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
     <script>
-        const posts = {embedded_posts};
-        const conditionalPool = {conditional_pool_data};
-        const monthOptions = {month_options};
-        const initialFocusMonth = {json.dumps(initial_focus_month)};
-        const fixedLang = {json.dumps(lang_filter)};
+        const posts = @@POSTS@@;
+        const conditionalPool = @@POOL@@;
+        const monthOptions = @@MONTHS@@;
+        const initialFocusMonth = @@FOCUS_MONTH@@;
+        const fixedLang = "@@LANG@@";
         const templateOptions = [
             ["", "Automático (IA + legibilidade)"],
             ["template_1", "Template 1 · Editorial Clássico"],
@@ -2906,62 +2597,57 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
             ["refresh_image", "↻ Pedir nova imagem de fundo"],
             ["regenerate", "✦ Regenerar opções com IA (NVIDIA)"],
         ];
-        const relevanceLabels = {{
+        const relevanceLabels = {
             1: "Nível 1 · Marco Histórico",
             2: "Nível 2 · Grande Relevância",
             3: "Nível 3 · Relevância Nacional",
             4: "Nível 4 · Interesse Público",
             5: "Nível 5 · Memória do Dia",
-        }};
-        const uiState = {{
+        };
+        const uiState = {
             viewMode: "open",
             monthFilter: initialFocusMonth || "",
             search: "",
-            captionPlatformByPost: {{}},
+            captionPlatformByPost: {},
             dirty: false,
             fileHandle: null,
-        }};
+            currentIndex: 0,
+        };
 
-        function escapeHtml(value) {{
-            return String(value ?? "")
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#39;");
-        }}
+        function escapeHtml(value) {
+            return String(value ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+        }
 
-        let toastTimer = null;
-        function showToast(message) {{
+        function showToast(message) {
             const el = document.getElementById("toast");
             if (!el) return;
             el.textContent = message;
             el.classList.add("is-visible");
-            clearTimeout(toastTimer);
-            toastTimer = setTimeout(() => el.classList.remove("is-visible"), 2600);
-        }}
+            clearTimeout(showToast._t);
+            showToast._t = setTimeout(() => el.classList.remove("is-visible"), 2600);
+        }
 
-        function markDirty(isDirty = true) {{
+        function markDirty(isDirty = true) {
             uiState.dirty = isDirty;
             const badge = document.getElementById("dirty-badge");
             if (badge) badge.hidden = !isDirty;
-        }}
+        }
 
-        function selectedOption(post) {{
+        function selectedOption(post) {
             const options = Array.isArray(post.options) ? post.options : [];
-            return options[post.selected_option] || options[0] || null;
-        }}
+            return options[Number(post.selected_option || 0)] || options[0] || null;
+        }
 
-        function monthKey(post) {{
+        function monthKey(post) {
             return String(post.date || "").slice(0, 7);
-        }}
+        }
 
-        function isOpenPost(post) {{
+        function isOpenPost(post) {
             const status = post.status || "pending";
             return ["regenerate", "refresh_image"].includes(post.review_action || "") || !["approved", "published", "skip"].includes(status);
-        }}
+        }
 
-        function matchesFilters(post, option) {{
+        function matchesFilters(post, option) {
             if ((post.lang || "") !== fixedLang) return false;
             const status = post.status || "pending";
             if (uiState.viewMode === "open" && !isOpenPost(post)) return false;
@@ -2986,29 +2672,38 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
                 ...(Array.isArray(post.external_suggestions) ? post.external_suggestions.flatMap(item => [item?.title, item?.summary, item?.category, item?.year]) : []),
             ].join(" ").toLowerCase();
             return haystack.includes(uiState.search.toLowerCase());
-        }}
+        }
 
-        function formatPtDateShort(dateStr) {{
+        function visibleList() {
+            const list = [];
+            posts.forEach((post, postIndex) => {
+                const option = selectedOption(post);
+                if (matchesFilters(post, option)) list.push({ post, postIndex });
+            });
+            return list;
+        }
+
+        function formatPtDateShort(dateStr) {
             const parts = String(dateStr || "").split("-");
             if (parts.length !== 3) return dateStr;
             const months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
             const m = parseInt(parts[1], 10);
-            return `${{parts[2]}} ${{months[m - 1] || parts[1]}}`;
-        }}
+            return `${parts[2]} ${months[m - 1] || parts[1]}`;
+        }
 
-        function resolvePreviewSrc(opt) {{
+        function resolvePreviewSrc(opt) {
             if (!opt) return "";
             const localPath = String(opt.local_image_path || "").replace(/\\\\/g, "/");
-            if (window.location.protocol === "file:" && localPath) {{
+            if (window.location.protocol === "file:" && localPath) {
                 return localPath;
-            }}
+            }
             return opt.image_url || localPath || "";
-        }}
+        }
 
-        function updateSummaryAndDays() {{
-            const counts = {{ total: 0, open: 0, approved: 0, published: 0, refresh: 0 }};
+        function updateSummaryAndDays() {
+            const counts = { total: 0, open: 0, approved: 0, published: 0, refresh: 0 };
             const byDate = new Map();
-            posts.forEach(post => {{
+            posts.forEach(post => {
                 if ((post.lang || "") !== fixedLang) return;
                 counts.total += 1;
                 const st = post.status || "pending";
@@ -3017,59 +2712,62 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
                 if (st === "published") counts.published += 1;
                 if (["regenerate", "refresh_image"].includes(post.review_action || "")) counts.refresh += 1;
 
-                if (!uiState.monthFilter || monthKey(post) === uiState.monthFilter) {{
+                if (!uiState.monthFilter || monthKey(post) === uiState.monthFilter) {
                     const d = post.date || "";
-                    if (d) {{
-                        const rec = byDate.get(d) || {{ total: 0, done: 0, visible: false }};
+                    if (d) {
+                        const rec = byDate.get(d) || { total: 0, done: 0, visible: false };
                         rec.total += 1;
-                        if (["approved", "published", "skip"].includes(st) && !["regenerate", "refresh_image"].includes(post.review_action || "")) {{
+                        if (["approved", "published", "skip"].includes(st) && !["regenerate", "refresh_image"].includes(post.review_action || "")) {
                             rec.done += 1;
-                        }}
-                        if (matchesFilters(post, selectedOption(post))) {{
+                        }
+                        if (matchesFilters(post, selectedOption(post))) {
                             rec.visible = true;
-                        }}
+                        }
                         byDate.set(d, rec);
-                    }}
-                }}
-            }});
+                    }
+                }
+            });
 
             document.getElementById("summary").innerHTML = `
-                <span class="stat-chip accent">Por aprovar <b>${{counts.open}}</b></span>
-                <span class="stat-chip success">Aprovados <b>${{counts.approved}}</b></span>
-                <span class="stat-chip">Publicados <b>${{counts.published}}</b></span>
-                ${{counts.refresh ? `<span class="stat-chip warn">Para refresh <b>${{counts.refresh}}</b></span>` : ""}}
+                <span class="stat-chip accent">Por aprovar <b>${counts.open}</b></span>
+                <span class="stat-chip success">Aprovados <b>${counts.approved}</b></span>
+                <span class="stat-chip">Publicados <b>${counts.published}</b></span>
+                ${counts.refresh ? `<span class="stat-chip warn">Para refresh <b>${counts.refresh}</b></span>` : ""}
             `;
 
             const dayBar = document.getElementById("day-jump-bar");
+            const list = visibleList();
+            const currentDate = list[uiState.currentIndex]?.post?.date || "";
             const visibleDates = Array.from(byDate.entries()).filter(([, info]) => info.visible);
-            dayBar.innerHTML = visibleDates.map(([dateStr, info]) => {{
+            dayBar.innerHTML = visibleDates.map(([dateStr, info]) => {
                 const complete = info.done >= info.total && info.total > 0;
-                const icon = complete ? "✓" : `${{info.done}}/${{info.total}}`;
-                return `<a class="day-chip ${{complete ? "is-complete" : ""}}" href="#day-${{escapeHtml(dateStr)}}">${{escapeHtml(formatPtDateShort(dateStr))}} · ${{icon}}</a>`;
-            }}).join("");
+                const icon = complete ? "✓" : `${info.done}/${info.total}`;
+                const current = dateStr === currentDate ? " is-current" : "";
+                return `<button type="button" class="day-chip${complete ? " is-complete" : ""}${current}" data-day="${escapeHtml(dateStr)}">${escapeHtml(formatPtDateShort(dateStr))} · ${icon}</button>`;
+            }).join("");
 
-            document.querySelectorAll(".view-tab[data-view-mode]").forEach(btn => {{
+            document.querySelectorAll(".view-tab[data-view-mode]").forEach(btn => {
                 btn.setAttribute("aria-pressed", btn.dataset.viewMode === uiState.viewMode ? "true" : "false");
-            }});
-        }}
+            });
+        }
 
-        function refreshJsonPreview() {{
+        function refreshJsonPreview() {
             const preview = document.getElementById("json-preview");
             if (preview) preview.value = JSON.stringify(posts, null, 2);
-        }}
+        }
 
-        function fillMonthFilter() {{
+        function fillMonthFilter() {
             const select = document.getElementById("month-filter");
             if (!select) return;
             select.innerHTML = [`<option value="">Todos os meses</option>`]
-                .concat(monthOptions.map(month => {{
+                .concat(monthOptions.map(month => {
                     const selected = uiState.monthFilter === month ? "selected" : "";
-                    return `<option value="${{escapeHtml(month)}}" ${{selected}}>${{escapeHtml(month)}}</option>`;
-                }}))
+                    return `<option value="${escapeHtml(month)}" ${selected}>${escapeHtml(month)}</option>`;
+                }))
                 .join("");
-        }}
+        }
 
-        function statusLabelAndClass(post) {{
+        function statusLabelAndClass(post) {
             const action = post.review_action || "";
             if (action === "regenerate") return ["✦ Regenerar IA", "refresh"];
             if (action === "refresh_image") return ["↻ Nova imagem", "refresh"];
@@ -3078,255 +2776,269 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
             if (st === "published") return ["🚀 Publicado", "published"];
             if (st === "skip") return ["⏭ Ignorado", "skip"];
             return ["⏳ Por aprovar", "pending"];
-        }}
+        }
 
-        function render() {{
-            updateSummaryAndDays();
-            fillMonthFilter();
-            const root = document.getElementById("posts-root");
-            const seenDayAnchors = new Set();
-            let visibleIndex = 0;
+        function cardHtml(post, postIndex) {
+            const option = selectedOption(post);
+            const dateStr = post.date || "";
+            const [badgeText, badgeClass] = statusLabelAndClass(post);
+            const statusVal = post.status || "pending";
+            const cardClasses = [
+                "post-card",
+                statusVal === "approved" ? "status-approved" : "",
+                ["regenerate", "refresh_image"].includes(post.review_action || "") ? "needs-refresh" : "",
+            ].filter(Boolean).join(" ");
 
-            const visibleCards = posts.map((post, postIndex) => {{
-                const option = selectedOption(post);
-                if (!matchesFilters(post, option)) return "";
+            const previewSrc = resolvePreviewSrc(option);
+            const imageMarkup = previewSrc
+                ? `<div class="image-wrap"><img src="${escapeHtml(previewSrc)}" alt="Pré-visualização ${escapeHtml(option?.title || "")}" width="1080" height="1350"></div>`
+                : `<div class="image-wrap"><div style="padding:1.5rem; text-align:center; color:var(--muted); font-size:0.88rem;">Sem imagem renderizada para esta opção.<br><strong style="color:var(--warning);">Guarda com "↻ Pedir nova imagem" e corre o pregenerator.</strong></div></div>`;
 
-                const isDeferred = visibleIndex >= 2;
-                visibleIndex += 1;
-
-                const dateStr = post.date || "";
-                let dayAnchorAttr = "";
-                if (dateStr && !seenDayAnchors.has(dateStr)) {{
-                    seenDayAnchors.add(dateStr);
-                    dayAnchorAttr = `id="day-${{escapeHtml(dateStr)}}"`;
-                }}
-
-                const [badgeText, badgeClass] = statusLabelAndClass(post);
-                const statusVal = post.status || "pending";
-                const cardClasses = [
-                    "post-card",
-                    isDeferred ? "post-card-deferred" : "",
-                    statusVal === "approved" ? "status-approved" : "",
-                    ["regenerate", "refresh_image"].includes(post.review_action || "") ? "needs-refresh" : "",
-                ].filter(Boolean).join(" ");
-
-                const previewSrc = resolvePreviewSrc(option);
-                const imageMarkup = previewSrc
-                    ? `<div class="image-wrap"><img src="${{escapeHtml(previewSrc)}}" alt="Pré-visualização ${{escapeHtml(option?.title || "")}}" width="1080" height="1350" loading="${{isDeferred ? "lazy" : "eager"}}"></div>`
-                    : `<div class="image-wrap"><div style="padding:1.5rem; text-align:center; color:var(--muted); font-size:0.88rem;">Sem imagem renderizada para esta opção.<br><strong style="color:var(--warning);">Guarda com "↻ Pedir nova imagem" e corre o pregenerator.</strong></div></div>`;
-
-                const articleUrl = String(option?.article_url || "");
-                const hasWayback = articleUrl.toLowerCase().includes("arquivo.pt/wayback/");
-                const bgSourceUrl = String(option?.background_source_url || "");
-                const sourceVerifyMarkup = `
-                    <div class="source-verify-card">
-                        <div class="source-status-line">
-                            <span class="${{hasWayback ? "source-ok" : "source-warn"}}">
-                                ${{hasWayback ? "✓ Notícia preservada no Arquivo.pt" : (articleUrl ? "ℹ Fonte web direta (sem captura wayback)" : "⚠ Efeméride histórica sem link web")}}
-                            </span>
-                            <span>${{escapeHtml(option?.year || "")}}</span>
-                        </div>
-                        <div class="source-links">
-                            ${{articleUrl ? `<a class="btn-link" href="${{escapeHtml(articleUrl)}}" target="_blank" rel="noreferrer">🔗 Ver notícia original ↗</a>` : ""}}
-                            ${{bgSourceUrl && bgSourceUrl.startsWith("http") ? `<a class="btn-link" href="${{escapeHtml(bgSourceUrl)}}" target="_blank" rel="noreferrer">🖼️ Fonte da foto ↗</a>` : ""}}
-                            ${{previewSrc ? `<a class="btn-link" href="${{escapeHtml(previewSrc)}}" target="_blank" rel="noreferrer">🔍 Abrir capa 4:5 ↗</a>` : ""}}
-                        </div>
+            const articleUrl = String(option?.article_url || "");
+            const hasWayback = articleUrl.toLowerCase().includes("arquivo.pt/wayback/");
+            const bgSourceUrl = String(option?.background_source_url || "");
+            const sourceVerifyMarkup = `
+                <div class="source-verify-card">
+                    <div class="source-status-line">
+                        <span class="${hasWayback ? "source-ok" : "source-warn"}">
+                            ${hasWayback ? "✓ Notícia preservada no Arquivo.pt" : (articleUrl ? "ℹ Fonte web direta (sem captura wayback)" : "⚠ Efeméride histórica sem link web")}
+                        </span>
+                        <span>${escapeHtml(option?.year || "")}</span>
                     </div>
-                `;
+                    <div class="source-links">
+                        ${articleUrl ? `<a class="btn-link" href="${escapeHtml(articleUrl)}" target="_blank" rel="noreferrer">🔗 Ver notícia original ↗</a>` : ""}
+                        ${bgSourceUrl && bgSourceUrl.startsWith("http") ? `<a class="btn-link" href="${escapeHtml(bgSourceUrl)}" target="_blank" rel="noreferrer">🖼️ Fonte da foto ↗</a>` : ""}
+                        ${previewSrc ? `<a class="btn-link" href="${escapeHtml(previewSrc)}" target="_blank" rel="noreferrer">🔍 Abrir capa 4:5 ↗</a>` : ""}
+                    </div>
+                </div>
+            `;
 
-                const relLevel = Number(option?.relevance?.level || 4);
-                const relScore = option?.relevance?.weighted_score != null ? Number(option.relevance.weighted_score).toFixed(1) : "";
-                const relText = `${{relevanceLabels[relLevel] || `Nível ${{relLevel}}`}}${{relScore ? ` (${{relScore}})` : ""}}`;
-                const nets = Array.isArray(option?.networks) && option.networks.length ? option.networks.join(" + ").toUpperCase() : "INSTAGRAM + FACEBOOK";
+            const relLevel = Number(option?.relevance?.level || 4);
+            const relScore = option?.relevance?.weighted_score != null ? Number(option.relevance.weighted_score).toFixed(1) : "";
+            const relText = `${relevanceLabels[relLevel] || `Nível ${relLevel}`}${relScore ? ` (${relScore})` : ""}`;
+            const nets = Array.isArray(option?.networks) && option.networks.length ? option.networks.join(" + ").toUpperCase() : "INSTAGRAM + FACEBOOK";
 
-                const pills = [
-                    option?.year ? `<span class="pill">📅 ${{escapeHtml(option.year)}}</span>` : "",
-                    option?.category ? `<span class="pill">${{escapeHtml(option.category)}}</span>` : "",
-                    `<span class="pill rel-${{relLevel}}">★ ${{escapeHtml(relText)}}</span>`,
-                    `<span class="pill">📣 ${{escapeHtml(nets)}}</span>`,
-                    option?.layout_preference ? `<span class="pill">Layout: ${{escapeHtml(option.layout_preference)}}</span>` : "",
-                    (post.review_action === "regenerate") ? `<span class="pill warning">✦ A regenerar no próximo run</span>` : "",
-                    (post.review_action === "refresh_image") ? `<span class="pill warning">↻ A gerar nova imagem no próximo run</span>` : "",
-                ].filter(Boolean).join("");
+            const pills = [
+                option?.year ? `<span class="pill">📅 ${escapeHtml(option.year)}</span>` : "",
+                option?.category ? `<span class="pill">${escapeHtml(option.category)}</span>` : "",
+                `<span class="pill rel-${relLevel}">★ ${escapeHtml(relText)}</span>`,
+                `<span class="pill">📣 ${escapeHtml(nets)}</span>`,
+                option?.layout_preference ? `<span class="pill">Layout: ${escapeHtml(option.layout_preference)}</span>` : "",
+                (post.review_action === "regenerate") ? `<span class="pill warning">✦ A regenerar no próximo run</span>` : "",
+                (post.review_action === "refresh_image") ? `<span class="pill warning">↻ A gerar nova imagem no próximo run</span>` : "",
+            ].filter(Boolean).join("");
 
-                const activeCapTab = uiState.captionPlatformByPost[postIndex] || "ig";
-                const igCap = option?.caption_instagram || option?.caption || "";
-                const fbCap = option?.caption_facebook || option?.caption || "";
-                const shownCaption = activeCapTab === "fb" ? fbCap : igCap;
+            const activeCapTab = uiState.captionPlatformByPost[postIndex] || "ig";
+            const igCap = option?.caption_instagram || option?.caption || "";
+            const fbCap = option?.caption_facebook || option?.caption || "";
+            const shownCaption = activeCapTab === "fb" ? fbCap : igCap;
 
-                const optionsMarkup = (post.options || []).map((opt, optionIndex) => {{
-                    const isSel = optionIndex === Number(post.selected_option || 0);
-                    const optThumbSrc = resolvePreviewSrc(opt);
-                    const optLevel = Number(opt?.relevance?.level || 4);
-                    const optScore = opt?.relevance?.weighted_score != null ? Number(opt.relevance.weighted_score).toFixed(0) : "";
-                    const optWayback = String(opt?.article_url || "").toLowerCase().includes("arquivo.pt/wayback/");
-                    const radioId = `opt-${{postIndex}}-${{optionIndex}}`;
-                    return `
-                        <label class="option-item ${{isSel ? "is-selected" : ""}}" for="${{radioId}}">
-                            <input type="radio" id="${{radioId}}" name="selected-option-${{postIndex}}" value="${{optionIndex}}" ${{isSel ? "checked" : ""}} data-action="select-option" data-post-index="${{postIndex}}">
-                            <div class="option-copy">
-                                <div class="option-head-line">
-                                    <span class="option-year">Opção ${{optionIndex + 1}} · ${{escapeHtml(opt.year || "")}}</span>
-                                    ${{opt.category ? `<span class="pill" style="padding:0.12rem 0.5rem; font-size:0.7rem;">${{escapeHtml(opt.category)}}</span>` : ""}}
-                                    <span class="pill rel-${{optLevel}}" style="padding:0.12rem 0.5rem; font-size:0.7rem;">L${{optLevel}}${{optScore ? ` · ${{optScore}}` : ""}}</span>
-                                    ${{optWayback ? `<span style="color:#86efac; font-size:0.74rem; font-weight:700;">Arquivo.pt ✓</span>` : ""}}
-                                </div>
-                                <span class="option-title">${{escapeHtml(opt.title || "")}}</span>
-                                <div>${{escapeHtml(opt.summary || opt.overlay_description || "")}}</div>
-                            </div>
-                            ${{optThumbSrc ? `<div class="option-thumb"><img src="${{escapeHtml(optThumbSrc)}}" alt="" width="56" height="70" loading="lazy"></div>` : `<div></div>`}}
-                        </label>
-                    `;
-                }}).join("") || `<div class="empty">Sem opções disponíveis neste slot.</div>`;
-
-                const layoutMarkup = templateOptions.map(([value, label]) => {{
-                    const selected = (post.layout_override || "") === value ? "selected" : "";
-                    return `<option value="${{escapeHtml(value)}}" ${{selected}}>${{escapeHtml(label)}}</option>`;
-                }}).join("");
-
-                const reviewActionMarkup = reviewActionOptions.map(([value, label]) => {{
-                    const selected = (post.review_action || "") === value ? "selected" : "";
-                    return `<option value="${{escapeHtml(value)}}" ${{selected}}>${{escapeHtml(label)}}</option>`;
-                }}).join("");
-
-                const hasCustomOverrides = Boolean(post.theme_suggestion || post.manual_background_url || post.review_note || post.layout_override || post.review_action);
-
-                const externalSuggestionsMarkup = (post.external_suggestions || []).map((suggestion, suggestionIndex) => `
-                    <div class="option-item" style="grid-template-columns: minmax(0, 1fr) auto; cursor:default;">
+            const optionsMarkup = (post.options || []).map((opt, optionIndex) => {
+                const isSel = optionIndex === Number(post.selected_option || 0);
+                const optThumbSrc = resolvePreviewSrc(opt);
+                const optLevel = Number(opt?.relevance?.level || 4);
+                const optScore = opt?.relevance?.weighted_score != null ? Number(opt.relevance.weighted_score).toFixed(0) : "";
+                const optWayback = String(opt?.article_url || "").toLowerCase().includes("arquivo.pt/wayback/");
+                const radioId = `opt-${postIndex}-${optionIndex}`;
+                return `
+                    <label class="option-item ${isSel ? "is-selected" : ""}" for="${radioId}">
+                        <input type="radio" id="${radioId}" name="selected-option-${postIndex}" value="${optionIndex}" ${isSel ? "checked" : ""} data-action="select-option" data-post-index="${postIndex}">
                         <div class="option-copy">
                             <div class="option-head-line">
-                                <span class="option-year">${{escapeHtml(suggestion.year || "")}}</span>
-                                ${{suggestion.category ? `<span class="pill" style="padding:0.12rem 0.5rem; font-size:0.7rem;">${{escapeHtml(suggestion.category)}}</span>` : ""}}
+                                <span class="option-year">Opção ${optionIndex + 1} · ${escapeHtml(opt.year || "")}</span>
+                                ${opt.category ? `<span class="pill" style="padding:0.12rem 0.5rem; font-size:0.7rem;">${escapeHtml(opt.category)}</span>` : ""}
+                                <span class="pill rel-${optLevel}" style="padding:0.12rem 0.5rem; font-size:0.7rem;">L${optLevel}${optScore ? ` · ${optScore}` : ""}</span>
+                                ${optWayback ? `<span style="color:var(--success); font-size:0.74rem; font-weight:700;">Arquivo.pt ✓</span>` : ""}
                             </div>
-                            <span class="option-title">${{escapeHtml(suggestion.title || "")}}</span>
-                            <div>${{escapeHtml(suggestion.summary || "")}}</div>
+                            <span class="option-title">${escapeHtml(opt.title || "")}</span>
+                            <div>${escapeHtml(opt.summary || opt.overlay_description || "")}</div>
                         </div>
-                        <button type="button" class="secondary" style="min-height:38px; font-size:0.78rem;" data-action="use-external" data-post-index="${{postIndex}}" data-sug-index="${{suggestionIndex}}">Usar sugestão</button>
-                    </div>
-                `).join("") || `<div style="color:var(--muted); font-size:0.84rem;">Sem sugestões externas guardadas para este dia.</div>`;
-
-                return `
-                    <article class="${{cardClasses}}" ${{dayAnchorAttr}}>
-                        <div class="post-header">
-                            <div class="post-slot-meta">
-                                <span class="slot-date-badge">${{escapeHtml(dateStr)}}</span>
-                                <span class="slot-num-badge">Slot ${{escapeHtml(post.slot || 1)}}/2 · ${{escapeHtml(post.id || "")}}</span>
-                                <span class="status-badge ${{badgeClass}}">${{badgeText}}</span>
-                            </div>
-                            <div class="quick-status-group" role="group" aria-label="Decisão editorial rápida">
-                                <button type="button" class="secondary approve-btn ${{statusVal === "approved" && !post.review_action ? "is-active" : ""}}" data-action="quick-status" data-post-index="${{postIndex}}" data-status="approved">✓ Aprovar</button>
-                                <button type="button" class="secondary pending-btn ${{statusVal === "pending" && !post.review_action ? "is-active" : ""}}" data-action="quick-status" data-post-index="${{postIndex}}" data-status="pending">⏳ Pendente</button>
-                                <button type="button" class="secondary" data-action="quick-refresh" data-post-index="${{postIndex}}" data-refresh="refresh_image">↻ Nova imagem</button>
-                                <button type="button" class="secondary" data-action="quick-refresh" data-post-index="${{postIndex}}" data-refresh="regenerate">✦ Regenerar IA</button>
-                                <button type="button" class="secondary skip-btn ${{statusVal === "skip" ? "is-active" : ""}}" data-action="quick-status" data-post-index="${{postIndex}}" data-status="skip">⏭ Saltar</button>
-                            </div>
-                        </div>
-
-                        <div class="post-body">
-                            <div class="media-column">
-                                ${{imageMarkup}}
-                                ${{sourceVerifyMarkup}}
-                            </div>
-
-                            <div class="editorial-column">
-                                ${{option ? `
-                                    <div class="meta-row">${{pills}}</div>
-                                    <div>
-                                        <h2 class="headline">${{escapeHtml(option.title || "")}}</h2>
-                                        ${{option.overlay_description ? `<p class="overlay-lead">${{escapeHtml(option.overlay_description)}}</p>` : ""}}
-                                    </div>
-                                    <div class="en-preview-box">
-                                        <strong>🇬🇧 EN · ${{escapeHtml(option.title_en || "(tradução EN gerada automaticamente ao aprovar)")}}</strong>
-                                        <span>${{escapeHtml(option.summary_en || "")}}</span>
-                                    </div>
-                                    <div class="caption-box">
-                                        <div class="caption-tabs" role="tablist" aria-label="Plataforma da legenda">
-                                            <button type="button" class="caption-tab ${{activeCapTab === "ig" ? "is-active" : ""}}" data-action="switch-caption-tab" data-post-index="${{postIndex}}" data-tab="ig">Instagram (bio)</button>
-                                            <button type="button" class="caption-tab ${{activeCapTab === "fb" ? "is-active" : ""}}" data-action="switch-caption-tab" data-post-index="${{postIndex}}" data-tab="fb">Facebook · Buffer (sobre)</button>
-                                        </div>
-                                        <div class="caption-text">${{escapeHtml(shownCaption)}}</div>
-                                    </div>
-                                ` : `<div class="empty">Sem opção selecionada.</div>`}}
-
-                                <form class="slot-controls" data-slot-form="${{postIndex}}">
-                                    <fieldset class="options-fieldset">
-                                        <legend class="options-legend">Escolher notícia para este slot (${{(post.options || []).length}} opções)</legend>
-                                        <div class="options-list">
-                                            ${{optionsMarkup}}
-                                        </div>
-                                    </fieldset>
-
-                                    <details class="disclosure" style="margin-block-start:0.85rem;" ${{hasCustomOverrides ? "open" : ""}}>
-                                        <summary>Personalizar template, imagem de fundo ou nota de regeneração IA</summary>
-                                        <div class="controls-grid">
-                                            <div class="form-field">
-                                                <label for="layout-${{postIndex}}">Template visual da capa</label>
-                                                <select id="layout-${{postIndex}}" name="layout_override" data-field="layout_override" data-post-index="${{postIndex}}">${{layoutMarkup}}</select>
-                                            </div>
-                                            <div class="form-field">
-                                                <label for="action-${{postIndex}}">Ação para o próximo pregenerator</label>
-                                                <select id="action-${{postIndex}}" name="review_action" data-field="review_action" data-post-index="${{postIndex}}">${{reviewActionMarkup}}</select>
-                                            </div>
-                                        </div>
-                                        <div class="controls-stack">
-                                            <div class="form-field">
-                                                <label for="theme-${{postIndex}}">Sugestão manual de tema visual (pesquisa de fotografia)</label>
-                                                <input type="text" id="theme-${{postIndex}}" name="theme_suggestion" value="${{escapeHtml(post.theme_suggestion || "")}}" placeholder="Ex.: Assembleia da República Lisboa, sala de aula anos 2000..." data-field="theme_suggestion" data-post-index="${{postIndex}}">
-                                            </div>
-                                            <div class="form-field">
-                                                <label for="bgurl-${{postIndex}}">Link direto para imagem de fundo (opcional)</label>
-                                                <input type="url" id="bgurl-${{postIndex}}" name="manual_background_url" value="${{escapeHtml(post.manual_background_url || "")}}" placeholder="https://..." autocorrect="off" autocapitalize="off" spellcheck="false" data-field="manual_background_url" data-post-index="${{postIndex}}">
-                                            </div>
-                                            <div class="form-field">
-                                                <label for="note-${{postIndex}}">Nota editorial para regeneração seletiva</label>
-                                                <textarea id="note-${{postIndex}}" name="review_note" placeholder="Ex.: procurar uma notícia portuguesa de economia/sociedade entre 2000 e 2015, evitar Covid..." data-field="review_note" data-post-index="${{postIndex}}">${{escapeHtml(post.review_note || "")}}</textarea>
-                                            </div>
-                                        </div>
-                                    </details>
-
-                                    ${{option ? `
-                                    <details class="disclosure" style="margin-block-start:0.65rem;">
-                                        <summary>Editar rapidamente texto PT / EN ou link da opção selecionada</summary>
-                                        <div class="controls-stack" style="margin-block-start:0;">
-                                            <div class="controls-grid">
-                                                <div class="form-field">
-                                                    <label for="opt-title-${{postIndex}}">Título PT (nota: alterar título pede nova capa se quiseres atualizar a imagem)</label>
-                                                    <input type="text" id="opt-title-${{postIndex}}" value="${{escapeHtml(option.title || "")}}" data-opt-field="title" data-post-index="${{postIndex}}">
-                                                </div>
-                                                <div class="form-field">
-                                                    <label for="opt-title-en-${{postIndex}}">Título EN (US English)</label>
-                                                    <input type="text" id="opt-title-en-${{postIndex}}" value="${{escapeHtml(option.title_en || "")}}" data-opt-field="title_en" data-post-index="${{postIndex}}">
-                                                </div>
-                                            </div>
-                                            <div class="form-field">
-                                                <label for="opt-url-${{postIndex}}">URL da fonte preservada (Arquivo.pt)</label>
-                                                <input type="url" id="opt-url-${{postIndex}}" value="${{escapeHtml(option.article_url || "")}}" autocorrect="off" autocapitalize="off" spellcheck="false" data-opt-field="article_url" data-post-index="${{postIndex}}">
-                                            </div>
-                                        </div>
-                                    </details>
-                                    ` : ""}}
-
-                                    <details class="disclosure" style="margin-block-start:0.65rem;">
-                                        <summary>Sugestões externas de efemérides para este dia (${{(post.external_suggestions || []).length}})</summary>
-                                        <div class="options-list">
-                                            ${{externalSuggestionsMarkup}}
-                                        </div>
-                                    </details>
-                                </form>
-                            </div>
-                        </div>
-                    </article>
+                        ${optThumbSrc ? `<div class="option-thumb"><img src="${escapeHtml(optThumbSrc)}" alt="" width="56" height="70" loading="lazy"></div>` : `<div></div>`}
+                    </label>
                 `;
-            }}).filter(Boolean);
+            }).join("") || `<div class="empty">Sem opções disponíveis neste slot.</div>`;
 
-            root.innerHTML = visibleCards.length
-                ? visibleCards.join("")
-                : `<div class="empty">Nenhum post corresponde aos filtros selecionados. Experimenta mudar a vista para <strong>Aprovados</strong> ou <strong>Todos</strong>.</div>`;
+            const layoutMarkup = templateOptions.map(([value, label]) => {
+                const selected = (post.layout_override || "") === value ? "selected" : "";
+                return `<option value="${escapeHtml(value)}" ${selected}>${escapeHtml(label)}</option>`;
+            }).join("");
+
+            const reviewActionMarkup = reviewActionOptions.map(([value, label]) => {
+                const selected = (post.review_action || "") === value ? "selected" : "";
+                return `<option value="${escapeHtml(value)}" ${selected}>${escapeHtml(label)}</option>`;
+            }).join("");
+
+            const hasCustomOverrides = Boolean(post.theme_suggestion || post.manual_background_url || post.review_note || post.layout_override || post.review_action);
+
+            const externalSuggestionsMarkup = (post.external_suggestions || []).map((suggestion, suggestionIndex) => `
+                <div class="option-item" style="grid-template-columns: minmax(0, 1fr) auto; cursor:default;">
+                    <div class="option-copy">
+                        <div class="option-head-line">
+                            <span class="option-year">${escapeHtml(suggestion.year || "")}</span>
+                            ${suggestion.category ? `<span class="pill" style="padding:0.12rem 0.5rem; font-size:0.7rem;">${escapeHtml(suggestion.category)}</span>` : ""}
+                        </div>
+                        <span class="option-title">${escapeHtml(suggestion.title || "")}</span>
+                        <div>${escapeHtml(suggestion.summary || "")}</div>
+                    </div>
+                    <button type="button" class="secondary" style="min-height:38px; font-size:0.78rem;" data-action="use-external" data-post-index="${postIndex}" data-sug-index="${suggestionIndex}">Usar sugestão</button>
+                </div>
+            `).join("") || `<div style="color:var(--muted); font-size:0.84rem;">Sem sugestões externas guardadas para este dia.</div>`;
+
+            return `
+                <article class="${cardClasses}" id="current-card">
+                    <div class="post-header">
+                        <div class="post-slot-meta">
+                            <span class="slot-date-badge">${escapeHtml(dateStr)}</span>
+                            <span class="slot-num-badge">Slot ${escapeHtml(post.slot || 1)}/2 · ${escapeHtml(post.id || "")}</span>
+                            <span class="status-badge ${badgeClass}">${badgeText}</span>
+                        </div>
+                        <div class="quick-status-group" role="group" aria-label="Decisão editorial rápida">
+                            <button type="button" class="secondary approve-btn ${statusVal === "approved" && !post.review_action ? "is-active" : ""}" data-action="quick-status" data-post-index="${postIndex}" data-status="approved">✓ Aprovar</button>
+                            <button type="button" class="secondary pending-btn ${statusVal === "pending" && !post.review_action ? "is-active" : ""}" data-action="quick-status" data-post-index="${postIndex}" data-status="pending">⏳ Pendente</button>
+                            <button type="button" class="secondary" data-action="quick-refresh" data-post-index="${postIndex}" data-refresh="refresh_image">↻ Nova imagem</button>
+                            <button type="button" class="secondary" data-action="quick-refresh" data-post-index="${postIndex}" data-refresh="regenerate">✦ Regenerar IA</button>
+                            <button type="button" class="secondary skip-btn ${statusVal === "skip" ? "is-active" : ""}" data-action="quick-status" data-post-index="${postIndex}" data-status="skip">⏭ Saltar</button>
+                        </div>
+                    </div>
+
+                    <div class="post-body">
+                        ${imageMarkup}
+                        ${sourceVerifyMarkup}
+                        ${option ? `
+                            <div class="meta-row">${pills}</div>
+                            <div>
+                                <h2 class="headline">${escapeHtml(option.title || "")}</h2>
+                                ${option.overlay_description ? `<p class="overlay-lead">${escapeHtml(option.overlay_description)}</p>` : ""}
+                            </div>
+                            <div class="en-preview-box">
+                                <strong>🇬🇧 EN · ${escapeHtml(option.title_en || "(tradução EN gerada automaticamente ao aprovar)")}</strong>
+                                <span>${escapeHtml(option.summary_en || "")}</span>
+                            </div>
+                            <div class="caption-box">
+                                <div class="caption-tabs" role="tablist" aria-label="Plataforma da legenda">
+                                    <button type="button" class="caption-tab ${activeCapTab === "ig" ? "is-active" : ""}" data-action="switch-caption-tab" data-post-index="${postIndex}" data-tab="ig">Instagram (bio)</button>
+                                    <button type="button" class="caption-tab ${activeCapTab === "fb" ? "is-active" : ""}" data-action="switch-caption-tab" data-post-index="${postIndex}" data-tab="fb">Facebook · Buffer (sobre)</button>
+                                </div>
+                                <div class="caption-text">${escapeHtml(shownCaption)}</div>
+                            </div>
+                        ` : `<div class="empty">Sem opção selecionada.</div>`}
+
+                        <form class="slot-controls" data-slot-form="${postIndex}">
+                            <fieldset class="options-fieldset">
+                                <legend class="options-legend">Escolher notícia para este slot (${(post.options || []).length} opções)</legend>
+                                <div class="options-list">
+                                    ${optionsMarkup}
+                                </div>
+                            </fieldset>
+
+                            <details class="disclosure" ${hasCustomOverrides ? "open" : ""}>
+                                <summary>Personalizar template, imagem de fundo ou nota de regeneração IA</summary>
+                                <div class="controls-grid">
+                                    <div class="form-field">
+                                        <label for="layout-${postIndex}">Template visual da capa</label>
+                                        <select id="layout-${postIndex}" name="layout_override" data-field="layout_override" data-post-index="${postIndex}">${layoutMarkup}</select>
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="action-${postIndex}">Ação para o próximo pregenerator</label>
+                                        <select id="action-${postIndex}" name="review_action" data-field="review_action" data-post-index="${postIndex}">${reviewActionMarkup}</select>
+                                    </div>
+                                </div>
+                                <div class="controls-stack">
+                                    <div class="form-field">
+                                        <label for="theme-${postIndex}">Sugestão manual de tema visual (pesquisa de fotografia)</label>
+                                        <input type="text" id="theme-${postIndex}" name="theme_suggestion" value="${escapeHtml(post.theme_suggestion || "")}" placeholder="Ex.: Assembleia da República Lisboa, sala de aula anos 2000..." data-field="theme_suggestion" data-post-index="${postIndex}">
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="bgurl-${postIndex}">Link direto para imagem de fundo (opcional)</label>
+                                        <input type="url" id="bgurl-${postIndex}" name="manual_background_url" value="${escapeHtml(post.manual_background_url || "")}" placeholder="https://..." autocorrect="off" autocapitalize="off" spellcheck="false" data-field="manual_background_url" data-post-index="${postIndex}">
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="note-${postIndex}">Nota editorial para regeneração seletiva</label>
+                                        <textarea id="note-${postIndex}" name="review_note" placeholder="Ex.: procurar uma notícia portuguesa de economia/sociedade entre 2000 e 2015, evitar Covid..." data-field="review_note" data-post-index="${postIndex}">${escapeHtml(post.review_note || "")}</textarea>
+                                    </div>
+                                </div>
+                            </details>
+
+                            ${option ? `
+                            <details class="disclosure">
+                                <summary>Editar rapidamente texto PT / EN ou link da opção selecionada</summary>
+                                <div class="controls-stack" style="margin-block-start:0;">
+                                    <div class="controls-grid">
+                                        <div class="form-field">
+                                            <label for="opt-title-${postIndex}">Título PT (nota: alterar título pede nova capa se quiseres atualizar a imagem)</label>
+                                            <input type="text" id="opt-title-${postIndex}" value="${escapeHtml(option.title || "")}" data-opt-field="title" data-post-index="${postIndex}">
+                                        </div>
+                                        <div class="form-field">
+                                            <label for="opt-title-en-${postIndex}">Título EN (US English)</label>
+                                            <input type="text" id="opt-title-en-${postIndex}" value="${escapeHtml(option.title_en || "")}" data-opt-field="title_en" data-post-index="${postIndex}">
+                                        </div>
+                                    </div>
+                                    <div class="form-field">
+                                        <label for="opt-url-${postIndex}">URL da fonte preservada (Arquivo.pt)</label>
+                                        <input type="url" id="opt-url-${postIndex}" value="${escapeHtml(option.article_url || "")}" autocorrect="off" autocapitalize="off" spellcheck="false" data-opt-field="article_url" data-post-index="${postIndex}">
+                                    </div>
+                                </div>
+                            </details>
+                            ` : ""}
+
+                            <details class="disclosure">
+                                <summary>Sugestões externas de efemérides para este dia (${(post.external_suggestions || []).length})</summary>
+                                <div class="options-list">
+                                    ${externalSuggestionsMarkup}
+                                </div>
+                            </details>
+                        </form>
+                    </div>
+                </article>
+            `;
+        }
+
+        function render() {
+            updateSummaryAndDays();
+            fillMonthFilter();
+            const list = visibleList();
+            if (uiState.currentIndex >= list.length) uiState.currentIndex = Math.max(0, list.length - 1);
+            if (uiState.currentIndex < 0) uiState.currentIndex = 0;
+            const root = document.getElementById("posts-root");
+            const counter = document.getElementById("nav-counter");
+            const counterBottom = document.getElementById("nav-counter-bottom");
+            const label = list.length ? `${uiState.currentIndex + 1} de ${list.length}` : "0 de 0";
+            if (counter) counter.textContent = label;
+            if (counterBottom) counterBottom.textContent = label;
+            document.querySelectorAll("[data-nav]").forEach(btn => {
+                const dir = btn.dataset.nav;
+                btn.disabled = !list.length || (dir === "prev" && uiState.currentIndex <= 0) || (dir === "next" && uiState.currentIndex >= list.length - 1);
+            });
+            if (!list.length) {
+                root.innerHTML = `<div class="empty">Nenhum post corresponde aos filtros selecionados. Experimenta mudar a vista para <strong>Aprovados</strong> ou <strong>Todos</strong>.</div>`;
+                refreshJsonPreview();
+                return;
+            }
+            const { post, postIndex } = list[uiState.currentIndex];
+            root.innerHTML = cardHtml(post, postIndex);
             refreshJsonPreview();
-        }}
+        }
 
-        function downloadJson() {{
-            const blob = new Blob([JSON.stringify(posts, null, 2)], {{ type: "application/json" }});
+        function goTo(index, scroll = true) {
+            const list = visibleList();
+            if (!list.length) return;
+            uiState.currentIndex = Math.max(0, Math.min(index, list.length - 1));
+            render();
+            if (scroll) window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+        }
+
+        function advance() {
+            const list = visibleList();
+            if (!list.length) { render(); return; }
+            if (uiState.currentIndex < list.length - 1) {
+                uiState.currentIndex += 1;
+            }
+            render();
+            window.scrollTo({ top: 0 });
+        }
+
+        function downloadJson() {
+            const blob = new Blob([JSON.stringify(posts, null, 2)], { type: "application/json" });
             const url = URL.createObjectURL(blob);
             const link = document.createElement("a");
             link.href = url;
@@ -3335,102 +3047,101 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
             URL.revokeObjectURL(url);
             markDirty(false);
             showToast("pending_posts.json transferido.");
-        }}
+        }
 
-        async function saveDirect() {{
+        async function saveDirect() {
             const content = JSON.stringify(posts, null, 2);
-            if (window.showSaveFilePicker) {{
-                try {{
-                    if (!uiState.fileHandle) {{
-                        uiState.fileHandle = await window.showSaveFilePicker({{
+            if (window.showSaveFilePicker) {
+                try {
+                    if (!uiState.fileHandle) {
+                        uiState.fileHandle = await window.showSaveFilePicker({
                             suggestedName: "pending_posts.json",
-                            types: [{{ description: "JSON", accept: {{ "application/json": [".json"] }} }}],
-                        }});
-                    }}
+                            types: [{ description: "JSON", accept: { "application/json": [".json"] } }],
+                        });
+                    }
                     const writable = await uiState.fileHandle.createWritable();
                     await writable.write(content);
                     await writable.close();
                     markDirty(false);
                     showToast("✓ Guardado diretamente em pending_posts.json!");
                     return;
-                }} catch (error) {{
+                } catch (error) {
                     if (error && error.name === "AbortError") return;
                     uiState.fileHandle = null;
                     console.warn(error);
-                }}
-            }}
+                }
+            }
             downloadJson();
-        }}
+        }
 
-        async function copyJson() {{
+        async function copyJson() {
             const content = JSON.stringify(posts, null, 2);
-            try {{
+            try {
                 await navigator.clipboard.writeText(content);
                 showToast("📋 JSON copiado para a área de transferência.");
-            }} catch (error) {{
-                console.warn(error);
-                showToast("Não foi possível copiar automaticamente.");
-            }}
-        }}
+            } catch (error) {
+                showToast("Não foi possível copiar. Usa o botão JSON.");
+            }
+        }
 
-        function approveAllVisible() {{
+        function approveAllVisible() {
             let count = 0;
-            posts.forEach(post => {{
+            posts.forEach(post => {
                 const opt = selectedOption(post);
                 if (!matchesFilters(post, opt)) return;
-                if ((post.status || "pending") === "pending" && !post.review_action) {{
+                if ((post.status || "pending") === "pending" && !post.review_action) {
                     post.status = "approved";
                     count += 1;
-                }}
-            }});
-            if (!count) {{
+                }
+            });
+            if (!count) {
                 showToast("Não há slots pendentes visíveis para aprovar.");
                 return;
-            }}
+            }
             markDirty(true);
             render();
-            showToast(`✓ ${{count}} slot(s) marcados como aprovados. Clica em Guardar!`);
-        }}
+            showToast(`✓ ${count} slot(s) marcados como aprovados. Clica em Guardar!`);
+        }
 
-        function renderConditionalPool() {{
+        function renderConditionalPool() {
             const container = document.getElementById("conditional-pool-panel");
             if (!container) return;
-            if (!Array.isArray(conditionalPool) || !conditionalPool.length) {{
+            if (!Array.isArray(conditionalPool) || !conditionalPool.length) {
                 container.innerHTML = "<div style='color:var(--muted); font-size:0.85rem;'>Sem posts na bolsa condicional.</div>";
                 return;
-            }}
+            }
             container.innerHTML = conditionalPool.map((item, idx) => `
-                <div style="display:flex; justify-content:space-between; align-items:center; gap:0.75rem; flex-wrap:wrap; padding:0.65rem 0.85rem; background:var(--bg-elev); border:1px solid var(--border); border-radius:10px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; gap:0.75rem; flex-wrap:wrap; padding:0.65rem 0.85rem; background:var(--canvas); border:1px solid var(--line); border-radius:10px;">
                     <div>
-                        <span class="pill" style="margin-inline-end:0.45rem;">${{escapeHtml(item.trigger || "condicional")}}</span>
-                        <strong>(${{escapeHtml(item.year)}}) ${{escapeHtml(item.title)}}</strong>
-                        <div style="color:var(--muted); font-size:0.78rem; margin-block-start:0.15rem;">${{escapeHtml(item.trigger_description || "")}}</div>
+                        <span class="pill" style="margin-inline-end:0.45rem;">${escapeHtml(item.trigger || "condicional")}</span>
+                        <strong>(${escapeHtml(item.year)}) ${escapeHtml(item.title)}</strong>
+                        <div style="color:var(--muted); font-size:0.78rem; margin-block-start:0.15rem;">${escapeHtml(item.trigger_description || "")}</div>
                     </div>
                     <div style="display:flex; gap:0.5rem; align-items:center;">
-                        <label class="visually-hidden" for="cond-date-${{idx}}">Data alvo (YYYY-MM-DD)</label>
-                        <input type="text" id="cond-date-${{idx}}" placeholder="YYYY-MM-DD" style="width:140px; min-height:40px; padding:0.4rem 0.6rem; font-size:0.85rem;" autocorrect="off" autocapitalize="off" spellcheck="false" value="${{escapeHtml(item.original_date || "")}}">
-                        <button type="button" class="secondary" style="min-height:40px; padding:0.4rem 0.75rem; font-size:0.8rem;" data-action="inject-conditional" data-cond-index="${{idx}}">Ativar nesta data</button>
+                        <label class="visually-hidden" for="cond-date-${idx}">Data alvo (YYYY-MM-DD)</label>
+                        <input type="text" id="cond-date-${idx}" placeholder="YYYY-MM-DD" style="width:140px; min-height:40px; padding:0.4rem 0.6rem; font-size:0.85rem;" autocorrect="off" autocapitalize="off" spellcheck="false" value="${escapeHtml(item.original_date || "")}">
+                        <button type="button" class="secondary" style="min-height:40px; padding:0.4rem 0.75rem; font-size:0.8rem;" data-action="inject-conditional" data-cond-index="${idx}">Ativar nesta data</button>
                     </div>
                 </div>
             `).join("");
-        }}
+        }
 
-        function injectConditionalPost(condIdx) {{
+        function injectConditionalPost(condIdx) {
             const item = conditionalPool[condIdx];
             if (!item || !item.option) return;
-            const dateInput = document.getElementById(`cond-date-${{condIdx}}`);
+            const dateInput = document.getElementById(`cond-date-${condIdx}`);
             const targetDate = (dateInput?.value || "").trim();
-            if (!targetDate) {{
+            if (!targetDate) {
                 showToast("Indica a data (YYYY-MM-DD) para ativar este post condicional.");
                 dateInput?.focus();
                 return;
-            }}
+            }
             const targetPost = posts.find(p => p.lang === fixedLang && p.date === targetDate && p.status !== "approved")
                 || posts.find(p => p.lang === fixedLang && p.date === targetDate);
-            if (!targetPost) {{
-                showToast(`Sem slot encontrado para ${{targetDate}} no ficheiro atual.`);
+            if (!targetPost) {
+                showToast(`Sem slot encontrado para ${targetDate} no ficheiro atual.`);
                 return;
-            }}
+            }
             targetPost.options.unshift(JSON.parse(JSON.stringify(item.option)));
             targetPost.selected_option = 0;
             targetPost.status = "approved";
@@ -3439,8 +3150,8 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
             uiState.viewMode = "all";
             markDirty(true);
             render();
-            showToast(`✓ Post condicional ativado em ${{targetDate}} (${{targetPost.id}})!`);
-        }}
+            showToast(`✓ Post condicional ativado em ${targetDate} (${targetPost.id})!`);
+        }
 
         // Event listeners & delegation (no inline onclick handlers)
         document.getElementById("btn-save-direct")?.addEventListener("click", saveDirect);
@@ -3448,70 +3159,86 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
         document.getElementById("btn-copy-json")?.addEventListener("click", copyJson);
         document.getElementById("btn-approve-visible")?.addEventListener("click", approveAllVisible);
 
-        document.getElementById("month-filter")?.addEventListener("change", (e) => {{
+        document.getElementById("month-filter")?.addEventListener("change", (e) => {
             uiState.monthFilter = e.target.value;
+            uiState.currentIndex = 0;
             render();
-        }});
-        document.getElementById("search-filter")?.addEventListener("input", (e) => {{
+        });
+        document.getElementById("search-filter")?.addEventListener("input", (e) => {
             uiState.search = e.target.value;
+            uiState.currentIndex = 0;
             render();
-        }});
+        });
 
-        document.addEventListener("submit", (e) => {{
+        document.addEventListener("submit", (e) => {
             if (e.target.matches("[data-slot-form]")) e.preventDefault();
-        }});
+        });
 
-        document.addEventListener("click", (e) => {{
+        document.addEventListener("click", (e) => {
+            const navBtn = e.target.closest("[data-nav]");
+            if (navBtn) {
+                if (navBtn.dataset.nav === "prev") goTo(uiState.currentIndex - 1);
+                else goTo(uiState.currentIndex + 1);
+                return;
+            }
+            const dayChip = e.target.closest(".day-chip[data-day]");
+            if (dayChip) {
+                const list = visibleList();
+                const idx = list.findIndex(({ post }) => post.date === dayChip.dataset.day);
+                if (idx >= 0) goTo(idx);
+                return;
+            }
             const viewBtn = e.target.closest("[data-view-mode]");
-            if (viewBtn) {{
+            if (viewBtn) {
                 uiState.viewMode = viewBtn.dataset.viewMode;
+                uiState.currentIndex = 0;
                 render();
                 return;
-            }}
+            }
             const actionEl = e.target.closest("[data-action]");
             if (!actionEl) return;
             const action = actionEl.dataset.action;
             const postIndex = Number(actionEl.dataset.postIndex);
 
-            if (action === "quick-status" && !Number.isNaN(postIndex)) {{
+            if (action === "quick-status" && !Number.isNaN(postIndex)) {
                 posts[postIndex].status = actionEl.dataset.status;
-                if (actionEl.dataset.status === "approved") {{
+                if (actionEl.dataset.status === "approved") {
                     posts[postIndex].review_action = "";
-                }}
+                }
                 markDirty(true);
-                render();
-                showToast(`Slot ${{posts[postIndex].id}} marcado como ${{actionEl.dataset.status}}.`);
-            }} else if (action === "quick-refresh" && !Number.isNaN(postIndex)) {{
+                showToast(`Slot ${posts[postIndex].id} marcado como ${actionEl.dataset.status}.`);
+                advance();
+            } else if (action === "quick-refresh" && !Number.isNaN(postIndex)) {
                 const nextAction = actionEl.dataset.refresh;
                 posts[postIndex].review_action = posts[postIndex].review_action === nextAction ? "" : nextAction;
-                if (posts[postIndex].review_action) {{
+                if (posts[postIndex].review_action) {
                     posts[postIndex].status = "pending";
-                }}
+                }
                 markDirty(true);
-                render();
-            }} else if (action === "switch-caption-tab" && !Number.isNaN(postIndex)) {{
+                advance();
+            } else if (action === "switch-caption-tab" && !Number.isNaN(postIndex)) {
                 uiState.captionPlatformByPost[postIndex] = actionEl.dataset.tab;
                 render();
-            }} else if (action === "use-external" && !Number.isNaN(postIndex)) {{
+            } else if (action === "use-external" && !Number.isNaN(postIndex)) {
                 const sugIdx = Number(actionEl.dataset.sugIndex);
                 const post = posts[postIndex];
                 const sug = (post.external_suggestions || [])[sugIdx];
                 if (!sug) return;
-                post.review_note = `Gera opções baseadas no evento de ${{sug.year}}: ${{sug.title}} (${{sug.summary}})`;
+                post.review_note = `Gera opções baseadas no evento de ${sug.year}: ${sug.title} (${sug.summary})`;
                 post.review_action = "regenerate";
                 post.theme_suggestion = sug.title;
                 post.status = "pending";
                 markDirty(true);
-                render();
                 showToast("Sugestão aplicada — corre o pregenerator após guardar.");
-            }} else if (action === "inject-conditional") {{
+                advance();
+            } else if (action === "inject-conditional") {
                 injectConditionalPost(Number(actionEl.dataset.condIndex));
-            }}
-        }});
+            }
+        });
 
-        document.addEventListener("change", (e) => {{
+        document.addEventListener("change", (e) => {
             const target = e.target;
-            if (target.dataset.action === "select-option") {{
+            if (target.dataset.action === "select-option") {
                 const postIndex = Number(target.dataset.postIndex);
                 const post = posts[postIndex];
                 const previous = Number(post.selected_option || 0);
@@ -3519,56 +3246,70 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
                 post.selected_option = next;
                 const selected = Array.isArray(post.options) ? post.options[next] : null;
                 const hasPreview = Boolean(selected && (selected.image_url || selected.local_image_path));
-                if (next !== previous && !hasPreview) {{
+                if (next !== previous && !hasPreview) {
                     post.review_action = "refresh_image";
                     post.status = "pending";
                     showToast("Opção sem capa renderizada — marcada para pedir nova imagem.");
-                }}
+                }
                 markDirty(true);
                 render();
                 return;
-            }}
-            if (target.dataset.field === "layout_override" || target.dataset.field === "review_action") {{
+            }
+            if (target.dataset.field === "layout_override" || target.dataset.field === "review_action") {
                 const postIndex = Number(target.dataset.postIndex);
                 posts[postIndex][target.dataset.field] = target.value;
-                if (target.dataset.field === "review_action" && target.value) {{
+                if (target.dataset.field === "review_action" && target.value) {
                     posts[postIndex].status = "pending";
-                }}
+                }
                 markDirty(true);
-                render();
-            }}
-        }});
+                if (target.dataset.field === "review_action" && target.value) {
+                    advance();
+                } else {
+                    render();
+                }
+            }
+        });
 
-        document.addEventListener("input", (e) => {{
+        document.addEventListener("input", (e) => {
             const target = e.target;
             const postIndex = Number(target.dataset.postIndex);
             if (Number.isNaN(postIndex) || !posts[postIndex]) return;
-            if (target.dataset.field && ["theme_suggestion", "manual_background_url", "review_note"].includes(target.dataset.field)) {{
+            if (target.dataset.field && ["theme_suggestion", "manual_background_url", "review_note"].includes(target.dataset.field)) {
                 posts[postIndex][target.dataset.field] = target.value;
                 markDirty(true);
                 refreshJsonPreview();
-            }} else if (target.dataset.optField) {{
+            } else if (target.dataset.optField) {
                 const opt = selectedOption(posts[postIndex]);
-                if (opt) {{
+                if (opt) {
                     opt[target.dataset.optField] = target.value;
                     markDirty(true);
                     refreshJsonPreview();
-                }}
-            }}
-        }});
+                }
+            }
+        });
 
-        // Scroll-state fallback for browsers without CSS scroll-state queries
-        if (typeof CSS !== "undefined" && !CSS.supports("container-type", "scroll-state")) {{
-            const bar = document.getElementById("top-bar");
-            let lastY = window.scrollY;
-            window.addEventListener("scroll", () => {{
-                const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
-                const y = Math.max(0, Math.min(window.scrollY, maxScroll));
-                if (y === lastY) return;
-                bar?.classList.toggle("is-hidden", y > lastY && y > (bar.offsetHeight || 64));
-                lastY = y;
-            }}, {{ passive: true }});
-        }}
+        // Navegação por teclado (setas) e por deslize (swipe) no cartão
+        document.addEventListener("keydown", (e) => {
+            const tag = (e.target?.tagName || "").toLowerCase();
+            if (["input", "textarea", "select"].includes(tag)) return;
+            if (e.key === "ArrowLeft") { goTo(uiState.currentIndex - 1); e.preventDefault(); }
+            if (e.key === "ArrowRight") { goTo(uiState.currentIndex + 1); e.preventDefault(); }
+        });
+        let _touchX = null, _touchY = null;
+        document.getElementById("posts-root")?.addEventListener("touchstart", (e) => {
+            const t = e.changedTouches[0];
+            _touchX = t.clientX; _touchY = t.clientY;
+        }, { passive: true });
+        document.getElementById("posts-root")?.addEventListener("touchend", (e) => {
+            if (_touchX === null) return;
+            const t = e.changedTouches[0];
+            const dx = t.clientX - _touchX, dy = t.clientY - _touchY;
+            _touchX = null; _touchY = null;
+            if (Math.abs(dx) >= 60 && Math.abs(dy) < 80) {
+                if (dx < 0) goTo(uiState.currentIndex + 1);
+                else goTo(uiState.currentIndex - 1);
+            }
+        }, { passive: true });
 
         renderConditionalPool();
         render();
@@ -3576,6 +3317,14 @@ def generate_review_html(pending_posts, focus_month="", lang_filter="pt"):
 </body>
 </html>
 """
+    html = (
+        html.replace("@@POSTS@@", embedded_posts)
+        .replace("@@POOL@@", conditional_pool_data)
+        .replace("@@MONTHS@@", month_options)
+        .replace("@@FOCUS_MONTH@@", json.dumps(initial_focus_month))
+        .replace("@@LANG_UPPER@@", lang_filter.upper())
+        .replace("@@LANG@@", lang_filter)
+    )
     with open(review_output_path, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"Generated {review_output_path}")
@@ -3700,20 +3449,20 @@ def select_diverse_slot_options(options_list, current_date, all_selected_history
                 if item.get("topic") == c_topic:
                     diff = abs((current_date - item["date"]).days)
                     if diff <= min_gap_days:
-                        return -40, f"topic '{c_topic}' interval <= {min_gap_days}"
+                        return -100, f"topic '{c_topic}' interval <= {min_gap_days}"
             max_30d = 4 if c_topic == "covid" else 8
             count_30 = sum(
                 1 for item in all_selected_history
                 if item.get("topic") == c_topic and abs((current_date - item["date"]).days) <= 30
             )
             if count_30 >= max_30d:
-                return -40, f"topic '{c_topic}' 30d cap reached"
+                return -100, f"topic '{c_topic}' 30d cap reached"
 
         for item in all_selected_history:
             if abs((current_date - item["date"]).days) <= 15:
                 ov = len(c_toks & item.get("tokens", set()))
                 if ov >= 3 or (c_year == item.get("year") and ov >= 2):
-                    return -40, f"overlap with {item['date']}"
+                    return -100, f"overlap with {item['date']}"
 
         score = 100
         if c_tier == "high":
@@ -3799,10 +3548,14 @@ def select_diverse_slot_options(options_list, current_date, all_selected_history
             scored_candidates.append((s, cand, r))
         scored_candidates.sort(key=lambda x: x[0], reverse=True)
 
+        # Sem fallback para o primeiro candidato: se nada passa as regras
+        # duras de cadencia (score <= -100), o slot fica sem opcao em vez
+        # de repetir uma historia recente. Violacoes suaves intra-dia
+        # (score > -100) ainda permitem escolher o melhor candidato.
         chosen_primary = (
             scored_candidates[0][1]
-            if scored_candidates and scored_candidates[0][0] > 0
-            else deduped_candidates[0]
+            if scored_candidates and scored_candidates[0][0] > -100
+            else None
         )
         if chosen_primary:
             cp_top = extract_macro_topic(
@@ -3835,8 +3588,9 @@ def select_diverse_slot_options(options_list, current_date, all_selected_history
                 "title": chosen_primary.get("title", ""),
             })
             remaining_sorted = [c for _, c, _ in scored_candidates if c is not chosen_primary]
-            slot_options_map[slot] = [chosen_primary] + remaining_sorted[:8]
-            deduped_candidates = [c for c in deduped_candidates if c is not chosen_primary]
+            slot_options = [chosen_primary] + remaining_sorted[:4]
+            slot_options_map[slot] = slot_options
+            deduped_candidates = [c for c in deduped_candidates if c not in slot_options]
 
     return slot_options_map
 
@@ -3921,14 +3675,16 @@ def generate_pending_posts_for_interval(pending_posts, lang, start_date, end_dat
             continue
 
         print(f"[{lang}] A enviar {len(matching_news)} noticias para a IA...")
-        options_list = rank_all_stories_for_day(matching_news, lang)
+        all_selected_history = build_selected_history(pending_posts, lang=lang)
+        options_list = rank_all_stories_for_day(
+            matching_news, lang, selected_history=all_selected_history, current_date=current_date
+        )
         if not options_list:
             print(f"[{lang}] Falha na IA.")
             current_date += timedelta(days=1)
             continue
 
         external_suggestions = generate_external_day_suggestions(current_date, lang, options_list)
-        all_selected_history = build_selected_history(pending_posts, lang=lang)
 
         slots_to_create = []
         if not slot1_exists:
@@ -4120,14 +3876,16 @@ def main():
                 continue
 
             print(f"[{lang}] A enviar {len(matching_news)} noticias para a IA...")
-            options_list = rank_all_stories_for_day(matching_news, lang)
+            all_selected_history = build_selected_history(pending_posts, lang=lang)
+            options_list = rank_all_stories_for_day(
+                matching_news, lang, selected_history=all_selected_history, current_date=current_date
+            )
             if not options_list:
                 print(f"[{lang}] Falha na IA.")
                 current_date += timedelta(days=1)
                 continue
 
             external_suggestions = generate_external_day_suggestions(current_date, lang, options_list)
-            all_selected_history = build_selected_history(pending_posts, lang=lang)
             slots_to_create = []
             if not slot1_exists:
                 slots_to_create.append(1)
