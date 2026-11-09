@@ -8168,7 +8168,7 @@
         "layout_override": "",
         "theme_suggestion": "",
         "manual_background_url": "",
-        "review_action": "refresh_image",
+        "review_action": "",
         "review_note": "",
         "status": "pending",
         "generated_month": "2026-11",
@@ -8349,7 +8349,7 @@
                 "summary": "Governo aprova medida de luto nacional pelo falecimento de Balsemão, afetando símbolos e cerimónias oficiais.",
                 "title_en": "Government declares two-day national mourning",
                 "summary_en": "Government approves official mourning measure for the death of Balsemão, affecting official symbols and ceremonies.",
-                "body_en": "",
+                "body_en": "Portugal’s government has declared two days of national mourning in honor of a prominent public figure who died in 2025. The decision, approved by the executive branch, establishes an official mourning period throughout the country under protocols governing the death of a public personality.\n\nNational mourning is an institutional expression of respect. It allows public services and private organizations, if they choose, to adjust their schedules and activities to reflect the solemnity of the occasion. The decree sets the mourning period at two days, during which the symbols and rules of conduct associated with the official declaration remain in place.\n\nThe measure applies nationwide and represents a public acknowledgment of the deceased figure. It is also one of the mechanisms available to the state to mark significant losses and demonstrate its closeness to the people.\n\nChoosing a two-day mourning period underscores the importance attributed to the public figure and the need to allow broad participation in ceremonies and acts of tribute. The government’s decision is thus a gesture of collective remembrance and institutional respect, carrying lasting significance for the community despite the limited duration of the official mourning period.",
                 "relevance": {
                     "level": 5,
                     "scores": {
@@ -8363,7 +8363,8 @@
                     },
                     "weighted_score": 19.0,
                     "justification": "Medida cerimonial sem alteração estrutural duradoura na sociedade.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "This is a ceremonial measure with no lasting structural change to society."
                 },
                 "article_url": "https://arquivo.pt/wayback/20251109213024/https://www.noticiasaominuto.com/pais/2874918/governo-aprova-luto-nacional-de-dois-dias-pela-morte-de-balsemao",
                 "source_platform": "arquivo.pt",
@@ -8371,14 +8372,16 @@
                 "networks": [
                     "facebook"
                 ],
-                "image_url": "",
-                "image_delete_url": "",
-                "local_image_path": "",
-                "background_source_url": "",
-                "local_background_path": "",
+                "image_url": "https://i.ibb.co/PG0DRq31/2026-11-09-04-2025-governo-decreta-luto-nacional-de-dois-dias.jpg",
+                "image_delete_url": "https://ibb.co/QvtDZyzY/f0a692e9d14ef580c0e3fb0b64d9d263",
+                "local_image_path": "images/review/pt/2026-11-09_04_2025_governo-decreta-luto-nacional-de-dois-dias.jpg",
+                "background_source_url": "https://commons.wikimedia.org/wiki/File:Pal%C3%A1cio_Nacional_de_Bel%C3%A9m_Edif%C3%ADcio.jpg",
+                "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-09_04_2025_governo-decreta-luto-nacional-de-dois-dias-fundo.jpg",
                 "caption_instagram": "Executivo aprovou luto oficial por período determinado em todo o território nacional.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
                 "caption_facebook": "Executivo aprovou luto oficial por período determinado em todo o território nacional.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
-                "body": ""
+                "body": "O Governo de Portugal decretou dois dias de luto nacional em homenagem a uma figura pública que morreu em 2025. A decisão, aprovada pelo Executivo, estabelece um período de luto oficial em todo o território nacional, em conformidade com o protocolo previsto para a morte de uma personalidade de destaque.\n\nA declaração de luto nacional representa uma forma institucional de respeito e permite que os serviços públicos e as entidades privadas organizem, se assim entenderem, os seus-Escolas e atividades de forma compatível com a solemnidade do momento. O decreto fixa a duração do luto em dois dias, durante o qual são mantidos os símbolos e as regras de comportamento associados a esta declaração oficial.\n\nA medida tem efeitos nacionais e constitui um gesto de reconhecimento público da figura falecida. Ao mesmo tempo, integra um dos mecanismos de que o Estado dispõe para assinalar perdas relevantes e para expressar a sua proximidade perante os cidadãos.\n\nA escolha de dois dias de luto evidencia a importância atribuída à personalidade e a necessidade de garantir uma participação ampla nas cerimónias e atos de homenagem. A decisão do Governo constitui, assim, um gesto de memória coletiva e de respeito institucional, com significado duradouro para a comunidade, independentemente da duração limitada do período decretado.",
+                "highlight_text_en": "National Mourning",
+                "caption_narrative_en": "Portugal’s government declared two days of national mourning in 2025 to honor a prominent public figure who died that year. The official mourning period applies nationwide and allows public services and private organizations to adjust their schedules and activities in keeping with the solemnity of the declaration."
             },
             {
                 "year": "2001",
@@ -8426,7 +8429,8 @@
                 "caption_facebook": "Associação de utentes organiza protesto contra aumento de custos de travessia.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2001.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
                 "body": ""
             }
-        ]
+        ],
+        "last_image_refresh_at": "2026-11-09T01:37:56.842660"
     },
     {
         "id": "pt_2026-11-09_2",
@@ -9429,7 +9433,7 @@
         "layout_override": "",
         "theme_suggestion": "",
         "manual_background_url": "",
-        "review_action": "refresh_image",
+        "review_action": "",
         "review_note": "",
         "status": "pending",
         "generated_month": "2026-11",
@@ -9563,7 +9567,7 @@
                 "summary": "Anúncio de redução de produção de petróleo por líder venezuelano.",
                 "title_en": "Chavez guarantees reduced oil production",
                 "summary_en": "Announcement of petroleum production reduction by Venezuelan leader.",
-                "body_en": "",
+                "body_en": "Venezuelan President Hugo Chávez announced in 2001 that oil production would be reduced, presenting the move as a necessary adjustment to stabilize the petroleum market. The decision came amid broader debate over how OPEC should respond to falling demand and changes in international crude oil prices.\n\nChávez defended the production adjustment as a way to protect the interests of oil-exporting countries. A more disciplined supply would help prevent the buildup of reserves in markets facing an unfavorable economic environment. Maintaining oil revenue was also considered essential to financing Venezuela's public policies.\n\nThe announcement came at a time of tension between oil-producing nations, which favored coordinated management of supply, and the United States, where oil production is regulated by private companies rather than OPEC. Venezuela's ability to influence the market also depended on the scale of its output and the technical conditions governing exports.\n\nChávez's statement gained lasting significance by demonstrating OPEC's role in the global economy and the increasing influence of oil-exporting countries in market decisions. The production cut, linked to efforts to sustain prices, became a central issue in international energy policy in the early 21st century.",
                 "relevance": {
                     "level": 4,
                     "scores": {
@@ -9577,7 +9581,8 @@
                     },
                     "weighted_score": 47.0,
                     "justification": "Redução histórica da produção petrolífera global. Consequências sobre preços internacionais e economia venezuelana prolongadas. Marco na política energética.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "The historic production cut highlighted OPEC's influence over global oil prices and Venezuela's economic dependence on petroleum revenue."
                 },
                 "article_url": "",
                 "source_platform": "web",
@@ -9585,14 +9590,16 @@
                 "networks": [
                     "instagram"
                 ],
-                "image_url": "",
-                "image_delete_url": "",
-                "local_image_path": "",
+                "image_url": "https://i.ibb.co/39QQKJb2/2026-11-11-03-2001-producao-de-petroleo-vai-ser-reduzida-garante-presidente-hugo-chavez.jpg",
+                "image_delete_url": "https://ibb.co/zTDDdkgp/710c6723be6fd6a7064c16692a7f46ba",
+                "local_image_path": "images/review/pt/2026-11-11_03_2001_producao-de-petroleo-vai-ser-reduzida-garante-presidente-hugo-chavez.jpg",
                 "background_source_url": "",
                 "local_background_path": "",
                 "caption_instagram": "Declaração sobre ajustamento de produção de petróleo pela OPEP.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2001.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
                 "caption_facebook": "Declaração sobre ajustamento de produção de petróleo pela OPEP.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2001.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
-                "body": ""
+                "body": "A decisão da OPEP de ajustar a produção petrolífera internacional foi apresentada, em 2001, pelo presidente da Venezuela, Hugo Chávez, como uma medida necessária para estabilizar o mercado do petróleo. O anúncio enquadrava-se num debate mais amplo sobre a capacidade da organização de responder à queda da procura e à evolução dos preços internacionais do crude.\n\nChávez garantiu que a produção de petróleo seria reduzida, defendendo o ajustamento como uma forma de proteger os interesses dos países exportadores. A posição permitia à OPEP defender uma oferta mais disciplinada, evitando a acumulação de reservas em mercados atravessados por uma conjuntura económica desfavorável. Ao mesmo tempo, a manutenção da receita petrolífera era considerada essencial para financiar as políticas públicas venezuelanas.\n\nA notícia situava-se no contexto das tensões entre os países producers, que defendem uma gestão conjunta da oferta, e os Estados Unidos, onde a produção de petróleo é regulada por empresas privadas e não pela OPEP. A capacidade de Venezuela para influenciar o mercado dependia também da dimensão da sua produção e das condições técnicas de exportação.\n\nO anúncio de Chávez ganhou relevância duradoura por evidenciar o papel da OPEP na economia mundial e a crescente projeção dos países exportadores de petróleo nas decisões sobre o mercado. A redução da produção, associada à defesa de preços mais sustentados, tornou-se um dos temas centrais da política energética internacional no início do século XXI.",
+                "highlight_text_en": "Chavez guarantees",
+                "caption_narrative_en": "In 2001, Venezuelan President Hugo Chávez said OPEC would reduce oil production to stabilize the global market and protect the interests of exporting countries. The announcement underscored OPEC's growing influence and the rising role of oil exporters in international energy policy."
             },
             {
                 "year": "2015",
@@ -9870,7 +9877,8 @@
                 "caption_facebook": "Declaração de estado de emergência como última ferramenta de gestão pandémica.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2021.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Saude",
                 "body": ""
             }
-        ]
+        ],
+        "last_image_refresh_at": "2026-11-09T01:39:09.547428"
     },
     {
         "id": "pt_2026-11-11_2",
@@ -10739,7 +10747,7 @@
         "layout_override": "",
         "theme_suggestion": "",
         "manual_background_url": "",
-        "review_action": "refresh_image",
+        "review_action": "",
         "review_note": "",
         "status": "pending",
         "generated_month": "2026-11",
@@ -11057,7 +11065,7 @@
                 "summary": "Dado estatístico revela défice de recursos humanos no sector da educação.",
                 "title_en": "Schools lose 3,521 educators and docents due to reform in 2023",
                 "summary_en": "Human resource losses affect teaching staff roster in educational establishments",
-                "body_en": "",
+                "body_en": "Portuguese schools recorded the departure of 3,521 educators and teachers from the teaching workforce through retirement in 2023, according to the news report and its summary. The information was released during the 2023 academic year and concerns losses of human resources affecting teaching positions in educational institutions.\n\nThe figure reflects a significant shift in Portugal’s education system. The departure of professionals through retirement reduces schools’ capacity to maintain their staffing levels and may reflect the effects of demographic change and a wave of retirements among education workers. The summary does not identify the regions, education levels or subject areas most affected, nor does it provide other indicators of the number of professionals still working.\n\nRetirement therefore represents a source of renewal in the teaching workforce. The departure of 3,521 educators and teachers may create opportunities for new professionals to enter the field, but it also requires institutions to ensure continuity of services and adequate staffing. The scale of the change underscores the importance of monitoring shifts in education’s human resources.\n\nThe reference to retirements in 2023 remains relevant to the history of Portuguese education by documenting a period of contraction in the school teaching workforce. The case file notes that the 2023 academic year saw a significant number of retirements, without presenting the information as a current event.",
                 "relevance": {
                     "level": 5,
                     "scores": {
@@ -11071,7 +11079,8 @@
                     },
                     "weighted_score": 26.2,
                     "justification": "Perda estatística de recursos humanos afeta quadro docente. Reforma reduz corpo docente em estabelecimentos de ensino.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "Retirements reduced the teaching workforce across Portuguese schools, highlighting the impact of staff losses on educational institutions."
                 },
                 "article_url": "https://arquivo.pt/wayback/20231112225335/https://expresso.pt/sociedade/ensino/2023-11-08-Escolas-perderam-3.521-educadores-e-docentes-que-se-reformaram-em-2023-fdaae5c3",
                 "source_platform": "arquivo.pt",
@@ -11079,14 +11088,16 @@
                 "networks": [
                     "facebook"
                 ],
-                "image_url": "",
-                "image_delete_url": "",
-                "local_image_path": "",
-                "background_source_url": "",
-                "local_background_path": "",
+                "image_url": "https://i.ibb.co/KxKb49D8/2026-11-12-07-2023-escolas-perdem-3-521-educadores-e-docentes-por-reforma-em-2023.jpg",
+                "image_delete_url": "https://ibb.co/jkJb0Lzj/4e9dc2b4e19c61256652a3dbcbe5e77f",
+                "local_image_path": "images/review/pt/2026-11-12_07_2023_escolas-perdem-3-521-educadores-e-docentes-por-reforma-em-2023.jpg",
+                "background_source_url": "https://arquivo.pt/wayback/20180712110821/https://www.solsef.org/noticias/detalhe/esta-a-chegar-o-encerramento-da-exposicao/",
+                "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-12_07_2023_escolas-perdem-3-521-educadores-e-docentes-por-reforma-em-2023-fundo.jpg",
                 "caption_instagram": "O ano letivo de 2023 registou um significativo número de reformações no corpo docente escolar.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
                 "caption_facebook": "O ano letivo de 2023 registou um significativo número de reformações no corpo docente escolar.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
-                "body": ""
+                "body": "Em 2023, as escolas portuguesas registaram a saída de 3.521 educadores e docentes do quadro docente por reforma, segundo o título da notícia e o respetivo resumo. A informação foi divulgada no ano letivo de 2023 e refere-se às perdas de recursos humanos afetando o quadro docente nos estabelecimentos de ensino.\n\nO número apresentado evidencia um movimento relevante no sistema educativo português. A saída de profissionais por reforma reduz a capacidade das escolas para manter os respetivos quadros, podendo refletir o impacto de uma fase demográfica e de aposentaridade de parte dos trabalhadores da educação. A notícia não identifica, no resumo disponibilizado, as regiões, os níveis de ensino ou as áreas disciplinares mais afetadas, nem apresenta outros indicadores sobre o número de profissionais em atividade.\n\nA reforma representa, por isso, um fator de renovação do corpo docente. A saída de 3.521 educadores e docentes pode criar oportunidades de entrada de novos profissionais, mas também impõe às instituições a necessidade de garantir a continuidade do serviço e a cobertura das necessidades de pessoal. A dimensão do phenomenon mostra a importância de acompanhar as alterações nos recursos humanos da educação.\n\nA referência às reformações em 2023 conserva relevância para a história da educação portuguesa, ao documentar um período de redução do quadro docente escolar. O arquivo do caso recorda que o ano letivo de 2023 registou um número significativo de reformações no corpo docente, sem transformar esta informação numa ocorrência atual.",
+                "highlight_text_en": "3,521",
+                "caption_narrative_en": "Portugal’s schools recorded 3,521 educator and teacher retirements during the 2023 academic year. The departures reduced the teaching workforce, creating opportunities for new professionals while raising concerns about staffing levels and service continuity."
             },
             {
                 "year": "2021",
@@ -11180,7 +11191,8 @@
                 "caption_facebook": "A iniciativa visa votar declaração de estado de emergência em sessão plenária.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
                 "body": ""
             }
-        ]
+        ],
+        "last_image_refresh_at": "2026-11-09T01:40:04.444752"
     },
     {
         "id": "pt_2026-11-13_1",
@@ -11191,7 +11203,7 @@
         "layout_override": "",
         "theme_suggestion": "",
         "manual_background_url": "",
-        "review_action": "refresh_image",
+        "review_action": "",
         "review_note": "",
         "status": "pending",
         "generated_month": "2026-11",
@@ -11602,7 +11614,7 @@
                 "summary": "Coordenadora de licenciatura em Ciências da Comunicação da Universidade Nova de Lisboa envia e-mail a impedir resposta a mensagens de pais",
                 "title_en": "Universities complain about students' immaturity and parents' interference",
                 "summary_en": "Nova Lisbon Communication Sciences coordinator sends strict email forbidding responses to parents in academic life",
-                "body_en": "",
+                "body_en": "The relationship among universities, students, and families came into sharper focus in 2023 after a bachelor’s program coordinator sent a blunt email seeking to prevent students from responding to parents’ messages about academic matters.\n\nAccording to the report, the university leadership took a position against family interference in students’ academic lives. The coordinator’s message, described as firm, was intended to stop students from replying to parents who contacted them about course-related issues. The move came amid a wider debate about students’ maturity and the responsibility of institutions in preparing autonomous learners.\n\nThe case highlights a tension between parental support, which many families consider legitimate, and the autonomy universities seek to foster. Parents can be helpful during difficult periods, but direct communication with students was presented as essential to academic operations.\n\nThe issue has lasting relevance as universities confront new generations increasingly mediated by their parents while trying to preserve students’ independence. The debate extends beyond a single email: it raises the need for clear rules governing communication, responsibilities, and the appropriate level of family involvement in academic life.",
                 "relevance": {
                     "level": 5,
                     "scores": {
@@ -11616,7 +11628,8 @@
                     },
                     "weighted_score": 26.0,
                     "justification": "Email taxativo de coordenadora de licenciatura da UNL impede diálogo pais-escola na vida académica. Reflete tendência de institucionalização de barreiras entre família e universidade.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "A coordinator’s email sought to block parent-student contact about academic matters, reflecting institutional efforts to draw boundaries between families and universities."
                 },
                 "article_url": "https://arquivo.pt/wayback/20231113231612/https://expresso.pt/sociedade/ensino/2023-11-11-Caramba-isto-parece-o-liceu-estao-sempre-irrequietos-universidades-queixam-se-da-imaturidade-dos-alunos-e-da-interferencia-dos-pais-b634e08f",
                 "source_platform": "arquivo.pt",
@@ -11624,16 +11637,19 @@
                 "networks": [
                     "instagram"
                 ],
-                "image_url": "",
-                "image_delete_url": "",
-                "local_image_path": "",
-                "background_source_url": "",
-                "local_background_path": "",
+                "image_url": "https://i.ibb.co/vx6f1nzc/2026-11-13-09-2023-universidades-queixam-se-da-imaturidade-dos-alunos-e-da-interferencia-dos-pais.jpg",
+                "image_delete_url": "https://ibb.co/0jR1qbJn/c82d4e511042a8e36d1c1926dabc45dd",
+                "local_image_path": "images/review/pt/2026-11-13_09_2023_universidades-queixam-se-da-imaturidade-dos-alunos-e-da-interferencia-dos-pais.jpg",
+                "background_source_url": "https://arquivo.pt/wayback/20251225045518/https://www.mackenzie.br/universidade/",
+                "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-13_09_2023_universidades-queixam-se-da-imaturidade-dos-alunos-e-da-interferencia-dos-pais-fundo.jpg",
                 "caption_instagram": "Direção universitária toma posição contra interferência familiar na vida académica estudantil\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
                 "caption_facebook": "Direção universitária toma posição contra interferência familiar na vida académica estudantil\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
-                "body": ""
+                "body": "A discussão sobre a relação entre universidades, estudantes e famílias ganhou destaque em 2023, depois de uma coordenadora de licenciatura ter enviado um e-mail taxativo a prohibiting respostas a mensagens de pais na vida académica. A situação traduz uma preocupação mais ampla: o aumento da participação dos pais na vida dos filhos universitários e as dúvidas das instituições sobre os limites dessa intervenção.\n\nDe acordo com a notícia, a direção universitária assumiu uma posição contra a interferência familiar na vida académica estudantil. A mensagem da coordenadora, descrita como taxativa, pretendia impedir que os alunos respondessem a contactos dos pais sobre questões relacionadas com o curso. A iniciativa enquadra-se num debate sobre a imaturidade dos alunos e a responsabilidade das instituições na formação de estudantes Autonomouses.\n\nO caso evidencia uma tensão entre o acompanhamento familiar, considerado legítimo por muitos pais, e a autonomia que a universidade pretende promover. A participação dos pais pode ser útil em momentos de dificuldade, mas a manutenção da comunicação direta com os estudantes é apresentada como essencial para o funcionamento académico.\n\nA questão assume relevância duradoura porque as universidades enfrentam o desafio de acompanhar novas gerações, cada vez mais mediadas pelos pais, sem esbater a autonomia dos alunos. O debate não se esgota numa única mensagem: coloca a necessidade de definir regras claras sobre comunicação, responsabilidades e níveis de intervenção familiar na vida académica.",
+                "highlight_text_en": "Universities complain",
+                "caption_narrative_en": "In 2023, a university took a firm stand against family involvement in students’ academic lives after a bachelor’s program coordinator sent a blunt email seeking to prevent students from responding to parents’ messages about course-related matters. The episode reflects broader concerns about growing parental participation in university life and where that involvement should end."
             }
-        ]
+        ],
+        "last_image_refresh_at": "2026-11-09T01:40:51.594635"
     },
     {
         "id": "pt_2026-11-13_2",
@@ -12096,7 +12112,7 @@
         "layout_override": "",
         "theme_suggestion": "",
         "manual_background_url": "",
-        "review_action": "refresh_image",
+        "review_action": "",
         "review_note": "",
         "status": "pending",
         "generated_month": "2026-11",
@@ -12276,7 +12292,7 @@
                 "summary": "André Ventura afirma que país precisaria de três Salazares para recuperar situação política, económica e social.",
                 "title_en": "André Ventura asserts country would need three Salazars to recover political situation",
                 "summary_en": "Political leader asserts country would need three Salazars to recover political, economic and social situation",
-                "body_en": "",
+                "body_en": "André Ventura's remarks about the Salazar governments, made in 2025, placed the memory of Portugal's former rulers at the center of national political debate. The party leader used a communicative image to draw a parallel with the country's current political context, prompting reactions across what Portuguese media often call the \"commentary industry.\"\n\nThe reference to the Salazars was symbolic rather than a report of a contemporary event or decision. By invoking the era of authoritarian rule, Ventura offered a way to frame his interpretation of present-day politics, turning historical memory into a tool for evaluating the present.\n\nThe response from the public and political commentators showed how historical images can generate intense debate when political figures deploy them. The discussion also highlighted the continuing role of memories of authoritarian periods in Portuguese political communication, particularly when politicians seek to criticize or characterize how institutions currently function.\n\nThe case illustrates how political actors use the past to build arguments about the present. Ventura's comparison with the Salazars became an example of the connection between historical memory, party communication and media reaction, at a time when political information is frequently assessed by its impact on social media and public opinion.",
                 "relevance": {
                     "level": 5,
                     "scores": {
@@ -12290,7 +12306,8 @@
                     },
                     "weighted_score": 39.0,
                     "justification": "Political statement referencing historical dictatorship; may polarize debate and affect political discourse. Consequences include increased political tension and public reaction.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "The statement linked Portugal's dictatorship to present-day politics, potentially deepening polarization. Its impact was amplified by social media commentary and public reaction."
                 },
                 "article_url": "",
                 "source_platform": "",
@@ -12299,16 +12316,19 @@
                     "instagram",
                     "facebook"
                 ],
-                "image_url": "",
-                "image_delete_url": "",
-                "local_image_path": "",
-                "background_source_url": "",
-                "local_background_path": "",
+                "image_url": "https://i.ibb.co/6ctdVrh4/2026-11-14-04-2025-andre-ventura-faz-afirmacao-sobre-salazares-na-politica-nacional.jpg",
+                "image_delete_url": "https://ibb.co/20MbmW2j/f675bdf474e968fbedbe95fc6e8f2b93",
+                "local_image_path": "images/review/pt/2026-11-14_04_2025_andre-ventura-faz-afirmacao-sobre-salazares-na-politica-nacional.jpg",
+                "background_source_url": "https://commons.wikimedia.org/wiki/File:Pal%C3%A1cio_de_Bel%C3%A9m_-_Lisboa_-_Portugal_(5285258280).jpg",
+                "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-14_04_2025_andre-ventura-faz-afirmacao-sobre-salazares-na-politica-nacional-fundo.jpg",
                 "caption_instagram": "Declaracão do líder partidário gera reacção na 'indústria do comentariado'.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
                 "caption_facebook": "Declaracão do líder partidário gera reacção na 'indústria do comentariado'.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-                "body": ""
+                "body": "A afirmação de André Ventura sobre os Salazar, divulgada em 2025, voltou a colocar a memória dos antigos governantes no centro do debate político nacional. O líder partidário recorreu a uma imagem comunicacional para fazer referência ao contexto político atual, numa intervenção que gerou reacções na chamada «indústria do comentariado».\n\nA publicação enquadra-se num esforço de的天空 de relembrar acontecimentos passados, sem representar acontecimentos atuais. A referência aos Salazar surge, assim, como recurso simbólico para ilustrar uma leitura do presente, e não como relato de uma nova decisão ou de um evento político contemporâneo.\n\nA reação do público e dos comentadores evidencia a capacidade das imagens históricas de produzir debate quando são articuladas por responsáveis políticos. A discussão mostra como a memória de períodos autoritários continua a ser mobilizada na comunicação política portuguesa, especialmente quando se pretende criticizear ou caracterizar o funcionamento atual das instituições.\n\nA relevância duradoura do caso reside na forma como a política utiliza o passado para construir argumentos sobre o presente. A afirmação de Ventura sobre os Salazar tornou-se um exemplo dessa relação entre memória histórica, comunicação partidária e reação mediática, num momento em que a informação política é frequentemente analisada através do impacto que gera nas redes e na opinião pública.",
+                "highlight_text_en": "Salazar",
+                "caption_narrative_en": "In 2025, André Ventura invoked the memory of Portugal's Salazar governments to characterize the country's current political climate. The comparison drew strong reactions from commentators and the public, illustrating how historical images of authoritarian rule can quickly reshape debate about the present."
             }
-        ]
+        ],
+        "last_image_refresh_at": "2026-11-09T01:41:34.669390"
     },
     {
         "id": "pt_2026-11-14_2",
@@ -12496,7 +12516,7 @@
         "layout_override": "",
         "theme_suggestion": "",
         "manual_background_url": "",
-        "review_action": "refresh_image",
+        "review_action": "",
         "review_note": "",
         "status": "pending",
         "generated_month": "2026-11",
@@ -12550,7 +12570,8 @@
                     },
                     "weighted_score": 67.2,
                     "justification": "O estado de emergência alterou a segurança e as liberdades civis na França, com efeitos duradouros nas fronteiras e na luta contra o terrorismo.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "The emergency declaration reshaped security and civil liberties in France, leaving a lasting impact on border policy and the broader fight against terrorism."
                 },
                 "article_url": "https://arquivo.pt/wayback/20151115064527/http://www.rtp.pt/noticias/mundo/hollande-decreta-estado-de-emergencia-e-fecha-fronteiras_n873731",
                 "source_platform": "arquivo.pt",
@@ -12560,12 +12581,12 @@
                 ],
                 "body": "França decreta estado de emergência e fecha fronteiras\n\nContexto\n\nEm 2015, o Governo francês decretou o estado de emergência e procedeu ao encerramento das fronteiras do país. A medida foi anunciada como resposta a uma série de atentados terroristas que atingiram território francês. Segundo o resumo da notícia, o Executivo suspendeu determinadas liberdades e intensificou o controlo das entradas e saídas do território nacional.\n\nDesenvolvimento\n\nA decisão do Presidente francês visava reforçar a segurança interna e impedir a movimentação de suspeitos relacionados com os ataques. O estado de emergência conferiu às autoridades poderes excecionais para agir com maior celeridade na investigação e na prevenção de novas ameaças. O controlo das fronteiras tornou-se uma prioridade imediata, com o objetivo de garantir a proteção dos cidadãos e estabilizar a situação no país.\n\nRelevância duradoura\n\nO episódio marcou um ponto de inflexão na gestão da segurança em França e na Europa. A adoção de medidas excecionais, como a suspensão de liberdades e o encerramento de fronteiras, gerou debate sobre o equilíbrio entre a proteção da população e o respeito pelos direitos fundamentais. A decisão de 2015 continua a ser referida como exemplo de como os Estados democráticos reagem a crises de segurança de grande escala.",
                 "highlight_text_en": "France",
-                "caption_narrative_en": "In 2015, French President François Hollande declared a state of emergency and closed the country's borders in response to a series of terrorist attacks. The move granted authorities exceptional powers to investigate suspects and prevent new threats. Border control became an immediate priority as the government sought to protect citizens and stabilize the country.",
-                "image_url": "https://i.ibb.co/chh8Hwqq/2026-11-15-01-2015-franca-decreta-estado-de-emergencia-e-fecha-fronteiras.jpg",
-                "image_delete_url": "https://ibb.co/nMM1vBpp/4c891cbedf54df01d0a416661fa65c79",
+                "caption_narrative_en": "In 2015, France declared a state of emergency and closed its borders in response to a series of terrorist attacks. The move suspended certain civil liberties and intensified controls on people entering and leaving the country.",
+                "image_url": "https://i.ibb.co/MDj0qfwc/2026-11-15-01-2015-franca-decreta-estado-de-emergencia-e-fecha-fronteiras.jpg",
+                "image_delete_url": "https://ibb.co/d03YntCP/f74961c639dfb5ffa83bca8e48cfe022",
                 "local_image_path": "images/review/pt/2026-11-15_01_2015_franca-decreta-estado-de-emergencia-e-fecha-fronteiras.jpg",
-                "background_source_url": "",
-                "local_background_path": "",
+                "background_source_url": "https://pt.wikipedia.org/wiki/Ataques_de_novembro_de_2015_em_Paris",
+                "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-15_01_2015_franca-decreta-estado-de-emergencia-e-fecha-fronteiras-fundo.jpg",
                 "caption_instagram": "O Presidente francês decreta estado de emergência e fecha as fronteiras do país em resposta a ataques terroristas.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
                 "caption_facebook": "O Presidente francês decreta estado de emergência e fecha as fronteiras do país em resposta a ataques terroristas.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Mundo"
             },
@@ -12661,7 +12682,8 @@
                 "caption_facebook": "O Parlamento aprova a utilização de canábis para fins medicinais, reforçando o papel do Infarmed.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Saude",
                 "body": ""
             }
-        ]
+        ],
+        "last_image_refresh_at": "2026-11-09T01:41:59.080910"
     },
     {
         "id": "pt_2026-11-15_2",
@@ -12672,7 +12694,7 @@
         "layout_override": "",
         "theme_suggestion": "",
         "manual_background_url": "",
-        "review_action": "refresh_image",
+        "review_action": "",
         "review_note": "",
         "status": "pending",
         "generated_month": "2026-11",
@@ -12760,7 +12782,7 @@
                 "summary": "Decisão legislativa que altera o acesso a tratamentos de saúde no país.",
                 "title_en": "Parliament approves medical cannabis use",
                 "summary_en": "The Assembly of the Republic authorizes the prescription of cannabis for medical treatments, changing access to healthcare in the country.",
-                "body_en": "",
+                "body_en": "Portugal’s parliament approved the use of cannabis for medical purposes in 2018, authorizing its prescription as part of medical treatment. The decision came as public debate over access to cannabis-derived products for therapeutic use gained greater visibility in the country.\n\nThe measure reinforces the role of Infarmed, Portugal’s medicines authority, which is responsible for authorizing and overseeing medications. The approval also underscores the regulator’s central role in evaluating cannabis products intended for medical use and ensuring that regulatory requirements are met.\n\nThe authorization to prescribe cannabis does not, by itself, mean that it will immediately be available in every Portuguese pharmacy. Implementation depends on establishing access conditions, classifying products and verifying the requirements for their authorization and commercialization.\n\nHistorically, the decision represented an important step in Portuguese health policy, paving the way for doctors to prescribe cannabis for therapeutic purposes. Its significance should be understood in the context of 2018, without extending the decision to later developments or recreational use.\n\nThe vote illustrates the evolution of Portugal’s public policies on cannabis and the importance of health regulation in protecting patient safety. It also shows that authorizing cannabis for medical use requires a legal and institutional framework, with Infarmed at the center of the evaluation and oversight process.",
                 "relevance": {
                     "level": 4,
                     "scores": {
@@ -12774,7 +12796,8 @@
                     },
                     "weighted_score": 41.8,
                     "justification": "A lei amplia o acesso a tratamentos médicos, mas o impacto histórico global permanece limitado sem consequências documentadas de grande escala.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "The law expands access to medical treatments, though its broader historical impact remained limited, with no large-scale consequences documented."
                 },
                 "article_url": "https://arquivo.pt/wayback/20181115204640/https://www.jn.pt/nacional/interior/amp/parlamento-aprova-recurso-a-canabis-para-fins-medicinais-9470489.html",
                 "source_platform": "arquivo.pt",
@@ -12782,16 +12805,19 @@
                 "networks": [
                     "facebook"
                 ],
-                "image_url": "",
-                "image_delete_url": "",
-                "local_image_path": "",
-                "background_source_url": "",
-                "local_background_path": "",
+                "image_url": "https://i.ibb.co/N2cDmFCz/2026-11-15-02-2018-parlamento-aprova-uso-de-canabis-para-fins-medicinais.jpg",
+                "image_delete_url": "https://ibb.co/v40yQcq8/4fc35a069af78ae69ce1c526c6232230",
+                "local_image_path": "images/review/pt/2026-11-15_02_2018_parlamento-aprova-uso-de-canabis-para-fins-medicinais.jpg",
+                "background_source_url": "https://commons.wikimedia.org/wiki/File:22_11_2022_Encontro_com_o_senhor_Augusto_Santos_Silva,_Presidente_da_Assembleia_da_Rep%C3%BAblica_(52518273981).jpg",
+                "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-15_02_2018_parlamento-aprova-uso-de-canabis-para-fins-medicinais-fundo.jpg",
                 "caption_instagram": "O Parlamento aprova a utilização de canábis para fins medicinais, reforçando o papel do Infarmed.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Saude",
                 "caption_facebook": "O Parlamento aprova a utilização de canábis para fins medicinais, reforçando o papel do Infarmed.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Saude",
-                "body": ""
+                "body": "A Assembleia da República aprovou, em 2018, a utilização de canábis para fins medicinais, autorizando a sua prescrição no âmbito de tratamentos médicos. A decisão parliamentar ocorreu num momento em que o debate público sobre o acesso a produtos derivados da canábis para uso terapêutico ganhou maior visibilidade em Portugal.\n\nA aprovaçãoeda medida reforça o papel do Infarmed, a autoridade portuguesa responsável pela autorização e fiscalização dos medicamentos. A legenda da notícia_original refere precisamente essa atribuição, associando a decisão parlamentar à regulação dos produtos可用于 fins medicinais pela entidade.\n\nA autorização para prescrever canábis não significa, por si só, a sua disponibilização imediata em todas as farmácias portuguesas. A implementação da medida depende da definição das condições de acesso, da classificação dos produtos e da verificação dos requisitos necessários à sua autorização e comercialização.\n\nDo ponto de vista histórico, a decisão marcou um passo relevante na política portuguesa de saúde, ao abrir caminho à prescrição médica de canábis parafinalidades terapêuticas. O seu alcance deve ser compreendido no contexto de 2018, sem extrapolar para situações posteriores ou para o uso recreativo da substância.\n\nA notícia conserva especial relevância porque ilustra a evolução das políticas públicas sobre canábis em Portugal e a importância da regulação sanitária na保障 da segurança dos pacientes. Ao mesmo tempo, recorda que a autorização de um uso medicinal pressupõe um enquadramento legal e institucional, com o Infarmed no centro do processo de avaliação e controlo.",
+                "highlight_text_en": "Medical Cannabis",
+                "caption_narrative_en": "In 2018, Portugal’s parliament approved the use of cannabis for medical purposes, allowing doctors to prescribe it in certain treatments. The measure strengthens the role of Infarmed, the country’s medicines regulator, in overseeing access and safety."
             }
-        ]
+        ],
+        "last_image_refresh_at": "2026-11-09T01:42:28.733363"
     },
     {
         "id": "pt_2026-11-16_1",
@@ -13200,7 +13226,7 @@
         "layout_override": "",
         "theme_suggestion": "",
         "manual_background_url": "",
-        "review_action": "refresh_image",
+        "review_action": "",
         "review_note": "",
         "status": "pending",
         "generated_month": "2026-11",
@@ -13565,7 +13591,7 @@
                 "summary": "Evento de mudança de executivo através de voto parlamentar.",
                 "title_en": "Parliament rejects motion and brings down PSD/CDS government",
                 "summary_en": "Parliamentary vote removes executive government.",
-                "body_en": "",
+                "body_en": "Portugal’s PSD/CDS coalition government collapsed in 2015 after the country’s Parliament approved a motion rejecting the government’s confidence vote. The defeat ended the coalition’s tenure and exposed the political instability that had gripped the country.\n\nThe opposition introduced and voted on the motion amid a political crisis, questioning the government’s direction and the executive’s ability to continue carrying out its duties. The vote resulted in the loss of the parliamentary support needed to remain in office, leading to the prime minister’s resignation and the formation of a new government.\n\nThe government’s fall was one of the most consequential moments in recent Portuguese political history. Parliament’s action demonstrated the institution’s role in holding the executive accountable and underscored the importance of the relationship between the legislative and governing branches. The episode was also linked to the fragmentation of Portugal’s political landscape and the difficulties successive governments faced in securing stable majorities.\n\nAlthough the event occurred in 2015, its consequences and the debate over political responsibility and the stability of governance continue to draw analysis. It remains a significant episode in Portugal’s political history.",
                 "relevance": {
                     "level": 4,
                     "scores": {
@@ -13579,7 +13605,8 @@
                     },
                     "weighted_score": 45.0,
                     "justification": "Queda de governo por voto parlamentar; mudança de executivo afeta estabilidade política.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "The government fell following a parliamentary vote, and the change in leadership raised questions about political stability."
                 },
                 "article_url": "https://arquivo.pt/wayback/20151117224411/http://www.rtp.pt/noticias/politica/parlamento-aprova-mocao-de-rejeicao-e-faz-cair-governo-psdcds_n872712",
                 "source_platform": "arquivo.pt",
@@ -13587,16 +13614,19 @@
                 "networks": [
                     "facebook"
                 ],
-                "image_url": "",
-                "image_delete_url": "",
-                "local_image_path": "",
-                "background_source_url": "",
-                "local_background_path": "",
+                "image_url": "https://i.ibb.co/Sw5BzMs8/2026-11-17-08-2015-parlamento-aprova-mocao-de-rejeicao-e-faz-cair-governo-psd-cds.jpg",
+                "image_delete_url": "https://ibb.co/s9bqZNmG/214f05277ec5fc64182b4ba26f29fd38",
+                "local_image_path": "images/review/pt/2026-11-17_08_2015_parlamento-aprova-mocao-de-rejeicao-e-faz-cair-governo-psd-cds.jpg",
+                "background_source_url": "https://pt.wikipedia.org/wiki/Governo_Lula_%282023%E2%80%93presente%29",
+                "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-17_08_2015_parlamento-aprova-mocao-de-rejeicao-e-faz-cair-governo-psd-cds-fundo.jpg",
                 "caption_instagram": "Queda do governo após derrota na Assembleia.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
                 "caption_facebook": "Queda do governo após derrota na Assembleia.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-                "body": ""
+                "body": "A queda do Governo PSD/CDS em 2015 Resultou da aprovação, na Assembleia da República, de uma moção de rejeição ao voto de confiança no executivo. A defeatiha Parliamentar encerrou a governação da coligação, num episódio que expôs a instabilidade política do país.\n\nA moção de rejeição foi apresentada e votada em contexto de crise política, com os partidos da oposição a questionarem a orientação do Governo e a capacidade do executivo para continuar a exercer as suas funções. A votação traduziu-se na perda do apoio parlamentar necessário à manutenção do executivo, levando à demissão do primeiro-ministro e à formação de um novo Governo.\n\nA queda do Governmento constitui um dos momentos mais relevantes da história política portuguesa recente. A defeatiha na Assembleia da República mostrou o peso institucional do Parlamento na fiscalização do executivo e reforçou a importância da relação entre o poder legislativo e o poder governamental. O caso ficou igualmente associado à fragmentação do cenário político português e às dificuldades enfrentadas por vários-executivos na obtenção de maiorias estáveis.\n\nEmbora o episódio pertença à história de 2015, as suas consequências e o debate sobre a responsabilidade política e a estabilidade da governação continuam a ser objeto de análise. A notícia recorda um acontecimento passado, não representando a atualidade política portuguesa.",
+                "highlight_text_en": "Parliament",
+                "caption_narrative_en": "Portugal’s coalition government collapsed in 2015 after Parliament approved a motion rejecting the executive’s confidence vote. The defeat led to the prime minister’s resignation and the formation of a new government."
             }
-        ]
+        ],
+        "last_image_refresh_at": "2026-11-09T01:43:07.576216"
     },
     {
         "id": "pt_2026-11-17_2",
@@ -14367,7 +14397,7 @@
         "layout_override": "",
         "theme_suggestion": "",
         "manual_background_url": "",
-        "review_action": "refresh_image",
+        "review_action": "",
         "review_note": "",
         "status": "pending",
         "generated_month": "2026-11",
@@ -14548,7 +14578,7 @@
                 "summary": "Aprovação legislativa de restrições à imigração, medida de política externa e interna que afeta diretamente o funcionamento das fronteiras e a vida coletiva.",
                 "title_en": "Parliament approves immigration restrictions this Wednesday",
                 "summary_en": "Legislative approval of immigration restrictions, a foreign and internal policy measure directly affecting border operations and collective life.",
-                "body_en": "",
+                "body_en": "Portugal’s Parliament approved immigration restrictions on Wednesday, adding to the political debate over border security and the entry and stay of foreign nationals in the country. The vote came in coordination with the government, which also endorsed the new measures, according to the news summary and caption.\n\nThe measures establish additional protocols for entry and stay in Portugal. Approved by both Parliament and the government, they introduce further border controls and change the conditions under which immigrants may enter, remain in and move through the country. Available information does not detail the specific restrictions, the enforcement mechanisms planned or when the rules will take effect.\n\nThe decision marks a development in Portugal’s public policies on immigration and border management. It highlights Parliament’s role and the coordination between the legislature and the government on an issue that touches security, the legal regulation of foreign entry and the organization of national migration policy.\n\nThe 2025 measure is part of a broader political and legislative debate over how Portugal manages its borders and the presence of foreign nationals. Its full impact will depend on the details of the restrictions and the framework for their implementation.",
                 "relevance": {
                     "level": 5,
                     "scores": {
@@ -14562,7 +14592,8 @@
                     },
                     "weighted_score": 35.2,
                     "justification": "Medida legislativa afeta fronteiras e vida coletiva; impacta política externa e interna.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "The legislation affects Portugal’s borders and daily life, with implications for both domestic and foreign policy."
                 },
                 "article_url": "https://arquivo.pt/wayback/20251119201923/https://www.dn.pt/sociedade/parlamento-governo-aprova-restri%C3%A7%C3%B5es-%C3%A0-imigra%C3%A7%C3%A3o-esta-quarta-feira",
                 "source_platform": "arquivo.pt",
@@ -14570,14 +14601,16 @@
                 "networks": [
                     "facebook"
                 ],
-                "image_url": "",
-                "image_delete_url": "",
-                "local_image_path": "",
-                "background_source_url": "",
-                "local_background_path": "",
+                "image_url": "https://i.ibb.co/GQxrNxtt/2026-11-19-04-2025-parlamento-aprova-restricoes-a-imigracao-esta-quarta-feira.jpg",
+                "image_delete_url": "https://ibb.co/zVntDn77/c4733cc9fff52a6cc488a800278d1ac1",
+                "local_image_path": "images/review/pt/2026-11-19_04_2025_parlamento-aprova-restricoes-a-imigracao-esta-quarta-feira.jpg",
+                "background_source_url": "https://commons.wikimedia.org/wiki/File:Pal%C3%A1cio_de_Bel%C3%A9m_-_Lisboa_-_Portugal_(5285258280).jpg",
+                "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-19_04_2025_parlamento-aprova-restricoes-a-imigracao-esta-quarta-feira-fundo.jpg",
                 "caption_instagram": "Parlamento e Governo aprovam restrições à imigração esta quarta-feira, definindo novos protocolos de entrada e permanência no território nacional.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
                 "caption_facebook": "Parlamento e Governo aprovam restrições à imigração esta quarta-feira, definindo novos protocolos de entrada e permanência no território nacional.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-                "body": ""
+                "body": "A decisão do Parlamento de aprovar restrições à imigração, nesta quarta-feira de 2025, insere-se num debate político sobre controlo das fronteiras, entrada e permanência de estrangeiros em Portugal. A aprovação surge em articulação com o Governo, que também subscreveu as novas medidas, segundo o resumo e a legenda da notícia.\n\nO texto original refere-se à definição de novos protocolos de entrada e permanência no território nacional. Aprovadas pelo Parlamento e pelo Governo, as medidas estabelecem regras adicionais de controlo fronteiriço, alterando as condições de circulação e permanência de imigrantes no país. A informação disponível não detalha, porém, o conteúdo específico das restrições, os mecanismos de fiscalização previstos ou o calendário da sua aplicação.\n\nA relevância duradoura deste acontecimento reside na evolução das políticas públicas de imigração e gestão de fronteiras em Portugal. A decisão evidencia a participação do Parlamento e a articulação institucional com o Governo numa matéria que afeta a segurança, a regularização da entrada de estrangeiros e a organização das políticas migratórias nacionais. O arquivo da notícia preserva o registo do acontecimento, distinguindo-o de acontecimentos atuais, e contribui para a reconstituição do debate político e legislativo de 2025.",
+                "highlight_text_en": "immigration",
+                "caption_narrative_en": "In 2025, Portugal’s Parliament approved new immigration restrictions, working alongside the government on additional border controls. The measures will establish protocols for entry and stay in the country, though available information does not specify the restrictions, enforcement mechanisms or implementation timeline."
             },
             {
                 "year": "2025",
@@ -14764,7 +14797,8 @@
                 "caption_facebook": "Líderes da União Europeia colocam acordo do Brexit em condições de aprovação, definindo termos finais para a saída do Reino Unido.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
                 "body": ""
             }
-        ]
+        ],
+        "last_image_refresh_at": "2026-11-09T01:43:30.410801"
     },
     {
         "id": "pt_2026-11-19_2",
@@ -16209,7 +16243,7 @@
         "layout_override": "",
         "theme_suggestion": "",
         "manual_background_url": "",
-        "review_action": "refresh_image",
+        "review_action": "",
         "review_note": "",
         "status": "pending",
         "generated_month": "2026-11",
@@ -16573,7 +16607,7 @@
                 "summary": "Governo italiano decreta estado de emergência em Veneza devido a inundações severas",
                 "title_en": "Italian government declares state of emergency in Venice due to floods",
                 "summary_en": "Italian government declares state of emergency in Venice due to severe floods",
-                "body_en": "",
+                "body_en": "Flooding in Venice in 2019 led the Italian government to declare a state of emergency for the city, located in the Veneto region in northeastern Italy. The decision followed episodes of heavy rain that caused water levels to rise and flooded parts of its historic center.\n\nBuilt on a lagoon and renowned for its architecture, canals and historic heritage, Venice is particularly vulnerable to this type of weather. The 2019 floods again exposed many residents, businesses and monuments to the risk of inundation, underscoring the need for protective measures and a rapid response.\n\nThe emergency declaration allowed the Italian government to activate support mechanisms and coordinate the response to the flooding. It was part of a broader series of emergency measures linked to extreme weather events in the city, which continues to face challenges in adapting to a changing climate and safeguarding its heritage.\n\nThe episode remains significant in Venice’s recent history, not only because of the floods’ immediate effects but also for the attention they brought to urban resilience and the protection of a historic city exposed to extreme weather. The memory of the 2019 flooding has become part of broader discussions about climate change and the future of European cities vulnerable to rising water.",
                 "relevance": {
                     "level": 4,
                     "scores": {
@@ -16587,7 +16621,8 @@
                     },
                     "weighted_score": 46.2,
                     "justification": "Emergency declaration for flood response; immediate resource allocation; long-term Venice infrastructure improvements debated.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "The declaration enabled emergency support and coordinated flood response while renewing debate over long-term infrastructure and climate adaptation in Venice."
                 },
                 "article_url": "https://arquivo.pt/wayback/20191122050215/https://amp.expresso.pt/sociedade/2019-11-14-Inundacoes.-Governo-italiano-decreta-estado-de-emergencia-em-Veneza",
                 "source_platform": "arquivo.pt",
@@ -16595,16 +16630,19 @@
                 "networks": [
                     "instagram"
                 ],
-                "image_url": "",
-                "image_delete_url": "",
-                "local_image_path": "",
-                "background_source_url": "",
-                "local_background_path": "",
+                "image_url": "https://i.ibb.co/XGNDDhZ/2026-11-22-08-2019-inundacoes-governo-italiano-decreta-estado-de-emergencia-em-veneza.jpg",
+                "image_delete_url": "https://ibb.co/bGqFFSg/1c59d065d2a4267990ac4e9a9b124725",
+                "local_image_path": "images/review/pt/2026-11-22_08_2019_inundacoes-governo-italiano-decreta-estado-de-emergencia-em-veneza.jpg",
+                "background_source_url": "https://pt.wikipedia.org/wiki/Pra%C3%A7a_de_S%C3%A3o_Marcos",
+                "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-22_08_2019_inundacoes-governo-italiano-decreta-estado-de-emergencia-em-veneza-fundo.jpg",
                 "caption_instagram": "Eventos climáticos extremos provocam medidas de emergência na cidade histórica\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2019.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
                 "caption_facebook": "Eventos climáticos extremos provocam medidas de emergência na cidade histórica\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2019.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
-                "body": ""
+                "body": "As inundações que atingiram Veneza em 2019 obrigaram o Governo italiano a decretar o estado de emergência na cidade, situada na região de Veneto, no nordeste do país. A decisão das autoridades foi tomada na sequência dos episódios de chuva intensa que provocaram a subida do nível da água e alagaram zonas históricas da cidade.\n\nA cidade de Veneza, construída sobre uma laguna e conhecida pela sua arquitetura, canais e património histórico, é particularmente vulnerável a este tipo de fenómenos meteorológicos. As cheias de 2019 voltaram a colocar em evidência a exposição de muitos dos seus habitantes, businesses e monumentos às inundações, assim como a necessidade de medidas de proteção e de resposta rápida.\n\nO estado de emergência permitiu ao Governo italiano ativar mecanismos de apoio e coordenar a resposta às consequências dos alagamentos. A medida inscreve-se num conjunto de ações de emergência associadas a eventos climáticos extremos na cidade, que continua a enfrentar desafios de adaptação e salvaguarda do seu património.\n\nEste episódio permanece relevante para a história recente de Veneza, não apenas pelos efeitos imediatos das inundações, mas também pela atenção que deu à resiliência urbana e à proteção de uma cidade histórica perante a ocorrência de fenómenos climáticos extremos. A memória das cheias de 2019 integra-se na reflexão sobre as alterações do clima e sobre o futuro das cidades europeias expostas à água.",
+                "highlight_text_en": "Venice",
+                "caption_narrative_en": "Severe flooding in Venice in 2019 prompted the Italian government to declare a state of emergency. The response highlighted the city’s vulnerability to extreme weather and the need to protect its residents, businesses, monuments and historic heritage."
             }
-        ]
+        ],
+        "last_image_refresh_at": "2026-11-09T01:43:59.889820"
     },
     {
         "id": "pt_2026-11-22_2",
@@ -16615,7 +16653,7 @@
         "layout_override": "",
         "theme_suggestion": "",
         "manual_background_url": "",
-        "review_action": "refresh_image",
+        "review_action": "",
         "review_note": "",
         "status": "pending",
         "generated_month": "2026-11",
@@ -16887,7 +16925,7 @@
                 "summary": "Governo anuncia quarentena reforçada durante feriados, com proibição de circulação e tolerância de ponto",
                 "title_en": "Government bans circulation, closes schools, gives weekend holiday tolerance during holiday periods",
                 "summary_en": "Government announces reinforced quarantine during holidays, with circulation prohibition and weekend holiday tolerance",
-                "body_en": "",
+                "body_en": "In 2020, the Portuguese government prohibited travel between municipalities during the holiday period, ordered schools closed and granted administrative leave on holiday weekends. The measures, established by executive decree, imposed restrictions on domestic mobility and the operation of educational institutions as confinement policies tightened.\n\nThe decision came as efforts to contain the COVID-19 pandemic limited personal movement and the activity of numerous services. The travel ban between municipalities and school closures were the main restrictive measures announced, while the administrative leave for holiday weekends created an exception for workers.\n\nThe decree established an exceptional regime limiting national mobility and suspending school operations. The rules aimed to reduce movement during the holiday dates, allowing only exceptions provided by law and linking the restrictions to administrative leave on holiday weekends.\n\nThe measure's lasting significance lies in how the Portuguese state managed the pandemic through national restrictions that combined mobility controls, school closures and exceptional labor provisions. The episode became part of Portugal's response to the 2020 public health crisis, illustrating the impact of COVID-19 on government decisions, work organization and the lives of Portuguese families.",
                 "relevance": {
                     "level": 4,
                     "scores": {
@@ -16901,7 +16939,8 @@
                     },
                     "weighted_score": 52.5,
                     "justification": "Medidas restritivas durante feriados; precedente para futuras quarentenas sazonais; impacto em mobilidade e economia temporário.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "The holiday restrictions became a precedent for future seasonal quarantines, with temporary effects on mobility and the economy."
                 },
                 "article_url": "https://arquivo.pt/wayback/20201122225024/https://www.publico.pt/2020/11/21/politica/noticia/governo-proibe-circulacao-fecha-escolas-tolerancia-ponto-fins-semana-feriados-1940156?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+PublicoPolitica+%28Publico.pt+-+Pol%C3%ADtica%29",
                 "source_platform": "arquivo.pt",
@@ -16909,14 +16948,16 @@
                 "networks": [
                     "facebook"
                 ],
-                "image_url": "",
-                "image_delete_url": "",
-                "local_image_path": "",
-                "background_source_url": "",
-                "local_background_path": "",
+                "image_url": "https://i.ibb.co/Q2MLZvW/2026-11-22-06-2020-governo-proibe-circulacao-fecha-escolas-e-da-tolerancia-de-ponto-nos-fins-de-sem.jpg",
+                "image_delete_url": "https://ibb.co/ywqtDFz/be8047b729fb0ad535b37f96a79d9eac",
+                "local_image_path": "images/review/pt/2026-11-22_06_2020_governo-proibe-circulacao-fecha-escolas-e-da-tolerancia-de-ponto-nos-fins-de-sem.jpg",
+                "background_source_url": "https://commons.wikimedia.org/wiki/File:Pal%C3%A1cio_de_S%C3%A3o_Louren%C3%A7o_-_Funchal_01.jpg",
+                "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-22_06_2020_governo-proibe-circulacao-fecha-escolas-e-da-tolerancia-de-ponto-nos-fins-de-sem-fundo.jpg",
                 "caption_instagram": "Decreto executivo estabelece restrição de mobilidade nacional e encerramento de estabelecimentos escolares\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Saude",
                 "caption_facebook": "Decreto executivo estabelece restrição de mobilidade nacional e encerramento de estabelecimentos escolares\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Saude",
-                "body": ""
+                "body": "Em 2020, o Governo português proibiu a circulação entre concelhos durante o período festivo, ordenou o encerramento das escolas e concedeu tolerância de ponto nos fins-de-semana dos feriados. As medidas, definidas por decreto executivo, impuseram restrições à mobilidade nacional e ao funcionamento de estabelecimentos escolares, no contexto do agravamento das medidas de confinamento.\nA decisão inseriu-se num período em que o combate à pandemia de covid-19 condicionava a circulação das pessoas e a atividade de vários serviços. A proibição de circulação entre concelhos e o encerramento das escolas constituíram as principais medidas restritivas anunciadas, enquanto a tolerância de ponto nos fins-de-semana dos feriados criou uma exceção administrativa para os trabalhadores.\nO decreto executivo estabeleceu, assim, um regime excecional de limitação da mobilidade nacional e de suspensão do funcionamento de escolas. As regras procuraram reduzir a circulação durante as datas festivas, mantendo apenas as exceções previstas na legislação e articulando as restrições com a concessão de tolerância de ponto nos fins-de-semana dos feriados.\nA relevância duradoura desta medida reside na forma como o Estado português gestionou a pandemia através de restrições nacionais, articulando controlo da mobilidade, encerramento de escolas e medidas laborais excecionais. O episódioBecame parte da resposta portuguesa à crise sanitária de 2020 e ilustra o impacto da covid-19 nas decisões do Governo, na organização do trabalho e na vida das famílias portuguesas.",
+                "highlight_text_en": "Government bans",
+                "caption_narrative_en": "In 2020, Portugal barred travel between municipalities during the holiday period, closed schools and granted administrative leave on holiday weekends. The executive decree tightened national restrictions as the government sought to limit movement amid the COVID-19 pandemic."
             },
             {
                 "year": "2019",
@@ -16964,7 +17005,8 @@
                 "caption_facebook": "Eventos climáticos extremos provocam medidas de emergência na cidade histórica\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2019.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
                 "body": ""
             }
-        ]
+        ],
+        "last_image_refresh_at": "2026-11-09T01:44:46.441585"
     },
     {
         "id": "pt_2026-11-23_1",
@@ -16975,7 +17017,7 @@
         "layout_override": "",
         "theme_suggestion": "",
         "manual_background_url": "",
-        "review_action": "refresh_image",
+        "review_action": "",
         "review_note": "",
         "status": "pending",
         "generated_month": "2026-11",
@@ -17110,7 +17152,7 @@
                 "summary": "Sentença judicial proferida em caso de homicidio qualificado.",
                 "title_en": "Young man sentenced to 18 years in prison for killing girlfriend with a mallet",
                 "summary_en": "Young man sentenced to 18 years in prison for the qualified homicide of his girlfriend using a mallet.",
-                "body_en": "",
+                "body_en": "A 2010 court sentence sentenced a young man to 18 years in prison for the killing of his girlfriend, who was struck with a hammer. The case was classified under justice and became notable for the severity of the violence against his companion.\n\nAccording to the news caption, the defendant was convicted of killing his girlfriend with a hammer and received an 18-year prison sentence. The term reflected the weight of the young man's responsibility for the homicide.\n\nThe report was later preserved as part of an archive of past events, with the news explicitly identified as dating from 2010. It was also filed under the hashtags #ArquivoPT and #Justica, placing it within an archive of judicial decisions.\n\nThe case's lasting relevance lies in the gravity of the offense and the severity of the punishment. The 18-year sentence represented the judicial response to a homicide between an intimate couple, carried out with extreme physical violence. Preserving the report in archival form allows the episode and the decisions made at the time to remain accessible while clearly separating historical events from current issues.",
                 "relevance": {
                     "level": 5,
                     "scores": {
@@ -17124,7 +17166,8 @@
                     },
                     "weighted_score": 27.5,
                     "justification": "Sentenca judicial por homicidio qualificado; caso isolado sem precedente legal transformador ou impacto sistemico na justica penal.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "The sentence for aggravated homicide reflects the gravity of the crime. The case stands as an isolated criminal proceeding without broader legal or systemic significance."
                 },
                 "article_url": "https://arquivo.pt/wayback/20101123223424/http://www.publico.pt/Sociedade/jovem-condenado-a-18-anos-de-prisao-por-matar-namorada-a-marretada_1467741",
                 "source_platform": "arquivo.pt",
@@ -17132,14 +17175,16 @@
                 "networks": [
                     "facebook"
                 ],
-                "image_url": "",
-                "image_delete_url": "",
-                "local_image_path": "",
-                "background_source_url": "",
-                "local_background_path": "",
+                "image_url": "https://i.ibb.co/Kzr5hGmT/2026-11-23-03-2010-jovem-condenado-a-18-anos-de-prisao-por-matar-namorada-a-marretada.jpg",
+                "image_delete_url": "https://ibb.co/DgR1WbL0/3821bd5f118dd9cafa69ead639e7ea46",
+                "local_image_path": "images/review/pt/2026-11-23_03_2010_jovem-condenado-a-18-anos-de-prisao-por-matar-namorada-a-marretada.jpg",
+                "background_source_url": "https://commons.wikimedia.org/wiki/File:Extens%C3%A3o_do_Tribunal_da_Rela%C3%A7%C3%A3o_de_Lisboa.jpg",
+                "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-23_03_2010_jovem-condenado-a-18-anos-de-prisao-por-matar-namorada-a-marretada-fundo.jpg",
                 "caption_instagram": "O arguido foi condenado a 18 anos de prisão pelo crime de matar a namorada a marretada.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2010.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
                 "caption_facebook": "O arguido foi condenado a 18 anos de prisão pelo crime de matar a namorada a marretada.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2010.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
-                "body": ""
+                "body": "A sentença de 2010 puniu um jovem com 18 anos de prisão pelo assassinato da namorada, golpeada a marretada. O caso foi registado na categoria da justiça e ficou marcado pela gravidade da violência exercida contra a própria companheira.\n\nSegundo a legenda da notícia, o arguido foi condenado a 18 anos de prisão pelo crime de matar a namorada a marretada. A pena privativa de liberdade corresponde à重型 dimensão da responsabilidade atribuída ao jovem pelo homicide praticado.\n\nA publicação, allora apresentada como arquivo de acontecimentos passados, refere expressamente que a notícia é de 2010 e que a sua finalidade é relembrar factos históricos, sem representar acontecimentos atuais. O caso integra também o arquivo sob a hashtag #ArquivoPT, na área #Justica.\n\nA relevância duradoura deste caso reside na gravidade do crime e na severidade da pena aplicada. A condenação por 18 anos de prisão constitui uma resposta judicial a um homicide entrenamorados, ocorrido através de uma violência física extrema. A preservação desta notícia em formato de arquivo permite consultar o episódio e manter memória judicial de decisões tomadas no passado, distinguindo claramente os factos históricos das questões atuais.",
+                "highlight_text_en": "18 Years",
+                "caption_narrative_en": "In 2010, a young man received an 18-year prison sentence for killing his girlfriend with a hammer. The case was marked by the extreme violence of the attack and the severity of the sentence."
             },
             {
                 "year": "2023",
@@ -17325,7 +17370,8 @@
                 "caption_facebook": "Diversos governos confirmaram o encerramento das suas embaixadas na capital ucraniana, medida tomada no contexto de conflitos internacionais em curso.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2024.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
                 "body": ""
             }
-        ]
+        ],
+        "last_image_refresh_at": "2026-11-09T01:45:24.410021"
     },
     {
         "id": "pt_2026-11-23_2",
@@ -17651,7 +17697,7 @@
         "layout_override": "",
         "theme_suggestion": "",
         "manual_background_url": "",
-        "review_action": "refresh_image",
+        "review_action": "",
         "review_note": "",
         "status": "pending",
         "generated_month": "2026-11",
@@ -17739,7 +17785,7 @@
                 "summary": "Evento institucional que marca a criação de uma data comemorativa anual na Assembleia da República, reflectindo o funcionamento do calendário político institucional.",
                 "title_en": "Week begins with first celebration of November 25th in solemn session at the Assembly of the Republic",
                 "summary_en": "Institutional event marking the creation of an annual commemorative date at the Assembly of the Republic, reflecting institutional political calendar functioning.",
-                "body_en": "",
+                "body_en": "Portugal’s National Assembly opened the week with the first solemn celebration of November 25, the date associated with the fall of the Estado Novo dictatorship. The 2024 session at the Parliament’s headquarters marked the beginning of a new annual tradition of commemoration.\n\nThe initiative places the ceremony within Portugal’s historical memory and reflects a commitment to preserving the legacy of the struggles for freedom and democracy. By holding the session on November 25, the National Assembly has linked the historical calendar to its parliamentary work, giving the commemoration a regular institutional dimension.\n\nThe first edition also represents a commitment to continuity. Rather than being marked only by specific organizations or groups, the date now forms part of an annual practice of tribute. The solemn session serves as a public acknowledgment of the memory of November 25 and the period of political transition that followed the dictatorship.\n\nThe lasting significance of the event lies in strengthening an institutional form of remembrance and creating an annual space for reflection on Portugal’s recent history. The tradition begun in 2024 is intended to perpetuate the memory of November 25 and reinforce the connection between Parliament, democracy and the values associated with the date.",
                 "relevance": {
                     "level": 5,
                     "scores": {
@@ -17753,7 +17799,8 @@
                     },
                     "weighted_score": 23.2,
                     "justification": "Criação de data comemorativa anual; evento institucional sem impacto social profundo ou consequências duradouras.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "The event established an annual commemorative date and gave a historical observance a regular place in Parliament’s institutional calendar."
                 },
                 "article_url": "https://arquivo.pt/wayback/20240512142944/https://cm-baiao.pt/login-baiao?redirect_to=https%3a%2f%2fwww.cm-baiao.pt%2f2021%2f12%2f23%2fmedicare-ofereceu-mochilas-magicas-a-criancas-de-baiao%2f",
                 "source_platform": "",
@@ -17761,14 +17808,16 @@
                 "networks": [
                     "instagram"
                 ],
-                "image_url": "",
-                "image_delete_url": "",
-                "local_image_path": "",
-                "background_source_url": "",
-                "local_background_path": "",
+                "image_url": "https://i.ibb.co/kfRtzjt/2026-11-24-02-2024-semana-inicia-se-com-primeira-celebracao-do-25-de-novembro-em-sessao-solene-na-a.jpg",
+                "image_delete_url": "https://ibb.co/8pWHGqH/3433427769bf341c84811938a5e4742b",
+                "local_image_path": "images/review/pt/2026-11-24_02_2024_semana-inicia-se-com-primeira-celebracao-do-25-de-novembro-em-sessao-solene-na-a.jpg",
+                "background_source_url": "https://commons.wikimedia.org/wiki/File:22_11_2022_Encontro_com_o_senhor_Augusto_Santos_Silva,_Presidente_da_Assembleia_da_Rep%C3%BAblica_(52518273981).jpg",
+                "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-24_02_2024_semana-inicia-se-com-primeira-celebracao-do-25-de-novembro-em-sessao-solene-na-a-fundo.jpg",
                 "caption_instagram": "A semana inicia-se com a primeira celebração do 25 de novembro em sessão solene na Assembleia da República, marcando o início de uma nova tradição anual de homenagem.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2024.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
                 "caption_facebook": "A semana inicia-se com a primeira celebração do 25 de novembro em sessão solene na Assembleia da República, marcando o início de uma nova tradição anual de homenagem.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2024.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
-                "body": ""
+                "body": "A Assembleia da República abriu a semana com a primeira celebração solene do 25 de novembro, data que assinala a queda da Ditadura Estado Novo. A sessão, realizada em 2024, marcou o início de uma nova tradição anual de homenagem, realizada na sede do Parlamento.\n\nA iniciativa enquadra-se na memória da história portuguesa e na preservação da memória das lutas pela liberdade e pela democracia. Ao薄的ar a sessão no dia 25 de novembro, a Assembleia da República associa a celebração do calendário histórico à atividade parlamentar, conferindo-lhe uma dimensão institucional regular.\n\nA primeira edição da tradição representa também um compromisso de continuidade: a data deixa de ser commemorada apenas por iniciativa de entidades ou grupos específicos e passa a constar de uma practices anual de homenagem. A sessão solene constitui, por isso, um momento de reconhecimento público da memória do 25 de novembro e do período de transição política que se seguiu à：上海Ditadura.\n\nA relevância duradoura deste acontecimento reside na consolidação de uma memória institucional e na criação de um espaço anual de reflexão sobre a história recente de Portugal. A tradição iniciada em 2024 pretende perpetuar a lembrança do 25 de novembro, reforçando a ligação entre o Parlamento, a democracia e os valores associados à data.",
+                "highlight_text_en": "November 25",
+                "caption_narrative_en": "Portugal’s National Assembly opened the week with its first solemn celebration of November 25 in 2024, marking the fall of the Estado Novo dictatorship. The ceremony launched a new annual tradition of honoring the country’s struggle for freedom and democracy."
             },
             {
                 "year": "2025",
@@ -17908,7 +17957,8 @@
                 "caption_facebook": "PSP alerta escolas do Porto sobre grupos de whatsapp, sensibilizando para potenciais riscos ou monitorização de comunicação na comunidade educativa.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
                 "body": ""
             }
-        ]
+        ],
+        "last_image_refresh_at": "2026-11-09T01:46:18.937083"
     },
     {
         "id": "pt_2026-11-24_2",
@@ -20373,7 +20423,7 @@
         "layout_override": "",
         "theme_suggestion": "",
         "manual_background_url": "",
-        "review_action": "refresh_image",
+        "review_action": "",
         "review_note": "",
         "status": "pending",
         "generated_month": "2026-11",
@@ -20461,7 +20511,7 @@
                 "summary": "Referencia cultural ligada a marco historico de transicao politica, mantendo relevancia identitaria colectiva.",
                 "title_en": "Grândola Vila Morena censorship and symbol of struggle change",
                 "summary_en": "Musical homage became historical reference in political and social context of the country.",
-                "body_en": "",
+                "body_en": "“Grândola Vila Morena,” a song written by Zeca Afonso in 1964, became one of the leading symbols of resistance to Portugal’s Estado Novo regime and of the country’s push for social transformation. Drawing on a reference to the October 4 Revolution of 1910, the song was initially associated with the labor movement and the fight for more dignified living conditions. Over time, it moved beyond those origins to represent a broader ideal of change, freedom and social justice.\n\nThe lyrics refer to Grândola, a city in Portugal’s Alentejo region, and express the desire to “end a regime of oppression.” The song’s connection to Alentejo was not incidental. The region was marked by significant social and economic disparities, while rural labor was often harsh and land ownership highly concentrated. The song found particular resonance among rural workers and the landless, establishing itself as a voice of hope and revolution.\n\nAfter the April 25 Revolution of 1974, “Grândola Vila Morena” became one of the most emblematic expressions of freedom won through democracy. Its simple melody, accessible lyrics and ability to bring together different segments of the population turned it into an anthem of democratization. Performed at parties, political rallies and demonstrations, the song reinforced the memory of the struggle against dictatorship and the idea that social change was a collective responsibility.\n\nThe composition also became closely associated with the “Carnation Revolution,” the popular name for the events of April 25, 1974. That connection helped propel the song to national prominence and sustain its longevity. Afonso’s music, rooted in popular traditions and the language of rural life, transformed a political and social theme into a shared reference for broad sections of Portuguese society.\n\nIn 2023, the relevance of “Grândola Vila Morena” endures as part of the cultural memory of Portugal’s democratic transition. The song is regularly performed at celebrations, official events and commemorations of April 25, consolidating its role as an emblem of resistance and social change. More than a piece of music, it is an emotional document of contemporary Portuguese history, capable of evoking both the conditions people lived through before 1974 and the hope associated with the country’s political opening. Its national reach strengthened the link between Portuguese popular culture and the memory of the democratic transition, ensuring that it remained a fixture of public life for decades to come.",
                 "relevance": {
                     "level": 2,
                     "scores": {
@@ -20475,7 +20525,8 @@
                     },
                     "weighted_score": 72.2,
                     "justification": "Tornou-se referência identitária da revolução de 25 de abril, mantendo relevância política e cultural até hoje. Simboliza luta mudança.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "The song became an identity marker of Portugal’s April 25 Revolution and remains politically and culturally relevant as a symbol of struggle and change."
                 },
                 "article_url": "https://arquivo.pt/wayback/20230118161509/https://alfarrabio.di.uminho.pt/zeca/cancoes/71.html",
                 "source_platform": "",
@@ -20484,14 +20535,16 @@
                     "instagram",
                     "facebook"
                 ],
-                "image_url": "",
-                "image_delete_url": "",
-                "local_image_path": "",
+                "image_url": "https://i.ibb.co/HfN0tfDq/2026-11-29-02-2023-grandola-vila-morena-censura-e-simbolo-luta-mudanca.jpg",
+                "image_delete_url": "https://ibb.co/LXQMxXz1/c6bb7dbd4e06842db9a8d495ca2e4244",
+                "local_image_path": "images/review/pt/2026-11-29_02_2023_grandola-vila-morena-censura-e-simbolo-luta-mudanca.jpg",
                 "background_source_url": "",
                 "local_background_path": "",
                 "caption_instagram": "Composicao musical que atravessou o tempo como emblema de resistencia e pedido de transformacao social.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
                 "caption_facebook": "Composicao musical que atravessou o tempo como emblema de resistencia e pedido de transformacao social.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
-                "body": ""
+                "body": "Grândola Vila Morena, composição de Zeca Afonso escrita em 1964, tornou-se um dos principais símbolos da resistência ao regime de Estado Novo e da defesa de transformações sociais em Portugal. A canção, criada a partir de uma referência à Revolução de 4 de Outubro de 1910, foi inicialmente associada ao movimento operário e à luta por condições de vida mais dignas. Com o tempo, ultrapassou o seu contexto original e passou a representar um ideal mais amplo de mudança, liberdade e justiça social.\n\nA letra da composição refere-se a Grândola, uma cidade do Alentejo, e evoca a vontade de «pôr fim a um regime de opressão». A sua ligação com o Alentejo não é casual: a região vivia importantes diferenças sociais e económicas, enquanto o campo era marcado por condições de trabalho duras e por uma forte concentração de terras. A canção ganhou significado amongst trabalhadores rurais e-CE, assumindo-se como uma voz de esperança e de revolução.\n\nNa sequência da revolução de 25 de Abril de 1974, Grândola Vila Morena tornou-se uma das interpretações mais emblemáticas da liberdade democraticamente conquistada. A sua melodia simples, a letra clara e a capacidade de unir diferentes camadas da população fizeram da canção um hino da democratização. Ao ser executada em contextos de festa, comício e manifestação, reforçou a memória da luta contra a ditadura e a ideia de que a mudança social era uma responsabilidade coletiva.\n\nA composição também ficou associada à chamada «Revolução dos Cravos», designação popular para a revolução de 25 de Abril de 1974. A ligação entre a canção e este momento histórico contribuiu para a sua projecção nacional e para a sua longevidade. A música de Zeca Afonso, que utilizava a tradição popular e a linguagem do mundo rural, conseguiu transformar um tema político e social numa referência partilhada por largas camadas da população portuguesa.\n\nA relevância de Grândola Vila Morena permanece(actual) enquanto memória cultural da transição para a democracia. A canção é regularly interpretada em celebrações, eventos oficiais e momentos de evocação do 25 de Abril, consolidando o seu papel como emblema da resistência e da mudança social. Mais do que uma peça musical, é um documento emocional da história portuguesa contemporânea, capaz de evocar tanto as condições vividas antes de 1974 como a esperança associada à abertura política.\n\nConsequências posteriores: com a revolução de 25 de Abril de 1974, a composição consolidou-se como símbolo da democracia e da liberdade, sendo adopted como hino da resistência ao regime de Estado Novo. A sua projecção nacional reforçou a ligação entre a cultura popular portuguesa e a memória da transição democrática, levando-a a ser mantida em celebrações e eventos oficiais ao longo das décadas seguintes.",
+                "highlight_text_en": "Grândola Vila",
+                "caption_narrative_en": "In 2023, “Grândola Vila Morena” remains a defining symbol of Portugal’s resistance to dictatorship and its pursuit of social change. Written by Zeca Afonso in 1964, the song became an anthem of the democratic revolution of April 25, 1974, and continues to be performed at public celebrations and official events."
             },
             {
                 "year": "2024",
@@ -20816,7 +20869,8 @@
                 "caption_facebook": "Chefes de Estado e de Governo dos 27 deram o aval ao projeto de acordo que prevê saida organizada do Reino Unido da União Europeia.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
                 "body": ""
             }
-        ]
+        ],
+        "last_image_refresh_at": "2026-11-09T01:47:46.000426"
     },
     {
         "id": "pt_2026-11-30_1",
@@ -21279,7 +21333,7 @@
         "layout_override": "",
         "theme_suggestion": "",
         "manual_background_url": "",
-        "review_action": "refresh_image",
+        "review_action": "",
         "review_note": "",
         "status": "pending",
         "generated_month": "2026-11",
@@ -21505,7 +21559,7 @@
                 "summary": "Sentença judicial de impacto económico nacional, respeitando o princípio do papel institucional e sem datas.",
                 "title_en": "State ordered to return 200 million to banking sector",
                 "summary_en": "Constitutional Court declares banking solidarity surcharge unconstitutional.",
-                "body_en": "",
+                "body_en": "Portugal’s Constitutional Court declared the solidarity surcharge on the banking sector unconstitutional, requiring the state to return €200 million that banks have already paid. The levy was introduced to impose an extraordinary contribution on the financial sector during an economic and financial crisis.\n\nThe ruling comes amid intense pressure on Portugal’s banking industry and a broader public debate over the solidarity contributions of large financial institutions. By finding the surcharge unconstitutional, the court placed the collection of payments made by banks under the regime in doubt.\n\nThe €200 million repayment is the decision’s main practical consequence. The state must now restitute the funds it collected, reversing the logic of the extraordinary levy and opening a new chapter in the relationship between the banking sector and public finances.\n\nThe ruling nevertheless underscores the central role of Portugal’s banking system in the economy and the need to ensure legal certainty in fiscal decisions. Repaying the banks will have a significant impact on the state budget at a time when managing public revenue requires balancing the correction of inequalities with economic stability.\n\nThe case also highlights the importance of constitutional oversight of emergency measures. The finding of unconstitutionality and the resulting €200 million repayment reinforce that public policies, even when adopted in response to crises, must remain within constitutional legal limits.",
                 "relevance": {
                     "level": 4,
                     "scores": {
@@ -21519,7 +21573,8 @@
                     },
                     "weighted_score": 54.2,
                     "justification": "Decisão judicial com impacto financeiro nacional e efeitos concretos nos cofres do Estado.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "The ruling has national financial implications and requires the state to repay €200 million, creating concrete consequences for public finances."
                 },
                 "article_url": "https://arquivo.pt/wayback/20251130203835/https://dinheirovivo.dn.pt/economia/estado-condenado-a-devolver-200-milh%C3%B5es-que-os-bancos-pagaram-com-lei-de-centeno",
                 "source_platform": "arquivo.pt",
@@ -21527,14 +21582,16 @@
                 "networks": [
                     "facebook"
                 ],
-                "image_url": "",
-                "image_delete_url": "",
-                "local_image_path": "",
-                "background_source_url": "",
-                "local_background_path": "",
+                "image_url": "https://i.ibb.co/4nB4Fvmn/2026-11-30-05-2025-estado-condenado-a-devolver-200-milhoes-ao-setor-bancario.jpg",
+                "image_delete_url": "https://ibb.co/PvB1rXmv/edec19a032e9a0944821cb909f1951da",
+                "local_image_path": "images/review/pt/2026-11-30_05_2025_estado-condenado-a-devolver-200-milhoes-ao-setor-bancario.jpg",
+                "background_source_url": "https://commons.wikimedia.org/wiki/File:Entrega_de_assinaturas_no_Tribunal_Constitucional_(Esquerda.Net_50733495121).jpg",
+                "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-30_05_2025_estado-condenado-a-devolver-200-milhoes-ao-setor-bancario-fundo.jpg",
                 "caption_instagram": "O Tribunal Constitucional declarou inconstitucional o Adicional de Solidariedade sobre o Setor Bancário, obrigando o Estado a devolver 200 milhões de euros pagos pelos bancos.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
                 "caption_facebook": "O Tribunal Constitucional declarou inconstitucional o Adicional de Solidariedade sobre o Setor Bancário, obrigando o Estado a devolver 200 milhões de euros pagos pelos bancos.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
-                "body": ""
+                "body": "O Tribunal Constitucional declarou inconstitucional o Adicional de Solidariedade sobre o Setor Bancário, uma decisão que obriga o Estado a devolver aos bancos 200 milhões de euros já pagos. A medida havia sido criada para impor uma contribuição extraordinária ao setor financeiro, em plena crise económica e financeira.\n\nA decisão intervém num contexto de forte pressão sobre a banca portuguesa e de.searchers? debate público sobre a分担? solidary? contributions? of? large? financial? institutions. Ao considerar o adicional inconstitucional, o Tribunal pôs em causa a collecting? of the? amounts? paid? pelos? bancos? under? this? regime?.\n\nA obrigação de devolução dos 200 milhões de euros constitui a principal consequência prática do acórdão. O Estado fica assim obrigado a restituir as verbas recolhidas, invertendo a lógica da cobrança extraordinária e abrindo um novo capítulo na relação entre o setor bancário e as finanças públicas.\n\nA decisão mantém, porém, a centralidade do sistema bancário português na economia e reforça a necessidade de garantir a segurança jurídica das decisões fiscais. A devolução aos bancos representa um impacto relevante para o orçamento do Estado, numa altura em que a gestão das receitas públicas continua a exigir equilíbrio entre a correção de desigualdades e a estabilidade económica.\n\nO caso também evidencia a importância da fiscalização constitucional das medidas de exceção. A declaração de inconstitucionalidade do adicional e a consequente devolução de 200 milhões de euros recordam que as políticas públicas, mesmo em resposta a crises, estão sujeitas aos limites jurídicos constitucionais.",
+                "highlight_text_en": "State ordered",
+                "caption_narrative_en": "In 2025, Portugal’s Constitutional Court ruled that the solidarity surcharge on the banking sector was unconstitutional, requiring the state to return €200 million already paid by banks. The decision delivers a significant financial blow to public coffers while underscoring the constitutional limits on emergency fiscal measures."
             },
             {
                 "year": "2025",
@@ -21720,6 +21777,7 @@
                 "caption_facebook": "O Presidente da Turquia ameaçou abrir as fronteiras do país para deixar passar migrantes que pretendem entrar na Europa, em retaliação ao congelamento do processo de adesão à UE.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2016.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
                 "body": ""
             }
-        ]
+        ],
+        "last_image_refresh_at": "2026-11-09T01:48:29.069402"
     }
 ]
