@@ -1752,7 +1752,12 @@ def match_option_to_article(option, articles):
     max_matches = -1
     for art in same_year_articles:
         art_title = (art.get("title") or "").lower()
-        art_context = (art.get("global_context") or "").lower()
+        art_context = art.get("global_context") or ""
+        if isinstance(art_context, list):
+            art_context = " ".join(str(x) for x in art_context)
+        elif not isinstance(art_context, str):
+            art_context = str(art_context)
+        art_context = art_context.lower()
         words = [w for w in opt_title.split() if len(w) > 3]
         matches = sum(1 for w in words if w in art_title or w in art_context)
         if matches > max_matches:
