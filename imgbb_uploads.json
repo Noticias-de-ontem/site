@@ -8273,17 +8273,23 @@
         "delete_status": ""
     },
     {
-        "kind": "review_preview",
+        "kind": "published_post",
         "lang": "pt",
         "date": "2026-11-09",
         "option_index": 3,
         "title": "Governo decreta luto nacional de dois dias",
         "year": "2025",
-        "image_url": "https://i.ibb.co/PG0DRq31/2026-11-09-04-2025-governo-decreta-luto-nacional-de-dois-dias.jpg",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-09_1.jpg",
         "delete_url": "https://ibb.co/QvtDZyzY/f0a692e9d14ef580c0e3fb0b64d9d263",
-        "created_at": "2026-11-09T01:37:52+00:00",
+        "created_at": "2026-11-09T11:01:37+00:00",
         "deleted_at": "",
-        "delete_status": ""
+        "delete_status": "",
+        "slot": "morning",
+        "platform": "facebook",
+        "post_id": "pt_2026-11-09_1",
+        "platform_post_id": "1030669413467151_122138083388824703",
+        "platform_post_url": "https://www.facebook.com/122136509126824703/posts/122138083388824703",
+        "published_at": "2026-11-09T11:01:37.200169"
     },
     {
         "kind": "review_preview",
@@ -9140,6 +9146,22 @@
         "image_url": "https://i.ibb.co/5h7kqpkJ/2026-11-09-03-1989-comeca-a-ser-derrubado-o-muro-de-berlim.jpg",
         "delete_url": "https://ibb.co/qYZCbqC2/fda972b1d4c064c9cd8d12f5ee6718c9",
         "created_at": "2026-11-09T06:13:22+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "published_post",
+        "lang": "en",
+        "date": "2026-11-09",
+        "slot": "morning",
+        "platform": "facebook",
+        "post_id": "en_2026-11-09_1",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-09_1.jpg",
+        "delete_url": "",
+        "platform_post_id": "1318455601360516_122101944069541219",
+        "platform_post_url": "https://www.facebook.com/122096313699541219/posts/122101944069541219",
+        "published_at": "2026-11-09T11:01:59.877478",
+        "created_at": "2026-11-09T11:01:59+00:00",
         "deleted_at": "",
         "delete_status": ""
     }
