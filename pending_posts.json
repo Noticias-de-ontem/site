@@ -8370,7 +8370,6 @@
         "source_platform": "arquivo.pt",
         "source_profile": "noticiasaominuto.com",
         "networks": [
-          "instagram",
           "facebook"
         ],
         "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-09_1.jpg",
@@ -19633,7 +19632,6 @@
         "layout_preference": "template_1",
         "breaking_candidate": false,
         "networks": [
-          "instagram",
           "facebook"
         ],
         "relevance": {
