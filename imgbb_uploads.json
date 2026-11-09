@@ -9137,17 +9137,23 @@
         "delete_status": ""
     },
     {
-        "kind": "review_preview",
+        "kind": "published_post",
         "lang": "pt",
         "date": "2026-11-09",
         "option_index": 2,
         "title": "Começa a ser derrubado o Muro de Berlim",
         "year": "1989",
-        "image_url": "https://i.ibb.co/5h7kqpkJ/2026-11-09-03-1989-comeca-a-ser-derrubado-o-muro-de-berlim.jpg",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-09_2.jpg",
         "delete_url": "https://ibb.co/qYZCbqC2/fda972b1d4c064c9cd8d12f5ee6718c9",
-        "created_at": "2026-11-09T06:13:22+00:00",
+        "created_at": "2026-11-09T19:02:30+00:00",
         "deleted_at": "",
-        "delete_status": ""
+        "delete_status": "",
+        "slot": "evening",
+        "platform": "facebook",
+        "post_id": "pt_2026-11-09_2",
+        "platform_post_id": "1030669413467151_122138126570824703",
+        "platform_post_url": "https://www.facebook.com/122136509126824703/posts/122138126570824703",
+        "published_at": "2026-11-09T19:02:30.271144"
     },
     {
         "kind": "published_post",
@@ -9162,6 +9168,22 @@
         "platform_post_url": "https://www.facebook.com/122096313699541219/posts/122101944069541219",
         "published_at": "2026-11-09T11:01:59.877478",
         "created_at": "2026-11-09T11:01:59+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "published_post",
+        "lang": "en",
+        "date": "2026-11-09",
+        "slot": "evening",
+        "platform": "facebook",
+        "post_id": "en_2026-11-09_2",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-09_2.jpg",
+        "delete_url": "",
+        "platform_post_id": "1318455601360516_122102331597541219",
+        "platform_post_url": "https://www.facebook.com/122096313699541219/posts/122102331597541219",
+        "published_at": "2026-11-09T19:03:53.979066",
+        "created_at": "2026-11-09T19:03:53+00:00",
         "deleted_at": "",
         "delete_status": ""
     }

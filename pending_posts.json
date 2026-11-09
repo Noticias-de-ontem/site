@@ -8447,7 +8447,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -8617,7 +8617,14 @@
         ],
         "last_regenerated_at": "2026-11-09T02:19:04.658596",
         "regeneration_count": 1,
-        "last_image_refresh_at": "2026-11-09T06:13:22.820366"
+        "last_image_refresh_at": "2026-11-09T06:13:22.820366",
+        "instagram_id": "18106007528374538",
+        "instagram_url": "https://www.instagram.com/p/DfiCOjAl7oV/",
+        "published_at": "2026-11-09T19:02:30.280891",
+        "instagram_story_id": "17954394996324998",
+        "facebook_id": "1030669413467151_122138126570824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122138126570824703",
+        "facebook_story_id": "2234178954195960"
     },
     {
         "id": "pt_2026-11-10_1",
@@ -19680,7 +19687,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-09_2",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "wikipedia",
         "external_suggestions": [],
@@ -19731,7 +19738,14 @@
                 "background_source_url": "https://arquivo.pt/wayback/20220417111205/https://www.grupoescolar.com/pesquisa/pandemias-ao-longo-da-historia-humana.html/amp",
                 "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-09_2-fundo.jpg"
             }
-        ]
+        ],
+        "instagram_id": "18007266287793546",
+        "instagram_url": "https://www.instagram.com/p/DfiCWejFwJf/",
+        "published_at": "2026-11-09T19:03:53.988384",
+        "instagram_story_id": "18126070930932406",
+        "facebook_id": "1318455601360516_122102331597541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122102331597541219",
+        "facebook_story_id": "997617783391314"
     },
     {
         "id": "en_2026-11-21_2",
