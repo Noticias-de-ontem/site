@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T11:31:25+00:00",
+  "generated_at": "2026-11-10T12:01:26+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -385,60 +385,6 @@
       "relevance_justification_en": "Tema de forte debate ético, religioso e social com impacto internacional."
     },
     {
-      "id": "pt_2026-11-01_1",
-      "lang": "pt",
-      "date": "2026-11-01",
-      "slot": 1,
-      "status": "published",
-      "published_at": "2026-11-01T11:31:39.990035",
-      "category": "HISTÓRIA",
-      "title": "Crise política e agitação militar precipitam rutura na Primeira República",
-      "title_en": "",
-      "summary": "Agravamento da instabilidade militar e governativa precipita crise na Primeira República",
-      "summary_en": "",
-      "original_year": "1918",
-      "image": "assets/posts/2026-11-01-1-crise-poltica-e-agitao-militar-precipitam-rutura-na-primeira-repblica.jpg",
-      "banner_image": "assets/banners/2026-11-01-1-crise-poltica-e-agitao-militar-precipitam-rutura-na-primeira-repblica-banner.jpg",
-      "body": "Em 1918, a Primeira República atravessava uma das suas fases mais críticas, marcada por uma aguda crise política e agitação militar que abalou as estruturas do regime. O final da Primeira Guerra Mundial trouxe expectativas de estabilidade, mas o país mergulhou num cenário de profunda incerteza. O esforço de guerra havia exaurido os recursos nacionais, provocando escassez de géneros alimentícios e um aumento significativo do custo de vida, o que alimentou o descontentamento popular. No plano interno, o governo liberal, liderado por Afonso Costa, enfrentava uma oposição cada vez mais forte e dividida. As greves operárias e as manifestações agrícolas tornaram-se frequentes, denunciando a incapacidade do executivo para gerir a economia de guerra e as reivindicações sociais. Paralelamente, o Exército vivia um momento de fratura. A recusa de oficiais em obedecer ordens e a propagação de ideias republicanas dentro das fileiras criaram um ambiente de desobediência crescente. O caso mais emblemático ocorreu em novembro, quando unidades do Exército manifestaram-se contra a política de intervenção governamental, exigindo reformas profundas e maior participação nos destinos nacionais. Esta confluência de factores — a fadiga da população, a incapacidade governativa e a insubordinação militar — culminou num período de exceção. A instabilidade precipitou a queda de vários ministros e enfraqueceu a credibilidade do regime republicano, que até então se afirmara como a única alternativa política possível após a implosão monárquica. A crise de 1918 funcionou como um ponto de viragem, evidenciando as fissuras latentes da República e preparando o terreno para as transformações políticas que se seguiriam nos anos subsequentes, incluindo a instabilidade que levaria ao Estado Novo. A agudização das tensões militares e políticas colocou a Primeira República sob forte pressão, abrindo caminho a períodos de exceção governativa.",
-      "body_en": "",
-      "caption": "O regime republicano enfrentou um período de profunda instabilidade institucional e contestação nos quartéis em 1918, precipitando uma rutura política que acentuou o clima de agitação militar durante a presidência de Sidónio Pais. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1918. 🔗 Lê a notícia completa no link na descrição do perfil.",
-      "source_url": "",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "https://www.instagram.com/p/DfMoVeTFK2j/",
-      "instagram_id": "18102049427381392",
-      "facebook_url": "https://www.facebook.com/1030669413467151_122136978242824703",
-      "facebook_id": "1030669413467151_122136978242824703",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram",
-        "facebook"
-      ],
-      "cover_focus": null,
-      "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfMoVeTFK2j/",
-        "facebook": "https://www.facebook.com/1030669413467151_122136978242824703"
-      },
-      "relevance_level": 2,
-      "relevance_scores": {
-        "impacto_historico": 80.0,
-        "dimensao_impacto": 75.0,
-        "consequencias": 70.0,
-        "relevancia_posterior": 70.0,
-        "dimensao_duracao": 65.0,
-        "relevancia_mediatica": 50.0,
-        "singularidade": 65.0
-      },
-      "relevance_weighted": 72.2,
-      "relevance_justification": "Crise política e agitação militar precipitam rutura na Primeira República.",
-      "source_type": "archive",
-      "url_path": "noticia/historia/crise-politica-e-agitacao-militar-precipitam",
-      "page_id": "noticia-ce7c0b75f943300593ee1c17",
-      "detail_image": "assets/banners/2026-11-01-1-crise-poltica-e-agitao-militar-precipitam-rutura-na-primeira-repblica-banner.jpg",
-      "snapshot_url": ""
-    },
-    {
       "id": "pt_2026-10-28_2",
       "lang": "pt",
       "date": "2026-10-28",
@@ -661,6 +607,60 @@
       "page_id": "noticia-017bd61178fa8c59845d65ec",
       "detail_image": "assets/banners/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-017bd61178fa8c59845d65ec.jpg"
+    },
+    {
+      "id": "pt_2026-11-01_1",
+      "lang": "pt",
+      "date": "2026-11-01",
+      "slot": 1,
+      "status": "published",
+      "published_at": "2026-11-01T11:31:39.990035",
+      "category": "HISTÓRIA",
+      "title": "Crise política e agitação militar precipitam rutura na Primeira República",
+      "title_en": "",
+      "summary": "Agravamento da instabilidade militar e governativa precipita crise na Primeira República",
+      "summary_en": "",
+      "original_year": "1918",
+      "image": "assets/posts/2026-11-01-1-crise-poltica-e-agitao-militar-precipitam-rutura-na-primeira-repblica.jpg",
+      "banner_image": "assets/banners/2026-11-01-1-crise-poltica-e-agitao-militar-precipitam-rutura-na-primeira-repblica-banner.jpg",
+      "body": "Em 1918, a Primeira República atravessava uma das suas fases mais críticas, marcada por uma aguda crise política e agitação militar que abalou as estruturas do regime. O final da Primeira Guerra Mundial trouxe expectativas de estabilidade, mas o país mergulhou num cenário de profunda incerteza. O esforço de guerra havia exaurido os recursos nacionais, provocando escassez de géneros alimentícios e um aumento significativo do custo de vida, o que alimentou o descontentamento popular. No plano interno, o governo liberal, liderado por Afonso Costa, enfrentava uma oposição cada vez mais forte e dividida. As greves operárias e as manifestações agrícolas tornaram-se frequentes, denunciando a incapacidade do executivo para gerir a economia de guerra e as reivindicações sociais. Paralelamente, o Exército vivia um momento de fratura. A recusa de oficiais em obedecer ordens e a propagação de ideias republicanas dentro das fileiras criaram um ambiente de desobediência crescente. O caso mais emblemático ocorreu em novembro, quando unidades do Exército manifestaram-se contra a política de intervenção governamental, exigindo reformas profundas e maior participação nos destinos nacionais. Esta confluência de factores — a fadiga da população, a incapacidade governativa e a insubordinação militar — culminou num período de exceção. A instabilidade precipitou a queda de vários ministros e enfraqueceu a credibilidade do regime republicano, que até então se afirmara como a única alternativa política possível após a implosão monárquica. A crise de 1918 funcionou como um ponto de viragem, evidenciando as fissuras latentes da República e preparando o terreno para as transformações políticas que se seguiriam nos anos subsequentes, incluindo a instabilidade que levaria ao Estado Novo. A agudização das tensões militares e políticas colocou a Primeira República sob forte pressão, abrindo caminho a períodos de exceção governativa.",
+      "body_en": "",
+      "caption": "O regime republicano enfrentou um período de profunda instabilidade institucional e contestação nos quartéis em 1918, precipitando uma rutura política que acentuou o clima de agitação militar durante a presidência de Sidónio Pais. Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1918. 🔗 Lê a notícia completa no link na descrição do perfil.",
+      "source_url": "",
+      "source_profile": "",
+      "source_platform": "",
+      "instagram_url": "https://www.instagram.com/p/DfMoVeTFK2j/",
+      "instagram_id": "18102049427381392",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136978242824703",
+      "facebook_id": "1030669413467151_122136978242824703",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram",
+        "facebook"
+      ],
+      "cover_focus": null,
+      "network_posts": {
+        "instagram": "https://www.instagram.com/p/DfMoVeTFK2j/",
+        "facebook": "https://www.facebook.com/1030669413467151_122136978242824703"
+      },
+      "relevance_level": 2,
+      "relevance_scores": {
+        "impacto_historico": 80.0,
+        "dimensao_impacto": 75.0,
+        "consequencias": 70.0,
+        "relevancia_posterior": 70.0,
+        "dimensao_duracao": 65.0,
+        "relevancia_mediatica": 50.0,
+        "singularidade": 65.0
+      },
+      "relevance_weighted": 72.2,
+      "relevance_justification": "Crise política e agitação militar precipitam rutura na Primeira República.",
+      "source_type": "archive",
+      "url_path": "noticia/historia/crise-politica-e-agitacao-militar-precipitam",
+      "page_id": "noticia-ce7c0b75f943300593ee1c17",
+      "detail_image": "assets/banners/2026-11-01-1-crise-poltica-e-agitao-militar-precipitam-rutura-na-primeira-repblica-banner.jpg",
+      "snapshot_url": ""
     }
   ],
   "latest": [
