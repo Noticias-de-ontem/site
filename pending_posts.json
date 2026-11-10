@@ -20104,5 +20104,69 @@
         "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-10_01_2021_parlamento-aprova-alteracoes-a-lei-da-eutanasia-fundo.jpg"
       }
     ]
+  },
+  {
+    "id": "en_2026-11-10_1",
+    "date": "2026-11-10",
+    "slot": 1,
+    "lang": "en",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "Synced from pt_2026-11-10_1",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "source_profile": "",
+    "external_suggestions": [],
+    "options": [
+      {
+        "category": "HEALTH",
+        "title": "President enacts minimum wage increase",
+        "title_en": "President enacts minimum wage increase",
+        "highlight_text": "President enacts",
+        "overlay_description": "Decree increases national remuneration starting January 2024, fulfilling medium-term agreement.",
+        "caption": "In 2023, Portugal’s president promulgated a decree raising the national minimum wage from €760 to €820 a month. The increase takes effect January 1, 2024, delivering on a medium-term agreement reached between the government and social partners.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2023.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Health",
+        "caption_instagram": "In 2023, Portugal’s president promulgated a decree raising the national minimum wage from €760 to €820 a month. The increase takes effect January 1, 2024, delivering on a medium-term agreement reached between the government and social partners.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2023.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Health",
+        "caption_facebook": "In 2023, Portugal’s president promulgated a decree raising the national minimum wage from €760 to €820 a month. The increase takes effect January 1, 2024, delivering on a medium-term agreement reached between the government and social partners.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2023.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Health",
+        "year": "2023",
+        "summary": "Decree increases national remuneration starting January 2024, fulfilling medium-term agreement.",
+        "summary_en": "Decree increases national remuneration starting January 2024, fulfilling medium-term agreement.",
+        "body": "In 2023, Portugal marked a significant social and economic moment with the promulgation of a minimum wage increase. President Marcelo Rebelo de Sousa signed the decree raising the base salary from 760 to 820 euros, a 60-euro monthly raise taking effect in January 2024. This measure results from a medium-term agreement between the Government and social partners, reflecting a commitment to labor valorization and combating workers' purchasing power.\n\nThe context of this increase rests on a scenario of elevated inflation and rising living costs, which have pressured Portuguese families throughout the year. Raising the minimum wage to 820 euros represents a concrete step toward reducing working poverty and ensuring a more dignified salary floor, aligning Portugal with objectives defined in tripartite negotiations.\n\nThe decree establishes that the new value applies starting January 1, 2024, benefiting approximately 300,000 workers receiving the minimum wage. Beyond immediate payroll impact, the increase has an 'anchor effect,' influencing collective bargaining and salary adjustments across various economic sectors. The measure also aims to strengthen internal consumption, injecting greater purchasing power into the productive tissue.\n\nThe lasting relevance of this legislative act lies in its structural impact on Portuguese social policy. By fulfilling a medium-term agreement, the Government reinforces its credibility in labor relations and demonstrates a tangible commitment to social justice. This minimum wage increase not only improves the quality of life for the most vulnerable workers but also serves as a benchmark for the country's salary evolution in the coming years, consolidating a pattern of balanced and sustainable economic progress.",
+        "body_en": "In 2023, Portugal marked a significant social and economic moment with the promulgation of a minimum wage increase. President Marcelo Rebelo de Sousa signed the decree raising the base salary from 760 to 820 euros, a 60-euro monthly raise taking effect in January 2024. This measure results from a medium-term agreement between the Government and social partners, reflecting a commitment to labor valorization and combating workers' purchasing power.\n\nThe context of this increase rests on a scenario of elevated inflation and rising living costs, which have pressured Portuguese families throughout the year. Raising the minimum wage to 820 euros represents a concrete step toward reducing working poverty and ensuring a more dignified salary floor, aligning Portugal with objectives defined in tripartite negotiations.\n\nThe decree establishes that the new value applies starting January 1, 2024, benefiting approximately 300,000 workers receiving the minimum wage. Beyond immediate payroll impact, the increase has an 'anchor effect,' influencing collective bargaining and salary adjustments across various economic sectors. The measure also aims to strengthen internal consumption, injecting greater purchasing power into the productive tissue.\n\nThe lasting relevance of this legislative act lies in its structural impact on Portuguese social policy. By fulfilling a medium-term agreement, the Government reinforces its credibility in labor relations and demonstrates a tangible commitment to social justice. This minimum wage increase not only improves the quality of life for the most vulnerable workers but also serves as a benchmark for the country's salary evolution in the coming years, consolidating a pattern of balanced and sustainable economic progress.",
+        "image_theme": "Palácio de Belém Lisboa",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 55.0,
+            "dimensao_impacto": 45.0,
+            "consequencias": 50.0,
+            "relevancia_posterior": 45.0,
+            "dimensao_duracao": 35.0,
+            "relevancia_mediatica": 30.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 46.5,
+          "justification": "The increase improves living standards, fulfills a medium-term agreement and provides a benchmark for future wage negotiations.",
+          "lang": "pt",
+          "justification_en": "The increase improves living standards, fulfills a medium-term agreement and provides a benchmark for future wage negotiations."
+        },
+        "article_url": "https://arquivo.pt/wayback/20231110195213/https://impala.pt/noticias/politica/presidente-da-republica-promulga-aumento-do-salario-minimo-para-820-euros-em-2024",
+        "source_profile": "",
+        "source_platform": "",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-10_1.jpg",
+        "image_delete_url": "",
+        "local_image_path": "site/images/approved/en_2026-11-10_1.jpg",
+        "background_source_url": "https://commons.wikimedia.org/wiki/File:Pal%C3%A1cio_de_Bel%C3%A9m_-_Lisboa_-_Portugal_(5285258280).jpg",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-10_1-fundo.jpg"
+      }
+    ]
   }
 ]
