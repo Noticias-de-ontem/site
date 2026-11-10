@@ -9186,5 +9186,31 @@
         "created_at": "2026-11-09T19:03:53+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-10",
+        "option_index": 0,
+        "title": "Presidente promulga aumento salário mínimo de 760 para 820 euros",
+        "year": "2023",
+        "image_url": "https://i.ibb.co/1fdLDBMC/2026-11-10-01-2023-presidente-promulga-aumento-salario-minimo-de-760-para-820-euros.jpg",
+        "delete_url": "https://ibb.co/VWQt7bxF/2b60a0476cd087239f1ff0eae155d5ed",
+        "created_at": "2026-11-10T13:05:34+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-10",
+        "option_index": 1,
+        "title": "Bolsa: EDP e Sonae suportam ganhos do PSI-20",
+        "year": "2004",
+        "image_url": "https://i.ibb.co/S434pJgd/2026-11-10-02-2004-bolsa-edp-e-sonae-suportam-ganhos-do-psi-20.jpg",
+        "delete_url": "https://ibb.co/YFLFGbSy/2a6b1577cf18c6dc02309113183dad81",
+        "created_at": "2026-11-10T13:05:58+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
