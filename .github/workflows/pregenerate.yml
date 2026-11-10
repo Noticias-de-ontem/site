@@ -68,5 +68,13 @@ jobs:
           [ -d images/review ] && git add images/review || true
           [ -d site ] && git add site || true
 
+          # O site/data/news.json é um ficheiro gerado com timestamp e o
+          # publicador regenera-o de 30 em 30 minutos; a pregeneração só
+          # altera posts pendentes, que não entram no news.json. Não o enviar
+          # daqui (tirar do stage e repor a versão do checkout), senão o
+          # rebase conflita sempre que a main mexe a meio da run.
+          git reset -q -- site/data/news.json 2>/dev/null || true
+          git checkout -q -- site/data/news.json 2>/dev/null || true
+
           # Apenas commita se existirem alterações nos ficheiros
           git diff --quiet && git diff --staged --quiet || (git commit -m "chore: regenerate pending posts [skip ci]" && git pull --rebase --autostash origin main && git push)
