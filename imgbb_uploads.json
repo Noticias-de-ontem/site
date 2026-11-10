@@ -7721,17 +7721,23 @@
         "delete_status": ""
     },
     {
-        "kind": "review_preview",
+        "kind": "published_post",
         "lang": "pt",
         "date": "2026-11-10",
         "option_index": 0,
         "title": "Parlamento aprova alterações à lei da eutanásia",
         "year": "2021",
-        "image_url": "https://i.ibb.co/KpRz6L9T/2026-11-10-01-2021-parlamento-aprova-alteracoes-a-lei-da-eutanasia.jpg",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-10_2.jpg",
         "delete_url": "https://ibb.co/YFYT2ytH/cb9a3db4a88e64369fed86504c1deb0c",
-        "created_at": "2026-11-08T16:37:20+00:00",
+        "created_at": "2026-11-10T19:06:53+00:00",
         "deleted_at": "",
-        "delete_status": ""
+        "delete_status": "",
+        "slot": "evening",
+        "platform": "instagram",
+        "post_id": "pt_2026-11-10_2",
+        "platform_post_id": "18112118906212961",
+        "platform_post_url": "https://www.instagram.com/p/DfknnmHETrn/",
+        "published_at": "2026-11-10T19:06:53.630135"
     },
     {
         "kind": "review_preview",
