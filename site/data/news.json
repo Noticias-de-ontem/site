@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-10T20:01:56+00:00",
+  "generated_at": "2026-11-10T20:33:01+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -17,7 +17,7 @@
     "date": "2026-11-10",
     "slot": 2,
     "status": "published",
-    "published_at": "2026-11-10T19:06:53.628305",
+    "published_at": "2026-11-10T20:31:45.052418",
     "category": "JUSTIÇA",
     "title": "Parlamento aprova alterações à lei da eutanásia",
     "title_en": "Parliament approves euthanasia law amendments",
@@ -34,8 +34,8 @@
     "source_platform": "arquivo.pt",
     "instagram_url": "",
     "instagram_id": "18112118906212961",
-    "facebook_url": "",
-    "facebook_id": "",
+    "facebook_url": "https://www.facebook.com/122136509126824703/posts/122138262710824703",
+    "facebook_id": "1030669413467151_122138262710824703",
     "archive_credit": "Arquivo.pt",
     "banner_ready": false,
     "networks": [
@@ -43,7 +43,9 @@
       "facebook"
     ],
     "cover_focus": null,
-    "network_posts": {},
+    "network_posts": {
+      "facebook": "https://www.facebook.com/122136509126824703/posts/122138262710824703"
+    },
     "relevance_level": 4,
     "relevance_scores": {
       "impacto_historico": 75,
@@ -64,10 +66,10 @@
     "url_path_en": "noticia/justice/parliament-approves-euthanasia-law-amendments",
     "page_id_en": "noticia-08c0b2c6f95797b7d6cd98cb",
     "category_en": "JUSTICE",
-    "instagram_url_en": "",
-    "instagram_id_en": "",
-    "facebook_url_en": "",
-    "facebook_id_en": "",
+    "instagram_url_en": "https://www.instagram.com/p/DfkxXCajHk5/",
+    "instagram_id_en": "18129828505856937",
+    "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122103504741541219",
+    "facebook_id_en": "1318455601360516_122103504741541219",
     "relevance_justification_en": "The changes strengthen safeguards for medically assisted death and are set to shape Portugal's ongoing debate over social rights and medical ethics."
   },
   "carousel": [
@@ -667,7 +669,7 @@
       "date": "2026-11-10",
       "slot": 2,
       "status": "published",
-      "published_at": "2026-11-10T19:06:53.628305",
+      "published_at": "2026-11-10T20:31:45.052418",
       "category": "JUSTIÇA",
       "title": "Parlamento aprova alterações à lei da eutanásia",
       "title_en": "Parliament approves euthanasia law amendments",
@@ -684,8 +686,8 @@
       "source_platform": "arquivo.pt",
       "instagram_url": "",
       "instagram_id": "18112118906212961",
-      "facebook_url": "",
-      "facebook_id": "",
+      "facebook_url": "https://www.facebook.com/122136509126824703/posts/122138262710824703",
+      "facebook_id": "1030669413467151_122138262710824703",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
@@ -693,7 +695,9 @@
         "facebook"
       ],
       "cover_focus": null,
-      "network_posts": {},
+      "network_posts": {
+        "facebook": "https://www.facebook.com/122136509126824703/posts/122138262710824703"
+      },
       "relevance_level": 4,
       "relevance_scores": {
         "impacto_historico": 75,
@@ -714,10 +718,10 @@
       "url_path_en": "noticia/justice/parliament-approves-euthanasia-law-amendments",
       "page_id_en": "noticia-08c0b2c6f95797b7d6cd98cb",
       "category_en": "JUSTICE",
-      "instagram_url_en": "",
-      "instagram_id_en": "",
-      "facebook_url_en": "",
-      "facebook_id_en": "",
+      "instagram_url_en": "https://www.instagram.com/p/DfkxXCajHk5/",
+      "instagram_id_en": "18129828505856937",
+      "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122103504741541219",
+      "facebook_id_en": "1318455601360516_122103504741541219",
       "relevance_justification_en": "The changes strengthen safeguards for medically assisted death and are set to shape Portugal's ongoing debate over social rights and medical ethics."
     },
     {
@@ -1162,7 +1166,7 @@
       "date": "2026-11-10",
       "slot": 2,
       "status": "published",
-      "published_at": "2026-11-10T19:06:53.628305",
+      "published_at": "2026-11-10T20:31:45.052418",
       "category": "JUSTIÇA",
       "title": "Parlamento aprova alterações à lei da eutanásia",
       "title_en": "Parliament approves euthanasia law amendments",
@@ -1179,8 +1183,8 @@
       "source_platform": "arquivo.pt",
       "instagram_url": "",
       "instagram_id": "18112118906212961",
-      "facebook_url": "",
-      "facebook_id": "",
+      "facebook_url": "https://www.facebook.com/122136509126824703/posts/122138262710824703",
+      "facebook_id": "1030669413467151_122138262710824703",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
@@ -1188,7 +1192,9 @@
         "facebook"
       ],
       "cover_focus": null,
-      "network_posts": {},
+      "network_posts": {
+        "facebook": "https://www.facebook.com/122136509126824703/posts/122138262710824703"
+      },
       "relevance_level": 4,
       "relevance_scores": {
         "impacto_historico": 75,
@@ -1209,10 +1215,10 @@
       "url_path_en": "noticia/justice/parliament-approves-euthanasia-law-amendments",
       "page_id_en": "noticia-08c0b2c6f95797b7d6cd98cb",
       "category_en": "JUSTICE",
-      "instagram_url_en": "",
-      "instagram_id_en": "",
-      "facebook_url_en": "",
-      "facebook_id_en": "",
+      "instagram_url_en": "https://www.instagram.com/p/DfkxXCajHk5/",
+      "instagram_id_en": "18129828505856937",
+      "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122103504741541219",
+      "facebook_id_en": "1318455601360516_122103504741541219",
       "relevance_justification_en": "The changes strengthen safeguards for medically assisted death and are set to shape Portugal's ongoing debate over social rights and medical ethics."
     },
     {

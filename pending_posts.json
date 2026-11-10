@@ -9356,7 +9356,11 @@
         "last_regenerated_at": "2026-11-10T13:06:20.286108",
         "regeneration_count": 2,
         "instagram_id": "18112118906212961",
-        "published_at": "2026-11-10T19:06:53.628305"
+        "published_at": "2026-11-10T20:31:45.052418",
+        "instagram_story_id": "18122704864933834",
+        "facebook_id": "1030669413467151_122138262710824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122138262710824703",
+        "facebook_story_id": "1120985900818048"
     },
     {
         "id": "pt_2026-11-11_1",
@@ -20059,7 +20063,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-10_2",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "jn.pt",
         "external_suggestions": [],
@@ -20110,7 +20114,14 @@
                 "background_source_url": "https://commons.wikimedia.org/wiki/File:Assembleia_da_Rep%C3%BAblica,_Lisboa_-_panoramio.jpg",
                 "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-10_01_2021_parlamento-aprova-alteracoes-a-lei-da-eutanasia-fundo.jpg"
             }
-        ]
+        ],
+        "instagram_id": "18129828505856937",
+        "instagram_url": "https://www.instagram.com/p/DfkxXCajHk5/",
+        "published_at": "2026-11-10T20:32:51.339385",
+        "instagram_story_id": "18120076837807252",
+        "facebook_id": "1318455601360516_122103504741541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122103504741541219",
+        "facebook_story_id": "2612350359176689"
     },
     {
         "id": "en_2026-11-10_1",

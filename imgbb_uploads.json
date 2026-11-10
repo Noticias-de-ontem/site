@@ -7729,15 +7729,15 @@
         "year": "2021",
         "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-10_2.jpg",
         "delete_url": "https://ibb.co/YFYT2ytH/cb9a3db4a88e64369fed86504c1deb0c",
-        "created_at": "2026-11-10T19:06:53+00:00",
+        "created_at": "2026-11-10T20:31:45+00:00",
         "deleted_at": "",
         "delete_status": "",
         "slot": "evening",
-        "platform": "instagram",
+        "platform": "facebook",
         "post_id": "pt_2026-11-10_2",
-        "platform_post_id": "18112118906212961",
-        "platform_post_url": "https://www.instagram.com/p/DfknnmHETrn/",
-        "published_at": "2026-11-10T19:06:53.630135"
+        "platform_post_id": "1030669413467151_122138262710824703",
+        "platform_post_url": "https://www.facebook.com/122136509126824703/posts/122138262710824703",
+        "published_at": "2026-11-10T20:31:45.046421"
     },
     {
         "kind": "review_preview",
@@ -9251,6 +9251,22 @@
         "platform_post_url": "https://www.facebook.com/122096313699541219/posts/122103450129541219",
         "published_at": "2026-11-10T19:16:19.119829",
         "created_at": "2026-11-10T19:16:19+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "published_post",
+        "lang": "en",
+        "date": "2026-11-10",
+        "slot": "evening",
+        "platform": "facebook",
+        "post_id": "en_2026-11-10_2",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-10_2.jpg",
+        "delete_url": "",
+        "platform_post_id": "1318455601360516_122103504741541219",
+        "platform_post_url": "https://www.facebook.com/122096313699541219/posts/122103504741541219",
+        "published_at": "2026-11-10T20:32:51.330655",
+        "created_at": "2026-11-10T20:32:51+00:00",
         "deleted_at": "",
         "delete_status": ""
     }
