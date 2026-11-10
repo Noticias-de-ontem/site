@@ -1,48 +1,48 @@
 {
     "pt": {
-        "date": "2026-11-09",
-        "morning_target_time": "10:44",
-        "evening_target_time": "18:51",
+        "date": "2026-11-10",
+        "morning_target_time": "13:06",
+        "evening_target_time": "20:28",
         "instagram": {
-            "morning_posted": true,
-            "evening_posted": true,
-            "morning_attempted": true,
-            "evening_attempted": true,
-            "morning_story_posted": true,
-            "evening_story_posted": true,
-            "last_post_time": "2026-11-09T21:20:27.081293+00:00"
+            "morning_posted": false,
+            "evening_posted": false,
+            "morning_attempted": false,
+            "evening_attempted": false,
+            "morning_story_posted": false,
+            "evening_story_posted": false,
+            "last_post_time": null
         },
         "facebook": {
-            "morning_posted": true,
-            "evening_posted": true,
-            "morning_attempted": true,
-            "evening_attempted": true,
-            "morning_story_posted": true,
-            "evening_story_posted": true,
-            "last_post_time": "2026-11-09T19:01:30.952673+00:00"
+            "morning_posted": false,
+            "evening_posted": false,
+            "morning_attempted": false,
+            "evening_attempted": false,
+            "morning_story_posted": false,
+            "evening_story_posted": false,
+            "last_post_time": null
         }
     },
     "en": {
-        "date": "2026-11-09",
-        "morning_target_time": "10:44",
-        "evening_target_time": "18:51",
+        "date": "2026-11-10",
+        "morning_target_time": "13:06",
+        "evening_target_time": "20:28",
         "instagram": {
-            "morning_posted": true,
-            "evening_posted": true,
-            "morning_attempted": true,
-            "evening_attempted": true,
-            "morning_story_posted": true,
-            "evening_story_posted": true,
-            "last_post_time": "2026-11-09T21:20:47.394298+00:00"
+            "morning_posted": false,
+            "evening_posted": false,
+            "morning_attempted": false,
+            "evening_attempted": false,
+            "morning_story_posted": false,
+            "evening_story_posted": false,
+            "last_post_time": null
         },
         "facebook": {
-            "morning_posted": true,
-            "evening_posted": true,
-            "morning_attempted": true,
-            "evening_attempted": true,
-            "morning_story_posted": true,
-            "evening_story_posted": true,
-            "last_post_time": "2026-11-09T19:02:36.209726+00:00"
+            "morning_posted": false,
+            "evening_posted": false,
+            "morning_attempted": false,
+            "evening_attempted": false,
+            "morning_story_posted": false,
+            "evening_story_posted": false,
+            "last_post_time": null
         }
     }
 }
