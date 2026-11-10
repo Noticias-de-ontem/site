@@ -9331,6 +9331,7 @@
         "source_platform": "arquivo.pt",
         "source_profile": "jn.pt",
         "networks": [
+          "instagram",
           "facebook"
         ],
         "body": "Em 2021, o Parlamento português aprovou alterações significativas à lei da eutanásia, reforçando o quadro regulamentar da morte medicamente assistida. O diploma, que já vigorava desde 2020, passou por uma nova votação legislativa após o veto presidencial ocorrido no final de 2020, que tinha bloqueado a sua entrada em vigor. Os deputados votaram favoravelmente as alterações, que visam clarificar procedimentos e garantir maior segurança jurídica no processo.\n\nO contexto desta aprovação reside no longo debate parlamentar e social que antecedeu a primeira versão da lei, aprovada em 2020. As novas alterações surgem após críticas técnicas e solicitações de ajustamentos por parte de partidos e especialistas médicos, focando particularmente na definição de requisitos rigorosos para a solicitação, a intervenção dos profissionais de saúde e os prazos de reflexão. O texto aprovado mantém a obrigatoriedade de dois médicos certificarem a situação do doente, bem como a existência de um período de reflexão mínimo.\n\nA relevância duradoura desta aprovação reside na consolidação de um direito que posiciona Portugal como um dos poucos países da Europa a regulamentar explicitamente a eutanásia. Ao superar o veto presidencial e estabelecer regras mais detalhadas, o Parlamento respondeu a pedidos de clarificação prática, garantindo que o processo seja acompanhado de forma transparente e ética. Esta legislação marca um precedente importante na assistência paliativa e nos direitos dos doentes terminais no país.",
@@ -20072,6 +20073,7 @@
         "layout_preference": "template_1",
         "breaking_candidate": false,
         "networks": [
+          "instagram",
           "facebook"
         ],
         "relevance": {
