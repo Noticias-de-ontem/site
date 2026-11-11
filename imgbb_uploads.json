@@ -9317,5 +9317,18 @@
         "created_at": "2026-11-11T16:49:21+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-11",
+        "option_index": 5,
+        "title": "Investigação ao primeiro-ministro leva à sua demissão",
+        "year": "2023",
+        "image_url": "https://i.ibb.co/k254LMFM/2026-11-11-06-2023-investigacao-ao-primeiro-ministro-leva-a-sua-demissao.jpg",
+        "delete_url": "https://ibb.co/s9bKTtrt/ba47d90848f78c290957c45002fd32dc",
+        "created_at": "2026-11-11T17:31:54+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
