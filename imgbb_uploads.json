@@ -9269,5 +9269,31 @@
         "created_at": "2026-11-10T20:32:51+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-11",
+        "option_index": 2,
+        "title": "São Tomé e Príncipe a não perder na Exame de Dezembro",
+        "year": "2014",
+        "image_url": "https://i.ibb.co/3Z1PyTL/2026-11-11-03-2014-sao-tome-e-principe-a-nao-perder-na-exame-de-dezembro.jpg",
+        "delete_url": "https://ibb.co/8ZMQDmS/7eceaaebfcd81bff5dceead6f7bfb9d8",
+        "created_at": "2026-11-11T10:14:53+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-11",
+        "option_index": 1,
+        "title": "Tribunal Constitucional chumba novos estatutos do Chega",
+        "year": "2022",
+        "image_url": "https://i.ibb.co/YBN22fjg/2026-11-11-02-2022-tribunal-constitucional-chumba-novos-estatutos-do-chega.jpg",
+        "delete_url": "https://ibb.co/XxWXXFJH/2eb09c588fdc071118fd700f1ab873d2",
+        "created_at": "2026-11-11T10:15:35+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
