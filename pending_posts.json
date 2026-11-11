@@ -9505,13 +9505,13 @@
     "date": "2026-11-11",
     "slot": 1,
     "lang": "pt",
-    "selected_option": 2,
+    "selected_option": 5,
     "layout_override": "",
     "theme_suggestion": "",
     "manual_background_url": "",
     "review_action": "",
     "review_note": "",
-    "status": "pending",
+    "status": "approved",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -9757,6 +9757,55 @@
         "local_background_path": "",
         "caption_instagram": "Political crisis unfolds as investigation leads to prime minister's resignation, triggering early parliamentary elections.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
         "caption_facebook": "Political crisis unfolds as investigation leads to prime minister's resignation, triggering early parliamentary elections.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica"
+      },
+      {
+        "year": "2022",
+        "category": "JUSTIÇA",
+        "editorial_tier": "high",
+        "title": "Tribunal Constitucional chumba novos estatutos do Chega",
+        "highlight_text": "estatutos chumbados",
+        "overlay_description": "Decisão judicial sobre requisitos de partido político determina problemas de transparência",
+        "image_theme": "Assembleia da República Lisboa",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "Constitutional court invalidates party statutes approved by Chega, citing transparency and power concentration concerns.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2022.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
+        "summary": "Judicial decision reinforces institutional limits on political party organization.",
+        "title_en": "Constitutional Court rejects new Chega statutes",
+        "summary_en": "Judicial decision reinforces institutional limits on political party organization.",
+        "body_en": "In 2022, Portugal's Constitutional Court invalidated the new statutes of the Chega party, marking a turbulent chapter in the national political landscape. The tribunal based its decision on serious transparency deficiencies and excessive power concentration within the party's governing bodies. Admission requirements and operational rules were deemed incompatible with constitutional principles of internal democracy and access to information. The ruling followed numerous complaints by various parties and citizens who warned of lack of clarity in electoral norms and accounting practices. For Chega, the annulment represented an obstacle to its institutionalization process and goal of greater parliamentary representation. However, the court maintained that political parties must operate with total transparency, especially when seeking to influence legislation and govern. The lasting relevance of this decision lies in reinforcing judicial control over party internal rules, establishing an important precedent for the national party system. This case underscores that democracy requires not only freedom of association but also rigorous party management.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 45.0,
+            "dimensao_impacto": 40.0,
+            "consequencias": 35.0,
+            "relevancia_posterior": 30.0,
+            "dimensao_duracao": 25.0,
+            "relevancia_mediatica": 20.0,
+            "singularidade": 30.0
+          },
+          "weighted_score": 36.2,
+          "justification": "Court decision reinforcing institutional limits on political party organization represents routine judicial review with moderate political consequences. The ruling maintains established institutional frameworks without creating major systemic changes.",
+          "lang": "pt",
+          "justification_en": "This routine judicial review reinforces institutional limits on party organization without creating major systemic changes, maintaining established frameworks."
+        },
+        "article_url": "https://arquivo.pt/wayback/20221116190618/https://expresso.pt/politica/2022-11-16-chega-avanca-para-novo-congresso-apos-chumbo-dos-estatutos-pelo-constitucional-189b40f3",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "facebook"
+        ],
+        "body": "Em 2022, o Tribunal Constitucional invalidou os novos estatutos do Chega, decisão que marcou um capítulo conturbado no panorama político português. O tribunal fundamentou a anulação em graves deficiências de transparência e na concentração excessiva de poder nos órgãos diretivos do partido. Os requisitos de admissão e as regras de funcionamento foram considerados incompatíveis com os princípios constitucionais de democracia interna e acesso à informação. A decisão surgiu após uma série de queixas apresentadas por diversos partidos e cidadãos, que alertaram para a falta de clareza nas normas eleitorais e na prestação de contas. Para o Chega, a anulação representava um obstáculo ao seu processo de institucionalização e ao objetivo de obter maior representatividade parlamentar. Contudo, o tribunal manteve a posição de que partidos políticos devem operar com total transparência, especialmente quando pretendem influenciar a legislação e governar. A relevância duradoura desta decisão reside no reforço do controlo judicial sobre as regras internas dos partidos, estabelecendo um precedente importante para o futuro do sistema partidário nacional. Este caso sublinha que a democracia exige não apenas liberdade de associação, mas também rigor na gestão partidária.",
+        "highlight_text_en": "Constitutional Court",
+        "caption_narrative_en": "In 2022, Portugal's Constitutional Court invalidated the new statutes of Chega, citing transparency and power concentration concerns. The ruling, based on complaints from other parties and citizens, highlighted unclear electoral norms and accounting deficiencies. The decision reinforces judicial oversight of internal party rules.",
+        "image_url": "https://i.ibb.co/YBN22fjg/2026-11-11-02-2022-tribunal-constitucional-chumba-novos-estatutos-do-chega.jpg",
+        "image_delete_url": "https://ibb.co/XxWXXFJH/2eb09c588fdc071118fd700f1ab873d2",
+        "local_image_path": "images/review/pt/2026-11-11_02_2022_tribunal-constitucional-chumba-novos-estatutos-do-chega.jpg",
+        "background_source_url": "https://commons.wikimedia.org/wiki/File:22_11_2022_Encontro_com_o_senhor_Augusto_Santos_Silva,_Presidente_da_Assembleia_da_Rep%C3%BAblica_(52518821893).jpg",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-11_02_2022_tribunal-constitucional-chumba-novos-estatutos-do-chega-fundo.jpg",
+        "caption_instagram": "Constitutional court invalidates party statutes approved by Chega, citing transparency and power concentration concerns.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2022.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
+        "caption_facebook": "Constitutional court invalidates party statutes approved by Chega, citing transparency and power concentration concerns.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2022.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Justica"
       }
     ],
     "last_image_refresh_at": "2026-11-09T01:39:09.547428",
