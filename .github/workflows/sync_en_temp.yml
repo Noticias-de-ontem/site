@@ -14,12 +14,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Setup WARP
-        timeout-minutes: 10
-        uses: fscarmen/warp-on-actions@v1.4
-        with:
-          stack: dual
-
       - name: Set up Python
         uses: actions/setup-python@v7
         with:
