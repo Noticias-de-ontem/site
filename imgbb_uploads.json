@@ -9284,7 +9284,7 @@
         "delete_status": ""
     },
     {
-        "kind": "review_preview",
+        "kind": "published_post",
         "lang": "pt",
         "date": "2026-11-11",
         "option_index": 1,
@@ -9292,7 +9292,29 @@
         "year": "2022",
         "image_url": "https://i.ibb.co/YBN22fjg/2026-11-11-02-2022-tribunal-constitucional-chumba-novos-estatutos-do-chega.jpg",
         "delete_url": "https://ibb.co/XxWXXFJH/2eb09c588fdc071118fd700f1ab873d2",
-        "created_at": "2026-11-11T10:15:35+00:00",
+        "created_at": "2026-11-11T16:48:29+00:00",
+        "deleted_at": "",
+        "delete_status": "",
+        "slot": "morning",
+        "platform": "facebook",
+        "post_id": "pt_2026-11-11_1",
+        "platform_post_id": "1030669413467151_122138370608824703",
+        "platform_post_url": "https://www.facebook.com/122136509126824703/posts/122138370608824703",
+        "published_at": "2026-11-11T16:48:29.069816"
+    },
+    {
+        "kind": "published_post",
+        "lang": "en",
+        "date": "2026-11-11",
+        "slot": "morning",
+        "platform": "facebook",
+        "post_id": "en_2026-11-11_1",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-11_1.jpg",
+        "delete_url": "",
+        "platform_post_id": "1318455601360516_122104377579541219",
+        "platform_post_url": "https://www.facebook.com/122096313699541219/posts/122104377579541219",
+        "published_at": "2026-11-11T16:49:21.876809",
+        "created_at": "2026-11-11T16:49:21+00:00",
         "deleted_at": "",
         "delete_status": ""
     }
