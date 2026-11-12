@@ -10212,11 +10212,11 @@
     "date": "2026-11-12",
     "slot": 1,
     "lang": "pt",
-    "selected_option": 0,
+    "selected_option": 1,
     "layout_override": "",
     "theme_suggestion": "",
     "manual_background_url": "",
-    "review_action": "regenerate",
+    "review_action": "refresh_image",
     "review_note": "",
     "status": "pending",
     "generated_month": "2026-11",
@@ -10324,7 +10324,8 @@
         "source_platform": "arquivo.pt",
         "source_profile": "expresso.pt",
         "networks": [
-          "instagram"
+          "instagram",
+          "facebook"
         ],
         "image_url": "",
         "image_delete_url": "",
@@ -10664,11 +10665,11 @@
     "date": "2026-11-12",
     "slot": 2,
     "lang": "pt",
-    "selected_option": 6,
+    "selected_option": 8,
     "layout_override": "",
     "theme_suggestion": "",
     "manual_background_url": "",
-    "review_action": "regenerate",
+    "review_action": "refresh_image",
     "review_note": "",
     "status": "pending",
     "generated_month": "2026-11",
@@ -11100,6 +11101,7 @@
         "source_platform": "arquivo.pt",
         "source_profile": "expresso.pt",
         "networks": [
+          "instagram",
           "facebook"
         ],
         "image_url": "",
