@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-12T20:31:19+00:00",
+  "generated_at": "2026-11-12T21:01:25+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -439,6 +439,60 @@
       "snapshot_url": ""
     },
     {
+      "id": "pt_2026-10-28_2",
+      "lang": "pt",
+      "date": "2026-10-28",
+      "slot": 2,
+      "status": "published",
+      "published_at": "2026-10-28T19:02:30.011181",
+      "category": "POLÍTICA",
+      "title": "Partidos de esquerda chegam a acordo de base para Governo",
+      "title_en": "Left-wing parties reach framework agreement to form Government",
+      "summary": "Forças partidárias concluem entendimentos para viabilizar solução governativa",
+      "summary_en": "Partisan forces conclude understandings to enable a governing solution.",
+      "original_year": "2015",
+      "image": "assets/posts/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo.jpg",
+      "banner_image": "assets/banners/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-banner.jpg",
+      "body": "A chegada a um acordo de base para formar Governo, em 2015, resultou do trabalho de negociação entre forças partidárias de esquerda. O processo permitiu ultrapassar o impasse que se seguia às eleições e abriu caminho à apresentação de uma maioria alternativa no Parlamento. Segundo o resumo da notícia, as forças envolvidas concluíram entendimentos de natureza programática, establishendo compromissos comuns para viabilizar uma solução governativa. A legenda da página refere-se, precisamente, ao resultado alcançado: os partidos parlamentares fixaram compromissos programáticos que permitiram apresentar uma maioria alternativa na Assembleia da República. O acordo não se limitou, portanto, a uma simples concertação de vontades. Incluiu a definição de compromissos programáticos, elemento apresentado como indispensável para garantir a viabilidade do futuro Governo. A negociação entre os partidos de esquerda deu assim origem a uma base de apoio em torno de uma agenda comum, com a qual se candidataram a constituir uma maioria parlamentar. A ocorrência integra a atualidade política portuguesa de 2015 e ilustra a capacidade de diálogo entre forças que, até então, não tinham conseguido ultrapassar as diferenças que bloqueavam a governação. A apresentação de uma maioria alternativa no Parlamento representa o passo decisivo dessa concertação, ao transformar entendimentos entre partidos em uma base concreta para o exercício do poder. A relevância duradoura do acontecimento reside no método político queowie accompanyou: a construção de uma solução governativa através de compromissos programáticos e do diálogo entre partidos de esquerda. O acordo de base fica associado a uma fase de transição na política portuguesa, em que a capacidade de negociação entre forças parliamentary permitiu responder ao resultado eleitoral com uma alternativa de governo.",
+      "body_en": "Reaching a framework agreement to form a Government in 2015 resulted from intense negotiations between left-wing political forces in Portugal. The process resolved the impasse following the elections and paved the way for presenting an alternative parliamentary majority in the Assembly of the Republic. According to reports, the parties involved concluded programmatic understandings, establishing shared commitments to enable a viable governing solution. The agreement went beyond a simple alignment of political wills. It established programmatic commitments, considered essential to ensure the viability and stability of the incoming Government. Negotiations among the left-wing parties gave rise to a broad support base centered on a common progressive agenda, with which they presented an alternative majority in Parliament. This landmark event shaped Portuguese political history in 2015, demonstrating an unprecedented capacity for dialogue between forces that had previously never bridged their historic differences. The lasting significance of this development lies in the political model it pioneered: building a stable governing solution through programmatic compromise and dialogue among left-wing parties.",
+      "caption": "Contra quase todas as previsões da época, as forças partidárias de esquerda concluíram as negociações bilaterais no Parlamento para viabilizar uma maioria governativa em 2015, dando origem ao histórico entendimento político que ficaria conhecido como a \"Geringonça\". Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015. 🔗 Lê a notícia completa no link na descrição do perfil.",
+      "source_url": "https://arquivo.pt/wayback/20160611062004/https://news.google.pt/news/story?cf=all&hl=pt-pt&ned=pt-pt_pt&cf=all&ncl=djkchvb-0d5trum98olw8en2a1lqm&topic=n&scoring=n",
+      "source_profile": "",
+      "source_platform": "",
+      "instagram_url": "https://www.instagram.com/p/DfDIuhDGH8O/",
+      "instagram_id": "18182963707442613",
+      "facebook_url": "https://www.facebook.com/1030669413467151_122136508664824703",
+      "facebook_id": "1030669413467151_122136508664824703",
+      "archive_credit": "Arquivo.pt",
+      "banner_ready": false,
+      "networks": [
+        "instagram",
+        "facebook"
+      ],
+      "cover_focus": null,
+      "network_posts": {
+        "instagram": "https://www.instagram.com/p/DfDIuhDGH8O/",
+        "facebook": "https://www.facebook.com/1030669413467151_122136508664824703"
+      },
+      "relevance_level": 2,
+      "relevance_scores": {
+        "impacto_historico": 80.0,
+        "dimensao_impacto": 70.0,
+        "consequencias": 75.0,
+        "relevancia_posterior": 70.0,
+        "dimensao_duracao": 60.0,
+        "relevancia_mediatica": 60.0,
+        "singularidade": 65.0
+      },
+      "relevance_weighted": 72.0,
+      "relevance_justification": "Acordo histórico de esquerda viabiliza governo e muda ciclo político português.",
+      "source_type": "archive",
+      "url_path": "noticia/politica/partidos-de-esquerda-chegam-a-acordo",
+      "page_id": "noticia-a5a2b7798af63a2eee482299",
+      "detail_image": "assets/banners/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-banner.jpg",
+      "snapshot_url": "assets/snapshots/noticia-a5a2b7798af63a2eee482299.jpg"
+    },
+    {
       "id": "pt_2026-11-08_1",
       "lang": "pt",
       "date": "2026-11-08",
@@ -607,60 +661,6 @@
       "page_id": "noticia-017bd61178fa8c59845d65ec",
       "detail_image": "assets/banners/2026-11-02-2-governo-omitiu-500-milhes-de-euros-em-benefcios-fiscais-no-oramento-banner.jpg",
       "snapshot_url": "assets/snapshots/noticia-017bd61178fa8c59845d65ec.jpg"
-    },
-    {
-      "id": "pt_2026-10-28_2",
-      "lang": "pt",
-      "date": "2026-10-28",
-      "slot": 2,
-      "status": "published",
-      "published_at": "2026-10-28T19:02:30.011181",
-      "category": "POLÍTICA",
-      "title": "Partidos de esquerda chegam a acordo de base para Governo",
-      "title_en": "Left-wing parties reach framework agreement to form Government",
-      "summary": "Forças partidárias concluem entendimentos para viabilizar solução governativa",
-      "summary_en": "Partisan forces conclude understandings to enable a governing solution.",
-      "original_year": "2015",
-      "image": "assets/posts/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo.jpg",
-      "banner_image": "assets/banners/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-banner.jpg",
-      "body": "A chegada a um acordo de base para formar Governo, em 2015, resultou do trabalho de negociação entre forças partidárias de esquerda. O processo permitiu ultrapassar o impasse que se seguia às eleições e abriu caminho à apresentação de uma maioria alternativa no Parlamento. Segundo o resumo da notícia, as forças envolvidas concluíram entendimentos de natureza programática, establishendo compromissos comuns para viabilizar uma solução governativa. A legenda da página refere-se, precisamente, ao resultado alcançado: os partidos parlamentares fixaram compromissos programáticos que permitiram apresentar uma maioria alternativa na Assembleia da República. O acordo não se limitou, portanto, a uma simples concertação de vontades. Incluiu a definição de compromissos programáticos, elemento apresentado como indispensável para garantir a viabilidade do futuro Governo. A negociação entre os partidos de esquerda deu assim origem a uma base de apoio em torno de uma agenda comum, com a qual se candidataram a constituir uma maioria parlamentar. A ocorrência integra a atualidade política portuguesa de 2015 e ilustra a capacidade de diálogo entre forças que, até então, não tinham conseguido ultrapassar as diferenças que bloqueavam a governação. A apresentação de uma maioria alternativa no Parlamento representa o passo decisivo dessa concertação, ao transformar entendimentos entre partidos em uma base concreta para o exercício do poder. A relevância duradoura do acontecimento reside no método político queowie accompanyou: a construção de uma solução governativa através de compromissos programáticos e do diálogo entre partidos de esquerda. O acordo de base fica associado a uma fase de transição na política portuguesa, em que a capacidade de negociação entre forças parliamentary permitiu responder ao resultado eleitoral com uma alternativa de governo.",
-      "body_en": "Reaching a framework agreement to form a Government in 2015 resulted from intense negotiations between left-wing political forces in Portugal. The process resolved the impasse following the elections and paved the way for presenting an alternative parliamentary majority in the Assembly of the Republic. According to reports, the parties involved concluded programmatic understandings, establishing shared commitments to enable a viable governing solution. The agreement went beyond a simple alignment of political wills. It established programmatic commitments, considered essential to ensure the viability and stability of the incoming Government. Negotiations among the left-wing parties gave rise to a broad support base centered on a common progressive agenda, with which they presented an alternative majority in Parliament. This landmark event shaped Portuguese political history in 2015, demonstrating an unprecedented capacity for dialogue between forces that had previously never bridged their historic differences. The lasting significance of this development lies in the political model it pioneered: building a stable governing solution through programmatic compromise and dialogue among left-wing parties.",
-      "caption": "Contra quase todas as previsões da época, as forças partidárias de esquerda concluíram as negociações bilaterais no Parlamento para viabilizar uma maioria governativa em 2015, dando origem ao histórico entendimento político que ficaria conhecido como a \"Geringonça\". Este post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2015. 🔗 Lê a notícia completa no link na descrição do perfil.",
-      "source_url": "https://arquivo.pt/wayback/20160611062004/https://news.google.pt/news/story?cf=all&hl=pt-pt&ned=pt-pt_pt&cf=all&ncl=djkchvb-0d5trum98olw8en2a1lqm&topic=n&scoring=n",
-      "source_profile": "",
-      "source_platform": "",
-      "instagram_url": "https://www.instagram.com/p/DfDIuhDGH8O/",
-      "instagram_id": "18182963707442613",
-      "facebook_url": "https://www.facebook.com/1030669413467151_122136508664824703",
-      "facebook_id": "1030669413467151_122136508664824703",
-      "archive_credit": "Arquivo.pt",
-      "banner_ready": false,
-      "networks": [
-        "instagram",
-        "facebook"
-      ],
-      "cover_focus": null,
-      "network_posts": {
-        "instagram": "https://www.instagram.com/p/DfDIuhDGH8O/",
-        "facebook": "https://www.facebook.com/1030669413467151_122136508664824703"
-      },
-      "relevance_level": 2,
-      "relevance_scores": {
-        "impacto_historico": 80.0,
-        "dimensao_impacto": 70.0,
-        "consequencias": 75.0,
-        "relevancia_posterior": 70.0,
-        "dimensao_duracao": 60.0,
-        "relevancia_mediatica": 60.0,
-        "singularidade": 65.0
-      },
-      "relevance_weighted": 72.0,
-      "relevance_justification": "Acordo histórico de esquerda viabiliza governo e muda ciclo político português.",
-      "source_type": "archive",
-      "url_path": "noticia/politica/partidos-de-esquerda-chegam-a-acordo",
-      "page_id": "noticia-a5a2b7798af63a2eee482299",
-      "detail_image": "assets/banners/2026-10-28-2-partidos-de-esquerda-chegam-a-acordo-de-base-para-governo-banner.jpg",
-      "snapshot_url": "assets/snapshots/noticia-a5a2b7798af63a2eee482299.jpg"
     }
   ],
   "latest": [
