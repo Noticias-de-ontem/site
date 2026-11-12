@@ -10751,7 +10751,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -11197,7 +11197,14 @@
                 "caption_narrative_en": "In 2020, Portugal's Parliament prepared to vote on declaring a state of emergency as the country grappled with the COVID-19 pandemic. The measure would establish an extraordinary legal regime for a serious disruption, with the most restrictive measures subject to debate and a plenary vote."
             }
         ],
-        "last_image_refresh_at": "2026-11-12T18:01:40.896505"
+        "last_image_refresh_at": "2026-11-12T18:01:40.896505",
+        "instagram_id": "18355939411248021",
+        "instagram_url": "https://www.instagram.com/p/DfptJj-DVnx/",
+        "published_at": "2026-11-12T18:31:56.155544",
+        "instagram_story_id": "18129874225859283",
+        "facebook_id": "1030669413467151_122138508404824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122138508404824703",
+        "facebook_story_id": "1125292273612663"
     },
     {
         "id": "pt_2026-11-13_1",
@@ -20203,7 +20210,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-12_2",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "expresso.pt",
         "external_suggestions": [],
@@ -20254,6 +20261,13 @@
                 "background_source_url": "https://arquivo.pt/wayback/20190509170744/https://www.noticiasaominuto.com/economia",
                 "local_background_path": ""
             }
-        ]
+        ],
+        "instagram_id": "18136491751664894",
+        "instagram_url": "https://www.instagram.com/p/DfptPSKDaLJ/",
+        "published_at": "2026-11-12T18:32:29.174464",
+        "instagram_story_id": "18084711860547281",
+        "facebook_id": "1318455601360516_122105426577541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122105426577541219",
+        "facebook_story_id": "2436316313443500"
     }
 ]
