@@ -9352,5 +9352,31 @@
         "created_at": "2026-11-11T19:01:45+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-12",
+        "option_index": 1,
+        "title": "PJ e MP investigam grafittis racistas em universidades e escolas",
+        "year": "2020",
+        "image_url": "https://i.ibb.co/spP2Y13Y/2026-11-12-02-2020-pj-e-mp-investigam-grafittis-racistas-em-universidades-e-escolas.jpg",
+        "delete_url": "https://ibb.co/6cZmCtsC/d88e0d715469ab8c7e001dc83ecc62d9",
+        "created_at": "2026-11-12T17:59:33+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-12",
+        "option_index": 8,
+        "title": "Parlamento quer votar estado de emergência esta sexta-feira",
+        "year": "2020",
+        "image_url": "https://i.ibb.co/67WSMLzY/2026-11-12-09-2020-parlamento-quer-votar-estado-de-emergencia-esta-sexta-feira.jpg",
+        "delete_url": "https://ibb.co/cSr9BV0J/2db66322a857f063e479cda178e1ee61",
+        "created_at": "2026-11-12T18:01:40+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
