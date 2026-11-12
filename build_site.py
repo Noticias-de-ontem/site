@@ -952,7 +952,7 @@ def post_to_site_item(post, registry_by_post_id):
     background_local = local_source_path(option.get("local_background_path"))
     card_source = background_local
     image = copy_site_image(card_source, f"{post.get('date', '')}-{post.get('slot', '')}-{title}") if card_source else ""
-    if not image and background_local:
+    if not image:
         image = clean_text(option.get("image_url") or registry_record.get("image_url"))
 
     status = clean_text(post.get("status") or "pending").lower()
