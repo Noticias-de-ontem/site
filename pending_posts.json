@@ -11217,7 +11217,7 @@
         "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-13_1-bg.jpg",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -11465,8 +11465,8 @@
                     "instagram",
                     "facebook"
                 ],
-                "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-13_1.jpg",
-                "image_delete_url": "",
+                "image_url": "https://i.ibb.co/p6c4Pgk5/post-pt.jpg",
+                "image_delete_url": "https://ibb.co/xKWzsyrd/5174b6de652de73039e62a400047140b",
                 "local_image_path": "",
                 "background_source_url": "https://live.staticflickr.com/2341/2852129708_ab5e1dea1e_b.jpg",
                 "local_background_path": "",
@@ -11479,7 +11479,14 @@
         ],
         "last_image_refresh_at": "2026-11-09T01:40:51.594635",
         "last_regenerated_at": "2026-11-09T02:24:45.076602",
-        "regeneration_count": 1
+        "regeneration_count": 1,
+        "instagram_id": "18183025837450963",
+        "instagram_url": "https://www.instagram.com/p/DfsZll7oG4i/",
+        "published_at": "2026-11-13T19:38:45.516835",
+        "instagram_story_id": "18142099306728335",
+        "facebook_id": "1030669413467151_122138637038824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122138637038824703",
+        "facebook_story_id": "1806154470528104"
     },
     {
         "id": "pt_2026-11-13_2",
@@ -20285,7 +20292,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-13_1",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "",
         "external_suggestions": [],
@@ -20336,6 +20343,13 @@
                 "background_source_url": "https://live.staticflickr.com/2341/2852129708_ab5e1dea1e_b.jpg",
                 "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-13_1-fundo.jpg"
             }
-        ]
+        ],
+        "instagram_id": "18353028862255649",
+        "instagram_url": "https://www.instagram.com/p/DfsZsKyoKSe/",
+        "published_at": "2026-11-13T19:39:38.311370",
+        "instagram_story_id": "18135217582783185",
+        "facebook_id": "1318455601360516_122106406659541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122106406659541219",
+        "facebook_story_id": "1982062642755793"
     }
 ]
