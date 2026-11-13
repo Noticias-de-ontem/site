@@ -11211,7 +11211,7 @@
     "date": "2026-11-13",
     "slot": 1,
     "lang": "pt",
-    "selected_option": 0,
+    "selected_option": 4,
     "layout_override": "",
     "theme_suggestion": "",
     "manual_background_url": "",
@@ -11470,7 +11470,8 @@
         "local_background_path": "",
         "caption_instagram": "Manifestantes realizam buzinão no Porto contra medidas restritivas decretadas para travar a pandemia de Covid-19, no âmbito do novo Estado de Emergência.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
         "caption_facebook": "Manifestantes realizam buzinão no Porto contra medidas restritivas decretadas para travar a pandemia de Covid-19, no âmbito do novo Estado de Emergência.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
-        "body": ""
+        "body": "",
+        "review_action": "refresh_image"
       }
     ],
     "last_image_refresh_at": "2026-11-09T01:40:51.594635",
