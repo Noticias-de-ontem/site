@@ -11441,7 +11441,7 @@
                 "summary": "Protesto setorial contra medidas de saúde pública, com momentos de tensão e confrontos com forças de segurança na cidade do Porto.",
                 "title_en": "Restaurant entrepreneurs protest in Porto against restrictive measures",
                 "summary_en": "Sectoral protest against public health measures, with tension moments and security force confrontations in Porto city.",
-                "body_en": "",
+                "body_en": "Restaurant owners and other members of the hospitality sector gathered in Porto on Tuesday to protest restrictive measures adopted to curb the COVID-19 pandemic, according to Portuguese news reports.\n\nThe demonstration took place under the framework of a new state of emergency, which had been declared as authorities sought to limit the spread of the virus. Demonstrators participated in a horn-blowing protest, a form of action commonly used by groups in Portugal to make their presence heard.\n\nPeople from the restaurant and retail sectors joined the protest, reflecting broader concerns among business owners about the impact of emergency restrictions on their operations. The measures were intended to slow the advance of the pandemic, but they also placed additional limits on commercial activity.\n\nThe protest brought the economic consequences of the public health measures into the public debate. For restaurant businesses and retailers already operating under difficult conditions, the restrictions represented a significant challenge, prompting organized opposition in Porto.\n\nThe gathering in Porto was part of a wider sectoral response to the government’s emergency measures. It highlighted the tension between efforts to contain COVID-19 and the businesses affected by the restrictions designed to achieve that goal.",
                 "relevance": {
                     "level": 4,
                     "scores": {
@@ -11455,7 +11455,8 @@
                     },
                     "weighted_score": 40.5,
                     "justification": "Protesto setorial contra medidas de saúde pública; impactou políticas restritivas e debate público.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "The sectoral protest highlighted opposition to public health restrictions and fueled debate over the government’s response to the pandemic."
                 },
                 "article_url": "https://arquivo.pt/wayback/20210330210131/https://jn.pt/local/noticias/porto/porto/confrontos-entre-manifestantes-e-policia-na-manifestacao-do-porto-13033715.html",
                 "source_platform": "",
@@ -11471,7 +11472,9 @@
                 "local_background_path": "",
                 "caption_instagram": "Manifestantes realizam buzinão no Porto contra medidas restritivas decretadas para travar a pandemia de Covid-19, no âmbito do novo Estado de Emergência.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
                 "caption_facebook": "Manifestantes realizam buzinão no Porto contra medidas restritivas decretadas para travar a pandemia de Covid-19, no âmbito do novo Estado de Emergência.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
-                "body": ""
+                "body": "",
+                "highlight_text_en": "Porto",
+                "caption_narrative_en": "In 2020, restaurant owners and workers gathered in Porto to protest restrictive measures imposed under a new state of emergency. The demonstration included a horn-blowing protest aimed at curbing the COVID-19 pandemic."
             }
         ],
         "last_image_refresh_at": "2026-11-09T01:40:51.594635",
@@ -20270,5 +20273,69 @@
         "facebook_id": "1318455601360516_122105426577541219",
         "facebook_url": "https://www.facebook.com/122096313699541219/posts/122105426577541219",
         "facebook_story_id": "2436316313443500"
+    },
+    {
+        "id": "en_2026-11-13_1",
+        "date": "2026-11-13",
+        "slot": 1,
+        "lang": "en",
+        "selected_option": 0,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "Synced from pt_2026-11-13_1",
+        "status": "approved",
+        "generated_month": "2026-11",
+        "source_profile": "",
+        "external_suggestions": [],
+        "options": [
+            {
+                "category": "SOCIETY",
+                "title": "Restaurant entrepreneurs protest in Porto against restrictive measures",
+                "title_en": "Restaurant entrepreneurs protest in Porto against restrictive measures",
+                "highlight_text": "Porto",
+                "overlay_description": "Sectoral protest against public health measures, with tension moments and security force confrontations in Porto city.",
+                "caption": "In 2020, restaurant owners and workers gathered in Porto to protest restrictive measures imposed under a new state of emergency. The demonstration included a horn-blowing protest aimed at curbing the COVID-19 pandemic.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2020.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Society",
+                "caption_instagram": "In 2020, restaurant owners and workers gathered in Porto to protest restrictive measures imposed under a new state of emergency. The demonstration included a horn-blowing protest aimed at curbing the COVID-19 pandemic.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2020.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Society",
+                "caption_facebook": "In 2020, restaurant owners and workers gathered in Porto to protest restrictive measures imposed under a new state of emergency. The demonstration included a horn-blowing protest aimed at curbing the COVID-19 pandemic.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2020.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Society",
+                "year": "2020",
+                "summary": "Sectoral protest against public health measures, with tension moments and security force confrontations in Porto city.",
+                "summary_en": "Sectoral protest against public health measures, with tension moments and security force confrontations in Porto city.",
+                "body": "Restaurant owners and other members of the hospitality sector gathered in Porto on Tuesday to protest restrictive measures adopted to curb the COVID-19 pandemic, according to Portuguese news reports.\n\nThe demonstration took place under the framework of a new state of emergency, which had been declared as authorities sought to limit the spread of the virus. Demonstrators participated in a horn-blowing protest, a form of action commonly used by groups in Portugal to make their presence heard.\n\nPeople from the restaurant and retail sectors joined the protest, reflecting broader concerns among business owners about the impact of emergency restrictions on their operations. The measures were intended to slow the advance of the pandemic, but they also placed additional limits on commercial activity.\n\nThe protest brought the economic consequences of the public health measures into the public debate. For restaurant businesses and retailers already operating under difficult conditions, the restrictions represented a significant challenge, prompting organized opposition in Porto.\n\nThe gathering in Porto was part of a wider sectoral response to the government’s emergency measures. It highlighted the tension between efforts to contain COVID-19 and the businesses affected by the restrictions designed to achieve that goal.",
+                "body_en": "Restaurant owners and other members of the hospitality sector gathered in Porto on Tuesday to protest restrictive measures adopted to curb the COVID-19 pandemic, according to Portuguese news reports.\n\nThe demonstration took place under the framework of a new state of emergency, which had been declared as authorities sought to limit the spread of the virus. Demonstrators participated in a horn-blowing protest, a form of action commonly used by groups in Portugal to make their presence heard.\n\nPeople from the restaurant and retail sectors joined the protest, reflecting broader concerns among business owners about the impact of emergency restrictions on their operations. The measures were intended to slow the advance of the pandemic, but they also placed additional limits on commercial activity.\n\nThe protest brought the economic consequences of the public health measures into the public debate. For restaurant businesses and retailers already operating under difficult conditions, the restrictions represented a significant challenge, prompting organized opposition in Porto.\n\nThe gathering in Porto was part of a wider sectoral response to the government’s emergency measures. It highlighted the tension between efforts to contain COVID-19 and the businesses affected by the restrictions designed to achieve that goal.",
+                "image_theme": "Protesto Porto rua",
+                "layout_preference": "template_3",
+                "breaking_candidate": false,
+                "networks": [
+                    "instagram",
+                    "facebook"
+                ],
+                "relevance": {
+                    "level": 4,
+                    "scores": {
+                        "impacto_historico": 45.0,
+                        "dimensao_impacto": 40.0,
+                        "consequencias": 35.0,
+                        "relevancia_posterior": 40.0,
+                        "dimensao_duracao": 35.0,
+                        "relevancia_mediatica": 45.0,
+                        "singularidade": 40.0
+                    },
+                    "weighted_score": 40.5,
+                    "justification": "The sectoral protest highlighted opposition to public health restrictions and fueled debate over the government’s response to the pandemic.",
+                    "lang": "pt",
+                    "justification_en": "The sectoral protest highlighted opposition to public health restrictions and fueled debate over the government’s response to the pandemic."
+                },
+                "article_url": "https://arquivo.pt/wayback/20210330210131/https://jn.pt/local/noticias/porto/porto/confrontos-entre-manifestantes-e-policia-na-manifestacao-do-porto-13033715.html",
+                "source_profile": "",
+                "source_platform": "",
+                "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-13_1.jpg",
+                "image_delete_url": "",
+                "local_image_path": "site/images/approved/en_2026-11-13_1.jpg",
+                "background_source_url": "https://live.staticflickr.com/2341/2852129708_ab5e1dea1e_b.jpg",
+                "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-13_1-fundo.jpg"
+            }
+        ]
     }
 ]
