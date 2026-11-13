@@ -1,0 +1,72 @@
+name: Sync EN approved posts (temp)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  sync_en:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14.6'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Sync EN approved posts
+        timeout-minutes: 30
+        env:
+          PYTHONUNBUFFERED: "1"
+IMGBB_API_KEY: <redacted>
+NVIDIA_API_KEY: <redacted>
+GEMINI_API_KEY: <redacted>
+        run: |
+          python -u -c "
+          import json
+          from en_sync import sync_approved_pt_to_en
+          posts = json.load(open('pending_posts.json', encoding='utf-8'))
+          n = sync_approved_pt_to_en(posts)
+          json.dump(posts, open('pending_posts.json', 'w', encoding='utf-8'), indent=4, ensure_ascii=False)
+          print('EN sincronizados:', n)
+          for p in posts:
+              if p.get('date') == '2026-11-13' and str(p.get('id', '')).startswith('en_'):
+                  o = p['options'][p['selected_option']]
+                  print(p['id'], '| status', p.get('status'), '| imagem', bool(o.get('image_url')), '| networks', o.get('networks'), '| título', (o.get('title_en') or o.get('title') or '')[:60])
+          "
+
+      - name: Build static site
+        run: python -u build_site.py
+
+      - name: Sync dynamic website
+        env:
+          SITE_API_URL: ${{ secrets.SITE_API_URL }}
+SITE_SYNC_TOKEN: <redacted>
+        run: python -u scripts/sync_dynamic_site.py
+
+      - name: Commit and Push changes
+        if: always()
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+          for f in pending_posts.json review_pt.html pregeneration_state.json imgbb_uploads.json arquivo_cdxj_state.json; do
+            [ -f "$f" ] && git add "$f" || true
+          done
+          [ -d images/review ] && git add images/review || true
+          [ -d site ] && git add site || true
+
+          git reset -q -- site/data/news.json 2>/dev/null || true
+          git checkout -q -- site/data/news.json 2>/dev/null || true
+
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: sync EN for approved PT posts [skip ci]" && git pull --rebase --autostash origin main && git push)
