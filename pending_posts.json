@@ -12050,7 +12050,7 @@
         "summary": "Ativistas climáticos realizam protesto fechando Liceu Camões em Lisboa, exigindo políticas ambientais mais rigorosas do governo.",
         "title_en": "Climate activists close Liceu Camões in Lisbon with padlock",
         "summary_en": "Student protest occupies school space demanding end to fossil fuels by 2030.",
-        "body_en": "",
+        "body_en": "Climate activists locked the doors of Liceu Camões in Lisbon on Monday, occupying the school as part of an ongoing student protest over climate change.\n\nThe demonstration was organized by Movimento Greve Climática Estudantil Lisboa, or the Lisbon Student Climate Strike Movement. Activists entered the school and used a padlock to secure its entrance, bringing the protest directly into the educational setting.\n\nTheir demands included an end to the use of fossil fuels by 2030. By occupying a public school, the group sought to draw attention to its environmental platform and place the issue at the center of the conversation among students and the broader public.\n\nThe protest was part of a continuing climate movement in Lisbon. The school occupation reflected a strategy of using direct action and visible disruption to amplify calls for faster climate action.\n\nThe action took place in 2022 and highlighted the growing role of student-led climate activism in Portugal's public debate. It also underscored the urgency of the group's central demand: a transition away from fossil fuels by the end of the decade.",
         "relevance": {
           "level": 5,
           "scores": {
@@ -12064,7 +12064,8 @@
           },
           "weighted_score": 16.2,
           "justification": "Protesto estudantil chama atenção para exigências ambientais; impacto moderado na opinião pública.",
-          "lang": "pt"
+          "lang": "pt",
+          "justification_en": "The student protest drew attention to environmental demands and had a moderate impact on public opinion."
         },
         "article_url": "https://arquivo.pt/wayback/20221114193843/https://impala.pt/noticias/atualidade/ativistas-fecham-portoes-do-liceu-camoes-a-cadeado",
         "source_platform": "",
@@ -12079,8 +12080,10 @@
         "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Action_in_Lisbon_by_the_portuguese_climate_resistance_group_Climaximo%2C_Portugal.jpg/1280px-Action_in_Lisbon_by_the_portuguese_climate_resistance_group_Climaximo%2C_Portugal.jpg",
         "local_background_path": "",
         "caption_instagram": "Movimento Greve Climática Estudantil Lisboa ocupa Liceu Camões como parte de protesto contínuo por clima.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2022.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
-        "caption_facebook": "Movimento Greve Climática Estudantil Lisboa ocupa Liceu Camões como parte de protesto contínuo por clima.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2022.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
-        "body": ""
+        "caption_facebook": "Movimento Greve Climática Estudantil Lisboa ocupa Liceu Camões como parte de protesto contínuo por clima.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2022.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "body": "",
+        "highlight_text_en": "Climate",
+        "caption_narrative_en": "In 2022, student climate activists occupied Liceu Camões in Lisbon as part of an ongoing climate protest. The action called for an end to fossil fuels by 2030."
       }
     ],
     "last_image_refresh_at": "2026-11-09T01:41:34.669390",
@@ -20536,5 +20539,69 @@
     "facebook_id": "1318455601360516_122106458535541219",
     "facebook_url": "https://www.facebook.com/122096313699541219/posts/122106458535541219",
     "facebook_story_id": "3659401730884148"
+  },
+  {
+    "id": "en_2026-11-14_1",
+    "date": "2026-11-14",
+    "slot": 1,
+    "lang": "en",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "Synced from pt_2026-11-14_1",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "source_profile": "",
+    "external_suggestions": [],
+    "options": [
+      {
+        "category": "SOCIETY",
+        "title": "Climate activists close Liceu Camões in Lisbon with padlock",
+        "title_en": "Climate activists close Liceu Camões in Lisbon with padlock",
+        "highlight_text": "Climate",
+        "overlay_description": "Student protest occupies school space demanding end to fossil fuels by 2030.",
+        "caption": "In 2022, student climate activists occupied Liceu Camões in Lisbon as part of an ongoing climate protest. The action called for an end to fossil fuels by 2030.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2022.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Society",
+        "caption_instagram": "In 2022, student climate activists occupied Liceu Camões in Lisbon as part of an ongoing climate protest. The action called for an end to fossil fuels by 2030.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2022.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Society",
+        "caption_facebook": "In 2022, student climate activists occupied Liceu Camões in Lisbon as part of an ongoing climate protest. The action called for an end to fossil fuels by 2030.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2022.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Society",
+        "year": "2022",
+        "summary": "Student protest occupies school space demanding end to fossil fuels by 2030.",
+        "summary_en": "Student protest occupies school space demanding end to fossil fuels by 2030.",
+        "body": "Climate activists locked the doors of Liceu Camões in Lisbon on Monday, occupying the school as part of an ongoing student protest over climate change.\n\nThe demonstration was organized by Movimento Greve Climática Estudantil Lisboa, or the Lisbon Student Climate Strike Movement. Activists entered the school and used a padlock to secure its entrance, bringing the protest directly into the educational setting.\n\nTheir demands included an end to the use of fossil fuels by 2030. By occupying a public school, the group sought to draw attention to its environmental platform and place the issue at the center of the conversation among students and the broader public.\n\nThe protest was part of a continuing climate movement in Lisbon. The school occupation reflected a strategy of using direct action and visible disruption to amplify calls for faster climate action.\n\nThe action took place in 2022 and highlighted the growing role of student-led climate activism in Portugal's public debate. It also underscored the urgency of the group's central demand: a transition away from fossil fuels by the end of the decade.",
+        "body_en": "Climate activists locked the doors of Liceu Camões in Lisbon on Monday, occupying the school as part of an ongoing student protest over climate change.\n\nThe demonstration was organized by Movimento Greve Climática Estudantil Lisboa, or the Lisbon Student Climate Strike Movement. Activists entered the school and used a padlock to secure its entrance, bringing the protest directly into the educational setting.\n\nTheir demands included an end to the use of fossil fuels by 2030. By occupying a public school, the group sought to draw attention to its environmental platform and place the issue at the center of the conversation among students and the broader public.\n\nThe protest was part of a continuing climate movement in Lisbon. The school occupation reflected a strategy of using direct action and visible disruption to amplify calls for faster climate action.\n\nThe action took place in 2022 and highlighted the growing role of student-led climate activism in Portugal's public debate. It also underscored the urgency of the group's central demand: a transition away from fossil fuels by the end of the decade.",
+        "image_theme": "Estudantes protesto Lisboa",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 25.0,
+            "dimensao_impacto": 20.0,
+            "consequencias": 15.0,
+            "relevancia_posterior": 10.0,
+            "dimensao_duracao": 5.0,
+            "relevancia_mediatica": 5.0,
+            "singularidade": 5.0
+          },
+          "weighted_score": 16.2,
+          "justification": "The student protest drew attention to environmental demands and had a moderate impact on public opinion.",
+          "lang": "pt",
+          "justification_en": "The student protest drew attention to environmental demands and had a moderate impact on public opinion."
+        },
+        "article_url": "https://arquivo.pt/wayback/20221114193843/https://impala.pt/noticias/atualidade/ativistas-fecham-portoes-do-liceu-camoes-a-cadeado",
+        "source_profile": "",
+        "source_platform": "",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-14_1.jpg",
+        "image_delete_url": "",
+        "local_image_path": "site/images/approved/en_2026-11-14_1.jpg",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Action_in_Lisbon_by_the_portuguese_climate_resistance_group_Climaximo%2C_Portugal.jpg/1280px-Action_in_Lisbon_by_the_portuguese_climate_resistance_group_Climaximo%2C_Portugal.jpg",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-14_1-fundo.jpg"
+      }
+    ]
   }
 ]
