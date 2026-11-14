@@ -11780,7 +11780,7 @@
         "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-14_1-bg.jpg",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -12074,8 +12074,8 @@
                     "instagram",
                     "facebook"
                 ],
-                "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-14_1.jpg",
-                "image_delete_url": "",
+                "image_url": "https://i.ibb.co/vCrGnYxf/post-pt.jpg",
+                "image_delete_url": "https://ibb.co/Y4KMsZ7J/92c91c587f5646ded170727223fadc3f",
                 "local_image_path": "",
                 "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Action_in_Lisbon_by_the_portuguese_climate_resistance_group_Climaximo%2C_Portugal.jpg/1280px-Action_in_Lisbon_by_the_portuguese_climate_resistance_group_Climaximo%2C_Portugal.jpg",
                 "local_background_path": "",
@@ -12088,7 +12088,14 @@
         ],
         "last_image_refresh_at": "2026-11-09T01:41:34.669390",
         "last_regenerated_at": "2026-11-09T02:27:32.238559",
-        "regeneration_count": 1
+        "regeneration_count": 1,
+        "instagram_id": "18459008656124720",
+        "instagram_url": "https://www.instagram.com/p/DfvXTDXl8AT/",
+        "published_at": "2026-11-14T23:16:43.498942",
+        "instagram_story_id": "18123641317940742",
+        "facebook_id": "1030669413467151_122138769932824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122138769932824703",
+        "facebook_story_id": "2988393361497444"
     },
     {
         "id": "pt_2026-11-14_2",
@@ -20551,7 +20558,7 @@
         "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-14_1-bg.jpg",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-14_1",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "",
         "external_suggestions": [],
@@ -20596,13 +20603,20 @@
                 "article_url": "https://arquivo.pt/wayback/20221114193843/https://impala.pt/noticias/atualidade/ativistas-fecham-portoes-do-liceu-camoes-a-cadeado",
                 "source_profile": "",
                 "source_platform": "",
-                "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-14_1.jpg",
-                "image_delete_url": "",
+                "image_url": "https://i.ibb.co/bRXsFKVr/post-en.jpg",
+                "image_delete_url": "https://ibb.co/1JTrMmN9/f590c8f4df607e6823ba3c68b56d5735",
                 "local_image_path": "site/images/approved/en_2026-11-14_1.jpg",
                 "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Action_in_Lisbon_by_the_portuguese_climate_resistance_group_Climaximo%2C_Portugal.jpg/1280px-Action_in_Lisbon_by_the_portuguese_climate_resistance_group_Climaximo%2C_Portugal.jpg",
                 "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-14_1-fundo.jpg"
             }
-        ]
+        ],
+        "instagram_id": "18104466719382155",
+        "instagram_url": "https://www.instagram.com/p/DfvXbEWl-k7/",
+        "published_at": "2026-11-14T23:17:31.429360",
+        "instagram_story_id": "18023064761958254",
+        "facebook_id": "1318455601360516_122107475253541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122107475253541219",
+        "facebook_story_id": "1495429475836299"
     },
     {
         "id": "en_2026-11-14_2",
