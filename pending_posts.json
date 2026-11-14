@@ -20610,7 +20610,7 @@
         "date": "2026-11-14",
         "slot": 2,
         "generated_month": "2026-11",
-        "status": "approved",
+        "status": "published",
         "selected_option": 0,
         "options": [
             {
@@ -20629,8 +20629,8 @@
                     "instagram",
                     "facebook"
                 ],
-                "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-14_2.jpg",
-                "image_delete_url": "",
+                "image_url": "https://i.ibb.co/8GvJkk0/post-en.jpg",
+                "image_delete_url": "https://ibb.co/tnjSRR4/1bbf30113ef4c036cecb6c6198c5fc90",
                 "local_image_path": "",
                 "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Os_Lus%C3%ADadas.jpg",
                 "local_background_path": "",
@@ -20665,6 +20665,13 @@
         "external_suggestions": [],
         "theme_suggestion": "",
         "layout_override": "",
-        "source_profile": ""
+        "source_profile": "",
+        "instagram_id": "18138607921645839",
+        "instagram_url": "https://www.instagram.com/p/DfvTGwPl5Ho/",
+        "published_at": "2026-11-14T22:39:38.101202",
+        "instagram_story_id": "18095349287694895",
+        "facebook_id": "1318455601360516_122107455309541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122107455309541219",
+        "facebook_story_id": "1815534662902420"
     }
 ]
