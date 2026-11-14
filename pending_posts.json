@@ -20603,5 +20603,68 @@
         "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-14_1-fundo.jpg"
       }
     ]
+  },
+  {
+    "id": "en_2026-11-14_2",
+    "lang": "en",
+    "date": "2026-11-14",
+    "slot": 2,
+    "generated_month": "2026-11",
+    "status": "approved",
+    "selected_option": 0,
+    "options": [
+      {
+        "year": 1572,
+        "category": "CULTURE",
+        "title": "First publication of Camões' \"Os Lusíadas\"",
+        "title_en": "First publication of Camões' \"Os Lusíadas\"",
+        "summary": "First publication of Os Lusíadas, Luís de Camões' epic poem that consolidated the Portuguese language and identity.",
+        "summary_en": "First publication of Os Lusíadas, Luís de Camões' epic poem that consolidated the Portuguese language and identity.",
+        "caption": "In 1572, Luís de Camões published Os Lusíadas, the epic poem narrating Vasco da Gama's voyage to India and consolidating the Portuguese language and identity.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 1572.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Culture",
+        "caption_instagram": "In 1572, Luís de Camões published Os Lusíadas, the epic poem narrating Vasco da Gama's voyage to India and consolidating the Portuguese language and identity.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 1572.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Culture",
+        "caption_facebook": "In 1572, Luís de Camões published Os Lusíadas, the epic poem narrating Vasco da Gama's voyage to India and consolidating the Portuguese language and identity.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 1572.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Culture",
+        "body": "In 1572, Luís de Camões published Os Lusíadas, the ten-canto epic poem narrating Vasco da Gama's voyage to India. Printed in Lisbon by António Gonçalves under a royal privilege, the work consolidated the Portuguese language and became the greatest monument of Portuguese literature.",
+        "body_en": "In 1572, Luís de Camões published Os Lusíadas, the ten-canto epic poem narrating Vasco da Gama's voyage to India. Printed in Lisbon by António Gonçalves under a royal privilege, the work consolidated the Portuguese language and became the greatest monument of Portuguese literature.",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-14_2.jpg",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Os_Lus%C3%ADadas.jpg",
+        "local_background_path": "",
+        "article_url": "",
+        "source_platform": "web",
+        "source_profile": "commons.wikimedia.org",
+        "highlight_text": "Os Lusíadas",
+        "overlay_description": "The epic poem that consolidated the Portuguese language and identity.",
+        "image_theme": "Camões Os Lusíadas livro antigo",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "relevance": {
+          "level": 2,
+          "scores": {
+            "impacto_historico": 90.0,
+            "dimensao_impacto": 85.0,
+            "consequencias": 80.0,
+            "relevancia_posterior": 95.0,
+            "dimensao_duracao": 95.0,
+            "relevancia_mediatica": 70.0,
+            "singularidade": 85.0
+          },
+          "weighted_score": 85.0,
+          "justification": "Primeira publicação de Os Lusíadas; marco fundador da literatura e da língua portuguesas.",
+          "lang": "pt"
+        }
+      }
+    ],
+    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-14_2-bg.jpg",
+    "review_action": "",
+    "review_note": "Criado manualmente a partir de pt_2026-11-14_2 (Camões 1572)",
+    "external_suggestions": [],
+    "theme_suggestion": "",
+    "layout_override": "",
+    "source_profile": ""
   }
 ]
