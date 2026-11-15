@@ -10161,5 +10161,37 @@
         "created_at": "2026-11-14T23:17:31+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "published_post",
+        "lang": "pt",
+        "date": "2026-11-15",
+        "slot": "morning",
+        "platform": "facebook",
+        "post_id": "pt_2026-11-15_1",
+        "image_url": "https://i.ibb.co/PyvYDrd/post-pt.jpg",
+        "delete_url": "https://ibb.co/0LRXsnx/f959e10f39da99b8588ef6c7282756ea",
+        "platform_post_id": "1030669413467151_122138817950824703",
+        "platform_post_url": "https://www.facebook.com/122136509126824703/posts/122138817950824703",
+        "published_at": "2026-11-15T10:01:57.171158",
+        "created_at": "2026-11-15T10:01:57+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "published_post",
+        "lang": "en",
+        "date": "2026-11-15",
+        "slot": "morning",
+        "platform": "facebook",
+        "post_id": "en_2026-11-15_1",
+        "image_url": "https://i.ibb.co/8nHxwgZs/post-en.jpg",
+        "delete_url": "https://ibb.co/V0sCGY49/41c1b06aea1b043b747947314b6b2cea",
+        "platform_post_id": "1318455601360516_122107905921541219",
+        "platform_post_url": "https://www.facebook.com/122096313699541219/posts/122107905921541219",
+        "published_at": "2026-11-15T10:02:37.186440",
+        "created_at": "2026-11-15T10:02:37+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
