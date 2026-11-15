@@ -8363,17 +8363,23 @@
         "delete_status": ""
     },
     {
-        "kind": "review_preview",
+        "kind": "published_post",
         "lang": "pt",
         "date": "2026-11-15",
         "option_index": 1,
         "title": "Parlamento aprova uso de canábis para fins medicinais",
         "year": "2018",
-        "image_url": "https://i.ibb.co/N2cDmFCz/2026-11-15-02-2018-parlamento-aprova-uso-de-canabis-para-fins-medicinais.jpg",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-15_2.jpg",
         "delete_url": "https://ibb.co/v40yQcq8/4fc35a069af78ae69ce1c526c6232230",
-        "created_at": "2026-11-09T01:42:28+00:00",
+        "created_at": "2026-11-15T18:32:07+00:00",
         "deleted_at": "",
-        "delete_status": ""
+        "delete_status": "",
+        "slot": "evening",
+        "platform": "facebook",
+        "post_id": "pt_2026-11-15_2",
+        "platform_post_id": "1030669413467151_122138863490824703",
+        "platform_post_url": "https://www.facebook.com/122136509126824703/posts/122138863490824703",
+        "published_at": "2026-11-15T18:32:07.209164"
     },
     {
         "kind": "review_preview",
@@ -10971,6 +10977,22 @@
         "image_url": "https://i.ibb.co/r2VPhybf/2026-12-31-01-2016-programa-valorizar-disponibiliza-10-milhoes-para-turismo.jpg",
         "delete_url": "https://ibb.co/s9ZS435J/ebe456d830c01c16854fb3ee119921df",
         "created_at": "2026-11-15T17:43:56+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "published_post",
+        "lang": "en",
+        "date": "2026-11-15",
+        "slot": "evening",
+        "platform": "facebook",
+        "post_id": "en_2026-11-15_2",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-15_2.jpg",
+        "delete_url": "",
+        "platform_post_id": "1318455601360516_122108333541541219",
+        "platform_post_url": "https://www.facebook.com/122096313699541219/posts/122108333541541219",
+        "published_at": "2026-11-15T18:32:50.920826",
+        "created_at": "2026-11-15T18:32:50+00:00",
         "deleted_at": "",
         "delete_status": ""
     }

@@ -12990,7 +12990,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -13112,7 +13112,14 @@
                 "caption_narrative_en": "In 2018, Portugal's parliament approved the use of cannabis for medicinal purposes. The decision allows doctors to prescribe cannabis-based treatments and strengthens Infarmed's role in regulating and authorizing medical products."
             }
         ],
-        "last_image_refresh_at": "2026-11-09T01:42:28.733363"
+        "last_image_refresh_at": "2026-11-09T01:42:28.733363",
+        "instagram_id": "17993773275120425",
+        "instagram_url": "https://www.instagram.com/p/DfxbilJFzNt/",
+        "published_at": "2026-11-15T18:32:07.220711",
+        "instagram_story_id": "18091129628279821",
+        "facebook_id": "1030669413467151_122138863490824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122138863490824703",
+        "facebook_story_id": "1537628191754435"
     },
     {
         "id": "en_2026-11-15_1",
@@ -13195,7 +13202,7 @@
         "manual_background_url": "",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-15_2",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "jn.pt",
         "external_suggestions": [],
@@ -13246,7 +13253,14 @@
                 "background_source_url": "https://commons.wikimedia.org/wiki/File:22_11_2022_Encontro_com_o_senhor_Augusto_Santos_Silva,_Presidente_da_Assembleia_da_Rep%C3%BAblica_(52518273981).jpg",
                 "local_background_path": ""
             }
-        ]
+        ],
+        "instagram_id": "17919034725539297",
+        "instagram_url": "https://www.instagram.com/p/DfxbpgFF1PP/",
+        "published_at": "2026-11-15T18:32:50.931818",
+        "instagram_story_id": "17899957449412100",
+        "facebook_id": "1318455601360516_122108333541541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122108333541541219",
+        "facebook_story_id": "1152881947242370"
     },
     {
         "id": "pt_2026-11-16_1",
