@@ -13538,13 +13538,13 @@
     "date": "2026-11-16",
     "slot": 2,
     "lang": "pt",
-    "selected_option": 1,
+    "selected_option": 3,
     "layout_override": "",
     "theme_suggestion": "",
-    "manual_background_url": "",
+    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-16_2-bg.jpg",
     "review_action": "",
     "review_note": "",
-    "status": "pending",
+    "status": "approved",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -13706,6 +13706,55 @@
         "caption_instagram": "Iniciativa da Associação de Estabelecimentos de Ensino Particular e Cooperativo visa modernizar gestão interna das instituições.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2000.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Ciencia",
         "caption_facebook": "Iniciativa da Associação de Estabelecimentos de Ensino Particular e Cooperativo visa modernizar gestão interna das instituições.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2000.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Ciencia",
         "body": ""
+      },
+      {
+        "year": 1918,
+        "category": "SOCIEDADE",
+        "editorial_tier": "high",
+        "title": "Fim da Primeira Guerra Mundial",
+        "highlight_text": "Primeira Guerra Mundial",
+        "overlay_description": "Assinatura do Armistício que pôs fim ao conflito mais devastador da história, com repercussões globais profundas.",
+        "image_theme": "Armistício Compiègne 1918",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "A 11 de novembro de 1918, a assinatura do Armistício de Compiègne pôs fim à Primeira Guerra Mundial, o conflito mais devastador até então, com repercussões globais profundas.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1918.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "summary": "Fim da Primeira Guerra Mundial, com a assinatura do Armistício que pôs fim ao conflito mais devastador da história.",
+        "title_en": "End of the First World War",
+        "summary_en": "End of the First World War, with the signing of the Armistice that ended the most devastating conflict in history.",
+        "body_en": "On 11 November 1918, the signing of the Armistice of Compiègne ended the First World War. The armistice, signed in a railway carriage in the forest of Compiègne, France, between Marshal Foch and the German delegation, came into effect at 11 a.m. that day, ending four years of conflict that cost millions of lives and transformed Europe.",
+        "relevance": {
+          "level": 2,
+          "scores": {
+            "impacto_historico": 95.0,
+            "dimensao_impacto": 95.0,
+            "consequencias": 90.0,
+            "relevancia_posterior": 95.0,
+            "dimensao_duracao": 95.0,
+            "relevancia_mediatica": 75.0,
+            "singularidade": 90.0
+          },
+          "weighted_score": 92.0,
+          "justification": "Fim da Primeira Guerra Mundial; marco histórico global.",
+          "lang": "pt"
+        },
+        "article_url": "https://arquivo.pt/wayback/20240101000000/https://pt.wikipedia.org/wiki/Armist%C3%ADcio_de_Compi%C3%A8gne",
+        "source_platform": "web",
+        "source_profile": "commons.wikimedia.org",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "body": "A 11 de novembro de 1918, a assinatura do Armistício de Compiègne pôs fim à Primeira Guerra Mundial. O armistício, assinado numa carruagem de comboio na floresta de Compiègne, em França, entre o marechal Foch e a delegação alemã, entrou em vigor às 11 horas desse dia, pondo fim a quatro anos de conflito que custaram milhões de vidas e transformaram a Europa.",
+        "highlight_text_en": "First World War",
+        "caption_narrative_en": "On 11 November 1918, the signing of the Armistice of Compiègne ended the First World War, the most devastating conflict in history up to that point, with profound global repercussions.",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-16_2.jpg",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Waffenstillstand_gr.jpg/1280px-Waffenstillstand_gr.jpg",
+        "local_background_path": "",
+        "caption_instagram": "A 11 de novembro de 1918, a assinatura do Armistício de Compiègne pôs fim à Primeira Guerra Mundial, o conflito mais devastador até então, com repercussões globais profundas.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1918.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "caption_facebook": "A 11 de novembro de 1918, a assinatura do Armistício de Compiègne pôs fim à Primeira Guerra Mundial, o conflito mais devastador até então, com repercussões globais profundas.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1918.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade"
       }
     ],
     "last_regenerated_at": "2026-11-09T02:30:15.065183",
