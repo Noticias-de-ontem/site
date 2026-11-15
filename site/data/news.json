@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-15T17:31:19+00:00",
+  "generated_at": "2026-11-15T18:01:27+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -57,7 +57,7 @@
       "relevancia_mediatica": 70.0,
       "singularidade": 90.0
     },
-    "relevance_weighted": 90.0,
+    "relevance_weighted": 91.0,
     "relevance_justification": "Restauração da Independência; marco fundador da soberania nacional e da dinastia de Bragança.",
     "source_type": "internet_profile",
     "url_path": "noticia/politica/restauracao-da-independencia-de-portugal",
@@ -710,7 +710,7 @@
         "relevancia_mediatica": 70.0,
         "singularidade": 90.0
       },
-      "relevance_weighted": 90.0,
+      "relevance_weighted": 91.0,
       "relevance_justification": "Restauração da Independência; marco fundador da soberania nacional e da dinastia de Bragança.",
       "source_type": "internet_profile",
       "url_path": "noticia/politica/restauracao-da-independencia-de-portugal",
@@ -772,7 +772,7 @@
         "relevancia_mediatica": 70.0,
         "singularidade": 85.0
       },
-      "relevance_weighted": 85.0,
+      "relevance_weighted": 87.5,
       "relevance_justification": "Primeira publicação de Os Lusíadas; marco fundador da literatura e da língua portuguesas.",
       "source_type": "internet_profile",
       "url_path": "noticia/cultura/primeira-publicacao-de-os-lusiadas-de",
@@ -1393,7 +1393,7 @@
         "relevancia_mediatica": 70.0,
         "singularidade": 90.0
       },
-      "relevance_weighted": 90.0,
+      "relevance_weighted": 91.0,
       "relevance_justification": "Restauração da Independência; marco fundador da soberania nacional e da dinastia de Bragança.",
       "source_type": "internet_profile",
       "url_path": "noticia/politica/restauracao-da-independencia-de-portugal",
@@ -1455,7 +1455,7 @@
         "relevancia_mediatica": 70.0,
         "singularidade": 85.0
       },
-      "relevance_weighted": 85.0,
+      "relevance_weighted": 87.5,
       "relevance_justification": "Primeira publicação de Os Lusíadas; marco fundador da literatura e da língua portuguesas.",
       "source_type": "internet_profile",
       "url_path": "noticia/cultura/primeira-publicacao-de-os-lusiadas-de",
