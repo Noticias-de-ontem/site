@@ -8850,17 +8850,23 @@
         "delete_status": ""
     },
     {
-        "kind": "review_preview",
+        "kind": "published_post",
         "lang": "pt",
         "date": "2026-11-16",
         "option_index": 0,
         "title": "Médicos aprovam adesão à greve geral contra pacote laboral do Governo",
         "year": "2025",
-        "image_url": "https://i.ibb.co/fY5CcMtf/2026-11-16-01-2025-medicos-aprovam-adesao-a-greve-geral-contra-pacote-laboral-do-governo.jpg",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-16_1.jpg",
         "delete_url": "https://ibb.co/5Wy57Tvm/0e1acc52302e9bb37ec83ac7caa92f22",
-        "created_at": "2026-11-09T02:29:47+00:00",
+        "created_at": "2026-11-16T09:32:09+00:00",
         "deleted_at": "",
-        "delete_status": ""
+        "delete_status": "",
+        "slot": "morning",
+        "platform": "facebook",
+        "post_id": "pt_2026-11-16_1",
+        "platform_post_id": "1030669413467151_122138931554824703",
+        "platform_post_url": "https://www.facebook.com/122136509126824703/posts/122138931554824703",
+        "published_at": "2026-11-16T09:32:09.326886"
     },
     {
         "kind": "review_preview",
@@ -10993,6 +10999,22 @@
         "platform_post_url": "https://www.facebook.com/122096313699541219/posts/122108333541541219",
         "published_at": "2026-11-15T18:32:50.920826",
         "created_at": "2026-11-15T18:32:50+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "published_post",
+        "lang": "en",
+        "date": "2026-11-16",
+        "slot": "morning",
+        "platform": "facebook",
+        "post_id": "en_2026-11-16_1",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-16_1.jpg",
+        "delete_url": "",
+        "platform_post_id": "1318455601360516_122108847129541219",
+        "platform_post_url": "https://www.facebook.com/122096313699541219/posts/122108847129541219",
+        "published_at": "2026-11-16T09:33:18.887329",
+        "created_at": "2026-11-16T09:33:18+00:00",
         "deleted_at": "",
         "delete_status": ""
     }
