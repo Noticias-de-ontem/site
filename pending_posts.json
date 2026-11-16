@@ -13919,7 +13919,7 @@
         "summary": "Judicial measure grants amnesty to university attack suspect, raising questions about security and rehabilitation",
         "title_en": "Attack suspect at Science Faculty released by amnesty law",
         "summary_en": "Judicial measure grants amnesty to university attack suspect approved during World Youth Day, raising security and rehabilitation questions",
-        "body_en": "",
+        "body_en": "A student suspected of planning an attack on a university was released in 2023 under Portugal's amnesty law, according to the case's public description. The release was accompanied by a guarantee of medical monitoring and support.\n\nThe student had been accused of planning an attack the previous year. The reported circumstances of the case remain limited, and the available information does not provide further details about the alleged plan, the investigation, or the student's current status beyond the release and the assurance of medical oversight.\n\nThe case has prompted broader discussion about how universities and public authorities respond to security threats involving students. It has also raised questions about rehabilitation measures for people accused of planning attacks, particularly when concerns about public safety remain.\n\nUnder Portugal's amnesty law, the release benefited the student, who was freed while receiving medical care and monitoring. The decision illustrates the tension between legal mechanisms designed to grant amnesty and the continuing need to address potential security risks through appropriate institutional and medical measures.",
         "relevance": {
           "level": 4,
           "scores": {
@@ -13933,7 +13933,8 @@
           },
           "weighted_score": 51.8,
           "justification": "Amnesty grants freedom to attack suspect; raises debate on security policies and university rehabilitation measures.",
-          "lang": "pt"
+          "lang": "pt",
+          "justification_en": "The case raises questions about security policies and university rehabilitation programs for students accused of planning attacks."
         },
         "article_url": "https://arquivo.pt/wayback/20231116183711/https://rr.sapo.pt/noticia/pais/2023/11/16/libertado-jovem-que-planeou-ataque-a-faculdade-de-lisboa/355546/?utm_source=cxemdestaque",
         "source_platform": "",
@@ -13950,7 +13951,8 @@
         "caption_instagram": "Libertação beneficiou estudante que planeava ataque no ano passado, com acompanhamento médico garantido\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
         "caption_facebook": "Libertação beneficiou estudante que planeava ataque no ano passado, com acompanhamento médico garantido\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
         "body": "",
-        "caption_narrative_en": "In 2023, a student who planned an attack on the Faculty of Sciences in Lisbon was released under the amnesty law approved during World Youth Day, with medical monitoring guaranteed."
+        "caption_narrative_en": "In 2023, a student accused of planning an attack on a university was released under Portugal's amnesty law. The student will receive guaranteed medical monitoring and support.",
+        "highlight_text_en": "Amnesty"
       },
       {
         "year": "2005",
@@ -36332,5 +36334,69 @@
     "facebook_id": "1318455601360516_122109255435541219",
     "facebook_url": "https://www.facebook.com/122096313699541219/posts/122109255435541219",
     "facebook_story_id": "2227642014479298"
+  },
+  {
+    "id": "en_2026-11-17_1",
+    "date": "2026-11-17",
+    "slot": 1,
+    "lang": "en",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "Synced from pt_2026-11-17_1",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "source_profile": "",
+    "external_suggestions": [],
+    "options": [
+      {
+        "category": "JUSTICE",
+        "title": "Attack suspect at Science Faculty released by amnesty law",
+        "title_en": "Attack suspect at Science Faculty released by amnesty law",
+        "highlight_text": "Amnesty",
+        "overlay_description": "Judicial measure grants amnesty to university attack suspect approved during World Youth Day, raising security and rehabilitation questions",
+        "caption": "In 2023, a student accused of planning an attack on a university was released under Portugal's amnesty law. The student will receive guaranteed medical monitoring and support.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2023.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Justice",
+        "caption_instagram": "In 2023, a student accused of planning an attack on a university was released under Portugal's amnesty law. The student will receive guaranteed medical monitoring and support.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2023.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Justice",
+        "caption_facebook": "In 2023, a student accused of planning an attack on a university was released under Portugal's amnesty law. The student will receive guaranteed medical monitoring and support.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2023.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Justice",
+        "year": "2023",
+        "summary": "Judicial measure grants amnesty to university attack suspect approved during World Youth Day, raising security and rehabilitation questions",
+        "summary_en": "Judicial measure grants amnesty to university attack suspect approved during World Youth Day, raising security and rehabilitation questions",
+        "body": "A student suspected of planning an attack on a university was released in 2023 under Portugal's amnesty law, according to the case's public description. The release was accompanied by a guarantee of medical monitoring and support.\n\nThe student had been accused of planning an attack the previous year. The reported circumstances of the case remain limited, and the available information does not provide further details about the alleged plan, the investigation, or the student's current status beyond the release and the assurance of medical oversight.\n\nThe case has prompted broader discussion about how universities and public authorities respond to security threats involving students. It has also raised questions about rehabilitation measures for people accused of planning attacks, particularly when concerns about public safety remain.\n\nUnder Portugal's amnesty law, the release benefited the student, who was freed while receiving medical care and monitoring. The decision illustrates the tension between legal mechanisms designed to grant amnesty and the continuing need to address potential security risks through appropriate institutional and medical measures.",
+        "body_en": "A student suspected of planning an attack on a university was released in 2023 under Portugal's amnesty law, according to the case's public description. The release was accompanied by a guarantee of medical monitoring and support.\n\nThe student had been accused of planning an attack the previous year. The reported circumstances of the case remain limited, and the available information does not provide further details about the alleged plan, the investigation, or the student's current status beyond the release and the assurance of medical oversight.\n\nThe case has prompted broader discussion about how universities and public authorities respond to security threats involving students. It has also raised questions about rehabilitation measures for people accused of planning attacks, particularly when concerns about public safety remain.\n\nUnder Portugal's amnesty law, the release benefited the student, who was freed while receiving medical care and monitoring. The decision illustrates the tension between legal mechanisms designed to grant amnesty and the continuing need to address potential security risks through appropriate institutional and medical measures.",
+        "image_theme": "Faculdade de Ciências Lisboa",
+        "layout_preference": "template_3",
+        "breaking_candidate": false,
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 65.0,
+            "dimensao_impacto": 55.0,
+            "consequencias": 50.0,
+            "relevancia_posterior": 45.0,
+            "dimensao_duracao": 35.0,
+            "relevancia_mediatica": 30.0,
+            "singularidade": 40.0
+          },
+          "weighted_score": 51.8,
+          "justification": "The case raises questions about security policies and university rehabilitation programs for students accused of planning attacks.",
+          "lang": "pt",
+          "justification_en": "The case raises questions about security policies and university rehabilitation programs for students accused of planning attacks."
+        },
+        "article_url": "https://arquivo.pt/wayback/20231116183711/https://rr.sapo.pt/noticia/pais/2023/11/16/libertado-jovem-que-planeou-ataque-a-faculdade-de-lisboa/355546/?utm_source=cxemdestaque",
+        "source_profile": "",
+        "source_platform": "",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-17_1.jpg",
+        "image_delete_url": "",
+        "local_image_path": "site/images/approved/en_2026-11-17_1.jpg",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Faculdade_de_Ci%C3%AAncias_da_Universidade_de_Lisboa_9242.jpg/1280px-Faculdade_de_Ci%C3%AAncias_da_Universidade_de_Lisboa_9242.jpg",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-17_1-fundo.jpg"
+      }
+    ]
   }
 ]
