@@ -14010,13 +14010,13 @@
     "date": "2026-11-17",
     "slot": 2,
     "lang": "pt",
-    "selected_option": 1,
+    "selected_option": 4,
     "layout_override": "",
     "theme_suggestion": "Queda do Muro de Berlim anunciada na imprensa portuguesa",
-    "manual_background_url": "",
+    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-17_2-bg.jpg",
     "review_action": "",
     "review_note": "Gera opções baseadas no evento de 1989: Queda do Muro de Berlim anunciada na imprensa portuguesa (A notícia correu rapidamente nos jornais nacionais, simbolizando o fim da Guerra Fria e mudando a geopolítica europeia.)",
-    "status": "pending",
+    "status": "approved",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -14224,6 +14224,34 @@
         "caption_instagram": "Decisão tomada em sede de concertação social e aprovada pelo Conselho de Ministros\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2005.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
         "caption_facebook": "Decisão tomada em sede de concertação social e aprovada pelo Conselho de Ministros\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2005.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
         "body": ""
+      },
+      {
+        "title": "Benfica vence Real Madrid e é bicampeão europeu",
+        "title_en": "Benfica beat Real Madrid and become two-time European champions",
+        "category": "DESPORTO",
+        "year": 1962,
+        "summary": "Eusébio marca dois golos na vitória por 5-3 sobre o Real Madrid, em Amesterdão, e o Benfica conquista a segunda Taça dos Campeões consecutiva.",
+        "summary_en": "Eusébio scored twice in the 5-3 win over Real Madrid in Amsterdam, as Benfica won their second consecutive European Cup.",
+        "body": "Em 1962, o Benfica venceu o Real Madrid por 5-3 na final da Taça dos Clubes Campeões Europeus, disputada no Estádio Olímpico de Amesterdão. Eusébio, com 20 anos, marcou dois golos e foi a figura da final, garantindo ao clube da Luz a segunda Taça dos Campeões consecutiva, depois da vitória de 1961 sobre o Barcelona.",
+        "body_en": "In 1962, Benfica beat Real Madrid 5-3 in the European Cup final at the Olympic Stadium in Amsterdam. Eusébio, aged 20, scored twice and was the star of the final, securing the club's second consecutive European Cup after the 1961 win over Barcelona.",
+        "caption_narrative_en": "In 1962, Benfica beat Real Madrid 5-3 in Amsterdam, with Eusébio scoring twice, to win the European Cup for the second year in a row.",
+        "caption": "Em 1962, o Benfica venceu o Real Madrid por 5-3, em Amesterdão, com dois golos de Eusébio, e conquistou a Taça dos Campeões Europeus pelo segundo ano consecutivo.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1962.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Desporto",
+        "article_url": "https://arquivo.pt/wayback/20240101000000/https://pt.wikipedia.org/wiki/Final_da_Ta%C3%A7a_dos_Clubes_Campe%C3%B5es_Europeus_de_1961%E2%80%9362",
+        "source_profile": "commons.wikimedia.org",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-17_2.jpg",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Eusebio_%281963_version2%29.jpg",
+        "local_background_path": "",
+        "highlight_text": "Real Madrid",
+        "overlay_description": "Eusébio marca dois golos na vitória por 5-3 sobre o Real Madrid, em Amesterdão, e o Benfica conquista a segunda Taça dos Campeões consecutiva.",
+        "image_theme": "Eusébio Benfica",
+        "layout_preference": "template_1",
+        "relevance": {
+          "level": 2
+        }
       }
     ],
     "last_regenerated_at": "2026-11-09T02:31:43.366704",
@@ -14508,13 +14536,13 @@
     "date": "2026-11-18",
     "slot": 2,
     "lang": "pt",
-    "selected_option": 1,
+    "selected_option": 2,
     "layout_override": "",
     "theme_suggestion": "",
-    "manual_background_url": "",
+    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-18_2-bg.jpg",
     "review_action": "",
     "review_note": "",
-    "status": "pending",
+    "status": "approved",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -14630,6 +14658,55 @@
         "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-18_02_2002_governo-investe-onze-milhoes-de-euros-em-encerramento-de-escolas-com-menos-de-11-fundo.jpg",
         "caption_instagram": "Governo português anuncia investimento de onze milhões de euros no encerramento de escolas com menos de 11 alunos, visando reorganizar a rede educativa.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
         "caption_facebook": "Governo português anuncia investimento de onze milhões de euros no encerramento de escolas com menos de 11 alunos, visando reorganizar a rede educativa.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia"
+      },
+      {
+        "year": "2025",
+        "category": "POLÍTICA",
+        "editorial_tier": "high",
+        "title": "PJ lança operação de buscas na TAP na investigação à privatização",
+        "highlight_text": "PJ operação",
+        "overlay_description": "Investigação em curso sobre processo de privatização da companhia aérea na reta final do Governo de Pedro Passos Coelho",
+        "image_theme": "Palácio de Belém Lisboa",
+        "layout_preference": "template_1",
+        "breaking_candidate": true,
+        "conditional_trigger": "",
+        "caption": "Operação da PJ atinge empresas ligadas ao processo de privatização da TAP, em causa estão contratos da venda de 2015 ao consórcio de Neelman e Humber.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "summary": "Investigação da PJ sobre a privatização da TAP em 2015, na reta final do Governo PSD/CDS, mobiliza buscas na aérea e na empresa de transportes Barraqueiro.",
+        "title_en": "PJ launches search operation at TAP in privatization investigation",
+        "summary_en": "Ongoing investigation into the 2015 airline privatization process, finalizing under Pedro Passos Coelho's government, mobilizes searches at the airline and transport company Barraqueiro.",
+        "body_en": "Portuguese police conducted searches at TAP and Barrakeiro facilities in 2025 as part of an investigation reopening the 2015 airline privatization case. The action takes place during the final days of the Passos Coelho government and targets contracts linked to the sale of the national carrier to a consortium led by David Neelman and Humber. Authorities aim to uncover potential irregularities in a deal that sparked intense parliamentary and social debate over the valuation and national interest safeguards.\n\nThe 2015 privatization of TAP, one of Portugal's largest state assets, was a controversial process involving international investors. The right-wing executive's decision to sell the airline faced criticism regarding the transaction value and the protection of national interests. Nearly a decade later, the PJ justifies the searches by seeking to clarify responsibilities and potential illicit acts that may have marked the transaction, bringing to light previously archived documents and information.\n\nDuring the investigation, authorities are focusing on analyzing contracts, internal communications, and financial movements tied to the sale. Barrakeiro, a business group with strong transport sector ties that also participated in the process consultancy, is among the targets of diligences. The objective is to determine whether undue favoritism was shown to certain groups or if public competition rules were properly fulfilled — aspects questioned by left-wing parties and unions during the previous government period.\n\nThe lasting relevance of this case lies in challenging the credibility of one of the most significant business deals of the last decade and reopening debate over public patrimony management. occurring in the present day, the PJ operation serves as a reminder of the importance of permanent oversight and the need to ensure privatizations occur under conditions of equality and transparency, protecting the collective interest above private interests. The outcome of this investigation could have significant implications for public confidence in future state enterprise alienations.",
+        "relevance": {
+          "level": 3,
+          "scores": {
+            "impacto_historico": 65.0,
+            "dimensao_impacto": 55.0,
+            "consequencias": 50.0,
+            "relevancia_posterior": 55.0,
+            "dimensao_duracao": 45.0,
+            "relevancia_mediatica": 40.0,
+            "singularidade": 50.0
+          },
+          "weighted_score": 55.2,
+          "justification": "Investigação sobre privatização da TAP na reta final do governo PSD/CDS; mobilizou buscas e levantamento de documentos, mas sem consequências estruturais imediatas após 2015.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "body": "Em 2025, a Polícia Judiciária desencadeou uma operação de buscas nas instalações da TAP e da Barraqueiro, no âmbito de uma investigação que reabre o processo de privatização da companhia aérea ocorrido em 2015. A ação, que decorre na reta final do Governo de Pedro Passos Coelho, visa apurar eventuais irregularidades nos contratos da venda da empresa ao consórcio liderado por David Neelman e Humber, suscitando novas polémicas sobre a transparência do negócio.\n\nO contexto da operação remonta à decisão do executivo de direita de avançar com a privatização da TAP, um dos maiores ativos do Estado português, em 2015. O processo, que contou com a participação de investidores internacionais, foi alvo de intenso debate parlamentar e social, com críticas focadas no valor da operação e na salvaguarda dos interesses nacionais. Agora, quase uma década depois, a PJ justifica as buscas com o objetivo de esclarecer responsabilidades e eventuais ilícitos que possam ter marcado a transação, trazendo à tona documentos e informações que estavam arquivados.\n\nNo desenvolvimento da investigação, as autoridades estão a concentrar-se na análise de contratos, comunicações internas e movimentações financeiras ligadas à venda. A Barraqueiro, grupo empresarial com fortes ligações ao setor dos transportes e que esteve envolvido na consultoria do processo, é também alvo de diligências. O objetivo é determinar se houve favorecimento indevido a determinado grupos ou se as regras de concurso público foram devidamente cumpridas, aspectos que foram questionados por diversos partidos de esquerda e por sindicatos durante o período de governação anterior.\n\nA relevância duradoura deste caso reside no facto de colocar em causa a credibilidade de um dos negócios mais significativos da última década e de reabrir o debate sobre a gestão dos patrimónios públicos. Ao ocorrer na atualidade, a operação da PJ serve como um lembrete da importância da fiscalização permanente e da necessidade de garantir que as privatizações ocorrem em condições de igualdade e transparência, protegendo o interesse coletivo acima de interesses privados. O desfecho desta investigação poderá ter implicações significativas para a confiança pública nas futuras alienações de empresas estatais.",
+        "highlight_text_en": "PJ",
+        "caption_narrative_en": "In 2025, Portuguese police raided TAP and Barrakeiro offices as part of a probe into the 2015 airline privatization. The operation, unfolding during the final days of the Passos Coelho government, targets contracts tied to the David Neelman and Humber consortium deal, reigniting debates over transparency.",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-18_2.jpg",
+        "image_delete_url": "https://ibb.co/TM0t0W52/49e133ec5a817afe8018334bb8e916d1",
+        "local_image_path": "images/review/pt/2026-11-18_01_2025_pj-lanca-operacao-de-buscas-na-tap-e-na-barraqueiro-na-investigacao-a-privatizac.jpg",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Assembleia_da_Rep%C3%BAblica_-_Lisboa_%285437067252%29.jpg",
+        "local_background_path": "",
+        "caption_instagram": "Operação da PJ atinge empresas ligadas ao processo de privatização da TAP, em causa estão contratos da venda de 2015 ao consórcio de Neelman e Humber.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "caption_facebook": "Operação da PJ atinge empresas ligadas ao processo de privatização da TAP, em causa estão contratos da venda de 2015 ao consórcio de Neelman e Humber.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica"
       }
     ],
     "last_regenerated_at": "2026-11-09T02:34:37.346466",
