@@ -14234,13 +14234,13 @@
     "date": "2026-11-18",
     "slot": 1,
     "lang": "pt",
-    "selected_option": 0,
+    "selected_option": 4,
     "layout_override": "",
     "theme_suggestion": "Benfica vence a Taça dos Clubes Campeões Europeus",
-    "manual_background_url": "",
+    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-18_1-bg.jpg",
     "review_action": "",
     "review_note": "Gera opções baseadas no evento de 1969: Benfica vence a Taça dos Clubes Campeões Europeus (O Benfica sagrou-se campeão europeu pela primeira vez, derrotando o Manchester United na final disputada em Roma, um dos maiores títulos do futebol português.)",
-    "status": "pending",
+    "status": "approved",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -14484,16 +14484,18 @@
         "source_platform": "web",
         "source_profile": "publico.pt",
         "networks": [
+          "instagram",
           "facebook"
         ],
-        "image_url": "",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-18_1.jpg",
         "image_delete_url": "",
         "local_image_path": "",
-        "background_source_url": "",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Assembleia_da_Rep%C3%BAblica_-_Lisboa_%285437067252%29.jpg",
         "local_background_path": "",
         "caption_instagram": "Comerciantes realizam protesto no Parlamento contra nova lei do arrendamento, temendo consequências para inquilinos e estabilidade do pequeno comércio.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
         "caption_facebook": "Comerciantes realizam protesto no Parlamento contra nova lei do arrendamento, temendo consequências para inquilinos e estabilidade do pequeno comércio.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
-        "body": ""
+        "body": "",
+        "caption_narrative_en": "In 2004, merchants protested in Parliament against the new rental law, fearing it would lead to tenant evictions and instability in small commerce."
       }
     ],
     "last_regenerated_at": "2026-11-09T02:34:10.883665",
