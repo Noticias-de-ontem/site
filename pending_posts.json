@@ -13552,7 +13552,7 @@
         "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-16_2-bg.jpg",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -13757,8 +13757,8 @@
                 "body": "A 11 de novembro de 1918, a assinatura do Armistício de Compiègne pôs fim à Primeira Guerra Mundial. O armistício, assinado numa carruagem de comboio na floresta de Compiègne, em França, entre o marechal Foch e a delegação alemã, entrou em vigor às 11 horas desse dia, pondo fim a quatro anos de conflito que custaram milhões de vidas e transformaram a Europa.",
                 "highlight_text_en": "First World War",
                 "caption_narrative_en": "On November 11, 1918, the Armistice of Compiègne brought an end to the First World War, the most devastating conflict up to that time. Signed in a railway carriage in the Compiègne Forest in France, the agreement took effect at 11 a.m. and brought four years of fighting to a close.",
-                "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-16_2.jpg",
-                "image_delete_url": "",
+                "image_url": "https://i.ibb.co/KzhShnCj/post-pt.jpg",
+                "image_delete_url": "https://ibb.co/rf0N09nG/b13ac878c877b2b19eea5220b7f7444f",
                 "local_image_path": "",
                 "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Waffenstillstand_gr.jpg/1280px-Waffenstillstand_gr.jpg",
                 "local_background_path": "",
@@ -13767,7 +13767,14 @@
             }
         ],
         "last_regenerated_at": "2026-11-09T02:30:15.065183",
-        "regeneration_count": 1
+        "regeneration_count": 1,
+        "instagram_id": "18400977052164725",
+        "instagram_url": "https://www.instagram.com/p/Df0OEevIL5V/",
+        "published_at": "2026-11-16T20:32:26.602418",
+        "instagram_story_id": "18155559622536446",
+        "facebook_id": "1030669413467151_122138990546824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122138990546824703",
+        "facebook_story_id": "997363602867878"
     },
     {
         "id": "pt_2026-11-17_1",
@@ -36264,7 +36271,7 @@
         "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-16_2-bg.jpg",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-16_2",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "commons.wikimedia.org",
         "external_suggestions": [],
@@ -36309,12 +36316,19 @@
                 "article_url": "",
                 "source_profile": "commons.wikimedia.org",
                 "source_platform": "web",
-                "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-16_2.jpg",
-                "image_delete_url": "",
+                "image_url": "https://i.ibb.co/4g9Chnz5/post-en.jpg",
+                "image_delete_url": "https://ibb.co/vvgf06pK/3a7aee272e3420a7be95302a65d53aa0",
                 "local_image_path": "site/images/approved/en_2026-11-16_2.jpg",
                 "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Waffenstillstand_gr.jpg/1280px-Waffenstillstand_gr.jpg",
                 "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-16_2-fundo.jpg"
             }
-        ]
+        ],
+        "instagram_id": "18059799236803429",
+        "instagram_url": "https://www.instagram.com/p/Df0OOMZoIT6/",
+        "published_at": "2026-11-16T20:33:32.264642",
+        "instagram_story_id": "18124759007317489",
+        "facebook_id": "1318455601360516_122109255435541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122109255435541219",
+        "facebook_story_id": "2227642014479298"
     }
 ]
