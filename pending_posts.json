@@ -14023,7 +14023,7 @@
         "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-17_2-bg.jpg",
         "review_action": "",
         "review_note": "Gera opções baseadas no evento de 1989: Queda do Muro de Berlim anunciada na imprensa portuguesa (A notícia correu rapidamente nos jornais nacionais, simbolizando o fim da Guerra Fria e mudando a geopolítica europeia.)",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -14249,7 +14249,7 @@
                     "instagram",
                     "facebook"
                 ],
-                "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-17_2.jpg",
+                "image_url": "https://i.ibb.co/C5vYV0SQ/post-pt.jpg",
                 "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Eusebio_%281963_version2%29.jpg",
                 "local_background_path": "",
                 "highlight_text": "Real Madrid",
@@ -14262,11 +14262,19 @@
                 },
                 "caption_instagram": "Em 1962, o Benfica venceu o Real Madrid por 5-3, em Amesterdão, com dois golos de Eusébio, e conquistou a Taça dos Campeões Europeus pelo segundo ano consecutivo.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1962.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Desporto",
                 "caption_facebook": "Em 1962, o Benfica venceu o Real Madrid por 5-3, em Amesterdão, com dois golos de Eusébio, e conquistou a Taça dos Campeões Europeus pelo segundo ano consecutivo.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1962.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Desporto",
-                "highlight_text_en": "Benfica"
+                "highlight_text_en": "Benfica",
+                "image_delete_url": "https://ibb.co/5WvSscJL/4ca2e06431808227e2d424feac119851"
             }
         ],
         "last_regenerated_at": "2026-11-09T02:31:43.366704",
-        "regeneration_count": 1
+        "regeneration_count": 1,
+        "instagram_id": "17996356047073221",
+        "instagram_url": "https://www.instagram.com/p/Df2lIiOmEAf/",
+        "published_at": "2026-11-17T18:32:05.923002",
+        "instagram_story_id": "17916415221516916",
+        "facebook_id": "1030669413467151_122139103940824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122139103940824703",
+        "facebook_story_id": "1664789345124846"
     },
     {
         "id": "pt_2026-11-18_1",
@@ -36574,7 +36582,7 @@
         "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-17_2-bg.jpg",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-17_2",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "commons.wikimedia.org",
         "external_suggestions": [],
@@ -36608,13 +36616,20 @@
                 "article_url": "",
                 "source_profile": "commons.wikimedia.org",
                 "source_platform": "",
-                "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-17_2.jpg",
-                "image_delete_url": "",
+                "image_url": "https://i.ibb.co/jk7Tw4wY/post-en.jpg",
+                "image_delete_url": "https://ibb.co/Df3tMKMF/31bc87130d7328ad79b741eeb0754779",
                 "local_image_path": "site/images/approved/en_2026-11-17_2.jpg",
                 "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Eusebio_%281963_version2%29.jpg",
                 "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-17_2-fundo.jpg"
             }
-        ]
+        ],
+        "instagram_id": "18001192067822592",
+        "instagram_url": "https://www.instagram.com/p/Df2lPkSGPhU/",
+        "published_at": "2026-11-17T18:32:49.714139",
+        "instagram_story_id": "18156142216530327",
+        "facebook_id": "1318455601360516_122109759033541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122109759033541219",
+        "facebook_story_id": "1741875114045182"
     },
     {
         "id": "en_2026-11-18_2",
