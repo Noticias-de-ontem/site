@@ -8,7 +8,7 @@
             "evening_posted": false,
             "morning_attempted": true,
             "evening_attempted": false,
-            "morning_story_posted": false,
+            "morning_story_posted": true,
             "evening_story_posted": false,
             "last_post_time": "2026-11-19T22:08:44.279537+00:00"
         },
@@ -17,7 +17,7 @@
             "evening_posted": false,
             "morning_attempted": true,
             "evening_attempted": false,
-            "morning_story_posted": false,
+            "morning_story_posted": true,
             "evening_story_posted": false,
             "last_post_time": "2026-11-19T22:08:44.279537+00:00"
         }
@@ -29,7 +29,7 @@
         "instagram": {
             "morning_posted": false,
             "evening_posted": false,
-            "morning_attempted": false,
+            "morning_attempted": true,
             "evening_attempted": false,
             "morning_story_posted": false,
             "evening_story_posted": false,
@@ -38,7 +38,7 @@
         "facebook": {
             "morning_posted": false,
             "evening_posted": false,
-            "morning_attempted": false,
+            "morning_attempted": true,
             "evening_attempted": false,
             "morning_story_posted": false,
             "evening_story_posted": false,
