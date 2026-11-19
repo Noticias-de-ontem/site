@@ -15177,13 +15177,13 @@
     "date": "2026-11-19",
     "slot": 1,
     "lang": "pt",
-    "selected_option": 3,
+    "selected_option": 5,
     "layout_override": "",
     "theme_suggestion": "",
-    "manual_background_url": "",
+    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-19_2-bg.jpg",
     "review_action": "",
     "review_note": "",
-    "status": "pending",
+    "status": "approved",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -15413,6 +15413,52 @@
         "local_background_path": "",
         "caption_instagram": "A proposta de redução de 294,83 milhões de euros no orçamento destinado ao programa Erasmus+, enquadra-se na posição formal do Conselho Europeu, órgão que reúne os chefes de Estado e de governo dos países da UE, sobre o Orçamento da União Europeia para 2025. “Cortes no orçamento [do Erasmus+] significariam a diminuição do impacto de um dos projetos mais bem-sucedidos da União Europeia”, alerta Rita Dias, presidente da Erasmus Student Network (ESN), uma associação internacional de estudantes, reconhecida e apoiada pela Comissão Europeia. através do . 📸 Getty\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2024.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
         "caption_facebook": "A proposta de redução de 294,83 milhões de euros no orçamento destinado ao programa Erasmus+, enquadra-se na posição formal do Conselho Europeu, órgão que reúne os chefes de Estado e de governo dos países da UE, sobre o Orçamento da União Europeia para 2025. “Cortes no orçamento [do Erasmus+] significariam a diminuição do impacto de um dos projetos mais bem-sucedidos da União Europeia”, alerta Rita Dias, presidente da Erasmus Student Network (ESN), uma associação internacional de estudantes, reconhecida e apoiada pela Comissão Europeia. através do . 📸 Getty\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2024.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Educacao"
+      },
+      {
+        "year": "2017",
+        "category": "ECONOMIA",
+        "editorial_tier": "lower_relevance",
+        "title": "João César das Neves: país é socialista e adora o Estado",
+        "highlight_text": "socialista Estado",
+        "overlay_description": "Entrevista sobre a relação do país com o Estado e economia",
+        "image_theme": "Entrevista jornalista economia",
+        "layout_preference": "template_3",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "João César das Neves: 'O país é socialista. Somos um país que adora o Estado e os carinhos do Estado', numa entrevista para ler em 24.sapo.pt.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2017.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "summary": "Reflexão sobre a cultura política e económica do país em relação ao papel do Estado na sociedade.",
+        "title_en": "João César das Neves: country is socialist and loves the State",
+        "summary_en": "Reflection on the country's political culture and economy in relation to the State's role in society.",
+        "body_en": "",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 30.0,
+            "dimensao_impacto": 25.0,
+            "consequencias": 20.0,
+            "relevancia_posterior": 20.0,
+            "dimensao_duracao": 15.0,
+            "relevancia_mediatica": 15.0,
+            "singularidade": 20.0
+          },
+          "weighted_score": 23.2,
+          "justification": "Entrevista de opinião sobre cultura política; não gerou mudanças legislativas ou estruturais concretas.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-19_2.jpg",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Jo%C3%A3o_Lu%C3%ADs_C%C3%A9sar_das_Neves_%28%27M%C3%A3o_Invis%C3%ADvel%27%2C_Centro_de_Estudos_Sociais_da_Universidade_de_Coimbra%29.png",
+        "local_background_path": "",
+        "caption_instagram": "João César das Neves: 'O país é socialista. Somos um país que adora o Estado e os carinhos do Estado', numa entrevista para ler em 24.sapo.pt.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2017.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "caption_facebook": "João César das Neves: 'O país é socialista. Somos um país que adora o Estado e os carinhos do Estado', numa entrevista para ler em 24.sapo.pt.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2017.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia"
       }
     ],
     "last_image_refresh_at": "2026-11-09T01:43:30.410801",
@@ -15424,13 +15470,13 @@
     "date": "2026-11-19",
     "slot": 2,
     "lang": "pt",
-    "selected_option": 3,
+    "selected_option": 1,
     "layout_override": "",
     "theme_suggestion": "Lançamento do primeiro satélite português",
-    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-19_2-bg.jpg",
-    "review_action": "",
+    "manual_background_url": "",
+    "review_action": "regenerate",
     "review_note": "Gera opções baseadas no evento de 1970: Lançamento do primeiro satélite português (Portugal coloca o primeiro satélite de comunicação em órbita, avançando nas capacidades tecnológicas nacionais.)",
-    "status": "approved",
+    "status": "pending",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
