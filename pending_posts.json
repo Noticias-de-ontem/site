@@ -15432,10 +15432,10 @@
     "selected_option": 1,
     "layout_override": "",
     "theme_suggestion": "Lançamento do primeiro satélite português",
-    "manual_background_url": "",
-    "review_action": "regenerate",
+    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-19_2-bg.jpg",
+    "review_action": "",
     "review_note": "Gera opções baseadas no evento de 1970: Lançamento do primeiro satélite português (Portugal coloca o primeiro satélite de comunicação em órbita, avançando nas capacidades tecnológicas nacionais.)",
-    "status": "pending",
+    "status": "approved",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -15527,16 +15527,17 @@
         "source_platform": "",
         "source_profile": "",
         "networks": [
+          "instagram",
           "facebook"
         ],
         "body": "No dia 12 de maio de 2023, a comunidade escolar da freguesia do Lumiar, em Lisboa, foi abalada por um episódio de violência que chocou a opinião pública. Um jovem de 16 anos, aluno do secundário local, esfaqueou violentamente um colega durante o horário de aula, provocando ferimentos graves que levaram à internação urgente da vítima no Hospital de Santa Maria. A agressão ocorreu de forma repentina, num espaço que deveria ser de aprendizagem e convívio seguro. As autoridades foram acionadas imediatamente e o agressor foi detido no local, tendo sido presente a primeiro-ministro e sujeito a medidas de coação, incluindo prisão preventiva, por ordem do tribunal. A vítima, cujas identidades foram protegidas por ser menor de idade, encontra-se em estado crítico, o que tem gerado grande comoção entre familiares e estudantes. O caso reabriu o debate sobre a segurança nas escolas e a necessidade de reforço de protocolos de prevenção e intervenção antecipada. As autoridades educativas e de segurança têm trabalhado em conjunto para apurar as causas do incidente e garantir que medidas adequadas são tomadas para evitar novas ocorrências, num contexto que já vivia preocupação com a saúde mental e o comportamento juvenil.",
         "highlight_text_en": "stabs",
         "caption_narrative_en": "On May 12, 2023, a 16-year-old student stabbed a classmate at a Lisbon school, sparking shock and calls for better safety measures. The victim remains hospitalized with grave injuries as the attacker faces detention.",
-        "image_url": "images/review/pt/2026-11-19_02_2023_jovem-de-16-anos-esfaqueia-colega-na-escola-do-lumiar-e-e-detido.jpg",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-19_2.jpg",
         "image_delete_url": "",
-        "local_image_path": "images/review/pt/2026-11-19_02_2023_jovem-de-16-anos-esfaqueia-colega-na-escola-do-lumiar-e-e-detido.jpg",
-        "background_source_url": "https://commons.wikimedia.org/wiki/File:Antiga_Escola_Industrial_do_Marqu%C3%AAs_de_Pombal,_Alc%C3%A2ntara_04.jpg",
-        "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-19_02_2023_jovem-de-16-anos-esfaqueia-colega-na-escola-do-lumiar-e-e-detido-fundo.jpg",
+        "local_image_path": "",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Antiga_Escola_Industrial_do_Marqu%C3%AAs_de_Pombal%2C_Alc%C3%A2ntara_04.jpg",
+        "local_background_path": "",
         "caption_instagram": "Um jovem de 16 anos esfaqueou um colega numa escola na freguesia do Lumiar, tendo sido detido e sujeito a prisão preventiva, enquanto a vítima permanece internada com ferimentos graves.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
         "caption_facebook": "Um jovem de 16 anos esfaqueou um colega numa escola na freguesia do Lumiar, tendo sido detido e sujeito a prisão preventiva, enquanto a vítima permanece internada com ferimentos graves.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Justica"
       },
