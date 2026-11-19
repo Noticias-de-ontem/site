@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T20:01:30+00:00",
+  "generated_at": "2026-11-19T20:31:20+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -824,10 +824,18 @@
         "instagram": "https://www.instagram.com/p/Df2lIiOmEAf/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122139103940824703"
       },
-      "relevance_level": 2,
-      "relevance_scores": {},
-      "relevance_weighted": null,
-      "relevance_justification": "",
+      "relevance_level": 4,
+      "relevance_scores": {
+        "impacto_historico": 45.0,
+        "dimensao_impacto": 40.0,
+        "consequencias": 40.0,
+        "relevancia_posterior": 40.0,
+        "dimensao_duracao": 30.0,
+        "relevancia_mediatica": 35.0,
+        "singularidade": 35.0
+      },
+      "relevance_weighted": 40.0,
+      "relevance_justification": "Acontecimento de interesse público documentado na época.",
       "source_type": "internet_profile",
       "url_path": "noticia/desporto/benfica-vence-real-madrid-e-e",
       "page_id": "noticia-ad50bff80804cfb4465f074c",
@@ -840,7 +848,7 @@
       "instagram_id_en": "18001192067822592",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122109759033541219",
       "facebook_id_en": "1318455601360516_122109759033541219",
-      "relevance_justification_en": "The match established Benfica as the first club to win consecutive European Cups, a feat unmatched until 1972."
+      "relevance_justification_en": "Public interest event documented at the time."
     },
     {
       "id": "pt_2026-11-17_1",
@@ -950,7 +958,7 @@
         "relevancia_mediatica": 75.0,
         "singularidade": 90.0
       },
-      "relevance_weighted": 92.0,
+      "relevance_weighted": 93.0,
       "relevance_justification": "Fim da Primeira Guerra Mundial; marco histórico global.",
       "source_type": "internet_profile",
       "url_path": "noticia/sociedade/fim-da-primeira-guerra-mundial",
@@ -1562,10 +1570,18 @@
         "instagram": "https://www.instagram.com/p/Df2lIiOmEAf/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122139103940824703"
       },
-      "relevance_level": 2,
-      "relevance_scores": {},
-      "relevance_weighted": null,
-      "relevance_justification": "",
+      "relevance_level": 4,
+      "relevance_scores": {
+        "impacto_historico": 45.0,
+        "dimensao_impacto": 40.0,
+        "consequencias": 40.0,
+        "relevancia_posterior": 40.0,
+        "dimensao_duracao": 30.0,
+        "relevancia_mediatica": 35.0,
+        "singularidade": 35.0
+      },
+      "relevance_weighted": 40.0,
+      "relevance_justification": "Acontecimento de interesse público documentado na época.",
       "source_type": "internet_profile",
       "url_path": "noticia/desporto/benfica-vence-real-madrid-e-e",
       "page_id": "noticia-ad50bff80804cfb4465f074c",
@@ -1578,7 +1594,7 @@
       "instagram_id_en": "18001192067822592",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122109759033541219",
       "facebook_id_en": "1318455601360516_122109759033541219",
-      "relevance_justification_en": "The match established Benfica as the first club to win consecutive European Cups, a feat unmatched until 1972."
+      "relevance_justification_en": "Public interest event documented at the time."
     },
     {
       "id": "pt_2026-11-17_1",
@@ -1688,7 +1704,7 @@
         "relevancia_mediatica": 75.0,
         "singularidade": 90.0
       },
-      "relevance_weighted": 92.0,
+      "relevance_weighted": 93.0,
       "relevance_justification": "Fim da Primeira Guerra Mundial; marco histórico global.",
       "source_type": "internet_profile",
       "url_path": "noticia/sociedade/fim-da-primeira-guerra-mundial",
