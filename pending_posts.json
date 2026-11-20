@@ -36895,5 +36895,68 @@
     "facebook_id": "1318455601360516_122110874613541219",
     "facebook_url": "https://www.facebook.com/122096313699541219/posts/122110874613541219",
     "facebook_story_id": "1582508230227191"
+  },
+  {
+    "id": "en_2026-11-20_1",
+    "date": "2026-11-20",
+    "slot": 1,
+    "lang": "en",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "Synced from pt_2026-11-20_1",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "source_profile": "",
+    "external_suggestions": [],
+    "options": [
+      {
+        "category": "ECONOMY",
+        "title": "Ryanair ends flights to the Azores",
+        "title_en": "Ryanair ends flights to the Azores",
+        "highlight_text": "Ryanair",
+        "overlay_description": "Airline suspends routes on the islands due to high operational costs",
+        "caption": "In 2025, Ryanair announced the end of six Azores routes, citing high airport fees as the main driver. The move affects essential island connections and is projected to cost the region 400,000 annual passengers.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2025.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "caption_instagram": "In 2025, Ryanair announced the end of six Azores routes, citing high airport fees as the main driver. The move affects essential island connections and is projected to cost the region 400,000 annual passengers.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2025.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "caption_facebook": "In 2025, Ryanair announced the end of six Azores routes, citing high airport fees as the main driver. The move affects essential island connections and is projected to cost the region 400,000 annual passengers.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2025.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "year": "2025",
+        "summary": "Airline suspends routes on the islands due to high operational costs",
+        "summary_en": "Airline suspends routes on the islands due to high operational costs",
+        "body": "Ryanair has announced the closure of six routes connecting the Azores to the mainland and between islands, effective next summer. The low-cost carrier cited high airport fees as the primary reason, arguing that elevated operational costs make the routes economically unsustainable despite strong recent demand. The decision impacts essential inter-island links and is projected to reduce annual passenger traffic by 400,000. Regional officials have expressed concern, warning that the suspensions threaten economic development and tourism competitiveness across the archipelago. Industry experts predict potential fare increases and reduced accessibility for residents and visitors alike. The move reflects an ongoing tension between low-cost carriers and regional airports, which continue to argue for fee structures better aligned with island-specific realities. Analysts note that without structural solutions, the Azores risk losing critical air connectivity that supports both local mobility and the territory's broader economic profile.",
+        "body_en": "Ryanair has announced the closure of six routes connecting the Azores to the mainland and between islands, effective next summer. The low-cost carrier cited high airport fees as the primary reason, arguing that elevated operational costs make the routes economically unsustainable despite strong recent demand. The decision impacts essential inter-island links and is projected to reduce annual passenger traffic by 400,000. Regional officials have expressed concern, warning that the suspensions threaten economic development and tourism competitiveness across the archipelago. Industry experts predict potential fare increases and reduced accessibility for residents and visitors alike. The move reflects an ongoing tension between low-cost carriers and regional airports, which continue to argue for fee structures better aligned with island-specific realities. Analysts note that without structural solutions, the Azores risk losing critical air connectivity that supports both local mobility and the territory's broader economic profile.",
+        "image_theme": "Aeroporto Açores avião",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 30.0,
+            "dimensao_impacto": 20.0,
+            "consequencias": 15.0,
+            "relevancia_posterior": 15.0,
+            "dimensao_duracao": 10.0,
+            "relevancia_mediatica": 5.0,
+            "singularidade": 5.0
+          },
+          "weighted_score": 19.0,
+          "justification": "Ryanair suspends Azores routes due to high airport fees, affecting regional connectivity. Decision reflects ongoing airline cost pressures.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_profile": "",
+        "source_platform": "",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-20_1.jpg",
+        "image_delete_url": "",
+        "local_image_path": "site/images/approved/en_2026-11-20_1.jpg",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Ryanair_Boeing_737.jpg",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-20_1-fundo.jpg"
+      }
+    ]
   }
 ]
