@@ -16064,13 +16064,13 @@
     "date": "2026-11-20",
     "slot": 2,
     "lang": "pt",
-    "selected_option": 1,
+    "selected_option": 2,
     "layout_override": "",
     "theme_suggestion": "",
-    "manual_background_url": "",
+    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-20_2-bg.jpg",
     "review_action": "",
     "review_note": "",
-    "status": "pending",
+    "status": "approved",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -16178,6 +16178,52 @@
         "local_background_path": "",
         "caption_instagram": "“A nossa economia não é a inclusiva. Os dados europeus dizem Portugal é o país da UE onde há mais pessoas que acreditam no racismo biológico, que há etnias inferiores\". Susana Peralta, diz, tem desigualdade está sempre no centro das suas preocupações. É uma das comentadoras mais relevantes da atualidade, com um foco interseccional e atento aos enviesamentos do país e do mundo, explica em entrevista no podcast A Beleza das Pequenas Coisas. A conversa com o jornalista bernardo_mendonca pode ser ouvida em todas as plataformas de podcast e através do do jornalexpresso. 📷 nunofox\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2022.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
         "caption_facebook": "“A nossa economia não é a inclusiva. Os dados europeus dizem Portugal é o país da UE onde há mais pessoas que acreditam no racismo biológico, que há etnias inferiores\". Susana Peralta, diz, tem desigualdade está sempre no centro das suas preocupações. É uma das comentadoras mais relevantes da atualidade, com um foco interseccional e atento aos enviesamentos do país e do mundo, explica em entrevista no podcast A Beleza das Pequenas Coisas. A conversa com o jornalista bernardo_mendonca pode ser ouvida em todas as plataformas de podcast e através do do jornalexpresso. 📷 nunofox\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2022.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia"
+      },
+      {
+        "article_url": "https://arquivo.pt/wayback/20240101000000/https://pt.wikipedia.org/wiki/Jos%C3%A9_Saramago",
+        "year": 2010,
+        "category": "CULTURA",
+        "title": "Morre o escritor José Saramago",
+        "highlight_text": "José Saramago",
+        "overlay_description": "Prémio Nobel da Literatura de 1998, autor de Memorial do Convento e Ensaio Sobre a Cegueira, morre aos 87 anos em Lanzarote.",
+        "image_theme": "Passageiras fizeram pelo menos três viagens à Venezuela",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "caption": "Em 18 de junho de 2010, morreu em Lanzarote, nas Canárias, o escritor José Saramago, aos 87 anos, vítima de leucemia crónica.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história, nunca representando acontecimentos atuais. Esta notícia é de 2010.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
+        "summary": "Prémio Nobel da Literatura de 1998 morre aos 87 anos, em Lanzarote, vítima de leucemia crónica.",
+        "title_en": "Writer José Saramago dies",
+        "summary_en": "Nobel Prize in Literature winner (1998) dies aged 87 in Lanzarote, from chronic leukaemia.",
+        "relevance": {
+          "level": 2,
+          "scores": {
+            "impacto_historico": 40.0,
+            "dimensao_impacto": 35.0,
+            "consequencias": 25.0,
+            "relevancia_posterior": 30.0,
+            "dimensao_duracao": 30.0,
+            "relevancia_mediatica": 30.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 32.5,
+          "justification": "Morte do único Nobel da Literatura de língua portuguesa, figura maior da cultura nacional.",
+          "lang": "pt"
+        },
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "conditional_trigger": "",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-20_2.jpg",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Jo-Sa_%28cropped_2%29.jpg",
+        "local_background_path": "",
+        "caption_instagram": "Em 18 de junho de 2010, morreu em Lanzarote, nas Canárias, o escritor José Saramago, aos 87 anos, vítima de leucemia crónica.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história, nunca representando acontecimentos atuais. Esta notícia é de 2010.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
+        "caption_facebook": "Em 18 de junho de 2010, morreu em Lanzarote, nas Canárias, o escritor José Saramago, aos 87 anos, vítima de leucemia crónica.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história, nunca representando acontecimentos atuais. Esta notícia é de 2010.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
+        "body": "Em 18 de junho de 2010, morreu em Lanzarote, nas Canárias, o escritor José Saramago, aos 87 anos, vítima de leucemia crónica. Nascido na Azinhaga, na Golegã, em 1922, foi o primeiro escritor de língua portuguesa a receber o Prémio Nobel da Literatura, em 1998, e deixou uma obra incontornável, de Memorial do Convento a Ensaio Sobre a Cegueira.",
+        "body_en": "On 18 June 2010, Portuguese writer José Saramago died in Lanzarote, in the Canary Islands, aged 87, from chronic leukaemia. Born in Azinhaga, Golegã, in 1922, he was the first Portuguese-language writer to receive the Nobel Prize in Literature, in 1998, and left an essential body of work, from Baltasar and Blimunda to Blindness.",
+        "caption_narrative_en": "In 2010, Portuguese writer José Saramago died aged 87 in Lanzarote, in the Canary Islands. Winner of the Nobel Prize in Literature in 1998, he was the author of Memorial do Convento and Blindness.",
+        "source_profile": "commons.wikimedia.org"
       }
     ],
     "last_regenerated_at": "2026-11-20T19:30:51.297529",
