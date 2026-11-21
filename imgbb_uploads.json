@@ -11376,5 +11376,31 @@
         "created_at": "2026-11-21T13:17:51+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-21",
+        "option_index": 0,
+        "title": "Bélgica decreta estado de alerta máximo para região de Bruxelas",
+        "year": "2015",
+        "image_url": "https://i.ibb.co/S7PcDzcW/2026-11-21-01-2015-belgica-decreta-estado-de-alerta-maximo-para-regiao-de-bruxelas.jpg",
+        "delete_url": "https://ibb.co/3Y7v5nvG/7fff97ccf563113e4ac0cfd4f7e1ce0d",
+        "created_at": "2026-11-21T20:23:58+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-21",
+        "option_index": 1,
+        "title": "A Ryanair vai encerrar todos os voos para os Açores",
+        "year": "2025",
+        "image_url": "https://i.ibb.co/2Yp5Cgs5/2026-11-21-02-2025-a-ryanair-vai-encerrar-todos-os-voos-para-os-acores.jpg",
+        "delete_url": "https://ibb.co/zHtNBG7N/33bfed982d508d75e31f2ce0d928a6f6",
+        "created_at": "2026-11-21T20:26:05+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
