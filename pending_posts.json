@@ -16638,13 +16638,13 @@
     "date": "2026-11-21",
     "slot": 2,
     "lang": "pt",
-    "selected_option": 1,
+    "selected_option": 4,
     "layout_override": "",
     "theme_suggestion": "",
-    "manual_background_url": "",
+    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-21_2-bg.jpg",
     "review_action": "",
     "review_note": "",
-    "status": "pending",
+    "status": "approved",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -16878,15 +16878,17 @@
         "source_platform": "",
         "source_profile": "",
         "networks": [
-          "instagram"
+          "instagram",
+          "facebook"
         ],
-        "image_url": "",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-21_2.jpg",
         "image_delete_url": "",
         "local_image_path": "",
-        "background_source_url": "",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Greta_Thunberg_urges_MEPs_to_show_climate_leadership_-_49617793623.jpg",
         "local_background_path": "",
         "caption_instagram": "Ativista sueca vai estar no Parlamento entre final do mês e início de Dezembro\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2019.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
-        "caption_facebook": "Ativista sueca vai estar no Parlamento entre final do mês e início de Dezembro\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2019.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Cultura"
+        "caption_facebook": "Ativista sueca vai estar no Parlamento entre final do mês e início de Dezembro\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2019.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
+        "caption_narrative_en": "In 2019, Swedish activist Greta Thunberg agreed to take part in a session at the European Parliament on environment and energy, promoted by the parliamentary Environment Committee."
       }
     ],
     "last_regenerated_at": "2026-11-21T20:26:22.666116",
