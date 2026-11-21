@@ -37038,5 +37038,68 @@
     "facebook_id": "1318455601360516_122111342439541219",
     "facebook_url": "https://www.facebook.com/122096313699541219/posts/122111342439541219",
     "facebook_story_id": "4625524197689727"
+  },
+  {
+    "id": "en_2026-11-21_1",
+    "date": "2026-11-21",
+    "slot": 1,
+    "lang": "en",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "Synced from pt_2026-11-21_1",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "source_profile": "",
+    "external_suggestions": [],
+    "options": [
+      {
+        "category": "ECONOMY",
+        "title": "Parliament rejects permanent pension increase proposals",
+        "title_en": "Parliament rejects permanent pension increase proposals",
+        "highlight_text": "Parliament rejects",
+        "overlay_description": "Legislative votes reject permanent pension adjustments, maintaining decision on 2026 State Budget.",
+        "caption": "In a decisive vote this week, parliament rejected permanent pension increases as part of the 2026 budget, opting instead for inflation-linked adjustments. The move reflects ongoing efforts to balance social demands with fiscal discipline.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2025.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "caption_instagram": "In a decisive vote this week, parliament rejected permanent pension increases as part of the 2026 budget, opting instead for inflation-linked adjustments. The move reflects ongoing efforts to balance social demands with fiscal discipline.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2025.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "caption_facebook": "In a decisive vote this week, parliament rejected permanent pension increases as part of the 2026 budget, opting instead for inflation-linked adjustments. The move reflects ongoing efforts to balance social demands with fiscal discipline.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2025.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "year": "2025",
+        "summary": "Legislative votes reject permanent pension adjustments, maintaining decision on 2026 State Budget.",
+        "summary_en": "Legislative votes reject permanent pension adjustments, maintaining decision on 2026 State Budget.",
+        "body": "The US House of Representatives rejected permanent pension increase proposals during the second round of 2026 budget debates, officials confirmed. The vote, held this week, effectively blocked fixed adjustments that would have guaranteed automatic pension revaluations for the coming year. The administration had argued such measures were incompatible with imposed budgetary constraints. Consequently, the 2026 budget retains its standard annual adjustment mechanism tied to inflation and economic growth, explicitly ruling out exceptional and structural increases. This decision underscores the difficulty of reconciling sector demands with the rigor of public accounts in a containment environment. The rejection marks a turning point in next year's financial negotiations, leaving room for potential revisions should macroeconomic conditions allow, but firmly discarding automatic permanent hikes. The measure directly impacts social security and the purchasing power of retirees, remaining one of the most sensitive points in the ongoing budget debate.",
+        "body_en": "The US House of Representatives rejected permanent pension increase proposals during the second round of 2026 budget debates, officials confirmed. The vote, held this week, effectively blocked fixed adjustments that would have guaranteed automatic pension revaluations for the coming year. The administration had argued such measures were incompatible with imposed budgetary constraints. Consequently, the 2026 budget retains its standard annual adjustment mechanism tied to inflation and economic growth, explicitly ruling out exceptional and structural increases. This decision underscores the difficulty of reconciling sector demands with the rigor of public accounts in a containment environment. The rejection marks a turning point in next year's financial negotiations, leaving room for potential revisions should macroeconomic conditions allow, but firmly discarding automatic permanent hikes. The measure directly impacts social security and the purchasing power of retirees, remaining one of the most sensitive points in the ongoing budget debate.",
+        "image_theme": "Palácio de São Bento sessao plenaria",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 30.0,
+            "dimensao_impacto": 20.0,
+            "consequencias": 15.0,
+            "relevancia_posterior": 15.0,
+            "dimensao_duracao": 10.0,
+            "relevancia_mediatica": 5.0,
+            "singularidade": 5.0
+          },
+          "weighted_score": 19.0,
+          "justification": "Votação rejeita ajustamentos permanentes, definindo rumo orçamentário de 2026 sem mudanças estruturais.",
+          "lang": "pt"
+        },
+        "article_url": "https://arquivo.pt/wayback/20250101025935/https://radionova.fm/atualidade/ps-chumba-todas-as-propostas-de-reducao-do-irs-do-psd-mota-pinto-anuncia-declaracao-de-voto",
+        "source_profile": "",
+        "source_platform": "",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-21_1.jpg",
+        "image_delete_url": "",
+        "local_image_path": "site/images/approved/en_2026-11-21_1.jpg",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Visita_de_trabalhadoras_dom%C3%A9stica_a_sess%C3%A3o_plen%C3%A1ria%2C_Lisboa%2C_Fev.2025_%2854355330670%29.jpg",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-21_1-fundo.jpg"
+      }
+    ]
   }
 ]
