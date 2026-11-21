@@ -16638,13 +16638,13 @@
     "date": "2026-11-21",
     "slot": 2,
     "lang": "pt",
-    "selected_option": 4,
+    "selected_option": 1,
     "layout_override": "",
     "theme_suggestion": "",
-    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-21_2-bg.jpg",
+    "manual_background_url": "",
     "review_action": "",
     "review_note": "",
-    "status": "approved",
+    "status": "pending",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -16878,17 +16878,15 @@
         "source_platform": "",
         "source_profile": "",
         "networks": [
-          "instagram",
-          "facebook"
+          "instagram"
         ],
-        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-21_2.jpg",
+        "image_url": "",
         "image_delete_url": "",
         "local_image_path": "",
-        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Greta_Thunberg_urges_MEPs_to_show_climate_leadership_-_49617793623.jpg",
+        "background_source_url": "",
         "local_background_path": "",
         "caption_instagram": "Ativista sueca vai estar no Parlamento entre final do mês e início de Dezembro\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2019.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
-        "caption_facebook": "Ativista sueca vai estar no Parlamento entre final do mês e início de Dezembro\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2019.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
-        "caption_narrative_en": "In 2019, Swedish activist Greta Thunberg agreed to take part in a session at the European Parliament on environment and energy, promoted by the parliamentary Environment Committee."
+        "caption_facebook": "Ativista sueca vai estar no Parlamento entre final do mês e início de Dezembro\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2019.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Cultura"
       }
     ],
     "last_regenerated_at": "2026-11-21T20:26:22.666116",
@@ -16972,35 +16970,30 @@
     "selected_option": 0,
     "layout_override": "",
     "theme_suggestion": "",
-    "manual_background_url": "",
+    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-21_2-bg.jpg",
     "review_action": "",
     "review_note": "Synced from pt_2026-11-21_2",
     "status": "approved",
     "generated_month": "2026-11",
-    "source_profile": "",
+    "source_profile": "publico.pt",
     "external_suggestions": [],
     "options": [
       {
+        "year": 2019,
         "category": "CULTURE",
+        "editorial_tier": "lower_relevance",
         "title": "Greta Thunberg accepted to participate in European Parliament session",
-        "title_en": "Greta Thunberg accepted to participate in European Parliament session",
         "highlight_text": "Greta Thunberg",
-        "overlay_description": "Confirmed participation in environment and energy session at Parliament",
-        "caption": "In 2019, Swedish activist Greta Thunberg agreed to take part in a session at the European Parliament on environment and energy, promoted by the parliamentary Environment Committee.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2019.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Culture",
-        "caption_instagram": "In 2019, Swedish activist Greta Thunberg agreed to take part in a session at the European Parliament on environment and energy, promoted by the parliamentary Environment Committee.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2019.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Culture",
-        "caption_facebook": "In 2019, Swedish activist Greta Thunberg agreed to take part in a session at the European Parliament on environment and energy, promoted by the parliamentary Environment Committee.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2019.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Culture",
-        "year": "2019",
-        "summary": "Confirmed participation in environment and energy session at Parliament",
-        "summary_en": "Confirmed participation in environment and energy session at Parliament",
-        "body": "",
-        "body_en": "",
+        "overlay_description": "Ativista sueca confirmada para sessão promovida comissão parlamentar de Ambiente",
         "image_theme": "Greta Thunberg Parlamento",
         "layout_preference": "template_1",
         "breaking_candidate": false,
-        "networks": [
-          "instagram",
-          "facebook"
-        ],
+        "conditional_trigger": "",
+        "caption": "In 2019, Swedish activist Greta Thunberg agreed to take part in a session at the European Parliament on environment and energy, promoted by the parliamentary Environment Committee.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2019.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Culture",
+        "summary": "Participation confirmed in a session on environment and energy at the Parliament.",
+        "title_en": "Greta Thunberg accepted to participate in European Parliament session",
+        "summary_en": "Participation confirmed in a session on environment and energy at the Parliament.",
+        "body_en": "In 2019, Swedish activist Greta Thunberg agreed to take part in a session at the European Parliament on environment and energy, promoted by the parliamentary Environment Committee.",
         "relevance": {
           "level": 5,
           "scores": {
@@ -17017,13 +17010,21 @@
           "lang": "pt"
         },
         "article_url": "https://arquivo.pt/wayback/20200118083742/https://radiocalheta.pt/greta-thunberg-no-parlamento-portugues-entre-final-do-mes-e-inicio-de-dezembro",
-        "source_profile": "",
         "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
         "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-21_2.jpg",
         "image_delete_url": "",
-        "local_image_path": "site/images/approved/en_2026-11-21_2.jpg",
+        "local_image_path": "",
         "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Greta_Thunberg_urges_MEPs_to_show_climate_leadership_-_49617793623.jpg",
-        "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-21_2-fundo.jpg"
+        "local_background_path": "",
+        "caption_instagram": "In 2019, Swedish activist Greta Thunberg agreed to take part in a session at the European Parliament on environment and energy, promoted by the parliamentary Environment Committee.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2019.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Culture",
+        "caption_facebook": "In 2019, Swedish activist Greta Thunberg agreed to take part in a session at the European Parliament on environment and energy, promoted by the parliamentary Environment Committee.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2019.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Culture",
+        "caption_narrative_en": "In 2019, Swedish activist Greta Thunberg agreed to take part in a session at the European Parliament on environment and energy, promoted by the parliamentary Environment Committee.",
+        "body": "In 2019, Swedish activist Greta Thunberg agreed to take part in a session at the European Parliament on environment and energy, promoted by the parliamentary Environment Committee."
       }
     ]
   },
