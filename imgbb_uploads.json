@@ -12470,5 +12470,31 @@
         "created_at": "2026-11-23T17:46:13+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-23",
+        "option_index": 0,
+        "title": "Traficante português 'Xuxas' condenado a 20 anos de prisão",
+        "year": "2024",
+        "image_url": "https://i.ibb.co/MkyvzQG3/2026-11-23-01-2024-traficante-portugues-xuxas-condenado-a-20-anos-de-prisao.jpg",
+        "delete_url": "https://ibb.co/8gnCytdS/03394c58d53c0d424156cb4da7a99f8e",
+        "created_at": "2026-11-23T19:05:19+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-23",
+        "option_index": 1,
+        "title": "Na próxima semana decorre a votação final global do Orçamento",
+        "year": "2025",
+        "image_url": "https://i.ibb.co/My2VhyWq/2026-11-23-02-2025-na-proxima-semana-decorre-a-votacao-final-global-do-orcamento.jpg",
+        "delete_url": "https://ibb.co/vCwPBCg2/113a1ff7d7f181dfdbd27aaa028e453b",
+        "created_at": "2026-11-23T19:06:58+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
