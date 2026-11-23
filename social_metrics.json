@@ -3,12 +3,12 @@
     "instagram": {
       "followers": 227,
       "profile_url": "https://www.instagram.com/noticiasdeontempt/",
-      "updated_at": "2026-11-22T21:31:25+00:00",
+      "updated_at": "2026-11-23T06:28:56+00:00",
       "username": "noticiasdeontempt"
     }
   },
   "publications": {
-    "count": 57,
+    "count": 58,
     "post_ids": [
       "en_2026-11-02_1",
       "en_2026-11-03_1",
@@ -66,8 +66,9 @@
       "pt_2026-11-20_1",
       "pt_2026-11-20_2",
       "pt_2026-11-21_1",
-      "pt_2026-11-21_2"
+      "pt_2026-11-21_2",
+      "pt_2026-11-23_1"
     ],
-    "updated_at": "2026-11-21T20:51:00+00:00"
+    "updated_at": "2026-11-23T06:28:56+00:00"
   }
 }

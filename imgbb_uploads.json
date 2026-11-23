@@ -8013,17 +8013,23 @@
         "delete_status": ""
     },
     {
-        "kind": "review_preview",
+        "kind": "published_post",
         "lang": "pt",
-        "date": "2026-11-22",
+        "date": "2026-11-23",
         "option_index": 0,
         "title": "Governo vai aprovar lei que reduz desigualdade salarial",
         "year": "2016",
         "image_url": "https://i.ibb.co/BKrMKCYq/2026-11-22-01-2016-governo-vai-aprovar-lei-que-reduz-desigualdade-salarial.jpg",
         "delete_url": "https://ibb.co/LhJ7hZsn/cadcdd4661fcb11085b5f346d13e0be2",
-        "created_at": "2026-11-08T17:47:30+00:00",
+        "created_at": "2026-11-23T06:27:36+00:00",
         "deleted_at": "",
-        "delete_status": ""
+        "delete_status": "",
+        "slot": "morning",
+        "platform": "facebook",
+        "post_id": "pt_2026-11-23_1",
+        "platform_post_id": "1030669413467151_122139820910824703",
+        "platform_post_url": "https://www.facebook.com/122136509126824703/posts/122139820910824703",
+        "published_at": "2026-11-23T06:27:36.301132"
     },
     {
         "kind": "review_preview",
@@ -12186,6 +12192,22 @@
         "image_url": "https://i.ibb.co/pv7Y72BV/2027-01-31-01-2003-nota-minima-de-9-5-para-entrar-no-superior-adiada.jpg",
         "delete_url": "https://ibb.co/WWhmhn48/5cc9e8443fd93f75793709357157f1f6",
         "created_at": "2026-11-22T18:36:32+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "published_post",
+        "lang": "en",
+        "date": "2026-11-23",
+        "slot": "morning",
+        "platform": "facebook",
+        "post_id": "en_2026-11-23_1",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-23_1.jpg",
+        "delete_url": "",
+        "platform_post_id": "1318455601360516_122112369339541219",
+        "platform_post_url": "https://www.facebook.com/122096313699541219/posts/122112369339541219",
+        "published_at": "2026-11-23T06:28:44.622649",
+        "created_at": "2026-11-23T06:28:44+00:00",
         "deleted_at": "",
         "delete_status": ""
     }
