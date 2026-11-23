@@ -17885,7 +17885,7 @@
     "layout_override": "",
     "theme_suggestion": "",
     "manual_background_url": "",
-    "review_action": "",
+    "review_action": "regenerate",
     "review_note": "",
     "status": "pending",
     "generated_month": "2026-11",
