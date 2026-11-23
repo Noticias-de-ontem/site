@@ -51435,5 +51435,131 @@
         "body_en": ""
       }
     ]
+  },
+  {
+    "id": "en_2026-11-23_1",
+    "date": "2026-11-23",
+    "slot": 1,
+    "lang": "en",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "Synced from pt_2026-11-23_1",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "source_profile": "publico.pt",
+    "external_suggestions": [],
+    "options": [
+      {
+        "category": "ECONOMY",
+        "title": "Government to approve law reducing wage inequality",
+        "title_en": "Government to approve law reducing wage inequality",
+        "highlight_text": "Government",
+        "overlay_description": "Government announces proposal of law to reduce wage inequality, structural social justice measure",
+        "caption": "In 2016, Portugal announced plans for new labor legislation aimed at closing the gender pay gap in the workforce, marking a significant step toward workplace equality.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2016.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "caption_instagram": "In 2016, Portugal announced plans for new labor legislation aimed at closing the gender pay gap in the workforce, marking a significant step toward workplace equality.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2016.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "caption_facebook": "In 2016, Portugal announced plans for new labor legislation aimed at closing the gender pay gap in the workforce, marking a significant step toward workplace equality.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2016.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "year": "2016",
+        "summary": "Government announces proposal of law to reduce wage inequality, structural social justice measure",
+        "summary_en": "Government announces proposal of law to reduce wage inequality, structural social justice measure",
+        "body": "In 2016, the Portuguese government announced its intention to approve new legislation designed to combat gender-based wage inequality, one of the most debated topics in the country's economic and social landscape. The executive justified the measure through the need to reduce persistent pay disparities in the labor market despite progress made in recent decades.\n\nThe context reveals that, although Portugal has advanced in equality policies, the average wage gap between men and women continued to hover around 15% in key sectors, according to data from the National Statistics Institute. The new law imposes stricter obligations on companies, including periodic salary audits and transparency in remuneration disclosure by professional category. The goal is to eliminate indirect discrimination and ensure that work of equal value receives equivalent compensation.\n\nDuring the process, the Ministry of State Modernization and Public Administration led negotiations with social partners, including unions and business associations. General consensus pointed to the need to balance business competitiveness with social justice, avoiding disproportionate bureaucratic burdens while guaranteeing effective oversight mechanisms. The legislation was designed to be applicable to both the public and private sectors, reinforcing the principle of pay equality as a fundamental pillar of democracy.\n\nThe lasting relevance of this measure lies in its potential to transform deeply rooted structures in the labor market. By institutionalizing pay transparency and mandating the correction of disparities, the government not only responds to a matter of justice but also boosts productivity and female talent retention. Expectations are that, over time, the new law will contribute to greater female participation in leadership positions and a structural reduction of the wage gap, aligning Portugal with European best practices on gender equality in the workplace.",
+        "body_en": "In 2016, the Portuguese government announced its intention to approve new legislation designed to combat gender-based wage inequality, one of the most debated topics in the country's economic and social landscape. The executive justified the measure through the need to reduce persistent pay disparities in the labor market despite progress made in recent decades.\n\nThe context reveals that, although Portugal has advanced in equality policies, the average wage gap between men and women continued to hover around 15% in key sectors, according to data from the National Statistics Institute. The new law imposes stricter obligations on companies, including periodic salary audits and transparency in remuneration disclosure by professional category. The goal is to eliminate indirect discrimination and ensure that work of equal value receives equivalent compensation.\n\nDuring the process, the Ministry of State Modernization and Public Administration led negotiations with social partners, including unions and business associations. General consensus pointed to the need to balance business competitiveness with social justice, avoiding disproportionate bureaucratic burdens while guaranteeing effective oversight mechanisms. The legislation was designed to be applicable to both the public and private sectors, reinforcing the principle of pay equality as a fundamental pillar of democracy.\n\nThe lasting relevance of this measure lies in its potential to transform deeply rooted structures in the labor market. By institutionalizing pay transparency and mandating the correction of disparities, the government not only responds to a matter of justice but also boosts productivity and female talent retention. Expectations are that, over time, the new law will contribute to greater female participation in leadership positions and a structural reduction of the wage gap, aligning Portugal with European best practices on gender equality in the workplace.",
+        "image_theme": "Palácio de São Bento Lisboa",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 55.0,
+            "dimensao_impacto": 50.0,
+            "consequencias": 45.0,
+            "relevancia_posterior": 45.0,
+            "dimensao_duracao": 40.0,
+            "relevancia_mediatica": 40.0,
+            "singularidade": 45.0
+          },
+          "weighted_score": 48.2,
+          "justification": "Proposta legislação estrutural; impacto gradual na desigualdade; dependência de aplicação efetiva e fiscalização para resultados concretos.",
+          "lang": "pt"
+        },
+        "article_url": "https://arquivo.pt/wayback/20161122051004/https://www.publico.pt/2016/11/16/mundo/noticia/mais-um-atraso-no-brexit-juiza-do-supremo-alerta-que-pode-ser-necessaria-substituicao-integral-da-lei-1751326",
+        "source_profile": "publico.pt",
+        "source_platform": "arquivo.pt",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-23_1.jpg",
+        "image_delete_url": "",
+        "local_image_path": "site/images/approved/en_2026-11-23_1.jpg",
+        "background_source_url": "https://commons.wikimedia.org/wiki/File:Pal%C3%A1cio_de_S%C3%A3o_Louren%C3%A7o_-_Funchal_01.jpg",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-22_01_2016_governo-vai-aprovar-lei-que-reduz-desigualdade-salarial-fundo.jpg"
+      }
+    ]
+  },
+  {
+    "id": "en_2026-11-23_2",
+    "date": "2026-11-23",
+    "slot": 2,
+    "lang": "en",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "Synced from pt_2026-11-23_2",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "source_profile": "publico.pt",
+    "external_suggestions": [],
+    "options": [
+      {
+        "category": "HEALTH",
+        "title": "Government bans circulation, closes schools, gives weekend holiday tolerance during holiday periods",
+        "title_en": "Government bans circulation, closes schools, gives weekend holiday tolerance during holiday periods",
+        "highlight_text": "Government bans",
+        "overlay_description": "Government announces reinforced quarantine during holidays, with circulation prohibition and weekend holiday tolerance",
+        "caption": "In 2020, Portugal barred travel between municipalities during the holiday period, closed schools and granted administrative leave on holiday weekends. The executive decree tightened national restrictions as the government sought to limit movement amid the COVID-19 pandemic.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2020.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Health",
+        "caption_instagram": "In 2020, Portugal barred travel between municipalities during the holiday period, closed schools and granted administrative leave on holiday weekends. The executive decree tightened national restrictions as the government sought to limit movement amid the COVID-19 pandemic.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2020.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Health",
+        "caption_facebook": "In 2020, Portugal barred travel between municipalities during the holiday period, closed schools and granted administrative leave on holiday weekends. The executive decree tightened national restrictions as the government sought to limit movement amid the COVID-19 pandemic.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2020.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Health",
+        "year": "2020",
+        "summary": "Government announces reinforced quarantine during holidays, with circulation prohibition and weekend holiday tolerance",
+        "summary_en": "Government announces reinforced quarantine during holidays, with circulation prohibition and weekend holiday tolerance",
+        "body": "In 2020, the Portuguese government prohibited travel between municipalities during the holiday period, ordered schools closed and granted administrative leave on holiday weekends. The measures, established by executive decree, imposed restrictions on domestic mobility and the operation of educational institutions as confinement policies tightened.\n\nThe decision came as efforts to contain the COVID-19 pandemic limited personal movement and the activity of numerous services. The travel ban between municipalities and school closures were the main restrictive measures announced, while the administrative leave for holiday weekends created an exception for workers.\n\nThe decree established an exceptional regime limiting national mobility and suspending school operations. The rules aimed to reduce movement during the holiday dates, allowing only exceptions provided by law and linking the restrictions to administrative leave on holiday weekends.\n\nThe measure's lasting significance lies in how the Portuguese state managed the pandemic through national restrictions that combined mobility controls, school closures and exceptional labor provisions. The episode became part of Portugal's response to the 2020 public health crisis, illustrating the impact of COVID-19 on government decisions, work organization and the lives of Portuguese families.",
+        "body_en": "In 2020, the Portuguese government prohibited travel between municipalities during the holiday period, ordered schools closed and granted administrative leave on holiday weekends. The measures, established by executive decree, imposed restrictions on domestic mobility and the operation of educational institutions as confinement policies tightened.\n\nThe decision came as efforts to contain the COVID-19 pandemic limited personal movement and the activity of numerous services. The travel ban between municipalities and school closures were the main restrictive measures announced, while the administrative leave for holiday weekends created an exception for workers.\n\nThe decree established an exceptional regime limiting national mobility and suspending school operations. The rules aimed to reduce movement during the holiday dates, allowing only exceptions provided by law and linking the restrictions to administrative leave on holiday weekends.\n\nThe measure's lasting significance lies in how the Portuguese state managed the pandemic through national restrictions that combined mobility controls, school closures and exceptional labor provisions. The episode became part of Portugal's response to the 2020 public health crisis, illustrating the impact of COVID-19 on government decisions, work organization and the lives of Portuguese families.",
+        "image_theme": "Palácio de São Bento Lisboa",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "relevance": {
+          "level": 4,
+          "scores": {
+            "impacto_historico": 60.0,
+            "dimensao_impacto": 50.0,
+            "consequencias": 55.0,
+            "relevancia_posterior": 50.0,
+            "dimensao_duracao": 40.0,
+            "relevancia_mediatica": 50.0,
+            "singularidade": 45.0
+          },
+          "weighted_score": 52.5,
+          "justification": "Medidas restritivas durante feriados; precedente para futuras quarentenas sazonais; impacto em mobilidade e economia temporário.",
+          "lang": "pt"
+        },
+        "article_url": "https://arquivo.pt/wayback/20201122225024/https://www.publico.pt/2020/11/21/politica/noticia/governo-proibe-circulacao-fecha-escolas-tolerancia-ponto-fins-semana-feriados-1940156?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+PublicoPolitica+%28Publico.pt+-+Pol%C3%ADtica%29",
+        "source_profile": "publico.pt",
+        "source_platform": "arquivo.pt",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-23_2.jpg",
+        "image_delete_url": "",
+        "local_image_path": "site/images/approved/en_2026-11-23_2.jpg",
+        "background_source_url": "https://commons.wikimedia.org/wiki/File:Pal%C3%A1cio_de_S%C3%A3o_Louren%C3%A7o_-_Funchal_01.jpg",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-23_2-fundo.jpg"
+      }
+    ]
   }
 ]
