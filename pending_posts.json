@@ -17460,13 +17460,13 @@
     "date": "2026-11-22",
     "slot": 2,
     "lang": "pt",
-    "selected_option": 5,
+    "selected_option": 0,
     "layout_override": "",
     "theme_suggestion": "",
     "manual_background_url": "",
     "review_action": "",
     "review_note": "",
-    "status": "pending",
+    "status": "published",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -17489,238 +17489,6 @@
       }
     ],
     "options": [
-      {
-        "year": "2023",
-        "category": "EDUCAÇÃO",
-        "editorial_tier": "high",
-        "title": "Escolas perderam 3.521 educadores e docentes que se reformaram em 2023",
-        "highlight_text": "3.521 educadores",
-        "overlay_description": "Instituições de ensino enfrentam défice de recursos humanos após ondas de reforma",
-        "image_theme": "Agrupamento de Escolas Cego do Maio",
-        "layout_preference": "template_3",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "Dados revelam aumento de quase 50% de reformados face ao ano anterior, agravando escassez docente\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
-        "summary": "Estatísticas oficiais mostram perda significativa de quadros docentes em um ano letivo crítico",
-        "title_en": "Schools lost 3,521 educators and teachers who retired in 2023",
-        "summary_en": "Official statistics show significant loss of teaching staff in a critical school year",
-        "body_en": "In 2023, the Portuguese education system experienced a significant loss of human resources, with 3,521 educators and teachers retiring. Official data released by the Ministry of Education reveals this figure represents nearly a 50% increase from the previous year, worsening the existing teacher deficit across the country.\n\nThe surge in retirements stems from an aging teaching workforce and more favorable early retirement conditions introduced in recent years. Many educators seized these windows to exit the profession, leaving vacancies across numerous subjects, particularly in STEM and foreign languages. Schools were forced to rely on substitute contracts and expand class sizes, directly impacting teaching quality and student support.\n\nThe lasting relevance of this trend lies in the structural challenge it poses to Portugal's educational future. The departure of experienced educators not only reduces school responsiveness but also compromises pedagogical continuity. Without effective strategies to retain and attract new professionals, the system risks entering a cycle of chronic scarcity, affecting both competitiveness and the formation of new generations.",
-        "relevance": {
-          "level": 4,
-          "scores": {
-            "impacto_historico": 55.0,
-            "dimensao_impacto": 50.0,
-            "consequencias": 55.0,
-            "relevancia_posterior": 50.0,
-            "dimensao_duracao": 45.0,
-            "relevancia_mediatica": 40.0,
-            "singularidade": 45.0
-          },
-          "weighted_score": 51.0,
-          "justification": "Perda de quadros docentes afeta qualidade ensino; exigências de reposição geram custos e políticas públicas prolongadas. Impacto educacional sustentado.",
-          "lang": "pt"
-        },
-        "article_url": "https://arquivo.pt/wayback/20231122043951/https://app.expresso.pt/sociedade/ensino/2023-11-08-Escolas-perderam-3.521-educadores-e-docentes-que-se-reformaram-em-2023-fdaae5c3",
-        "source_platform": "arquivo.pt",
-        "source_profile": "expresso.pt",
-        "networks": [
-          "facebook"
-        ],
-        "body": "Em 2023, o sistema educativo português viveu uma perda significativa de recursos humanos, com o despedimento de 3.521 educadores e docentes através da reforma. Segundo dados oficiais divulgados pelo Ministério da Educação, este número representa um aumento de quase 50% face ao ano anterior, agravando ainda mais o défice de professores que já se fazia sentir nas escolas do país.\n\nO contexto desta onda de reformas está ligado ao envelhecimento da profissão docente e às condições de aposentação mais favoráveis implementadas nos últimos anos. Muitos docentes aproveitaram as janelas de reforma antecipada para sair do mercado de trabalho, deixando vago um vasto leque de disciplinas, particularmente nas áreas de exatas e línguas estrangeiras. As instituições de ensino foram forçadas a recorrer a contratos de substituição e a aumentar as turmas, o que tem impactado diretamente a qualidade do ensino e o acompanhamento dos alunos.\n\nA relevância duradoura deste fenómeno reside no desafio estrutural que coloca ao futuro da educação portuguesa. A perda de educadores experientes não só reduz a capacidade de resposta das escolas, como também compromete a continuidade pedagógica. Sem estratégias eficazes de retenção e atração de novos profissionais, o sistema corre o risco de entrar em um ciclo de escassez crónica, afetando a competitividade e a formação das novas gerações.",
-        "highlight_text_en": "Schools lost",
-        "caption_narrative_en": "Official data shows a nearly 50% jump in retirements from 2022, deepening the chronic teacher shortage across the country. Schools scrambled to fill gaps with substitutes and larger classes as the aging workforce accelerated.",
-        "image_url": "https://i.ibb.co/N6BRcyBk/2026-11-22-01-2023-escolas-perderam-3-521-educadores-e-docentes-que-se-reformaram-em-2023.jpg",
-        "image_delete_url": "https://ibb.co/GvSmz5S1/e6c78d9220b3bb91028c37dd403181fa",
-        "local_image_path": "images/review/pt/2026-11-22_01_2023_escolas-perderam-3-521-educadores-e-docentes-que-se-reformaram-em-2023.jpg",
-        "background_source_url": "https://commons.wikimedia.org/wiki/File:Agrupamento_de_Escolas_D._Filipa_de_Lencastre_3.jpg",
-        "local_background_path": "C:/Users/luisf/Documents/Notícias de Ontem/images/backgrounds/2026-11-22_01_2023_escolas-perderam-3-521-educadores-e-docentes-que-se-reformaram-em-2023-fundo.jpg",
-        "caption_instagram": "Dados revelam aumento de quase 50% de reformados face ao ano anterior, agravando escassez docente\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
-        "caption_facebook": "Dados revelam aumento de quase 50% de reformados face ao ano anterior, agravando escassez docente\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Educacao"
-      },
-      {
-        "year": "2025",
-        "category": "POLÍTICA",
-        "editorial_tier": "high",
-        "title": "Supremo suspende bloqueio ao plano republicano de redistribuicao eleitoral",
-        "highlight_text": "Supremo suspende",
-        "overlay_description": "Alta corte judicial interrompe medida de redistribuição eleitoral controversa",
-        "image_theme": "Palácio da Justiça Lisboa",
-        "layout_preference": "template_1",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "Decisão judicial afeta plano de redistribuição eleitoral no Texas, Estados Unidos\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "summary": "Suprema corte dos EUA suspende bloqueio ao plano republicano, reacendendo debate sobre regras eleitorais",
-        "title_en": "Supreme Court halts Republican electoral redistribution plan",
-        "summary_en": "US Supreme Court suspends controversial Republican vote redistribution plan, reigniting electoral rules debate",
-        "body_en": "",
-        "relevance": {
-          "level": 4,
-          "scores": {
-            "impacto_historico": 65.0,
-            "dimensao_impacto": 55.0,
-            "consequencias": 50.0,
-            "relevancia_posterior": 55.0,
-            "dimensao_duracao": 40.0,
-            "relevancia_mediatica": 45.0,
-            "singularidade": 40.0
-          },
-          "weighted_score": 54.5,
-          "justification": "Decisão judicial afeta processos eleitorais futuros; reacende debate sobre regras de voto que persistem. Impacto moderado em democracia.",
-          "lang": "pt"
-        },
-        "article_url": "https://arquivo.pt/wayback/20251122213322/https://www.noticiasaominuto.com/mundo/2892671/supremo-suspende-bloqueio-ao-plano-republicano-de-redistribuicao-eleitoral-no-texas",
-        "source_platform": "arquivo.pt",
-        "source_profile": "noticiasaominuto.com",
-        "networks": [
-          "facebook"
-        ],
-        "image_url": "",
-        "image_delete_url": "",
-        "local_image_path": "",
-        "background_source_url": "",
-        "local_background_path": "",
-        "caption_instagram": "Decisão judicial afeta plano de redistribuição eleitoral no Texas, Estados Unidos\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "caption_facebook": "Decisão judicial afeta plano de redistribuição eleitoral no Texas, Estados Unidos\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "body": ""
-      },
-      {
-        "year": "2025",
-        "category": "ECONOMIA",
-        "editorial_tier": "lower_relevance",
-        "title": "Ps alerta para situacao critica nas escolas da ribeira grande",
-        "highlight_text": "situacao critica",
-        "overlay_description": "Partido socialista denuncia condições críticas em estabelecimentos escolares",
-        "image_theme": "Edifício escolar Lisboa",
-        "layout_preference": "template_2",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "Alertas sobre défice de recursos humanos e materiais no ensino básico\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
-        "summary": "Denúncia de condições precárias em escolas do concelho da Ribeira Grande, Açores",
-        "title_en": "PS warns of critical situation in Ribeira Grande schools",
-        "summary_en": "Socialist party denounces critical conditions in schools of Ribeira Grande, Azores",
-        "body_en": "",
-        "relevance": {
-          "level": 5,
-          "scores": {
-            "impacto_historico": 35.0,
-            "dimensao_impacto": 30.0,
-            "consequencias": 30.0,
-            "relevancia_posterior": 30.0,
-            "dimensao_duracao": 25.0,
-            "relevancia_mediatica": 35.0,
-            "singularidade": 30.0
-          },
-          "weighted_score": 31.2,
-          "justification": "Condições precárias denunciadas; impacto local em educação; reformas necessárias mas sem consequências nacionais profundas.",
-          "lang": "pt"
-        },
-        "article_url": "https://arquivo.pt/wayback/20251122181059/https://www.noticiasaominuto.com/politica/2892814/ps-alerta-para-situacao-critica-nas-escolas-da-ribeira-grande",
-        "source_platform": "arquivo.pt",
-        "source_profile": "noticiasaominuto.com",
-        "networks": [
-          "instagram"
-        ],
-        "image_url": "",
-        "image_delete_url": "",
-        "local_image_path": "",
-        "background_source_url": "",
-        "local_background_path": "",
-        "caption_instagram": "Alertas sobre défice de recursos humanos e materiais no ensino básico\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
-        "caption_facebook": "Alertas sobre défice de recursos humanos e materiais no ensino básico\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
-        "body": ""
-      },
-      {
-        "year": "2022",
-        "category": "POLÍTICA",
-        "editorial_tier": "high",
-        "title": "Revisao constitucional PS quer confinamento obrigatorio sem estado de emergencia",
-        "highlight_text": "confinamento obrigatorio",
-        "overlay_description": "Proposta parlamentar altera regras de estado de emergência para confinamentos diretos",
-        "image_theme": "Parlamento da República Lisboa",
-        "layout_preference": "template_1",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "Iniciativa parlamentar prevê medidas de confinamento mais flexíveis sem declarar estado de emergência\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2022.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "summary": "Partido Socialista propõe revisão constitucional que permite confinamento obrigatório sem o estado de emergência",
-        "title_en": "PS constitutional revision wants mandatory confinement without state of emergency",
-        "summary_en": "Socialist party proposes constitutional revision allowing mandatory confinement directly without state of emergency decree",
-        "body_en": "",
-        "relevance": {
-          "level": 3,
-          "scores": {
-            "impacto_historico": 75.0,
-            "dimensao_impacto": 70.0,
-            "consequencias": 70.0,
-            "relevancia_posterior": 70.0,
-            "dimensao_duracao": 60.0,
-            "relevancia_mediatica": 55.0,
-            "singularidade": 65.0
-          },
-          "weighted_score": 69.5,
-          "justification": "Proposta altera fundamentalmente poderes de estado; risco de confinamento arbitrário sem supervisão judicial; precedente constitucional de longo alcance.",
-          "lang": "pt"
-        },
-        "article_url": "https://arquivo.pt/wayback/20221122201651/https://app.expresso.pt/politica/2022-11-11-Revisao-constitucional-PS-quer-confinamento-obrigatorio-sem-estado-de-emergencia-mas-com-possibilidade-de-recurso-judicial-urgente-c61c8d28",
-        "source_platform": "arquivo.pt",
-        "source_profile": "expresso.pt",
-        "networks": [
-          "facebook"
-        ],
-        "image_url": "",
-        "image_delete_url": "",
-        "local_image_path": "",
-        "background_source_url": "",
-        "local_background_path": "",
-        "caption_instagram": "Iniciativa parlamentar prevê medidas de confinamento mais flexíveis sem declarar estado de emergência\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2022.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "caption_facebook": "Iniciativa parlamentar prevê medidas de confinamento mais flexíveis sem declarar estado de emergência\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2022.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "body": ""
-      },
-      {
-        "year": "2021",
-        "category": "SAÚDE",
-        "editorial_tier": "high",
-        "title": "Greve funcao publica encerrar escolas causar perturbacoes hospitais",
-        "highlight_text": "Greve funcao publica",
-        "overlay_description": "Paralisação do setor público afeta funcionamento de escolas e unidades hospitalares",
-        "image_theme": "Hospital Lisboa",
-        "layout_preference": "template_2",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "Greve nacional do setor público causa interrupções em serviços essenciais e educação\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2021.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Saude",
-        "summary": "Greve da função pública provoca fechamento de escolas e perturbações no funcionamento de hospitais",
-        "title_en": "Public function strike closes schools, causes hospital disturbances",
-        "summary_en": "Public sector strike causes school closures and hospital function disturbances",
-        "body_en": "",
-        "relevance": {
-          "level": 5,
-          "scores": {
-            "impacto_historico": 40.0,
-            "dimensao_impacto": 35.0,
-            "consequencias": 35.0,
-            "relevancia_posterior": 35.0,
-            "dimensao_duracao": 30.0,
-            "relevancia_mediatica": 45.0,
-            "singularidade": 35.0
-          },
-          "weighted_score": 36.5,
-          "justification": "Greve afeta serviços essenciais temporariamente; impacto misto em educação e saúde; resolução negociada usualmente encerra paralisação.",
-          "lang": "pt"
-        },
-        "article_url": "https://arquivo.pt/wayback/20211122190002/https://www.publico.pt/2021/11/11/economia/noticia/greve-funcao-publica-encerrar-escolas-causar-perturbacoes-hospitais-1984597",
-        "source_platform": "arquivo.pt",
-        "source_profile": "publico.pt",
-        "networks": [
-          "instagram"
-        ],
-        "image_url": "",
-        "image_delete_url": "",
-        "local_image_path": "",
-        "background_source_url": "",
-        "local_background_path": "",
-        "caption_instagram": "Greve nacional do setor público causa interrupções em serviços essenciais e educação\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2021.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Saude",
-        "caption_facebook": "Greve nacional do setor público causa interrupções em serviços essenciais e educação\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2021.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Saude",
-        "body": ""
-      },
       {
         "year": "2020",
         "category": "SAÚDE",
@@ -17756,6 +17524,7 @@
         "source_platform": "arquivo.pt",
         "source_profile": "publico.pt",
         "networks": [
+          "instagram",
           "facebook"
         ],
         "image_url": "https://i.ibb.co/Q2MLZvW/2026-11-22-06-2020-governo-proibe-circulacao-fecha-escolas-e-da-tolerancia-de-ponto-nos-fins-de-sem.jpg",
@@ -17767,56 +17536,17 @@
         "caption_facebook": "Decreto executivo estabelece restrição de mobilidade nacional e encerramento de estabelecimentos escolares\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Saude",
         "body": "Em 2020, o Governo português proibiu a circulação entre concelhos durante o período festivo, ordenou o encerramento das escolas e concedeu tolerância de ponto nos fins-de-semana dos feriados. As medidas, definidas por decreto executivo, impuseram restrições à mobilidade nacional e ao funcionamento de estabelecimentos escolares, no contexto do agravamento das medidas de confinamento.\nA decisão inseriu-se num período em que o combate à pandemia de covid-19 condicionava a circulação das pessoas e a atividade de vários serviços. A proibição de circulação entre concelhos e o encerramento das escolas constituíram as principais medidas restritivas anunciadas, enquanto a tolerância de ponto nos fins-de-semana dos feriados criou uma exceção administrativa para os trabalhadores.\nO decreto executivo estabeleceu, assim, um regime excecional de limitação da mobilidade nacional e de suspensão do funcionamento de escolas. As regras procuraram reduzir a circulação durante as datas festivas, mantendo apenas as exceções previstas na legislação e articulando as restrições com a concessão de tolerância de ponto nos fins-de-semana dos feriados.\nA relevância duradoura desta medida reside na forma como o Estado português gestionou a pandemia através de restrições nacionais, articulando controlo da mobilidade, encerramento de escolas e medidas laborais excecionais. O episódioBecame parte da resposta portuguesa à crise sanitária de 2020 e ilustra o impacto da covid-19 nas decisões do Governo, na organização do trabalho e na vida das famílias portuguesas.",
         "highlight_text_en": "Government bans",
-        "caption_narrative_en": "In 2020, Portugal barred travel between municipalities during the holiday period, closed schools and granted administrative leave on holiday weekends. The executive decree tightened national restrictions as the government sought to limit movement amid the COVID-19 pandemic."
-      },
-      {
-        "year": "2019",
-        "category": "CULTURA",
-        "editorial_tier": "lower_relevance",
-        "title": "Inundacoes. Governo italiano decreta estado de emergencia em Veneza",
-        "highlight_text": "Governo italiano",
-        "overlay_description": "Autoridades italianas ativam estado de emergência devido a inundações em Veneza",
-        "image_theme": "Praça de São Marcos Veneza",
-        "layout_preference": "template_3",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "Eventos climáticos extremos provocam medidas de emergência na cidade histórica\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2019.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
-        "summary": "Governo italiano decreta estado de emergência em Veneza devido a inundações severas",
-        "title_en": "Italian government declares state of emergency in Venice due to floods",
-        "summary_en": "Italian government declares state of emergency in Venice due to severe floods",
-        "body_en": "",
-        "relevance": {
-          "level": 4,
-          "scores": {
-            "impacto_historico": 50.0,
-            "dimensao_impacto": 45.0,
-            "consequencias": 45.0,
-            "relevancia_posterior": 45.0,
-            "dimensao_duracao": 40.0,
-            "relevancia_mediatica": 55.0,
-            "singularidade": 40.0
-          },
-          "weighted_score": 46.2,
-          "justification": "Emergency declaration for flood response; immediate resource allocation; long-term Venice infrastructure improvements debated.",
-          "lang": "pt"
-        },
-        "article_url": "https://arquivo.pt/wayback/20191122050215/https://amp.expresso.pt/sociedade/2019-11-14-Inundacoes.-Governo-italiano-decreta-estado-de-emergencia-em-Veneza",
-        "source_platform": "arquivo.pt",
-        "source_profile": "expresso.pt",
-        "networks": [
-          "instagram"
-        ],
-        "image_url": "",
-        "image_delete_url": "",
-        "local_image_path": "",
-        "background_source_url": "",
-        "local_background_path": "",
-        "caption_instagram": "Eventos climáticos extremos provocam medidas de emergência na cidade histórica\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2019.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
-        "caption_facebook": "Eventos climáticos extremos provocam medidas de emergência na cidade histórica\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2019.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
-        "body": ""
+        "caption_narrative_en": "In 2020, Portugal barred travel between municipalities during the holiday period, closed schools and granted administrative leave on holiday weekends. The executive decree tightened national restrictions as the government sought to limit movement amid the COVID-19 pandemic.",
+        "review_action": ""
       }
     ],
-    "last_image_refresh_at": "2026-11-09T01:44:46.441585"
+    "last_image_refresh_at": "2026-11-09T01:44:46.441585",
+    "published_at": "2026-11-23T06:29:13",
+    "instagram_id": "17953843362057248",
+    "instagram_url": "",
+    "instagram_story_id": "17974560618188165",
+    "facebook_id": "1030669413467151_122139821186824703",
+    "facebook_story_id": "1823592952261300"
   },
   {
     "id": "pt_2026-11-23_1",
@@ -18151,13 +17881,13 @@
     "date": "2026-11-23",
     "slot": 2,
     "lang": "pt",
-    "selected_option": 3,
+    "selected_option": 1,
     "layout_override": "",
     "theme_suggestion": "",
     "manual_background_url": "",
     "review_action": "",
     "review_note": "",
-    "status": "published",
+    "status": "pending",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -18319,66 +18049,10 @@
         "caption_instagram": "Economic forecast adjustment reflects external assessment versus governmental projections.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2001.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
         "caption_facebook": "Economic forecast adjustment reflects external assessment versus governmental projections.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2001.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
         "body": ""
-      },
-      {
-        "year": "2020",
-        "category": "SAÚDE",
-        "editorial_tier": "high",
-        "title": "Governo proíbe circulação, fecha escolas e dá tolerância de ponto nos fins-de-semana dos feriados",
-        "highlight_text": "Governo proíbe circulação",
-        "overlay_description": "Medidas restritivas nacionais durante período festivo com endurecimento de confinamento",
-        "image_theme": "Palácio de São Bento Lisboa",
-        "layout_preference": "template_1",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "Decreto executivo estabelece restrição de mobilidade nacional e encerramento de estabelecimentos escolares\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Saude",
-        "summary": "Governo anuncia quarentena reforçada durante feriados, com proibição de circulação e tolerância de ponto",
-        "title_en": "Government bans circulation, closes schools, gives weekend holiday tolerance during holiday periods",
-        "summary_en": "Government announces reinforced quarantine during holidays, with circulation prohibition and weekend holiday tolerance",
-        "body_en": "In 2020, the Portuguese government prohibited travel between municipalities during the holiday period, ordered schools closed and granted administrative leave on holiday weekends. The measures, established by executive decree, imposed restrictions on domestic mobility and the operation of educational institutions as confinement policies tightened.\n\nThe decision came as efforts to contain the COVID-19 pandemic limited personal movement and the activity of numerous services. The travel ban between municipalities and school closures were the main restrictive measures announced, while the administrative leave for holiday weekends created an exception for workers.\n\nThe decree established an exceptional regime limiting national mobility and suspending school operations. The rules aimed to reduce movement during the holiday dates, allowing only exceptions provided by law and linking the restrictions to administrative leave on holiday weekends.\n\nThe measure's lasting significance lies in how the Portuguese state managed the pandemic through national restrictions that combined mobility controls, school closures and exceptional labor provisions. The episode became part of Portugal's response to the 2020 public health crisis, illustrating the impact of COVID-19 on government decisions, work organization and the lives of Portuguese families.",
-        "relevance": {
-          "level": 4,
-          "scores": {
-            "impacto_historico": 60.0,
-            "dimensao_impacto": 50.0,
-            "consequencias": 55.0,
-            "relevancia_posterior": 50.0,
-            "dimensao_duracao": 40.0,
-            "relevancia_mediatica": 50.0,
-            "singularidade": 45.0
-          },
-          "weighted_score": 52.5,
-          "justification": "Medidas restritivas durante feriados; precedente para futuras quarentenas sazonais; impacto em mobilidade e economia temporário.",
-          "lang": "pt"
-        },
-        "article_url": "https://arquivo.pt/wayback/20201122225024/https://www.publico.pt/2020/11/21/politica/noticia/governo-proibe-circulacao-fecha-escolas-tolerancia-ponto-fins-semana-feriados-1940156?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+PublicoPolitica+%28Publico.pt+-+Pol%C3%ADtica%29",
-        "source_platform": "arquivo.pt",
-        "source_profile": "publico.pt",
-        "networks": [
-          "instagram",
-          "facebook"
-        ],
-        "image_url": "https://i.ibb.co/Q2MLZvW/2026-11-22-06-2020-governo-proibe-circulacao-fecha-escolas-e-da-tolerancia-de-ponto-nos-fins-de-sem.jpg",
-        "image_delete_url": "https://ibb.co/ywqtDFz/be8047b729fb0ad535b37f96a79d9eac",
-        "local_image_path": "images/review/pt/2026-11-22_06_2020_governo-proibe-circulacao-fecha-escolas-e-da-tolerancia-de-ponto-nos-fins-de-sem.jpg",
-        "background_source_url": "https://commons.wikimedia.org/wiki/File:Pal%C3%A1cio_de_S%C3%A3o_Louren%C3%A7o_-_Funchal_01.jpg",
-        "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-22_06_2020_governo-proibe-circulacao-fecha-escolas-e-da-tolerancia-de-ponto-nos-fins-de-sem-fundo.jpg",
-        "caption_instagram": "Decreto executivo estabelece restrição de mobilidade nacional e encerramento de estabelecimentos escolares\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Saude",
-        "caption_facebook": "Decreto executivo estabelece restrição de mobilidade nacional e encerramento de estabelecimentos escolares\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Saude",
-        "body": "Em 2020, o Governo português proibiu a circulação entre concelhos durante o período festivo, ordenou o encerramento das escolas e concedeu tolerância de ponto nos fins-de-semana dos feriados. As medidas, definidas por decreto executivo, impuseram restrições à mobilidade nacional e ao funcionamento de estabelecimentos escolares, no contexto do agravamento das medidas de confinamento.\nA decisão inseriu-se num período em que o combate à pandemia de covid-19 condicionava a circulação das pessoas e a atividade de vários serviços. A proibição de circulação entre concelhos e o encerramento das escolas constituíram as principais medidas restritivas anunciadas, enquanto a tolerância de ponto nos fins-de-semana dos feriados criou uma exceção administrativa para os trabalhadores.\nO decreto executivo estabeleceu, assim, um regime excecional de limitação da mobilidade nacional e de suspensão do funcionamento de escolas. As regras procuraram reduzir a circulação durante as datas festivas, mantendo apenas as exceções previstas na legislação e articulando as restrições com a concessão de tolerância de ponto nos fins-de-semana dos feriados.\nA relevância duradoura desta medida reside na forma como o Estado português gestionou a pandemia através de restrições nacionais, articulando controlo da mobilidade, encerramento de escolas e medidas laborais excecionais. O episódioBecame parte da resposta portuguesa à crise sanitária de 2020 e ilustra o impacto da covid-19 nas decisões do Governo, na organização do trabalho e na vida das famílias portuguesas.",
-        "highlight_text_en": "Government bans",
-        "caption_narrative_en": "In 2020, Portugal barred travel between municipalities during the holiday period, closed schools and granted administrative leave on holiday weekends. The executive decree tightened national restrictions as the government sought to limit movement amid the COVID-19 pandemic.",
-        "review_action": ""
       }
     ],
     "last_regenerated_at": "2026-11-09T02:42:15.651781",
-    "regeneration_count": 1,
-    "published_at": "2026-11-23T06:29:13",
-    "instagram_id": "17953843362057248",
-    "instagram_story_id": "17974560618188165",
-    "facebook_id": "1030669413467151_122139821186824703",
-    "facebook_story_id": "1823592952261300",
-    "instagram_url": ""
+    "regeneration_count": 1
   },
   {
     "id": "pt_2026-11-24_1",
@@ -51520,8 +51194,8 @@
     "facebook_story_id": "2351451185676756"
   },
   {
-    "id": "en_2026-11-23_2",
-    "date": "2026-11-23",
+    "id": "en_2026-11-22_2",
+    "date": "2026-11-22",
     "slot": 2,
     "lang": "en",
     "selected_option": 0,
