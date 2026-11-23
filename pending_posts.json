@@ -51135,5 +51135,68 @@
         "body_en": ""
       }
     ]
+  },
+  {
+    "id": "en_2026-11-23_2",
+    "date": "2026-11-23",
+    "slot": 2,
+    "lang": "en",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "Synced from pt_2026-11-23_2",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "source_profile": "",
+    "external_suggestions": [],
+    "options": [
+      {
+        "category": "TECHNOLOGY",
+        "title": "New Nokia mobile phone launched",
+        "title_en": "New Nokia mobile phone launched",
+        "highlight_text": "New Nokia",
+        "overlay_description": "Presentation of new Nokia N1 device with Android operating system on 4G platform.",
+        "caption": "In 2014, Nokia launched a new mobile device, the Nokia N1, running the Android operating system.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2014.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Technology",
+        "caption_instagram": "In 2014, Nokia launched a new mobile device, the Nokia N1, running the Android operating system.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2014.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Technology",
+        "caption_facebook": "In 2014, Nokia launched a new mobile device, the Nokia N1, running the Android operating system.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2014.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Technology",
+        "year": "2014",
+        "summary": "Presentation of new Nokia N1 device with Android operating system on 4G platform.",
+        "summary_en": "Presentation of new Nokia N1 device with Android operating system on 4G platform.",
+        "body": "",
+        "body_en": "",
+        "image_theme": "Telemóvel Nokia",
+        "layout_preference": "template_3",
+        "breaking_candidate": false,
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 20.0,
+            "dimensao_impacto": 25.0,
+            "consequencias": 15.0,
+            "relevancia_posterior": 15.0,
+            "dimensao_duracao": 10.0,
+            "relevancia_mediatica": 30.0,
+            "singularidade": 20.0
+          },
+          "weighted_score": 19.0,
+          "justification": "Lançamento de dispositivo móvel Nokia com Android; inovação técnica limitada no mercado de smartphones atual.",
+          "lang": "pt"
+        },
+        "article_url": "https://arquivo.pt/wayback/20151206125215/https://4gnews.pt/nokia-n1-o-renascer-de-um-mito-ou-o-ultimo-esforco-de-uma-lenda",
+        "source_profile": "",
+        "source_platform": "",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-23_2.jpg",
+        "image_delete_url": "",
+        "local_image_path": "site/images/approved/en_2026-11-23_2.jpg",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Nokia_N1_tablet.jpg",
+        "local_background_path": ""
+      }
+    ]
   }
 ]
