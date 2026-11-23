@@ -17881,13 +17881,13 @@
     "date": "2026-11-23",
     "slot": 2,
     "lang": "pt",
-    "selected_option": 1,
+    "selected_option": 0,
     "layout_override": "",
     "theme_suggestion": "",
-    "manual_background_url": "",
+    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-23_2-bg.jpg",
     "review_action": "",
     "review_note": "",
-    "status": "pending",
+    "status": "approved",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -17904,7 +17904,7 @@
         "year": "2014",
         "category": "TECNOLOGIA",
         "editorial_tier": "lower_relevance",
-        "title": "Novo Nokia N1 com Android em 4GNews.pt",
+        "title": "Lançado novo telemóvel Nokia",
         "highlight_text": "Nokia N1",
         "overlay_description": "Apresentação do novo dispositivo Nokia N1 com sistema operativo Android em plataforma 4G",
         "image_theme": "Telemóvel Nokia",
@@ -17913,7 +17913,7 @@
         "conditional_trigger": "",
         "caption": "Divulgação do novo Nokia N1 com Android em plataforma 4GNews.pt.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Tecnologia",
         "summary": "Lançamento de novo dispositivo móvel Nokia N1 com sistema operativo Android.",
-        "title_en": "New Nokia N1 with Android on 4GNews.pt",
+        "title_en": "New Nokia mobile phone launched",
         "summary_en": "Presentation of new Nokia N1 device with Android operating system on 4G platform.",
         "body_en": "",
         "relevance": {
@@ -17935,15 +17935,17 @@
         "source_platform": "",
         "source_profile": "",
         "networks": [
-          "instagram"
+          "instagram",
+          "facebook"
         ],
-        "image_url": "",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-23_2.jpg",
         "image_delete_url": "",
         "local_image_path": "",
-        "background_source_url": "",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Nokia_N1_tablet.jpg",
         "local_background_path": "",
         "caption_instagram": "Divulgação do novo Nokia N1 com Android em plataforma 4GNews.pt.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Tecnologia",
-        "caption_facebook": "Divulgação do novo Nokia N1 com Android em plataforma 4GNews.pt.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Tecnologia"
+        "caption_facebook": "Divulgação do novo Nokia N1 com Android em plataforma 4GNews.pt.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Tecnologia",
+        "caption_narrative_en": "In 2014, Nokia launched a new mobile device, the Nokia N1, running the Android operating system."
       },
       {
         "article_url": "",
