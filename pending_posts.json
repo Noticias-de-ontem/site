@@ -18346,9 +18346,9 @@
         "body": "A 7 de março de 1957, a RTP iniciou as emissões regulares de televisão em Portugal, marcando o início da era da televisão no país.",
         "body_en": "On 7 March 1957, RTP began regular television broadcasts in Portugal, marking the start of the television era in the country.",
         "breaking_candidate": false,
-        "caption": "A 7 de março de 1957, a RTP iniciou as emissões regulares de televisão em Portugal, marcando o início da era da televisão no país.",
-        "caption_facebook": "A 7 de março de 1957, a RTP iniciou as emissões regulares de televisão em Portugal, marcando o início da era da televisão no país.",
-        "caption_instagram": "A 7 de março de 1957, a RTP iniciou as emissões regulares de televisão em Portugal, marcando o início da era da televisão no país.",
+        "caption": "A 7 de março de 1957, a RTP iniciou as emissões regulares de televisão em Portugal, marcando o início da era da televisão no país.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1957.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
+        "caption_facebook": "A 7 de março de 1957, a RTP iniciou as emissões regulares de televisão em Portugal, marcando o início da era da televisão no país.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1957.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
+        "caption_instagram": "A 7 de março de 1957, a RTP iniciou as emissões regulares de televisão em Portugal, marcando o início da era da televisão no país.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 1957.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
         "category": "CULTURA",
         "highlight_text": "RTP",
         "image_delete_url": "",
@@ -51253,5 +51253,60 @@
     "facebook_id": "1318455601360516_122112663411541219",
     "facebook_url": "https://www.facebook.com/122096313699541219/posts/122112663411541219",
     "facebook_story_id": "2608192163031342"
+  },
+  {
+    "id": "en_2026-11-24_1",
+    "date": "2026-11-24",
+    "slot": 1,
+    "lang": "en",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "Synced from pt_2026-11-24_1",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "source_profile": "commons.wikimedia.org",
+    "external_suggestions": [],
+    "options": [
+      {
+        "category": "CULTURE",
+        "title": "RTP's first broadcast",
+        "title_en": "RTP's first broadcast",
+        "highlight_text": "RTP's first",
+        "overlay_description": "The debut of public broadcasting marked the start of the television era in Portugal, changing how the country consumed information and entertainment.",
+        "caption": "On 7 March 1957, RTP began regular television broadcasts in Portugal, marking the start of the television era in the country.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 1957.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Culture",
+        "caption_instagram": "On 7 March 1957, RTP began regular television broadcasts in Portugal, marking the start of the television era in the country.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 1957.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Culture",
+        "caption_facebook": "On 7 March 1957, RTP began regular television broadcasts in Portugal, marking the start of the television era in the country.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 1957.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Culture",
+        "year": "1957",
+        "summary": "The debut of public broadcasting marked the start of the television era in Portugal, changing how the country consumed information and entertainment.",
+        "summary_en": "The debut of public broadcasting marked the start of the television era in Portugal, changing how the country consumed information and entertainment.",
+        "body": "On 7 March 1957, RTP began regular television broadcasts in Portugal, marking the start of the television era in the country.",
+        "body_en": "On 7 March 1957, RTP began regular television broadcasts in Portugal, marking the start of the television era in the country.",
+        "image_theme": "RTP headquarters",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "relevance": {
+          "level": 2,
+          "scores": {},
+          "weighted_score": 32.5,
+          "justification": "Início da televisão em Portugal, marco histórico da comunicação social.",
+          "lang": "pt"
+        },
+        "article_url": "",
+        "source_profile": "commons.wikimedia.org",
+        "source_platform": "arquivo.pt",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-24_1.jpg",
+        "image_delete_url": "",
+        "local_image_path": "site/images/approved/en_2026-11-24_1.jpg",
+        "background_source_url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/RTPhead.jpg",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-24_1-fundo.jpg"
+      }
+    ]
   }
 ]
