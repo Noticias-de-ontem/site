@@ -12560,5 +12560,31 @@
         "created_at": "2026-11-24T20:58:23+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-24",
+        "option_index": 0,
+        "title": "Parlamento Europeu aprova ajuda de 18 mil milhões de euros à Ucrânia",
+        "year": "2022",
+        "image_url": "https://i.ibb.co/T5Zsg7r/2026-11-24-01-2022-parlamento-europeu-aprova-ajuda-de-18-mil-milhoes-de-euros-a-ucrania.jpg",
+        "delete_url": "https://ibb.co/LfM3Zcv/c59e96594be300ea9db32e39f8b5d166",
+        "created_at": "2026-11-24T21:21:18+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-24",
+        "option_index": 1,
+        "title": "O apoio financeiro a professores colocados a mais de 70 quilómetros",
+        "year": "2023",
+        "image_url": "https://i.ibb.co/JjVT47fj/2026-11-24-02-2023-o-apoio-financeiro-a-professores-colocados-a-mais-de-70-quilometros.jpg",
+        "delete_url": "https://ibb.co/PGKynh7G/2ecfb0bd1b3d57623021a79d4e76a2b5",
+        "created_at": "2026-11-24T21:26:20+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
