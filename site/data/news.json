@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T23:27:07+00:00",
+  "generated_at": "2026-11-25T23:38:37+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -17,14 +17,14 @@
     "date": "2026-11-25",
     "slot": 2,
     "status": "published",
-    "published_at": "2026-11-25T23:26:10.498529",
+    "published_at": "2026-11-25T23:38:00.512151",
     "category": "ECONOMIA",
     "title": "Luís Montenegro define prioridades para a campanha eleitoral das próximas legislativas",
     "title_en": "Luís Montenegro defines priorities for the campaign of the next legislative elections",
     "summary": "Líder do PSD apresenta propostas sobre impostos, pensões e serviços públicos no 41º Congresso do partido",
     "summary_en": "PSD leader presents proposals on taxes, pensions and public services at 41st party congress",
     "original_year": "2023",
-    "image": "https://i.ibb.co/1tLkvyd8/post-pt.jpg",
+    "image": "https://i.ibb.co/p6q9HZgF/post-pt.jpg",
     "banner_image": "",
     "body": "Líder do PSD apresenta propostas sobre impostos, pensões e serviços públicos no 41º Congresso do partido",
     "body_en": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.",
@@ -34,8 +34,8 @@
     "source_platform": "",
     "instagram_url": "https://www.instagram.com/p/DgLtLDyIOfZ/",
     "instagram_id": "18213587371318753",
-    "facebook_url": "",
-    "facebook_id": "",
+    "facebook_url": "https://www.facebook.com/122136509126824703/posts/122140144004824703",
+    "facebook_id": "1030669413467151_122140144004824703",
     "archive_credit": "Arquivo.pt",
     "banner_ready": false,
     "networks": [
@@ -44,7 +44,8 @@
     ],
     "cover_focus": null,
     "network_posts": {
-      "instagram": "https://www.instagram.com/p/DgLtLDyIOfZ/"
+      "instagram": "https://www.instagram.com/p/DgLtLDyIOfZ/",
+      "facebook": "https://www.facebook.com/122136509126824703/posts/122140144004824703"
     },
     "relevance_level": 5,
     "relevance_scores": {
@@ -61,15 +62,15 @@
     "source_type": "archive",
     "url_path": "noticia/economia/luis-montenegro-define-prioridades-para-a",
     "page_id": "noticia-46c6768764585d9b9969487c",
-    "detail_image": "https://i.ibb.co/1tLkvyd8/post-pt.jpg",
+    "detail_image": "https://i.ibb.co/p6q9HZgF/post-pt.jpg",
     "snapshot_url": "https://arquivo.pt/screenshot/?url=https%3A%2F%2Farquivo.pt%2FnoFrame%2Freplay%2F20240314223142%2Fhttps%3A%2F%2Fnoticiasaominuto.com%2Fpolitica%2F2512583%2Fmontenegro-desvaloriza-diferencas-e-afirma-que-e-ele-quem-define-rumo",
     "url_path_en": "noticia/economy/luis-montenegro-defines-priorities-for-the",
     "page_id_en": "noticia-46c6768764585d9b9969487c",
     "category_en": "ECONOMY",
     "instagram_url_en": "https://www.instagram.com/p/DgLtRtyoMXc/",
     "instagram_id_en": "18092629448271731",
-    "facebook_url_en": "",
-    "facebook_id_en": "",
+    "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122113465695541219",
+    "facebook_id_en": "1318455601360516_122113465695541219",
     "relevance_justification_en": "Prioridades eleitorais apresentadas; impacto depende de adesão eleitoral futura."
   },
   "carousel": [
@@ -669,14 +670,14 @@
       "date": "2026-11-25",
       "slot": 2,
       "status": "published",
-      "published_at": "2026-11-25T23:26:10.498529",
+      "published_at": "2026-11-25T23:38:00.512151",
       "category": "ECONOMIA",
       "title": "Luís Montenegro define prioridades para a campanha eleitoral das próximas legislativas",
       "title_en": "Luís Montenegro defines priorities for the campaign of the next legislative elections",
       "summary": "Líder do PSD apresenta propostas sobre impostos, pensões e serviços públicos no 41º Congresso do partido",
       "summary_en": "PSD leader presents proposals on taxes, pensions and public services at 41st party congress",
       "original_year": "2023",
-      "image": "https://i.ibb.co/1tLkvyd8/post-pt.jpg",
+      "image": "https://i.ibb.co/p6q9HZgF/post-pt.jpg",
       "banner_image": "",
       "body": "Líder do PSD apresenta propostas sobre impostos, pensões e serviços públicos no 41º Congresso do partido",
       "body_en": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.",
@@ -686,8 +687,8 @@
       "source_platform": "",
       "instagram_url": "https://www.instagram.com/p/DgLtLDyIOfZ/",
       "instagram_id": "18213587371318753",
-      "facebook_url": "",
-      "facebook_id": "",
+      "facebook_url": "https://www.facebook.com/122136509126824703/posts/122140144004824703",
+      "facebook_id": "1030669413467151_122140144004824703",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
@@ -696,7 +697,8 @@
       ],
       "cover_focus": null,
       "network_posts": {
-        "instagram": "https://www.instagram.com/p/DgLtLDyIOfZ/"
+        "instagram": "https://www.instagram.com/p/DgLtLDyIOfZ/",
+        "facebook": "https://www.facebook.com/122136509126824703/posts/122140144004824703"
       },
       "relevance_level": 5,
       "relevance_scores": {
@@ -713,15 +715,15 @@
       "source_type": "archive",
       "url_path": "noticia/economia/luis-montenegro-define-prioridades-para-a",
       "page_id": "noticia-46c6768764585d9b9969487c",
-      "detail_image": "https://i.ibb.co/1tLkvyd8/post-pt.jpg",
+      "detail_image": "https://i.ibb.co/p6q9HZgF/post-pt.jpg",
       "snapshot_url": "https://arquivo.pt/screenshot/?url=https%3A%2F%2Farquivo.pt%2FnoFrame%2Freplay%2F20240314223142%2Fhttps%3A%2F%2Fnoticiasaominuto.com%2Fpolitica%2F2512583%2Fmontenegro-desvaloriza-diferencas-e-afirma-que-e-ele-quem-define-rumo",
       "url_path_en": "noticia/economy/luis-montenegro-defines-priorities-for-the",
       "page_id_en": "noticia-46c6768764585d9b9969487c",
       "category_en": "ECONOMY",
       "instagram_url_en": "https://www.instagram.com/p/DgLtRtyoMXc/",
       "instagram_id_en": "18092629448271731",
-      "facebook_url_en": "",
-      "facebook_id_en": "",
+      "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122113465695541219",
+      "facebook_id_en": "1318455601360516_122113465695541219",
       "relevance_justification_en": "Prioridades eleitorais apresentadas; impacto depende de adesão eleitoral futura."
     },
     {
@@ -1403,14 +1405,14 @@
       "date": "2026-11-25",
       "slot": 2,
       "status": "published",
-      "published_at": "2026-11-25T23:26:10.498529",
+      "published_at": "2026-11-25T23:38:00.512151",
       "category": "ECONOMIA",
       "title": "Luís Montenegro define prioridades para a campanha eleitoral das próximas legislativas",
       "title_en": "Luís Montenegro defines priorities for the campaign of the next legislative elections",
       "summary": "Líder do PSD apresenta propostas sobre impostos, pensões e serviços públicos no 41º Congresso do partido",
       "summary_en": "PSD leader presents proposals on taxes, pensions and public services at 41st party congress",
       "original_year": "2023",
-      "image": "https://i.ibb.co/1tLkvyd8/post-pt.jpg",
+      "image": "https://i.ibb.co/p6q9HZgF/post-pt.jpg",
       "banner_image": "",
       "body": "Líder do PSD apresenta propostas sobre impostos, pensões e serviços públicos no 41º Congresso do partido",
       "body_en": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.",
@@ -1420,8 +1422,8 @@
       "source_platform": "",
       "instagram_url": "https://www.instagram.com/p/DgLtLDyIOfZ/",
       "instagram_id": "18213587371318753",
-      "facebook_url": "",
-      "facebook_id": "",
+      "facebook_url": "https://www.facebook.com/122136509126824703/posts/122140144004824703",
+      "facebook_id": "1030669413467151_122140144004824703",
       "archive_credit": "Arquivo.pt",
       "banner_ready": false,
       "networks": [
@@ -1430,7 +1432,8 @@
       ],
       "cover_focus": null,
       "network_posts": {
-        "instagram": "https://www.instagram.com/p/DgLtLDyIOfZ/"
+        "instagram": "https://www.instagram.com/p/DgLtLDyIOfZ/",
+        "facebook": "https://www.facebook.com/122136509126824703/posts/122140144004824703"
       },
       "relevance_level": 5,
       "relevance_scores": {
@@ -1447,15 +1450,15 @@
       "source_type": "archive",
       "url_path": "noticia/economia/luis-montenegro-define-prioridades-para-a",
       "page_id": "noticia-46c6768764585d9b9969487c",
-      "detail_image": "https://i.ibb.co/1tLkvyd8/post-pt.jpg",
+      "detail_image": "https://i.ibb.co/p6q9HZgF/post-pt.jpg",
       "snapshot_url": "https://arquivo.pt/screenshot/?url=https%3A%2F%2Farquivo.pt%2FnoFrame%2Freplay%2F20240314223142%2Fhttps%3A%2F%2Fnoticiasaominuto.com%2Fpolitica%2F2512583%2Fmontenegro-desvaloriza-diferencas-e-afirma-que-e-ele-quem-define-rumo",
       "url_path_en": "noticia/economy/luis-montenegro-defines-priorities-for-the",
       "page_id_en": "noticia-46c6768764585d9b9969487c",
       "category_en": "ECONOMY",
       "instagram_url_en": "https://www.instagram.com/p/DgLtRtyoMXc/",
       "instagram_id_en": "18092629448271731",
-      "facebook_url_en": "",
-      "facebook_id_en": "",
+      "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122113465695541219",
+      "facebook_id_en": "1318455601360516_122113465695541219",
       "relevance_justification_en": "Prioridades eleitorais apresentadas; impacto depende de adesão eleitoral futura."
     },
     {
