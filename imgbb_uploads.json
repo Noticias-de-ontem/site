@@ -12618,5 +12618,31 @@
         "created_at": "2026-11-25T09:37:52+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-25",
+        "option_index": 0,
+        "title": "EDP: comissária da Concorrência mantém objecções ao negócio",
+        "year": "2004",
+        "image_url": "https://i.ibb.co/1fYPVqVm/2026-11-25-01-2004-edp-comissaria-da-concorrencia-mantem-objeccoes-ao-negocio.jpg",
+        "delete_url": "https://ibb.co/QF7TBNBK/a0b235447f90c659d34a5e416beb5017",
+        "created_at": "2026-11-25T20:11:47+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-25",
+        "option_index": 0,
+        "title": "A Plataforma em Defesa do SNS manifestou-se hoje, junto à entrada",
+        "year": "2025",
+        "image_url": "https://i.ibb.co/jvk7KFxR/2026-11-25-01-2025-a-plataforma-em-defesa-do-sns-manifestou-se-hoje-junto-a-entrada.jpg",
+        "delete_url": "https://ibb.co/PZGBp8bQ/8046f62df2f3b90c5f27ac7522b7845a",
+        "created_at": "2026-11-25T20:14:40+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
