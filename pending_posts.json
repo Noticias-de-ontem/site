@@ -19054,13 +19054,13 @@
     "date": "2026-11-25",
     "slot": 2,
     "lang": "pt",
-    "selected_option": 0,
+    "selected_option": 1,
     "layout_override": "",
     "theme_suggestion": "",
-    "manual_background_url": "",
+    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-25_2-bg.jpg",
     "review_action": "",
     "review_note": "",
-    "status": "pending",
+    "status": "approved",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -19126,6 +19126,53 @@
         "local_background_path": "",
         "caption_instagram": "A Plataforma em Defesa do SNS manifestou-se hoje, junto à entrada do Hospital Dona Estefânia, em Lisboa, contra o encerramento do serviço de neonatologia, rejeitando que as medidas anunciadas sejam apenas de reorganização. Continue a ler em 24horas.pt ou na App\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Saude",
         "caption_facebook": "A Plataforma em Defesa do SNS manifestou-se hoje, junto à entrada do Hospital Dona Estefânia, em Lisboa, contra o encerramento do serviço de neonatologia, rejeitando que as medidas anunciadas sejam apenas de reorganização. Continue a ler em 24horas.pt ou na App\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Saude"
+      },
+      {
+        "year": "2023",
+        "category": "ECONOMIA",
+        "editorial_tier": "high",
+        "title": "Luís Montenegro define prioridades para a campanha eleitoral das próximas legislativas",
+        "highlight_text": "prioridades",
+        "overlay_description": "Líder do PSD apresenta propostas sobre impostos, pensões e serviços públicos no 41º Congresso do partido",
+        "image_theme": "Congresso PSD São Bento Lisboa",
+        "layout_preference": "template_3",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "PSD define eixos da campanha eleitoral com promessas de descidas de impostos e subidas nas pensões para reformados.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "summary": "Líder social-democrata expõe prioridades eleitorais em congresso partidário, prometendo medidas concretas para breve.",
+        "title_en": "Luís Montenegro defines priorities for the campaign of the next legislative elections",
+        "summary_en": "PSD leader presents proposals on taxes, pensions and public services at 41st party congress",
+        "body_en": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 30.0,
+            "dimensao_impacto": 40.0,
+            "consequencias": 35.0,
+            "relevancia_posterior": 30.0,
+            "dimensao_duracao": 25.0,
+            "relevancia_mediatica": 45.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 33.2,
+          "justification": "Prioridades eleitorais apresentadas; impacto depende de adesão eleitoral futura.",
+          "lang": "pt"
+        },
+        "article_url": "https://arquivo.pt/wayback/20240314223142/https://noticiasaominuto.com/politica/2512583/montenegro-desvaloriza-diferencas-e-afirma-que-e-ele-quem-define-rumo",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram"
+        ],
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-25_2.jpg",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "PSD define eixos da campanha eleitoral com promessas de descidas de impostos e subidas nas pensões para reformados.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "caption_facebook": "PSD define eixos da campanha eleitoral com promessas de descidas de impostos e subidas nas pensões para reformados.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "body": "",
+        "caption_narrative_en": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections."
       }
     ],
     "last_regenerated_at": "2026-11-25T20:14:40.950314",
