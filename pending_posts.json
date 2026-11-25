@@ -19020,10 +19020,18 @@
         ],
         "overlay_description": "Paraquedistas ocuparam bases aéreas e a RTP; os militares moderados impuseram-se e o COPCON foi dissolvido.",
         "relevance": {
-          "level": 2,
-          "scores": {},
-          "weighted_score": 32.5,
-          "justification": "Tentativa de golpe derrotada, fim do PREC e consolidação da democracia.",
+          "level": 4,
+          "scores": {
+            "impacto_historico": 45.0,
+            "dimensao_impacto": 40.0,
+            "consequencias": 40.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 30.0,
+            "relevancia_mediatica": 35.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 40.0,
+          "justification": "Acontecimento de interesse público documentado na época.",
           "lang": "pt"
         },
         "source_platform": "arquivo.pt",
@@ -19032,7 +19040,7 @@
         "summary_en": "Paratroopers occupied air bases, Lisbon airport and the RTP studios; moderate military prevailed, COPCON was dissolved and the country resumed the path to democracy.",
         "title": "Tentativa de golpe derrotada em Lisboa",
         "title_en": "Coup attempt defeated in Lisbon",
-        "year": 1975,
+        "year": "1975",
         "caption_narrative_en": "In the early hours of 25 November 1975, paratroopers occupied air bases, Lisbon airport and the RTP studios. President Costa Gomes declared a state of siege and, under Ramalho Eanes' strategic command, the commandos secured the rebels' surrender. COPCON was dissolved and the country resumed the path to democracy.",
         "editorial_tier": "high",
         "conditional_trigger": "",
@@ -19065,16 +19073,12 @@
     "external_suggestions": [
       {
         "year": "1975",
-        "day": 25,
-        "month": 11,
         "category": "POLÍTICA",
         "title": "Rejeição da moção de censura ao Governo de Mário Soares",
         "summary": "A Assembleia da República aprovou a moção de censura ao primeiro Governo constitucional, reforçando o equilíbrio institucional da democracia portuguesa."
       },
       {
         "year": "1935",
-        "day": 25,
-        "month": 11,
         "category": "CULTURA",
         "title": "Publicação de «O Crime de Lord Arthur Savile», de Oscar Wilde",
         "summary": "A obra que consolidou o género de comédia de costumes e de crítica social de Wilde continua a ser uma referência da literatura satírica."
@@ -19108,8 +19112,7 @@
           },
           "weighted_score": 17.3,
           "justification": "A manifestação opôs-se ao encerramento da neonatologia, mas a fonte não documenta decisões posteriores nem mudanças duradouras no serviço.",
-          "lang": "pt",
-          "justification_en": "The demonstration highlights ongoing public concern over neonatal care access and service sustainability within the national health system."
+          "lang": "pt"
         },
         "networks": [
           "facebook"
@@ -19224,11 +19227,19 @@
           "facebook"
         ],
         "relevance": {
-          "level": 2,
-          "scores": {},
-          "weighted_score": 32.5,
-          "justification": "Tentativa de golpe derrotada, fim do PREC e consolidação da democracia.",
-          "lang": "pt"
+          "level": 4,
+          "scores": {
+            "impacto_historico": 45.0,
+            "dimensao_impacto": 40.0,
+            "consequencias": 40.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 30.0,
+            "relevancia_mediatica": 35.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 40.0,
+          "justification": "Public interest event documented at the time.",
+          "lang": "en"
         },
         "article_url": "",
         "source_profile": "commons.wikimedia.org",
@@ -19249,6 +19260,76 @@
     "facebook_story_id": "1507696848127238"
   },
   {
+    "id": "en_2026-11-25_2",
+    "date": "2026-11-25",
+    "slot": 2,
+    "lang": "en",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "Synced from pt_2026-11-25_2",
+    "status": "published",
+    "generated_month": "2026-11",
+    "source_profile": "",
+    "external_suggestions": [],
+    "options": [
+      {
+        "category": "ECONOMY",
+        "title": "Luís Montenegro defines priorities for the campaign of the next legislative elections",
+        "title_en": "Luís Montenegro defines priorities for the campaign of the next legislative elections",
+        "highlight_text": "Luís Montenegro",
+        "overlay_description": "PSD leader presents proposals on taxes, pensions and public services at 41st party congress",
+        "caption": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2023.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "caption_instagram": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2023.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "caption_facebook": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2023.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "year": "2023",
+        "summary": "PSD leader presents proposals on taxes, pensions and public services at 41st party congress",
+        "summary_en": "PSD leader presents proposals on taxes, pensions and public services at 41st party congress",
+        "body": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.",
+        "body_en": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.",
+        "image_theme": "Congresso PSD São Bento Lisboa",
+        "layout_preference": "template_3",
+        "breaking_candidate": false,
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 30.0,
+            "dimensao_impacto": 40.0,
+            "consequencias": 35.0,
+            "relevancia_posterior": 30.0,
+            "dimensao_duracao": 25.0,
+            "relevancia_mediatica": 45.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 33.2,
+          "justification": "Prioridades eleitorais apresentadas; impacto depende de adesão eleitoral futura.",
+          "lang": "pt"
+        },
+        "article_url": "https://arquivo.pt/wayback/20240314223142/https://noticiasaominuto.com/politica/2512583/montenegro-desvaloriza-diferencas-e-afirma-que-e-ele-quem-define-rumo",
+        "source_profile": "",
+        "source_platform": "",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-25_2.jpg",
+        "image_delete_url": "",
+        "local_image_path": "site/images/approved/en_2026-11-25_2.jpg",
+        "background_source_url": "",
+        "local_background_path": ""
+      }
+    ],
+    "instagram_id": "18092629448271731",
+    "instagram_url": "https://www.instagram.com/p/DgLtRtyoMXc/",
+    "published_at": "2026-11-25T23:38:23.496452",
+    "instagram_story_id": "18012957413778582",
+    "facebook_id": "1318455601360516_122113465695541219",
+    "facebook_url": "https://www.facebook.com/122096313699541219/posts/122113465695541219",
+    "facebook_story_id": "1174923351760940"
+  },
+  {
     "id": "pt_2026-11-26_1",
     "date": "2026-11-26",
     "slot": 1,
@@ -19263,196 +19344,62 @@
     "generated_month": "2026-11",
     "external_suggestions": [
       {
-        "year": "1920",
+        "year": "1976",
+        "day": 26,
+        "month": 11,
         "category": "CULTURA",
-        "title": "Primeira exibição pública de 'Mensagem' de Fernando Pessoa",
-        "summary": "O poema épico de Fernando Pessoa é apresentado ao público, consolidando-se como uma obra fundamental da literatura portuguesa moderna."
+        "title": "Estreia de «O Homem que Caiu da Terra» nos cinemas portugueses",
+        "summary": "A obra de David Bowie, inspirada no contacto com a NASA, estreou neste dia e consolidou a sua imagem de artista de vanguarda."
       },
       {
-        "year": "1955",
+        "year": "2005",
+        "day": 26,
+        "month": 11,
         "category": "DESPORTO",
-        "title": "Benfica vence a Taça dos Clubes Campeões Europeus",
-        "summary": "O Sport Lisboa e Benfica conquista o primeiro título europeu da sua história, marcando o início da era de ouro do futebol português."
+        "title": "Portugal vence o Brasil por 2-0 no Estádio da Luz",
+        "summary": "A seleção portuguesa, treinada por Luiz Felipe Scolari, conquistou um dos seus resultados mais memoráveis sobre o Brasil."
       },
       {
-        "year": "1986",
-        "category": "CIÊNCIA",
-        "title": "Portugal adere ao Espaço Europeu",
-        "summary": "O país formaliza a adesão ao consórcio espacial europeu, abrindo caminho para projetos de investigação e tecnologia que beneficiam a indústria nacional."
+        "year": "2015",
+        "day": 26,
+        "month": 11,
+        "category": "SOCIEDADE",
+        "title": "Manifestações em Portugal contra a entrada de refugiados",
+        "summary": "A concentração em Lisboa tornou-se uma das maiores manifestações da década, expr公众ando a preocupação da sociedade portuguesa com a crise humanitária na Europa."
       }
     ],
     "options": [
       {
-        "year": "2025",
+        "year": "2002",
         "category": "POLÍTICA",
         "editorial_tier": "high",
-        "title": "STF autoriza início de cumprimento de pena de mais de 27 anos a Bolsonaro",
-        "highlight_text": "STF autoriza",
-        "overlay_description": "Decisão judicial sobre execução de pena para ex-presidente brasileiro confirma condenação por crimes relacionados à tentativa de golpe de Estado.",
-        "image_theme": "Palácio do STF Brasília",
-        "layout_preference": "template_1",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "Supremo Tribunal Federal homologa o início do cumprimento da longa pena de prisão contra o ex-chefe de Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "summary": "Alta relevância institucional: decisão judicial sobre execução de pena para ex-presidente brasileiro, fato de repercussão nacional e impacto político.",
-        "title_en": "STF authorizes start of serving over 27-year sentence for Bolsonaro",
-        "summary_en": "Judicial decision on sentence execution for former Brazilian president confirms conviction for crimes related to attempted state coup.",
-        "body_en": "Em 22 de maio de 2025, o Supremo Tribunal Federal (STF) proferiu decisão histórica que autoriza o início do cumprimento da pena de mais de 27 anos de prisão contra Jair Bolsonaro. A medida concretiza a condenação do ex-presidente brasileiro por crimes relacionados à tentativa de golpe de Estado, marcando o momento em que a justiça brasileira dá efetividade a sentenças que já haviam sido proferidas em instâncias inferiores e no próprio Supremo. A decisão homologa o início da execução da pena, encerrando um longo período de recursos e impasses processuais que mantinham o ex-chefe de Estado em liberdade desde o final do seu mandato.\n\nO contexto da decisão remonta aos eventos de 8 de janeiro de 2023, quando apoiadores de Bolsonaro invadiram e depredaram as sedes dos Três Poderes em Brasília. As investigações subsequentes, conduzidas pela Polícia Federal e pelo Supremo, identificaram uma estrutura organizada para subverter os resultados das eleições presidenciais de 2022. No âmbito do inquérito que apura os atos antidemocráticos, Bolsonaro foi indiciado e, posteriormente, denunciado pelo Procurador-Geral da República por associação criminosa, abolição violenta do Estado democrático de Direito e dano qualificado ao patrimônio público. A defesa do ex-presidente sustentou sempre a ilegitimidade política dos processos e a ausência de provas de planejamento de golpe de Estado, argumentando que as ações investigadas eram exercícios legítimos de direito de oposição política. No entanto, os ministros do STF rejeitaram esses argumentos na decisão de hoje, fundamentando-se na robustez das evidências apresentadas ao longo dos anos de investigação.\n\nNo desenvolvimento do processo, a condenação de Bolsonaro não se limitou a um único crime. Além da pena base associada à tentativa de golpe, o ex-presidente foi condenado em outras ações penais que somaram as mais de duas décadas e meia de reclusão. As condenações derivam de apurações sobre o uso indevido dos meios de comunicação social durante o período eleitoral, a participação em atos que cercearam o livre exercício do voto e a obstrução de investigações policiais. A soma dessas penas, que já haviam sido confirmadas pelo Tribunal Superior Eleitoral e pelo próprio Supremo em decisões anteriores, agora ganha efetividade com a autorização para o início do cumprimento. A decisão do STF desta quinta-feira estabelece os parâmetros iniciais para a execução, definindo o regime inicial e o estabelecimento prisional onde Bolsonaro ficará detido, embora a defesa tenha anunciado imediatamente recursos extraordinários visando suspender a execução.\n\nA relevância duradoura deste momento reside no precedente que se cria para a aplicação da lei no Brasil. Pela primeira vez na história republicana, um ex-presidente da República terá de cumprir pena definitiva em regime fechado, configurando um marco na independência e na supremacia da justiça sobre o poder executivo. A decisão envia um sinal claro de que ninguém está acima da lei, reforçando a credibilidade das instituições democráticas diante de tentativas de ruptura. Juristas consultados destacam que o caso também abre caminho para o julgamento de outros envolvidos na trama golpista, que agora terão de enfrentar as consequências legais de suas ações. Além disso, a execução da pena pode impactar o cenário político futuro do país, uma vez que a inelegibilidade de Bolsonaro, já decretada em outras esferas, se torna ainda mais sólida diante de uma condenação criminal definitiva.\n\nConsequências posteriores: A decisão do STF desencadeia imediatamente o processo de internação de Bolsonaro, provávelmente em unidade prisional de segurança máxima localizada em Brasília ou região próxima, conforme determina a legislação penitenciária brasileira para condenados por crimes contra o Estado Democrático de Direito. A defesa do ex-presidente já anunciou que recorrerá da decisão ao Tribunal Superior do Trabalho e ao próprio Supremo, buscando uma suspensão cautelar que permita que Bolsonaro continue em liberdade durante o trâmite dos recursos, o que pode prolongar o processo por meses ou anos. No plano político, o PT e outras legendas de esquerda comemoram a decisão como um triunfo da democracia e do Estado de Direito, enquanto apoiadores de Bolsonaro promovem manifestações contrárias, classificando a medida de perseguição política. A execução da pena também pode gerar efeitos imediatos na sucessão política, uma vez que a Lei da Ficha Limpa impede a candidatura de condenados por crimes eleitorais ou contra a democracia, consolidando a inelegibilidade de Bolsonaro para as próximas eleições municipais e estaduais. Finalmente, o caso reforça a necessidade de fortalecimento das instituições de controle e de transparência no sistema eleitoral brasileiro, garantindo que episódios semelhantes de tentativa de subversão do processo democrático sejam mais eficazmente prevenidos e punidos no futuro.",
-        "relevance": {
-          "level": 2,
-          "scores": {
-            "impacto_historico": 85.0,
-            "dimensao_impacto": 75.0,
-            "consequencias": 80.0,
-            "relevancia_posterior": 70.0,
-            "dimensao_duracao": 65.0,
-            "relevancia_mediatica": 60.0,
-            "singularidade": 75.0
-          },
-          "weighted_score": 76.2,
-          "justification": "Decisão histórica confirma pena efetiva para ex-presidente; repercute estabilidade institucional e futuro político. Consequências: início de execução penal e implicações para direita brasileira.",
-          "lang": "pt"
-        },
-        "article_url": "",
-        "source_platform": "",
-        "source_profile": "",
-        "networks": [
-          "instagram",
-          "facebook"
-        ],
-        "body": "Em 22 de maio de 2025, o Supremo Tribunal Federal (STF) proferiu decisão histórica que autoriza o início do cumprimento da pena de mais de 27 anos de prisão contra Jair Bolsonaro. A medida concretiza a condenação do ex-presidente brasileiro por crimes relacionados à tentativa de golpe de Estado, marcando o momento em que a justiça brasileira dá efetividade a sentenças que já haviam sido proferidas em instâncias inferiores e no próprio Supremo. A decisão homologa o início da execução da pena, encerrando um longo período de recursos e impasses processuais que mantinham o ex-chefe de Estado em liberdade desde o final do seu mandato.\n\nO contexto da decisão remonta aos eventos de 8 de janeiro de 2023, quando apoiadores de Bolsonaro invadiram e depredaram as sedes dos Três Poderes em Brasília. As investigações subsequentes, conduzidas pela Polícia Federal e pelo Supremo, identificaram uma estrutura organizada para subverter os resultados das eleições presidenciais de 2022. No âmbito do inquérito que apura os atos antidemocráticos, Bolsonaro foi indiciado e, posteriormente, denunciado pelo Procurador-Geral da República por associação criminosa, abolição violenta do Estado democrático de Direito e dano qualificado ao patrimônio público. A defesa do ex-presidente sustentou sempre a ilegitimidade política dos processos e a ausência de provas de planejamento de golpe de Estado, argumentando que as ações investigadas eram exercícios legítimos de direito de oposição política. No entanto, os ministros do STF rejeitaram esses argumentos na decisão de hoje, fundamentando-se na robustez das evidências apresentadas ao longo dos anos de investigação.\n\nNo desenvolvimento do processo, a condenação de Bolsonaro não se limitou a um único crime. Além da pena base associada à tentativa de golpe, o ex-presidente foi condenado em outras ações penais que somaram as mais de duas décadas e meia de reclusão. As condenações derivam de apurações sobre o uso indevido dos meios de comunicação social durante o período eleitoral, a participação em atos que cercearam o livre exercício do voto e a obstrução de investigações policiais. A soma dessas penas, que já haviam sido confirmadas pelo Tribunal Superior Eleitoral e pelo próprio Supremo em decisões anteriores, agora ganha efetividade com a autorização para o início do cumprimento. A decisão do STF desta quinta-feira estabelece os parâmetros iniciais para a execução, definindo o regime inicial e o estabelecimento prisional onde Bolsonaro ficará detido, embora a defesa tenha anunciado imediatamente recursos extraordinários visando suspender a execução.\n\nA relevância duradoura deste momento reside no precedente que se cria para a aplicação da lei no Brasil. Pela primeira vez na história republicana, um ex-presidente da República terá de cumprir pena definitiva em regime fechado, configurando um marco na independência e na supremacia da justiça sobre o poder executivo. A decisão envia um sinal claro de que ninguém está acima da lei, reforçando a credibilidade das instituições democráticas diante de tentativas de ruptura. Juristas consultados destacam que o caso também abre caminho para o julgamento de outros envolvidos na trama golpista, que agora terão de enfrentar as consequências legais de suas ações. Além disso, a execução da pena pode impactar o cenário político futuro do país, once a inelegibilidade de Bolsonaro, já decretada em outras esferas, se torna ainda mais sólida diante de uma condenação criminal definitiva.\n\nConsequências posteriores: A decisão do STF desencadeia imediatamente o processo de internação de Bolsonaro, provávelmente em unidade prisional de segurança máxima localizada em Brasília ou região próxima, conforme determina a legislação penitenciária brasileira para condenados por crimes contra o Estado Democrático de Direito. A defesa do ex-presidente já anunciou que recorrerá da decisão ao Tribunal Superior do Trabalho e ao próprio Supremo, buscando uma suspensão cautelar que permita que Bolsonaro continue em liberdade durante o trâmite dos recursos, o que pode prolongar o processo por meses ou anos. No plano político, o PT e outras legendas de esquerda comemoram a decisão como um triunfo da democracia e do Estado de Direito, enquanto apoiadores de Bolsonaro promovem manifestações contrárias, classificando a medida de perseguição política. A execução da pena também pode gerar efeitos imediatos na sucessão política, uma vez que a Lei da Ficha Limpa impede a candidatura de condenados por crimes eleitorais ou contra a democracia, consolidando a inelegibilidade de Bolsonaro para as próximas eleições municipais e estaduais. Finalmente, o caso reforça a necessidade de fortalecimento das instituições de controle e de transparência no sistema eleitoral brasileiro, garantindo que episódios semelhantes de tentativa de subversão do processo democrático sejam mais eficazmente prevenidos e punidos no futuro.",
-        "highlight_text_en": "STF",
-        "caption_narrative_en": "On May 22, 2025, the Supreme Federal Court made history by authorizing the start of former President Jair Bolsonaro's 27-year prison sentence, finalizing his conviction for crimes tied to the 2022 election attempt.",
-        "image_url": "https://i.ibb.co/SXVKGqzx/2026-11-26-01-2025-stf-autoriza-inicio-de-cumprimento-de-pena-de-mais-de-27-anos-a-bolsonaro.jpg",
-        "image_delete_url": "https://ibb.co/KjV9SCJG/3c1fa4d2f8cc129d29c2686a51322619",
-        "local_image_path": "images/review/pt/2026-11-26_01_2025_stf-autoriza-inicio-de-cumprimento-de-pena-de-mais-de-27-anos-a-bolsonaro.jpg",
-        "background_source_url": "https://commons.wikimedia.org/wiki/File:Supreme_Federal_Court_-_Statue.jpg",
-        "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-26_01_2025_stf-autoriza-inicio-de-cumprimento-de-pena-de-mais-de-27-anos-a-bolsonaro-fundo.jpg",
-        "caption_instagram": "Supremo Tribunal Federal homologa o início do cumprimento da longa pena de prisão contra o ex-chefe de Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "caption_facebook": "Supremo Tribunal Federal homologa o início do cumprimento da longa pena de prisão contra o ex-chefe de Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica"
-      },
-      {
-        "year": "2023",
-        "category": "POLÍTICA",
-        "editorial_tier": "high",
-        "title": "Orçamento do Estado 2024 votação final global no Parlamento",
-        "highlight_text": "Orçamento do Estado",
-        "overlay_description": "Votação final global do Orçamento do Estado para 2024 na quarta-feira, com aprovação assegurada pela maioria socialista no Parlamento.",
-        "image_theme": "Parlamento Lisboa sessão",
+        "title": "Governo aprova conceito estratégico de defesa nacional",
+        "highlight_text": "Conceito de defesa",
+        "overlay_description": "O Governo aprova um conceito estratégico de defesa para reforçar a presença militar em missões humanitárias e de manutenção da paz.",
+        "image_theme": "Governo de Portugal São Bento",
         "layout_preference": "template_3",
         "breaking_candidate": false,
         "conditional_trigger": "",
-        "caption": "Aprovado o documento que define as finanças públicas do país para o próximo ano fiscal.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "summary": "Alta relevância política: votação decisiva do Orçamento do Estado, momento central do ciclo legislativo com impacto nas finanças nacionais.",
-        "title_en": "Final global vote on 2024 State Budget in Parliament",
-        "summary_en": "Final global vote on 2024 State Budget in parliament, approved by socialist majority.",
-        "body_en": "",
+        "caption": "O Conselho de Segurança Nacional aprovou um conceito estratégico de defesa que visa reforçar a participação portuguesa em missões humanitárias e de manutenção da paz.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "summary": "A decisão define a orientação das forças armadas portuguesas e o seu contributo para operações internacionais de paz.",
+        "title_en": "Portuguese Government Approves National Defense Strategic Concept",
+        "summary_en": "The government approved a defense strategy outlining the armed forces' role in humanitarian missions and international peacekeeping operations.",
+        "body_en": "Portugal's National Security Council approved a strategic national defense concept in 2002 to establish the framework for the country's participation in international missions. The decision reflects the government's intent to strengthen the nation's military presence in humanitarian operations and peacekeeping missions.\n\nThe approval marks an important step in defense policy development by establishing broad guidelines for the armed forces' activity abroad. Portugal's participation in these missions is particularly significant in peacekeeping operations, where military contributions can support the protection of civilian populations, humanitarian assistance, and the stabilization of conflict zones.\n\nThe document approved by the National Security Council provides a strategic framework for a more active Portuguese role in such missions. It places national defense within a perspective that includes international engagement and humanitarian support, alongside the protection of national territory and the armed forces' domestic responsibilities.\n\nThe decision's lasting significance lies in consolidating a defense vision centered on international security and assistance to populations affected by conflict and humanitarian crises. By defining a strategic concept, the government created a reference point for preparing, organizing, and deploying the armed forces in peacekeeping missions, reinforcing Portugal's role in peace operations and humanitarian emergency response.",
         "relevance": {
           "level": 5,
           "scores": {
-            "impacto_historico": 40.0,
-            "dimensao_impacto": 35.0,
-            "consequencias": 30.0,
-            "relevancia_posterior": 25.0,
-            "dimensao_duracao": 20.0,
-            "relevancia_mediatica": 35.0,
-            "singularidade": 30.0
-          },
-          "weighted_score": 32.5,
-          "justification": "Votação orçamental rotineira; impacto financeiro de médio prazo sem transformações estruturais profundas.",
-          "lang": "pt"
-        },
-        "article_url": "https://arquivo.pt/wayback/20241201194721/https://24.sapo.pt/atualidade/artigos/oe2025-proposta-aprovada-na-votacao-final-global-por-psd-e-cds-pp-com-abstencao-do-ps",
-        "source_platform": "",
-        "source_profile": "",
-        "networks": [
-          "facebook"
-        ],
-        "image_url": "",
-        "image_delete_url": "",
-        "local_image_path": "",
-        "background_source_url": "",
-        "local_background_path": "",
-        "caption_instagram": "Aprovado o documento que define as finanças públicas do país para o próximo ano fiscal.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "caption_facebook": "Aprovado o documento que define as finanças públicas do país para o próximo ano fiscal.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2023.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "body": ""
-      },
-      {
-        "year": "2020",
-        "category": "ECONOMIA",
-        "editorial_tier": "high",
-        "title": "Bloco de Esquerda impede transferência de 500 milhões ao Novo Banco no Orçamento do Estado",
-        "highlight_text": "Impede transferência",
-        "overlay_description": "Proposta do Bloco de Esquerda para bloquear quase 500 milhões de euros de transferência ao Novo Banco, aprovada na especialidade do Orçamento do Estado, face a tentativas de alteração de voto.",
-        "image_theme": "Parlamento Lisboa orçamento",
-        "layout_preference": "template_1",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "Votação decisiva sobre fundo bancário no âmbito do Orçamento do Estado em ano de pandemia.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
-        "summary": "Alta relevância económica e política: medida de controlo financeiro público durante período de crise económica.",
-        "title_en": "Left Bloc blocks 500 million euro transfer to Novo Banco in State Budget",
-        "summary_en": "Left Bloc proposal to block nearly 500 million euro transfer to Novo Banco, approved in State Budget specialty, amid vote alteration attempts.",
-        "body_en": "",
-        "relevance": {
-          "level": 5,
-          "scores": {
-            "impacto_historico": 35.0,
-            "dimensao_impacto": 30.0,
-            "consequencias": 25.0,
-            "relevancia_posterior": 20.0,
-            "dimensao_duracao": 15.0,
+            "impacto_historico": 32.0,
+            "dimensao_impacto": 48.0,
+            "consequencias": 38.0,
+            "relevancia_posterior": 35.0,
+            "dimensao_duracao": 40.0,
             "relevancia_mediatica": 30.0,
-            "singularidade": 35.0
+            "singularidade": 25.0
           },
-          "weighted_score": 28.0,
-          "justification": "Controlo financeiro parlamentar durante crise; medida isolada sem precedente legislativo duradouro.",
-          "lang": "pt"
-        },
-        "article_url": "https://arquivo.pt/wayback/20200708185127/https://esquerda.net/artigo/mariana-mortagua-viabilizar-orcamento-suplementar-foi-questao-de-responsabilidade/69001?utm_source=dlvr.it&utm_medium=facebook&fbclid=iwar3p9otrafygyinmopdzopuajph33pbgdy75nmmzcjoxuginco8lbfiztcc",
-        "source_platform": "",
-        "source_profile": "",
-        "networks": [
-          "instagram"
-        ],
-        "image_url": "",
-        "image_delete_url": "",
-        "local_image_path": "",
-        "background_source_url": "",
-        "local_background_path": "",
-        "caption_instagram": "Votação decisiva sobre fundo bancário no âmbito do Orçamento do Estado em ano de pandemia.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
-        "caption_facebook": "Votação decisiva sobre fundo bancário no âmbito do Orçamento do Estado em ano de pandemia.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
-        "body": ""
-      },
-      {
-        "year": "2002",
-        "category": "JUSTIÇA",
-        "editorial_tier": "high",
-        "title": "Governo aprova conceito estratégico de defesa nacional",
-        "highlight_text": "Concepto defesa",
-        "overlay_description": "Governo português aprovou conceito estratégico de defesa que visa reforçar a presença militar do país em missões humanitárias e de manutenção de paz.",
-        "image_theme": "Governo São Bento reunião",
-        "layout_preference": "template_2",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "Decisão estrutural sobre a presença militar portuguesa em missões internacionais.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
-        "summary": "Alta relevância de segurança e defesa nacional: aprovação de conceito estratégico com impacto nas Forças Armadas e missões internacionais.",
-        "title_en": "Government approves national defence strategic concept",
-        "summary_en": "Government approved strategic defence concept aiming to reinforce country's military presence in humanitarian and peacekeeping missions.",
-        "body_en": "",
-        "relevance": {
-          "level": 5,
-          "scores": {
-            "impacto_historico": 45.0,
-            "dimensao_impacto": 40.0,
-            "consequencias": 35.0,
-            "relevancia_posterior": 30.0,
-            "dimensao_duracao": 25.0,
-            "relevancia_mediatica": 20.0,
-            "singularidade": 40.0
-          },
-          "weighted_score": 36.8,
-          "justification": "Reforço de presença militar em missões internacionais; impacto gradual nas Forças Armadas e políticas de defesa.",
-          "lang": "pt"
+          "weighted_score": 36.9,
+          "justification": "O conceito definiu orientações para missões humanitárias e de paz, mas o resumo não documenta implementação, operações concretas ou efeitos posteriores.",
+          "lang": "pt",
+          "justification_en": "The concept established guidelines for humanitarian and peacekeeping missions, but the summary does not document implementation, specific operations, or subsequent effects."
         },
         "article_url": "https://arquivo.pt/wayback/20031229195723/https://fd.uc.pt/ci/cee/oi/nato/conceito_estrategico%20de_defesa-pt-1994.htm",
         "source_platform": "web",
@@ -19460,49 +19407,398 @@
         "networks": [
           "facebook"
         ],
+        "body": "O Conselho de Segurança Nacional aprovou, em 2002, um conceito estratégico de defesa nacional destinado a definir o enquadramento da participação portuguesa em missões internacionais. A decisão traduz a intenção do Governo de reforçar a presença militar do país em operações humanitárias e de manutenção da paz.\n\nA aprovação do conceito representa um passo importante na formulação das políticas de defesa, ao estabelecer orientações gerais para a atuação das Forces Armadas no exterior. A participação portuguesa nestas missões assume especial relevo no contexto das operações de paz, nas quais a contribuição militar pode apoiar a proteção de populações civis, a ajuda humanitária e a estabilização de zonas de conflito.\n\nO documento aprovado pelo Conselho de Segurança Nacional provides o enquadramento estratégico para uma participação portuguesa mais ativa nestas missões. A iniciativa enquadra a defesa nacional numa perspetiva que inclui a projeção internacional e o apoio humanitário, além da proteção do território e das responsabilidades internas das Forças Armadas.\n\nA relevância duradoura da decisão reside na consolidação de uma visão de defesa orientada para a segurança internacional e para a assistência a populações afetadas por conflitos e crises humanitárias. Ao definir um conceito estratégico, o Governo cria um referencial para a preparação, a organização e a participação das Forças Armadas em missões de manutenção da paz, reforçando o papel de Portugal nas operações de paz e na resposta a emergências humanitárias.",
+        "highlight_text_en": "Portuguese Government",
+        "caption_narrative_en": "In 2002, Portugal's National Security Council approved a strategic national defense concept designed to guide the country's participation in international missions. The framework calls for a stronger Portuguese military presence in humanitarian operations and peacekeeping efforts, while also supporting civilian protection, stabilization, and emergency assistance.",
+        "image_url": "https://i.ibb.co/d0yWDcQx/2026-11-26-01-2002-governo-aprova-conceito-estrategico-de-defesa-nacional.jpg",
+        "image_delete_url": "https://ibb.co/4Zxmpfj3/97b73b10599d2472423be335fece9bba",
+        "local_image_path": "images/review/pt/2026-11-26_01_2002_governo-aprova-conceito-estrategico-de-defesa-nacional.jpg",
+        "background_source_url": "https://static.publicocdn.com/files/site/assets/img/social/default-preview.png?share=1&o=BarraFacebook_Publico.png",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-26_01_2002_governo-aprova-conceito-estrategico-de-defesa-nacional-fundo.jpg",
+        "caption_instagram": "O Conselho de Segurança Nacional aprovou um conceito estratégico de defesa que visa reforçar a participação portuguesa em missões humanitárias e de manutenção da paz.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "caption_facebook": "O Conselho de Segurança Nacional aprovou um conceito estratégico de defesa que visa reforçar a participação portuguesa em missões humanitárias e de manutenção da paz.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica"
+      },
+      {
+        "article_url": "https://arquivo.pt/wayback/20141015074832/https://cincodemaio.blogs.sapo.pt/capela-de-santa-marta-620118",
+        "year": "2014",
+        "category": "CULTURA",
+        "title": "Capela de Santa Marta",
+        "highlight_text": "",
+        "overlay_description": "Capela de Santa Marta. A 3km do Albergue de Pontevedra. O Fim da Etapa",
+        "image_theme": "Capela de Santa Marta",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "caption": "Capela de Santa Marta. A 3km do Albergue de Pontevedra. O Fim da Etapa\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
+        "summary": "Capela de Santa Marta. A 3km do Albergue de Pontevedra. O Fim da Etapa",
+        "title_en": "Santa Marta Chapel",
+        "summary_en": "The route passes the Santa Marta Chapel, three kilometers from the pilgrims' hostel in Pontevedra, before the stage ends.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 12.0,
+            "dimensao_impacto": 8.0,
+            "consequencias": 5.0,
+            "relevancia_posterior": 8.0,
+            "dimensao_duracao": 5.0,
+            "relevancia_mediatica": 10.0,
+            "singularidade": 15.0
+          },
+          "weighted_score": 8.9,
+          "justification": "A referência a uma capela e ao final de uma etapa é um detalhe geográfico de percurso. O texto não registra consequências históricas ou sociais relevantes.",
+          "lang": "pt"
+        },
+        "networks": [
+          "instagram"
+        ],
+        "conditional_trigger": "",
         "image_url": "",
         "image_delete_url": "",
         "local_image_path": "",
         "background_source_url": "",
         "local_background_path": "",
-        "caption_instagram": "Decisão estrutural sobre a presença militar portuguesa em missões internacionais.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
-        "caption_facebook": "Decisão estrutural sobre a presença militar portuguesa em missões internacionais.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Justica",
-        "body": ""
+        "caption_instagram": "Capela de Santa Marta. A 3km do Albergue de Pontevedra. O Fim da Etapa\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
+        "caption_facebook": "Capela de Santa Marta. A 3km do Albergue de Pontevedra. O Fim da Etapa\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Cultura"
       },
       {
-        "year": "2001",
-        "category": "CIÊNCIA",
+        "year": "2020",
+        "category": "ECONOMIA",
         "editorial_tier": "high",
-        "title": "Parlamento britânico reúne de emergência para proibir clonagem humana",
-        "highlight_text": "Clonagem humana",
-        "overlay_description": "Parlamento britânico em sessão de emergência para discutir projeto de lei que proíbe a clonagem humana com fins reprodutivos, após anúncio de sucesso terapêutico.",
-        "image_theme": "Parlamento Westminster Londres",
-        "layout_preference": "template_3",
+        "title": "Parlamento trava transferência de quase 500 milhões para o Novo Banco",
+        "highlight_text": "Transferência bloqueada",
+        "overlay_description": "A Assembleia da República impede uma transferência de quase 500 milhões de euros prevista no Orçamento do Estado.",
+        "image_theme": "Assembleia da República Lisboa",
+        "layout_preference": "template_2",
         "breaking_candidate": false,
         "conditional_trigger": "",
-        "caption": "Debate legislativo sobre os limites éticos da biotecnologia e engenharia genética.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2001.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Ciencia",
-        "summary": "Alta relevância científica e ética: decisão legislativa sobre proibição de clonagem humana com fins reprodutivos.",
-        "title_en": "British Parliament emergency session to ban human cloning",
-        "summary_en": "British Parliament emergency session to discuss bill banning human cloning for reproductive purposes after therapeutic cloning success announcement.",
+        "caption": "Avotedação Parliamentar chumbou a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "summary": "A decisão fiscal protege recursos públicos e reforça o controlo parlamentar sobre operações financeiras de elevada dimensão.",
+        "title_en": "Portuguese Parliament Blocks Nearly €500 Million Transfer to Novo Banco",
+        "summary_en": "Lawmakers blocked a nearly €500 million state-budget transfer to Novo Banco, reinforcing parliamentary oversight of a major financial operation.",
         "body_en": "",
         "relevance": {
-          "level": 4,
+          "level": 5,
           "scores": {
-            "impacto_historico": 50.0,
-            "dimensao_impacto": 45.0,
-            "consequencias": 40.0,
+            "impacto_historico": 28.0,
+            "dimensao_impacto": 58.0,
+            "consequencias": 45.0,
             "relevancia_posterior": 35.0,
             "dimensao_duracao": 30.0,
-            "relevancia_mediatica": 25.0,
-            "singularidade": 50.0
+            "relevancia_mediatica": 42.0,
+            "singularidade": 30.0
           },
-          "weighted_score": 42.0,
-          "justification": "Proibição legislativa sobre clonagem humana; precedente ético e científico que influenciou debates internacionais posteriores.",
+          "weighted_score": 38.6,
+          "justification": "O bloqueio protegeu recursos públicos e reforçou o controlo parlamentar, mas o resumo não explica o desfecho da transferência nem suas consequências finais.",
+          "lang": "pt"
+        },
+        "article_url": "https://arquivo.pt/wayback/20201126223405/https://esquerda.net/artigo/novo-banco-parlamento-trava-transferencia-de-476-milhoes-sem-auditoria/71463",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "Avotedação Parliamentar chumbou a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "caption_facebook": "Avotedação Parliamentar chumbou a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia"
+      },
+      {
+        "article_url": "",
+        "year": "2014",
+        "category": "SOCIEDADE",
+        "title": "Saindo de Redondela",
+        "highlight_text": "",
+        "overlay_description": "Saindo de Redondela. 18km até Pontevedra. Faltam menos de 80 para a Catedral",
+        "image_theme": "Saindo de Redondela",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "caption": "Saindo de Redondela. 18km até Pontevedra. Faltam menos de 80 para a Catedral\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "summary": "Saindo de Redondela. 18km até Pontevedra. Faltam menos de 80 para a Catedral",
+        "title_en": "Leaving Redondela",
+        "summary_en": "The route leaves Redondela with 18 kilometers remaining to Pontevedra, less than 80 kilometers before the cathedral.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 8.0,
+            "dimensao_impacto": 5.0,
+            "consequencias": 3.0,
+            "relevancia_posterior": 5.0,
+            "dimensao_duracao": 3.0,
+            "relevancia_mediatica": 8.0,
+            "singularidade": 5.0
+          },
+          "weighted_score": 5.5,
+          "justification": "A saída de Redondela e a distância restante são informações operacionais de um percurso. Não há consequências históricas, sociais ou políticas documentadas.",
+          "lang": "pt"
+        },
+        "networks": [
+          "instagram"
+        ],
+        "conditional_trigger": "",
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "Saindo de Redondela. 18km até Pontevedra. Faltam menos de 80 para a Catedral\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
+        "caption_facebook": "Saindo de Redondela. 18km até Pontevedra. Faltam menos de 80 para a Catedral\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade"
+      },
+      {
+        "article_url": "",
+        "year": "2025",
+        "category": "ECONOMIA",
+        "title": "Está aberto o caminho para que Jair Bolsonaro comece a cumprir",
+        "highlight_text": "",
+        "overlay_description": "Está aberto o caminho para que Jair Bolsonaro comece a cumprir a pena de mais de 27 anos de prisão a que foi...",
+        "image_theme": "Está aberto o caminho para que Jair Bolsonaro comece a cumprir",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "caption": "Está aberto o caminho para que Jair Bolsonaro comece a cumprir a pena de mais de 27 anos de prisão a que foi condenado pelo Supremo Tribunal Federal em Setembro por vários crimes relacionados com a tentativa de golpe de Estado.⁠ ⁠ Alexandre de Moraes deu como encerrado o caso da condenação do ex-Presidente brasileiro, depois de esgotado o prazo para a apresentação de recursos técnicos pela defesa.⁠ ⁠ 👉️ no ⁠ ⁠\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "summary": "Está aberto o caminho para que Jair Bolsonaro comece a cumprir a pena de mais de 27 anos de prisão a que foi condenado pelo Supremo Tribunal Federal em Setembro por vários crimes...",
+        "title_en": "Bolsonaro's 27-Year Prison Sentence Can Begin",
+        "summary_en": "Brazil's Supreme Court cleared the way for former President Jair Bolsonaro to begin serving his sentence of more than 27 years for multiple crimes.",
+        "relevance": {
+          "level": 2,
+          "scores": {
+            "impacto_historico": 82.0,
+            "dimensao_impacto": 78.0,
+            "consequencias": 85.0,
+            "relevancia_posterior": 88.0,
+            "dimensao_duracao": 85.0,
+            "relevancia_mediatica": 90.0,
+            "singularidade": 78.0
+          },
+          "weighted_score": 83.1,
+          "justification": "A sentença unprecedentedemente longa para um ex-presidente brasileiro abriu caminho para o cumprimento da pena após julgamento pelo STF. A decisão reforçou a responsabilização judicial de uma figura política central.",
+          "lang": "pt"
+        },
+        "networks": [
+          "facebook"
+        ],
+        "conditional_trigger": "",
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "Está aberto o caminho para que Jair Bolsonaro comece a cumprir a pena de mais de 27 anos de prisão a que foi condenado pelo Supremo Tribunal Federal em Setembro por vários crimes relacionados com a tentativa de golpe de Estado.⁠ ⁠ Alexandre de Moraes deu como encerrado o caso da condenação do ex-Presidente brasileiro, depois de esgotado o prazo para a apresentação de recursos técnicos pela defesa.⁠ ⁠ 👉️ no ⁠ ⁠\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "caption_facebook": "Está aberto o caminho para que Jair Bolsonaro comece a cumprir a pena de mais de 27 anos de prisão a que foi condenado pelo Supremo Tribunal Federal em Setembro por vários crimes relacionados com a tentativa de golpe de Estado.⁠ ⁠ Alexandre de Moraes deu como encerrado o caso da condenação do ex-Presidente brasileiro, depois de esgotado o prazo para a apresentação de recursos técnicos pela defesa.⁠ ⁠ 👉️ no ⁠ ⁠\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia"
+      }
+    ],
+    "last_regenerated_at": "2026-11-25T23:58:28.937616",
+    "regeneration_count": 2
+  },
+  {
+    "id": "pt_2026-11-26_2",
+    "date": "2026-11-26",
+    "slot": 2,
+    "lang": "pt",
+    "selected_option": 1,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "",
+    "status": "pending",
+    "generated_month": "2026-11",
+    "external_suggestions": [
+      {
+        "year": "1976",
+        "day": 26,
+        "month": 11,
+        "category": "CULTURA",
+        "title": "Estreia de «O Homem que Caiu da Terra» nos cinemas portugueses",
+        "summary": "A obra de David Bowie, inspirada no contacto com a NASA, estreou neste dia e consolidou a sua imagem de artista de vanguarda."
+      },
+      {
+        "year": "2005",
+        "day": 26,
+        "month": 11,
+        "category": "DESPORTO",
+        "title": "Portugal vence o Brasil por 2-0 no Estádio da Luz",
+        "summary": "A seleção portuguesa, treinada por Luiz Felipe Scolari, conquistou um dos seus resultados mais memoráveis sobre o Brasil."
+      },
+      {
+        "year": "2015",
+        "day": 26,
+        "month": 11,
+        "category": "SOCIEDADE",
+        "title": "Manifestações em Portugal contra a entrada de refugiados",
+        "summary": "A concentração em Lisboa tornou-se uma das maiores manifestações da década, expr公众ando a preocupação da sociedade portuguesa com a crise humanitária na Europa."
+      }
+    ],
+    "options": [
+      {
+        "year": "2024",
+        "category": "EDUCAÇÃO",
+        "editorial_tier": "high",
+        "title": "Greves e paralisações encerram milhares de escolas em Portugal",
+        "highlight_text": "Escolas encerradas",
+        "overlay_description": "Greves e paralisações no setor da educação provocam o encerramento de milhares de escolas em Portugal.",
+        "image_theme": "Escolas Portugal grevaseducation",
+        "layout_preference": "template_1",
+        "breaking_candidate": true,
+        "conditional_trigger": "",
+        "caption": "Greves de não docentes e paralisações da Função Pública fecharam milhares de escolas nos primeiros meses do ano letivo, com impacto superior ao registado em períodos anteriores.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2024.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
+        "summary": "Uma perturbação nacional da rede escolar afeta diretamente estudantes, famílias e continuidade do serviço público.",
+        "title_en": "Strikes and Shutdowns Close Thousands of Schools Across Portugal",
+        "summary_en": "A nationwide education strike has closed thousands of schools, disrupting classes and public services for students and families.",
+        "body_en": "",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 18.0,
+            "dimensao_impacto": 42.0,
+            "consequencias": 25.0,
+            "relevancia_posterior": 20.0,
+            "dimensao_duracao": 18.0,
+            "relevancia_mediatica": 45.0,
+            "singularidade": 12.0
+          },
+          "weighted_score": 25.2,
+          "justification": "A greve afetou milhares de escolas, mas o resumo não documenta mudanças estruturais ou consequências duradouras após o encerramento.",
           "lang": "pt"
         },
         "article_url": "",
-        "source_platform": "web",
-        "source_profile": "publico.pt",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "facebook"
+        ],
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "Greves de não docentes e paralisações da Função Pública fecharam milhares de escolas nos primeiros meses do ano letivo, com impacto superior ao registado em períodos anteriores.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2024.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
+        "caption_facebook": "Greves de não docentes e paralisações da Função Pública fecharam milhares de escolas nos primeiros meses do ano letivo, com impacto superior ao registado em períodos anteriores.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2024.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Educacao"
+      },
+      {
+        "year": "2025",
+        "category": "EDUCAÇÃO",
+        "editorial_tier": "high",
+        "title": "Propinas do ensino superior mantêm-se congeladas em Portugal",
+        "highlight_text": "Propinas congeladas",
+        "overlay_description": "A Assembleia da República confirma a manutenção do congelamento das propinas do ensino superior.",
+        "image_theme": "Assembleia da República Lisboa",
+        "layout_preference": "template_2",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "A proposta do Partido Socialista para manter congeladas as propinas do ensino superior foi confirmada em plenário, prolongando a medida já em vigor.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
+        "summary": "A decisão parliamentary preserva uma proteção económica relevante para estudantes do ensino superior e respetivas famílias.",
+        "title_en": "Portuguese Government Keeps University Tuition Frozen",
+        "summary_en": "Lawmakers confirmed that university tuition will remain frozen, preserving financial relief for higher-education students and their families.",
+        "body_en": "Portugal's Assembly of the Republic has confirmed the continuation of the freeze on university tuition fees, extending a measure that has been in place for several years. The decision, approved by parliament, maintains the current fee structure for students attending higher education institutions across the country. This policy continuation reflects the government's ongoing effort to reduce the financial burden associated with university attendance. By keeping tuition rates stable, the state aims to prevent additional cost increases for students, particularly at a time when expenses related to enrollment and commuting significantly influence educational choices. The freeze holds particular importance for both current university students and those preparing to begin their studies, as it allows for greater budget predictability for families and institutional planning. While the measure provides immediate financial relief, it does not address the broader challenges regarding access and retention in higher education. The vote underscores a political commitment to contain education costs, reaffirming support for students and their households while the policy remains in effect.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 15.0,
+            "dimensao_impacto": 38.0,
+            "consequencias": 30.0,
+            "relevancia_posterior": 25.0,
+            "dimensao_duracao": 35.0,
+            "relevancia_mediatica": 35.0,
+            "singularidade": 10.0
+          },
+          "weighted_score": 26.1,
+          "justification": "A manutenção do congelamento preserva uma proteção económica para estudantes, mas o resumo não identifica alterações institucionais ou impactos posteriores documentados.",
+          "lang": "pt",
+          "justification_en": "The freeze preserves economic protection for students amid ongoing financial pressures, though no new institutional changes or documented impacts accompany the extension."
+        },
+        "article_url": "https://arquivo.pt/wayback/20250101090811/https://portugal.gov.pt/pt/gc23/area-de-governo/ciencia-tecnologia-e-ensino-superior/inicio.aspx",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "facebook"
+        ],
+        "body": "A Assembleia da República confirmou a manutenção do congelamento das propinas do ensino superior em Portugal, depois de aprovar a proposta do Partido Socialista em plenário. A decisão prolonga uma medida já em vigor, mantendo inalterados os valores das propinas pagas pelos estudantes nas instituições de ensino superior.\n\nA aprovação dá continuidade a uma política iniciada pelo Governo, que tem congelado as propinas ao longo dos últimos anos, com o objetivo de reduzir o peso financeiro da frequência no ensino superior. Ao manter os valores, o Estado evita um aumento das taxas cobradas aos alunos, numa altura em que os custos de frequência e de deslocação condicionam a decisão de muitos estudantes.\n\nA manutenção do congelamento assume especial relevância para os estudantes que já frequentam cursos superiores e para os que se preparam para a sua entrada. A estabilidade dos valores permite uma maior previsibilidade dos orçamentos familiares e das despesas das instituições, embora não resolva os restantes challenges associados ao acesso e permanência no ensino superior.\n\nA decisão da Assembleia da República reforça o compromisso político com a contenção dos preços da educação superior. A manutenção do congelamento das propinas constitui uma medida de apoio aos estudantes e às famílias, com efeitos que se prolongam enquanto permanecer em vigor.",
+        "highlight_text_en": "Portuguese Government",
+        "caption_narrative_en": "In a move extending existing policy, Portuguese lawmakers voted to keep university tuition fees frozen for another year, a decision taking effect throughout 2025 that brings relief to students navigating rising living costs.",
+        "image_url": "https://i.ibb.co/mChdkypz/2026-11-26-02-2025-propinas-do-ensino-superior-mantem-se-congeladas-em-portugal.jpg",
+        "image_delete_url": "https://ibb.co/nsQ491pk/e33fc853534d2896693a34a30acb3666",
+        "local_image_path": "images/review/pt/2026-11-26_02_2025_propinas-do-ensino-superior-mantem-se-congeladas-em-portugal.jpg",
+        "background_source_url": "https://www.flickr.com/photos/26577438@N06/52738315425",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-26_02_2025_propinas-do-ensino-superior-mantem-se-congeladas-em-portugal-fundo.jpg",
+        "caption_instagram": "A proposta do Partido Socialista para manter congeladas as propinas do ensino superior foi confirmada em plenário, prolongando a medida já em vigor.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
+        "caption_facebook": "A proposta do Partido Socialista para manter congeladas as propinas do ensino superior foi confirmada em plenário, prolongando a medida já em vigor.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Educacao"
+      },
+      {
+        "article_url": "",
+        "year": "2025",
+        "category": "EDUCAÇÃO",
+        "title": "A proposta do PS para manter o congelamento das propinas",
+        "highlight_text": "",
+        "overlay_description": "A proposta do PS para manter o congelamento das propinas do ensino superior em 2026/2027 foi confirmada pela...",
+        "image_theme": "A proposta do PS para manter o congelamento das propinas",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "caption": "A proposta do PS para manter o congelamento das propinas do ensino superior em 2026/2027 foi confirmada pela oposição em plenário. As propinas do Ensino Superior vão continuar congeladas nos 697 euros no próximo ano letivo. O Governo fala num congelamento artificial e critica a oposição. através do\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
+        "summary": "A proposta do PS para manter o congelamento das propinas do ensino superior em 2026/2027 foi confirmada pela oposição em plenário. As propinas do Ensino Superior vão continuar con...",
+        "title_en": "Portugal's Socialist Party Proposes Another Tuition Freeze",
+        "summary_en": "Portugal's Socialist opposition confirmed its proposal to keep higher-education tuition frozen for the 2026-2027 academic year.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 32.0,
+            "dimensao_impacto": 38.0,
+            "consequencias": 42.0,
+            "relevancia_posterior": 40.0,
+            "dimensao_duracao": 45.0,
+            "relevancia_mediatica": 45.0,
+            "singularidade": 25.0
+          },
+          "weighted_score": 37.5,
+          "justification": "A manutenção do congelamento das propinas pode aliviar custos de estudantes, mas o texto não documenta efeitos duradouros além da proposta. É uma decisão incremental de política educacional.",
+          "lang": "pt"
+        },
+        "networks": [
+          "facebook"
+        ],
+        "conditional_trigger": "",
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "A proposta do PS para manter o congelamento das propinas do ensino superior em 2026/2027 foi confirmada pela oposição em plenário. As propinas do Ensino Superior vão continuar congeladas nos 697 euros no próximo ano letivo. O Governo fala num congelamento artificial e critica a oposição. através do\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
+        "caption_facebook": "A proposta do PS para manter o congelamento das propinas do ensino superior em 2026/2027 foi confirmada pela oposição em plenário. As propinas do Ensino Superior vão continuar congeladas nos 697 euros no próximo ano letivo. O Governo fala num congelamento artificial e critica a oposição. através do\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Educacao"
+      },
+      {
+        "year": "2017",
+        "category": "CIÊNCIA",
+        "editorial_tier": "lower_relevance",
+        "title": "Castelo da Idade do Ferro descoberto no Lago",
+        "highlight_text": "Castelo submerso",
+        "overlay_description": "Um castelo da Idade do Ferro, pertencente à civilização Urartu, é encontrado no fundo do Lago Van, na Turquia.",
+        "image_theme": "Lago Van castelo submerso",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "Imagens subaquáticas revelam um castelo da Idade do Ferro no fundo do Lago Van, na Turquia, associado à civilização Urartu.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2017.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Ciencia",
+        "summary": "A descoberta arqueológica oferece informação histórica relevante, mas mantém um âmbito científico e cultural restrito.",
+        "title_en": "Iron Age Castle Discovered Beneath Lake Van",
+        "summary_en": "Divers found an Iron Age castle belonging to the Urartian civilization beneath Lake Van in Turkey, offering new archaeological evidence about the region.",
+        "body_en": "",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 42.0,
+            "dimensao_impacto": 35.0,
+            "consequencias": 25.0,
+            "relevancia_posterior": 30.0,
+            "dimensao_duracao": 45.0,
+            "relevancia_mediatica": 40.0,
+            "singularidade": 55.0
+          },
+          "weighted_score": 37.1,
+          "justification": "A descoberta revelou informação sobre a civilização Urartu e tem valor arqueológico, mas o resumo não documenta consequências materiais ou impacto institucional duradouro.",
+          "lang": "pt"
+        },
+        "article_url": "https://arquivo.pt/wayback/20171208074010/https://dn.pt/sociedade/interior/amp/castelo-com-3000-anos-descoberto-no-fundo-de-umlago-na-turquia-8938339.html",
+        "source_platform": "",
+        "source_profile": "",
         "networks": [
           "instagram"
         ],
@@ -19511,77 +19807,38 @@
         "local_image_path": "",
         "background_source_url": "",
         "local_background_path": "",
-        "caption_instagram": "Debate legislativo sobre os limites éticos da biotecnologia e engenharia genética.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2001.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Ciencia",
-        "caption_facebook": "Debate legislativo sobre os limites éticos da biotecnologia e engenharia genética.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2001.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Ciencia",
-        "body": ""
-      }
-    ],
-    "last_regenerated_at": "2026-11-09T02:48:51.330319",
-    "regeneration_count": 1
-  },
-  {
-    "id": "pt_2026-11-26_2",
-    "date": "2026-11-26",
-    "slot": 2,
-    "lang": "pt",
-    "selected_option": 0,
-    "layout_override": "",
-    "theme_suggestion": "",
-    "manual_background_url": "",
-    "review_action": "regenerate",
-    "review_note": "",
-    "status": "pending",
-    "generated_month": "2026-11",
-    "external_suggestions": [
-      {
-        "year": "1920",
-        "category": "CULTURA",
-        "title": "Primeira exibição pública de 'Mensagem' de Fernando Pessoa",
-        "summary": "O poema épico de Fernando Pessoa é apresentado ao público, consolidando-se como uma obra fundamental da literatura portuguesa moderna."
+        "caption_instagram": "Imagens subaquáticas revelam um castelo da Idade do Ferro no fundo do Lago Van, na Turquia, associado à civilização Urartu.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2017.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Ciencia",
+        "caption_facebook": "Imagens subaquáticas revelam um castelo da Idade do Ferro no fundo do Lago Van, na Turquia, associado à civilização Urartu.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2017.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Ciencia"
       },
       {
-        "year": "1955",
-        "category": "DESPORTO",
-        "title": "Benfica vence a Taça dos Clubes Campeões Europeus",
-        "summary": "O Sport Lisboa e Benfica conquista o primeiro título europeu da sua história, marcando o início da era de ouro do futebol português."
-      },
-      {
-        "year": "1986",
-        "category": "CIÊNCIA",
-        "title": "Portugal adere ao Espaço Europeu",
-        "summary": "O país formaliza a adesão ao consórcio espacial europeu, abrindo caminho para projetos de investigação e tecnologia que beneficiam a indústria nacional."
-      }
-    ],
-    "options": [
-      {
-        "year": "2000",
-        "category": "POLÍTICA",
-        "editorial_tier": "lower_relevance",
-        "title": "Governo guineense justifica detenção de opositores alegando golpe de Estado",
-        "highlight_text": "Golpe de Estado",
-        "overlay_description": "Governo da Guiné Justifica detenção de opositores políticos alegando tentativa de golpe de Estado, em contexto de crise política pós-eleitoral.",
-        "image_theme": "Palácio Presidência Guiné",
+        "year": "2002",
+        "category": "MUNDIAL",
+        "editorial_tier": "high",
+        "title": "Greve de controladores aéreos obriga TAP a cancelar voos",
+        "highlight_text": "Voos cancelados",
+        "overlay_description": "A TAP cancela voos entre Portugal e França devido à greve de controladores aéreos franceses.",
+        "image_theme": "Aeroporto Lisboa voos TAP",
         "layout_preference": "template_3",
-        "breaking_candidate": false,
+        "breaking_candidate": true,
         "conditional_trigger": "",
-        "caption": "Contexto de instabilidade política na região da África Ocidental com implicações diplomáticas.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2000.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "summary": "Evento de relevância regional e política, mas com foco em país de língua portuguesa de África, enquadrado como lower_relevance face a eventos nacionais europeus.",
-        "title_en": "Guinean government justifies opposition detention claiming state coup attempt",
-        "summary_en": "Guinean government justifies detention of political opponents alleging state coup attempt, in post-electoral political crisis context.",
-        "body_en": "In 2000, the government of Guinea-Bissau justified the detention of several political opponents, alleging a attempted coup d'état. The measure arose in a context of deep political instability, few months after the legislative elections of March that had left the country divided between President Kumba Ialá and Prime Minister Carlos Gomes Júnior. Authorities argued that the detention was necessary to protect institutional stability and avoid the collapse of public order. However, critics classified the action as an attempt to silence dissent and consolidate executive power under the pretext of national security. International human rights organizations expressed concern about the rule of law in the country. The situation aggravated diplomatic tensions with external partners, who pressed for the release of the prisoners and political dialogue. This episode marked one of the most critical moments in the young democracy of the nation, reinforcing the fragility of institutions and the difficulty of reconciling the various power blocs in the West African region. The lasting repercussion of this event lies in the demonstration how security allegations can be used to limit political freedoms, leaving a legacy of distrust between the population and the state.",
+        "caption": "Uma greve nacional de controladores aéreos em França levou a TAP a cancelar 15 voos, afetando cerca de 500 passageiros entre Portugal e França.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
+        "summary": "A interrupção do transporte aéreo entre Portugal e França perturba deslocações e demonstra o impacto dos conflitos laborais além-fronteiriças.",
+        "title_en": "French Air Controller Strike Forces TAP to Cancel Flights",
+        "summary_en": "TAP canceled flights between Portugal and France after a strike by French air traffic controllers disrupted regional air travel.",
+        "body_en": "",
         "relevance": {
           "level": 5,
           "scores": {
-            "impacto_historico": 30.0,
-            "dimensao_impacto": 25.0,
-            "consequencias": 20.0,
-            "relevancia_posterior": 15.0,
-            "dimensao_duracao": 10.0,
-            "relevancia_mediatica": 25.0,
-            "singularidade": 25.0
+            "impacto_historico": 10.0,
+            "dimensao_impacto": 28.0,
+            "consequencias": 18.0,
+            "relevancia_posterior": 12.0,
+            "dimensao_duracao": 12.0,
+            "relevancia_mediatica": 38.0,
+            "singularidade": 15.0
           },
-          "weighted_score": 22.8,
-          "justification": "Contexto regional de instabilidade política; detenções em país de língua portuguesa África com impacto limitado internacional.",
+          "weighted_score": 16.9,
+          "justification": "O cancelamento perturbou viagens entre Portugal e França, mas o resumo não documenta consequências duradouras além da interrupção operacional.",
           "lang": "pt"
         },
         "article_url": "",
@@ -19590,20 +19847,17 @@
         "networks": [
           "facebook"
         ],
-        "body": "Em 2000, o governo da Guiné-Bissau justificou a detenção de vários opositores políticos alegando a existência de uma tentativa de golpe de Estado. A medida surgiu num contexto de profunda instabilidade política, poucos meses após as eleições legislativas de março que tinham deixado o país dividido entre o presidente Kumba Ialá e o primeiro-ministro Carlos Gomes Júnior. As autoridades argumentaram que a detenção era necessária para proteger a estabilidade institucional e evitar o colapso da ordem pública. Os críticos, porém, classificaram a ação como uma tentativa de silenciamento da dissidência e de consolidar o poder executivo sob o pretexto da segurança nacional. Organizações internacionais de direitos humanos expressaram preocupação com o estado de direito no país. A situação agravou as tensões diplomáticas com parceiros externos, que pressionaram por libertação dos presos e diálogo político. Este episódio marcou um dos momentos mais críticos da democracia jovem da nação, reforçando a fragilidade das instituições e a dificuldade de conciliação entre os diversos blocos de poder na região da África Ocidental. A repercussão duradoura deste evento reside na demonstração de como alegações de segurança podem ser utilizadas para limitar liberdades políticas, deixando um legado de desconfiança entre a população e o Estado.",
-        "highlight_text_en": "Guinean government",
-        "caption_narrative_en": "In 2000, Guinea-Bissau's government defended the arrest of political opponents, citing an alleged coup attempt just months after legislative elections created a divided executive between President Kumba Ialá and Prime Minister Carlos Gomes Júnior.",
-        "image_url": "https://i.ibb.co/KjtDF3jy/2026-11-26-01-2000-governo-guineense-justifica-detencao-de-opositores-alegando-golpe-de-estado.jpg",
-        "image_delete_url": "https://ibb.co/nsXBz5sk/d82640a8b173e491a703be2c286b7a73",
-        "local_image_path": "images/review/pt/2026-11-26_01_2000_governo-guineense-justifica-detencao-de-opositores-alegando-golpe-de-estado.jpg",
-        "background_source_url": "https://static.publicocdn.com/files/site/assets/img/social/default-preview.png?share=1&o=BarraFacebook_Publico.png",
-        "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-26_01_2000_governo-guineense-justifica-detencao-de-opositores-alegando-golpe-de-estado-fundo.jpg",
-        "caption_instagram": "Contexto de instabilidade política na região da África Ocidental com implicações diplomáticas.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2000.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "caption_facebook": "Contexto de instabilidade política na região da África Ocidental com implicações diplomáticas.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2000.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica"
+        "image_url": "",
+        "image_delete_url": "",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "Uma greve nacional de controladores aéreos em França levou a TAP a cancelar 15 voos, afetando cerca de 500 passageiros entre Portugal e França.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Mundo",
+        "caption_facebook": "Uma greve nacional de controladores aéreos em França levou a TAP a cancelar 15 voos, afetando cerca de 500 passageiros entre Portugal e França.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Mundo"
       }
     ],
-    "last_regenerated_at": "2026-11-09T02:49:06.321664",
-    "regeneration_count": 1
+    "last_regenerated_at": "2026-11-25T23:59:15.788579",
+    "regeneration_count": 2
   },
   {
     "id": "pt_2026-11-27_1",
@@ -51419,75 +51673,5 @@
         "body_en": ""
       }
     ]
-  },
-  {
-    "id": "en_2026-11-25_2",
-    "date": "2026-11-25",
-    "slot": 2,
-    "lang": "en",
-    "selected_option": 0,
-    "layout_override": "",
-    "theme_suggestion": "",
-    "manual_background_url": "",
-    "review_action": "",
-    "review_note": "Synced from pt_2026-11-25_2",
-    "status": "published",
-    "generated_month": "2026-11",
-    "source_profile": "",
-    "external_suggestions": [],
-    "options": [
-      {
-        "category": "ECONOMY",
-        "title": "Luís Montenegro defines priorities for the campaign of the next legislative elections",
-        "title_en": "Luís Montenegro defines priorities for the campaign of the next legislative elections",
-        "highlight_text": "Luís Montenegro",
-        "overlay_description": "PSD leader presents proposals on taxes, pensions and public services at 41st party congress",
-        "caption": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2023.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
-        "caption_instagram": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2023.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
-        "caption_facebook": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2023.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Economy",
-        "year": "2023",
-        "summary": "PSD leader presents proposals on taxes, pensions and public services at 41st party congress",
-        "summary_en": "PSD leader presents proposals on taxes, pensions and public services at 41st party congress",
-        "body": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.",
-        "body_en": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.",
-        "image_theme": "Congresso PSD São Bento Lisboa",
-        "layout_preference": "template_3",
-        "breaking_candidate": false,
-        "networks": [
-          "instagram",
-          "facebook"
-        ],
-        "relevance": {
-          "level": 5,
-          "scores": {
-            "impacto_historico": 30.0,
-            "dimensao_impacto": 40.0,
-            "consequencias": 35.0,
-            "relevancia_posterior": 30.0,
-            "dimensao_duracao": 25.0,
-            "relevancia_mediatica": 45.0,
-            "singularidade": 35.0
-          },
-          "weighted_score": 33.2,
-          "justification": "Prioridades eleitorais apresentadas; impacto depende de adesão eleitoral futura.",
-          "lang": "pt"
-        },
-        "article_url": "https://arquivo.pt/wayback/20240314223142/https://noticiasaominuto.com/politica/2512583/montenegro-desvaloriza-diferencas-e-afirma-que-e-ele-quem-define-rumo",
-        "source_profile": "",
-        "source_platform": "",
-        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-25_2.jpg",
-        "image_delete_url": "",
-        "local_image_path": "site/images/approved/en_2026-11-25_2.jpg",
-        "background_source_url": "",
-        "local_background_path": ""
-      }
-    ],
-    "instagram_id": "18092629448271731",
-    "instagram_url": "https://www.instagram.com/p/DgLtRtyoMXc/",
-    "published_at": "2026-11-25T23:38:23.496452",
-    "instagram_story_id": "18012957413778582",
-    "facebook_id": "1318455601360516_122113465695541219",
-    "facebook_url": "https://www.facebook.com/122096313699541219/posts/122113465695541219",
-    "facebook_story_id": "1174923351760940"
   }
 ]

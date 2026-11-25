@@ -12708,5 +12708,31 @@
         "created_at": "2026-11-25T23:38:23+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-26",
+        "option_index": 0,
+        "title": "Governo aprova conceito estratégico de defesa nacional",
+        "year": "2002",
+        "image_url": "https://i.ibb.co/d0yWDcQx/2026-11-26-01-2002-governo-aprova-conceito-estrategico-de-defesa-nacional.jpg",
+        "delete_url": "https://ibb.co/4Zxmpfj3/97b73b10599d2472423be335fece9bba",
+        "created_at": "2026-11-25T23:58:22+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-26",
+        "option_index": 1,
+        "title": "Propinas do ensino superior mantêm-se congeladas em Portugal",
+        "year": "2025",
+        "image_url": "https://i.ibb.co/mChdkypz/2026-11-26-02-2025-propinas-do-ensino-superior-mantem-se-congeladas-em-portugal.jpg",
+        "delete_url": "https://ibb.co/nsQ491pk/e33fc853534d2896693a34a30acb3666",
+        "created_at": "2026-11-25T23:59:03+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
