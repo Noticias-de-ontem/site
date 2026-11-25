@@ -51411,5 +51411,67 @@
         "body_en": ""
       }
     ]
+  },
+  {
+    "id": "en_2026-11-25_2",
+    "date": "2026-11-25",
+    "slot": 2,
+    "lang": "en",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "Synced from pt_2026-11-25_2",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "source_profile": "",
+    "external_suggestions": [],
+    "options": [
+      {
+        "category": "ECONOMY",
+        "title": "Luís Montenegro defines priorities for the campaign of the next legislative elections",
+        "title_en": "Luís Montenegro defines priorities for the campaign of the next legislative elections",
+        "highlight_text": "Luís Montenegro",
+        "overlay_description": "PSD leader presents proposals on taxes, pensions and public services at 41st party congress",
+        "caption": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2023.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "caption_instagram": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2023.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "caption_facebook": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2023.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "year": "2023",
+        "summary": "PSD leader presents proposals on taxes, pensions and public services at 41st party congress",
+        "summary_en": "PSD leader presents proposals on taxes, pensions and public services at 41st party congress",
+        "body": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.",
+        "body_en": "PSD leader presents proposals on taxes, pensions and public services at the party's 41st congress, setting out the priorities for the campaign of the next legislative elections.",
+        "image_theme": "Congresso PSD São Bento Lisboa",
+        "layout_preference": "template_3",
+        "breaking_candidate": false,
+        "networks": [
+          "instagram"
+        ],
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 30.0,
+            "dimensao_impacto": 40.0,
+            "consequencias": 35.0,
+            "relevancia_posterior": 30.0,
+            "dimensao_duracao": 25.0,
+            "relevancia_mediatica": 45.0,
+            "singularidade": 35.0
+          },
+          "weighted_score": 33.2,
+          "justification": "Prioridades eleitorais apresentadas; impacto depende de adesão eleitoral futura.",
+          "lang": "pt"
+        },
+        "article_url": "https://arquivo.pt/wayback/20240314223142/https://noticiasaominuto.com/politica/2512583/montenegro-desvaloriza-diferencas-e-afirma-que-e-ele-quem-define-rumo",
+        "source_profile": "",
+        "source_platform": "",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-25_2.jpg",
+        "image_delete_url": "",
+        "local_image_path": "site/images/approved/en_2026-11-25_2.jpg",
+        "background_source_url": "",
+        "local_background_path": ""
+      }
+    ]
   }
 ]
