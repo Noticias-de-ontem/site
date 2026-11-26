@@ -19340,19 +19340,84 @@
     "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-26_1-bg.jpg",
     "review_action": "",
     "review_note": "",
-    "status": "pending",
+    "status": "published",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
-        "year": "1986",
+        "year": "1976",
+        "day": 26,
+        "month": 11,
+        "category": "CULTURA",
+        "title": "Estreia de «O Homem que Caiu da Terra» nos cinemas portugueses",
+        "summary": "A obra de David Bowie, inspirada no contacto com a NASA, estreou neste dia e consolidou a sua imagem de artista de vanguarda."
+      },
+      {
+        "year": "2005",
+        "day": 26,
+        "month": 11,
+        "category": "DESPORTO",
+        "title": "Portugal vence o Brasil por 2-0 no Estádio da Luz",
+        "summary": "A seleção portuguesa, treinada por Luiz Felipe Scolari, conquistou um dos seus resultados mais memoráveis sobre o Brasil."
+      },
+      {
+        "year": "2015",
         "day": 26,
         "month": 11,
         "category": "SOCIEDADE",
-        "title": "Portugal adere ao Conselho da Europa",
-        "summary": "Integração formal de Portugal no Conselho da Europa, reforçando o compromisso com os direitos humanos e a democracia após o 25 de Abril."
+        "title": "Manifestações em Portugal contra a entrada de refugiados",
+        "summary": "A concentração em Lisboa tornou-se uma das maiores manifestações da década, expr公众ando a preocupação da sociedade portuguesa com a crise humanitária na Europa."
       }
     ],
     "options": [
+      {
+        "year": "2002",
+        "category": "POLÍTICA",
+        "editorial_tier": "high",
+        "title": "Governo aprova conceito estratégico de defesa nacional",
+        "highlight_text": "Conceito de defesa",
+        "overlay_description": "O Governo aprova um conceito estratégico de defesa para reforçar a presença militar em missões humanitárias e de manutenção da paz.",
+        "image_theme": "Governo de Portugal São Bento",
+        "layout_preference": "template_3",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "O Conselho de Segurança Nacional aprovou um conceito estratégico de defesa que visa reforçar a participação portuguesa em missões humanitárias e de manutenção da paz.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "summary": "A decisão define a orientação das forças armadas portuguesas e o seu contributo para operações internacionais de paz.",
+        "title_en": "Portuguese Government Approves National Defense Strategic Concept",
+        "summary_en": "The government approved a defense strategy outlining the armed forces' role in humanitarian missions and international peacekeeping operations.",
+        "body_en": "Portugal's National Security Council approved a strategic national defense concept in 2002 to establish the framework for the country's participation in international missions. The decision reflects the government's intent to strengthen the nation's military presence in humanitarian operations and peacekeeping missions.\n\nThe approval marks an important step in defense policy development by establishing broad guidelines for the armed forces' activity abroad. Portugal's participation in these missions is particularly significant in peacekeeping operations, where military contributions can support the protection of civilian populations, humanitarian assistance, and the stabilization of conflict zones.\n\nThe document approved by the National Security Council provides a strategic framework for a more active Portuguese role in such missions. It places national defense within a perspective that includes international engagement and humanitarian support, alongside the protection of national territory and the armed forces' domestic responsibilities.\n\nThe decision's lasting significance lies in consolidating a defense vision centered on international security and assistance to populations affected by conflict and humanitarian crises. By defining a strategic concept, the government created a reference point for preparing, organizing, and deploying the armed forces in peacekeeping missions, reinforcing Portugal's role in peace operations and humanitarian emergency response.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 32.0,
+            "dimensao_impacto": 48.0,
+            "consequencias": 38.0,
+            "relevancia_posterior": 35.0,
+            "dimensao_duracao": 40.0,
+            "relevancia_mediatica": 30.0,
+            "singularidade": 25.0
+          },
+          "weighted_score": 36.9,
+          "justification": "O conceito definiu orientações para missões humanitárias e de paz, mas o resumo não documenta implementação, operações concretas ou efeitos posteriores.",
+          "lang": "pt",
+          "justification_en": "The concept established guidelines for humanitarian and peacekeeping missions, but the summary does not document implementation, specific operations, or subsequent effects."
+        },
+        "article_url": "https://arquivo.pt/wayback/20031229195723/https://fd.uc.pt/ci/cee/oi/nato/conceito_estrategico%20de_defesa-pt-1994.htm",
+        "source_platform": "web",
+        "source_profile": "publico.pt",
+        "networks": [
+          "facebook"
+        ],
+        "body": "O Conselho de Segurança Nacional aprovou, em 2002, um conceito estratégico de defesa nacional destinado a definir o enquadramento da participação portuguesa em missões internacionais. A decisão traduz a intenção do Governo de reforçar a presença militar do país em operações humanitárias e de manutenção da paz.\n\nA aprovação do conceito representa um passo importante na formulação das políticas de defesa, ao estabelecer orientações gerais para a atuação das Forces Armadas no exterior. A participação portuguesa nestas missões assume especial relevo no contexto das operações de paz, nas quais a contribuição militar pode apoiar a proteção de populações civis, a ajuda humanitária e a estabilização de zonas de conflito.\n\nO documento aprovado pelo Conselho de Segurança Nacional provides o enquadramento estratégico para uma participação portuguesa mais ativa nestas missões. A iniciativa enquadra a defesa nacional numa perspetiva que inclui a projeção internacional e o apoio humanitário, além da proteção do território e das responsabilidades internas das Forças Armadas.\n\nA relevância duradoura da decisão reside na consolidação de uma visão de defesa orientada para a segurança internacional e para a assistência a populações afetadas por conflitos e crises humanitárias. Ao definir um conceito estratégico, o Governo cria um referencial para a preparação, a organização e a participação das Forças Armadas em missões de manutenção da paz, reforçando o papel de Portugal nas operações de paz e na resposta a emergências humanitárias.",
+        "highlight_text_en": "Portuguese Government",
+        "caption_narrative_en": "In 2002, Portugal's National Security Council approved a strategic national defense concept designed to guide the country's participation in international missions. The framework calls for a stronger Portuguese military presence in humanitarian operations and peacekeeping efforts, while also supporting civilian protection, stabilization, and emergency assistance.",
+        "image_url": "https://i.ibb.co/d0yWDcQx/2026-11-26-01-2002-governo-aprova-conceito-estrategico-de-defesa-nacional.jpg",
+        "image_delete_url": "https://ibb.co/4Zxmpfj3/97b73b10599d2472423be335fece9bba",
+        "local_image_path": "images/review/pt/2026-11-26_01_2002_governo-aprova-conceito-estrategico-de-defesa-nacional.jpg",
+        "background_source_url": "https://static.publicocdn.com/files/site/assets/img/social/default-preview.png?share=1&o=BarraFacebook_Publico.png",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-26_01_2002_governo-aprova-conceito-estrategico-de-defesa-nacional-fundo.jpg",
+        "caption_instagram": "O Conselho de Segurança Nacional aprovou um conceito estratégico de defesa que visa reforçar a participação portuguesa em missões humanitárias e de manutenção da paz.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+        "caption_facebook": "O Conselho de Segurança Nacional aprovou um conceito estratégico de defesa que visa reforçar a participação portuguesa em missões humanitárias e de manutenção da paz.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2002.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica"
+      },
       {
         "article_url": "https://arquivo.pt/wayback/20141015074832/https://cincodemaio.blogs.sapo.pt/capela-de-santa-marta-620118",
         "year": "2014",
@@ -19366,20 +19431,20 @@
         "caption": "Capela de Santa Marta. A 3km do Albergue de Pontevedra. O Fim da Etapa\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Cultura",
         "summary": "Capela de Santa Marta. A 3km do Albergue de Pontevedra. O Fim da Etapa",
         "title_en": "Santa Marta Chapel",
-        "summary_en": "Santa Marta Chapel, 3km from Pontevedra albergue. End of the stage.",
+        "summary_en": "The route passes the Santa Marta Chapel, three kilometers from the pilgrims' hostel in Pontevedra, before the stage ends.",
         "relevance": {
           "level": 5,
           "scores": {
-            "impacto_historico": 15.0,
-            "dimensao_impacto": 10.0,
-            "consequencias": 10.0,
-            "relevancia_posterior": 10.0,
+            "impacto_historico": 12.0,
+            "dimensao_impacto": 8.0,
+            "consequencias": 5.0,
+            "relevancia_posterior": 8.0,
             "dimensao_duracao": 5.0,
-            "relevancia_mediatica": 5.0,
-            "singularidade": 10.0
+            "relevancia_mediatica": 10.0,
+            "singularidade": 15.0
           },
-          "weighted_score": 10.8,
-          "justification": "Capela religiosa no caminho, sem impacto histórico duradouro na região.",
+          "weighted_score": 8.9,
+          "justification": "A referência a uma capela e ao final de uma etapa é um detalhe geográfico de percurso. O texto não registra consequências históricas ou sociais relevantes.",
           "lang": "pt"
         },
         "networks": [
@@ -19395,6 +19460,55 @@
         "caption_facebook": "Capela de Santa Marta. A 3km do Albergue de Pontevedra. O Fim da Etapa\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Cultura"
       },
       {
+        "year": "2020",
+        "category": "ECONOMIA",
+        "editorial_tier": "high",
+        "title": "Parlamento trava transferência de quase 500 milhões para o Novo Banco",
+        "highlight_text": "Transferência bloqueada",
+        "overlay_description": "A Assembleia da República impede uma transferência de quase 500 milhões de euros prevista no Orçamento do Estado.",
+        "image_theme": "Assembleia da República Lisboa",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "conditional_trigger": "",
+        "caption": "A votação parlamentar chumbou a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado. a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "summary": "A decisão fiscal protege recursos públicos e reforça o controlo parlamentar sobre operações financeiras de elevada dimensão.",
+        "title_en": "Portuguese Parliament Blocks Nearly €500 Million Transfer to Novo Banco",
+        "summary_en": "Lawmakers blocked a nearly €500 million state-budget transfer to Novo Banco, reinforcing parliamentary oversight of a major financial operation.",
+        "body_en": "Portugal's parliament voted down a transfer of nearly 500 million euros to Novo Banco on Wednesday, reversing a measure included in the state budget.\n\nThe rejected transfer was part of the government's budget plans for 2020 and was intended to provide capital to the bank. Lawmakers' opposition means the money will not be transferred under the measure as initially approved.\n\nThe vote marks a significant intervention by the Assembleia da República in the bank's financing. Novo Banco has been a focus of public attention and parliamentary scrutiny as Portugal works through financial challenges associated with the institution.\n\nBy blocking the transfer, lawmakers preserved public resources and reinforced their control over government spending. The article does not specify whether the government will seek to revise the budget, submit a revised proposal or abandon the capital injection.\n\nThe outcome leaves the transfer unresolved. Any further government action would require a new parliamentary decision, and the details of the bank's position and the broader economic consequences were not set out in the available report.",
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 28.0,
+            "dimensao_impacto": 58.0,
+            "consequencias": 45.0,
+            "relevancia_posterior": 35.0,
+            "dimensao_duracao": 30.0,
+            "relevancia_mediatica": 42.0,
+            "singularidade": 30.0
+          },
+          "weighted_score": 38.6,
+          "justification": "O bloqueio protegeu recursos públicos e reforçou o controlo parlamentar, mas o resumo não explica o desfecho da transferência nem suas consequências finais.",
+          "lang": "pt",
+          "justification_en": "The block protected public resources and reinforced parliamentary oversight, but the available summary does not explain what ultimately happened to the transfer or its consequences."
+        },
+        "article_url": "https://arquivo.pt/wayback/20201126223405/https://esquerda.net/artigo/novo-banco-parlamento-trava-transferencia-de-476-milhoes-sem-auditoria/71463",
+        "source_platform": "",
+        "source_profile": "",
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "image_url": "https://i.ibb.co/q3HS4KgJ/post-pt.jpg",
+        "image_delete_url": "https://ibb.co/XrnQd15Y/a0aeb9c08c699f040ec29553b05b4d45",
+        "local_image_path": "",
+        "background_source_url": "",
+        "local_background_path": "",
+        "caption_instagram": "A votação parlamentar chumbou a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado. a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "caption_facebook": "A votação parlamentar chumbou a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado. a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "caption_narrative_en": "In 2020, Portugal's parliament rejected a nearly 500 million euro transfer to Novo Banco, altering a measure included in the state budget. The vote blocked the planned capital injection, preserving public funds and strengthening parliamentary oversight of the bank's financing.",
+        "highlight_text_en": "Parliament"
+      },
+      {
         "article_url": "",
         "year": "2014",
         "category": "SOCIEDADE",
@@ -19407,20 +19521,20 @@
         "caption": "Saindo de Redondela. 18km até Pontevedra. Faltam menos de 80 para a Catedral\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
         "summary": "Saindo de Redondela. 18km até Pontevedra. Faltam menos de 80 para a Catedral",
         "title_en": "Leaving Redondela",
-        "summary_en": "Leaving Redondela. 18km to Pontevedra. Less than 80km to Cathedral.",
+        "summary_en": "The route leaves Redondela with 18 kilometers remaining to Pontevedra, less than 80 kilometers before the cathedral.",
         "relevance": {
           "level": 5,
           "scores": {
-            "impacto_historico": 15.0,
-            "dimensao_impacto": 10.0,
-            "consequencias": 10.0,
-            "relevancia_posterior": 10.0,
-            "dimensao_duracao": 5.0,
-            "relevancia_mediatica": 5.0,
-            "singularidade": 10.0
+            "impacto_historico": 8.0,
+            "dimensao_impacto": 5.0,
+            "consequencias": 3.0,
+            "relevancia_posterior": 5.0,
+            "dimensao_duracao": 3.0,
+            "relevancia_mediatica": 8.0,
+            "singularidade": 5.0
           },
-          "weighted_score": 10.8,
-          "justification": "Trecho de rota peregrinal, sem relevância histórica independente.",
+          "weighted_score": 5.5,
+          "justification": "A saída de Redondela e a distância restante são informações operacionais de um percurso. Não há consequências históricas, sociais ou políticas documentadas.",
           "lang": "pt"
         },
         "networks": [
@@ -19436,126 +19550,32 @@
         "caption_facebook": "Saindo de Redondela. 18km até Pontevedra. Faltam menos de 80 para a Catedral\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2014.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade"
       },
       {
+        "article_url": "",
         "year": "2025",
-        "category": "POLÍTICA",
-        "editorial_tier": "high",
-        "title": "STF encerra caminho para Bolsonaro cumprir pena de mais de 27 anos",
-        "highlight_text": "STF encerra caminho",
-        "overlay_description": "Decisão final sobre execução de condenação do ex-presidente brasileiro",
-        "image_theme": "Palácio do Planalto Brasília",
+        "category": "ECONOMIA",
+        "title": "Está aberto o caminho para que Jair Bolsonaro comece a cumprir",
+        "highlight_text": "",
+        "overlay_description": "Está aberto o caminho para que Jair Bolsonaro comece a cumprir a pena de mais de 27 anos de prisão a que foi...",
+        "image_theme": "Está aberto o caminho para que Jair Bolsonaro comece a cumprir",
         "layout_preference": "template_1",
         "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "Supremo Tribunal Federal encerra caminho para que Bolsonaro comece a cumprir pena de mais de 27 anos por crimes relacionados à tentativa de golpe de Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "summary": "Decisão do ministro Alexandre de Moraes encerra recursos e viabiliza início de cumprimento da longa pena contra o ex-presidente brasileiro.",
-        "title_en": "STF closes path for Bolsonaro to serve over 27 years in prison",
-        "summary_en": "Final decision on execution of former Brazilian president's lengthy sentence, closing all resources and enabling start of imprisonment.",
-        "body_en": "In early 2025, the Brazilian political landscape witnessed one of the most significant chapters in its recent history. After years of judicial battles and divisive processes, the Supreme Federal Tribunal (STF) issued a definitive ruling that conclusively ends the path toward the execution of former President Jair Bolsonaro's sentence. This development marks the culmination of a lengthy legal journey that began with investigations into the events of January 8, 2023, and expanded across multiple procedural fronts, including inquiries into the attempted state coup.\n\nThe decision is directly tied to the series of convictions already handed down against the former president. Over recent months, STF ministers reviewed appeals and habeas corpus requests, rejecting defenses seeking to delay or prevent the start of incarceration. The final ruling consolidated convictions for abolition of the Democratic State of Law, coup d'état, and criminal organization, summing penalties that far exceed 27 years. The court ultimately rejected arguments for amnesty or process annulment, basing its decision on consolidated jurisprudence and evidence presented over the years.\n\nThe enduring relevance of this decision extends beyond Bolsonaro's individual fate. It establishes a clear precedent regarding the supremacy of law and judicial independence over high-ranking political figures. For the political class, the ruling reinforces the principle that no one is above the law, regardless of previously held office. For society, it represents a crucial step toward consolidating the rule of law in Brazil, demonstrating that checks and balances function even amid institutional subversion attempts. The closure of this path also has practical implications, defining next steps for the Brazilian penitentiary system and sentence execution.\n\nConsequences are immediate. The STF ruling triggers the formal execution process, which may include political rights loss for a determined period per electoral law. Bolsonaro's ineligibility for upcoming municipal and state elections becomes a consummate fact, altering the country's partisan map. Furthermore, the execution order clears the way for beginning sentence fulfillment in closed or semi-open regimes, depending on penitentiary system evaluation. Internationally, human rights observers and foreign organizations are reevaluating Brazil's democratic state, while the ex-president's support base promises to pursue new legal strategies or mobilize public demonstrations, maintaining high political polarization.",
+        "caption": "Está aberto o caminho para que Jair Bolsonaro comece a cumprir a pena de mais de 27 anos de prisão a que foi condenado pelo Supremo Tribunal Federal em Setembro por vários crimes relacionados com a tentativa de golpe de Estado.⁠ ⁠ Alexandre de Moraes deu como encerrado o caso da condenação do ex-Presidente brasileiro, depois de esgotado o prazo para a apresentação de recursos técnicos pela defesa.⁠ ⁠ 👉️ no ⁠ ⁠\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "summary": "Está aberto o caminho para que Jair Bolsonaro comece a cumprir a pena de mais de 27 anos de prisão a que foi condenado pelo Supremo Tribunal Federal em Setembro por vários crimes...",
+        "title_en": "Bolsonaro's 27-Year Prison Sentence Can Begin",
+        "summary_en": "Brazil's Supreme Court cleared the way for former President Jair Bolsonaro to begin serving his sentence of more than 27 years for multiple crimes.",
         "relevance": {
           "level": 2,
           "scores": {
-            "impacto_historico": 95.0,
-            "dimensao_impacto": 85.0,
-            "consequencias": 90.0,
-            "relevancia_posterior": 80.0,
-            "dimensao_duracao": 75.0,
-            "relevancia_mediatica": 60.0,
-            "singularidade": 85.0
+            "impacto_historico": 82.0,
+            "dimensao_impacto": 78.0,
+            "consequencias": 85.0,
+            "relevancia_posterior": 88.0,
+            "dimensao_duracao": 85.0,
+            "relevancia_mediatica": 90.0,
+            "singularidade": 78.0
           },
-          "weighted_score": 85.8,
-          "justification": "Decisão final encerra recursos e viabiliza início de cumprimento da longa pena contra ex-presidente brasileiro, estabelecendo precedente institucional significativo.",
-          "lang": "pt",
-          "justification_en": "The decision establishes institutional precedent by affirming judicial supremacy over political figures and consolidating final convictions."
-        },
-        "article_url": "",
-        "source_platform": "",
-        "source_profile": "",
-        "networks": [
-          "facebook"
-        ],
-        "body": "No início de 2025, o cenário político brasileiro viveu um dos capítulos mais significativos da sua história recente. Após anos de batalhas judiciais e processos que dividiram a opinião pública, o Supremo Tribunal Federal (STF) proferiu uma decisão definitiva que encerra, de forma conclusiva, o caminho para a execução da pena do ex-presidente Jair Bolsonaro. A notícia, amplamente divulgada pelos principais veículos de comunicação do país, marca o fim de um longo percurso jurídico que começou com as investigações sobre os eventos de 8 de janeiro de 2023 e se estendeu a múltiplas frentes processuais, incluindo apurações sobre a tentativa de golpe de Estado.\n\nO desenvolvimento desta decisão prende-se diretamente com o conjunto de condenações já proferidas contra o ex-mandatário. Ao longo dos últimos meses, os ministros do STF analisaram recursos e pedidos de habeas corpus, rejeitando as defesas que buscavam adiar ou impedir o início do cumprimento da pena. A decisão final consolidou as condenações por abolição do Estado Democrático de Direito, golpe de Estado e organização criminosa, somando penas que ultrapassam, em muito, o período de 27 anos. A corte rejeitou, por fim, os argumentos de anistia ou anulação dos processos, fundamentando-se na jurisprudência consolidada e nas provas apresentadas ao longo dos anos.\n\nA relevância duradoura desta decisão transcende o destino individual de Bolsonaro. Ela estabelece um precedente claro sobre a supremacia da lei e a independência do poder judiciário frente a figuras políticas de alto escalão. Para a classe política, a decisão reforça a ideia de que ninguém está acima da lei, independentemente do cargo outorgado anteriormente. Para a sociedade, representa um passo importante para a consolidação do Estado de Direito no Brasil, demonstrando que os mecanismos de controle e equilíbrio funcionam, mesmo diante de tentativas de subversão institucional. O encerramento deste caminho também tem implicações práticas, definindo os próximos passos para o sistema penitenciário brasileiro e o regime de cumprimento das penas.\n\nConsequências posteriores: A decisão do STF desencadeia imediatamente o processo de execução da pena, o que pode incluir a perda de direitos políticos por um período determinado, conforme a legislação eleitoral brasileira. A inelegibilidade de Bolsonaro para as próximas eleições municipais e estaduais torna-se um fato consumado, alterando o mapa político partidário do país. Além disso, a ordem de execução abre caminho para o início do cumprimento das penas em regime fechado ou semiaberto, dependendo da avaliação do regime penitenciário. As consequências também se estendem ao campo internacional, onde observadores de direitos humanos e organismos estrangeiros reavaliam o estado da democracia brasileira, enquanto a base de apoio ao ex-presidente promete recorrer de novas estratégias legais ou mobilizar manifestações públicas, mantendo a polarização política em um patamar alto.",
-        "highlight_text_en": "STF",
-        "caption_narrative_en": "In early 2025, the Supreme Federal Tribunal delivered a conclusive ruling ending years of legal battles, formally clearing the path for Bolsonaro to begin serving a sentence exceeding 27 years for crimes related to the attempted coup.",
-        "image_url": "https://i.ibb.co/tfkfc01/2026-11-26-03-2025-stf-encerra-caminho-para-bolsonaro-cumprir-pena-de-mais-de-27-anos.jpg",
-        "image_delete_url": "https://ibb.co/MTWTpzJ/7af6c3935440807a80522de03430674f",
-        "local_image_path": "images/review/pt/2026-11-26_03_2025_stf-encerra-caminho-para-bolsonaro-cumprir-pena-de-mais-de-27-anos.jpg",
-        "background_source_url": "https://pt.wikipedia.org/wiki/Pal%C3%A1cio_da_Alvorada",
-        "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-26_03_2025_stf-encerra-caminho-para-bolsonaro-cumprir-pena-de-mais-de-27-anos-fundo.jpg",
-        "caption_instagram": "Supremo Tribunal Federal encerra caminho para que Bolsonaro comece a cumprir pena de mais de 27 anos por crimes relacionados à tentativa de golpe de Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
-        "caption_facebook": "Supremo Tribunal Federal encerra caminho para que Bolsonaro comece a cumprir pena de mais de 27 anos por crimes relacionados à tentativa de golpe de Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica"
-      },
-      {
-        "year": "2016",
-        "category": "SOCIEDADE",
-        "editorial_tier": "lower_relevance",
-        "title": "Novo restaurante americano abre em Viseu",
-        "highlight_text": "restaurante Viseu",
-        "overlay_description": "Bar Americano inaugurado com comida típica americana",
-        "image_theme": "Restaurante Viseu comida",
-        "layout_preference": "template_2",
-        "breaking_candidate": false,
-        "conditional_trigger": "",
-        "caption": "No novo restaurante de Viseu não faltam onion rings, hot dogs, hambúrguer e apple pie. Conheça o Bar Americano.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2016.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
-        "summary": "Inauguração de restaurante americano em Viseu que oferece comida típica americana como onion rings, hot dogs e hambúrgueres.",
-        "title_en": "New American restaurant opens in Viseu",
-        "summary_en": "American restaurant inauguration in Viseu offering typical American food like onion rings, hot dogs and hamburgers.",
-        "body_en": "",
-        "relevance": {
-          "level": 5,
-          "scores": {
-            "impacto_historico": 5.0,
-            "dimensao_impacto": 10.0,
-            "consequencias": 5.0,
-            "relevancia_posterior": 5.0,
-            "dimensao_duracao": 5.0,
-            "relevancia_mediatica": 10.0,
-            "singularidade": 5.0
-          },
-          "weighted_score": 6.2,
-          "justification": "Inauguração de restaurante americano em Viseu que oferece comida típica americana, impacto local limitado e sem relevância histórica ou duradoura.",
-          "lang": "pt"
-        },
-        "article_url": "https://arquivo.pt/wayback/20160706014830/https://dn.pt/pessoas/ntv/interior/adrien-silva-abre-restaurante-antes-de-ser-pai-3771055.html",
-        "source_platform": "",
-        "source_profile": "",
-        "networks": [
-          "instagram"
-        ],
-        "image_url": "",
-        "image_delete_url": "",
-        "local_image_path": "",
-        "background_source_url": "",
-        "local_background_path": "",
-        "caption_instagram": "No novo restaurante de Viseu não faltam onion rings, hot dogs, hambúrguer e apple pie. Conheça o Bar Americano.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2016.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
-        "caption_facebook": "No novo restaurante de Viseu não faltam onion rings, hot dogs, hambúrguer e apple pie. Conheça o Bar Americano.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2016.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade"
-      },
-      {
-        "article_url": "",
-        "year": "2024",
-        "category": "EDUCAÇÃO",
-        "title": "Cinco paralisações de não docentes e duas greves da Função Pública",
-        "highlight_text": "",
-        "overlay_description": "Cinco paralisações de não docentes e duas greves da Função Pública pararam o país e fecharam milhares de esco...",
-        "image_theme": "Cinco paralisações de não docentes e duas greves da Função Pública",
-        "layout_preference": "template_1",
-        "breaking_candidate": false,
-        "caption": "Cinco paralisações de não docentes e duas greves da Função Pública pararam o país e fecharam milhares de escolas nos primeiros dois meses de aulas, causando um impacto maior do que qualquer greve de professores no mesmo período deste ano letivo e do anterior. No entanto, e apesar de sucessivas tentativas da Renascença em obter o número de fecho de escolas noutros dias de greves - a primeira aconteceu há mais de dois meses - e no ano passado, o Ministério da Educação, Ciência e Inovação (MECI) remeteu sempre uma resposta para depois. A Renascença também questionou o Governo sobre o número exat...\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2024.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
-        "summary": "Cinco paralisações de não docentes e duas greves da Função Pública pararam o país e fecharam milhares de escolas nos primeiros dois meses de aulas, causando um impacto maior do qu...",
-        "title_en": "Five non-teacher paralyses and two public function strikes",
-        "summary_en": "Five non-teacher paralyses and two public function strikes stopped the country and closed thousands of schools in the first two months of classes, causing greater impact than...",
-        "relevance": {
-          "level": 4,
-          "scores": {
-            "impacto_historico": 55.0,
-            "dimensao_impacto": 45.0,
-            "consequencias": 40.0,
-            "relevancia_posterior": 35.0,
-            "dimensao_duracao": 25.0,
-            "relevancia_mediatica": 20.0,
-            "singularidade": 25.0
-          },
-          "weighted_score": 41.5,
-          "justification": "Paralisações afetaram educação pública por dois meses. Fechamento de escolas gerou debate sobre recursos e condições de trabalho.",
+          "weighted_score": 83.1,
+          "justification": "A sentença unprecedentedemente longa para um ex-presidente brasileiro abriu caminho para o cumprimento da pena após julgamento pelo STF. A decisão reforçou a responsabilização judicial de uma figura política central.",
           "lang": "pt"
         },
         "networks": [
@@ -19567,12 +19587,12 @@
         "local_image_path": "",
         "background_source_url": "",
         "local_background_path": "",
-        "caption_instagram": "Cinco paralisações de não docentes e duas greves da Função Pública pararam o país e fecharam milhares de escolas nos primeiros dois meses de aulas, causando um impacto maior do que qualquer greve de professores no mesmo período deste ano letivo e do anterior. No entanto, e apesar de sucessivas tentativas da Renascença em obter o número de fecho de escolas noutros dias de greves - a primeira aconteceu há mais de dois meses - e no ano passado, o Ministério da Educação, Ciência e Inovação (MECI) remeteu sempre uma resposta para depois. A Renascença também questionou o Governo sobre o número exat...\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2024.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
-        "caption_facebook": "Cinco paralisações de não docentes e duas greves da Função Pública pararam o país e fecharam milhares de escolas nos primeiros dois meses de aulas, causando um impacto maior do que qualquer greve de professores no mesmo período deste ano letivo e do anterior. No entanto, e apesar de sucessivas tentativas da Renascença em obter o número de fecho de escolas noutros dias de greves - a primeira aconteceu há mais de dois meses - e no ano passado, o Ministério da Educação, Ciência e Inovação (MECI) remeteu sempre uma resposta para depois. A Renascença também questionou o Governo sobre o número exat...\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2024.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Educacao"
+        "caption_instagram": "Está aberto o caminho para que Jair Bolsonaro comece a cumprir a pena de mais de 27 anos de prisão a que foi condenado pelo Supremo Tribunal Federal em Setembro por vários crimes relacionados com a tentativa de golpe de Estado.⁠ ⁠ Alexandre de Moraes deu como encerrado o caso da condenação do ex-Presidente brasileiro, depois de esgotado o prazo para a apresentação de recursos técnicos pela defesa.⁠ ⁠ 👉️ no ⁠ ⁠\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "caption_facebook": "Está aberto o caminho para que Jair Bolsonaro comece a cumprir a pena de mais de 27 anos de prisão a que foi condenado pelo Supremo Tribunal Federal em Setembro por vários crimes relacionados com a tentativa de golpe de Estado.⁠ ⁠ Alexandre de Moraes deu como encerrado o caso da condenação do ex-Presidente brasileiro, depois de esgotado o prazo para a apresentação de recursos técnicos pela defesa.⁠ ⁠ 👉️ no ⁠ ⁠\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia"
       }
     ],
-    "last_regenerated_at": "2026-11-26T16:08:50.766250",
-    "regeneration_count": 3,
+    "last_regenerated_at": "2026-11-25T23:58:28.937616",
+    "regeneration_count": 2,
     "instagram_id": "18475909861143330",
     "instagram_url": "https://www.instagram.com/p/DgM5WJYjXh8/",
     "published_at": "2026-11-26T10:31:47.507392",
