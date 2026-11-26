@@ -12766,5 +12766,31 @@
         "created_at": "2026-11-26T10:32:29+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-26",
+        "option_index": 2,
+        "title": "STF encerra caminho para Bolsonaro cumprir pena de mais de 27 anos",
+        "year": "2025",
+        "image_url": "https://i.ibb.co/tfkfc01/2026-11-26-03-2025-stf-encerra-caminho-para-bolsonaro-cumprir-pena-de-mais-de-27-anos.jpg",
+        "delete_url": "https://ibb.co/MTWTpzJ/7af6c3935440807a80522de03430674f",
+        "created_at": "2026-11-26T16:08:46+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-26",
+        "option_index": 1,
+        "title": "Banco de Portugal reporta milhões em transferências suspeitas",
+        "year": "2019",
+        "image_url": "https://i.ibb.co/CK9GHnYC/2026-11-26-02-2019-banco-de-portugal-reporta-milhoes-em-transferencias-suspeitas.jpg",
+        "delete_url": "https://ibb.co/zV2v4SB9/908fafa5ba8158b9664499f1ece912a3",
+        "created_at": "2026-11-26T16:08:59+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
