@@ -19334,13 +19334,13 @@
     "date": "2026-11-26",
     "slot": 1,
     "lang": "pt",
-    "selected_option": 0,
+    "selected_option": 2,
     "layout_override": "",
     "theme_suggestion": "",
-    "manual_background_url": "",
+    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-26_1-bg.jpg",
     "review_action": "",
     "review_note": "",
-    "status": "pending",
+    "status": "approved",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -19467,14 +19467,14 @@
         "highlight_text": "Transferência bloqueada",
         "overlay_description": "A Assembleia da República impede uma transferência de quase 500 milhões de euros prevista no Orçamento do Estado.",
         "image_theme": "Assembleia da República Lisboa",
-        "layout_preference": "template_2",
+        "layout_preference": "template_1",
         "breaking_candidate": false,
         "conditional_trigger": "",
-        "caption": "Avotedação Parliamentar chumbou a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "caption": "A votação parlamentar chumbou a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado. a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
         "summary": "A decisão fiscal protege recursos públicos e reforça o controlo parlamentar sobre operações financeiras de elevada dimensão.",
         "title_en": "Portuguese Parliament Blocks Nearly €500 Million Transfer to Novo Banco",
         "summary_en": "Lawmakers blocked a nearly €500 million state-budget transfer to Novo Banco, reinforcing parliamentary oversight of a major financial operation.",
-        "body_en": "",
+        "body_en": "Lawmakers blocked a nearly €500 million state-budget transfer to Novo Banco, reinforcing parliamentary oversight of a major financial operation.",
         "relevance": {
           "level": 5,
           "scores": {
@@ -19494,15 +19494,17 @@
         "source_platform": "",
         "source_profile": "",
         "networks": [
+          "instagram",
           "facebook"
         ],
-        "image_url": "",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-26_1.jpg",
         "image_delete_url": "",
         "local_image_path": "",
         "background_source_url": "",
         "local_background_path": "",
-        "caption_instagram": "Avotedação Parliamentar chumbou a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
-        "caption_facebook": "Avotedação Parliamentar chumbou a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia"
+        "caption_instagram": "A votação parlamentar chumbou a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado. a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "caption_facebook": "A votação parlamentar chumbou a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado. a transferência de quase 500 milhões de euros para o Novo Banco, alterando uma medida prevista no Orçamento do Estado.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2020.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "caption_narrative_en": "Lawmakers blocked a nearly €500 million state-budget transfer to Novo Banco, reinforcing parliamentary oversight of a major financial operation."
       },
       {
         "article_url": "",
