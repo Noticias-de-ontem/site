@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-25T23:38:37+00:00",
+  "generated_at": "2026-11-26T08:01:27+00:00",
   "default_lang": "pt",
   "source_credit": "Dados recolhidos e contextualizados a partir do Arquivo.pt.",
   "instagram_profile_url": "https://www.instagram.com/noticiasdeontempt/",
@@ -762,10 +762,18 @@
         "instagram": "https://www.instagram.com/p/DgKOSU1DjAj/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122140077176824703"
       },
-      "relevance_level": 2,
-      "relevance_scores": {},
-      "relevance_weighted": 32.5,
-      "relevance_justification": "Tentativa de golpe derrotada, fim do PREC e consolidação da democracia.",
+      "relevance_level": 4,
+      "relevance_scores": {
+        "impacto_historico": 45.0,
+        "dimensao_impacto": 40.0,
+        "consequencias": 40.0,
+        "relevancia_posterior": 40.0,
+        "dimensao_duracao": 30.0,
+        "relevancia_mediatica": 35.0,
+        "singularidade": 35.0
+      },
+      "relevance_weighted": 40.0,
+      "relevance_justification": "Acontecimento de interesse público documentado na época.",
       "source_type": "internet_profile",
       "url_path": "noticia/politica/tentativa-de-golpe-derrotada-em-lisboa",
       "page_id": "noticia-372e1c37c9cea5367d9256db",
@@ -778,7 +786,7 @@
       "instagram_id_en": "18117497294466976",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122113247391541219",
       "facebook_id_en": "1318455601360516_122113247391541219",
-      "relevance_justification_en": "Tentativa de golpe derrotada, fim do PREC e consolidação da democracia."
+      "relevance_justification_en": "Public interest event documented at the time."
     },
     {
       "id": "pt_2026-11-23_2",
@@ -1497,10 +1505,18 @@
         "instagram": "https://www.instagram.com/p/DgKOSU1DjAj/",
         "facebook": "https://www.facebook.com/122136509126824703/posts/122140077176824703"
       },
-      "relevance_level": 2,
-      "relevance_scores": {},
-      "relevance_weighted": 32.5,
-      "relevance_justification": "Tentativa de golpe derrotada, fim do PREC e consolidação da democracia.",
+      "relevance_level": 4,
+      "relevance_scores": {
+        "impacto_historico": 45.0,
+        "dimensao_impacto": 40.0,
+        "consequencias": 40.0,
+        "relevancia_posterior": 40.0,
+        "dimensao_duracao": 30.0,
+        "relevancia_mediatica": 35.0,
+        "singularidade": 35.0
+      },
+      "relevance_weighted": 40.0,
+      "relevance_justification": "Acontecimento de interesse público documentado na época.",
       "source_type": "internet_profile",
       "url_path": "noticia/politica/tentativa-de-golpe-derrotada-em-lisboa",
       "page_id": "noticia-372e1c37c9cea5367d9256db",
@@ -1513,7 +1529,7 @@
       "instagram_id_en": "18117497294466976",
       "facebook_url_en": "https://www.facebook.com/122096313699541219/posts/122113247391541219",
       "facebook_id_en": "1318455601360516_122113247391541219",
-      "relevance_justification_en": "Tentativa de golpe derrotada, fim do PREC e consolidação da democracia."
+      "relevance_justification_en": "Public interest event documented at the time."
     },
     {
       "id": "pt_2026-11-23_2",
