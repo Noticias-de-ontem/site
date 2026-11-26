@@ -19612,7 +19612,7 @@
     "manual_background_url": "",
     "review_action": "",
     "review_note": "",
-    "status": "pending",
+    "status": "approved",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -19682,10 +19682,10 @@
         "breaking_candidate": false,
         "conditional_trigger": "",
         "caption": "Milhões no banco com transferências suspeitas. Na Grande Reportagem \"A Lavandaria\", brevemente na SIC, saiba tudo sobre operações de branqueamento de capitais.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2019.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Sociedade",
-        "summary": "Grande reportagem da SIC sobre milhões em transferências suspeitas e o papel do Banco de Portugal em operações de branqueamento de capitais.",
+        "summary": "Grande Reportagem da SIC sobre uma rede de branqueamento de capitais investigada durante dois anos pela Polícia Judiciária e pela Polícia Nacional de Espanha.",
         "title_en": "Banco de Portugal reports millions in suspicious transfers",
-        "summary_en": "SIC investigative report on millions in suspicious transfers and Banco de Portugal's role in money laundering operations.",
-        "body_en": "In 2019, the Banco de Portugal issued a significant warning about the financial sector, reporting millions in suspicious transfers that heightened concerns over money laundering. The regulator identified atypical movement patterns across several institutions, suggesting possible schemes requiring deeper investigation. This report arrived during a period of increased international scrutiny, following several arrests linked to tax fraud and influence peddling networks. Financial authorities emphasized the need to strengthen due diligence mechanisms, particularly in the real estate sector and consulting firms, areas frequently exploited by criminal networks. The disclosure provoked an immediate government reaction, which announced measures to tighten fiscal regulations and increase resources for the Financial Information Unit. Experts consulted viewed the Banco de Portugal document as a turning point, as for the first time a diagnosis so comprehensive about the penetration of illicit capital into the national system had been presented. The lasting relevance of this report lies in having paved the way for a new era of transparency, forcing banks and companies to review internal protocols and cooperate more closely with law enforcement. Although the sector had resisted radical changes in the past, the 2019 report served as an indispensable catalyst for combating financial crime in Portugal.",
+        "summary_en": "SIC investigative report on a money-laundering network investigated for two years by Portugal's Judicial Police and Spain's National Police.",
+        "body_en": "For two years, Portugal's Judicial Police and Spain's National Police jointly investigated a money-laundering network. The court case came to an end in Portugal, and the network's leader was imprisoned. Over three months, SIC delved into this mega-case and reconstructed it between Portugal and Spain in the investigative report «A Lavandaria».",
         "relevance": {
           "level": 4,
           "scores": {
@@ -19702,13 +19702,14 @@
           "lang": "pt",
           "justification_en": "The 2019 Banco de Portugal report exposed millions in suspicious transfers, triggering judicial scrutiny and reforms targeting money laundering in Portugal."
         },
-        "article_url": "https://arquivo.pt/wayback/20190426173631/https://opais.sapo.mz/moza-banco-reporta-prejuizos-de-7684-milhoes-de-meticais-em-2018",
+        "article_url": "https://arquivo.pt/wayback/20200628072704/https://sicnoticias.pt/programas/reportagemsic/2019-11-26-A-Lavandaria",
         "source_platform": "",
         "source_profile": "",
         "networks": [
+          "instagram",
           "facebook"
         ],
-        "body": "Em 2019, o Banco de Portugal lançou um alerta significativo sobre o setor financeiro, reportando milhões em transferências suspeitas que reforçaram as preocupações sobre branqueamento de capitais. O regulador identificou padrões de movimentação atípicos em várias instituições, sugerindo possíveis esquemas de lavagem de dinheiro que exigiam uma investigação mais aprofundada. Este relatório surgiu num contexto de maior vigilância internacional, após várias detenções ligadas a redes de fraude fiscal e tráfico de influência. As autoridades financeiras destacaram a necessidade de reforçar os mecanismos de devido diligence, particularmente no setor imobiliário e em empresas de consultoria, pontos frequentemente explorados por redes criminosas. A divulgação provocou uma reação imediata do Governo, que anunciou medidas para endurecer o regime fiscal e aumentar os recursos para a Unidade de Informação Financeira. Na opinião de especialistas consultados, o documento do Banco de Portugal representa um ponto de viragem, pois pela primeira vez se assistiu a um diagnóstico tão abrangente sobre a penetração de capitais ilícitos no sistema nacional. A relevância duradoura deste relatório reside no facto de ter aberto caminho para uma nova era de transparência, obrigando bancos e empresas a revisarem os seus protocolos internos e a cooperarem mais estreitamente com as forças de segurança. Embora o sector tenha resistido a mudanças radicais no passado, o relatório de 2019 serviu como um catalisador indispensável para o combate ao crime financeiro em Portugal.",
+        "body": "Durante dois anos, a Polícia Judiciária portuguesa e a Polícia Nacional de Espanha investigaram em conjunto uma rede de branqueamento de capitais. O processo judicial chegou ao fim em Portugal e o líder da rede ficou preso. Durante três meses, a SIC mergulhou neste processo e reconstituiu o caso entre Portugal e Espanha na Grande Reportagem «A Lavandaria».",
         "highlight_text_en": "Portugal",
         "caption_narrative_en": "In 2019, Portugal's central bank flagged millions in suspicious transfers, intensifying scrutiny over money laundering. The landmark report emerged amid international investigations into tax fraud and influence peddling networks.",
         "image_url": "https://i.ibb.co/CK9GHnYC/2026-11-26-02-2019-banco-de-portugal-reporta-milhoes-em-transferencias-suspeitas.jpg",
