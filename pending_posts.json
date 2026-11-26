@@ -19340,7 +19340,7 @@
         "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-26_1-bg.jpg",
         "review_action": "",
         "review_note": "",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -19498,8 +19498,8 @@
                     "instagram",
                     "facebook"
                 ],
-                "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-26_1.jpg",
-                "image_delete_url": "",
+                "image_url": "https://i.ibb.co/q3HS4KgJ/post-pt.jpg",
+                "image_delete_url": "https://ibb.co/XrnQd15Y/a0aeb9c08c699f040ec29553b05b4d45",
                 "local_image_path": "",
                 "background_source_url": "",
                 "local_background_path": "",
@@ -19592,7 +19592,14 @@
             }
         ],
         "last_regenerated_at": "2026-11-25T23:58:28.937616",
-        "regeneration_count": 2
+        "regeneration_count": 2,
+        "instagram_id": "18475909861143330",
+        "instagram_url": "https://www.instagram.com/p/DgM5WJYjXh8/",
+        "published_at": "2026-11-26T10:31:47.507392",
+        "instagram_story_id": "18167145916491517",
+        "facebook_id": "1030669413467151_122140208276824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122140208276824703",
+        "facebook_story_id": "1691090522673643"
     },
     {
         "id": "pt_2026-11-26_2",
@@ -51689,7 +51696,7 @@
         "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-26_1-bg.jpg",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-26_1",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "",
         "external_suggestions": [],
@@ -51734,12 +51741,19 @@
                 "article_url": "https://arquivo.pt/wayback/20201126223405/https://esquerda.net/artigo/novo-banco-parlamento-trava-transferencia-de-476-milhoes-sem-auditoria/71463",
                 "source_profile": "",
                 "source_platform": "",
-                "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-26_1.jpg",
-                "image_delete_url": "",
+                "image_url": "https://i.ibb.co/nMNsqgXn/post-en.jpg",
+                "image_delete_url": "https://ibb.co/k2sgVHL9/008c1f1e05573a703b06821285b37a67",
                 "local_image_path": "site/images/approved/en_2026-11-26_1.jpg",
                 "background_source_url": "",
                 "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-26_1-fundo.jpg"
             }
-        ]
+        ],
+        "instagram_id": "18076512632761447",
+        "instagram_url": "https://www.instagram.com/p/DgM5bYHjg7_/",
+        "published_at": "2026-11-26T10:32:29.919376",
+        "instagram_story_id": "18203841475382246",
+        "facebook_id": "1318455601360516_122113637031541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122113637031541219",
+        "facebook_story_id": "2735329763552636"
     }
 ]
