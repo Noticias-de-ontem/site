@@ -20049,7 +20049,7 @@
         "summary": "Aprovação do Orçamento do Estado para o próximo ano, segundo ano de Luís Montenegro como primeiro-ministro, mantendo a prática de votações contingentes com abstenção parlamentar.",
         "title_en": "State Budget for next year approved in the Assembly of the Republic",
         "summary_en": "Approval of the State Budget for next year, second year of Luís Montenegro as prime minister, maintaining contingent parliamentary votes with abstention.",
-        "body_en": "The State Budget bill for next year was approved in the final global vote on 27 November, with votes in favour from the PSD and CDS-PP and the abstention of the PS. Chega, the Liberal Initiative, Livre, the PCP, the Left Bloc, PAN and JPP voted against. Prime Minister Luís Montenegro said the budget came out undistorted, stressing that it raised no tax and included salary valorization measures. The proposal had been tabled on 9 October, and the debate and specialty vote ran until 27 November.",
+        "body_en": "The State Budget proposal for the upcoming year was finalized in a global vote on November 27th, securing passage through the Assembly of Representatives. The ruling coalition, comprising the Social Democrats and Centrist Democrats, voted in favor, while the Socialist Party opted for abstention, a procedural choice repeated in previous legislative cycles. Opposition parties including Chega, Liberal Initiative, Livre, Communist Party, Left Bloc, People Animals Nature, and the Democratic Political Action jointly opposed the measure. Prime Minister Luis Montenegro defended the final text, asserting that the plan remained unaltered from its core principles. He specifically highlighted that no new taxes were introduced and that the package included provisions for salary valorization. The budget proposal had initially been submitted on October 9th, following a period of debate and specialty voting that extended through late November. This approval underscores the ongoing pattern of contingent budgetary governance within the parliamentary framework.",
         "relevance": {
           "level": 5,
           "scores": {
@@ -20063,7 +20063,8 @@
           },
           "weighted_score": 33.5,
           "justification": "Orçamento aprovado com abstenção do PS e votos da coligação, mantendo prática contingente. Impacta finanças públicas e estabilidade governativa.",
-          "lang": "pt"
+          "lang": "pt",
+          "justification_en": "Budget approval with opposition abstention maintains governmental financial continuity and legislative stability into the new year."
         },
         "article_url": "https://arquivo.pt/wayback/20260512163955/https://eco.sapo.pt/2025/11/27/e-oficial-orcamento-do-estado-para-2026-aprovado-com-abstencao-exigente-do-ps/",
         "source_platform": "",
@@ -20072,7 +20073,7 @@
           "instagram",
           "facebook"
         ],
-        "caption_narrative_en": "The State Budget bill for next year was approved in the final global vote on 27 November, with votes in favour from the PSD and CDS-PP and the abstention of the PS. Chega, the Liberal Initiative, Livre, the PCP, the Left Bloc, PAN and JPP voted against. Prime Minister Luís Montenegro said the budget came out undistorted, stressing that it raised no tax and included salary valorization measures. The proposal had been tabled on 9 October, and the debate and specialty vote ran until 27 November.",
+        "caption_narrative_en": "The 2026 state budget cleared the Assembly on November 27th, backed by the governing coalition and abstaining socialists. Prime Minister Luis Montenegro emphasized no tax hikes and salary increases as the measure marked another year of contingent fiscal stability.",
         "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-27_1.jpg",
         "image_delete_url": "https://ibb.co/Zpqpn6W0/d770bd7fb93b99463d2f432afdd064d1",
         "local_image_path": "images/review/pt/2026-11-27_01_2025_orcamento-do-estado-para-2026-aprovado-na-assembleia-da-republica.jpg",
@@ -20080,7 +20081,8 @@
         "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-27_01_2025_orcamento-do-estado-para-2026-aprovado-na-assembleia-da-republica-fundo.jpg",
         "caption_instagram": "O Orçamento do Estado para o próximo ano foi aprovado com os votos a favor do PSD e CDS e a abstenção do PS, continuando a prática de anos anteriores.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
         "caption_facebook": "O Orçamento do Estado para o próximo ano foi aprovado com os votos a favor do PSD e CDS e a abstenção do PS, continuando a prática de anos anteriores.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
-        "body": "A proposta de lei do Orçamento do Estado para o próximo ano foi aprovada na votação final global, a 27 de novembro, com os votos favoráveis do PSD e do CDS-PP e a abstenção do PS. Chega, Iniciativa Liberal, Livre, PCP, Bloco de Esquerda, PAN e JPP votaram contra. O primeiro-ministro, Luís Montenegro, afirmou que o orçamento não saía desvirtuado e sublinhou que não aumentava qualquer imposto e incluía medidas de valorização salarial. A proposta tinha sido entregue a 9 de outubro e o debate e a votação na especialidade decorreram até 27 de novembro."
+        "body": "A proposta de lei do Orçamento do Estado para o próximo ano foi aprovada na votação final global, a 27 de novembro, com os votos favoráveis do PSD e do CDS-PP e a abstenção do PS. Chega, Iniciativa Liberal, Livre, PCP, Bloco de Esquerda, PAN e JPP votaram contra. O primeiro-ministro, Luís Montenegro, afirmou que o orçamento não saía desvirtuado e sublinhou que não aumentava qualquer imposto e incluía medidas de valorização salarial. A proposta tinha sido entregue a 9 de outubro e o debate e a votação na especialidade decorreram até 27 de novembro.",
+        "highlight_text_en": "State Budget"
       },
       {
         "year": "2024",
@@ -51935,6 +51937,70 @@
         "caption_facebook": "A Supercopa Rei do Brasil volta a colocar frente a frente dois dos maiores clubes do futebol de terras de Vera Cruz. Corinthians, vencedor da Copa do Brasil, e Flamengo, o campeão em título, encontram-se num jogo que vale um troféu e marca o início das conquistas da temporada. Continue a ler em 24horas.pt ou na App\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2026.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Desporto",
         "body": "",
         "body_en": ""
+      }
+    ]
+  },
+  {
+    "id": "en_2026-11-27_1",
+    "date": "2026-11-27",
+    "slot": 1,
+    "lang": "en",
+    "selected_option": 0,
+    "layout_override": "",
+    "theme_suggestion": "",
+    "manual_background_url": "",
+    "review_action": "",
+    "review_note": "Synced from pt_2026-11-27_1",
+    "status": "approved",
+    "generated_month": "2026-11",
+    "source_profile": "",
+    "external_suggestions": [],
+    "options": [
+      {
+        "category": "ECONOMY",
+        "title": "State Budget for next year approved in the Assembly of the Republic",
+        "title_en": "State Budget for next year approved in the Assembly of the Republic",
+        "highlight_text": "State Budget",
+        "overlay_description": "Approval of the State Budget for next year, second year of Luís Montenegro as prime minister, maintaining contingent parliamentary votes with abstention.",
+        "caption": "The 2026 state budget cleared the Assembly on November 27th, backed by the governing coalition and abstaining socialists. Prime Minister Luis Montenegro emphasized no tax hikes and salary increases as the measure marked another year of contingent fiscal stability.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2025.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "caption_instagram": "The 2026 state budget cleared the Assembly on November 27th, backed by the governing coalition and abstaining socialists. Prime Minister Luis Montenegro emphasized no tax hikes and salary increases as the measure marked another year of contingent fiscal stability.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2025.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "caption_facebook": "The 2026 state budget cleared the Assembly on November 27th, backed by the governing coalition and abstaining socialists. Prime Minister Luis Montenegro emphasized no tax hikes and salary increases as the measure marked another year of contingent fiscal stability.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2025.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Economy",
+        "year": "2025",
+        "summary": "Approval of the State Budget for next year, second year of Luís Montenegro as prime minister, maintaining contingent parliamentary votes with abstention.",
+        "summary_en": "Approval of the State Budget for next year, second year of Luís Montenegro as prime minister, maintaining contingent parliamentary votes with abstention.",
+        "body": "The State Budget proposal for the upcoming year was finalized in a global vote on November 27th, securing passage through the Assembly of Representatives. The ruling coalition, comprising the Social Democrats and Centrist Democrats, voted in favor, while the Socialist Party opted for abstention, a procedural choice repeated in previous legislative cycles. Opposition parties including Chega, Liberal Initiative, Livre, Communist Party, Left Bloc, People Animals Nature, and the Democratic Political Action jointly opposed the measure. Prime Minister Luis Montenegro defended the final text, asserting that the plan remained unaltered from its core principles. He specifically highlighted that no new taxes were introduced and that the package included provisions for salary valorization. The budget proposal had initially been submitted on October 9th, following a period of debate and specialty voting that extended through late November. This approval underscores the ongoing pattern of contingent budgetary governance within the parliamentary framework.",
+        "body_en": "The State Budget proposal for the upcoming year was finalized in a global vote on November 27th, securing passage through the Assembly of Representatives. The ruling coalition, comprising the Social Democrats and Centrist Democrats, voted in favor, while the Socialist Party opted for abstention, a procedural choice repeated in previous legislative cycles. Opposition parties including Chega, Liberal Initiative, Livre, Communist Party, Left Bloc, People Animals Nature, and the Democratic Political Action jointly opposed the measure. Prime Minister Luis Montenegro defended the final text, asserting that the plan remained unaltered from its core principles. He specifically highlighted that no new taxes were introduced and that the package included provisions for salary valorization. The budget proposal had initially been submitted on October 9th, following a period of debate and specialty voting that extended through late November. This approval underscores the ongoing pattern of contingent budgetary governance within the parliamentary framework.",
+        "image_theme": "Assembleia da República Lisboa",
+        "layout_preference": "template_1",
+        "breaking_candidate": false,
+        "networks": [
+          "instagram",
+          "facebook"
+        ],
+        "relevance": {
+          "level": 5,
+          "scores": {
+            "impacto_historico": 40.0,
+            "dimensao_impacto": 35.0,
+            "consequencias": 30.0,
+            "relevancia_posterior": 35.0,
+            "dimensao_duracao": 25.0,
+            "relevancia_mediatica": 20.0,
+            "singularidade": 25.0
+          },
+          "weighted_score": 33.5,
+          "justification": "Budget approval with opposition abstention maintains governmental financial continuity and legislative stability into the new year.",
+          "lang": "pt",
+          "justification_en": "Budget approval with opposition abstention maintains governmental financial continuity and legislative stability into the new year."
+        },
+        "article_url": "https://arquivo.pt/wayback/20260512163955/https://eco.sapo.pt/2025/11/27/e-oficial-orcamento-do-estado-para-2026-aprovado-com-abstencao-exigente-do-ps/",
+        "source_profile": "",
+        "source_platform": "",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-27_1.jpg",
+        "image_delete_url": "",
+        "local_image_path": "site/images/approved/en_2026-11-27_1.jpg",
+        "background_source_url": "https://commons.wikimedia.org/wiki/File:22_11_2022_Encontro_com_o_senhor_Augusto_Santos_Silva,_Presidente_da_Assembleia_da_Rep%C3%BAblica_(52518273981).jpg",
+        "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-27_1-fundo.jpg"
       }
     ]
   }
