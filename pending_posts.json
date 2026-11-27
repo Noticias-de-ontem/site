@@ -20008,10 +20008,10 @@
     "selected_option": 0,
     "layout_override": "",
     "theme_suggestion": "",
-    "manual_background_url": "",
+    "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-27_1-bg.jpg",
     "review_action": "",
     "review_note": "",
-    "status": "pending",
+    "status": "approved",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -20038,18 +20038,18 @@
         "year": "2025",
         "category": "ECONOMIA",
         "editorial_tier": "high",
-        "title": "Orçamento do Estado para 2026 aprovado na Assembleia da República",
+        "title": "Orçamento do Estado para o próximo ano aprovado na Assembleia da República",
         "highlight_text": "Orçamento do Estado",
-        "overlay_description": "Orçamento do Estado chumbado na Assembleia da República com abstenção do PS e votos a favor da coligação governamental.",
+        "overlay_description": "Orçamento do Estado para o próximo ano aprovado na Assembleia da República com abstenção do PS e votos a favor da coligação governamental.",
         "image_theme": "Assembleia da República Lisboa",
         "layout_preference": "template_1",
         "breaking_candidate": false,
         "conditional_trigger": "",
-        "caption": "O Orçamento do Estado para 2026 foi aprovado com os votos a favor do PSD e CDS e a abstenção do PS, continuando a prática de anos anteriores.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
-        "summary": "Aprovação do Orçamento do Estado para 2026, segundo ano de Luís Montenegro como primeiro-ministro, mantendo a prática de votações contingentes com abstenção parlamentar.",
-        "title_en": "State Budget for 2026 approved in the Assembly of the Republic",
-        "summary_en": "Approval of the State Budget for 2026, second year of Luís Montenegro as prime minister, maintaining contingent parliamentary votes with abstention.",
-        "body_en": "The State Budget for 2026 was approved in the Assembly of the Republic, relying on votes from the PSD and CDS-PP parties while the PS abstained. The outcome reflects a long-standing practice in Portuguese legislative cycles, where budgetary measures often pass through strategic alliances rather than unanimous support. This voting pattern underscores the persistent dynamics between the center-right coalition and the Socialist opposition, a relationship that continues to define the country's budgetary trajectory.\n\nLawmakers debated the financial framework throughout the session, emphasizing growth projections and social spending priorities. The PSD and CDS-PP argued that the approved measures would sustain economic stability, while the PS criticized the text for failing to address key inequalities. Despite the abstention, the budget advances to the next stage of implementation, maintaining the status quo established in previous years. Observers note that the result was largely expected, given the current distribution of seats and historical voting behaviors.\n\nThe approval ensures that government operations and public services remain funded without interruption. With the PS stepping back, the coalition solidified its ability to steer fiscal policy, reinforcing a pattern that has become characteristic of recent legislative sessions. The budget now moves forward for execution, setting the tone for economic planning in the months ahead.",
+        "caption": "O Orçamento do Estado para o próximo ano foi aprovado com os votos a favor do PSD e CDS e a abstenção do PS, continuando a prática de anos anteriores.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "summary": "Aprovação do Orçamento do Estado para o próximo ano, segundo ano de Luís Montenegro como primeiro-ministro, mantendo a prática de votações contingentes com abstenção parlamentar.",
+        "title_en": "State Budget for next year approved in the Assembly of the Republic",
+        "summary_en": "Approval of the State Budget for next year, second year of Luís Montenegro as prime minister, maintaining contingent parliamentary votes with abstention.",
+        "body_en": "The State Budget bill for next year was approved in the final global vote on 27 November, with votes in favour from the PSD and CDS-PP and the abstention of the PS. Chega, the Liberal Initiative, Livre, the PCP, the Left Bloc, PAN and JPP voted against. Prime Minister Luís Montenegro said the budget came out undistorted, stressing that it raised no tax and included salary valorization measures. The proposal had been tabled on 9 October, and the debate and specialty vote ran until 27 November.",
         "relevance": {
           "level": 5,
           "scores": {
@@ -20065,21 +20065,22 @@
           "justification": "Orçamento aprovado com abstenção do PS e votos da coligação, mantendo prática contingente. Impacta finanças públicas e estabilidade governativa.",
           "lang": "pt"
         },
-        "article_url": "https://arquivo.pt/wayback/20250101005152/https://24.sapo.pt/atualidade/artigos/orcamento-do-estado-aprovado-na-generalidade-com-abstencao-do-ps",
+        "article_url": "https://arquivo.pt/wayback/20260512163955/https://eco.sapo.pt/2025/11/27/e-oficial-orcamento-do-estado-para-2026-aprovado-com-abstencao-exigente-do-ps/",
         "source_platform": "",
         "source_profile": "",
         "networks": [
+          "instagram",
           "facebook"
         ],
-        "caption_narrative_en": "The State Budget for 2026 cleared the Assembly of the Republic this year, securing approval through a coalition of PSD and CDS-PP votes while the PS chose abstention. The vote marks another chapter in Portugal's recurring budgetary pattern, reflecting the political dynamics shaping the nation's fiscal path in 2025.",
-        "image_url": "https://i.ibb.co/4nhn6ZPH/2026-11-27-01-2025-orcamento-do-estado-para-2026-aprovado-na-assembleia-da-republica.jpg",
+        "caption_narrative_en": "The State Budget bill for next year was approved in the final global vote on 27 November, with votes in favour from the PSD and CDS-PP and the abstention of the PS. Chega, the Liberal Initiative, Livre, the PCP, the Left Bloc, PAN and JPP voted against. Prime Minister Luís Montenegro said the budget came out undistorted, stressing that it raised no tax and included salary valorization measures. The proposal had been tabled on 9 October, and the debate and specialty vote ran until 27 November.",
+        "image_url": "https://www.noticiasdeontem.pt/images/approved/pt_2026-11-27_1.jpg",
         "image_delete_url": "https://ibb.co/Zpqpn6W0/d770bd7fb93b99463d2f432afdd064d1",
         "local_image_path": "images/review/pt/2026-11-27_01_2025_orcamento-do-estado-para-2026-aprovado-na-assembleia-da-republica.jpg",
         "background_source_url": "https://commons.wikimedia.org/wiki/File:22_11_2022_Encontro_com_o_senhor_Augusto_Santos_Silva,_Presidente_da_Assembleia_da_Rep%C3%BAblica_(52518273981).jpg",
         "local_background_path": "/home/runner/work/site/site/images/backgrounds/2026-11-27_01_2025_orcamento-do-estado-para-2026-aprovado-na-assembleia-da-republica-fundo.jpg",
-        "caption_instagram": "O Orçamento do Estado para 2026 foi aprovado com os votos a favor do PSD e CDS e a abstenção do PS, continuando a prática de anos anteriores.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
-        "caption_facebook": "O Orçamento do Estado para 2026 foi aprovado com os votos a favor do PSD e CDS e a abstenção do PS, continuando a prática de anos anteriores.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
-        "body": ""
+        "caption_instagram": "O Orçamento do Estado para o próximo ano foi aprovado com os votos a favor do PSD e CDS e a abstenção do PS, continuando a prática de anos anteriores.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "caption_facebook": "O Orçamento do Estado para o próximo ano foi aprovado com os votos a favor do PSD e CDS e a abstenção do PS, continuando a prática de anos anteriores.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2025.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Economia",
+        "body": "A proposta de lei do Orçamento do Estado para o próximo ano foi aprovada na votação final global, a 27 de novembro, com os votos favoráveis do PSD e do CDS-PP e a abstenção do PS. Chega, Iniciativa Liberal, Livre, PCP, Bloco de Esquerda, PAN e JPP votaram contra. O primeiro-ministro, Luís Montenegro, afirmou que o orçamento não saía desvirtuado e sublinhou que não aumentava qualquer imposto e incluía medidas de valorização salarial. A proposta tinha sido entregue a 9 de outubro e o debate e a votação na especialidade decorreram até 27 de novembro."
       },
       {
         "year": "2024",
