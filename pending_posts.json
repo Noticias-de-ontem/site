@@ -20291,7 +20291,7 @@
         "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-27_2-bg.jpg",
         "review_action": "",
         "review_note": "Opções construídas à mão a partir do Arquivo.pt após duas regenerações falhadas na noite de 27 nov 2026.",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -20455,7 +20455,13 @@
         ],
         "last_regenerated_at": "2026-11-27T11:50:55.672321",
         "regeneration_count": 2,
-        "published_at": "2026-11-27T21:38:17.098756"
+        "published_at": "2026-11-27T22:12:29.750209",
+        "instagram_id": "18020593328958744",
+        "instagram_url": "https://www.instagram.com/p/DgQuVWMGEWX/",
+        "instagram_story_id": "17926397268223912",
+        "facebook_id": "1030669413467151_122140430900824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122140430900824703",
+        "facebook_story_id": "2022236542068105"
     },
     {
         "id": "pt_2026-11-28_1",
@@ -51998,7 +52004,7 @@
         "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-27_2-bg.jpg",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-27_2",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "",
         "external_suggestions": [],
@@ -52050,6 +52056,12 @@
                 "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-27_2-fundo.jpg"
             }
         ],
-        "published_at": "2026-11-27T21:38:52.468512"
+        "published_at": "2026-11-27T22:13:11.189321",
+        "instagram_id": "18099564401697671",
+        "instagram_url": "https://www.instagram.com/p/DgQucs5joQ6/",
+        "instagram_story_id": "18124888828988514",
+        "facebook_id": "1318455601360516_122114170965541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122114170965541219",
+        "facebook_story_id": "1138690312279007"
     }
 ]
