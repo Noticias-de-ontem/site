@@ -20285,13 +20285,13 @@
     "date": "2026-11-27",
     "slot": 2,
     "lang": "pt",
-    "selected_option": 0,
+    "selected_option": 1,
     "layout_override": "",
     "theme_suggestion": "",
-    "manual_background_url": "",
+    "manual_background_url": "https://noticiasdeontem.pt/images/backgrounds/pt_2026-11-27_2-bg.jpg",
     "review_action": "",
     "review_note": "Opções construídas à mão a partir do Arquivo.pt após duas regenerações falhadas na noite de 27 nov 2026.",
-    "status": "pending",
+    "status": "approved",
     "generated_month": "2026-11",
     "external_suggestions": [
       {
@@ -20394,10 +20394,10 @@
           "instagram",
           "facebook"
         ],
-        "image_url": "",
+        "image_url": "https://noticiasdeontem.pt/images/approved/pt_2026-11-27_2.jpg",
         "image_delete_url": "",
         "local_image_path": "",
-        "background_source_url": "",
+        "background_source_url": "https://commons.wikimedia.org/wiki/File:Tehran_%26Milad_Tower_In_Night.jpg",
         "local_background_path": "",
         "body": "O principal cientista nuclear do Irão, Mohsen Fakhrizadeh, foi assassinado a tiro a 27 de novembro de 2020. Teerão apontou o dedo a Israel e classificou o ataque como um ato de terrorismo de Estado.",
         "highlight_text_en": "Mohsen Fakhrizadeh"
