@@ -12814,5 +12814,31 @@
         "created_at": "2026-11-26T16:48:39+00:00",
         "deleted_at": "",
         "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-27",
+        "option_index": 0,
+        "title": "Médico de província",
+        "year": "2008",
+        "image_url": "https://i.ibb.co/JjDJ64Gy/2026-11-27-01-2008-medico-de-provincia.jpg",
+        "delete_url": "https://ibb.co/r2Dr8Szc/7a3d5c61361e13a227300ca7c65ae2bd",
+        "created_at": "2026-11-27T11:49:47+00:00",
+        "deleted_at": "",
+        "delete_status": ""
+    },
+    {
+        "kind": "review_preview",
+        "lang": "pt",
+        "date": "2026-11-27",
+        "option_index": 1,
+        "title": "Jornalista da NiT testa dieta do livro This is Why Youre Fat",
+        "year": "2016",
+        "image_url": "https://i.ibb.co/B5Jn41gy/2026-11-27-02-2016-jornalista-da-nit-testa-dieta-do-livro-this-is-why-youre-fat.jpg",
+        "delete_url": "https://ibb.co/PvyDTS5c/0db8778b29d9dbb6704fb388452db48b",
+        "created_at": "2026-11-27T11:50:51+00:00",
+        "deleted_at": "",
+        "delete_status": ""
     }
 ]
