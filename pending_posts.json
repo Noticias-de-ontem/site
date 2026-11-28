@@ -20468,13 +20468,13 @@
         "date": "2026-11-28",
         "slot": 1,
         "lang": "pt",
-        "selected_option": 0,
+        "selected_option": 5,
         "layout_override": "",
         "theme_suggestion": "",
-        "manual_background_url": "",
+        "manual_background_url": "https://noticiasdeontem.pt/images/backgrounds/pt_2026-11-28_1-bg.jpg",
         "review_action": "",
-        "review_note": "",
-        "status": "pending",
+        "review_note": "Opção movida da tarde para a manhã por escolha dele; título e texto confirmados contra Público/Lusa de 28-11-2004.",
+        "status": "approved",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -20728,6 +20728,54 @@
                 "caption_instagram": "Sindicato docente critica duramente o processo de negociação com o Governo sobre matérias salariais e de condições de trabalho.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
                 "caption_facebook": "Sindicato docente critica duramente o processo de negociação com o Governo sobre matérias salariais e de condições de trabalho.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2018.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Educacao",
                 "body": ""
+            },
+            {
+                "year": "2004",
+                "category": "POLÍTICA",
+                "editorial_tier": "high",
+                "title": "Ministro do Desporto demite-se do Governo acusando primeiro-ministro de falta de lealdade",
+                "highlight_text": "demite-se do Governo",
+                "overlay_description": "Demissão de Henrique Chaves, que acusou Santana Lopes de falta de lealdade e verdade, menos de uma semana depois de assumir o cargo",
+                "image_theme": "Governo de Portugal São Bento",
+                "layout_preference": "template_2",
+                "breaking_candidate": false,
+                "conditional_trigger": "",
+                "caption": "Henrique Chaves renuncia ao cargo de Ministro do Desporto, Juventude e Reabilitação, acusando o primeiro-ministro de falta de lealdade e verdade.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+                "summary": "Henrique Chaves, ministro do Desporto, Juventude e Reabilitação, demitiu-se menos de uma semana depois de assumir o cargo, acusando o primeiro-ministro Santana Lopes de falta de lealdade e verdade. A demissão abriu mais uma crise no Governo.",
+                "title_en": "Minister of Sports resigns from Government accusing Prime Minister of lack of loyalty",
+                "summary_en": "Henrique Chaves, Minister of Sports, Youth and Rehabilitation, resigned less than a week after taking office, accusing Prime Minister Santana Lopes of a lack of loyalty and truth. The resignation opened another crisis in the Government.",
+                "body_en": "The Minister of Sports, Youth and Rehabilitation, Henrique Chaves, announced on 28 November 2004 his resignation from the Government, less than a week after taking office. In a statement quoted by Lusa, Chaves accused Prime Minister Pedro Santana Lopes of a lack of loyalty and truth, saying he was never given the conditions to carry out the Government coordination duties. The resignation request was delivered at around 3 p.m. at the Prime Minister's official residence, and the resignation opened another crisis in the Government.",
+                "relevance": {
+                    "level": 4,
+                    "scores": {
+                        "impacto_historico": 60.0,
+                        "dimensao_impacto": 50.0,
+                        "consequencias": 55.0,
+                        "relevancia_posterior": 50.0,
+                        "dimensao_duracao": 40.0,
+                        "relevancia_mediatica": 30.0,
+                        "singularidade": 55.0
+                    },
+                    "weighted_score": 52.0,
+                    "justification": "Demissão de ministro acusa primeiro-ministro de falta de lealdade, episódio visto como sinal de instabilidade política. Consequências: mudança de Governo e reformulação de equipe executiva.",
+                    "lang": "pt"
+                },
+                "article_url": "https://arquivo.pt/wayback/20041130155852/https://ultimahora.publico.pt/shownews.asp?id=1209532&idcanal=12",
+                "source_platform": "web",
+                "source_profile": "publico.pt",
+                "networks": [
+                    "facebook",
+                    "instagram"
+                ],
+                "image_url": "https://noticiasdeontem.pt/images/approved/pt_2026-11-28_1.jpg",
+                "image_delete_url": "",
+                "local_image_path": "",
+                "background_source_url": "",
+                "local_background_path": "",
+                "caption_instagram": "Henrique Chaves renuncia ao cargo de Ministro do Desporto, Juventude e Reabilitação, acusando o primeiro-ministro de falta de lealdade e verdade.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+                "caption_facebook": "Henrique Chaves renuncia ao cargo de Ministro do Desporto, Juventude e Reabilitação, acusando o primeiro-ministro de falta de lealdade e verdade.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2004.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Politica",
+                "body": "O ministro do Desporto, Juventude e Reabilitação, Henrique Chaves, anunciou a 28 de novembro de 2004 a sua demissão do Governo, menos de uma semana após ter assumido o cargo. Num comunicado citado pela Lusa, Chaves acusou o primeiro-ministro, Pedro Santana Lopes, de falta de lealdade e verdade, afirmando que nunca lhe foram dadas condições para exercer as funções de coordenação do Governo. O pedido de demissão foi entregue cerca das 15h00, na residência oficial do primeiro-ministro, e a demissão abriu mais uma crise no Governo.",
+                "link": "https://arquivo.pt/wayback/20041130155852/https://ultimahora.publico.pt/shownews.asp?id=1209532&idcanal=12"
             }
         ],
         "last_regenerated_at": "2026-11-09T02:53:23.344255",
