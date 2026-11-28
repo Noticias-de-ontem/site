@@ -20838,7 +20838,7 @@
                 "summary": "Queda de avião em La Unión, perto de Medellín, mata 71 pessoas, entre elas a delegação da Chapecoense e jornalistas brasileiros.",
                 "title_en": "Plane crashes in Colombia killing 71 people",
                 "summary_en": "Plane crash in La Unión, near Medellín, kills 71 people, including the Chapecoense delegation and Brazilian journalists.",
-                "body_en": "A plane carrying the Chapecoense delegation and Brazilian journalists crashed in La Unión, near Medellín, Colombia, and 71 people died, according to the Colombian authorities. The team was travelling to play the first leg of the Copa Sudamericana final against Atlético Nacional.",
+                "body_en": "A plane carrying the Chapecoense delegation and Brazilian journalists crashed in La Unión, near Medellín, Colombia, killing 71 people, according to Colombian authorities. The aircraft went down on its way to Medellín, where the team was scheduled to face Atlético Nacional in the first match of the Copa Sudamericana final.\n\nThe crash occurred in 2016 as Chapecoense prepared for one of the most consequential matches in the Brazilian club’s history. The team had reached South America’s premier club competition and was about to play the first leg of the final against Atlético Nacional, with the return fixture to follow.\n\nAmong those killed were members of the Chapecoense squad, club officials and Brazilian journalists traveling with the delegation. The disaster came just days before the team was due to take the field in Medellín, turning what had been billed as a major continental final into a national tragedy in Brazil.\n\nThe crash prompted widespread mourning and international attention. Chapecoense, a club from Santa Catarina, had traveled to Colombia for the Copa Sudamericana final, and the loss of so many players, staff members and media representatives struck deeply within Brazilian soccer and beyond.\n\nColombian authorities reported the death toll of 71 and began investigating the cause of the crash and the circumstances surrounding the flight. The tragedy unfolded as the two teams were preparing to contest the opening match of the final, a fixture that would never take place as planned.",
                 "relevance": {
                     "level": 3,
                     "scores": {
@@ -20852,7 +20852,8 @@
                     },
                     "weighted_score": 62.0,
                     "justification": "Tragédia aérea com 71 mortos, equipa de futebol e jornalistas; repercussão mundial imediata.",
-                    "lang": "pt"
+                    "lang": "pt",
+                    "justification_en": "The deadly crash killed players and journalists aboard a Brazilian club’s flight, drawing immediate international attention."
                 },
                 "article_url": "https://arquivo.pt/wayback/20200227024858/https://www1.folha.uol.com.br/esporte/2016/11/1836591-aviao-com-equipe-da-chapecoense-sofre-acidente-na-colombia.shtml",
                 "source_platform": "web",
@@ -20869,7 +20870,9 @@
                 "caption_instagram": "O avião que transportava a delegação da Chapecoense despenhou-se na Colômbia e 71 pessoas morreram.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2016.\n\n🔗 Lê a notícia completa no link da bio.\n\n#NoticiasDeOntem #ArquivoPT #Desporto",
                 "caption_facebook": "O avião que transportava a delegação da Chapecoense despenhou-se na Colômbia e 71 pessoas morreram.\n\nEste post apenas tem o objetivo de relembrar acontecimentos passados da história nunca representando acontecimentos atuais. Esta notícia é de 2016.\n\n🔗 Lê a notícia completa no site no sobre do perfil.\n\n#NoticiasDeOntem #ArquivoPT #Desporto",
                 "body": "Um avião com a delegação da Chapecoense e jornalistas brasileiros despenhou-se em La Unión, perto de Medellín, na Colômbia, e 71 pessoas morreram, segundo as autoridades colombianas. A equipa viajava para disputar a primeira partida da final da Copa Sul-Americana, contra o Atlético Nacional.",
-                "link": "https://arquivo.pt/wayback/20200227024858/https://www1.folha.uol.com.br/esporte/2016/11/1836591-aviao-com-equipe-da-chapecoense-sofre-acidente-na-colombia.shtml"
+                "link": "https://arquivo.pt/wayback/20200227024858/https://www1.folha.uol.com.br/esporte/2016/11/1836591-aviao-com-equipe-da-chapecoense-sofre-acidente-na-colombia.shtml",
+                "highlight_text_en": "Plane crashes",
+                "caption_narrative_en": "In 2016, a plane carrying the Chapecoense soccer delegation and Brazilian journalists crashed near Medellín, Colombia, killing 71 people. The team was traveling to play Atlético Nacional in the first leg of the Copa Sudamericana final."
             },
             {
                 "year": "2022",
@@ -52327,5 +52330,69 @@
         "facebook_url": "https://www.facebook.com/122096313699541219/posts/122114440461541219",
         "facebook_story_id": "1634974531440395",
         "published_at": "2026-11-28T17:02:32.701506"
+    },
+    {
+        "id": "en_2026-11-28_2",
+        "date": "2026-11-28",
+        "slot": 2,
+        "lang": "en",
+        "selected_option": 0,
+        "layout_override": "",
+        "theme_suggestion": "",
+        "manual_background_url": "",
+        "review_action": "",
+        "review_note": "Synced from pt_2026-11-28_2",
+        "status": "approved",
+        "generated_month": "2026-11",
+        "source_profile": "folha.uol.com.br",
+        "external_suggestions": [],
+        "options": [
+            {
+                "category": "SPORTS",
+                "title": "Plane crashes in Colombia killing 71 people",
+                "title_en": "Plane crashes in Colombia killing 71 people",
+                "highlight_text": "Plane crashes",
+                "overlay_description": "Plane crash in La Unión, near Medellín, kills 71 people, including the Chapecoense delegation and Brazilian journalists.",
+                "caption": "In 2016, a plane carrying the Chapecoense soccer delegation and Brazilian journalists crashed near Medellín, Colombia, killing 71 people. The team was traveling to play Atlético Nacional in the first leg of the Copa Sudamericana final.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2016.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Sports",
+                "caption_instagram": "In 2016, a plane carrying the Chapecoense soccer delegation and Brazilian journalists crashed near Medellín, Colombia, killing 71 people. The team was traveling to play Atlético Nacional in the first leg of the Copa Sudamericana final.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2016.\n\n🔗 Read the full story at the link in bio.\n\n#YesterdaysNews #ArquivoPT #Sports",
+                "caption_facebook": "In 2016, a plane carrying the Chapecoense soccer delegation and Brazilian journalists crashed near Medellín, Colombia, killing 71 people. The team was traveling to play Atlético Nacional in the first leg of the Copa Sudamericana final.\n\nThis post is intended solely to recall past events in history, never representing current events. This story is from 2016.\n\n🔗 Read the full story on the website in the profile's About section.\n\n#YesterdaysNews #ArquivoPT #Sports",
+                "year": "2016",
+                "summary": "Plane crash in La Unión, near Medellín, kills 71 people, including the Chapecoense delegation and Brazilian journalists.",
+                "summary_en": "Plane crash in La Unión, near Medellín, kills 71 people, including the Chapecoense delegation and Brazilian journalists.",
+                "body": "A plane carrying the Chapecoense delegation and Brazilian journalists crashed in La Unión, near Medellín, Colombia, killing 71 people, according to Colombian authorities. The aircraft went down on its way to Medellín, where the team was scheduled to face Atlético Nacional in the first match of the Copa Sudamericana final.\n\nThe crash occurred in 2016 as Chapecoense prepared for one of the most consequential matches in the Brazilian club’s history. The team had reached South America’s premier club competition and was about to play the first leg of the final against Atlético Nacional, with the return fixture to follow.\n\nAmong those killed were members of the Chapecoense squad, club officials and Brazilian journalists traveling with the delegation. The disaster came just days before the team was due to take the field in Medellín, turning what had been billed as a major continental final into a national tragedy in Brazil.\n\nThe crash prompted widespread mourning and international attention. Chapecoense, a club from Santa Catarina, had traveled to Colombia for the Copa Sudamericana final, and the loss of so many players, staff members and media representatives struck deeply within Brazilian soccer and beyond.\n\nColombian authorities reported the death toll of 71 and began investigating the cause of the crash and the circumstances surrounding the flight. The tragedy unfolded as the two teams were preparing to contest the opening match of the final, a fixture that would never take place as planned.",
+                "body_en": "A plane carrying the Chapecoense delegation and Brazilian journalists crashed in La Unión, near Medellín, Colombia, killing 71 people, according to Colombian authorities. The aircraft went down on its way to Medellín, where the team was scheduled to face Atlético Nacional in the first match of the Copa Sudamericana final.\n\nThe crash occurred in 2016 as Chapecoense prepared for one of the most consequential matches in the Brazilian club’s history. The team had reached South America’s premier club competition and was about to play the first leg of the final against Atlético Nacional, with the return fixture to follow.\n\nAmong those killed were members of the Chapecoense squad, club officials and Brazilian journalists traveling with the delegation. The disaster came just days before the team was due to take the field in Medellín, turning what had been billed as a major continental final into a national tragedy in Brazil.\n\nThe crash prompted widespread mourning and international attention. Chapecoense, a club from Santa Catarina, had traveled to Colombia for the Copa Sudamericana final, and the loss of so many players, staff members and media representatives struck deeply within Brazilian soccer and beyond.\n\nColombian authorities reported the death toll of 71 and began investigating the cause of the crash and the circumstances surrounding the flight. The tragedy unfolded as the two teams were preparing to contest the opening match of the final, a fixture that would never take place as planned.",
+                "image_theme": "Plane crashes in Colombia killing 71 people",
+                "layout_preference": "template_1",
+                "breaking_candidate": false,
+                "networks": [
+                    "facebook",
+                    "instagram"
+                ],
+                "relevance": {
+                    "level": 3,
+                    "scores": {
+                        "impacto_historico": 62,
+                        "dimensao_impacto": 57,
+                        "consequencias": 57,
+                        "relevancia_posterior": 52,
+                        "dimensao_duracao": 47,
+                        "relevancia_mediatica": 42,
+                        "singularidade": 57
+                    },
+                    "weighted_score": 62.0,
+                    "justification": "The deadly crash killed players and journalists aboard a Brazilian club’s flight, drawing immediate international attention.",
+                    "lang": "pt",
+                    "justification_en": "The deadly crash killed players and journalists aboard a Brazilian club’s flight, drawing immediate international attention."
+                },
+                "article_url": "https://arquivo.pt/wayback/20200227024858/https://www1.folha.uol.com.br/esporte/2016/11/1836591-aviao-com-equipe-da-chapecoense-sofre-acidente-na-colombia.shtml",
+                "source_profile": "folha.uol.com.br",
+                "source_platform": "web",
+                "image_url": "https://www.noticiasdeontem.pt/images/approved/en_2026-11-28_2.jpg",
+                "image_delete_url": "",
+                "local_image_path": "site/images/approved/en_2026-11-28_2.jpg",
+                "background_source_url": "",
+                "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-28_2-fundo.jpg"
+            }
+        ]
     }
 ]
