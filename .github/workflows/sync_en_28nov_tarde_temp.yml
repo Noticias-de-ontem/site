@@ -1,0 +1,37 @@
+name: sync EN tarde 28 nov (temp)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14.6"
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Sync approved PT to EN
+        env:
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+        run: |
+          python -u -c "
+          import json
+          from en_sync import sync_approved_pt_to_en
+          posts = json.load(open('pending_posts.json', encoding='utf-8'))
+          n = sync_approved_pt_to_en(posts)
+          print('SYNCED', n)
+          json.dump(posts, open('pending_posts.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=4)
+          "
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add pending_posts.json site/images/approved/ 2>/dev/null || true
+          git commit -m "chore: sync EN tarde 28 nov 2026 [skip ci]" || exit 0
+          for attempt in 1 2 3 4 5; do git pull --rebase && git push && break || sleep 10; done
