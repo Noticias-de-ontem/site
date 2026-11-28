@@ -20474,7 +20474,7 @@
         "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-28_1-bg.jpg",
         "review_action": "",
         "review_note": "Opção movida da tarde para a manhã por escolha dele; título e texto confirmados contra Público/Lusa de 28-11-2004.",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "external_suggestions": [
             {
@@ -20782,7 +20782,14 @@
             }
         ],
         "last_regenerated_at": "2026-11-09T02:53:23.344255",
-        "regeneration_count": 1
+        "regeneration_count": 1,
+        "instagram_id": "18115454063690286",
+        "instagram_url": "https://www.instagram.com/p/DgSvnHklVB1/",
+        "instagram_story_id": "18289249819290654",
+        "facebook_id": "1030669413467151_122140547888824703",
+        "facebook_url": "https://www.facebook.com/122136509126824703/posts/122140547888824703",
+        "facebook_story_id": "1717419166651059",
+        "published_at": "2026-11-28T17:01:46.687427"
     },
     {
         "id": "pt_2026-11-28_2",
@@ -52126,7 +52133,7 @@
         "manual_background_url": "https://www.noticiasdeontem.pt/images/backgrounds/pt_2026-11-28_1-bg.jpg",
         "review_action": "",
         "review_note": "Synced from pt_2026-11-28_1",
-        "status": "approved",
+        "status": "published",
         "generated_month": "2026-11",
         "source_profile": "publico.pt",
         "external_suggestions": [],
@@ -52177,6 +52184,13 @@
                 "background_source_url": "",
                 "local_background_path": "/home/runner/work/site/site/images/backgrounds/en_2026-11-28_1-fundo.jpg"
             }
-        ]
+        ],
+        "instagram_id": "18078427535767339",
+        "instagram_url": "https://www.instagram.com/p/DgSvsaZFeMk/",
+        "instagram_story_id": "18133087513878155",
+        "facebook_id": "1318455601360516_122114440461541219",
+        "facebook_url": "https://www.facebook.com/122096313699541219/posts/122114440461541219",
+        "facebook_story_id": "1634974531440395",
+        "published_at": "2026-11-28T17:02:32.701506"
     }
 ]
