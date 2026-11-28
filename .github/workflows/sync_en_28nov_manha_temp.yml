@@ -3,6 +3,9 @@ name: sync EN manha 28 nov (temp)
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   sync:
     runs-on: ubuntu-latest
